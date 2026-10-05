@@ -14,6 +14,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   folk (either side's factions, vendors, quest givers), critters, totems and
   the database's helpers. A community reconstruction, not Blizzard's data.
 - `data/peoples.json`: creature id lists per people (from the Codex's research).
+- `data/zones-<game>.json` (`python3 scripts/zones.py`): the Atlas's zones from
+  the client's map tables (UiMap, WorldMapOverlay, AreaTable on wago.tools; the
+  Forever build pinned): continent, places (name, overlay offset, area ids).
+  `atlas/<zone>.md`: the surveyor's note for a zone (front matter `zone:`).
 - `data/rare-zones.json` (rare id -> uiMap) and `data/zones.csv` (the client's
   zones): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
   the WoWWiki archive's "Rare mobs by zone", original-game section, else the
@@ -37,7 +41,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   and a chat line; no spoilers before a type or zone is met), `Book.lua` (the
   book in a standard window: Bestiary and Milestones tabs; still portraits from
   the data's display ids, `SetPortraitTextureFromCreatureDisplayID`),
-  `Hints.lua` (tooltip line), `Settings.lua`, `Minimap.lua`.
+  `Atlas.lua` (places explored from the fog lifted, `C_MapExplorationInfo`;
+  deaths, close calls, flights, crossings, binds), `AtlasBook.lua` (the Atlas
+  tab: zones by continent, the zone's map art with its explored overlays and
+  marks), `WorldMapPins.lua` (deaths on the game's world map), `Hints.lua` (tooltip line), `Settings.lua`, `Minimap.lua`.
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).
 

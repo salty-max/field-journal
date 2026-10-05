@@ -173,12 +173,14 @@ sources, as the Bestiary's.
 
 ## Status (5 October 2026)
 
-- Done: repository, data (3,358 creatures, 260 bosses from the encounter
-  table, display ids), 93 families with their sorting rules, the recording
-  engine, the book with portraits, tooltip hints, settings, simulation on both
-  games, and the 93 naturalist's notes (first draft).
-- Next: in-game test (v0.1.0), a review of the notes against sources, then
-  milestones and the Atlas.
+- Released: v0.1.0 to v0.2.1 (the Bestiary, its look, milestones, the notes
+  reviewed against sources), on GitHub and CurseForge (project 1728396).
+- The Atlas, steps 1 to 6 done, not yet released: zone data for both games,
+  the recording (places, deaths, close calls, flights, crossings, binds), the
+  Atlas tab with each zone's map, world map pins, its milestones, and the
+  surveyor's 46 notes.
+- Next: in-game test of the Atlas (v0.3.0); Forever's new zones' notes after
+  the launch; roads walked, perhaps.
 
 ## First steps
 

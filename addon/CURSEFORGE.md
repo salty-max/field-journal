@@ -2,7 +2,7 @@
 
 <!-- Project description for curseforge.com (paste as the project's description). -->
 
-**A bestiary that fills in as you travel.** A naturalist of the Explorers' League has left you a field journal: target or mouse over a creature of the wild and it is written down, with what you have learned of it. Slay it, loot it, take its trophy if it is rare, and the journal keeps the count.
+**A bestiary and an atlas that fill in as you travel.** A naturalist of the Explorers' League has left you a field journal: target or mouse over a creature of the wild and it is written down, with what you have learned of it. Slay it, loot it, take its trophy if it is rare, and the journal keeps the count.
 
 For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever. A companion to [Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex), in the same League's hand.
 
@@ -27,9 +27,13 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 - A Trophies page for the rares and bosses you have brought down.
 - No spoilers: only what you have met is listed, and nothing says how much remains.
 
+## The Atlas
+
+A second book in the same journal: every zone you have entered, by continent, and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), the zone's own map with the parts you have explored and the places you died or came close, and your record of it: first visit, places, deaths, close calls, flights. Your deaths and close calls also show on the game's world map (a setting).
+
 ## Milestones
 
-A second tab: tallies (kinds recorded, families met, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...) and the rares of each zone. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
+A third tab: tallies (kinds recorded, families met, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, and for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
 
 ## Two packages
 
