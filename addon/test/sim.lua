@@ -352,6 +352,13 @@ target(1124)
 check(not rec(1124), "a creature the data knows isn't recorded while it can't be fought either")
 
 -- ── the atlas ────────────────────────────────────────────────────────────────
+-- Only places a character can discover: not the capitals drawn on their zone's
+-- map, not Forever's Dalaran behind its dome.
+local function hasPlace(zone, name)
+  for _, p in ipairs(D.atlas.zones[zone].places) do if p[1] == name then return true end end
+end
+check(not hasPlace(1411, "Orgrimmar") and (FOREVER and not hasPlace(1416, "Dalaran") or not FOREVER and hasPlace(1416, "Dalaran")),
+  FOREVER and "Forever: no Orgrimmar in Durotar's places, no Dalaran in Alterac's" or "no Orgrimmar in Durotar's places; Dalaran is one of Alterac's")
 local dun = D.atlas.zones[1426].places
 local function texture(place) return { offsetX = place[2], offsetY = place[3], textureWidth = 300, textureHeight = 200, fileDataIDs = { 1, 2, 3, 4 }, isShownByMouseOver = false } end
 local function key(place) return place[6] end

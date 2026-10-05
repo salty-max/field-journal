@@ -34,7 +34,7 @@ function ns.atlas()
   if not c then return end
   local a = c.atlas
   if not a then
-    a = { zones = {}, deaths = {}, closeCalls = {}, flights = {}, routes = {}, crossings = {}, binds = {}, version = 2 }
+    a = { zones = {}, deaths = {}, closeCalls = {}, flights = {}, routes = {}, crossings = {}, binds = {}, version = 3 }
     c.atlas = a
   end
   return a
@@ -136,11 +136,12 @@ local function syncZone(uiMap, quiet)
 end
 ns.syncAtlasZone = syncZone
 
--- Version 0.3.0 read the overlays the map draws, some of which it draws for
--- everyone (Moonglade): what it imported is cleared, and the milestones of
--- exploration it gave that no longer hold are withdrawn; then the Atlas is
--- seeded again from the character's own discoveries.
-local VERSION = 2
+-- Versions 0.3.0 and 0.3.1 counted places the game shows as explored for
+-- everyone (Moonglade's overlay, Forever's Dalaran): what they imported is
+-- cleared, and the milestones of exploration they gave that no longer hold
+-- are withdrawn; then the Atlas is seeded again from the character's own
+-- discoveries.
+local VERSION = 3 -- 3: places only of the areas a character can discover
 local function migrate(a)
   for uiMap, z in pairs(a.zones) do
     for key, p in pairs(z.places or {}) do
@@ -223,9 +224,12 @@ end
 -- How many of a zone's places this character has explored, of how many.
 function ns.zoneProgress(uiMap)
   local zone, z = A.zones[uiMap], ns.atlas() and ns.atlas().zones[uiMap]
+  if not zone then return 0, 0 end
   local n = 0
-  for _ in pairs(z and z.places or {}) do n = n + 1 end
-  return n, zone and #zone.places or 0
+  for _, place in ipairs(zone.places) do
+    if z and z.places[placeKey(place)] then n = n + 1 end
+  end
+  return n, #zone.places
 end
 
 -- ── deaths and close calls ───────────────────────────────────────────────────

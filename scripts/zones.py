@@ -44,9 +44,14 @@ def zones(game):
     for r in table(game, "UiMapXMapArt"):
         if r["PhaseID"] == "0":
             art[int(r["UiMapID"])] = int(r["UiMapArtID"])
+    # Only areas a character can discover (AreaTable flag 0x40): the game
+    # reports the others as explored for everyone (the capitals drawn on their
+    # zone's map, Forever's Dalaran behind its dome), and its exploration
+    # achievements leave them out. A place with none of them is no place.
+    explorable = {i for i, a in areas.items() if int(a["Flags_0"]) & 0x40}
     overlays = {}
     for r in table(game, "WorldMapOverlay"):
-        ids = [int(r[f"AreaID_{i}"]) for i in range(4) if int(r[f"AreaID_{i}"])]
+        ids = [int(r[f"AreaID_{i}"]) for i in range(4) if int(r[f"AreaID_{i}"]) in explorable]
         if ids:
             # the overlay's hover rectangle on the map art (its texture's
             # rectangle where it has none): where to ask the game about it
