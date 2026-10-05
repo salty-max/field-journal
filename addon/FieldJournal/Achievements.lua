@@ -167,6 +167,53 @@ for _, z in ipairs(zones) do
     { visible = function() return count(zone, met) > 0 end })
 end
 
+-- The Atlas: every place of a zone (shown once entered), every zone of a
+-- continent, flights, and a few feats of travel.
+local A = D.atlas or { zones = {}, continents = {} }
+local function atlas() return ns.atlas and ns.atlas() end
+local function enteredZone(uiMap)
+  local z = atlas() and atlas().zones[uiMap]
+  return z ~= nil and (z.first ~= nil or z.retro ~= nil or next(z.places or {}) ~= nil)
+end
+local explorable = {}
+for uiMap, zone in pairs(A.zones) do
+  if #zone.places > 0 then table.insert(explorable, { uiMap, zone }) end
+end
+table.sort(explorable, function(a, b) return a[2].name < b[2].name end)
+for _, z in ipairs(explorable) do
+  local uiMap = z[1]
+  local name = ns.zoneName and ns.zoneName(uiMap) or z[2].name
+  add("explore", "explore-" .. uiMap, ("Explore %s"):format(name), ("Explore every place of %s."):format(name),
+    function() return ns.zoneProgress(uiMap) end,
+    { visible = function() return enteredZone(uiMap) end })
+end
+local continents = {}
+for id, name in pairs(A.continents) do table.insert(continents, { id, name }) end
+table.sort(continents, function(a, b) return a[2] < b[2] end)
+for _, c in ipairs(continents) do
+  local zones = {}
+  for uiMap, zone in pairs(A.zones) do
+    if zone.continent == c[1] then table.insert(zones, uiMap) end
+  end
+  add("travel", "continent-" .. c[1], ("Wanderer of %s"):format(c[2]), ("Set foot in every zone and city of %s."):format(c[2]),
+    function() return count(zones, enteredZone), #zones end)
+end
+local function flights() return #(atlas() and atlas().flights or {}) end
+for _, t in ipairs({ { 10, "Wings for Hire" }, { 50, "Frequent Flyer" }, { 100, "Master of the Skies" } }) do
+  add("travel", "flights-" .. t[1], t[2], ("Take %d flights."):format(t[1]), function() return flights(), t[1] end)
+end
+add("travel", "crossing", "Across the Sea", "Cross from one continent to the other.",
+  function() return math.min(#(atlas() and atlas().crossings or {}), 1), 1 end)
+add("travel", "binds-5", "Many Hearths", "Make your home in five different inns.", function()
+  local places, n = {}, 0
+  for _, b in ipairs(atlas() and atlas().binds or {}) do
+    if not places[b.place] then places[b.place], n = true, n + 1 end
+  end
+  return n, 5
+end)
+add("feat", "close-calls-10", "Living Dangerously", "Survive ten close calls (a tenth of your health or less).",
+  function() return #(atlas() and atlas().closeCalls or {}), 10 end)
+
 -- ── earning ──────────────────────────────────────────────────────────────────
 function ns.milestoneVisible(m)
   return not m.visible or m.visible() or ns.earnedMilestone(m.id) ~= nil

@@ -759,7 +759,10 @@ end
 -- A second tab: one row per milestone, under its group's heading: the title
 -- (gold once earned), what it asks, and on the right when it was earned, or
 -- how far along it is (a bar).
-local GROUPS = { { "tally", "Tallies" }, { "type", "Every Family" }, { "feat", "Feats" }, { "zone", "Rares by Zone" } }
+local GROUPS = {
+  { "tally", "Tallies" }, { "type", "Every Family" }, { "feat", "Feats" }, { "zone", "Rares by Zone" },
+  { "travel", "Travels" }, { "explore", "Exploration" },
+}
 local M_ROW, M_WIDTH = 50, 700
 local milestones
 local mRows, mHeaders = {}, {}

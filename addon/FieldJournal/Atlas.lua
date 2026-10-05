@@ -114,6 +114,8 @@ local function seed()
   if not a or a.seeded then return end
   for uiMap in pairs(A.zones) do syncZone(uiMap, true) end
   a.seeded = true
+  -- milestones already deserved by the fog lifted: quietly
+  if ns.checkMilestones then ns.checkMilestones(true) end
 end
 
 -- ── entering zones ───────────────────────────────────────────────────────────
@@ -141,6 +143,7 @@ local function enter()
   end
   z.last = now
   syncZone(zone)
+  if ns.checkMilestones then ns.checkMilestones() end
   if ns.onAtlas then ns.onAtlas() end
 end
 
@@ -204,6 +207,7 @@ ns.on("UNIT_HEALTH", function(unit)
     if UnitIsDeadOrGhost("player") then return end
     lastClose = time()
     mark(ns.atlas().closeCalls, 500)
+    if ns.checkMilestones then ns.checkMilestones() end
     if ns.onAtlas then ns.onAtlas() end
   end
   if C_Timer then C_Timer.After(5, check) else check() end
@@ -224,6 +228,7 @@ if hooksecurefunc and TakeTaxiNode then
     keep(a.flights, { from = from, to = to, at = s.at, level = s.level }, 300)
     local route = from .. " > " .. to
     a.routes[route] = (a.routes[route] or 0) + 1
+    if ns.checkMilestones then ns.checkMilestones() end
     if ns.onAtlas then ns.onAtlas() end
   end)
 end
@@ -233,6 +238,7 @@ ns.on("HEARTHSTONE_BOUND", function()
   if not place then return end
   local s = stamp()
   keep(ns.atlas().binds, { place = place, at = s.at, level = s.level }, 100)
+  if ns.checkMilestones then ns.checkMilestones() end
 end)
 
 -- ── events ───────────────────────────────────────────────────────────────────
@@ -245,5 +251,8 @@ for _, event in ipairs({ "ZONE_CHANGED_NEW_AREA", "ZONE_CHANGED", "ZONE_CHANGED_
 end
 ns.on("MAP_EXPLORATION_UPDATED", function()
   local zone = here()
-  if zone and syncZone(zone) > 0 and ns.onAtlas then ns.onAtlas() end
+  if zone and syncZone(zone) > 0 then
+    if ns.checkMilestones then ns.checkMilestones() end
+    if ns.onAtlas then ns.onAtlas() end
+  end
 end)

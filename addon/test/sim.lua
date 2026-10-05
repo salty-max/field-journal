@@ -383,6 +383,11 @@ fire("PLAYER_DEAD")
 check(atlas.deaths[1] and atlas.deaths[1].by == (FOREVER and "Starving Winter Wolf" or "Winter Wolf"),
   FOREVER and "Forever: a death names the last foe targeted" or "a death names what last hurt you (the combat log)")
 state.health, state.map, state.target = 100, 1426, nil
+check(ns.earnedMilestone("crossing") and said("[Across the Sea]"), "crossing the sea earns a milestone")
+check(ns.milestoneVisible(ns.milestoneById["explore-1426"]) and not ns.milestoneVisible(ns.milestoneById["explore-1446"]),
+  "a zone's exploration milestone shows once the zone is entered (Dun Morogh), not before (Tanaris)")
+local exploredNow, placesAll = ns.milestoneById["explore-1426"].progress()
+check(exploredNow == 2 and placesAll == #dun, "… counting its places explored")
 worldCanvas = worldCanvas or CreateFrame("Frame")
 WorldMapFrame.mapID = 1411
 ns.refreshWorldMapPins()
