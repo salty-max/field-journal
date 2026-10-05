@@ -88,7 +88,7 @@ may use Forever's own texts), plain ASCII, reviewed against the game's texts.
 
 | Question | Decision |
 |---|---|
-| Records | Places explored, deaths and close calls, flights and travel. Roads walked (a breadcrumb trail) later, if at all. |
+| Records | Places explored, deaths and close calls, flights and travel. No roads walked (decided 5 October 2026: not worth it in the long run, here or in WoWLocker). |
 | Display | An Atlas tab in the book, plus optional pins (deaths, close calls) on the game's world map. |
 | Text | A short note per zone by a second hand: a dwarf surveyor of the Explorers' League (roads, fords, passes, where not to camp). Same rules as the Bestiary's notes. |
 | Spoilers | A zone appears once entered, then shows "n of m places explored", as the game's exploration achievements. |
@@ -179,8 +179,9 @@ sources, as the Bestiary's.
   the recording (places, deaths, close calls, flights, crossings, binds), the
   Atlas tab with each zone's map, world map pins, its milestones, and the
   surveyor's 46 notes.
-- Next: in-game test of the Atlas (v0.3.0); Forever's new zones' notes after
-  the launch; roads walked, perhaps.
+- Next: confirm the world map pins (`/journal atlas`); review the surveyor's
+  notes against sources; clean friendly pets out of the creature data;
+  Forever's new zones and creatures after the launch (4 November).
 
 ## First steps
 
