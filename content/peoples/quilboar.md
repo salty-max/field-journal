@@ -3,6 +3,7 @@ id: quilboar
 title: Quilboar
 order: 720
 match:
+  - name: "\b(Razorsnout|Thornmantle|Quilguard|Jargba|Agathelos)\b"
   - people: quilboar
 ---
 The quilboar are boar-men, spined and tusked, who live among the colossal thorns of the Barrens and call themselves the children of Agamaggan, the boar demigod who fell there in the War of the Ancients. The Razormane, the Bristleback, the Razorfen and the Death's Head are their tribes.

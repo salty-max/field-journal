@@ -3,6 +3,8 @@ id: scarlet-crusade
 title: The Scarlet Crusade
 order: 610
 match:
+  - ids: 11613, 11611, 11032, 10811, 10828, 12339   # Radley, Durgen, Malor, Galford, Abbendis, Demetria
+  - name: "\b(Scarlet)\b"
   - people: scarlet
 ---
 The Scarlet Crusade are the survivors of Lordaeron's paladins and priests who swore to burn the undead from the land, and who now burn anyone who looks at them wrongly. They hold Tirisfal's monastery, Hearthglen, Tyr's Hand and half of Stratholme.

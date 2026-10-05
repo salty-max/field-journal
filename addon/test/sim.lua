@@ -332,6 +332,7 @@ local function hover(id)
   return table.concat(tipLines, "|")
 end
 check(hover(1123) == "Field Journal: not yet recorded", "a creature not yet met says so on its tooltip")
+check(hover(1124) == "", "… but not one that can't be fought (a foe still friendly)")
 check(hover(1132):find("1 slain (trophy)", 1, true), "… one met tells how many were slain")
 if FOREVER then
   secrets[creature(1123)] = true

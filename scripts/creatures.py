@@ -32,6 +32,9 @@ PLAYER, ALLIANCE, HORDE = 1, 2, 4
 TYPES = {1: "Beast", 2: "Dragonkin", 3: "Demon", 4: "Elemental", 5: "Giant", 6: "Undead", 7: "Humanoid", 9: "Mechanical", 10: "NotSpecified"}
 RANKS = {0: "normal", 1: "elite", 2: "rareelite", 3: "boss", 4: "rare"}
 NOT_SELECTABLE = 0x02000000
+# Event and friendly NPCs the faction rules let through (elite town guards of
+# events, festival NPCs, leaders who appear in scripted scenes, captives).
+EVENT = re.compile(r"Infantry|Infantryman|Booty Bay Elite|Lookout|Lunar Festival|Christmas|^Tyrande$|^Fandral Staghelm$|^Rhonin$|^Argent |Argent Dawn|Captive|Spectator|Enslaved|Quarry Slave|Cenarion Hold")
 HELPER = re.compile(r"\b(Trigger|Doodad|Dummy|Marker|Target|Bunny|DND|UNUSED|unused|Visual|Spell|Generator|TEST|Test)\b|^\[|\(1\)$")
 
 
@@ -123,7 +126,7 @@ def main():
             rank = 3
         if cid not in spawned and rank != 3:
             continue
-        if int(d["NpcFlags"]) or int(d["UnitFlags"]) & NOT_SELECTABLE or HELPER.search(d["Name"]):
+        if int(d["NpcFlags"]) or int(d["UnitFlags"]) & NOT_SELECTABLE or HELPER.search(d["Name"]) or EVENT.search(d["Name"]):
             continue
         # Either side's folk out. Those friendly to every player too, except
         # elites, rares and bosses: many start friendly and turn on you through

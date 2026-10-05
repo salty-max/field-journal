@@ -3,6 +3,7 @@ id: naga
 title: Naga
 order: 700
 match:
+  - name: "\b(Naga|Slitherblade|Krellian|Sakrasis|Rrurgaz)\b"
   - people: naga
 ---
 The naga were the Highborne of Queen Azshara's court, drowned with her palace when the Well of Eternity tore itself apart, and changed in the dark into serpents from the waist down. In the last war they rose from the sea, and now their warbands hold coasts all over the world.

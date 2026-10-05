@@ -3,6 +3,7 @@ id: blackrock
 title: The Blackrock Clan
 order: 640
 match:
+  - ids: 9596, 10584, 9736, 10318, 9692, 10509   # Blackrock Spire's orcs
   - people: blackrock
   - name: "\b(Scarshield|Firebrand|Blackwing)\b"
 ---

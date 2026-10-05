@@ -3,7 +3,7 @@ id: shadow-council
 title: The Shadow Council
 order: 836
 match:
-  - name: "\b(Jaedenar|Dark Strand|Shadow Council|Shadowsworn|Shadowmage)\b"
+  - name: "\b(Jaedenar|Dark Strand|Shadow Council|Shadowsworn|Shadowmage|Fel\'dan)\b"
 ---
 The Shadow Council are the warlocks who made the old Horde a tool of the Burning Legion, and their cult survives: the Dark Strand of Darkshore and Ashenvale, night elves who have taken up the arts that destroyed their people, and the cultists of Jaedenar in Felwood, who keep demons close and make their pacts with the Legion.
 

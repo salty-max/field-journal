@@ -4,7 +4,7 @@ title: Troggs
 order: 570
 match:
   - people: troggs
-  - name: "\b(Trogg)\b"
+  - name: "\b(Trogg|Stonevault|Caverndeep|Irradiated|Irondeep)\b"
 ---
 Troggs are hunched, stone-skinned, brutish things that came up out of the deep places when dwarven digging woke them: the Rockjaw of Dun Morogh, the Stonesplinter of Loch Modan, the Stonevault in Uldaman, and others in Gnomeregan and the Badlands.
 

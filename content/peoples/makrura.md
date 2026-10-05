@@ -3,7 +3,7 @@ id: makrura
 title: Makrura
 order: 810
 match:
-  - name: "\b(Makrura|Snapclaw|Muckshell|Clacker|Pincer|Makrinni|Deepstrider)\b"
+  - name: "\b(Makrura|Snapclaw|Muckshell|Clacker|Pincer|Makrinni|Deepstrider|Arkkoran|Coast Crawl)\b"
 ---
 The makrura are crab-folk of the coasts and lakes, armoured and clawed, living in colonies along the shores and shallows of Kalimdor, from Durotar to Azshara, and in the swamps of the east. They are cleverer than crabs and a good deal angrier.
 

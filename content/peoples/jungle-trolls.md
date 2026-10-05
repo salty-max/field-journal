@@ -3,7 +3,7 @@ id: jungle-trolls
 title: Jungle Trolls
 order: 780
 match:
-  - name: "\b(Bloodscalp|Skullsplitter|Gurubashi|Hakkari|Atal\'ai|Zul\'?\w*|Smolderthorn|Zanzil|Voodoo)\b"
+  - name: "\b(Bloodscalp|Skullsplitter|Gurubashi|Hakkari|Atal\'ai|Zul\'?\w*|Smolderthorn|Zanzil|Voodoo|High Priest|High Priestess|Jin\'do|Mandokir|Zealot|Zandalar|Hexed|Zalazane|Gan\'zulah|Nezzliok|Mogh|Ana\'thek|Mai\'Zoth|Jammal\'an|Vosh\'gajin|Hai\'watna)\b"
 ---
 The jungle trolls of Stranglethorn are the heirs of the Gurubashi empire, whose ruins fill that jungle: the Bloodscalp and the Skullsplitter fight over them, the Atal'ai serve the blood god in the sunken temple, and in Zul'Gurub the high priests have brought Hakkar back into the world.
 

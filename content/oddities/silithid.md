@@ -4,7 +4,7 @@ title: Silithid and Qiraji
 order: 870
 match:
   - people: silithid
-  - name: "\b(Silithid|Qiraji|Anubisath|Vekniss|Hive\'?\w*|Swarmguard|Buru|Moam|Ossirian|Rajaxx|Kurinnaxx|Ayamiss|Skeram|Viscidus|Colossus|Obsidian|Prophet|Eradicator|Nullifier|Zerran|Yeggeth|Pakkon|Drenn|Xurrem|Qeez|Tuubid|Gorger)\w*\b"
+  - name: "\b(Silithid|Qiraji|Anubisath|Vekniss|Hive\'?\w*|Swarmguard|Buru|Moam|Ossirian|Rajaxx|Kurinnaxx|Ayamiss|Skeram|Viscidus|Colossus|Obsidian|Prophet|Eradicator|Nullifier|Zerran|Yeggeth|Pakkon|Drenn|Xurrem|Qeez|Tuubid|Gorger|Vek\'nilash|Vek\'lor|Lord Kri)\w*\b"
 ---
 The silithid are the insects of the south, and no insect you have ever swatted: wasps the size of hounds, tunnelers that bring down caves, reavers as big as an ogre. They hollow out the deserts of Silithus, Tanaris and Un'Goro, and their hives push north into Feralas and the Barrens.
 

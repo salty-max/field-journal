@@ -3,6 +3,7 @@ id: murlocs
 title: Murlocs
 order: 560
 match:
+  - name: "\b(Murloc|Blindlight|Squiddic|Ribchaser|Murdaloc|Gluggle|Mugglefin)\b"
   - people: murlocs
 ---
 Murlocs are fish-men of every coast, lake and river of both continents, with wide mouths, many teeth and a gurgling war cry you will hear long before you see them. They live in villages of huts and nets, and they defend them in swarms.

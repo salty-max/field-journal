@@ -4,7 +4,7 @@ title: Harpies
 order: 730
 match:
   - people: harpies
-  - name: "\b(Harpy|Bloodfeather|Dustwind|Windfury|Witchwing|Screeching|Bloodfury|Northspring)\b"
+  - name: "\b(Harpy|Bloodfeather|Dustwind|Windfury|Witchwing|Screeching|Bloodfury|Northspring|Snowblind|Shelda)\b"
 ---
 Harpies are winged women with taloned feet and arms that end in feathers, as cruel as anything that flies. They nest on the high places of Kalimdor and the Eastern Kingdoms: the Bloodfeather of Teldrassil, the Dustwind of Durotar, the Windfury of Mulgore, the Witchwing of the Barrens, the Bloodfury of Stonetalon and the screeching flocks of Thousand Needles and Feralas.
 

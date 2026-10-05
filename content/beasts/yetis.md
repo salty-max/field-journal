@@ -4,7 +4,7 @@ title: Yetis
 order: 310
 match:
   - anytype: true
-  - name: "\b(Yeti)\b"
+  - name: "\b(Yeti|Feral Scar|Rage Scar|Ice Thistle)\b"
 ---
 Yetis are great shaggy brutes of the cold mountains and caves: the hills of Alterac, the ice caves of Winterspring and the high valleys of Feralas. They are stronger than any bear and more stubborn than any dwarf.
 

@@ -4,7 +4,7 @@ title: The Cult of the Damned
 order: 620
 match:
   - people: cult
-  - name: "\b(Necrolyte)\b"
+  - name: "\b(Necrolyte|Naxxramas|Necropolis|Faerlina|Understudy|Touched Warrior|Skeletal Smith)\b"
 ---
 The Cult of the Damned are the living servants of the Lich King: necromancers, acolytes and their students, who spread the plague through Lordaeron's grain and now keep the Scholomance, the Scourge's school of necromancy under Caer Darrow.
 

@@ -3,6 +3,7 @@ id: grimtotem
 title: The Grimtotem
 order: 750
 match:
+  - name: "\b(Grimtotem)\b"
   - people: grimtotem
 ---
 The Grimtotem are tauren, a tribe that believes the other races have no right to Kalimdor at all, tauren who disagree included. Their matriarch sits among the elders of Thunder Bluff itself; her warriors raid Stonetalon, hold Darkcloud Pinnacle in Thousand Needles, and keep a compound in Feralas.

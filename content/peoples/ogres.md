@@ -3,6 +3,7 @@ id: ogres
 title: Ogres
 order: 580
 match:
+  - ids: 1205, 1206, 1207, 2944, 12046, 9196, 8977, 9176, 2420, 2421, 2422, 9718   # named ogres
   - people: ogres
   - name: "\b(Ogre|Deadwind|Gordunni|Dunemaul|Boulderfist|Crushridge|Dustbelcher|Mosh'Ogg|Splinter Fist|Gordok|Firegut|Bloodmaul|Stonemaul|Mo'grosh)\b"
 ---
