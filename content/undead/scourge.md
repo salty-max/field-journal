@@ -3,6 +3,7 @@ id: scourge
 title: The Scourge
 order: 490
 match:
+  - ids: 1489, 1916, 1917, 1918, 1919, 1971, 6426, 11561, 14682, 14826   # named or unusual members (sharing the family's model)
   - ids: 7357, 7355   # Mordresh Fire Eye, Tuten'kash: also on the quilboar list
   - people: scourge
   - name: "\b(Skeletal|Skeleton|Zombie|Ghoul|Corpse|Abomination|Bone|Flesh|Lich|Lichling|Plagued|Plaguebat|Necromancer|Deathknight|Death Knight|Unliving|Ravenous|Ravenclaw|Deathsworn|Plague Spreader)\b"

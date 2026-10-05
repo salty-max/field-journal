@@ -3,6 +3,7 @@ id: murlocs
 title: Murlocs
 order: 560
 match:
+  - ids: 519, 520, 950, 1259, 1910, 1911, 6351, 6371, 9916, 14230, 14276, 14446, 14447   # named or unusual members (sharing the family's model)
   - name: "\b(Murloc|Blindlight|Squiddic|Ribchaser|Murdaloc|Gluggle|Mugglefin)\b"
   - people: murlocs
 ---

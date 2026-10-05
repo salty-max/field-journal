@@ -3,6 +3,7 @@ id: restless-spirits
 title: Ghosts and Restless Spirits
 order: 500
 match:
+  - ids: 3094, 3617, 7668, 7669, 7670, 7671, 14690   # named or unusual members (sharing the family's model)
   - anytype: true
   - name: "\b(Spirit|Ghost|Spectre|Specter|Apparition|Phantasm|Phantom|Shade|Wraith|Banshee|Soul|Haunt|Wailing|Restless|Highborne|Poltergeist|Revenant|Spectral|Tormented|Haunted|Haunting|Vision)s?\b"
 ---

@@ -3,6 +3,7 @@ id: quilboar
 title: Quilboar
 order: 720
 match:
+  - ids: 3434, 3435, 3436, 4427, 4842, 5826   # named or unusual members (sharing the family's model)
   - name: "\b(Razorsnout|Thornmantle|Quilguard|Jargba|Agathelos)\b"
   - people: quilboar
 ---

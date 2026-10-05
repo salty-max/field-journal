@@ -34,7 +34,7 @@ RANKS = {0: "normal", 1: "elite", 2: "rareelite", 3: "boss", 4: "rare"}
 NOT_SELECTABLE = 0x02000000
 # Event and friendly NPCs the faction rules let through (elite town guards of
 # events, festival NPCs, leaders who appear in scripted scenes, captives).
-EVENT = re.compile(r"Infantry|Infantryman|Booty Bay Elite|Lookout|Lunar Festival|Christmas|^Tyrande$|^Fandral Staghelm$|^Rhonin$|^Argent |Argent Dawn|Captive|Spectator|Enslaved|Quarry Slave|Cenarion Hold")
+EVENT = re.compile(r"Infantry|Infantryman|Booty Bay Elite|Lookout|Lunar Festival|Christmas|^Tyrande$|^Fandral Staghelm$|^Rhonin$|^Argent |Argent Dawn|Captive|Spectator|Enslaved|Quarry Slave|Cenarion Hold|^Narnie$|^Cornish Rex$|^Bombay$|^Senegal$|^Cockatiel$|^Cockroach$|^Black Kingsnake$|^\"Plucky\" Johnson$")
 HELPER = re.compile(r"\b(Trigger|Doodad|Dummy|Marker|Target|Bunny|DND|UNUSED|unused|Visual|Spell|Generator|TEST|Test)\b|^\[|\(1\)$")
 
 

@@ -3,6 +3,7 @@ id: worms-and-grubs
 title: Worms and Grubs
 order: 280
 match:
+  - ids: 8605, 11320, 11740, 11896, 14237, 14477, 15333   # named or unusual members (sharing the family's model)
   - anytype: true
   - name: "\b(Maggot|Grub|Worm|Borer|Larva)\b"
 ---

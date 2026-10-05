@@ -3,6 +3,7 @@ id: stags-and-steeds
 title: Stags, Steeds and Grazers
 order: 240
 match:
+  - ids: 3816, 5831   # named or unusual members (sharing the family's model)
   - name: "\b(Stag|Deer|Doe|Fawn|Elk|Stallion|Horse|Steed|Courser|Mare|Zhevra|Giraffe|Stagwing|Mustang|Nightmare)\b"
 ---
 The grazers of the open lands are many and mostly peaceful: the zhevras and giraffes of the Barrens, the stags of Ashenvale and Feralas, the coursers of the grasslands, and the wild horses that roam where the farms have been abandoned.

@@ -3,6 +3,7 @@ id: wendigos
 title: Wendigos
 order: 320
 match:
+  - ids: 1137, 1271, 1388   # named or unusual members (sharing the family's model)
   - anytype: true
   - name: "\b(Wendigo)\b"
 ---

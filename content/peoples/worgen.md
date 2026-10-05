@@ -3,6 +3,7 @@ id: worgen
 title: Worgen
 order: 760
 match:
+  - ids: 534, 1972, 2106, 3886, 4279, 6170   # named or unusual members (sharing the family's model)
   - name: "\b(Terrowulf)\b"
   - people: worgen
 ---

@@ -3,6 +3,7 @@ id: turtles
 title: Turtles
 order: 130
 match:
+  - ids: 7977   # named or unusual members (sharing the family's model)
   - beast: 21
   - name: "\b(Turtle|Snapjaw|Tortoise|Shellhide)\b"
 ---

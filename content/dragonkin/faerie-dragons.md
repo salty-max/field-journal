@@ -3,6 +3,7 @@ id: faerie-dragons
 title: Faerie Dragons
 order: 378
 match:
+  - ids: 14398   # named or unusual members (sharing the family's model)
   - name: "\b(Faerie|Fey|Sprite Darter|Blink)\b"
 ---
 Faerie dragons are small, quick, brightly coloured dragonkin of the old forests of Feralas and Ashenvale, more mischief than menace. They blink in and out of sight and they drain magic from anyone careless enough to cast near them.

@@ -3,6 +3,7 @@ id: snakes
 title: Snakes
 order: 250
 match:
+  - ids: 7565   # named or unusual members (sharing the family's model)
   - name: "\b(Snake|Adder|Python|Moccasin|Viper|Cobra|Rattler|Asp)\b"
 ---
 Snakes are everywhere a traveller does not look: under rocks, in long grass, in the warm stones of the south. Most of the small ones in this book are harmless; the ones that are not, are very much not.

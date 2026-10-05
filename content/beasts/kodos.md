@@ -3,6 +3,7 @@ id: kodos
 title: Kodos
 order: 190
 match:
+  - ids: 3058, 3474, 5827   # named or unusual members (sharing the family's model)
   - name: "\b(Kodo)\b"
 ---
 The kodo are the great grey beasts of the plains, slow, enormous and sure-footed, and the tauren have walked beside them for as long as there have been tauren. Herds cross the Barrens and Desolace; the Horde rides and harnesses them; caravans trust them where no horse would go.

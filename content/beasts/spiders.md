@@ -3,6 +3,7 @@ id: spiders
 title: Spiders
 order: 30
 match:
+  - ids: 10376, 10596, 15975, 15976, 15977, 16453   # named or unusual members (sharing the family's model)
   - beast: 3
   - name: "\b(Spider|Tarantula|Widow|Recluse|Webwood|Lurker)\b"
 ---

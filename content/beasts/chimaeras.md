@@ -3,6 +3,7 @@ id: chimaeras
 title: Chimaeras
 order: 260
 match:
+  - ids: 7447, 7449, 8660, 10807, 12803   # named or unusual members (sharing the family's model)
   - name: "\b(Chimaera|Chimaerok)\b"
 ---
 A chimaera is a winged, two-headed beast with a long neck, a longer tail and a temper to match, and it breathes a venom that burns. They nest in the high places of Kalimdor, and in the cold of Winterspring a white-furred kind hunts over the snow.

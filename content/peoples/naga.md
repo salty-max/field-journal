@@ -3,6 +3,7 @@ id: naga
 title: Naga
 order: 700
 match:
+  - ids: 1491, 3943, 6650, 8409, 14277   # named or unusual members (sharing the family's model)
   - name: "\b(Naga|Slitherblade|Krellian|Sakrasis|Rrurgaz)\b"
   - people: naga
 ---

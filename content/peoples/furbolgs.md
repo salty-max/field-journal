@@ -3,6 +3,7 @@ id: furbolgs
 title: Furbolgs
 order: 740
 match:
+  - ids: 1993, 2162, 2186, 3696, 3932, 3987, 6651, 7234, 10199, 10639, 10640, 14428, 14429   # named or unusual members (sharing the family's model)
   - people: furbolgs
   - name: "\b(Furbolg|Thistlefur|Foulweald|Deadwood|Winterfall|Gnarlpine|Blackwood|Timbermaw|Felpaw|Ursa)\b"
 ---

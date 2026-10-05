@@ -3,6 +3,7 @@ id: grimtotem
 title: The Grimtotem
 order: 750
 match:
+  - ids: 2549, 11858, 11914, 14426   # named or unusual members (sharing the family's model)
   - name: "\b(Grimtotem)\b"
   - people: grimtotem
 ---

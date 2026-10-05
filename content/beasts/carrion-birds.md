@@ -3,6 +3,7 @@ id: carrion-birds
 title: Carrion Birds
 order: 70
 match:
+  - ids: 7376   # named or unusual members (sharing the family's model)
   - beast: 7
   - name: "\b(Vulture|Buzzard|Condor|Carrion Bird)\b"
 ---

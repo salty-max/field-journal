@@ -3,6 +3,7 @@ id: kobolds
 title: Kobolds
 order: 540
 match:
+  - ids: 60, 79, 327, 1424, 2609, 2764, 2765, 4063, 11677, 11915, 11917, 11918, 14427   # named or unusual members (sharing the family's model)
   - people: kobolds
   - name: "\b(Kobold|Whitewhisker|Tunnel Rat|Vermin|Gravelsnout|Drywhisker)\b"
 ---

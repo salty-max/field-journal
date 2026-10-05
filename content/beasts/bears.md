@@ -3,6 +3,7 @@ id: bears
 title: Bears
 order: 40
 match:
+  - ids: 14308   # named or unusual members (sharing the family's model)
   - beast: 4
   - name: "\b(Bear|Grizzly|Ursa)\b"
 ---

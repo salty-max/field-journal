@@ -3,6 +3,7 @@ id: gnolls
 title: Gnolls
 order: 550
 match:
+  - ids: 100, 472, 506, 518, 603, 703, 711, 947, 1948, 5786, 5932   # named or unusual members (sharing the family's model)
   - people: gnolls
   - name: "\b(Gnoll|Wildpaw|Riverpaw|Shadowhide|Mudsnout|Rot Hide|Mosshide|Woodpaw|Palemane|Redridge|Gnawbone)\b"
 ---

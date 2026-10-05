@@ -3,6 +3,7 @@ id: blighted-elementals
 title: Blighted Elementals
 order: 465
 match:
+  - ids: 13282   # named or unusual members (sharing the family's model)
   - name: "\b(Plague|Blighted|Toxic|Fallout|Viscous|Fetid|Decaying|Rotting|Horror|Tar|Irradiated|Corrosive)\b"
 ---
 Blighted elementals are the earth and water of Azeroth gone wrong: tar beasts rising from Un'Goro's pits, plague monstrosities of the Eastern Plaguelands, the toxic horrors and fallout of Gnomeregan, and the rotting things of Felwood.

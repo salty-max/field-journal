@@ -3,6 +3,7 @@ id: bats
 title: Bats
 order: 140
 match:
+  - ids: 11897   # named or unusual members (sharing the family's model)
   - beast: 24
   - name: "\b(Bat|Vampire Bat)\b"
 ---

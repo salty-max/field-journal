@@ -3,6 +3,7 @@ id: wolves
 title: Wolves
 order: 10
 match:
+  - ids: 10220, 10268   # named or unusual members (sharing the family's model)
   - beast: 1
   - name: "\b(Wolf|Worg|Wolves)\b"
 ---

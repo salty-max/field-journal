@@ -3,6 +3,7 @@ id: living-plants
 title: Living Plants and Ancients
 order: 460
 match:
+  - ids: 1851, 1953, 1954, 7104, 7149, 7584, 10641, 12223, 12237, 12258, 13141, 13419, 13743, 14231, 14303, 14448   # named or unusual members (sharing the family's model)
   - anytype: true
   - name: "\b(Lasher|Treant|Ancient|Timberling|Creeper|Tangler|Bloodpetal|Thistleshrub|Oakenscowl|Bog Beast|Swampwalker|Mushroom|Shambler|Mossling|Sprite|Warpwood|Shadethicket|Withervine|Irontree|Ironbark|Bark|Moss|Fen|Mire|Lash|Gnarl|Leafbrother|Sycamore|Verdan|Everliving|Vine|Thornling|Bramble|Briar)\w*\b"
 ---

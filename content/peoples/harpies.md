@@ -3,6 +3,7 @@ id: harpies
 title: Harpies
 order: 730
 match:
+  - ids: 5930   # named or unusual members (sharing the family's model)
   - people: harpies
   - name: "\b(Harpy|Bloodfeather|Dustwind|Windfury|Witchwing|Screeching|Bloodfury|Northspring|Snowblind|Shelda)\b"
 ---

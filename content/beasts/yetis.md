@@ -3,6 +3,7 @@ id: yetis
 title: Yetis
 order: 310
 match:
+  - ids: 2452, 5346, 10197   # named or unusual members (sharing the family's model)
   - anytype: true
   - name: "\b(Yeti|Feral Scar|Rage Scar|Ice Thistle)\b"
 ---

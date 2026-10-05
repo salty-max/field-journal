@@ -3,6 +3,7 @@ id: oozes
 title: Oozes and Slimes
 order: 470
 match:
+  - ids: 4020, 4021, 4541, 8212, 8606, 14235, 14345, 14433, 15335   # named or unusual members (sharing the family's model)
   - anytype: true
   - name: "\b(Ooze|Oozeling|Slime|Sludge|Jelly|Gel|Ectoplasm)s?\b"
 ---

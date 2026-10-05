@@ -3,6 +3,7 @@ id: basilisks
 title: Basilisks
 order: 180
 match:
+  - ids: 1552, 5935, 8095, 8120, 8130, 8302, 11786, 14227   # named or unusual members (sharing the family's model)
   - name: "\b(Basilisk|Crystalhide|Gazer|Glasshide|Thundertail|Stonelash)\b"
 ---
 Basilisks are heavy, low-slung lizards with stony hides and stonier stares, found in the hot and barren places: the Badlands, Thousand Needles, the Stranglethorn coast, the Blasted Lands. Their gaze is said to turn flesh to stone, and while I have not seen it happen, I have seen enough of their victims stiff and grey to keep my eyes down.

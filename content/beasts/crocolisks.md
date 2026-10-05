@@ -3,6 +3,7 @@ id: crocolisks
 title: Crocolisks
 order: 60
 match:
+  - ids: 13596   # named or unusual members (sharing the family's model)
   - beast: 6
   - name: "\b(Crocolisk|Crocilisk|Croc)\b"
 ---

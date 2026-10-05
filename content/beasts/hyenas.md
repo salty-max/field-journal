@@ -3,6 +3,7 @@ id: hyenas
 title: Hyenas
 order: 150
 match:
+  - ids: 13036   # named or unusual members (sharing the family's model)
   - beast: 25
   - name: "\b(Hyena)\b"
 ---

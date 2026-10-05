@@ -3,6 +3,7 @@ id: troggs
 title: Troggs
 order: 570
 match:
+  - ids: 1119, 1398, 1399, 6910, 7361, 11517, 11657   # named or unusual members (sharing the family's model)
   - people: troggs
   - name: "\b(Trogg|Stonevault|Caverndeep|Irradiated|Irondeep)\b"
 ---
