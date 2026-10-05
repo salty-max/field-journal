@@ -2,159 +2,234 @@
 -- families met in each, the creatures met in each family (types and families
 -- fold). On the right, a family's page (the League naturalist's note and who
 -- was met in it) or a creature's (its portrait and this character's record of
--- it). A Trophies page lists the rares and bosses slain. /journal opens it.
--- Classic gets the parchment of the game's book reader; Forever, whose windows
--- are dark panels, a standard game window.
+-- it, in sections). A Trophies page lists the rares and bosses slain.
+-- /journal opens it.
+-- Forever: a standard game window with the dark cards of its Professions
+-- window. Classic: a dialog frame with the book reader's parchment.
 local _, ns = ...
 local D = ns.data
 
 local TROPHIES = "trophies"
 
--- Colours: dark ink on parchment (Classic), light text on a dark panel (Forever).
+-- ── look ─────────────────────────────────────────────────────────────────────
+-- Colours: light text on dark cards (Forever), dark ink on parchment (Classic).
 local T = ns.forever and {
-  title = { 1, 0.82, 0 }, ink = { 0.9, 0.88, 0.82 }, faint = { 0.72, 0.70, 0.66 },
-  mark = "|cffff9a40", soft = "|cffb0a890", link = "|cffffd100",
+  gold = { 0.85, 0.70, 0.42 }, text = { 0.93, 0.88, 0.76 }, soft = { 0.62, 0.57, 0.49 },
+  rule = { 0.85, 0.70, 0.42, 0.25 }, mark = "|cffff9a40", rare = "|cffc7ccd6", link = "|cffd9b36b",
 } or {
-  title = { 0.22, 0.14, 0.05 }, ink = { 0.22, 0.14, 0.05 }, faint = { 0.30, 0.20, 0.09 },
-  mark = "|cff8a3a1c", soft = "|cff6b4a26", link = "|cff6b2a0c",
+  gold = { 0.36, 0.20, 0.05 }, text = { 0.22, 0.14, 0.05 }, soft = { 0.42, 0.30, 0.15 },
+  rule = { 0.36, 0.20, 0.05, 0.3 }, mark = "|cff8a3a1c", rare = "|cff4a4f5c", link = "|cff6b2a0c",
 }
+-- The list sits on the dark window on both games.
+local LIST = { gold = { 0.85, 0.70, 0.42 }, text = { 0.93, 0.88, 0.76 }, soft = { 0.62, 0.57, 0.49 } }
 
-local book, list, page
--- What the page shows: a family key (a number, or a "?type/family" string),
--- TROPHIES, or a creature (currentCreature set, current its family).
-local current, currentCreature
-local build
+local LATIN = { enUS = true, enGB = true, frFR = true, deDE = true, esES = true, esMX = true, itIT = true, ptBR = true }
+local BODY_FONT = STANDARD_TEXT_FONT or "Fonts\\FRIZQT__.TTF"
+local TITLE_FONT = (not GetLocale or LATIN[GetLocale()]) and "Fonts\\MORPHEUS.TTF" or BODY_FONT
 
-local function ink(fs, color)
+local function hex(c) return ("|cff%02x%02x%02x"):format(c[1] * 255, c[2] * 255, c[3] * 255) end
+local SOFT, LIST_SOFT = hex(T.soft), hex(LIST.soft)
+
+local function label(parent, font, size, color, dark)
+  local fs = parent:CreateFontString(nil, "OVERLAY")
+  fs:SetFont(font, size, "")
   fs:SetTextColor(unpack(color))
-  if not ns.forever then fs:SetShadowColor(0, 0, 0, 0) end
+  -- A shadow on dark backgrounds, none on parchment.
+  if ns.forever or dark then fs:SetShadowOffset(1, -1) else fs:SetShadowColor(0, 0, 0, 0) end
+  fs:SetJustifyH("LEFT")
+  return fs
+end
+
+local function rule(parent, color)
+  local t = parent:CreateTexture(nil, "ARTWORK")
+  t:SetColorTexture(unpack(color or T.rule))
+  t:SetHeight(1)
+  return t
+end
+
+-- Forever's Professions card (a dark rounded panel), cut in nine so it
+-- stretches to any size without bending its corners.
+local CARD_FILE, CARD_W, CARD_H = 8164414, 1024, 512
+local CARD = { 1, 665, 1, 143 } -- the generic card, in the texture's pixels
+local CORNER = 16
+local function card(parent)
+  local f = CreateFrame("Frame", nil, parent)
+  local xs = { CARD[1], CARD[1] + CORNER, CARD[2] - CORNER, CARD[2] }
+  local ys = { CARD[3], CARD[3] + CORNER, CARD[4] - CORNER, CARD[4] }
+  for i = 1, 3 do
+    for j = 1, 3 do
+      local tex = f:CreateTexture(nil, "BACKGROUND")
+      tex:SetTexture(CARD_FILE)
+      tex:SetTexCoord(xs[j] / CARD_W, xs[j + 1] / CARD_W, ys[i] / CARD_H, ys[i + 1] / CARD_H)
+      if j ~= 2 then tex:SetWidth(CORNER) end
+      if i ~= 2 then tex:SetHeight(CORNER) end
+      -- Corners pinned to the frame's edges; edges and centre between them.
+      if j == 1 then tex:SetPoint("LEFT", f, "LEFT", 0, 0) end
+      if j == 2 then
+        tex:SetPoint("LEFT", f, "LEFT", CORNER, 0)
+        tex:SetPoint("RIGHT", f, "RIGHT", -CORNER, 0)
+      end
+      if j == 3 then tex:SetPoint("RIGHT", f, "RIGHT", 0, 0) end
+      if i == 1 then tex:SetPoint("TOP", f, "TOP", 0, 0) end
+      if i == 2 then
+        tex:SetPoint("TOP", f, "TOP", 0, -CORNER)
+        tex:SetPoint("BOTTOM", f, "BOTTOM", 0, CORNER)
+      end
+      if i == 3 then tex:SetPoint("BOTTOM", f, "BOTTOM", 0, 0) end
+    end
+  end
+  return f
+end
+
+-- A scroll area moved by the mouse wheel, with a thin gold thumb.
+local function scrollArea(parent, width)
+  local s = CreateFrame("ScrollFrame", nil, parent)
+  local c = CreateFrame("Frame", nil, s)
+  c:SetSize(width, 1)
+  s:SetScrollChild(c)
+  s.child = c
+  s.thumb = s:CreateTexture(nil, "OVERLAY")
+  s.thumb:SetColorTexture(0.85, 0.70, 0.42, 0.45)
+  s.thumb:SetWidth(3)
+  function s:UpdateThumb()
+    local range, height = self:GetVerticalScrollRange() or 0, self:GetHeight() or 1
+    if range <= 0 then
+      self.thumb:Hide()
+      return
+    end
+    local size = math.max(24, height * height / (height + range))
+    self.thumb:SetHeight(size)
+    self.thumb:ClearAllPoints()
+    self.thumb:SetPoint("TOPRIGHT", self, "TOPRIGHT", 8, -(height - size) * self:GetVerticalScroll() / range)
+    self.thumb:Show()
+  end
+  function s:ScrollTo(y)
+    self:SetVerticalScroll(math.max(0, math.min(y, self:GetVerticalScrollRange() or 0)))
+    self:UpdateThumb()
+  end
+  s:EnableMouseWheel(true)
+  s:SetScript("OnMouseWheel", function(self, delta) self:ScrollTo(self:GetVerticalScroll() - delta * 40) end)
+  s:SetScript("OnScrollRangeChanged", function(self) self:UpdateThumb() end)
+  return s
+end
+
+-- ── portraits ────────────────────────────────────────────────────────────────
+-- The game's still portrait of a creature (as a unit frame's), round, in a
+-- gold ring. Creatures the data doesn't know get their display id from a
+-- hidden model, once (kept in their record).
+local MASK = "Interface\\CharacterFrame\\TempPortraitAlphaMask"
+local QUESTION = "Interface\\Icons\\INV_Misc_QuestionMark"
+
+local function roundPortrait(parent, size)
+  local p = CreateFrame("Frame", nil, parent)
+  p:SetSize(size, size)
+  p.ring = p:CreateTexture(nil, "BACKGROUND")
+  p.ring:SetTexture(MASK)
+  p.ring:SetVertexColor(0.72, 0.56, 0.24)
+  p.ring:SetPoint("CENTER")
+  p.ring:SetSize(size + 4, size + 4)
+  p.back = p:CreateTexture(nil, "BORDER")
+  p.back:SetTexture(MASK)
+  p.back:SetVertexColor(0.06, 0.05, 0.04)
+  p.back:SetAllPoints()
+  p.tex = p:CreateTexture(nil, "ARTWORK")
+  p.tex:SetAllPoints()
+  local mask = p:CreateMaskTexture()
+  mask:SetTexture(MASK, "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+  mask:SetAllPoints(p.tex)
+  p.tex:AddMaskTexture(mask)
+  return p
+end
+
+local resolving, failed = nil, {}
+local function resolveDisplay(id, rec)
+  if resolving or failed[id] or not (C_Timer and C_Timer.NewTicker) then return end
+  local model = CreateFrame("PlayerModel", nil, UIParent)
+  if not (model.SetCreature and model.GetDisplayInfo) then return end
+  -- Off screen but shown: a hidden model doesn't load.
+  model:SetSize(64, 64)
+  model:SetPoint("TOPRIGHT", UIParent, "BOTTOMLEFT", -200, -200)
+  resolving = id
+  model:SetCreature(id)
+  local tries = 0
+  C_Timer.NewTicker(0.5, function(ticker)
+    tries = tries + 1
+    local display = model:GetDisplayInfo()
+    if type(display) == "number" and not ns.secret(display) and display > 0 then
+      rec.display = display
+    elseif tries < 10 then
+      model:SetCreature(id) -- again: the first time only asks the server
+      return
+    else
+      failed[id] = true
+    end
+    if ticker then ticker:Cancel() end
+    model:ClearModel()
+    model:Hide()
+    resolving = nil
+    ns.refresh()
+  end)
+end
+
+local function setPortrait(p, id, rec)
+  local display = (D.models and D.models[id]) or (rec and rec.display)
+  if not display and rec then resolveDisplay(id, rec) end
+  p.display = display
+  if display and SetPortraitTextureFromCreatureDisplayID then
+    p.tex:SetTexCoord(0, 1, 0, 1)
+    SetPortraitTextureFromCreatureDisplayID(p.tex, display)
+  else
+    p.tex:SetTexture(QUESTION)
+    p.tex:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+  end
+end
+
+local function icon(path)
+  return function(p)
+    p.display = nil
+    p.tex:SetTexture(path)
+    p.tex:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+  end
 end
 
 -- ── what a record says ───────────────────────────────────────────────────────
-local function itemName(itemId)
-  local name = (C_Item and C_Item.GetItemNameByID and C_Item.GetItemNameByID(itemId)) or (GetItemInfo and GetItemInfo(itemId))
-  return name or ("item " .. itemId)
-end
-
-local function lootLine(rec, most)
-  if not rec.loot then return nil end
-  local items = {}
-  for itemId, count in pairs(rec.loot) do table.insert(items, { itemId, count }) end
-  table.sort(items, function(a, b) return a[2] > b[2] end)
-  local parts = {}
-  for i = 1, math.min(#items, most) do
-    table.insert(parts, ("%s%s"):format(itemName(items[i][1]), items[i][2] > 1 and (" x" .. items[i][2]) or ""))
-  end
-  if #items > most then table.insert(parts, ("and %d more"):format(#items - most)) end
-  return table.concat(parts, ", ")
-end
-
 local RANK = { r = "rare", R = "rare elite", b = "boss" }
 
-local function markOf(id, rec)
-  local rank = rec.trophy and rec.trophy.rank or ns.rank(id)
-  if rec.trophy then return (" %s(%s, trophy)|r"):format(T.mark, RANK[rank] or "trophy") end
-  if rank then return (" %s(%s)|r"):format(T.soft, RANK[rank]) end
+local function rankOf(id, rec) return rec.trophy and rec.trophy.rank or ns.rank(id) end
+
+local function rankTag(id, rec)
+  local rank = rankOf(id, rec)
+  if rec.trophy then return ("  %s%s, trophy|r"):format(T.mark, RANK[rank] or "trophy") end
+  if rank then return ("  %s%s|r"):format(T.rare, RANK[rank]) end
   return ""
 end
-
-local function nameOf(id, rec) return (rec.name or ("Creature " .. id)) .. markOf(id, rec) end
 
 local function day(stamp) return date("%d %b %Y", stamp and stamp.at or 0) end
 
 local function levels(rec)
   if not rec.low then return nil end
-  return rec.low == rec.high and ("Level %d"):format(rec.low) or ("Levels %d-%d"):format(rec.low, rec.high)
+  return rec.low == rec.high and ("level %d"):format(rec.low) or ("levels %d-%d"):format(rec.low, rec.high)
 end
 
--- A line under a name: levels, kills.
-local function summary(rec)
-  local parts = {}
-  table.insert(parts, levels(rec))
-  table.insert(parts, (rec.slain or 0) > 0 and ("%d slain"):format(rec.slain) or "none slain")
-  return table.concat(parts, " - ")
-end
-
--- ── portraits ────────────────────────────────────────────────────────────────
--- A 3D model, held still on its first frame (as a unit frame's portrait).
-local function freeze(model)
-  if model.FreezeAnimation then model:FreezeAnimation(0, 0, 0) end
-  if model.SetPaused then model:SetPaused(true) end
-end
-
-local function portraitFrame(parent, size)
-  local p = CreateFrame("Frame", nil, parent)
-  p:SetSize(size, size)
-  p.well = p:CreateTexture(nil, "BACKGROUND")
-  p.well:SetAllPoints()
-  p.well:SetColorTexture(0.06, 0.05, 0.04, 0.9)
-  p.model = CreateFrame("PlayerModel", nil, p)
-  p.model:SetPoint("TOPLEFT", 1, -1)
-  p.model:SetPoint("BOTTOMRIGHT", -1, 1)
-  p.model:SetScript("OnModelLoaded", freeze)
-  p.unknown = p:CreateTexture(nil, "ARTWORK")
-  p.unknown:SetPoint("CENTER")
-  p.unknown:SetSize(size * 0.55, size * 0.55)
-  p.unknown:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark")
-  p.border = CreateFrame("Frame", nil, p, "BackdropTemplate")
-  p.border:SetPoint("TOPLEFT", -2, 2)
-  p.border:SetPoint("BOTTOMRIGHT", 2, -2)
-  p.border:SetBackdrop({ edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 10 })
-  p.border:SetBackdropBorderColor(0.72, 0.56, 0.24)
-  return p
-end
-
--- The creature's face (zoom 1: the face, 0: the whole body): its display id
--- from the data; creatures the data doesn't know try the client's own lookup,
--- else a question mark.
-local function portrait(p, id, zoom)
-  local display = D.models and D.models[id]
-  p.model:ClearModel()
-  if display then
-    p.model:SetDisplayInfo(display)
-  elseif p.model.SetCreature then
-    p.model:SetCreature(id)
+local function joined(parts, sep)
+  local out = {}
+  for i = 1, table.maxn(parts) do
+    local p = parts[i]
+    if p and p ~= "" then table.insert(out, p) end
   end
-  p.model:SetPortraitZoom(zoom)
-  p.model:SetCamDistanceScale(1)
-  freeze(p.model)
-  local shown = display ~= nil or p.model.SetCreature ~= nil
-  p.model:SetShown(shown)
-  p.unknown:SetShown(not shown)
+  return table.concat(out, sep or "  -  ")
 end
 
--- ── the open page ────────────────────────────────────────────────────────────
-local WIDTH = 420
-local PORTRAIT, BIG = 56, 150
--- Rows on a family's or the trophies' page: portrait, name, a line; a click
--- opens the creature's page.
-local entries = {}
-ns.pageEntries = entries -- for the tests
+local function placeShort(p) return p and (p:match(": (.+)$") or p) end
 
-local function entry(i)
-  local e = entries[i]
-  if e then return e end
-  e = CreateFrame("Button", nil, page.child)
-  e:SetSize(WIDTH, PORTRAIT + 8)
-  e.portrait = portraitFrame(e, PORTRAIT)
-  e.portrait:SetPoint("TOPLEFT", 2, -2)
-  e.model, e.unknown = e.portrait.model, e.portrait.unknown
-  e.name = e:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-  e.name:SetPoint("TOPLEFT", e.portrait, "TOPRIGHT", 10, -4)
-  e.name:SetWidth(WIDTH - PORTRAIT - 14)
-  e.name:SetJustifyH("LEFT")
-  ink(e.name, T.title)
-  e.facts = e:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  e.facts:SetPoint("TOPLEFT", e.name, "BOTTOMLEFT", 0, -4)
-  e.facts:SetWidth(WIDTH - PORTRAIT - 14)
-  e.facts:SetJustifyH("LEFT")
-  e.facts:SetSpacing(2)
-  ink(e.facts, T.faint)
-  e:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
-  e:SetScript("OnClick", function(self) ns.openCreature(self.id) end)
-  entries[i] = e
-  return e
-end
+-- ── the page ─────────────────────────────────────────────────────────────────
+local book, list, page
+-- What the page shows: a family key (a number, or a "?type/family" string),
+-- TROPHIES, or a creature (currentCreature set, current its family).
+local current, currentCreature
+local build
+local WIDTH = 440
+local HEADER_H = 88
 
 local function sortedIds(ids)
   local journal = ns.journal()
@@ -165,13 +240,123 @@ local function sortedIds(ids)
   return ids
 end
 
-local function hideAll()
-  for _, e in ipairs(entries) do e:Hide() end
-  page.portrait:Hide()
-  page.record:Hide()
+-- Pools of page parts, shown as needed.
+local entries, headings, pairsPool, lootButtons = {}, {}, {}, {}
+ns.pageEntries, ns.pagePairs, ns.pageLoot = entries, pairsPool, lootButtons -- for the tests
+
+-- A creature on a family's or the trophies' page: portrait, name, a line.
+local ENTRY_H = 52
+local function entry(i)
+  local e = entries[i]
+  if e then return e end
+  e = CreateFrame("Button", nil, page.child)
+  e:SetSize(WIDTH, ENTRY_H)
+  e.portrait = roundPortrait(e, 40)
+  e.portrait:SetPoint("LEFT", 4, 0)
+  e.name = label(e, TITLE_FONT, 15, T.text)
+  e.name:SetPoint("TOPLEFT", e.portrait, "TOPRIGHT", 12, -2)
+  e.name:SetPoint("RIGHT", -4, 0)
+  e.name:SetWordWrap(false)
+  e.facts = label(e, BODY_FONT, 11, T.soft)
+  e.facts:SetPoint("TOPLEFT", e.name, "BOTTOMLEFT", 0, -5)
+  e.facts:SetPoint("RIGHT", -4, 0)
+  e.facts:SetWordWrap(false)
+  e.line = rule(e)
+  e.line:SetPoint("BOTTOMLEFT", 0, 0)
+  e.line:SetPoint("BOTTOMRIGHT", 0, 0)
+  e:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+  e:SetScript("OnClick", function(self) ns.openCreature(self.id) end)
+  entries[i] = e
+  return e
 end
 
--- Lays out entries for ids under y; returns the new y.
+-- A section heading with a rule under it.
+local function heading(i)
+  local h = headings[i]
+  if h then return h end
+  h = CreateFrame("Frame", nil, page.child)
+  h:SetSize(WIDTH, 24)
+  h.text = label(h, TITLE_FONT, 16, T.gold)
+  h.text:SetPoint("BOTTOMLEFT", 0, 5)
+  h.line = rule(h)
+  h.line:SetPoint("BOTTOMLEFT")
+  h.line:SetPoint("BOTTOMRIGHT")
+  headings[i] = h
+  return h
+end
+
+-- A label and its value, side by side.
+local LABEL_W = 92
+local function pair(i)
+  local p = pairsPool[i]
+  if p then return p end
+  p = CreateFrame("Frame", nil, page.child)
+  p:SetSize(WIDTH, 16)
+  p.label = label(p, BODY_FONT, 12, T.soft)
+  p.label:SetPoint("TOPLEFT", 0, 0)
+  p.label:SetWidth(LABEL_W)
+  p.value = label(p, BODY_FONT, 12, T.text)
+  p.value:SetPoint("TOPLEFT", LABEL_W + 8, 0)
+  p.value:SetWidth(WIDTH - LABEL_W - 8)
+  p.value:SetSpacing(4)
+  pairsPool[i] = p
+  return p
+end
+
+-- An item taken from the creature: its icon, quality border, count, tooltip.
+local function lootButton(i)
+  local b = lootButtons[i]
+  if b then return b end
+  b = CreateFrame("Button", nil, page.child)
+  b:SetSize(34, 34)
+  b.icon = b:CreateTexture(nil, "ARTWORK")
+  b.icon:SetAllPoints()
+  b.border = b:CreateTexture(nil, "OVERLAY")
+  b.border:SetTexture("Interface\\Common\\WhiteIconFrame")
+  b.border:SetAllPoints()
+  b.count = b:CreateFontString(nil, "OVERLAY", "NumberFontNormal")
+  b.count:SetPoint("BOTTOMRIGHT", -2, 2)
+  b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
+  b:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    if GameTooltip.SetItemByID then GameTooltip:SetItemByID(self.itemId) end
+    GameTooltip:Show()
+  end)
+  b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  lootButtons[i] = b
+  return b
+end
+
+local function itemQuality(itemId)
+  if C_Item and C_Item.GetItemQualityByID then return C_Item.GetItemQualityByID(itemId) end
+  if GetItemInfo then return select(3, GetItemInfo(itemId)) end
+end
+local function itemIcon(itemId)
+  if C_Item and C_Item.GetItemIconByID then return C_Item.GetItemIconByID(itemId) end
+  if GetItemIcon then return GetItemIcon(itemId) end
+end
+
+local function clear()
+  for _, pool in ipairs({ entries, headings, pairsPool, lootButtons }) do
+    for _, x in ipairs(pool) do x:Hide() end
+  end
+  page.body:Hide()
+  page.empty:Hide()
+  page.familyLink.key = nil
+end
+
+-- The header: portrait (or an icon), title, a line under it.
+local function header(title, sub, setPicture)
+  page.title:SetText(title)
+  page.sub:SetText(sub or "")
+  setPicture(page.portrait)
+end
+
+local function finish(y, keep)
+  page.child:SetHeight(y + 24)
+  if keep then page:UpdateThumb() else page:ScrollTo(0) end
+end
+
 local function layEntries(ids, y, line)
   local journal = ns.journal()
   for i, id in ipairs(ids) do
@@ -179,19 +364,14 @@ local function layEntries(ids, y, line)
     local e = entry(i)
     e:ClearAllPoints()
     e:SetPoint("TOPLEFT", page.child, "TOPLEFT", 0, -y)
-    e.name:SetText(nameOf(id, rec))
+    e.name:SetText((rec.name or ("Creature " .. id)) .. rankTag(id, rec))
     e.facts:SetText(line(id, rec))
-    portrait(e.portrait, id, 0.9)
+    setPortrait(e.portrait, id, rec)
     e.id = id
     e:Show()
-    y = y + math.max(PORTRAIT + 8, e.name:GetStringHeight() + 8 + e.facts:GetStringHeight()) + 10
+    y = y + ENTRY_H + 4
   end
   return y
-end
-
-local function finish(y, keep)
-  page.child:SetHeight(y + 20)
-  if not keep then page:SetVerticalScroll(0) end
 end
 
 -- keep: re-render in place (the records changed), keeping the scroll.
@@ -199,91 +379,148 @@ local function showFamily(key, keep)
   current, currentCreature = key, nil
   local journal = ns.journal()
   if not journal or not key then return end
-  hideAll()
-  local intro, ids
+  clear()
+  local ids, intro
   if key == TROPHIES then
-    page.title:SetText("Trophies")
-    intro = { "The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed." }
     ids = {}
     for id, rec in pairs(journal.creatures) do
       if rec.trophy then table.insert(ids, id) end
     end
     table.sort(ids, function(a, b) return journal.creatures[a].trophy.at < journal.creatures[b].trophy.at end)
-    if #ids == 0 then table.insert(intro, "None yet.") end
+    header("Trophies", ("%d brought down"):format(#ids), icon("Interface\\Icons\\INV_Misc_Head_Dragon_01"))
+    intro = "The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed."
   else
-    page.title:SetText(ns.familyTitle(key))
-    local family = type(key) == "number" and D.families[key]
-    intro = {}
-    if family and #family.note > 0 then
-      for _, p in ipairs(family.note) do table.insert(intro, p) end
-    else
-      table.insert(intro, T.soft .. "The naturalist has not yet written of these. What follows is your own record.|r")
-    end
     ids = sortedIds(ns.metByFamily()[key] or {})
+    local family = type(key) == "number" and D.families[key]
+    local section
+    for _, s in ipairs(D.sections) do
+      if family and s.id == family.section then section = s.title end
+    end
+    header(ns.familyTitle(key), joined({ section, ("%d met"):format(#ids) }), function(p)
+      if ids[1] then setPortrait(p, ids[1], journal.creatures[ids[1]]) else icon(QUESTION)(p) end
+    end)
+    intro = family and #family.note > 0 and table.concat(family.note, "\n\n")
+      or (SOFT .. "The naturalist has not yet written of these. What follows is your own record.|r")
   end
-  page.body:ClearAllPoints()
-  page.body:SetPoint("TOPLEFT", page.title, "BOTTOMLEFT", 0, -12)
-  page.body:SetWidth(WIDTH)
-  page.body:SetText(table.concat(intro, "\n\n"))
-  local y = page.title:GetStringHeight() + 12 + page.body:GetStringHeight() + 20
+  page.body:SetText(intro)
+  page.body:Show()
+  local y = HEADER_H + page.body:GetStringHeight() + 22
+  local h = heading(1)
+  h.text:SetText(key == TROPHIES and "The trophy shelf" or "Met in the wild")
+  h:ClearAllPoints()
+  h:SetPoint("TOPLEFT", page.child, "TOPLEFT", 0, -y)
+  h:Show()
+  y = y + 30
   if key == TROPHIES then
     y = layEntries(ids, y, function(id, rec)
-      return ("%s, slain %s at level %d."):format(ns.familyTitle(ns.familyKey(id, rec)), day(rec.trophy), rec.trophy.level or 0)
+      return joined({ ns.familyTitle(ns.familyKey(id, rec)), ("slain %s at level %d"):format(day(rec.trophy), rec.trophy.level or 0) })
     end)
+    if #ids == 0 then
+      page.empty:SetText(SOFT .. "None yet.|r")
+      page.empty:ClearAllPoints()
+      page.empty:SetPoint("TOPLEFT", page.child, "TOPLEFT", 0, -y)
+      page.empty:Show()
+      y = y + 20
+    end
   else
-    y = layEntries(ids, y, function(_, rec) return summary(rec) end)
+    y = layEntries(ids, y, function(_, rec)
+      local slain = (rec.slain or 0) > 0 and ("%d slain"):format(rec.slain) or "none slain"
+      return joined({ levels(rec), slain, placeShort(rec.places and rec.places[1]) })
+    end)
   end
   finish(y, keep)
 end
 
--- A creature's page: its portrait (the whole creature), its family, and
--- everything this character has recorded of it.
+-- A creature's page: header (portrait, name, family, levels, rank), then the
+-- record in sections: encounters, the hunt, spoils.
 local function showCreature(id, keep)
   local journal = ns.journal()
   local rec = journal and journal.creatures[id]
   if not rec then return end
   current, currentCreature = ns.familyKey(id, rec), id
-  hideAll()
-  page.title:SetText(nameOf(id, rec))
-  page.portrait:ClearAllPoints()
-  page.portrait:SetPoint("TOPLEFT", page.title, "BOTTOMLEFT", 2, -14)
-  portrait(page.portrait, id, 0)
-  page.portrait:Show()
-  -- Beside the portrait: what it is.
-  local what = { ("%s%s|r"):format(T.link, ns.familyTitle(current)) }
-  table.insert(what, levels(rec))
-  page.record:SetText(table.concat(what, "\n"))
-  page.record:Show()
-  -- Under it: the record.
-  local lines = {}
-  local function add(label, text) if text then table.insert(lines, ("%s%s:|r %s"):format(T.soft, label, text)) end end
-  local first, last = rec.first or {}, rec.last
-  add("First met", ("%s, at level %d"):format(day(first), first.level or 0))
-  if last and last.at ~= first.at then add("Last seen", ("%s, at level %d"):format(day(last), last.level or 0)) end
-  add("Where", rec.places and table.concat(rec.places, "; "))
-  if (rec.slain or 0) > 0 then
-    add("Slain", ("%d (first %s, at level %d)"):format(rec.slain, day(rec.firstSlain), rec.firstSlain and rec.firstSlain.level or 0))
-  else
-    add("Slain", "none yet")
+  clear()
+  local rank = rankOf(id, rec)
+  header(rec.name or ("Creature " .. id), joined({ T.link .. ns.familyTitle(current) .. "|r", levels(rec), RANK[rank] }),
+    function(p) setPortrait(p, id, rec) end)
+  page.familyLink.key = current
+  local y = HEADER_H + 2
+  local hi, pi = 0, 0
+  local function section(title)
+    hi = hi + 1
+    local h = heading(hi)
+    h.text:SetText(title)
+    h:ClearAllPoints()
+    h:SetPoint("TOPLEFT", page.child, "TOPLEFT", 0, -y)
+    h:Show()
+    y = y + 34
   end
-  if rec.trophy then add("Trophy", ("%s, at level %d"):format(day(rec.trophy), rec.trophy.level or 0)) end
-  add("Loot", lootLine(rec, 12))
-  page.body:ClearAllPoints()
-  page.body:SetPoint("TOPLEFT", page.portrait, "BOTTOMLEFT", -2, -16)
-  page.body:SetWidth(WIDTH)
-  page.body:SetText(table.concat(lines, "\n"))
-  local y = page.title:GetStringHeight() + 14 + BIG + 16 + page.body:GetStringHeight()
+  local function row(name, value)
+    if not value then return end
+    pi = pi + 1
+    local p = pair(pi)
+    p.label:SetText(name)
+    p.value:SetText(value)
+    p:ClearAllPoints()
+    p:SetPoint("TOPLEFT", page.child, "TOPLEFT", 0, -y)
+    local height = math.max(16, p.value:GetStringHeight())
+    p:SetHeight(height)
+    p:Show()
+    y = y + height + 8
+  end
+
+  local first, last = rec.first or {}, rec.last
+  section("Encounters")
+  row("First met", joined({ day(first), first.level and ("you were level %d"):format(first.level) }, ", "))
+  if last and last.at ~= first.at then
+    row("Last seen", joined({ day(last), last.level and ("you were level %d"):format(last.level) }, ", "))
+  end
+  row("Where", rec.places and table.concat(rec.places, "\n"))
+  y = y + 10
+
+  section("The hunt")
+  if (rec.slain or 0) > 0 then
+    row("Slain", tostring(rec.slain))
+    row("First kill", joined({ day(rec.firstSlain), rec.firstSlain and ("you were level %d"):format(rec.firstSlain.level or 0) }, ", "))
+    if rec.lastSlain and rec.firstSlain and rec.lastSlain.at ~= rec.firstSlain.at then row("Last kill", day(rec.lastSlain)) end
+  else
+    row("Slain", SOFT .. "none yet|r")
+  end
+  if rec.trophy then row("Trophy", ("%s, at level %d"):format(day(rec.trophy), rec.trophy.level or 0)) end
+  y = y + 10
+
+  section("Spoils")
+  local items = {}
+  for itemId, count in pairs(rec.loot or {}) do table.insert(items, { itemId, count }) end
+  table.sort(items, function(a, b) return a[2] > b[2] end)
+  if #items == 0 then
+    row("", SOFT .. "Nothing taken from it yet.|r")
+  else
+    local perRow = math.floor((WIDTH + 6) / 40)
+    for i, item in ipairs(items) do
+      local b = lootButton(i)
+      b.itemId = item[1]
+      b.icon:SetTexture(itemIcon(item[1]) or QUESTION)
+      local quality = itemQuality(item[1])
+      local color = quality and ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality]
+      if color then b.border:SetVertexColor(color.r, color.g, color.b) else b.border:SetVertexColor(0.6, 0.6, 0.6) end
+      b.count:SetText(item[2] > 1 and item[2] or "")
+      b:ClearAllPoints()
+      b:SetPoint("TOPLEFT", page.child, "TOPLEFT", ((i - 1) % perRow) * 40, -(y + math.floor((i - 1) / perRow) * 40))
+      b:Show()
+    end
+    y = y + math.ceil(#items / perRow) * 40
+  end
   finish(y, keep)
 end
 ns.showCreature = showCreature
 
 local function rerender()
-  if not (current and page:IsShown()) then return end
+  if not (current and book:IsShown()) then return end
   if currentCreature then showCreature(currentCreature, true) else showFamily(current, true) end
 end
 
 -- ── the list ─────────────────────────────────────────────────────────────────
-local ROW_WIDTH = 196
+local ROW_WIDTH = 204
 local rows = {}
 ns.listRows = rows -- for the tests
 local function row(i)
@@ -291,20 +528,20 @@ local function row(i)
   if r then return r end
   r = CreateFrame("Button", nil, list.child)
   r:SetSize(ROW_WIDTH, 18)
-  r.text = r:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-  r.text:SetPoint("RIGHT", -34, 0)
-  r.text:SetJustifyH("LEFT")
+  r.text = label(r, BODY_FONT, 12, LIST.text, true)
+  r.text:SetPoint("RIGHT", -28, 0)
   r.text:SetWordWrap(false)
-  r.count = r:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
-  r.count:SetPoint("RIGHT", -6, 0)
+  r.count = label(r, BODY_FONT, 10, LIST.soft, true)
+  r.count:SetPoint("RIGHT", -4, 0)
+  r.count:SetJustifyH("RIGHT")
   r.fold = r:CreateTexture(nil, "ARTWORK")
-  r.fold:SetSize(14, 14)
+  r.fold:SetSize(12, 12)
   r:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
   r.selected = r:CreateTexture(nil, "BACKGROUND")
   r.selected:SetAllPoints()
   r.selected:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
   r.selected:SetBlendMode("ADD")
-  r.selected:SetAlpha(0.6)
+  r.selected:SetAlpha(0.7)
   rows[i] = r
   return r
 end
@@ -349,29 +586,36 @@ function ns.refresh()
     r.text:SetText(text)
     r.fold:ClearAllPoints()
     r.selected:Hide()
+    local height
     if kind == "section" then
       r.fold:SetPoint("LEFT", 2, 0)
       r.fold:Show()
-      r.text:SetPoint("LEFT", 20, 0)
-      r.text:SetFontObject("GameFontNormal")
-      y = y + 22
+      r.text:SetPoint("LEFT", 18, 0)
+      r.text:SetFont(TITLE_FONT, 14, "")
+      r.text:SetTextColor(unpack(LIST.gold))
+      height = 22
     elseif kind == "family" then
       r.fold:SetPoint("LEFT", 10, 0)
       r.fold:Show()
       r.text:SetPoint("LEFT", 26, 0)
-      r.text:SetFontObject("GameFontHighlightSmall")
-      y = y + 18
+      r.text:SetFont(BODY_FONT, 12, "")
+      r.text:SetTextColor(unpack(LIST.text))
+      height = 18
     else
       r.fold:Hide()
       r.text:SetPoint("LEFT", 34, 0)
-      r.text:SetFontObject("GameFontHighlightSmall")
-      y = y + 16
+      r.text:SetFont(BODY_FONT, 11, "")
+      r.text:SetTextColor(unpack(LIST.soft))
+      height = 16
     end
+    r:SetHeight(height)
+    y = y + height
     r:Show()
     return r
   end
   local function select(r)
     r.selected:Show()
+    r.text:SetTextColor(1, 1, 1)
     selectedY = y
   end
 
@@ -381,9 +625,10 @@ function ns.refresh()
     if rec.trophy then trophies = trophies + 1 end
   end
   if trophies > 0 and not searching then
-    local r = add("trophies", "Trophies", trophies)
+    local r = add("family", "Trophies", trophies)
     r.fold:Hide()
     r.text:SetPoint("LEFT", 8, 0)
+    r.text:SetTextColor(unpack(LIST.gold))
     r:SetScript("OnClick", function()
       showFamily(TROPHIES)
       ns.refresh()
@@ -417,7 +662,8 @@ function ns.refresh()
     if current == key and not currentCreature then select(r) end
     if not open then return end
     for _, id in ipairs(shownIds) do
-      local c = add("creature", nameOf(id, journal.creatures[id]))
+      local rec = journal.creatures[id]
+      local c = add("creature", (rec.name or ("Creature " .. id)) .. (rankOf(id, rec) and (" " .. LIST_SOFT .. "*|r") or ""))
       c.id = id
       c:SetScript("OnClick", function()
         showCreature(id)
@@ -472,42 +718,35 @@ function ns.refresh()
   addSection("unrecorded", "Unrecorded", other)
 
   list.child:SetHeight(y + 8)
+  list:UpdateThumb()
   -- Keep the selection in view (a link in chat may open a page far down).
   if selectedY then
     local top, height = list:GetVerticalScroll(), list:GetHeight()
-    if selectedY - 18 < top or selectedY > top + height then
-      list:SetVerticalScroll(math.max(0, selectedY - height / 2))
-    end
+    if selectedY - 18 < top or selectedY > top + height then list:ScrollTo(selectedY - height / 2) end
   end
   rerender()
 end
 
 -- ── the book ─────────────────────────────────────────────────────────────────
--- Forever: a standard game window (portrait, title bar, dark insets).
+-- Forever: a standard game window (portrait, title bar), its inset removed.
+local TITLE = "Explorer's Field Journal: the Bestiary"
 local function gameWindow()
   local ok, frame = pcall(CreateFrame, "Frame", "FieldJournalFrame", UIParent, "ButtonFrameTemplate")
   if not ok or not frame then return nil end
   if ButtonFrameTemplate_HideButtonBar then ButtonFrameTemplate_HideButtonBar(frame) end
   if type(frame.Inset) == "table" then frame.Inset:Hide() end
-  local icon = "Interface\\Icons\\INV_Misc_Book_11"
-  if frame.SetPortraitToAsset then frame:SetPortraitToAsset(icon)
-  elseif type(frame.portrait) == "table" then frame.portrait:SetTexture(icon) end
-  local text = "Explorer's Field Journal: the Bestiary"
-  if frame.SetTitle then frame:SetTitle(text)
-  elseif type(frame.TitleText) == "table" then frame.TitleText:SetText(text) end
+  local art = "Interface\\Icons\\INV_Misc_Book_11"
+  if frame.SetPortraitToAsset then frame:SetPortraitToAsset(art)
+  elseif type(frame.portrait) == "table" then frame.portrait:SetTexture(art) end
+  if frame.SetTitle then frame:SetTitle(TITLE)
+  elseif type(frame.TitleText) == "table" then frame.TitleText:SetText(TITLE) end
   return frame
-end
-
-local function inset(parent)
-  local ok, f = pcall(CreateFrame, "Frame", nil, parent, "InsetFrameTemplate")
-  if ok and f then return f end
-  return CreateFrame("Frame", nil, parent)
 end
 
 function build()
   local modern = ns.forever and gameWindow()
   book = modern or CreateFrame("Frame", "FieldJournalFrame", UIParent, "BackdropTemplate")
-  book:SetSize(760, 540)
+  book:SetSize(780, 560)
   book:SetPoint("CENTER")
   book:SetFrameStrata("HIGH")
   book:SetToplevel(true)
@@ -519,95 +758,87 @@ function build()
   book:SetScript("OnDragStop", book.StopMovingOrSizing)
   tinsert(UISpecialFrames, "FieldJournalFrame") -- Escape closes it
 
-  local top = modern and -28 or -40 -- below the title bar
-  if not modern then
+  book.count = label(book, BODY_FONT, 11, LIST.gold, true)
+  book.search = CreateFrame("EditBox", "FieldJournalSearch", book, "SearchBoxTemplate")
+  book.search:SetHeight(20)
+  book.search:HookScript("OnTextChanged", function() ns.refresh() end)
+
+  local left, sheet
+  if modern then
+    -- The count beside the portrait; the list and the page on dark cards, as
+    -- in the Professions window.
+    book.count:SetPoint("TOPLEFT", 64, -36)
+    left = card(book)
+    left:SetPoint("TOPLEFT", 8, -58)
+    left:SetPoint("BOTTOMLEFT", 8, 8)
+    left:SetWidth(244)
+    sheet = card(book)
+    sheet:SetPoint("TOPLEFT", 256, -26)
+    sheet:SetPoint("BOTTOMRIGHT", -8, 8)
+  else
     book:SetBackdrop({
       bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
       edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border",
       tile = true, tileSize = 32, edgeSize = 32,
       insets = { left = 11, right = 12, top = 12, bottom = 11 },
     })
-    local title = book:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+    local title = label(book, TITLE_FONT, 18, LIST.gold, true)
     title:SetPoint("TOP", 0, -18)
-    title:SetText("Explorer's Field Journal: the Bestiary")
+    title:SetText(TITLE)
     local close = CreateFrame("Button", nil, book, "UIPanelCloseButton")
     close:SetPoint("TOPRIGHT", -6, -6)
-  end
-
-  book.count = book:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-  book.search = CreateFrame("EditBox", "FieldJournalSearch", book, "SearchBoxTemplate")
-  book.search:SetSize(196, 20)
-  book.search:HookScript("OnTextChanged", function() ns.refresh() end)
-
-  local left, sheet
-  if modern then
-    -- Count and search under the title bar, beside the portrait; the list
-    -- and the page in insets.
-    book.count:SetPoint("TOPLEFT", 66, -34)
-    book.search:SetPoint("TOPLEFT", 70, -50)
-    left = inset(book)
-    left:SetPoint("TOPLEFT", 8, -76)
-    left:SetPoint("BOTTOMLEFT", 8, 8)
-    left:SetWidth(232)
-    sheet = inset(book)
-    sheet:SetPoint("TOPLEFT", 246, top)
-    sheet:SetPoint("BOTTOMRIGHT", -8, 8)
-  else
-    book.count:SetPoint("TOPLEFT", 24, -22)
-    book.search:SetPoint("TOPLEFT", 28, -44)
-    left = book
+    book.count:SetPoint("TOPLEFT", 24, -46)
+    left = CreateFrame("Frame", nil, book)
+    left:SetPoint("TOPLEFT", 12, -58)
+    left:SetPoint("BOTTOMLEFT", 12, 14)
+    left:SetWidth(244)
     sheet = CreateFrame("Frame", nil, book)
-    sheet:SetPoint("TOPLEFT", 256, top)
-    sheet:SetPoint("BOTTOMRIGHT", -20, 18)
+    sheet:SetPoint("TOPLEFT", 262, -42)
+    sheet:SetPoint("BOTTOMRIGHT", -16, 16)
     local paper = sheet:CreateTexture(nil, "BACKGROUND")
     paper:SetAllPoints()
     -- The parchment of the game's own book reader, as in Lorekeeper's Codex.
     paper:SetTexture("Interface\\MailFrame\\UI-MailFrameBG")
     paper:SetTexCoord(0, 0.625, 0, 0.70)
   end
+  -- The search box inside the list's column (its left edge holds the glass).
+  book.search:SetPoint("TOPLEFT", left, "TOPLEFT", 18, -10)
+  book.search:SetPoint("TOPRIGHT", left, "TOPRIGHT", -12, -10)
 
-  list = CreateFrame("ScrollFrame", "FieldJournalList", left, "UIPanelScrollFrameTemplate")
-  if modern then
-    list:SetPoint("TOPLEFT", 4, -6)
-    list:SetPoint("BOTTOMRIGHT", -26, 6)
-  else
-    list:SetPoint("TOPLEFT", 20, -70)
-    list:SetPoint("BOTTOMLEFT", 20, 20)
-    list:SetWidth(204)
-  end
-  list.child = CreateFrame("Frame", nil, list)
-  list.child:SetSize(204, 10)
-  list:SetScrollChild(list.child)
+  list = scrollArea(left, ROW_WIDTH)
+  list:SetPoint("TOPLEFT", left, "TOPLEFT", 12, -40)
+  list:SetPoint("BOTTOMRIGHT", left, "BOTTOMRIGHT", -18, 12)
 
-  page = CreateFrame("ScrollFrame", "FieldJournalPage", sheet, "UIPanelScrollFrameTemplate")
-  page:SetPoint("TOPLEFT", 18, -16)
-  page:SetPoint("BOTTOMRIGHT", -32, 14)
-  page.child = CreateFrame("Frame", nil, page)
-  page.child:SetSize(WIDTH, 10)
-  page:SetScrollChild(page.child)
+  page = scrollArea(sheet, WIDTH)
+  _G.FieldJournalPage = page
+  page:SetPoint("TOPLEFT", sheet, "TOPLEFT", 26, -22)
+  page:SetPoint("BOTTOMRIGHT", sheet, "BOTTOMRIGHT", -22, 14)
 
-  page.title = page.child:CreateFontString(nil, "OVERLAY", "QuestTitleFont")
-  page.title:SetPoint("TOPLEFT", 0, 0)
-  page.title:SetWidth(WIDTH)
-  page.title:SetJustifyH("LEFT")
-  ink(page.title, T.title)
+  -- The header: portrait, title, a line (on a creature's page, its family:
+  -- a click opens the family's page).
+  page.portrait = roundPortrait(page.child, 64)
+  page.portrait:SetPoint("TOPLEFT", 2, -2)
+  page.title = label(page.child, TITLE_FONT, 24, T.gold)
+  page.title:SetPoint("TOPLEFT", page.portrait, "TOPRIGHT", 16, -8)
+  page.title:SetWidth(WIDTH - 86)
+  page.title:SetWordWrap(false)
+  page.sub = label(page.child, BODY_FONT, 12, T.soft)
+  page.sub:SetPoint("TOPLEFT", page.title, "BOTTOMLEFT", 0, -7)
+  page.sub:SetWidth(WIDTH - 86)
+  page.familyLink = CreateFrame("Button", nil, page.child)
+  page.familyLink:SetAllPoints(page.sub)
+  page.familyLink:SetScript("OnClick", function(self)
+    if self.key then ns.openFamily(self.key) end
+  end)
+  local headerRule = rule(page.child)
+  headerRule:SetPoint("TOPLEFT", 0, -76)
+  headerRule:SetPoint("TOPRIGHT", 0, -76)
 
-  page.body = page.child:CreateFontString(nil, "OVERLAY", "QuestFont")
+  page.body = label(page.child, BODY_FONT, 13, T.text)
+  page.body:SetPoint("TOPLEFT", 0, -HEADER_H)
   page.body:SetWidth(WIDTH)
-  page.body:SetJustifyH("LEFT")
-  page.body:SetSpacing(3)
-  ink(page.body, T.ink)
-
-  -- A creature's page: the big portrait, and what it is beside it.
-  page.portrait = portraitFrame(page.child, BIG)
-  page.portrait:Hide()
-  page.record = page.child:CreateFontString(nil, "OVERLAY", "QuestFont")
-  page.record:SetPoint("TOPLEFT", page.portrait, "TOPRIGHT", 14, -4)
-  page.record:SetWidth(WIDTH - BIG - 20)
-  page.record:SetJustifyH("LEFT")
-  page.record:SetSpacing(4)
-  ink(page.record, T.ink)
-  page.record:Hide()
+  page.body:SetSpacing(4)
+  page.empty = label(page.child, BODY_FONT, 12, T.soft)
 
   book:SetScript("OnShow", function()
     if not current then
@@ -622,11 +853,10 @@ function build()
     if currentCreature then showCreature(currentCreature)
     elseif current then showFamily(current)
     else
-      hideAll()
-      page.title:SetText("The Bestiary")
-      page.body:ClearAllPoints()
-      page.body:SetPoint("TOPLEFT", page.title, "BOTTOMLEFT", 0, -12)
-      page.body:SetText(T.soft .. "Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here.|r")
+      clear()
+      header("The Bestiary", nil, icon("Interface\\Icons\\INV_Misc_Book_11"))
+      page.body:SetText(SOFT .. "Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here.|r")
+      page.body:Show()
     end
     ns.refresh()
   end)

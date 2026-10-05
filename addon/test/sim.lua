@@ -103,6 +103,7 @@ local function ui()
       if k == "GetID" then return function(self) return rawget(self, "idValue") or 0 end end
       if k == "GetHeight" then return function(self) return rawget(self, "height") or 100 end end
       if k == "SetVerticalScroll" then return function(self, v) self.vscroll = v end end
+      if k == "GetVerticalScrollRange" then return function() return 0 end end
       if k == "GetVerticalScroll" then return function(self) return rawget(self, "vscroll") or 0 end end
       if k == "GetWidth" then return function() return 140 end end
       if k == "GetCenter" then return function() return 0, 0 end end
@@ -317,12 +318,17 @@ ns.openFamily(D.creatures[1131])
 local wolves = {}
 for _, e in ipairs(ns.pageEntries) do if e.shown then wolves[e.id] = e end end
 check(wolves[1131] and wolves[1133] and wolves[1132], "a family's page has an entry per creature met")
-check(wolves[1131].name.text == "Winter Wolf" and wolves[1131].facts.text:find("Level 7", 1, true) and wolves[1131].facts.text:find("slain", 1, true), "… with its name and a line of its record")
-check(wolves[1131].model.shown and not wolves[1131].unknown.shown and D.models[1131], "… and its portrait, from its display id")
+check(wolves[1131].name.text == "Winter Wolf" and wolves[1131].facts.text:find("level 7", 1, true) and wolves[1131].facts.text:find("slain", 1, true), "… with its name and a line of its record")
+check(D.models[1131] and wolves[1131].portrait.display == D.models[1131], "… and its portrait, from its display id")
 check(shown("Winter Wolf") and shown("Starving Winter Wolf"), "an open family lists its creatures under it")
 shown("Winter Wolf").scripts.OnClick(shown("Winter Wolf"))
-check(FieldJournalPage.title.text == "Winter Wolf" and FieldJournalPage.portrait.shown and FieldJournalPage.body.text:find("First met", 1, true)
-  and FieldJournalPage.body.text:find("Loot:", 1, true), "a creature has its own page: portrait, when and where it was met, kills, loot")
+local record = {}
+for _, p in ipairs(ns.pagePairs) do if p.shown then record[p.label.text] = p.value.text end end
+check(FieldJournalPage.title.text == "Winter Wolf" and FieldJournalPage.portrait.display == D.models[1131] and FieldJournalPage.sub.text:find("Wolves", 1, true),
+  "a creature has its own page: portrait, name, family")
+check(record["First met"] and record["Where"]:find("Coldridge Pass", 1, true) and record["Slain"] == tostring(rec(1131).slain),
+  "… and its record: when and where it was met, its kills")
+check(ns.pageLoot[1] and ns.pageLoot[1].shown and ns.pageLoot[2].shown and not ns.pageLoot[3], "… and what it gave, an icon per item")
 check(not ns.pageEntries[1].shown, "… without the family's entries")
 shown("Wolves").scripts.OnClick(shown("Wolves"))
 check(FieldJournalPage.title.text == "Wolves" and shown("Winter Wolf"), "the family's row opens its page again")
