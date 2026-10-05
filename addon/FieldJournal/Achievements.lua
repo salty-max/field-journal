@@ -1,6 +1,7 @@
 -- Milestones: the journal's achievements. Tallies (kinds met, families met,
 -- creatures slain, trophies), one per creature type (every family of it met),
--- feats, and one per zone (every rare of it slain). Each character earns its
+-- feats, one per zone (every rare of it slain), the Atlas's, and the fish and
+-- herbs' (tallies, feats, every fish of a continent, every herb of a zone). Each character earns its
 -- own, and each remembers when and at what level:
 --   FieldJournalChar.achievements[id] = { at, level, retro }
 -- Earned as in the game's own achievements: its achievement toast, its
@@ -213,6 +214,107 @@ add("travel", "binds-5", "Many Hearths", "Make your home in five different inns.
 end)
 add("feat", "close-calls-10", "Living Dangerously", "Survive ten close calls (a tenth of your health or less).",
   function() return #(atlas() and atlas().closeCalls or {}), 10 end)
+
+-- Fish and herbs (Flora.lua): tallies, feats, every fish of a continent's
+-- waters and every herb of a zone (shown once one of them is found there).
+local F = D.flora or { fish = {}, herbs = {}, fishOrder = {}, herbOrder = {} }
+local function fishRecs() local c = char(); return c and c.fish or {} end
+local function plantRecs() local c = char(); return c and c.plants or {} end
+local function caught(id) return fishRecs()[id] ~= nil end
+local function have(id) return plantRecs()[id] ~= nil end
+-- The fish of the waters, the reagents and the rare catches: the kinds one
+-- can set out to catch (not the quest fish, nor the weighed catches).
+local KINDS = { food = true, reagent = true, special = true }
+local species = {}
+for _, id in ipairs(F.fishOrder) do if KINDS[F.fish[id].kind] then table.insert(species, id) end end
+local function sum(recs, field)
+  local n = 0
+  for _, rec in pairs(recs) do n = n + (rec[field] or 0) end
+  return n
+end
+local function kindsOf(recs)
+  local n = 0
+  for _ in pairs(recs) do n = n + 1 end
+  return n
+end
+
+add("fishing", "fish-first", "First Catch", "Catch a fish.", function() return math.min(sum(fishRecs(), "n"), 1), 1 end)
+for _, t in ipairs({ { 10, "A Full Creel" }, { 20, "Twenty Kinds of Fish" } }) do
+  add("fishing", "fish-kinds-" .. t[1], t[2], ("Catch %d kinds of fish."):format(t[1]),
+    function() return count(species, caught), t[1] end)
+end
+add("fishing", "fish-all", "Every Fish in the Sea", "Catch every kind of fish of the waters, every reagent and the Deviate Fish.",
+  function() return count(species, caught), #species end)
+for _, t in ipairs({ { 100, "A Hundred Fish" }, { 1000, "Master Angler" } }) do
+  add("fishing", "fish-n-" .. t[1], t[2], ("Catch %d fish."):format(t[1]), function() return sum(fishRecs(), "n"), t[1] end)
+end
+local PAGLE = { 16967, 16970, 16968, 16969 } -- Feralas Ahi, Misty Reed Mahi Mahi, Sar'theris Striker, Savage Coast Blue Sailfin
+add("fishing", "pagle", "Nat Pagle's Catch", "Catch the four rare fish Nat Pagle asks for.", function() return count(PAGLE, caught), #PAGLE end)
+local SCHOOLED = { 6358, 6359, 13422, 6522 } -- Oily Blackmouth, Firefin Snapper, Stonescale Eel, Deviate Fish
+add("fishing", "schools", "Schools of Every Kind", "Catch from a school of Oily Blackmouth, Firefin Snapper, Stonescale Eel and Deviate Fish.",
+  function() return count(SCHOOLED, function(id) local r = fishRecs()[id]; return r ~= nil and (r.school or 0) > 0 end), #SCHOOLED end)
+add("fishing", "seasons", "Every Season", "Catch a Winter Squid and a Raw Summer Bass.", function() return count({ 13755, 13756 }, caught), 2 end)
+add("fishing", "night-day", "By Moon and by Sun", "Catch a Raw Nightfin Snapper by night and a Raw Sunscale Salmon by day.", function()
+  local night, day = fishRecs()[13759], fishRecs()[13760]
+  return ((night and (night.night or 0) > 0) and 1 or 0) + ((day and (day.day or 0) > 0) and 1 or 0), 2
+end)
+add("fishing", "heavy", "The One That Didn't Get Away", "Land a weighed catch of a hundred pounds or more.", function()
+  local most = 0
+  for _, rec in pairs(fishRecs()) do most = math.max(most, rec.heaviest or 0) end
+  return math.min(most, 100), 100
+end)
+-- Every fish of a continent's waters (those of its zones).
+for _, c in ipairs(continents) do
+  local ids, there = {}, {}
+  for uiMap, zone in pairs(A.zones) do if zone.continent == c[1] then there[uiMap] = true end end
+  for _, id in ipairs(species) do
+    for _, z in ipairs(F.fish[id].zones) do
+      if there[z] then table.insert(ids, id) break end
+    end
+  end
+  if #ids > 0 then
+    add("fishing", "fish-continent-" .. c[1], ("The Waters of %s"):format(c[2]), ("Catch every kind of fish of the waters of %s."):format(c[2]),
+      function() return count(ids, caught), #ids end,
+      { visible = function() return count(ids, caught) > 0 end })
+  end
+end
+
+add("herbs", "herb-first", "First Herb", "Gather or find an herb.", function() return math.min(kindsOf(plantRecs()), 1), 1 end)
+for _, t in ipairs({ { 10, "An Herbalist's Satchel" }, { 20, "Twenty Herbs" } }) do
+  add("herbs", "herb-kinds-" .. t[1], t[2], ("Find %d kinds of herb."):format(t[1]),
+    function() return count(F.herbOrder, have), t[1] end)
+end
+add("herbs", "herb-all", "The Complete Herbarium", "Find every herb of the world.", function() return count(F.herbOrder, have), #F.herbOrder end)
+for _, t in ipairs({ { 100, "Green Thumb" }, { 1000, "Master Herbalist" } }) do
+  add("herbs", "herb-gathered-" .. t[1], t[2], ("Gather %d herbs."):format(t[1]), function() return sum(plantRecs(), "gathered"), t[1] end)
+end
+add("herbs", "black-lotus", "The Black Lotus", "Find a Black Lotus.", function() return have(13468) and 1 or 0, 1 end)
+add("herbs", "lotuses", "Every Lotus", "Find a Purple Lotus and a Black Lotus.", function() return count({ 8831, 13468 }, have), 2 end)
+add("herbs", "plague-flora", "What Grows in the Plague", "Find Plaguebloom and Arthas' Tears.", function() return count({ 13466, 8836 }, have), 2 end)
+-- Every herb of a zone (shown once one is found there).
+local herbZones = {}
+for _, id in ipairs(F.herbOrder) do
+  for _, z in ipairs(F.herbs[id].zones) do
+    herbZones[z] = herbZones[z] or {}
+    table.insert(herbZones[z], id)
+  end
+end
+local hz = {}
+for uiMap, ids in pairs(herbZones) do if A.zones[uiMap] then table.insert(hz, { uiMap, ids }) end end
+table.sort(hz, function(a, b) return (A.zones[a[1]].name) < (A.zones[b[1]].name) end)
+for _, z in ipairs(hz) do
+  local uiMap, ids = z[1], z[2]
+  local name = ns.zoneName and ns.zoneName(uiMap) or A.zones[uiMap].name
+  add("herbs", "herbs-" .. uiMap, ("The Herbs of %s"):format(name), ("Find every herb that grows in %s."):format(name),
+    function() return count(ids, have), #ids end,
+    { visible = function()
+      for _, id in ipairs(ids) do
+        local rec = plantRecs()[id]
+        if rec and rec.zones and rec.zones[uiMap] then return true end
+      end
+      return false
+    end })
+end
 
 -- ── earning ──────────────────────────────────────────────────────────────────
 function ns.milestoneVisible(m)

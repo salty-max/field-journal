@@ -767,7 +767,7 @@ end
 -- how far along it is (a bar).
 local GROUPS = {
   { "tally", "Tallies" }, { "type", "Every Family" }, { "feat", "Feats" }, { "zone", "Rares by Zone" },
-  { "travel", "Travels" }, { "explore", "Exploration" },
+  { "fishing", "Fishing" }, { "herbs", "Herbs" }, { "travel", "Travels" }, { "explore", "Exploration" },
 }
 local M_ROW, M_WIDTH = 50, 700
 local milestones

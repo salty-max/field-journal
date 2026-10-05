@@ -392,6 +392,34 @@ local function drawMap(uiMap, marks)
   return true
 end
 
+-- What grows and bites in a zone (the data's herbs and fish): the ones this
+-- character has found named, the rest only counted (no spoilers).
+local F = D.flora or { fish = {}, herbs = {}, fishOrder = {}, herbOrder = {} }
+local function nameOf(id, fallback)
+  local name = GetItemInfo and GetItemInfo(id)
+  return (name and not ns.secret(name)) and name or fallback
+end
+local function inThisZone(order, data, recs, uiMap, wanted)
+  local found, rest = {}, 0
+  for _, id in ipairs(order) do
+    local d = data[id]
+    if not wanted or wanted(d) then
+      for _, z in ipairs(d.zones) do
+        if z == uiMap then
+          if recs[id] then table.insert(found, d.kind == "record" and d.name or nameOf(id, d.name)) else rest = rest + 1 end
+          break
+        end
+      end
+    end
+  end
+  table.sort(found)
+  if #found == 0 and rest == 0 then return nil end
+  if #found == 0 then return ui.SOFT .. ("none found yet; %d to find|r"):format(rest) end
+  local text = table.concat(found, ", ")
+  if rest > 0 then text = text .. ui.SOFT .. ("; %d more to find|r"):format(rest) end
+  return text
+end
+
 local SKULL = "Interface\\TargetingFrame\\UI-TargetingFrame-Skull"
 local CLOSE = "Interface\\GossipFrame\\AvailableQuestIcon"
 
@@ -462,6 +490,14 @@ function showZone(uiMap, placeKey)
     end
     row2("Explored", #names > 0 and table.concat(names, ", ") or (ui.SOFT .. "nothing yet|r"))
     if done < total then row2("", ui.SOFT .. ("%d still to find."):format(total - done) .. "|r") end
+  end
+  local c = ns.journal()
+  local herbs = inThisZone(F.herbOrder, F.herbs, c.plants or {}, uiMap)
+  local fish = inThisZone(F.fishOrder, F.fish, c.fish or {}, uiMap, function(d) return d.kind ~= "quest" end)
+  if herbs or fish then
+    section("What grows and bites here")
+    row2("Herbs", herbs)
+    row2("Fish", fish)
   end
   if #deaths > 0 or #calls > 0 then
     section("Close to the end")

@@ -241,6 +241,15 @@ reagents, rare catches, quest fish, weighed catches; herbs by Herbalism rank),
 counts, search; a kind's page (icon, where it bites or grows from the data,
 the character's record), an overview per tab; the chat links open the pages.
 
+Step 4 done (6 October): the Atlas's zone pages list what grows and bites
+there (found ones named, the rest counted); milestones in two new groups,
+Fishing (first catch, 10 and 20 kinds, every kind, 100 and 1000 fish, Nat
+Pagle's four, a school of each kind, both seasons, Nightfin by night and
+Sunscale by day, a catch of 100 pounds, every fish of each continent's waters)
+and Herbs (first herb, 10 and 20 kinds, every herb, 100 and 1000 gathered,
+Black Lotus, both lotuses, the Plaguelands' two, every herb of each of 37
+zones, shown once one is found there).
+
 1. The data (scripts/flora.py): herbs and fish, their zones; counts checked.
 2. The recording, with the simulation (fishing loot, schools, gathered vs
    looted herbs, bought ones).

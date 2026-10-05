@@ -691,6 +691,28 @@ FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
 check(not fpage.shown and FieldJournalPage.shown, "the Bestiary tab hides them again")
 FieldJournalFrame:Hide()
 
+-- Their milestones, and the Atlas's zone pages.
+check(ns.earnedMilestone("fish-first") and said("[First Catch]") and ns.earnedMilestone("herb-first") and said("[First Herb]"),
+  "the first catch and the first herb are milestones, announced")
+local function progress(id) return ns.milestoneById[id].progress() end
+local done, need = progress("seasons")
+check(not ns.earnedMilestone("seasons") and done == 1 and need == 2, "Every Season: the Winter Squid, the Summer Bass still to catch")
+local elwynn = ns.milestoneById["herbs-1429"]
+local d2, n2 = elwynn.progress()
+check(elwynn and ns.milestoneVisible(elwynn) and d2 >= 1 and n2 > d2 and not ns.milestoneVisible(ns.milestoneById["herbs-1411"]),
+  "every herb of a zone: shown once one is found there (Elwynn), hidden elsewhere (Durotar)")
+local anyContinent = false
+for _, m in ipairs(ns.milestones) do
+  if m.id:find("^fish%-continent%-") and ns.milestoneVisible(m) then anyContinent = true end
+end
+check(anyContinent, "every fish of a continent's waters: shown once one is caught there")
+linkHandlers.fieldjournal("fieldjournal:z1429")
+local function atlasPair(label) for _, p in ipairs(ns.atlasPairs) do if p.shown and p.label.text == label then return p.value.text end end end
+check(atlasPair("Herbs") and atlasPair("Herbs"):find("Peacebloom", 1, true) and atlasPair("Herbs"):find("more to find", 1, true)
+  and atlasPair("Fish") and atlasPair("Fish"):find("Raw Brilliant Smallfish", 1, true) and not atlasPair("Fish"):find("Raw Longjaw", 1, true),
+  "a zone's Atlas page: the herbs and fish found there named, the rest counted")
+FieldJournalFrame:Hide()
+
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(next(FieldJournalChar.creatures) == nil and FieldJournalChar.guid == PLAYER, "/journal reset yes starts the journal over")
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")
