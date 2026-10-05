@@ -263,8 +263,9 @@ AlertFrame = { AddQueuedAlertFrameSubSystem = function(_, template, setUp)
   end }
 end }
 C_XMLUtil = { GetTemplateInfo = function() return {} end }
--- Classic Era: no achievement window to load (it is for TBC and later).
-C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true; if FOREVER then AchievementShield_OnLoad = function() end end end }
+-- The shield's OnLoad: Classic Era has no achievement window, and Forever's
+-- doesn't define it (its own game type): the addon stands one in at load.
+C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true end }
 
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
@@ -353,9 +354,10 @@ check(rec(1132).trophy and rec(1132).trophy.rank == "r", "slaying a rare (Timber
 check(said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r") and played[3175], "… announced in chat, with the trophy sound")
 check(ns.earnedMilestone("trophies-1") and said("you have earned the milestone |cffffd100|Hfieldjournal:mtrophies-1|h[First Trophy]|h|r!") and played[12891],
   "… and the first trophy earns a milestone, with the game's achievement fanfare and a chat line")
-check(toasted[1] and toasted[1].Name.text == "First Trophy" and loadedAddOns.Blizzard_AchievementUI and AchievementShield_OnLoad,
-  FOREVER and "… and the game's achievement toast, the achievement window loaded first (its shield needs it)"
-    or "… and the game's achievement toast, even on Classic Era, which has no achievement window")
+local shield = {}
+AchievementShield_OnLoad(shield)
+check(toasted[1] and toasted[1].Name.text == "First Trophy" and shield.Saturate and shield.Desaturate,
+  "… and the game's achievement toast, its shield's OnLoad stood in at load (the game's own toasts need it too)")
 
 -- Creatures the data doesn't know (Forever's new ones).
 target(99003)
