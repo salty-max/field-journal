@@ -239,12 +239,16 @@ local toasts
 
 -- The toast's points shield runs AchievementShield_OnLoad, from the game's
 -- achievement window, which the game loads only when first opened: load it
--- (as the game does before its own toasts), or show no toast without it.
+-- (as the game does before its own toasts).
 local function shieldReady()
   if AchievementShield_OnLoad then return true end
   local load = (C_AddOns and C_AddOns.LoadAddOn) or LoadAddOn
   if load then pcall(load, "Blizzard_AchievementUI") end
-  return AchievementShield_OnLoad ~= nil
+  -- Classic Era has the toast but no achievement window (it is for TBC and
+  -- later): the shield's OnLoad is missing, and the toast hides the shield
+  -- anyway. An empty one stands in; nothing else on Era uses the name.
+  if not AchievementShield_OnLoad then AchievementShield_OnLoad = function() end end
+  return true
 end
 
 local function toast(id)
