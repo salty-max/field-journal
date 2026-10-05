@@ -235,6 +235,12 @@ school or open water, a weighed kind's heaviest) and herbs (gathered from a
 node, looted, or found in the bags: bought, rewarded, mailed; those already
 carried at login noted quietly), each new one announced in chat with a link.
 
+Step 3 done (6 October): the Fish and Plants tabs (FloraBook.lua), between the
+Atlas and the Milestones: the kinds found in groups (fish: of the waters,
+reagents, rare catches, quest fish, weighed catches; herbs by Herbalism rank),
+counts, search; a kind's page (icon, where it bites or grows from the data,
+the character's record), an overview per tab; the chat links open the pages.
+
 1. The data (scripts/flora.py): herbs and fish, their zones; counts checked.
 2. The recording, with the simulation (fishing loot, schools, gathered vs
    looted herbs, bought ones).

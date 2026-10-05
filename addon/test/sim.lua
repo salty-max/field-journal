@@ -270,7 +270,7 @@ C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true end }
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
-for _, f in ipairs({ "Core.lua", "Atlas.lua", "Flora.lua", "Achievements.lua", "Book.lua", "AtlasBook.lua", "WorldMapPins.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
+for _, f in ipairs({ "Core.lua", "Atlas.lua", "Flora.lua", "Achievements.lua", "Book.lua", "AtlasBook.lua", "FloraBook.lua", "WorldMapPins.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
   assert(loadfile(DIR .. f))("FieldJournal", ns)
 end
 local D = ns.data
@@ -568,7 +568,7 @@ FieldJournalFrame:Hide()
 linkHandlers.fieldjournal("fieldjournal:mtrophies-1")
 local row
 for _, r in ipairs(ns.milestoneRows) do if r.shown and r.id == "trophies-1" then row = r end end
-check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == 3 and row and row.status.text:find("^Level"), "a milestone's link opens the Milestones tab, the milestone earned with its level")
+check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.milestones and row and row.status.text:find("^Level"), "a milestone's link opens the Milestones tab, the milestone earned with its level")
 check(FieldJournalFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
 FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
 check(FieldJournalFrame.selectedTab == 1 and FieldJournalPage and shown("Wolves"), "the Bestiary tab brings the book back")
@@ -650,6 +650,46 @@ check(plant(3820) and plant(3820).first.how == "other" and plant(3820).n == 0 an
 state.bags = { [1] = 785 }
 fire("PLAYER_ENTERING_WORLD")
 check(plant(785) and not said("[Mageroyal]|h|r"), "… but the herbs already carried at login are noted quietly")
+
+-- The Fish and Plants tabs.
+local frows, fpage = ns.floraRows, nil
+local function rowNamed(text) for _, r in ipairs(frows) do if r.shown and r.text.text == text then return r end end end
+local function pairNamed(label) for _, p in ipairs(ns.floraPairs) do if p.shown and p.label.text == label then return p.value.text end end end
+FieldJournalFrame:Show()
+FieldJournalFrameTab3.scripts.OnClick(FieldJournalFrameTab3)
+fpage = FieldJournalFloraPage
+check(FieldJournalFrame.selectedTab == ns.TAB.fish and fpage.shown and fpage.title.text == "The catch so far"
+  and FieldJournalFrame.count.text == "3 kinds of fish, 4 caught", "the Fish tab: the catch so far")
+check(rowNamed("Fish of the waters") and rowNamed("Reagents") and rowNamed("Weighed catches") and rowNamed("Raw Brilliant Smallfish")
+  and rowNamed("Raw Brilliant Smallfish").count.text == "1" and not rowNamed("Raw Slitherskin Mackerel") and not rowNamed("Quest fish"),
+  "… lists what was caught, in groups, with counts: nothing else (no spoilers)")
+rowNamed("Catfish").scripts.OnClick(rowNamed("Catfish"))
+check(fpage.title.text == "Catfish" and pairNamed("Heaviest") == "32 pounds" and pairNamed("Caught") == "2"
+  and pairNamed("Zones"):find("Westfall", 1, true) and pairNamed("Where") == "Elwynn Forest (2)", "a kind's page: where it bites (the data), the catches, the heaviest")
+rowNamed("Oily Blackmouth").scripts.OnClick(rowNamed("Oily Blackmouth"))
+check(pairNamed("From schools") == "1" and pairNamed("By day, by night") == "0, 1" and fpage.sub.text == "A reagent", "… from a school, by night")
+FieldJournalFrameTab4.scripts.OnClick(FieldJournalFrameTab4)
+check(FieldJournalFrame.selectedTab == ns.TAB.plants and fpage.title.text == "The herbs so far" and rowNamed("Apprentice")
+  and rowNamed("Peacebloom").count.text == "3" and rowNamed("Stranglekelp") and rowNamed("Journeyman"), "the Plants tab: by Herbalism rank")
+rowNamed("Peacebloom").scripts.OnClick(rowNamed("Peacebloom"))
+check(fpage.sub.text == "Herbalism 1" and pairNamed("Gathered") == "2" and pairNamed("Looted") == "1"
+  and pairNamed("First"):find("(gathered)", 1, true), "an herb's page: its rank, how it was taken")
+FieldJournalFrame:Hide()
+linkHandlers.fieldjournal("fieldjournal:f6291")
+check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.fish and fpage.title.text == "Raw Brilliant Smallfish",
+  "a catch's link opens its page")
+linkHandlers.fieldjournal("fieldjournal:h3820")
+check(FieldJournalFrame.selectedTab == ns.TAB.plants and fpage.title.text == "Stranglekelp", "an herb's link opens its page")
+FieldJournalFrameTab3.scripts.OnClick(FieldJournalFrameTab3)
+fishing = true
+lootWindow({ { link(13755, "Winter Squid"), { BOBBER, 1 } } })
+fishing = false
+check(rowNamed("Winter Squid"), "a new catch shows in the open tab at once")
+rowNamed("Winter Squid").scripts.OnClick(rowNamed("Winter Squid"))
+check(fpage.sub.text == "A fish of the waters  -  only in winter", "… a seasonal one says its season")
+FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
+check(not fpage.shown and FieldJournalPage.shown, "the Bestiary tab hides them again")
+FieldJournalFrame:Hide()
 
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(next(FieldJournalChar.creatures) == nil and FieldJournalChar.guid == PLAYER, "/journal reset yes starts the journal over")

@@ -250,6 +250,9 @@ local function placeShort(p) return p and (p:match(": (.+)$") or p) end
 
 -- ── the page ─────────────────────────────────────────────────────────────────
 local book, list, page
+-- The book's tabs, in order.
+local TAB = { bestiary = 1, atlas = 2, fish = 3, plants = 4, milestones = 5 }
+ns.TAB = TAB
 -- What the page shows: a family key (a number, or a "?type/family" string),
 -- TROPHIES, or a creature (currentCreature set, current its family).
 local current, currentCreature
@@ -594,8 +597,11 @@ end
 
 function ns.refresh()
   if not book then return end
-  if book.selectedTab == 3 then return ns.refreshMilestones() end
-  if book.selectedTab == 2 then return ns.refreshAtlas and ns.refreshAtlas() end
+  if book.selectedTab == TAB.milestones then return ns.refreshMilestones() end
+  if book.selectedTab == TAB.atlas then return ns.refreshAtlas and ns.refreshAtlas() end
+  if book.selectedTab == TAB.fish or book.selectedTab == TAB.plants then
+    return ns.refreshFlora and ns.refreshFlora(book.selectedTab == TAB.fish and "fish" or "plants")
+  end
   local creatures, families, slain = ns.counts()
   book.count:SetText(("%d creatures, %d families, %d slain"):format(creatures, families, slain))
   for _, r in ipairs(rows) do r:Hide() end
@@ -894,17 +900,24 @@ function ns.showTab(n)
   if not book then return end
   book.selectedTab = n
   if PanelTemplates_SetTab then PanelTemplates_SetTab(book, n) end
-  if n == 2 and not rawget(book, "atlasList") and ns.buildAtlasBook then ns.buildAtlasBook(book) end
-  book.left:SetShown(n ~= 3)
-  book.sheet:SetShown(n ~= 3)
-  book.search:SetShown(n ~= 3) -- the Bestiary's and the Atlas's
-  list:SetShown(n == 1)
-  page:SetShown(n == 1)
+  if n == TAB.atlas and not rawget(book, "atlasList") and ns.buildAtlasBook then ns.buildAtlasBook(book) end
+  local flora = n == TAB.fish or n == TAB.plants
+  if flora and not rawget(book, "floraList") and ns.buildFloraBook then ns.buildFloraBook(book) end
+  local milestones = n == TAB.milestones
+  book.left:SetShown(not milestones)
+  book.sheet:SetShown(not milestones)
+  book.search:SetShown(not milestones) -- every tab's but the milestones'
+  list:SetShown(n == TAB.bestiary)
+  page:SetShown(n == TAB.bestiary)
   if rawget(book, "atlasList") then
-    book.atlasList:SetShown(n == 2)
-    book.atlasPage:SetShown(n == 2)
+    book.atlasList:SetShown(n == TAB.atlas)
+    book.atlasPage:SetShown(n == TAB.atlas)
   end
-  book.milestonePanel:SetShown(n == 3)
+  if rawget(book, "floraList") then
+    book.floraList:SetShown(flora)
+    book.floraPage:SetShown(flora)
+  end
+  book.milestonePanel:SetShown(milestones)
   ns.refresh()
 end
 
@@ -915,7 +928,7 @@ end
 
 local function buildTabs()
   local template = hasTemplate("CharacterFrameTabButtonTemplate") and "CharacterFrameTabButtonTemplate" or "PanelTabButtonTemplate"
-  for n, text in ipairs({ "Bestiary", "Atlas", "Milestones" }) do
+  for n, text in ipairs({ "Bestiary", "Atlas", "Fish", "Plants", "Milestones" }) do
     local tab = CreateFrame("Button", "FieldJournalFrameTab" .. n, book, template)
     tab:SetID(n)
     tab:SetText(text)
@@ -931,7 +944,7 @@ local function buildTabs()
     end)
     if PanelTemplates_TabResize then PanelTemplates_TabResize(tab, 0) end
   end
-  if PanelTemplates_SetNumTabs then PanelTemplates_SetNumTabs(book, 3) end
+  if PanelTemplates_SetNumTabs then PanelTemplates_SetNumTabs(book, 5) end
   book.selectedTab = 1
   if PanelTemplates_SetTab then PanelTemplates_SetTab(book, 1) end
 end
@@ -941,7 +954,7 @@ function ns.openMilestones(id)
   if not book then build() end
   selectedMilestone = id
   if not book:IsShown() then book:Show() end
-  ns.showTab(3)
+  ns.showTab(TAB.milestones)
 end
 
 -- ── the book ─────────────────────────────────────────────────────────────────
@@ -1078,7 +1091,7 @@ end
 
 local function open(show)
   if not book then build() end
-  if book.selectedTab ~= 1 then ns.showTab(1) end
+  if book.selectedTab ~= TAB.bestiary then ns.showTab(TAB.bestiary) end
   if book:IsShown() then
     show()
     ns.refresh()

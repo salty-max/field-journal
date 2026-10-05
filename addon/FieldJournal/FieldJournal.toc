@@ -16,6 +16,7 @@ Flora.lua
 Achievements.lua
 Book.lua
 AtlasBook.lua
+FloraBook.lua
 WorldMapPins.lua
 Minimap.lua
 Settings.lua

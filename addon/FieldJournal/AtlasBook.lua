@@ -583,5 +583,5 @@ function ns.openZone(uiMap)
   current, selectedPlace = uiMap, nil
   opened()[uiMap] = true
   if not b:IsShown() then b:Show() end
-  ns.showTab(2)
+  ns.showTab(ns.TAB.atlas)
 end
