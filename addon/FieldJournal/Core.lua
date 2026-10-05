@@ -1,0 +1,328 @@
+-- Explorer's Field Journal: the Bestiary's records. Every creature this
+-- character meets (targets or mouses over), slays and loots, kept per
+-- creature id with when, where and at what level; sorted into the families of
+-- Data.lua (built from content/ by scripts/build.ts, one file per game).
+local _, ns = ...
+local D = ns.data
+local PREFIX = "|cffc9a227Field Journal:|r "
+
+-- Which game: World of Warcraft: Forever (the original world on the modern
+-- client, interface 16xxx) or Classic (Era, TBC Anniversary).
+local interface = select(4, GetBuildInfo()) or 0
+ns.forever = interface >= 16000 and interface < 20000
+ns.client = ns.forever and "forever" or "classic"
+
+-- Forever hides some values from addons ("secret values", in combat or
+-- instances): never compare or print one.
+local function secret(v) return issecretvalue ~= nil and issecretvalue(v) end
+ns.secret = secret
+
+-- This character's journal (SavedVariablesPerCharacter FieldJournalChar):
+--   guid                       whose journal it is
+--   creatures[id] = {
+--     name, type, family,      as the game named them (type and family for
+--                              creatures Data.lua doesn't know)
+--     first, last = { at, level, zone, sub, map, x, y }   met
+--     low, high                levels seen
+--     places = { "Zone: Sub" } where met (a few)
+--     slain, firstSlain, lastSlain = { at, level }
+--     loot = { [itemId] = count }
+--     trophy = { at, level, rank }   a rare's or a boss's first kill
+--   }
+--   families[familyKey] = { at, level }   when each family was first met
+local char
+
+local MAX_PLACES = 6
+
+-- ── what a creature is ───────────────────────────────────────────────────────
+local function creatureId(guid)
+  if not guid or secret(guid) then return end
+  local kind, _, _, _, _, id = strsplit("-", guid)
+  if kind == "Creature" then return tonumber(id) end
+end
+ns.creatureId = creatureId
+
+-- The family a creature belongs to: Data.lua's index, else a key made from
+-- what the game says (for creatures the data doesn't know: Forever's new ones).
+function ns.familyKey(id, rec)
+  local index = D.creatures[id]
+  if index then return index end
+  rec = rec or (char and char.creatures[id])
+  if rec and rec.type then return "?" .. rec.type .. (rec.family and ("/" .. rec.family) or "") end
+end
+
+function ns.familyTitle(key)
+  if type(key) == "number" then return D.families[key].title end
+  local t, f = key:match("^%?([^/]+)/?(.*)$")
+  if f and f ~= "" then return ("Unrecorded %s: %s"):format(t or "?", f) end
+  return ("Unrecorded: %s"):format(t or "?")
+end
+
+local function here()
+  local map = C_Map and C_Map.GetBestMapForUnit and C_Map.GetBestMapForUnit("player")
+  local pos = map and C_Map.GetPlayerMapPosition and C_Map.GetPlayerMapPosition(map, "player")
+  return {
+    at = time(),
+    level = UnitLevel("player"),
+    zone = GetRealZoneText(),
+    sub = GetSubZoneText(),
+    map = map,
+    x = pos and math.floor(pos.x * 1000 + 0.5) / 10,
+    y = pos and math.floor(pos.y * 1000 + 0.5) / 10,
+  }
+end
+
+local function addPlace(rec, h)
+  local place = (h.zone or "?") .. ((h.sub and h.sub ~= "" and h.sub ~= h.zone) and (": " .. h.sub) or "")
+  rec.places = rec.places or {}
+  for _, p in ipairs(rec.places) do
+    if p == place then return end
+  end
+  if #rec.places < MAX_PLACES then table.insert(rec.places, place) end
+end
+
+-- ── meeting ──────────────────────────────────────────────────────────────────
+local function attackable(unit)
+  local ok = UnitCanAttack("player", unit)
+  return ok and not secret(ok)
+end
+
+-- Meets the unit's creature (target or mouseover): records it, and announces a
+-- new family. Returns the creature's id.
+local function meet(unit)
+  if not char or not UnitExists(unit) or UnitIsPlayer(unit) then return end
+  local id = creatureId(UnitGUID(unit))
+  if not id then return end
+  local known = D.creatures[id] ~= nil
+  local rec = char.creatures[id]
+  if not rec then
+    -- A creature the data doesn't know is only kept if it can be fought: the
+    -- data already left out friendly folk, critters and helpers.
+    if not known and not attackable(unit) then return end
+    local name = UnitName(unit)
+    rec = { name = not secret(name) and name or nil }
+    if not known then
+      local ctype, cfam = UnitCreatureType(unit), UnitCreatureFamily(unit)
+      rec.type = not secret(ctype) and ctype or "?"
+      rec.family = not secret(cfam) and cfam or nil
+    end
+    local h = here()
+    rec.first = h
+    char.creatures[id] = rec
+    local key = ns.familyKey(id, rec)
+    if key and not char.families[key] then
+      char.families[key] = { at = h.at, level = h.level }
+      if ns.option("chat") then
+        print(PREFIX .. ("a new family in the Bestiary: |cffffd100|Hfieldjournal:%s|h[%s]|h|r (%s)"):format(
+          tostring(key), ns.familyTitle(key), rec.name or "?"))
+      end
+      ns.playSound()
+    end
+  end
+  local h = here()
+  rec.last = h
+  local level = UnitLevel(unit)
+  if level and not secret(level) and level > 0 then
+    rec.low = math.min(rec.low or level, level)
+    rec.high = math.max(rec.high or level, level)
+  end
+  addPlace(rec, h)
+  if ns.onRecord then ns.onRecord(id) end
+  return id
+end
+ns.meet = meet
+
+-- ── slaying ──────────────────────────────────────────────────────────────────
+-- A creature's rank mark: r rare, R rare elite, b boss (Data.lua), else what
+-- the game says now.
+function ns.rank(id, unit)
+  local r = D.ranks[id]
+  if r then return r end
+  if unit then
+    local c = UnitClassification(unit)
+    if not secret(c) then
+      if c == "rare" then return "r" elseif c == "rareelite" then return "R" elseif c == "worldboss" then return "b" end
+    end
+  end
+end
+
+-- Corpses already counted (Forever: a kill is counted once, at its first loot
+-- or dead target), so a corpse looted twice counts once.
+local counted, countedOrder = {}, {}
+local function once(guid)
+  if counted[guid] then return false end
+  counted[guid] = true
+  table.insert(countedOrder, guid)
+  if #countedOrder > 400 then counted[table.remove(countedOrder, 1)] = nil end
+  return true
+end
+
+local function slay(id, unit)
+  local rec = char.creatures[id]
+  if not rec then
+    if unit and meet(unit) then rec = char.creatures[id] end
+    if not rec then
+      -- Slain without having been targeted: known creatures still count.
+      if not D.creatures[id] then return end
+      rec = { first = here() }
+      char.creatures[id] = rec
+      local key = ns.familyKey(id, rec)
+      if key and not char.families[key] then char.families[key] = { at = rec.first.at, level = rec.first.level } end
+    end
+  end
+  local stamp = { at = time(), level = UnitLevel("player") }
+  rec.slain = (rec.slain or 0) + 1
+  rec.firstSlain = rec.firstSlain or stamp
+  rec.lastSlain = stamp
+  local rank = ns.rank(id, unit)
+  if rank and not rec.trophy then
+    rec.trophy = { at = stamp.at, level = stamp.level, rank = rank }
+    if ns.option("chat") then
+      print(PREFIX .. ("a trophy: |cffffd100|Hfieldjournal:c%d|h[%s]|h|r"):format(id, rec.name or "?"))
+    end
+    ns.playSound()
+  end
+  if ns.onRecord then ns.onRecord(id) end
+end
+ns.slay = slay
+
+-- ── events ───────────────────────────────────────────────────────────────────
+local frame = CreateFrame("Frame")
+local handlers = {}
+
+function ns.belongsTo(saved, guid)
+  return type(saved) == "table" and saved.guid == guid
+end
+
+local function newJournal(guid)
+  FieldJournalChar = { guid = guid, creatures = {}, families = {} }
+  char = FieldJournalChar
+end
+
+function handlers.PLAYER_LOGIN()
+  local guid = UnitGUID("player")
+  if ns.belongsTo(FieldJournalChar, guid) then
+    char = FieldJournalChar
+    char.creatures = char.creatures or {}
+    char.families = char.families or {}
+  else
+    newJournal(guid)
+  end
+  if ns.createMinimapButton then ns.createMinimapButton() end
+  if ns.createSettingsPanel then ns.createSettingsPanel() end
+end
+
+handlers.PLAYER_TARGET_CHANGED = function()
+  meet("target")
+  -- Forever (no combat log): a dead creature targeted after a fight we took
+  -- part in counts as slain, once per corpse.
+  if ns.meetKills and UnitExists("target") and UnitIsDead("target") then
+    local guid = UnitGUID("target")
+    local id = creatureId(guid)
+    local tapped = UnitIsTapDenied and UnitIsTapDenied("target")
+    if id and not secret(tapped) and not tapped and once(guid) then slay(id, "target") end
+  end
+end
+handlers.UPDATE_MOUSEOVER_UNIT = function() meet("mouseover") end
+
+-- Kills: yours or your pet's (the combat log's PARTY_KILL names the killer).
+function handlers.COMBAT_LOG_EVENT_UNFILTERED()
+  local _, sub, _, source, _, _, _, dest = CombatLogGetCurrentEventInfo()
+  if sub ~= "PARTY_KILL" or (source ~= UnitGUID("player") and source ~= UnitGUID("pet")) then return end
+  local id = creatureId(dest)
+  if id then slay(id) end
+end
+
+-- Loot: what each corpse gave (the loot window names its source). On Forever,
+-- the first loot of a corpse also counts its kill.
+local looted, lootedOrder = {}, {}
+function handlers.LOOT_OPENED()
+  if not (GetNumLootItems and GetLootSourceInfo) then return end
+  for slot = 1, GetNumLootItems() do
+    local link = GetLootSlotLink(slot)
+    local itemId = link and tonumber(link:match("item:(%d+)"))
+    local sources = { GetLootSourceInfo(slot) }
+    for i = 1, #sources, 2 do
+      local guid, count = sources[i], sources[i + 1] or 1
+      local id = creatureId(guid)
+      if id then
+        if ns.meetKills and once(guid) then slay(id) end
+        local rec = char.creatures[id]
+        local key = guid .. ":" .. slot
+        if rec and itemId and not looted[key] then
+          looted[key] = true
+          table.insert(lootedOrder, key)
+          if #lootedOrder > 400 then looted[table.remove(lootedOrder, 1)] = nil end
+          rec.loot = rec.loot or {}
+          rec.loot[itemId] = (rec.loot[itemId] or 0) + count
+        end
+      end
+    end
+  end
+end
+
+frame:SetScript("OnEvent", function(_, event, ...)
+  if event ~= "PLAYER_LOGIN" and not char then return end
+  handlers[event](...)
+end)
+-- The combat log, for kills: not on Forever, which forbids it (registering it
+-- throws); if any client refuses it, loot and dead targets count instead.
+for event in pairs(handlers) do
+  if event == "COMBAT_LOG_EVENT_UNFILTERED" then
+    if ns.forever or not pcall(frame.RegisterEvent, frame, event) then ns.meetKills = true end
+  else
+    frame:RegisterEvent(event)
+  end
+end
+
+-- ── counts ───────────────────────────────────────────────────────────────────
+function ns.journal() return char end
+
+-- Creatures met per family key, and the families met, in the book's order.
+function ns.metByFamily()
+  local by = {}
+  for id, rec in pairs(char and char.creatures or {}) do
+    local key = ns.familyKey(id, rec)
+    if key then
+      by[key] = by[key] or {}
+      table.insert(by[key], id)
+    end
+  end
+  return by
+end
+
+function ns.counts()
+  local creatures, families, slain = 0, 0, 0
+  for _, rec in pairs(char and char.creatures or {}) do
+    creatures = creatures + 1
+    slain = slain + (rec.slain or 0)
+  end
+  for _ in pairs(char and char.families or {}) do families = families + 1 end
+  return creatures, families, slain
+end
+
+-- ── /journal ─────────────────────────────────────────────────────────────────
+SLASH_FIELDJOURNAL1 = "/journal"
+SLASH_FIELDJOURNAL2 = "/fj"
+SlashCmdList.FIELDJOURNAL = function(msg)
+  msg = strtrim((msg or ""):lower())
+  if msg == "reset" then
+    print(PREFIX .. "this forgets every creature this character has recorded. Type /journal reset yes to do it.")
+    return
+  end
+  if msg == "reset yes" then
+    newJournal(char.guid)
+    if ns.refresh then ns.refresh() end
+    print(PREFIX .. "the journal starts afresh.")
+    return
+  end
+  if msg == "minimap" then
+    ns.setOption("minimapHidden", not ns.option("minimapHidden"))
+    return
+  end
+  if msg == "settings" or msg == "options" then
+    if not ns.openSettings() then print(PREFIX .. "no settings page in this client.") end
+    return
+  end
+  if ns.toggle then ns.toggle() end
+end

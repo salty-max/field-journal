@@ -1,0 +1,12 @@
+{
+  "name": "field-journal",
+  "private": true,
+  "description": "A World of Warcraft addon: an Explorers' League field journal, a bestiary (then an atlas) that fills in as you travel",
+  "license": "MIT",
+  "scripts": {
+    "build": "bun scripts/build.ts",
+    "check": "bun scripts/build.ts --check && luajit addon/test/sim.lua && FOREVER=1 luajit addon/test/sim.lua",
+    "package": "bun scripts/package.ts",
+    "creatures": "python3 scripts/creatures.py"
+  }
+}

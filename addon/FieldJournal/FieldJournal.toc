@@ -1,0 +1,17 @@
+## Interface: @INTERFACE@
+## Title: Explorer's Field Journal
+## Notes: A bestiary that fills in as you travel: every creature you meet, slay and loot, with a League naturalist's notes. /journal to read it.
+## Author: salty-max
+## Version: 0.1.0
+## SavedVariablesPerCharacter: FieldJournalChar
+## SavedVariables: FieldJournalSettings
+## IconTexture: Interface\Icons\INV_Misc_Book_11
+## X-Website: https://github.com/salty-max/field-journal
+## X-License: MIT
+
+Data.lua
+Core.lua
+Book.lua
+Minimap.lua
+Settings.lua
+Hints.lua
