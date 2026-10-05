@@ -4,21 +4,23 @@
 -- was met in it) or a creature's (its portrait and this character's record of
 -- it, in sections). A Trophies page lists the rares and bosses slain.
 -- /journal opens it.
--- Forever: a standard game window with the dark cards of its Professions
--- window. Classic: a dialog frame with the book reader's parchment.
+-- Both games: the standard game window (portrait, title bar). Forever: the
+-- dark cards of its Professions window. Classic: the dark book of the quest
+-- log for the list, the parchment of the quest and gossip windows for the page.
 local _, ns = ...
 local D = ns.data
 
 local TROPHIES = "trophies"
 
 -- ── look ─────────────────────────────────────────────────────────────────────
--- Colours: light text on dark cards (Forever), dark ink on parchment (Classic).
+-- Colours: light text on dark cards (Forever), dark ink on parchment (Classic:
+-- as dark as the quest window's text, so it reads well).
 local T = ns.forever and {
   gold = { 0.85, 0.70, 0.42 }, text = { 0.93, 0.88, 0.76 }, soft = { 0.62, 0.57, 0.49 },
   rule = { 0.85, 0.70, 0.42, 0.25 }, mark = "|cffff9a40", rare = "|cffc7ccd6", link = "|cffd9b36b",
 } or {
-  gold = { 0.36, 0.20, 0.05 }, text = { 0.22, 0.14, 0.05 }, soft = { 0.42, 0.30, 0.15 },
-  rule = { 0.36, 0.20, 0.05, 0.3 }, mark = "|cff8a3a1c", rare = "|cff4a4f5c", link = "|cff6b2a0c",
+  gold = { 0.28, 0.12, 0.0 }, text = { 0.10, 0.06, 0.02 }, soft = { 0.30, 0.20, 0.09 },
+  rule = { 0.28, 0.12, 0.0, 0.45 }, mark = "|cff7a1e08", rare = "|cff2e3340", link = "|cff5a1a00",
 }
 -- The list sits on the dark window on both games.
 local LIST = { gold = { 0.85, 0.70, 0.42 }, text = { 0.93, 0.88, 0.76 }, soft = { 0.62, 0.57, 0.49 } }
@@ -78,6 +80,31 @@ local function card(parent)
       if i == 3 then tex:SetPoint("BOTTOM", f, "BOTTOM", 0, 0) end
     end
   end
+  return f
+end
+
+-- Classic's panels: the quest log's dark book (TBC's two-pane log; a plain
+-- inset where the game lacks it) and the quest window's parchment.
+local function inset(parent)
+  local ok, f = pcall(CreateFrame, "Frame", nil, parent, "InsetFrameTemplate")
+  if not (ok and f) then f = CreateFrame("Frame", nil, parent) end
+  local art = f:CreateTexture(nil, "BACKGROUND", nil, 2)
+  art:SetPoint("TOPLEFT", 3, -3)
+  art:SetPoint("BOTTOMRIGHT", -3, 3)
+  if art:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left") == false then
+    art:Hide()
+  else
+    art:SetTexCoord(20 / 512, 318 / 512, 74 / 512, 406 / 512)
+  end
+  return f
+end
+
+local function parchment(parent)
+  local f = CreateFrame("Frame", nil, parent)
+  local paper = f:CreateTexture(nil, "BACKGROUND")
+  paper:SetAllPoints()
+  paper:SetTexture("Interface\\QuestFrame\\QuestBG")
+  paper:SetTexCoord(0, 300 / 512, 0, 335 / 512)
   return f
 end
 
@@ -206,9 +233,19 @@ end
 
 local function day(stamp) return date("%d %b %Y", stamp and stamp.at or 0) end
 
-local function levels(rec)
-  if not rec.low then return nil end
-  return rec.low == rec.high and ("level %d"):format(rec.low) or ("levels %d-%d"):format(rec.low, rec.high)
+-- A creature's levels in the world (the data's range, widened by any level
+-- seen), not just the one it had when met.
+local function levels(id, rec)
+  local known = D.levels and D.levels[id]
+  local low, high
+  if type(known) == "number" then low, high = known, known
+  elseif type(known) == "string" then
+    local a, b = known:match("^(%d+)-(%d+)$")
+    low, high = tonumber(a), tonumber(b)
+  end
+  if rec.low then low, high = math.min(low or rec.low, rec.low), math.max(high or rec.high, rec.high) end
+  if not low then return nil end
+  return low == high and ("level %d"):format(low) or ("levels %d-%d"):format(low, high)
 end
 
 local function joined(parts, sep)
@@ -423,9 +460,9 @@ local function showFamily(key, keep)
       y = y + 20
     end
   else
-    y = layEntries(ids, y, function(_, rec)
+    y = layEntries(ids, y, function(id, rec)
       local slain = (rec.slain or 0) > 0 and ("%d slain"):format(rec.slain) or "none slain"
-      return joined({ levels(rec), slain, placeShort(rec.places and rec.places[1]) })
+      return joined({ levels(id, rec), slain, placeShort(rec.places and rec.places[1]) })
     end)
   end
   finish(y, keep)
@@ -440,7 +477,7 @@ local function showCreature(id, keep)
   current, currentCreature = ns.familyKey(id, rec), id
   clear()
   local rank = rankOf(id, rec)
-  header(rec.name or ("Creature " .. id), joined({ T.link .. ns.familyTitle(current) .. "|r", levels(rec), RANK[rank] }),
+  header(rec.name or ("Creature " .. id), joined({ T.link .. ns.familyTitle(current) .. "|r", levels(id, rec), RANK[rank] }),
     function(p) setPortrait(p, id, rec) end)
   page.familyLink.key = current
   local y = HEADER_H + 2
@@ -744,8 +781,8 @@ local function gameWindow()
 end
 
 function build()
-  local modern = ns.forever and gameWindow()
-  book = modern or CreateFrame("Frame", "FieldJournalFrame", UIParent, "BackdropTemplate")
+  local window = gameWindow()
+  book = window or CreateFrame("Frame", "FieldJournalFrame", UIParent, "BackdropTemplate")
   book:SetSize(780, 560)
   book:SetPoint("CENTER")
   book:SetFrameStrata("HIGH")
@@ -763,44 +800,31 @@ function build()
   book.search:SetHeight(20)
   book.search:HookScript("OnTextChanged", function() ns.refresh() end)
 
-  local left, sheet
-  if modern then
-    -- The count beside the portrait; the list and the page on dark cards, as
-    -- in the Professions window.
-    book.count:SetPoint("TOPLEFT", 64, -36)
-    left = card(book)
-    left:SetPoint("TOPLEFT", 8, -58)
-    left:SetPoint("BOTTOMLEFT", 8, 8)
-    left:SetWidth(244)
-    sheet = card(book)
-    sheet:SetPoint("TOPLEFT", 256, -26)
-    sheet:SetPoint("BOTTOMRIGHT", -8, 8)
-  else
+  if not window then
+    -- No standard window on this client: a plain dialog frame.
     book:SetBackdrop({
       bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
       edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border",
       tile = true, tileSize = 32, edgeSize = 32,
       insets = { left = 11, right = 12, top = 12, bottom = 11 },
     })
-    local title = label(book, TITLE_FONT, 18, LIST.gold, true)
-    title:SetPoint("TOP", 0, -18)
+    local title = label(book, TITLE_FONT, 16, LIST.gold, true)
+    title:SetPoint("TOP", 0, -16)
     title:SetText(TITLE)
     local close = CreateFrame("Button", nil, book, "UIPanelCloseButton")
     close:SetPoint("TOPRIGHT", -6, -6)
-    book.count:SetPoint("TOPLEFT", 24, -46)
-    left = CreateFrame("Frame", nil, book)
-    left:SetPoint("TOPLEFT", 12, -58)
-    left:SetPoint("BOTTOMLEFT", 12, 14)
-    left:SetWidth(244)
-    sheet = CreateFrame("Frame", nil, book)
-    sheet:SetPoint("TOPLEFT", 262, -42)
-    sheet:SetPoint("BOTTOMRIGHT", -16, 16)
-    local paper = sheet:CreateTexture(nil, "BACKGROUND")
-    paper:SetAllPoints()
-    -- The parchment of the game's own book reader, as in Lorekeeper's Codex.
-    paper:SetTexture("Interface\\MailFrame\\UI-MailFrameBG")
-    paper:SetTexCoord(0, 0.625, 0, 0.70)
   end
+  -- The count beside the portrait; the list's column below it, the page to
+  -- the right, under the title bar.
+  local edge = window and 8 or 14
+  book.count:SetPoint("TOPLEFT", 64, -36)
+  local left = ns.forever and card(book) or inset(book)
+  left:SetPoint("TOPLEFT", edge, -58)
+  left:SetPoint("BOTTOMLEFT", edge, edge)
+  left:SetWidth(244)
+  local sheet = ns.forever and card(book) or parchment(book)
+  sheet:SetPoint("TOPLEFT", left, "TOPRIGHT", 4, 32)
+  sheet:SetPoint("BOTTOMRIGHT", -edge, edge)
   -- The search box inside the list's column (its left edge holds the glass).
   book.search:SetPoint("TOPLEFT", left, "TOPLEFT", 18, -10)
   book.search:SetPoint("TOPRIGHT", left, "TOPRIGHT", -12, -10)

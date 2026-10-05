@@ -1,5 +1,5 @@
 ---
-title: Peoples
+title: Humanoids
 type: Humanoid
 order: 8
 ---

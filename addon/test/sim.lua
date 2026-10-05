@@ -318,7 +318,7 @@ ns.openFamily(D.creatures[1131])
 local wolves = {}
 for _, e in ipairs(ns.pageEntries) do if e.shown then wolves[e.id] = e end end
 check(wolves[1131] and wolves[1133] and wolves[1132], "a family's page has an entry per creature met")
-check(wolves[1131].name.text == "Winter Wolf" and wolves[1131].facts.text:find("level 7", 1, true) and wolves[1131].facts.text:find("slain", 1, true), "… with its name and a line of its record")
+check(wolves[1131].name.text == "Winter Wolf" and wolves[1131].facts.text:find("levels 7-8", 1, true) and wolves[1131].facts.text:find("slain", 1, true), "… with its name and a line of its record (its levels in the world, not just the one seen)")
 check(D.models[1131] and wolves[1131].portrait.display == D.models[1131], "… and its portrait, from its display id")
 check(shown("Winter Wolf") and shown("Starving Winter Wolf"), "an open family lists its creatures under it")
 shown("Winter Wolf").scripts.OnClick(shown("Winter Wolf"))

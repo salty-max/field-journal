@@ -225,6 +225,10 @@ ${chunks(sorted.map((c) => `[${c.id}]=${index.get(familyOf.get(c.id)!.id)}`), 12
   models = {
 ${chunks(sorted.filter((c) => c.model).map((c) => `[${c.id}]=${c.model}`), 10).join("\n")}
   },
+  -- creature id = its levels in the world ("5-6", or 7)
+  levels = {
+${chunks(sorted.filter((c) => c.levels?.[0]).map((c) => `[${c.id}]=${c.levels[0] === c.levels[1] ? c.levels[0] : `"${c.levels[0]}-${c.levels[1]}"`}`), 12).join("\n")}
+  },
   -- marks: r rare, R rare elite, b boss
   ranks = {
 ${chunks(sorted.filter((c) => RANK[c.rank]).map((c) => `[${c.id}]="${RANK[c.rank]}"`), 12).join("\n")}

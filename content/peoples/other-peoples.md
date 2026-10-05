@@ -1,6 +1,6 @@
 ---
 id: other-peoples
-title: Other Peoples
+title: Other Humanoids
 order: 860
 match:
   - fallback: true
