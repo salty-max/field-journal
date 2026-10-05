@@ -4,26 +4,20 @@
 -- was met in it) or a creature's (its portrait and this character's record of
 -- it, in sections). A Trophies page lists the rares and bosses slain.
 -- /journal opens it.
--- Both games: the standard game window (portrait, title bar). Forever: the
--- dark cards of its Professions window. Classic: the dark book of the quest
--- log for the list, the parchment of the quest and gossip windows for the page.
+-- Both games: the standard game window (portrait, title bar), light text and
+-- gold titles on dark panels. Forever: the cards of its Professions window.
+-- Classic: the game's inset panels, the quest log's dark book behind the list.
 local _, ns = ...
 local D = ns.data
 
 local TROPHIES = "trophies"
 
 -- ── look ─────────────────────────────────────────────────────────────────────
--- Colours: light text on dark cards (Forever), dark ink on parchment (Classic:
--- as dark as the quest window's text, so it reads well).
-local T = ns.forever and {
+local T = {
   gold = { 0.85, 0.70, 0.42 }, text = { 0.93, 0.88, 0.76 }, soft = { 0.62, 0.57, 0.49 },
   rule = { 0.85, 0.70, 0.42, 0.25 }, mark = "|cffff9a40", rare = "|cffc7ccd6", link = "|cffd9b36b",
-} or {
-  gold = { 0.28, 0.12, 0.0 }, text = { 0.10, 0.06, 0.02 }, soft = { 0.30, 0.20, 0.09 },
-  rule = { 0.28, 0.12, 0.0, 0.45 }, mark = "|cff7a1e08", rare = "|cff2e3340", link = "|cff5a1a00",
 }
--- The list sits on the dark window on both games.
-local LIST = { gold = { 0.85, 0.70, 0.42 }, text = { 0.93, 0.88, 0.76 }, soft = { 0.62, 0.57, 0.49 } }
+local LIST = T
 
 local LATIN = { enUS = true, enGB = true, frFR = true, deDE = true, esES = true, esMX = true, itIT = true, ptBR = true }
 local BODY_FONT = STANDARD_TEXT_FONT or "Fonts\\FRIZQT__.TTF"
@@ -32,12 +26,11 @@ local TITLE_FONT = (not GetLocale or LATIN[GetLocale()]) and "Fonts\\MORPHEUS.TT
 local function hex(c) return ("|cff%02x%02x%02x"):format(c[1] * 255, c[2] * 255, c[3] * 255) end
 local SOFT, LIST_SOFT = hex(T.soft), hex(LIST.soft)
 
-local function label(parent, font, size, color, dark)
+local function label(parent, font, size, color)
   local fs = parent:CreateFontString(nil, "OVERLAY")
   fs:SetFont(font, size, "")
   fs:SetTextColor(unpack(color))
-  -- A shadow on dark backgrounds, none on parchment.
-  if ns.forever or dark then fs:SetShadowOffset(1, -1) else fs:SetShadowColor(0, 0, 0, 0) end
+  fs:SetShadowOffset(1, -1)
   fs:SetJustifyH("LEFT")
   return fs
 end
@@ -83,11 +76,16 @@ local function card(parent)
   return f
 end
 
--- Classic's panels: the quest log's dark book (TBC's two-pane log; a plain
--- inset where the game lacks it) and the quest window's parchment.
-local function inset(parent)
+-- Classic's panels: the game's inset, darkened a little for the text; behind
+-- the list, the quest log's dark book (TBC's two-pane log, where the game has it).
+local function inset(parent, book)
   local ok, f = pcall(CreateFrame, "Frame", nil, parent, "InsetFrameTemplate")
   if not (ok and f) then f = CreateFrame("Frame", nil, parent) end
+  local shade = f:CreateTexture(nil, "BACKGROUND", nil, 1)
+  shade:SetPoint("TOPLEFT", 3, -3)
+  shade:SetPoint("BOTTOMRIGHT", -3, 3)
+  shade:SetColorTexture(0.03, 0.025, 0.02, 0.55)
+  if not book then return f end
   local art = f:CreateTexture(nil, "BACKGROUND", nil, 2)
   art:SetPoint("TOPLEFT", 3, -3)
   art:SetPoint("BOTTOMRIGHT", -3, 3)
@@ -96,15 +94,6 @@ local function inset(parent)
   else
     art:SetTexCoord(20 / 512, 318 / 512, 74 / 512, 406 / 512)
   end
-  return f
-end
-
-local function parchment(parent)
-  local f = CreateFrame("Frame", nil, parent)
-  local paper = f:CreateTexture(nil, "BACKGROUND")
-  paper:SetAllPoints()
-  paper:SetTexture("Interface\\QuestFrame\\QuestBG")
-  paper:SetTexCoord(0, 300 / 512, 0, 335 / 512)
   return f
 end
 
@@ -565,10 +554,10 @@ local function row(i)
   if r then return r end
   r = CreateFrame("Button", nil, list.child)
   r:SetSize(ROW_WIDTH, 18)
-  r.text = label(r, BODY_FONT, 12, LIST.text, true)
+  r.text = label(r, BODY_FONT, 12, LIST.text)
   r.text:SetPoint("RIGHT", -28, 0)
   r.text:SetWordWrap(false)
-  r.count = label(r, BODY_FONT, 10, LIST.soft, true)
+  r.count = label(r, BODY_FONT, 10, LIST.soft)
   r.count:SetPoint("RIGHT", -4, 0)
   r.count:SetJustifyH("RIGHT")
   r.fold = r:CreateTexture(nil, "ARTWORK")
@@ -795,7 +784,7 @@ function build()
   book:SetScript("OnDragStop", book.StopMovingOrSizing)
   tinsert(UISpecialFrames, "FieldJournalFrame") -- Escape closes it
 
-  book.count = label(book, BODY_FONT, 11, LIST.gold, true)
+  book.count = label(book, BODY_FONT, 11, LIST.gold)
   book.search = CreateFrame("EditBox", "FieldJournalSearch", book, "SearchBoxTemplate")
   book.search:SetHeight(20)
   book.search:HookScript("OnTextChanged", function() ns.refresh() end)
@@ -808,7 +797,7 @@ function build()
       tile = true, tileSize = 32, edgeSize = 32,
       insets = { left = 11, right = 12, top = 12, bottom = 11 },
     })
-    local title = label(book, TITLE_FONT, 16, LIST.gold, true)
+    local title = label(book, TITLE_FONT, 16, LIST.gold)
     title:SetPoint("TOP", 0, -16)
     title:SetText(TITLE)
     local close = CreateFrame("Button", nil, book, "UIPanelCloseButton")
@@ -818,11 +807,11 @@ function build()
   -- the right, under the title bar.
   local edge = window and 8 or 14
   book.count:SetPoint("TOPLEFT", 64, -36)
-  local left = ns.forever and card(book) or inset(book)
+  local left = ns.forever and card(book) or inset(book, true)
   left:SetPoint("TOPLEFT", edge, -58)
   left:SetPoint("BOTTOMLEFT", edge, edge)
   left:SetWidth(244)
-  local sheet = ns.forever and card(book) or parchment(book)
+  local sheet = ns.forever and card(book) or inset(book)
   sheet:SetPoint("TOPLEFT", left, "TOPRIGHT", 4, 32)
   sheet:SetPoint("BOTTOMRIGHT", -edge, edge)
   -- The search box inside the list's column (its left edge holds the glass).
