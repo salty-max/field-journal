@@ -100,6 +100,15 @@ once the Bestiary ships.
   fallbacks.
 - Logo in the Codex's style.
 
+## Status (5 October 2026)
+
+- Done: repository, data (3,358 creatures, 260 bosses from the encounter
+  table, display ids), 93 families with their sorting rules, the recording
+  engine, the book with portraits, tooltip hints, settings, simulation on both
+  games, and the 93 naturalist's notes (first draft).
+- Next: in-game test (v0.1.0), a review of the notes against sources, then
+  milestones and the Atlas.
+
 ## First steps
 
 1. Repository from the Codex's skeleton (build, package, release, CI,

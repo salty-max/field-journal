@@ -22,7 +22,9 @@
  *   The naturalist's note: paragraphs separated by blank lines.
  *
  * Each creature goes to the first rule that claims it, in this order: ids,
- * people, name, beast, fallback. Two families claiming a creature at the same
+ * people, name (of the creature's own type), beast, name (from a family with
+ * anytype: another type's pattern), fallback. So a raptor stays a raptor even
+ * if a plant's pattern matches its name. Two families claiming a creature at the same
  * level is an error (except names: the family with the lower order wins, and
  * the build lists such overlaps with --verbose).
  *
@@ -146,13 +148,14 @@ for (const f of families) {
 }
 
 // ── sorting creatures into families ───────────────────────────────────────────
-const LEVELS = ["ids", "people", "name", "beast", "fallback"] as const;
+const LEVELS = ["ids", "people", "name", "beast", "anyname", "fallback"] as const;
 const claims = (f: Family, c: Creature, level: (typeof LEVELS)[number]) =>
   f.rules.some((r) => {
+    if (level === "anyname") return r.kind === "name" && f.anytype && c.type !== f.type && r.re.test(c.name);
     if (r.kind !== level) return false;
     if (r.kind === "ids") return r.ids.includes(c.id);
     if (r.kind === "people") return peoples[r.people]?.includes(c.id);
-    if (r.kind === "name") return (f.anytype || c.type === f.type) && r.re.test(c.name);
+    if (r.kind === "name") return c.type === f.type && r.re.test(c.name);
     if (r.kind === "beast") return c.type === "Beast" && c.family === r.family;
     return c.type === f.type;
   });
@@ -167,7 +170,7 @@ for (const c of creatures) {
     if (!hits.length) continue;
     if (hits.length > 1) {
       const msg = `${c.id} ${c.name} (${c.type}): ${hits.map((f) => f.id).join(", ")}`;
-      if (level === "name") overlaps.push(msg);
+      if (level === "name" || level === "anyname") overlaps.push(msg);
       else errors.push(`claimed twice at "${level}": ${msg}`);
     }
     chosen = hits[0];
