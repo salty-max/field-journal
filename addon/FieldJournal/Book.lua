@@ -897,7 +897,7 @@ function ns.showTab(n)
   if n == 2 and not rawget(book, "atlasList") and ns.buildAtlasBook then ns.buildAtlasBook(book) end
   book.left:SetShown(n ~= 3)
   book.sheet:SetShown(n ~= 3)
-  book.search:SetShown(n == 1)
+  book.search:SetShown(n ~= 3) -- the Bestiary's and the Atlas's
   list:SetShown(n == 1)
   page:SetShown(n == 1)
   if rawget(book, "atlasList") then

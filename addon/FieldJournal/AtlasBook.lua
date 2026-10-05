@@ -23,17 +23,27 @@ local function when(stamp)
 end
 
 -- ── the list ─────────────────────────────────────────────────────────────────
+-- Continents, the zones entered in each (a bar and a count of their places
+-- explored), and under an open zone the places discovered, in the order they
+-- were found: never the ones still to find. Zones fold; the one you stand in
+-- opens on its own. The search box finds zones and places by name.
 local function row(i)
   local r = rows[i]
   if r then return r end
   r = CreateFrame("Button", nil, list.child)
   r:SetSize(ROW_WIDTH, 18)
   r.text = ui.label(r, ui.BODY_FONT, 12, ui.T.text)
-  r.text:SetPoint("RIGHT", -40, 0)
   r.text:SetWordWrap(false)
   r.count = ui.label(r, ui.BODY_FONT, 10, ui.T.soft)
-  r.count:SetPoint("RIGHT", -4, 0)
-  r.count:SetJustifyH("RIGHT")
+  r.fold = r:CreateTexture(nil, "ARTWORK")
+  r.fold:SetSize(12, 12)
+  r.bar = CreateFrame("StatusBar", nil, r)
+  r.bar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+  r.bar:SetStatusBarColor(0.85, 0.65, 0.13)
+  r.bar:SetHeight(4)
+  local bg = r.bar:CreateTexture(nil, "BACKGROUND")
+  bg:SetAllPoints()
+  bg:SetColorTexture(0, 0, 0, 0.5)
   r:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
   r.selected = r:CreateTexture(nil, "BACKGROUND")
   r.selected:SetAllPoints()
@@ -49,65 +59,178 @@ local function entered(uiMap)
   return z and (z.first or z.retro or next(z.places or {})) and true or false
 end
 
+local selectedPlace -- a place's key, picked out on its zone's page
 local showZone, showTravels
+
+-- Folded or open zones, per character (open[uiMap] = true / false).
+local function opened()
+  local c = ns.journal()
+  if not c then return {} end
+  c.atlasOpen = c.atlasOpen or {}
+  return c.atlasOpen
+end
+
+-- The places of a zone this character has discovered, in the order found
+-- (those from before the journal first, by name).
+local function discoveredPlaces(uiMap)
+  local z = ns.atlas().zones[uiMap]
+  local out = {}
+  for _, place in ipairs(A.zones[uiMap].places) do
+    local rec = z and z.places[ns.placeKey(place)]
+    if rec then table.insert(out, { place = place, rec = rec }) end
+  end
+  table.sort(out, function(a, b)
+    local ta, tb = a.rec.at or 0, b.rec.at or 0
+    if ta ~= tb then return ta < tb end
+    return a.place[1] < b.place[1]
+  end)
+  return out
+end
+
+local PLUS, MINUS = "Interface\\Buttons\\UI-PlusButton-Up", "Interface\\Buttons\\UI-MinusButton-Up"
 
 local function refreshList()
   for _, r in ipairs(rows) do r:Hide() end
-  local i, y = 0, 0
-  local function add(kind, text, count, onClick, selected)
+  local query = (book.search:GetText() or ""):lower():gsub("^%s+", ""):gsub("%s+$", "")
+  local searching = query ~= ""
+  local function hit(name) return not searching or name:lower():find(query, 1, true) ~= nil end
+  local i, y, selectedY = 0, 0, nil
+  local function add(kind, text)
     i = i + 1
     local r = row(i)
     r:ClearAllPoints()
     r:SetPoint("TOPLEFT", 0, -y)
-    r.kind = kind
+    r.kind, r.zone, r.place = kind, nil, nil
     r.text:SetText(text)
-    r.count:SetText(count or "")
     r.text:ClearAllPoints()
-    r.text:SetPoint("RIGHT", -40, 0)
+    r.count:ClearAllPoints()
+    r.count:SetText("")
+    r.fold:Hide()
+    r.bar:Hide()
+    r.selected:Hide()
+    r:Enable()
+    local height
     if kind == "section" then
       r.text:SetPoint("LEFT", 4, 0)
+      r.text:SetPoint("RIGHT", -4, 0)
       r.text:SetFont(ui.TITLE_FONT, 14, "")
       r.text:SetTextColor(unpack(ui.T.gold))
-      r:SetHeight(22)
-      y = y + 22
-    else
-      r.text:SetPoint("LEFT", kind == "travels" and 4 or 14, 0)
+      height = 22
+    elseif kind == "zone" then
+      r.fold:ClearAllPoints()
+      r.fold:SetPoint("TOPLEFT", 4, -4)
+      r.text:SetPoint("TOPLEFT", 20, -3)
+      r.text:SetPoint("RIGHT", -4, 0)
       r.text:SetFont(ui.BODY_FONT, 12, "")
-      r.text:SetTextColor(unpack(kind == "travels" and ui.T.gold or ui.T.text))
-      r:SetHeight(18)
-      y = y + 18
+      r.text:SetTextColor(unpack(ui.T.text))
+      height = 18
+    elseif kind == "place" then
+      r.text:SetPoint("LEFT", 30, 0)
+      r.text:SetPoint("RIGHT", -4, 0)
+      r.text:SetFont(ui.BODY_FONT, 11, "")
+      r.text:SetTextColor(unpack(ui.T.soft))
+      height = 16
+    else -- the travels
+      r.text:SetPoint("LEFT", 4, 0)
+      r.text:SetPoint("RIGHT", -4, 0)
+      r.text:SetFont(ui.BODY_FONT, 12, "")
+      r.text:SetTextColor(unpack(ui.T.gold))
+      height = 18
     end
-    r:SetScript("OnClick", onClick)
-    r:SetEnabled(onClick ~= nil)
-    r.selected:SetShown(selected and true or false)
-    if selected then r.text:SetTextColor(1, 1, 1) end
+    r:SetHeight(height)
+    y = y + height
     r:Show()
+    return r
   end
-  add("travels", "Travels", nil, function() showTravels(); refreshList() end, current == nil)
-  -- Continents, then the zones entered in each (those off every continent last).
+  local function select(r)
+    r.selected:Show()
+    r.text:SetTextColor(1, 1, 1)
+    selectedY = y
+  end
+
+  if not searching then
+    local r = add("travels", "Travels")
+    r:SetScript("OnClick", function() showTravels(); refreshList() end)
+    if current == nil then select(r) end
+  end
   local continents = {}
   for id, name in pairs(A.continents) do table.insert(continents, { id, name }) end
   table.sort(continents, function(a, b) return a[2] < b[2] end)
   table.insert(continents, { 0, "Elsewhere" })
+  local standing = ns.atlasHere and ns.atlasHere()
   for _, c in ipairs(continents) do
     local zones = {}
     for uiMap, zone in pairs(A.zones) do
-      if zone.continent == c[1] and entered(uiMap) then table.insert(zones, uiMap) end
+      if zone.continent == c[1] and entered(uiMap) then
+        local places = discoveredPlaces(uiMap)
+        local shown = {}
+        local zoneHit = hit(ns.zoneName(uiMap))
+        for _, p in ipairs(places) do
+          if zoneHit or hit(p.place[1]) then table.insert(shown, p) end
+        end
+        if zoneHit or #shown > 0 then table.insert(zones, { uiMap, shown }) end
+      end
     end
     if #zones > 0 then
-      table.sort(zones, function(a, b) return ns.zoneName(a) < ns.zoneName(b) end)
+      table.sort(zones, function(a, b) return ns.zoneName(a[1]) < ns.zoneName(b[1]) end)
       y = y + 6
       add("section", c[2])
-      for _, uiMap in ipairs(zones) do
+      for _, z in ipairs(zones) do
+        local uiMap, shown = z[1], z[2]
         local done, total = ns.zoneProgress(uiMap)
-        add("zone", ns.zoneName(uiMap), total > 0 and ("%d/%d"):format(done, total) or nil,
-          function() showZone(uiMap); refreshList() end, current == uiMap)
-        rows[i].zone = uiMap
+        local open = opened()[uiMap]
+        if open == nil then open = uiMap == standing end
+        open = open or searching
+        local r = add("zone", ns.zoneName(uiMap))
+        r.zone = uiMap
+        if total > 0 then
+          -- the progress: a bar under the name, the count beside it
+          r:SetHeight(32)
+          y = y + 14
+          r.fold:SetTexture(open and MINUS or PLUS)
+          r.fold:SetShown(#shown > 0)
+          r.bar:ClearAllPoints()
+          r.bar:SetPoint("BOTTOMLEFT", 20, 5)
+          r.bar:SetPoint("BOTTOMRIGHT", -44, 5)
+          r.bar:SetMinMaxValues(0, total)
+          r.bar:SetValue(done)
+          r.bar:Show()
+          r.count:SetPoint("LEFT", r.bar, "RIGHT", 6, 0)
+          r.count:SetText(("%d/%d"):format(done, total))
+        end
+        r:SetScript("OnClick", function()
+          -- the open zone's row folds it; any other opens its page, unfolded
+          if current == uiMap and not selectedPlace and (opened()[uiMap] or (opened()[uiMap] == nil and uiMap == standing)) then
+            opened()[uiMap] = false
+          else
+            opened()[uiMap] = true
+            showZone(uiMap)
+          end
+          refreshList()
+        end)
+        if current == uiMap and not selectedPlace then select(r) end
+        if open then
+          for _, p in ipairs(shown) do
+            local pr = add("place", p.place[1])
+            local key = ns.placeKey(p.place)
+            pr.zone, pr.place = uiMap, key
+            pr:SetScript("OnClick", function()
+              showZone(uiMap, key)
+              refreshList()
+            end)
+            if current == uiMap and selectedPlace == key then select(pr) end
+          end
+        end
       end
     end
   end
   list.child:SetHeight(y + 8)
   list:UpdateThumb()
+  -- Keep the selection in view.
+  if selectedY then
+    local top, height = list:GetVerticalScroll(), list:GetHeight()
+    if selectedY - 18 < top or selectedY > top + height then list:ScrollTo(selectedY - height / 2) end
+  end
 end
 
 -- ── the page ─────────────────────────────────────────────────────────────────
@@ -284,8 +407,8 @@ local function eventLine(e)
   return ("%s, level %d%s"):format(day(e), e.level or 0, e.by and (" - " .. e.by) or "")
 end
 
-function showZone(uiMap)
-  current = uiMap
+function showZone(uiMap, placeKey)
+  current, selectedPlace = uiMap, placeKey
   local zone, z = A.zones[uiMap], ns.atlas().zones[uiMap] or { places = {} }
   start()
   local done, total = ns.zoneProgress(uiMap)
@@ -310,7 +433,23 @@ function showZone(uiMap)
   for _, e in ipairs(calls) do
     if e.x then table.insert(marks, { x = e.x, y = e.y, icon = CLOSE, title = "A close call", text = eventLine(e) }) end
   end
-  drawMap(uiMap, marks)
+  local picked
+  for _, place in ipairs(zone.places) do
+    if ns.placeKey(place) == placeKey then picked = place end
+  end
+  page.map.pick:Hide()
+  if drawMap(uiMap, marks) and picked then
+    -- the picked place: its area outlined on the map
+    page.map.pick:ClearAllPoints()
+    page.map.pick:SetPoint("TOPLEFT", page.map.canvas, "TOPLEFT", picked[2], -picked[3])
+    page.map.pick:SetSize(picked[4] - picked[2], picked[5] - picked[3])
+    page.map.pick:Show()
+  end
+  if picked then
+    local rec = z.places[placeKey]
+    section(picked[1])
+    row2("Discovered", when(rec))
+  end
   -- The record.
   section("Travels here")
   row2("First visit", when(z.first or (z.retro and { retro = true }) or nil))
@@ -343,7 +482,7 @@ function showZone(uiMap)
 end
 
 function showTravels()
-  current = nil
+  current, selectedPlace = nil, nil
   local a = ns.atlas()
   start()
   local zones, places, explored = 0, 0, 0
@@ -388,7 +527,7 @@ function ns.refreshAtlas()
     return n
   end)()))
   refreshList()
-  if current then showZone(current) else showTravels() end
+  if current then showZone(current, selectedPlace) else showTravels() end
 end
 
 -- ── building ─────────────────────────────────────────────────────────────────
@@ -397,7 +536,7 @@ function ns.buildAtlasBook(b)
   book = b
   MAP_W = ui.WIDTH
   list = ui.scrollArea(book.left, ROW_WIDTH)
-  list:SetPoint("TOPLEFT", book.left, "TOPLEFT", 12, -14)
+  list:SetPoint("TOPLEFT", book.left, "TOPLEFT", 12, -40)
   list:SetPoint("BOTTOMRIGHT", book.left, "BOTTOMRIGHT", -18, 12)
   page = ui.scrollArea(book.sheet, MAP_W)
   _G.FieldJournalAtlasPage = page
@@ -426,6 +565,10 @@ function ns.buildAtlasBook(b)
   page.map.canvas = CreateFrame("Frame", nil, page.map)
   page.map.canvas:SetPoint("TOPLEFT")
   page.map.tiles = {}
+  page.map.pick = CreateFrame("Frame", nil, page.map.canvas, "BackdropTemplate")
+  page.map.pick:SetBackdrop({ edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 24 })
+  page.map.pick:SetBackdropBorderColor(1, 0.82, 0)
+  page.map.pick:Hide()
   page.map.border = CreateFrame("Frame", nil, page.map, "BackdropTemplate")
   page.map.border:SetAllPoints()
   page.map.border:SetBackdrop({ edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 12 })
@@ -437,7 +580,8 @@ end
 function ns.openZone(uiMap)
   if not A.zones[uiMap] then return end
   local b = ns.ui.build()
-  current = uiMap
+  current, selectedPlace = uiMap, nil
+  opened()[uiMap] = true
   if not b:IsShown() then b:Show() end
   ns.showTab(2)
 end

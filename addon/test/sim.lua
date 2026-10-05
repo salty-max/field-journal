@@ -490,6 +490,27 @@ check(FieldJournalAtlasPage.sub.text:find(("2 of %d places explored"):format(#du
 local zoneRows = {}
 for _, r in ipairs(ns.atlasRows) do if r.shown then zoneRows[r.text.text] = r end end
 check(zoneRows["Eastern Kingdoms"] and zoneRows["Dun Morogh"] and zoneRows.Durotar and not zoneRows.Tanaris, "the list: continents, the zones entered, none other")
+check(zoneRows["Dun Morogh"].bar.shown and zoneRows["Dun Morogh"].count.text == ("2/%d"):format(#dun), "a zone's row carries a bar and a count of its places")
+check(zoneRows[dun[1][1]] and zoneRows[dun[2][1]] and zoneRows[dun[1][1]].kind == "place" and not zoneRows[dun[3][1]],
+  "… and, open, the places discovered under it, none other")
+zoneRows[dun[2][1]].scripts.OnClick(zoneRows[dun[2][1]])
+local discoveredLine
+for _, p in ipairs(ns.atlasPairs) do if p.shown and p.label.text == "Discovered" then discoveredLine = p.value.text end end
+check(FieldJournalAtlasPage.map.pick.shown and discoveredLine and discoveredLine:find("level 3", 1, true), "a click on a place picks it out on the zone's map, with the day and level it was found")
+zoneRows["Dun Morogh"].scripts.OnClick(zoneRows["Dun Morogh"])
+zoneRows["Dun Morogh"].scripts.OnClick(zoneRows["Dun Morogh"])
+local placeShown = false
+for _, r in ipairs(ns.atlasRows) do if r.shown and r.kind == "place" and r.zone == 1426 then placeShown = true end end
+check(not placeShown and FieldJournalChar.atlasOpen[1426] == false, "the open zone's row folds it")
+FieldJournalSearch:SetText(dun[2][1]:sub(1, 5))
+ns.refresh()
+zoneRows = {}
+for _, r in ipairs(ns.atlasRows) do if r.shown then zoneRows[r.text.text] = r end end
+check(zoneRows["Dun Morogh"] and zoneRows[dun[2][1]] and not zoneRows.Durotar and not zoneRows.Travels, "search finds places by name, with their zone")
+FieldJournalSearch:SetText("")
+ns.refresh()
+zoneRows = {}
+for _, r in ipairs(ns.atlasRows) do if r.shown then zoneRows[r.text.text] = r end end
 zoneRows.Travels.scripts.OnClick(zoneRows.Travels)
 check(FieldJournalAtlasPage.title.text == "Travels", "the travels page sums them up")
 FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
