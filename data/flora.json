@@ -1,0 +1,1910 @@
+{
+ "herbs": [
+  {
+   "id": 2449,
+   "name": "Earthroot",
+   "level": 5,
+   "skill": 15,
+   "nodes": [
+    "Earthroot"
+   ],
+   "spawns": 496,
+   "zones": [
+    "The Barrens",
+    "Durotar",
+    "Dun Morogh",
+    "Tirisfal Glades",
+    "Elwynn Forest",
+    "Redridge Mountains",
+    "Westfall",
+    "Mulgore",
+    "Teldrassil",
+    "Darkshore",
+    "Silverpine Forest"
+   ],
+   "dungeons": [
+    "Wailing Caverns"
+   ]
+  },
+  {
+   "id": 2447,
+   "name": "Peacebloom",
+   "level": 5,
+   "skill": 0,
+   "nodes": [
+    "Peacebloom"
+   ],
+   "spawns": 537,
+   "zones": [
+    "The Barrens",
+    "Durotar",
+    "Tirisfal Glades",
+    "Mulgore",
+    "Dun Morogh",
+    "Teldrassil",
+    "Elwynn Forest",
+    "Silverpine Forest",
+    "Darkshore",
+    "Loch Modan",
+    "Westfall"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 765,
+   "name": "Silverleaf",
+   "level": 5,
+   "skill": 0,
+   "nodes": [
+    "Silverleaf"
+   ],
+   "spawns": 875,
+   "zones": [
+    "Durotar",
+    "The Barrens",
+    "Loch Modan",
+    "Mulgore",
+    "Elwynn Forest",
+    "Tirisfal Glades",
+    "Darkshore",
+    "Dun Morogh",
+    "Teldrassil",
+    "Silverpine Forest",
+    "Westfall"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 785,
+   "name": "Mageroyal",
+   "level": 10,
+   "skill": 50,
+   "nodes": [
+    "Mageroyal"
+   ],
+   "spawns": 646,
+   "zones": [
+    "The Barrens",
+    "Ashenvale",
+    "Darkshore",
+    "Westfall",
+    "Silverpine Forest",
+    "Redridge Mountains",
+    "Durotar",
+    "Loch Modan",
+    "Duskwood",
+    "Wetlands"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 2450,
+   "name": "Briarthorn",
+   "level": 15,
+   "skill": 70,
+   "nodes": [
+    "Briarthorn"
+   ],
+   "spawns": 595,
+   "zones": [
+    "The Barrens",
+    "Duskwood",
+    "Ashenvale",
+    "Westfall",
+    "Darkshore",
+    "Wetlands",
+    "Hillsbrad Foothills",
+    "Redridge Mountains",
+    "Silverpine Forest",
+    "Stonetalon Mountains",
+    "Loch Modan"
+   ],
+   "dungeons": [
+    "Razorfen Kraul"
+   ]
+  },
+  {
+   "id": 2452,
+   "name": "Swiftthistle",
+   "level": 15,
+   "skill": 50,
+   "nodes": [
+    "Briarthorn",
+    "Mageroyal"
+   ],
+   "spawns": 1178,
+   "zones": [
+    "The Barrens",
+    "Ashenvale",
+    "Duskwood",
+    "Darkshore",
+    "Westfall",
+    "Redridge Mountains",
+    "Silverpine Forest",
+    "Wetlands",
+    "Hillsbrad Foothills",
+    "Loch Modan"
+   ],
+   "dungeons": [
+    "Razorfen Kraul"
+   ],
+   "inside": true
+  },
+  {
+   "id": 2453,
+   "name": "Bruiseweed",
+   "level": 20,
+   "skill": 100,
+   "nodes": [
+    "Bruiseweed"
+   ],
+   "spawns": 1196,
+   "zones": [
+    "Stonetalon Mountains",
+    "The Barrens",
+    "Ashenvale",
+    "Redridge Mountains",
+    "Wetlands",
+    "Hillsbrad Foothills",
+    "Westfall",
+    "Duskwood",
+    "Thousand Needles",
+    "Loch Modan",
+    "Desolace",
+    "Silverpine Forest",
+    "Darkshore"
+   ],
+   "dungeons": [
+    "Blackfathom Deeps",
+    "Wailing Caverns"
+   ]
+  },
+  {
+   "id": 3820,
+   "name": "Stranglekelp",
+   "level": 20,
+   "skill": 85,
+   "nodes": [
+    "Stranglekelp"
+   ],
+   "spawns": 544,
+   "zones": [
+    "Stranglethorn Vale",
+    "Ashenvale",
+    "Wetlands",
+    "Darkshore",
+    "Hillsbrad Foothills",
+    "The Barrens",
+    "Westfall",
+    "Feralas",
+    "Desolace"
+   ],
+   "dungeons": [
+    "Blackfathom Deeps",
+    "Maraudon"
+   ]
+  },
+  {
+   "id": 3355,
+   "name": "Wild Steelbloom",
+   "level": 22,
+   "skill": 115,
+   "nodes": [
+    "Wild Steelbloom"
+   ],
+   "spawns": 527,
+   "zones": [
+    "Arathi Highlands",
+    "Stonetalon Mountains",
+    "Stranglethorn Vale",
+    "Wetlands",
+    "Thousand Needles",
+    "The Barrens",
+    "Ashenvale",
+    "Badlands",
+    "Alterac Mountains",
+    "Hillsbrad Foothills"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 3369,
+   "name": "Grave Moss",
+   "level": 24,
+   "skill": 120,
+   "nodes": [
+    "Grave Moss"
+   ],
+   "spawns": 104,
+   "zones": [
+    "Duskwood",
+    "Desolace",
+    "Wetlands",
+    "Arathi Highlands",
+    "Alterac Mountains"
+   ],
+   "dungeons": [
+    "Razorfen Downs"
+   ]
+  },
+  {
+   "id": 3356,
+   "name": "Kingsblood",
+   "level": 24,
+   "skill": 125,
+   "nodes": [
+    "Kingsblood"
+   ],
+   "spawns": 387,
+   "zones": [
+    "Stranglethorn Vale",
+    "Wetlands",
+    "Ashenvale",
+    "Hillsbrad Foothills",
+    "The Barrens",
+    "Duskwood",
+    "Arathi Highlands",
+    "Stonetalon Mountains",
+    "Badlands",
+    "Desolace",
+    "Thousand Needles",
+    "Alterac Mountains"
+   ],
+   "dungeons": [
+    "Wailing Caverns"
+   ]
+  },
+  {
+   "id": 3357,
+   "name": "Liferoot",
+   "level": 30,
+   "skill": 150,
+   "nodes": [
+    "Liferoot"
+   ],
+   "spawns": 371,
+   "zones": [
+    "Stranglethorn Vale",
+    "Wetlands",
+    "Arathi Highlands",
+    "Alterac Mountains",
+    "Feralas",
+    "Dustwallow Marsh",
+    "Hillsbrad Foothills",
+    "Swamp of Sorrows",
+    "Desolace",
+    "The Hinterlands",
+    "Ashenvale"
+   ],
+   "dungeons": [
+    "Scarlet Monastery",
+    "Wailing Caverns"
+   ]
+  },
+  {
+   "id": 3818,
+   "name": "Fadeleaf",
+   "level": 32,
+   "skill": 160,
+   "nodes": [
+    "Fadeleaf"
+   ],
+   "spawns": 261,
+   "zones": [
+    "Arathi Highlands",
+    "Swamp of Sorrows",
+    "Alterac Mountains",
+    "Stranglethorn Vale",
+    "The Hinterlands",
+    "Badlands",
+    "Dustwallow Marsh"
+   ],
+   "dungeons": [
+    "Razorfen Kraul",
+    "Scarlet Monastery"
+   ]
+  },
+  {
+   "id": 3821,
+   "name": "Goldthorn",
+   "level": 34,
+   "skill": 170,
+   "nodes": [
+    "Goldthorn"
+   ],
+   "spawns": 684,
+   "zones": [
+    "Stranglethorn Vale",
+    "Arathi Highlands",
+    "Swamp of Sorrows",
+    "Alterac Mountains",
+    "The Hinterlands",
+    "Feralas",
+    "Badlands"
+   ],
+   "dungeons": [
+    "Razorfen Downs",
+    "Scarlet Monastery"
+   ]
+  },
+  {
+   "id": 3358,
+   "name": "Khadgar's Whisker",
+   "level": 37,
+   "skill": 185,
+   "nodes": [
+    "Khadgar's Whisker"
+   ],
+   "spawns": 488,
+   "zones": [
+    "Stranglethorn Vale",
+    "Arathi Highlands",
+    "Swamp of Sorrows",
+    "Alterac Mountains",
+    "Feralas",
+    "The Hinterlands",
+    "Badlands",
+    "Dustwallow Marsh"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 3819,
+   "name": "Wintersbite",
+   "level": 39,
+   "skill": 195,
+   "nodes": [
+    "Wintersbite"
+   ],
+   "spawns": 34,
+   "zones": [
+    "Alterac Mountains"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 8153,
+   "name": "Wildvine",
+   "level": 40,
+   "skill": 210,
+   "nodes": [
+    "Purple Lotus"
+   ],
+   "spawns": 298,
+   "zones": [
+    "Azshara",
+    "The Hinterlands",
+    "Tanaris",
+    "Feralas",
+    "Stranglethorn Vale",
+    "Ashenvale"
+   ],
+   "dungeons": [],
+   "inside": true
+  },
+  {
+   "id": 4625,
+   "name": "Firebloom",
+   "level": 41,
+   "skill": 205,
+   "nodes": [
+    "Firebloom"
+   ],
+   "spawns": 155,
+   "zones": [
+    "Tanaris",
+    "Searing Gorge",
+    "Badlands"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 8831,
+   "name": "Purple Lotus",
+   "level": 42,
+   "skill": 210,
+   "nodes": [
+    "Purple Lotus"
+   ],
+   "spawns": 298,
+   "zones": [
+    "Azshara",
+    "The Hinterlands",
+    "Tanaris",
+    "Feralas",
+    "Stranglethorn Vale",
+    "Ashenvale"
+   ],
+   "dungeons": [
+    "Zul'Gurub"
+   ]
+  },
+  {
+   "id": 8836,
+   "name": "Arthas' Tears",
+   "level": 44,
+   "skill": 220,
+   "nodes": [
+    "Arthas' Tears"
+   ],
+   "spawns": 129,
+   "zones": [
+    "Western Plaguelands",
+    "Eastern Plaguelands",
+    "Felwood"
+   ],
+   "dungeons": [
+    "Razorfen Downs"
+   ]
+  },
+  {
+   "id": 8838,
+   "name": "Sungrass",
+   "level": 46,
+   "skill": 230,
+   "nodes": [
+    "Sungrass"
+   ],
+   "spawns": 371,
+   "zones": [
+    "Azshara",
+    "The Hinterlands",
+    "Feralas",
+    "Eastern Plaguelands",
+    "Un'Goro Crater",
+    "Burning Steppes",
+    "Western Plaguelands",
+    "Felwood"
+   ],
+   "dungeons": [
+    "Zul'Gurub"
+   ]
+  },
+  {
+   "id": 8839,
+   "name": "Blindweed",
+   "level": 47,
+   "skill": 235,
+   "nodes": [
+    "Blindweed"
+   ],
+   "spawns": 177,
+   "zones": [
+    "Swamp of Sorrows",
+    "Un'Goro Crater"
+   ],
+   "dungeons": [
+    "Maraudon"
+   ]
+  },
+  {
+   "id": 8845,
+   "name": "Ghost Mushroom",
+   "level": 47,
+   "skill": 245,
+   "nodes": [
+    "Ghost Mushroom"
+   ],
+   "spawns": 35,
+   "zones": [
+    "The Hinterlands",
+    "Desolace"
+   ],
+   "dungeons": [
+    "Dire Maul",
+    "Maraudon"
+   ]
+  },
+  {
+   "id": 8846,
+   "name": "Gromsblood",
+   "level": 50,
+   "skill": 250,
+   "nodes": [
+    "Gromsblood"
+   ],
+   "spawns": 78,
+   "zones": [
+    "Felwood",
+    "Desolace"
+   ],
+   "dungeons": [
+    "Dire Maul"
+   ]
+  },
+  {
+   "id": 13464,
+   "name": "Golden Sansam",
+   "level": 52,
+   "skill": 260,
+   "nodes": [
+    "Golden Sansam"
+   ],
+   "spawns": 362,
+   "zones": [
+    "Un'Goro Crater",
+    "Azshara",
+    "Eastern Plaguelands",
+    "Felwood",
+    "The Hinterlands",
+    "Burning Steppes",
+    "Feralas"
+   ],
+   "dungeons": [
+    "Zul'Gurub"
+   ]
+  },
+  {
+   "id": 13463,
+   "name": "Dreamfoil",
+   "level": 54,
+   "skill": 270,
+   "nodes": [
+    "Dreamfoil"
+   ],
+   "spawns": 499,
+   "zones": [
+    "Azshara",
+    "Eastern Plaguelands",
+    "Un'Goro Crater",
+    "Burning Steppes",
+    "Felwood",
+    "Western Plaguelands",
+    "Silithus"
+   ],
+   "dungeons": [
+    "Dire Maul",
+    "Zul'Gurub"
+   ]
+  },
+  {
+   "id": 13465,
+   "name": "Mountain Silversage",
+   "level": 56,
+   "skill": 280,
+   "nodes": [
+    "Mountain Silversage"
+   ],
+   "spawns": 285,
+   "zones": [
+    "Winterspring",
+    "Un'Goro Crater",
+    "Azshara",
+    "Burning Steppes",
+    "Eastern Plaguelands"
+   ],
+   "dungeons": [
+    "Zul'Gurub"
+   ]
+  },
+  {
+   "id": 13466,
+   "name": "Plaguebloom",
+   "level": 57,
+   "skill": 285,
+   "nodes": [
+    "Plaguebloom"
+   ],
+   "spawns": 191,
+   "zones": [
+    "Eastern Plaguelands",
+    "Western Plaguelands"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 13467,
+   "name": "Icecap",
+   "level": 58,
+   "skill": 290,
+   "nodes": [
+    "Icecap"
+   ],
+   "spawns": 182,
+   "zones": [
+    "Winterspring"
+   ],
+   "dungeons": []
+  },
+  {
+   "id": 13468,
+   "name": "Black Lotus",
+   "level": 60,
+   "skill": 300,
+   "nodes": [
+    "Black Lotus"
+   ],
+   "spawns": 94,
+   "zones": [
+    "Burning Steppes",
+    "Winterspring",
+    "Eastern Plaguelands",
+    "Silithus"
+   ],
+   "dungeons": []
+  }
+ ],
+ "fish": [
+  {
+   "id": 6718,
+   "name": "Electropeller",
+   "level": 1,
+   "kind": "quest",
+   "zones": [
+    "Darkshore"
+   ],
+   "subzones": [
+    "Cliffspring Falls",
+    "Cliffspring River",
+    "Grove of the Ancients",
+    "Ruins of Mathystra",
+    "Twilight Vale",
+    "Wildbend River"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 6717,
+   "name": "Gaffer Jack",
+   "level": 1,
+   "kind": "quest",
+   "zones": [
+    "Darkshore"
+   ],
+   "subzones": [],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 16970,
+   "name": "Misty Reed Mahi Mahi",
+   "level": 1,
+   "kind": "quest",
+   "zones": [
+    "Swamp of Sorrows"
+   ],
+   "subzones": [
+    "Misty Reed Strand"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 16968,
+   "name": "Sar'theris Striker",
+   "level": 1,
+   "kind": "quest",
+   "zones": [
+    "Desolace"
+   ],
+   "subzones": [
+    "Sar'theris Strand"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 16969,
+   "name": "Savage Coast Blue Sailfin",
+   "level": 1,
+   "kind": "quest",
+   "zones": [
+    "Stranglethorn Vale"
+   ],
+   "subzones": [
+    "Southern Savage Coast",
+    "The Savage Coast"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 1467,
+   "name": "Spotted Sunfish",
+   "level": 1,
+   "kind": "quest",
+   "zones": [
+    "Redridge Mountains"
+   ],
+   "subzones": [],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 6291,
+   "name": "Raw Brilliant Smallfish",
+   "level": 5,
+   "kind": "food",
+   "zones": [
+    "Darkshore",
+    "Darnassus",
+    "Dun Morogh",
+    "Durotar",
+    "Elwynn Forest",
+    "Ironforge",
+    "Mulgore",
+    "Orgrimmar",
+    "Stonetalon Mountains",
+    "Stormwind City",
+    "Teldrassil",
+    "The Barrens",
+    "Thunder Bluff",
+    "Undercity",
+    "Westfall"
+   ],
+   "subzones": [
+    "Blackthorn Ridge",
+    "Blackwolf River",
+    "Cliffspring Falls",
+    "Cliffspring River",
+    "Cragpool Lake",
+    "Dreadmist Peak",
+    "Grove of the Ancients",
+    "Lushwater Oasis",
+    "Ruins of Mathystra",
+    "Sen'jin Village",
+    "Southern Barrens",
+    "Southfury River",
+    "The Forgotten Pools",
+    "The Sludge Fen",
+    "The Stagnant Oasis",
+    "Tor'kren Farm",
+    "Twilight Vale",
+    "Wildbend River"
+   ],
+   "dungeons": [
+    "The Deadmines",
+    "Wailing Caverns"
+   ],
+   "schools": []
+  },
+  {
+   "id": 6303,
+   "name": "Raw Slitherskin Mackerel",
+   "level": 5,
+   "kind": "food",
+   "zones": [
+    "Darkshore",
+    "Durotar",
+    "Silverpine Forest",
+    "Teldrassil",
+    "The Barrens",
+    "Tirisfal Glades",
+    "Westfall"
+   ],
+   "subzones": [
+    "Longshore",
+    "North Tide's Run",
+    "Rut'theran Village",
+    "South Tide's Run",
+    "The Great Sea",
+    "The North Coast",
+    "The Skittering Dark",
+    "Westfall Lighthouse",
+    "Whispering Shore"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 12238,
+   "name": "Darkshore Grouper",
+   "level": 15,
+   "kind": "food",
+   "zones": [
+    "Darkshore"
+   ],
+   "subzones": [
+    "Cliffspring Falls",
+    "Cliffspring River",
+    "Grove of the Ancients",
+    "Ruins of Mathystra",
+    "Twilight Vale",
+    "Wildbend River"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 6522,
+   "name": "Deviate Fish",
+   "level": 15,
+   "kind": "special",
+   "zones": [
+    "The Barrens"
+   ],
+   "subzones": [
+    "Lushwater Oasis",
+    "The Forgotten Pools",
+    "The Stagnant Oasis"
+   ],
+   "dungeons": [
+    "Wailing Caverns"
+   ],
+   "schools": [
+    "School of Deviate Fish"
+   ]
+  },
+  {
+   "id": 6358,
+   "name": "Oily Blackmouth",
+   "level": 15,
+   "kind": "reagent",
+   "zones": [
+    "Arathi Highlands",
+    "Ashenvale",
+    "Azshara",
+    "Darkshore",
+    "Desolace",
+    "Dustwallow Marsh",
+    "Felwood",
+    "Hillsbrad Foothills",
+    "Moonglade",
+    "Silverpine Forest",
+    "Stranglethorn Vale",
+    "Swamp of Sorrows",
+    "The Barrens",
+    "The Hinterlands",
+    "Un'Goro Crater",
+    "Western Plaguelands",
+    "Westfall",
+    "Wetlands"
+   ],
+   "subzones": [
+    "Alcaz Island",
+    "Baradin Bay",
+    "Bloodsail Compound",
+    "Booty Bay",
+    "Deepwater Tavern",
+    "Dreadmurk Shore",
+    "Dustwallow Bay",
+    "Eastern Strand",
+    "Ethel Rethor",
+    "Faldir's Cove",
+    "Grom'gol Base Camp",
+    "Longshore",
+    "Menethil Bay",
+    "Menethil Harbor",
+    "North Tide's Run",
+    "Ranazjar Isle",
+    "Ruins of Aboraz",
+    "Shadowprey Village",
+    "South Tide's Run",
+    "Southshore",
+    "Stagalbog",
+    "The Cape of Stranglethorn",
+    "The Crystal Shore",
+    "The Drowned Reef",
+    "The Forbidding Sea",
+    "The Great Sea",
+    "The Lost Fleet",
+    "The Skittering Dark",
+    "The Veiled Sea",
+    "The Vile Reef",
+    "The Zoram Strand",
+    "Theramore Isle",
+    "Tidefury Cove",
+    "Western Strand",
+    "Westfall Lighthouse",
+    "Wild Shore",
+    "Yojamba Isle",
+    "Zuuldaia Ruins"
+   ],
+   "dungeons": [
+    "Maraudon"
+   ],
+   "schools": [
+    "Oily Blackmouth School",
+    "School of Tastyfish"
+   ]
+  },
+  {
+   "id": 6317,
+   "name": "Raw Loch Frenzy",
+   "level": 15,
+   "kind": "food",
+   "zones": [
+    "Loch Modan"
+   ],
+   "subzones": [],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 6289,
+   "name": "Raw Longjaw Mud Snapper",
+   "level": 15,
+   "kind": "food",
+   "zones": [
+    "Ashenvale",
+    "Darkshore",
+    "Darnassus",
+    "Dun Morogh",
+    "Durotar",
+    "Duskwood",
+    "Elwynn Forest",
+    "Hillsbrad Foothills",
+    "Ironforge",
+    "Mulgore",
+    "Orgrimmar",
+    "Redridge Mountains",
+    "Silverpine Forest",
+    "Stonetalon Mountains",
+    "Stormwind City",
+    "Teldrassil",
+    "The Barrens",
+    "Thunder Bluff",
+    "Tirisfal Glades",
+    "Undercity",
+    "Westfall",
+    "Wetlands"
+   ],
+   "subzones": [
+    "Blackthorn Ridge",
+    "Blackwolf River",
+    "Cliffspring Falls",
+    "Cliffspring River",
+    "Cragpool Lake",
+    "Dreadmist Peak",
+    "Grove of the Ancients",
+    "Lushwater Oasis",
+    "Ruins of Mathystra",
+    "Sen'jin Village",
+    "Southern Barrens",
+    "Southfury River",
+    "The Forgotten Pools",
+    "The Sludge Fen",
+    "The Stagnant Oasis",
+    "Tor'kren Farm",
+    "Twilight Vale",
+    "Wildbend River"
+   ],
+   "dungeons": [
+    "Blackfathom Deeps",
+    "The Deadmines",
+    "Wailing Caverns"
+   ],
+   "schools": []
+  },
+  {
+   "id": 6361,
+   "name": "Raw Rainbow Fin Albacore",
+   "level": 15,
+   "kind": "food",
+   "zones": [
+    "Ashenvale",
+    "Darkshore",
+    "Hillsbrad Foothills",
+    "Silverpine Forest",
+    "The Barrens",
+    "Westfall",
+    "Wetlands"
+   ],
+   "subzones": [
+    "Baradin Bay",
+    "Deepwater Tavern",
+    "Eastern Strand",
+    "Longshore",
+    "Menethil Bay",
+    "Menethil Harbor",
+    "North Tide's Run",
+    "South Tide's Run",
+    "Southshore",
+    "The Great Sea",
+    "The Lost Fleet",
+    "The Skittering Dark",
+    "The Zoram Strand",
+    "Western Strand",
+    "Westfall Lighthouse"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 6359,
+   "name": "Firefin Snapper",
+   "level": 25,
+   "kind": "reagent",
+   "zones": [
+    "Arathi Highlands",
+    "Ashenvale",
+    "Azshara",
+    "Desolace",
+    "Dustwallow Marsh",
+    "Hillsbrad Foothills",
+    "Stranglethorn Vale",
+    "Swamp of Sorrows",
+    "Tanaris",
+    "Wetlands"
+   ],
+   "subzones": [
+    "Alcaz Island",
+    "Baradin Bay",
+    "Bloodsail Compound",
+    "Booty Bay",
+    "Deepwater Tavern",
+    "Dreadmurk Shore",
+    "Dustwallow Bay",
+    "Eastern Strand",
+    "Ethel Rethor",
+    "Faldir's Cove",
+    "Grom'gol Base Camp",
+    "Jagged Reef",
+    "Menethil Bay",
+    "Menethil Harbor",
+    "Ranazjar Isle",
+    "Ruins of Aboraz",
+    "Shadowprey Village",
+    "Southridge Beach",
+    "Southshore",
+    "Stagalbog",
+    "Temple of Arkkoran",
+    "The Cape of Stranglethorn",
+    "The Crystal Shore",
+    "The Drowned Reef",
+    "The Forbidding Sea",
+    "The Lost Fleet",
+    "The Ruined Reaches",
+    "The Shattered Strand",
+    "The Veiled Sea",
+    "The Vile Reef",
+    "The Zoram Strand",
+    "Theramore Isle",
+    "Tidefury Cove",
+    "Tower of Eldara",
+    "Western Strand",
+    "Wild Shore",
+    "Yojamba Isle",
+    "Zuuldaia Ruins"
+   ],
+   "dungeons": [],
+   "schools": [
+    "Firefin Snapper School",
+    "Oil Spill",
+    "School of Tastyfish"
+   ]
+  },
+  {
+   "id": 6308,
+   "name": "Raw Bristle Whisker Catfish",
+   "level": 25,
+   "kind": "food",
+   "zones": [
+    "Alterac Mountains",
+    "Arathi Highlands",
+    "Ashenvale",
+    "Darkshore",
+    "Darnassus",
+    "Desolace",
+    "Duskwood",
+    "Dustwallow Marsh",
+    "Feralas",
+    "Hillsbrad Foothills",
+    "Ironforge",
+    "Orgrimmar",
+    "Redridge Mountains",
+    "Stonetalon Mountains",
+    "Stormwind City",
+    "Stranglethorn Vale",
+    "Swamp of Sorrows",
+    "The Barrens",
+    "Thousand Needles",
+    "Thunder Bluff",
+    "Undercity",
+    "Westfall",
+    "Wetlands"
+   ],
+   "subzones": [
+    "Blackthorn Ridge",
+    "Blackwolf River",
+    "Cliffspring Falls",
+    "Cliffspring River",
+    "Cragpool Lake",
+    "Dreadmist Peak",
+    "Grove of the Ancients",
+    "Lushwater Oasis",
+    "Ruins of Mathystra",
+    "Southern Barrens",
+    "Southfury River",
+    "The Forgotten Pools",
+    "The Sludge Fen",
+    "The Stagnant Oasis",
+    "Twilight Vale",
+    "Wildbend River"
+   ],
+   "dungeons": [
+    "Scarlet Monastery",
+    "The Deadmines",
+    "Wailing Caverns"
+   ],
+   "schools": []
+  },
+  {
+   "id": 8365,
+   "name": "Raw Mithril Head Trout",
+   "level": 35,
+   "kind": "food",
+   "zones": [
+    "Alterac Mountains",
+    "Arathi Highlands",
+    "Azshara",
+    "Desolace",
+    "Dustwallow Marsh",
+    "Felwood",
+    "Feralas",
+    "Moonglade",
+    "Stranglethorn Vale",
+    "Swamp of Sorrows",
+    "The Hinterlands",
+    "Thousand Needles",
+    "Un'Goro Crater",
+    "Western Plaguelands"
+   ],
+   "subzones": [],
+   "dungeons": [
+    "Maraudon",
+    "Scarlet Monastery"
+   ],
+   "schools": []
+  },
+  {
+   "id": 6362,
+   "name": "Raw Rockscale Cod",
+   "level": 35,
+   "kind": "food",
+   "zones": [
+    "Arathi Highlands",
+    "Azshara",
+    "Desolace",
+    "Dustwallow Marsh",
+    "Stranglethorn Vale",
+    "Swamp of Sorrows",
+    "Tanaris"
+   ],
+   "subzones": [
+    "Alcaz Island",
+    "Bloodsail Compound",
+    "Booty Bay",
+    "Dreadmurk Shore",
+    "Dustwallow Bay",
+    "Ethel Rethor",
+    "Faldir's Cove",
+    "Grom'gol Base Camp",
+    "Jagged Reef",
+    "Ranazjar Isle",
+    "Ruins of Aboraz",
+    "Shadowprey Village",
+    "Southridge Beach",
+    "Stagalbog",
+    "Temple of Arkkoran",
+    "The Cape of Stranglethorn",
+    "The Crystal Shore",
+    "The Drowned Reef",
+    "The Forbidding Sea",
+    "The Ruined Reaches",
+    "The Shattered Strand",
+    "The Veiled Sea",
+    "The Vile Reef",
+    "Theramore Isle",
+    "Tidefury Cove",
+    "Tower of Eldara",
+    "Wild Shore",
+    "Yojamba Isle",
+    "Zuuldaia Ruins"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 16967,
+   "name": "Feralas Ahi",
+   "level": 40,
+   "kind": "quest",
+   "zones": [
+    "Feralas"
+   ],
+   "subzones": [
+    "Verdantis River"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 13757,
+   "name": "Lightning Eel",
+   "level": 45,
+   "kind": "reagent",
+   "zones": [
+    "Azshara",
+    "Burning Steppes",
+    "Deadwind Pass",
+    "Eastern Plaguelands",
+    "Felwood",
+    "Feralas",
+    "Moonglade",
+    "Silithus",
+    "The Hinterlands",
+    "Un'Goro Crater",
+    "Western Plaguelands",
+    "Winterspring"
+   ],
+   "subzones": [
+    "Jademir Lake"
+   ],
+   "dungeons": [
+    "Maraudon",
+    "Scholomance",
+    "Stratholme",
+    "Zul'Gurub"
+   ],
+   "schools": []
+  },
+  {
+   "id": 13754,
+   "name": "Raw Glossy Mightfish",
+   "level": 45,
+   "kind": "food",
+   "zones": [
+    "Azshara",
+    "Tanaris"
+   ],
+   "subzones": [
+    "Jagged Reef",
+    "Southridge Beach",
+    "Temple of Arkkoran",
+    "The Ruined Reaches",
+    "The Shattered Strand",
+    "Tower of Eldara"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 13759,
+   "name": "Raw Nightfin Snapper",
+   "level": 45,
+   "kind": "food",
+   "zones": [
+    "Azshara",
+    "Burning Steppes",
+    "Eastern Plaguelands",
+    "Felwood",
+    "Feralas",
+    "Moonglade",
+    "Silithus",
+    "The Hinterlands",
+    "Un'Goro Crater",
+    "Western Plaguelands",
+    "Winterspring"
+   ],
+   "subzones": [
+    "Jademir Lake"
+   ],
+   "dungeons": [
+    "Maraudon",
+    "Scholomance",
+    "Stratholme",
+    "Zul'Gurub"
+   ],
+   "schools": []
+  },
+  {
+   "id": 13758,
+   "name": "Raw Redgill",
+   "level": 45,
+   "kind": "food",
+   "zones": [
+    "Azshara",
+    "Burning Steppes",
+    "Eastern Plaguelands",
+    "Felwood",
+    "Feralas",
+    "Moonglade",
+    "Silithus",
+    "The Hinterlands",
+    "Un'Goro Crater",
+    "Western Plaguelands",
+    "Winterspring"
+   ],
+   "subzones": [
+    "Jademir Lake"
+   ],
+   "dungeons": [
+    "Maraudon",
+    "Scholomance",
+    "Stratholme",
+    "Zul'Gurub"
+   ],
+   "schools": []
+  },
+  {
+   "id": 4603,
+   "name": "Raw Spotted Yellowtail",
+   "level": 45,
+   "kind": "food",
+   "zones": [
+    "Arathi Highlands",
+    "Azshara",
+    "Desolace",
+    "Dustwallow Marsh",
+    "Stranglethorn Vale",
+    "Swamp of Sorrows",
+    "Tanaris"
+   ],
+   "subzones": [
+    "Alcaz Island",
+    "Bay of Storms",
+    "Bloodsail Compound",
+    "Booty Bay",
+    "Dreadmurk Shore",
+    "Dustwallow Bay",
+    "Ethel Rethor",
+    "Faldir's Cove",
+    "Grom'gol Base Camp",
+    "Hetaera's Clutch",
+    "Jagged Reef",
+    "Ranazjar Isle",
+    "Ruins of Aboraz",
+    "Scalebeard's Cave",
+    "Shadowprey Village",
+    "Southridge Beach",
+    "Stagalbog",
+    "Temple of Arkkoran",
+    "The Cape of Stranglethorn",
+    "The Crystal Shore",
+    "The Drowned Reef",
+    "The Forbidding Sea",
+    "The Ruined Reaches",
+    "The Shattered Strand",
+    "The Veiled Sea",
+    "The Vile Reef",
+    "Theramore Isle",
+    "Tidefury Cove",
+    "Tower of Eldara",
+    "Wild Shore",
+    "Yojamba Isle",
+    "Zuuldaia Ruins"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 13756,
+   "name": "Raw Summer Bass",
+   "level": 45,
+   "kind": "food",
+   "zones": [
+    "Azshara",
+    "Feralas",
+    "Stranglethorn Vale",
+    "Tanaris",
+    "The Hinterlands"
+   ],
+   "subzones": [
+    "Bay of Storms",
+    "Feathermoon Stronghold",
+    "Hetaera's Clutch",
+    "Isle of Dread",
+    "Jagged Reef",
+    "Jaguero Isle",
+    "Revantusk Village",
+    "Ruins of Solarsal",
+    "Sardor Isle",
+    "Scalebeard's Cave",
+    "Southridge Beach",
+    "Temple of Arkkoran",
+    "The Forgotten Coast",
+    "The Overlook Cliffs",
+    "The Ruined Reaches",
+    "The Shattered Strand",
+    "Tower of Eldara"
+   ],
+   "dungeons": [],
+   "schools": [],
+   "season": "summer"
+  },
+  {
+   "id": 13760,
+   "name": "Raw Sunscale Salmon",
+   "level": 45,
+   "kind": "food",
+   "zones": [
+    "Azshara",
+    "Burning Steppes",
+    "Eastern Plaguelands",
+    "Felwood",
+    "Feralas",
+    "Moonglade",
+    "Silithus",
+    "The Hinterlands",
+    "Un'Goro Crater",
+    "Western Plaguelands",
+    "Winterspring"
+   ],
+   "subzones": [
+    "Jademir Lake"
+   ],
+   "dungeons": [
+    "Maraudon",
+    "Scholomance",
+    "Stratholme",
+    "Zul'Gurub"
+   ],
+   "schools": []
+  },
+  {
+   "id": 13422,
+   "name": "Stonescale Eel",
+   "level": 45,
+   "kind": "reagent",
+   "zones": [
+    "Azshara",
+    "Tanaris"
+   ],
+   "subzones": [
+    "Bay of Storms",
+    "Hetaera's Clutch",
+    "Jagged Reef",
+    "Scalebeard's Cave",
+    "Southridge Beach",
+    "Temple of Arkkoran",
+    "The Ruined Reaches",
+    "The Shattered Strand",
+    "Tower of Eldara"
+   ],
+   "dungeons": [],
+   "schools": [
+    "School of Tastyfish",
+    "Stonescale Eel Swarm"
+   ]
+  },
+  {
+   "id": 13755,
+   "name": "Winter Squid",
+   "level": 45,
+   "kind": "food",
+   "zones": [
+    "Azshara",
+    "Feralas",
+    "Stranglethorn Vale",
+    "Tanaris",
+    "The Hinterlands"
+   ],
+   "subzones": [
+    "Bay of Storms",
+    "Feathermoon Stronghold",
+    "Hetaera's Clutch",
+    "Isle of Dread",
+    "Jaguero Isle",
+    "Revantusk Village",
+    "Ruins of Solarsal",
+    "Sardor Isle",
+    "Scalebeard's Cave",
+    "The Forgotten Coast",
+    "The Overlook Cliffs"
+   ],
+   "dungeons": [],
+   "schools": [],
+   "season": "winter"
+  },
+  {
+   "id": 13888,
+   "name": "Darkclaw Lobster",
+   "level": 55,
+   "kind": "food",
+   "zones": [
+    "Azshara"
+   ],
+   "subzones": [
+    "Bay of Storms",
+    "Hetaera's Clutch",
+    "Scalebeard's Cave"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 13893,
+   "name": "Large Raw Mightfish",
+   "level": 55,
+   "kind": "food",
+   "zones": [
+    "Azshara"
+   ],
+   "subzones": [
+    "Bay of Storms",
+    "Hetaera's Clutch",
+    "Scalebeard's Cave"
+   ],
+   "dungeons": [],
+   "schools": []
+  },
+  {
+   "id": 13890,
+   "name": "Plated Armorfish",
+   "level": 55,
+   "kind": "reagent",
+   "zones": [
+    "Burning Steppes",
+    "Eastern Plaguelands",
+    "Feralas",
+    "Silithus",
+    "Winterspring"
+   ],
+   "subzones": [
+    "Jademir Lake"
+   ],
+   "dungeons": [
+    "Scholomance",
+    "Stratholme",
+    "Zul'Gurub"
+   ],
+   "schools": []
+  },
+  {
+   "id": 13889,
+   "name": "Raw Whitescale Salmon",
+   "level": 55,
+   "kind": "food",
+   "zones": [
+    "Burning Steppes",
+    "Eastern Plaguelands",
+    "Feralas",
+    "Silithus",
+    "Winterspring"
+   ],
+   "subzones": [
+    "Jademir Lake"
+   ],
+   "dungeons": [
+    "Scholomance",
+    "Stratholme",
+    "Zul'Gurub"
+   ],
+   "schools": []
+  },
+  {
+   "id": 6309,
+   "name": "Catfish",
+   "level": 15,
+   "kind": "record",
+   "zones": [
+    "Alterac Mountains",
+    "Arathi Highlands",
+    "Ashenvale",
+    "Darkshore",
+    "Darnassus",
+    "Desolace",
+    "Duskwood",
+    "Dustwallow Marsh",
+    "Feralas",
+    "Hillsbrad Foothills",
+    "Ironforge",
+    "Orgrimmar",
+    "Redridge Mountains",
+    "Stonetalon Mountains",
+    "Stormwind City",
+    "Stranglethorn Vale",
+    "Swamp of Sorrows",
+    "The Barrens",
+    "Thousand Needles",
+    "Thunder Bluff",
+    "Undercity",
+    "Westfall",
+    "Wetlands"
+   ],
+   "subzones": [
+    "Blackthorn Ridge",
+    "Blackwolf River",
+    "Cliffspring Falls",
+    "Cliffspring River",
+    "Cragpool Lake",
+    "Dreadmist Peak",
+    "Grove of the Ancients",
+    "Lushwater Oasis",
+    "Ruins of Mathystra",
+    "Southern Barrens",
+    "Southfury River",
+    "The Forgotten Pools",
+    "The Sludge Fen",
+    "The Stagnant Oasis",
+    "Twilight Vale",
+    "Wildbend River"
+   ],
+   "dungeons": [
+    "Scarlet Monastery",
+    "The Deadmines",
+    "Wailing Caverns"
+   ],
+   "schools": [],
+   "weights": [
+    {
+     "id": 6309,
+     "pounds": 17
+    },
+    {
+     "id": 6310,
+     "pounds": 19
+    },
+    {
+     "id": 6311,
+     "pounds": 22
+    },
+    {
+     "id": 6363,
+     "pounds": 26
+    },
+    {
+     "id": 6364,
+     "pounds": 32
+    }
+   ]
+  },
+  {
+   "id": 13876,
+   "name": "Grouper",
+   "level": 45,
+   "kind": "record",
+   "zones": [
+    "Azshara",
+    "Tanaris"
+   ],
+   "subzones": [
+    "Jagged Reef",
+    "Southridge Beach",
+    "Temple of Arkkoran",
+    "The Ruined Reaches",
+    "The Shattered Strand",
+    "Tower of Eldara"
+   ],
+   "dungeons": [],
+   "schools": [],
+   "weights": [
+    {
+     "id": 13876,
+     "pounds": 40
+    },
+    {
+     "id": 13877,
+     "pounds": 47
+    },
+    {
+     "id": 13878,
+     "pounds": 53
+    },
+    {
+     "id": 13879,
+     "pounds": 59
+    },
+    {
+     "id": 13880,
+     "pounds": 68
+    }
+   ]
+  },
+  {
+   "id": 13907,
+   "name": "Lobster",
+   "level": 55,
+   "kind": "record",
+   "zones": [
+    "Azshara"
+   ],
+   "subzones": [
+    "Bay of Storms",
+    "Hetaera's Clutch",
+    "Scalebeard's Cave"
+   ],
+   "dungeons": [],
+   "schools": [],
+   "weights": [
+    {
+     "id": 13907,
+     "pounds": 7
+    },
+    {
+     "id": 13908,
+     "pounds": 9
+    },
+    {
+     "id": 13909,
+     "pounds": 12
+    },
+    {
+     "id": 13910,
+     "pounds": 15
+    },
+    {
+     "id": 13911,
+     "pounds": 19
+    },
+    {
+     "id": 13912,
+     "pounds": 21
+    },
+    {
+     "id": 13913,
+     "pounds": 22
+    }
+   ]
+  },
+  {
+   "id": 13914,
+   "name": "Mightfish",
+   "level": 55,
+   "kind": "record",
+   "zones": [
+    "Azshara"
+   ],
+   "subzones": [
+    "Bay of Storms",
+    "Hetaera's Clutch",
+    "Scalebeard's Cave"
+   ],
+   "dungeons": [],
+   "schools": [],
+   "weights": [
+    {
+     "id": 13914,
+     "pounds": 70
+    },
+    {
+     "id": 13915,
+     "pounds": 85
+    },
+    {
+     "id": 13916,
+     "pounds": 92
+    },
+    {
+     "id": 13917,
+     "pounds": 103
+    }
+   ]
+  },
+  {
+   "id": 6292,
+   "name": "Mud Snapper",
+   "level": 15,
+   "kind": "record",
+   "zones": [
+    "Dun Morogh",
+    "Durotar",
+    "Elwynn Forest",
+    "Mulgore",
+    "Teldrassil"
+   ],
+   "subzones": [
+    "Sen'jin Village",
+    "Southfury River",
+    "Tor'kren Farm"
+   ],
+   "dungeons": [],
+   "schools": [],
+   "weights": [
+    {
+     "id": 6292,
+     "pounds": 10
+    },
+    {
+     "id": 6294,
+     "pounds": 12
+    },
+    {
+     "id": 6295,
+     "pounds": 15
+    }
+   ]
+  },
+  {
+   "id": 13885,
+   "name": "Redgill",
+   "level": 45,
+   "kind": "record",
+   "zones": [
+    "Azshara",
+    "Felwood",
+    "Moonglade",
+    "The Hinterlands",
+    "Un'Goro Crater",
+    "Western Plaguelands"
+   ],
+   "subzones": [],
+   "dungeons": [
+    "Maraudon"
+   ],
+   "schools": [],
+   "weights": [
+    {
+     "id": 13885,
+     "pounds": 34
+    },
+    {
+     "id": 13886,
+     "pounds": 37
+    },
+    {
+     "id": 13882,
+     "pounds": 42
+    },
+    {
+     "id": 13883,
+     "pounds": 45
+    },
+    {
+     "id": 13884,
+     "pounds": 49
+    },
+    {
+     "id": 13887,
+     "pounds": 52
+    }
+   ]
+  },
+  {
+   "id": 13901,
+   "name": "Salmon",
+   "level": 55,
+   "kind": "record",
+   "zones": [
+    "Burning Steppes",
+    "Eastern Plaguelands",
+    "Feralas",
+    "Silithus",
+    "Winterspring"
+   ],
+   "subzones": [
+    "Jademir Lake"
+   ],
+   "dungeons": [
+    "Scholomance",
+    "Stratholme",
+    "Zul'Gurub"
+   ],
+   "schools": [],
+   "weights": [
+    {
+     "id": 13901,
+     "pounds": 15
+    },
+    {
+     "id": 13902,
+     "pounds": 18
+    },
+    {
+     "id": 13903,
+     "pounds": 22
+    },
+    {
+     "id": 13904,
+     "pounds": 25
+    },
+    {
+     "id": 13905,
+     "pounds": 29
+    }
+   ]
+  }
+ ]
+}

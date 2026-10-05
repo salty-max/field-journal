@@ -22,6 +22,11 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   zones): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
   the WoWWiki archive's "Rare mobs by zone", original-game section, else the
   rare's spawn points in the zones' map rectangles). Dungeon rares have none.
+- `data/flora.json` (`bun run flora`, `scripts/flora.py`): the herbs and fish
+  of the Plants and Fish tabs (being built, see PLAN.md): herbs with their
+  nodes, Herbalism skill (the client's Lock table) and zones (the nodes'
+  spawns, placed by the Atlas's places of each zone); fish with their zones,
+  subzones, dungeons, schools and seasons, and the weighed catches as kinds.
 - `content/<section>/_section.md`: a creature type (title, type, order);
   `content/<section>/<family>.md`: a family (id, title, order, `match:` rules,
   the naturalist's note). Rules, in priority: ids, people, name (regex, the

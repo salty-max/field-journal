@@ -160,6 +160,84 @@ sources, as the Bestiary's.
 6. The surveyor's notes: sample, zones, review.
 7. Release 0.3.0.
 
+## Fish and Plants (third and fourth)
+
+### Decisions (6 October 2026)
+
+| Question | Decision |
+|---|---|
+| Shape | Two new tabs beside the Bestiary, the Atlas and the Milestones: Fish, and Plants. |
+| Plants | Every herb that reaches the bags counts (gathered, looted, bought, received); the gathered ones are marked. The game tells addons nothing of a node passed or hovered, so nothing is "seen". |
+| Fish | Each catch: zone and subzone, first catch, count, the hour (day or night), from a school or open water. Junk and oddities are not entries; the weighed catches ("32 Pound Catfish") are, one per kind, with the heaviest landed. |
+| Text | A note per species by the League's naturalist (where it grows or bites, its uses, its lore), reviewed against sources like the family notes. |
+| Where found | From the game data (CMaNGOS), shown once the species is found: no spoilers before. |
+| Milestones | Tallies (first catch, first herb, 10, 25, every kind), feats (Black Lotus, a Deviate Fish, a school of each kind...), and by zone or continent (every fish of a continent's waters, every herb of a zone). |
+| Atlas | A zone's page lists what grows and bites there: the found ones named, the rest counted. |
+| Scope | Vanilla first; Forever's new herbs and fish after its launch (4 November), as for the creatures. |
+
+### What a character records (SavedVariablesPerCharacter)
+
+- **Fish**: `fish[itemId] = { first = { at, zone, sub, level }, n, zones =
+  { [zone] = n }, night = n, day = n, school = n }`.
+- **Plants**: `plants[itemId] = { first = { at, zone, sub, level, how }, n,
+  gathered = n, zones = { [zone] = n } }` (how: gathered, looted, other).
+
+### How (game APIs, on both clients)
+
+- **Fish**: `LOOT_READY` / `LOOT_OPENED` with `IsFishingLoot()`; the items
+  from `GetLootSlotLink`; a school when the loot source is a game object
+  (`GetLootSourceInfo`, a GameObject GUID) rather than open water. Day or night
+  from `GetGameTime`.
+- **Plants**: the herb items, by id, from the data; gathered when the loot
+  source is an herb node (a GameObject GUID whose object is an herb in the
+  data, or the Herb Gathering cast just before); else counted when one enters
+  the bags (`CHAT_MSG_LOOT` self, `BAG_UPDATE` counts for bought or received).
+- Forever: the same events; secret values checked as elsewhere.
+
+### Data (scripts/flora.py, pinned CMaNGOS classic-db)
+
+- **Fish**: `fishing_loot_template` by zone and subzone area, through its
+  reference tables (11000 and up), with the seasonal ones (Winter Squid,
+  Summer Bass) and the zone specials (Feralas Ahi, Misty Reed Mahi Mahi,
+  Electropeller...); the items' names, icons and levels from `item_template`.
+  Fish are the cooking-material and fish items those tables yield, junk left
+  out.
+- **Plants**: the herb items (item class Trade Goods, the herb subclass) and
+  the herb nodes (`gameobject_template` gathered with Herbalism) with their
+  spawns per zone (`gameobject`), and the skill each needs.
+- Built into Data_Classic.lua and Data_Forever.lua beside the creatures.
+
+### The book
+
+As the Bestiary: on the left the species found, by kind (Plants: by the
+Herbalism skill they need; Fish: freshwater, sea, special), search, fold; on
+the right a species page: the item's icon in the round frame, the naturalist's
+note, where it grows or bites (zones from the data), and the character's
+record. A count in the header; no spoilers.
+
+### Writing
+
+`flora/*.md` and `fish/*.md` like the family notes: the naturalist's voice,
+true to the original game, plain ASCII; then a review against sources
+(Wowpedia, WoWWiki archive, the in-game texts).
+
+### Steps
+
+Step 1 done (6 October): data/flora.json, 30 herbs (Herbalism skill from the
+client's Lock table, zones from the nodes' spawns, dungeons) and 39 fish
+entries (19 food, 5 reagents, the Deviate Fish, 7 quest fish, 7 weighed kinds;
+zones, subzones, dungeons, schools, the two seasonal ones). The database has
+no hour for Nightfin and Sunscale: the catches record it. No Gromsblood in the
+Blasted Lands in the database (to check with the notes).
+
+1. The data (scripts/flora.py): herbs and fish, their zones; counts checked.
+2. The recording, with the simulation (fishing loot, schools, gathered vs
+   looted herbs, bought ones).
+3. The two tabs.
+4. The Atlas lists and the milestones.
+5. The notes (about 30 herbs, about 35 fish), then their review.
+6. Release, with the pending fix (the achievement shield stand-in).
+
 ## Engineering (from the Codex)
 
 - Content in Markdown (`content/families/<id>.md`: note, front matter with
