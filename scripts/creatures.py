@@ -5,6 +5,9 @@ Bestiary's families. From the CMaNGOS Classic database (a community
 reconstruction of the 1.12 server, not an official Blizzard source), pinned to
 one commit so the output only changes when we choose.
 
+Dungeon and raid bosses come from the database's encounter table (the
+templates rank most of them merely elite).
+
 Kept: creatures that spawn in the world (or bosses, which may be summoned),
 with no vendor/quest/gossip flags, selectable, not critters or totems, not on
 either side (Alliance or Horde: guards, soldiers), and not the database's
@@ -102,6 +105,10 @@ def main():
     aligned = aligned_factions()
     spawn_cols = columns(sql, "creature")
     spawned = {int(r[spawn_cols.index("id")]) for r in rows(sql, "creature")}
+    # Dungeon and raid bosses: the encounters' kill credits (creditType 0). The
+    # templates call most of them merely elite.
+    enc_cols = columns(sql, "instance_encounters")
+    bosses = {int(r[enc_cols.index("creditEntry")]) for r in rows(sql, "instance_encounters") if r[enc_cols.index("creditType")] == "0"}
     cols = columns(sql, "creature_template")
     out = []
     for r in rows(sql, "creature_template"):
@@ -109,6 +116,8 @@ def main():
         cid, ctype, rank = int(d["Entry"]), int(d["CreatureType"]), int(d["Rank"])
         if ctype not in TYPES:
             continue  # critters, totems, untyped
+        if cid in bosses:
+            rank = 3
         if cid not in spawned and rank != 3:
             continue
         if int(d["NpcFlags"]) or int(d["UnitFlags"]) & NOT_SELECTABLE or HELPER.search(d["Name"]):
