@@ -18,10 +18,12 @@ local function addHint(tooltip)
   local journal = ns.journal()
   local rec = journal and journal.creatures[id]
   if not rec then
-    -- Only creatures the journal would keep: those the data knows, and only
+    -- Only creatures the journal would keep: those the data knows or can file,
     -- while they can be fought (as recording itself).
     local canAttack = UnitCanAttack("player", unit)
-    if D.creatures[id] and (ns.secret(canAttack) or canAttack) then
+    local ctype = not D.creatures[id] and UnitCreatureType(unit)
+    local fileable = D.creatures[id] or (ctype and not ns.secret(ctype) and ns.knownType(ctype))
+    if fileable and (ns.secret(canAttack) or canAttack) then
       tooltip:AddLine("Field Journal: not yet recorded", unpack(NEW))
     end
     return

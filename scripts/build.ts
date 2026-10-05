@@ -213,6 +213,10 @@ ${kept
   .map((f) => `    { id = ${q(f.id)}, title = ${q(f.title)}, section = ${q(f.section)}, note = { ${f.note.map(q).join(", ")} } },`)
   .join("\n")}
   },
+  -- creatures the data doesn't know (Forever's new ones): a beast by its
+  -- family (CreatureFamily id = family index), anything else by its type
+  beasts = { ${kept.flatMap((f) => f.rules.flatMap((r) => (r.kind === "beast" ? [`[${r.family}]=${index.get(f.id)}`] : []))).join(", ")} },
+  fallbacks = { ${kept.filter((f) => f.rules.some((r) => r.kind === "fallback")).map((f) => `${f.type}=${index.get(f.id)}`).join(", ")} },
   -- creature id = family index (into families above)
   creatures = {
 ${chunks(sorted.map((c) => `[${c.id}]=${index.get(familyOf.get(c.id)!.id)}`), 12).join("\n")}

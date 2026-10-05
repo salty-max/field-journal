@@ -111,6 +111,10 @@ ns.data = {
     { id = "silithid", title = "Silithid and Qiraji", section = "oddities", note = { "The silithid are the insects of the south, and no insect you have ever swatted: wasps the size of hounds, tunnelers that bring down caves, reavers as big as an ogre. They hollow out the deserts of Silithus, Tanaris and Un'Goro, and their hives push north into Feralas and the Barrens.", "Their masters are the Qiraji, an older and cleverer kind, who rule from Ahn'Qiraj behind the Scarab Wall. A thousand years ago they sent their swarms against the night elves, and were sealed away by the elves and the dragons together.", "The hives are spreading again. Each year the scouts of Kalimdor find new mounds, a little further north." } },
     { id = "oddities", title = "Strange Creatures", section = "oddities", note = { "Some creatures belong to no family this naturalist can name: the beasts of a single lake, monsters of a single dungeon, things grown strange in the Wailing Caverns or Maraudon, and the great powers that a whole tribe worships.", "Many are the only one of their kind. Some are worshipped, some feared, a few merely inexplicable.", "Record what you can. Where I have no family to give them, I can at least give them a page." } },
   },
+  -- creatures the data doesn't know (Forever's new ones): a beast by its
+  -- family (CreatureFamily id = family index), anything else by its type
+  beasts = { [1]=1, [2]=2, [3]=3, [4]=4, [5]=5, [6]=6, [7]=7, [8]=8, [9]=9, [11]=10, [12]=11, [20]=12, [21]=13, [24]=14, [25]=15, [26]=16, [27]=17 },
+  fallbacks = { Beast=33, Dragonkin=40, Demon=42, Elemental=50, Undead=53, Giant=54, Mechanical=55, Humanoid=94, NotSpecified=96 },
   -- creature id = family index (into families above)
   creatures = {
     [3]=51, [6]=56, [30]=3, [36]=55, [38]=61, [40]=56, [43]=3, [48]=51, [60]=56, [61]=61, [69]=1, [79]=56,

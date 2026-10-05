@@ -29,7 +29,7 @@ end
 function strtrim(s) return (s:gsub("^%s+", ""):gsub("%s+$", "")) end
 tinsert = table.insert
 function UnitLevel() return state.level end
-local NAMES = { [1131] = "Winter Wolf", [1133] = "Starving Winter Wolf", [1132] = "Timber", [1123] = "Frostmane Headhunter", [10184] = "Onyxia", [99001] = "Skyborne Galestrider", [99002] = "Kharanos Villager" }
+local NAMES = { [1131] = "Winter Wolf", [1133] = "Starving Winter Wolf", [1132] = "Timber", [1123] = "Frostmane Headhunter", [10184] = "Onyxia", [99001] = "Skyborne Galestrider", [99002] = "Kharanos Villager", [99003] = "Snow Leopard Prowler", [99004] = "Snowy Hare" }
 function UnitName(u)
   if u == "player" then return "Thorin" end
   local id = (u == "target" and state.target) or (u == "mouseover" and state.mouseover)
@@ -174,6 +174,8 @@ local unitInfo = {
   [10184] = { level = 63, type = "Dragonkin", class = "worldboss" },
   [99001] = { level = 5, type = "Beast", family = "Galestrider" },   -- unknown to the data (Forever's)
   [99002] = { level = 5, type = "Humanoid", friendly = true },       -- unknown, not attackable
+  [99003] = { level = 6, type = "Beast", family = "Cat" },           -- unknown, of a known beast family
+  [99004] = { level = 1, type = "Critter" },                         -- unknown critter
   [1124] = { level = 9, type = "Humanoid", friendly = true },        -- known, but friendly now (a scripted foe)
 }
 local function unitId(u) return (u == "target" and state.target) or (u == "mouseover" and state.mouseover) end
@@ -288,9 +290,13 @@ check(rec(1132).trophy and rec(1132).trophy.rank == "r", "slaying a rare (Timber
 check(said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r") and sounds == 1, "… announced in chat, with the trophy sound")
 
 -- Creatures the data doesn't know (Forever's new ones).
+target(99003)
+check(rec(99003) and ns.familyTitle(ns.familyKey(99003)) == "Great Cats", "a creature the data doesn't know is filed by its beast family (a Cat: the great cats)")
+check(said("[Snow Leopard Prowler]|h|r recorded (Great Cats, a new family)."), "… and announced under it")
 target(99001)
-local key = ns.familyKey(99001)
-check(key == "?Beast/Galestrider" and ns.familyTitle(key) == "Unrecorded Beast: Galestrider", "a creature the data doesn't know is filed by what the game says")
+check(ns.familyTitle(ns.familyKey(99001)) == "Other Beasts", "… a beast of a family the book has no page for, with the other beasts")
+target(99004)
+check(not rec(99004), "… and no critter")
 target(99002)
 check(not rec(99002), "… unless it can't be fought (friendly folk)")
 target(1124)
@@ -304,17 +310,29 @@ check(FieldJournalFrame.count.text == ("%d creatures, %d families, %d slain"):fo
 local function shown(text)
   for _, r in ipairs(ns.listRows) do if r.shown and r.text.text == text then return r end end
 end
-check(shown("Wolves") and shown("Beasts") and shown("Trophies") and shown("Unrecorded Beast: Galestrider"), "the list shows the families met, under their type, the trophies, and the unrecorded")
+check(shown("Wolves") and shown("Beasts") and shown("Trophies") and shown("Other Beasts"), "the list shows the families met, under their type, and the trophies")
+check(not shown("Unrecorded"), "… and nothing left unrecorded")
 check(not shown("Spiders"), "… and no family not yet met")
-shown("Wolves").scripts.OnClick(shown("Wolves"))
+ns.openFamily(D.creatures[1131])
 local wolves = {}
 for _, e in ipairs(ns.pageEntries) do if e.shown then wolves[e.id] = e end end
 check(wolves[1131] and wolves[1133] and wolves[1132], "a family's page has an entry per creature met")
-check(wolves[1131].name.text == "Winter Wolf" and wolves[1131].facts.text:find("Level 7", 1, true) and wolves[1131].facts.text:find("Slain:", 1, true), "… with its name and its record")
+check(wolves[1131].name.text == "Winter Wolf" and wolves[1131].facts.text:find("Level 7", 1, true) and wolves[1131].facts.text:find("slain", 1, true), "… with its name and a line of its record")
 check(wolves[1131].model.shown and not wolves[1131].unknown.shown and D.models[1131], "… and its portrait, from its display id")
+check(shown("Winter Wolf") and shown("Starving Winter Wolf"), "an open family lists its creatures under it")
+shown("Winter Wolf").scripts.OnClick(shown("Winter Wolf"))
+check(FieldJournalPage.title.text == "Winter Wolf" and FieldJournalPage.portrait.shown and FieldJournalPage.body.text:find("First met", 1, true)
+  and FieldJournalPage.body.text:find("Loot:", 1, true), "a creature has its own page: portrait, when and where it was met, kills, loot")
+check(not ns.pageEntries[1].shown, "… without the family's entries")
+shown("Wolves").scripts.OnClick(shown("Wolves"))
+check(FieldJournalPage.title.text == "Wolves" and shown("Winter Wolf"), "the family's row opens its page again")
+shown("Wolves").scripts.OnClick(shown("Wolves"))
+check(not shown("Winter Wolf"), "… and, once open, folds it")
+wolves[1132].scripts.OnClick(wolves[1132])
+check(FieldJournalPage.title.text:find("^Timber"), "an entry on a family's page opens the creature's")
 FieldJournalSearch:SetText("timber")
 ns.refresh()
-check(shown("Wolves") and not shown("Ice Trolls"), "search finds a family by a creature's name")
+check(shown("Wolves") and not shown("Ice Trolls") and not shown("Winter Wolf"), "search finds a family by a creature's name, with just the creatures found")
 FieldJournalSearch:SetText("")
 ns.refresh()
 shown("Beasts").scripts.OnClick(shown("Beasts"))
@@ -323,7 +341,7 @@ shown("Beasts").scripts.OnClick(shown("Beasts"))
 check(shown("Wolves"), "… and unfolds it")
 FieldJournalFrame:Hide()
 linkHandlers.fieldjournal("fieldjournal:c1132")
-check(FieldJournalFrame.shown, "a link in chat opens the book at the creature's family")
+check(FieldJournalFrame.shown and FieldJournalPage.title.text:find("^Timber"), "a link in chat opens the book at the creature's page")
 
 -- Tooltip hints.
 local function hover(id)

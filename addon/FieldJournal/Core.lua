@@ -42,13 +42,52 @@ local function creatureId(guid)
 end
 ns.creatureId = creatureId
 
--- The family a creature belongs to: Data.lua's index, else a key made from
--- what the game says (for creatures the data doesn't know: Forever's new ones).
+-- Creatures the data doesn't know (Forever's new ones) are filed by what the
+-- game says of them: a beast by its family (Cat: the great cats), anything
+-- else in its type's catch-all page. The game's names are localized: they are
+-- matched through its own lookups, with the English names as a fallback.
+local TYPES = { Beast = 1, Dragonkin = 2, Demon = 3, Elemental = 4, Giant = 5, Undead = 6, Humanoid = 7, Mechanical = 9, NotSpecified = 10 }
+local TYPE_NAMES = { NotSpecified = "Not specified" }
+local BEAST_NAMES = {
+  [1] = "Wolf", [2] = "Cat", [3] = "Spider", [4] = "Bear", [5] = "Boar", [6] = "Crocolisk", [7] = "Carrion Bird",
+  [8] = "Crab", [9] = "Gorilla", [11] = "Raptor", [12] = "Tallstrider", [20] = "Scorpid", [21] = "Turtle",
+  [24] = "Bat", [25] = "Hyena", [26] = "Owl", [27] = "Wind Serpent",
+}
+local byBeast, byType
+local function lookups()
+  if byBeast then return end
+  byBeast, byType = {}, {}
+  local info = C_CreatureInfo or {}
+  for familyId, index in pairs(D.beasts or {}) do
+    if BEAST_NAMES[familyId] then byBeast[BEAST_NAMES[familyId]] = index end
+    local f = info.GetCreatureFamilyInfo and info.GetCreatureFamilyInfo(familyId)
+    if f and f.name then byBeast[f.name] = index end
+  end
+  for typeName, index in pairs(D.fallbacks or {}) do
+    byType[TYPE_NAMES[typeName] or typeName] = index
+    local t = TYPES[typeName] and info.GetCreatureTypeInfo and info.GetCreatureTypeInfo(TYPES[typeName])
+    if t and t.name then byType[t.name] = index end
+  end
+end
+
+-- The family a creature belongs to: Data.lua's index, else by what the game
+-- said of it when met; a "?type/family" key if even that fails.
 function ns.familyKey(id, rec)
   local index = D.creatures[id]
   if index then return index end
   rec = rec or (char and char.creatures[id])
-  if rec and rec.type then return "?" .. rec.type .. (rec.family and ("/" .. rec.family) or "") end
+  if not (rec and rec.type) then return end
+  lookups()
+  index = (rec.family and byBeast[rec.family]) or byType[rec.type]
+  if index then return index end
+  return "?" .. rec.type .. (rec.family and ("/" .. rec.family) or "")
+end
+
+-- Can the journal file a creature of this type the data doesn't know?
+-- (Not critters, wild pets, totems...)
+function ns.knownType(ctype)
+  lookups()
+  return ctype ~= nil and byType[ctype] ~= nil
 end
 
 function ns.familyTitle(key)
@@ -104,7 +143,8 @@ local function meet(unit)
     rec = { name = not secret(name) and name or nil }
     if not known then
       local ctype, cfam = UnitCreatureType(unit), UnitCreatureFamily(unit)
-      rec.type = not secret(ctype) and ctype or "?"
+      if secret(ctype) or not ns.knownType(ctype) then return end
+      rec.type = ctype
       rec.family = not secret(cfam) and cfam or nil
     end
     local h = here()
