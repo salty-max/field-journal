@@ -3,7 +3,7 @@
 -- so does a right-click on the minimap button.
 local _, ns = ...
 
-local DEFAULTS = { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true, milestoneToast = true }
+local DEFAULTS = { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true, milestoneToast = true, worldMapPins = true }
 
 -- Sounds for a trophy: all from the original game's interface. -1 is the
 -- sting heard on discovering a new zone, which differs by race.
@@ -28,6 +28,7 @@ function ns.setOption(key, value)
   FieldJournalSettings = FieldJournalSettings or {}
   FieldJournalSettings[key] = value
   if key == "minimapHidden" then ns.updateMinimapButton() end
+  if key == "worldMapPins" and ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
 end
 
 -- The exploration sound kit of each race (Undead's token is Scourge).
@@ -69,6 +70,7 @@ function ns.createSettingsPanel()
   end, "Played when you slay a rare or a boss for the first time.")
 
   checkbox("milestoneToast", "Milestone alerts", "The game's achievement alert when you earn a milestone (the fanfare and the chat line stay).")
+  checkbox("worldMapPins", "Deaths on the world map", "Mark on the game's world map where you died and came close, from the Atlas.")
   checkbox("tooltipHints", "Hints on tooltips", "A line on creature tooltips: not yet in the journal, or how many you have slain.")
 
   checkbox("minimapHidden", "Minimap button", "The book by the minimap: click to open the journal, drag to move it.", true)

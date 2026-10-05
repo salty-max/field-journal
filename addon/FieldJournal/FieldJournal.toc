@@ -15,6 +15,7 @@ Atlas.lua
 Achievements.lua
 Book.lua
 AtlasBook.lua
+WorldMapPins.lua
 Minimap.lua
 Settings.lua
 Hints.lua

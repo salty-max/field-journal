@@ -231,10 +231,22 @@ function TaxiNodeGetType(i) return i == 1 and "CURRENT" or "REACHABLE" end
 function TakeTaxiNode() end
 function GetBindLocation() return "Kharanos" end
 
+-- The game's world map: it takes data providers, as for its own layers.
+local mapProvider
+MapCanvasDataProviderMixin = {}
+function CreateFromMixins(...) local o = {} for _, m in ipairs({ ... }) do for k, v in pairs(m) do o[k] = v end end return o end
+WorldMapFrame = {
+  mapID = 1426,
+  AddDataProvider = function(self, p) p.GetMap = function() return self end; mapProvider = p end,
+  GetMapID = function(self) return self.mapID end,
+}
+local worldCanvas
+WorldMapFrame.GetCanvas = function() return worldCanvas end
+
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
-for _, f in ipairs({ "Core.lua", "Atlas.lua", "Achievements.lua", "Book.lua", "AtlasBook.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
+for _, f in ipairs({ "Core.lua", "Atlas.lua", "Achievements.lua", "Book.lua", "AtlasBook.lua", "WorldMapPins.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
   assert(loadfile(DIR .. f))("FieldJournal", ns)
 end
 local D = ns.data
@@ -371,6 +383,17 @@ fire("PLAYER_DEAD")
 check(atlas.deaths[1] and atlas.deaths[1].by == (FOREVER and "Starving Winter Wolf" or "Winter Wolf"),
   FOREVER and "Forever: a death names the last foe targeted" or "a death names what last hurt you (the combat log)")
 state.health, state.map, state.target = 100, 1426, nil
+worldCanvas = worldCanvas or CreateFrame("Frame")
+WorldMapFrame.mapID = 1411
+ns.refreshWorldMapPins()
+local marks = {}
+for _, p in ipairs(mapProvider and mapProvider.pins or {}) do if p.shown then marks[p.title] = p end end
+check(marks["Died here"] and marks["A close call"], "deaths and close calls are marked on the game's world map, on their zone")
+WorldMapFrame.mapID = 1426
+ns.refreshWorldMapPins()
+local shownPins = 0
+for _, p in ipairs(mapProvider.pins) do if p.shown then shownPins = shownPins + 1 end end
+check(shownPins == 0, "… and only there")
 
 -- ── the book ─────────────────────────────────────────────────────────────────
 SlashCmdList.FIELDJOURNAL("")
