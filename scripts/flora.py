@@ -188,7 +188,7 @@ def main():
         herbs.append({
             "id": int(e), "name": r["name"], "level": int(r["ItemLevel"]),
             "skill": min((herb_skill(int(g["data0"])) for g in (own or nodes)), default=None),
-            "nodes": sorted({g["name"] for g in nodes}), "spawns": total,
+            "nodes": sorted({g["name"] for g in nodes}), "nodeIds": sorted(int(g["entry"]) for g in nodes), "spawns": total,
             "zones": kept, "dungeons": sorted(dungeons),
             **({"inside": True} if not own else {}),  # found in another herb's node
         })
@@ -224,11 +224,12 @@ def main():
         if m:
             records[m.group(2)].append({"id": int(e), "pounds": int(m.group(1))})
 
-    schools = collections.defaultdict(set)
+    schools, school_ids = collections.defaultdict(set), collections.defaultdict(set)
     for g in gos.values():
         if g["type"] == str(FISHING_HOLE):
             for item in expand(goloot.get(g["data1"], [])):
                 schools[item].add(g["name"])
+                school_ids[item].add(int(g["entry"]))
 
     fish = []
     for e in sorted(where, key=lambda e: (int(items[e]["ItemLevel"]), items[e]["name"])):
@@ -248,7 +249,7 @@ def main():
         fish.append({
             "id": int(e), "name": r["name"], "level": int(r["ItemLevel"]), "kind": k,
             "zones": sorted(zones), "subzones": sorted(set(subzones)), "dungeons": sorted(set(dungeons)),
-            "schools": sorted(schools.get(e, [])),
+            "schools": sorted(schools.get(e, [])), "schoolIds": sorted(school_ids.get(e, [])),
             **({"season": season[e]} if e in season else {}),
         })
     for name, weights in sorted(records.items()):
@@ -259,11 +260,12 @@ def main():
             "zones": sorted({z for z in (area_zone(a) for a in areas) if z}),
             "subzones": sorted({area_name(a) for a in areas if top(a) != a and area_name(a)}),
             "dungeons": sorted({area_name(top(a)) for a in areas if not area_zone(a) and area_name(top(a))}),
-            "schools": [], "weights": weights,
+            "schools": [], "schoolIds": [], "weights": weights,
         })
 
+    every_school = sorted(int(g["entry"]) for g in gos.values() if g["type"] == str(FISHING_HOLE))
     with open(OUT, "w") as f:
-        json.dump({"herbs": herbs, "fish": fish}, f, indent=1)
+        json.dump({"herbs": herbs, "fish": fish, "schools": every_school}, f, indent=1)
     print(f"{len(herbs)} herbs, {len(fish)} fish -> data/flora.json")
     for h in herbs:
         print(f"  herb {h['name']:<22} skill {h['skill']!s:>4}  {h['spawns']:>5} spawns  {', '.join(h['zones'][:6])}"

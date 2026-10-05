@@ -5,6 +5,7 @@
 local _, ns = ...
 local D = ns.data
 local PREFIX = "|cffc9a227Field Journal:|r "
+ns.PREFIX = PREFIX
 
 -- Which game: World of Warcraft: Forever (the original world on the modern
 -- client, interface 16xxx) or Classic (Era, TBC Anniversary).

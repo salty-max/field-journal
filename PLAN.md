@@ -230,6 +230,11 @@ zones, subzones, dungeons, schools, the two seasonal ones). The database has
 no hour for Nightfin and Sunscale: the catches record it. No Gromsblood in the
 Blasted Lands in the database (to check with the notes).
 
+Step 2 done (6 October): Flora.lua records catches (where, when, day or night,
+school or open water, a weighed kind's heaviest) and herbs (gathered from a
+node, looted, or found in the bags: bought, rewarded, mailed; those already
+carried at login noted quietly), each new one announced in chat with a link.
+
 1. The data (scripts/flora.py): herbs and fish, their zones; counts checked.
 2. The recording, with the simulation (fishing loot, schools, gathered vs
    looted herbs, bought ones).

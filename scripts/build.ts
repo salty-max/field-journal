@@ -232,6 +232,45 @@ for (const f of readdirSync(join(ROOT, "atlas"))) {
   zoneNotes.set(zone, body.trim().split(/\n\s*\n/).map((p) => p.replace(/\s*\n\s*/g, " ").trim()));
 }
 
+// The herbs and fish (data/flora.json, scripts/flora.py), for the Plants and
+// Fish tabs: zones by name, turned into this game's uiMaps (a name it doesn't
+// have is reported and left out).
+type Herb = { id: number; name: string; skill: number | null; zones: string[]; dungeons: string[]; nodeIds: number[]; inside?: boolean };
+type Fish = { id: number; name: string; kind: string; zones: string[]; subzones: string[]; dungeons: string[]; schoolIds: number[]; season?: string; weights?: { id: number; pounds: number }[] };
+const flora: { herbs: Herb[]; fish: Fish[]; schools: number[] } = JSON.parse(readFileSync(join(ROOT, "data/flora.json"), "utf8"));
+
+function floraLua(client: string) {
+  const { zones } = JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8")) as { zones: Zone[] };
+  const byName = new Map(zones.map((z) => [z.name, z.id]));
+  const ids = (names: string[], who: string) =>
+    names.flatMap((n) => {
+      const id = byName.get(n);
+      if (id === undefined) console.warn(`  ${client}: ${who}: no zone "${n}" in data/zones-${client}.json`);
+      return id === undefined ? [] : [id];
+    });
+  const list = (xs: string[]) => `{ ${xs.map(q).join(", ")} }`;
+  const nodes = new Map<number, number>();
+  for (const h of flora.herbs) for (const n of h.nodeIds) if (!nodes.has(n)) nodes.set(n, h.id);
+  return `  -- the herbs (item id = { name, skill, zones (uiMaps), dungeons, inside: in
+  -- another herb's node }), by the Herbalism skill they need; their nodes (game
+  -- object id = an herb it gives); the fish (item id = { name, kind, zones,
+  -- subzones, dungeons, season }), the weighed catches (item id = { the kind's
+  -- entry, pounds }), and every school (fishing hole object id)
+  flora = {
+    herbs = {
+${flora.herbs.map((h) => `      [${h.id}] = { name = ${q(h.name)}, skill = ${Math.max(1, h.skill ?? 1)}, zones = { ${ids(h.zones, h.name).join(", ")} }, dungeons = ${list(h.dungeons)}${h.inside ? ", inside = true" : ""} },`).join("\n")}
+    },
+    herbOrder = { ${[...flora.herbs].sort((a, b) => (a.skill ?? 1) - (b.skill ?? 1) || a.name.localeCompare(b.name)).map((h) => h.id).join(", ")} },
+    herbNodes = { ${[...nodes].map(([n, h]) => `[${n}]=${h}`).join(", ")} },
+    fish = {
+${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.kind)}, zones = { ${ids(f.zones, f.name).join(", ")} }, subzones = ${list(f.subzones)}, dungeons = ${list(f.dungeons)}${f.season ? `, season = ${q(f.season)}` : ""} },`).join("\n")}
+    },
+    fishOrder = { ${flora.fish.map((f) => f.id).join(", ")} },
+    weights = { ${flora.fish.flatMap((f) => (f.weights ?? []).map((w) => `[${w.id}]={ ${f.id}, ${w.pounds} }`)).join(", ")} },
+    schools = { ${flora.schools.map((s) => `[${s}]=true`).join(", ")} },
+  },`;
+}
+
 function atlasLua(client: string) {
   const { continents, zones } = JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8")) as { continents: Record<string, string>; zones: Zone[] };
   const kept = zones.filter((z) => z.continent || z.places.length);
@@ -290,6 +329,7 @@ ${chunks(sorted.filter((c) => c.levels?.[0]).map((c) => `[${c.id}]=${c.levels[0]
 ${[...zoneRares(sorted)].map(([zone, ids]) => `    [${zone}] = { name = ${q(zoneNames[zone] ?? "?")}, ${ids.join(", ")} },`).join("\n")}
   },
 ${atlasLua(client)}
+${floraLua(client)}
   -- marks: r rare, R rare elite, b boss
   ranks = {
 ${chunks(sorted.filter((c) => RANK[c.rank]).map((c) => `[${c.id}]="${RANK[c.rank]}"`), 12).join("\n")}

@@ -12,6 +12,7 @@
 Data.lua
 Core.lua
 Atlas.lua
+Flora.lua
 Achievements.lua
 Book.lua
 AtlasBook.lua

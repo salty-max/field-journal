@@ -1114,6 +1114,11 @@ local function followLink(link)
   if milestone then return ns.openMilestones(milestone) end
   local zone = tonumber(key:match("^z(%d+)$"))
   if zone then return ns.openZone and ns.openZone(zone) end
+  -- a fish or an herb (Flora.lua's chat lines): their tabs
+  local fish = tonumber(key:match("^f(%d+)$"))
+  if fish then return ns.openFish and ns.openFish(fish) end
+  local plant = tonumber(key:match("^h(%d+)$"))
+  if plant then return ns.openPlant and ns.openPlant(plant) end
   local creature = tonumber(key:match("^c(%d+)$"))
   if creature then
     ns.openCreature(creature)

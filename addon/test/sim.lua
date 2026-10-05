@@ -270,7 +270,7 @@ C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true end }
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
-for _, f in ipairs({ "Core.lua", "Atlas.lua", "Achievements.lua", "Book.lua", "AtlasBook.lua", "WorldMapPins.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
+for _, f in ipairs({ "Core.lua", "Atlas.lua", "Flora.lua", "Achievements.lua", "Book.lua", "AtlasBook.lua", "WorldMapPins.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
   assert(loadfile(DIR .. f))("FieldJournal", ns)
 end
 local D = ns.data
@@ -596,6 +596,60 @@ end
 tipLines = {}
 FieldJournalMinimapButton.scripts.OnEnter(FieldJournalMinimapButton)
 check(table.concat(tipLines, "|"):find("creatures in", 1, true), "the minimap button's tooltip shows the counts")
+
+-- ── Fish and Plants ──────────────────────────────────────────────────────────
+local function link(id, name) return ("|cffffffff|Hitem:%d::::::::|h[%s]|h|r"):format(id, name) end
+function GetLootSlotInfo(slot) return nil, nil, loot[slot][3] or 1 end
+local fishing = false
+function IsFishingLoot() return fishing end
+state.hour = 12
+function GetGameTime() return state.hour, 0 end
+state.bags = {}
+C_Container = {
+  GetContainerNumSlots = function(bag) return bag == 0 and 16 or 0 end,
+  GetContainerItemID = function(bag, slot) return bag == 0 and state.bags[slot] or nil end,
+}
+local BOBBER, SCHOOL, NODE = "GameObject-0-1-0-0-35591-0000000001", "GameObject-0-1-0-0-180682-0000000002", "GameObject-0-1-0-0-1618-0000000003"
+local function lootWindow(slots)
+  loot = slots
+  fire("LOOT_OPENED")
+  fire("LOOT_OPENED") -- the game can report a window twice
+  fire("LOOT_CLOSED")
+end
+local fish = function(id) return FieldJournalChar.fish and FieldJournalChar.fish[id] end
+local plant = function(id) return FieldJournalChar.plants and FieldJournalChar.plants[id] end
+state.map, state.sub = 1429, "Crystal Lake"
+fishing = true
+lootWindow({ { link(6291, "Raw Brilliant Smallfish"), { BOBBER, 1 } } })
+local smallfish = fish(6291)
+check(smallfish and smallfish.n == 1 and smallfish.day == 1 and smallfish.school == 0 and smallfish.first.zone == 1429
+  and smallfish.first.sub == "Crystal Lake" and smallfish.zones[1429] == 1, "a catch in open water: where, when, by day, once per window")
+check(said("a new catch: |cffffd100|Hfieldjournal:f6291|h[Raw Brilliant Smallfish]|h|r"), "… announced in chat, with a link")
+state.hour = 22
+lootWindow({ { link(6358, "Oily Blackmouth"), { SCHOOL, 1 } } })
+check(fish(6358) and fish(6358).school == 1 and fish(6358).night == 1, "a catch from a school, by night")
+lootWindow({ { link(6364, "32 Pound Catfish"), { BOBBER, 1 } } })
+lootWindow({ { link(6309, "17 Pound Catfish"), { BOBBER, 1 } } })
+check(fish(6309) and fish(6309).n == 2 and fish(6309).heaviest == 32 and not fish(6364), "weighed catches count for their kind, the heaviest kept")
+lootWindow({ { link(6297, "Old Skull"), { BOBBER, 1 } } })
+check(not fish(6297), "junk from the water isn't a fish")
+fishing = false
+lootWindow({ { link(6303, "Raw Slitherskin Mackerel"), { creature(1131), 1 } } })
+check(not fish(6303), "a fish looted from a corpse isn't a catch")
+lootWindow({ { link(2447, "Peacebloom"), { NODE, 2 }, 2 } })
+local bloom = plant(2447)
+check(bloom and bloom.gathered == 2 and bloom.n == 2 and bloom.first.how == "gathered" and bloom.zones[1429] == 2,
+  "an herb from its node: gathered, the stack counted")
+check(said("a new herb: |cffffd100|Hfieldjournal:h2447|h[Peacebloom]|h|r"), "… announced in chat")
+lootWindow({ { link(2447, "Peacebloom"), { creature(1131), 1 } } })
+check(bloom.looted == 1 and bloom.n == 3, "the same herb from a corpse: looted")
+state.bags = { [1] = 2447, [2] = 3820 }
+fire("BAG_UPDATE_DELAYED")
+check(plant(3820) and plant(3820).first.how == "other" and plant(3820).n == 0 and bloom.n == 3 and said("[Stranglekelp]|h|r"),
+  "an herb found in the bags (bought, a reward...): noted once, its count unknown, announced")
+state.bags = { [1] = 785 }
+fire("PLAYER_ENTERING_WORLD")
+check(plant(785) and not said("[Mageroyal]|h|r"), "… but the herbs already carried at login are noted quietly")
 
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(next(FieldJournalChar.creatures) == nil and FieldJournalChar.guid == PLAYER, "/journal reset yes starts the journal over")

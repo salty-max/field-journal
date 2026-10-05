@@ -8,6 +8,10 @@
    "nodes": [
     "Earthroot"
    ],
+   "nodeIds": [
+    1619,
+    3726
+   ],
    "spawns": 496,
    "zones": [
     "The Barrens",
@@ -34,6 +38,10 @@
    "nodes": [
     "Peacebloom"
    ],
+   "nodeIds": [
+    1618,
+    3724
+   ],
    "spawns": 537,
    "zones": [
     "The Barrens",
@@ -57,6 +65,10 @@
    "skill": 0,
    "nodes": [
     "Silverleaf"
+   ],
+   "nodeIds": [
+    1617,
+    3725
    ],
    "spawns": 875,
    "zones": [
@@ -82,6 +94,10 @@
    "nodes": [
     "Mageroyal"
    ],
+   "nodeIds": [
+    1620,
+    3727
+   ],
    "spawns": 646,
    "zones": [
     "The Barrens",
@@ -104,6 +120,10 @@
    "skill": 70,
    "nodes": [
     "Briarthorn"
+   ],
+   "nodeIds": [
+    1621,
+    3729
    ],
    "spawns": 595,
    "zones": [
@@ -132,6 +152,10 @@
     "Briarthorn",
     "Mageroyal"
    ],
+   "nodeIds": [
+    1620,
+    1621
+   ],
    "spawns": 1178,
    "zones": [
     "The Barrens",
@@ -157,6 +181,10 @@
    "skill": 100,
    "nodes": [
     "Bruiseweed"
+   ],
+   "nodeIds": [
+    1622,
+    3730
    ],
    "spawns": 1196,
    "zones": [
@@ -187,6 +215,9 @@
    "nodes": [
     "Stranglekelp"
    ],
+   "nodeIds": [
+    2045
+   ],
    "spawns": 544,
    "zones": [
     "Stranglethorn Vale",
@@ -212,6 +243,9 @@
    "nodes": [
     "Wild Steelbloom"
    ],
+   "nodeIds": [
+    1623
+   ],
    "spawns": 527,
    "zones": [
     "Arathi Highlands",
@@ -235,6 +269,9 @@
    "nodes": [
     "Grave Moss"
    ],
+   "nodeIds": [
+    1628
+   ],
    "spawns": 104,
    "zones": [
     "Duskwood",
@@ -254,6 +291,9 @@
    "skill": 125,
    "nodes": [
     "Kingsblood"
+   ],
+   "nodeIds": [
+    1624
    ],
    "spawns": 387,
    "zones": [
@@ -282,6 +322,9 @@
    "nodes": [
     "Liferoot"
    ],
+   "nodeIds": [
+    2041
+   ],
    "spawns": 371,
    "zones": [
     "Stranglethorn Vale",
@@ -309,6 +352,9 @@
    "nodes": [
     "Fadeleaf"
    ],
+   "nodeIds": [
+    2042
+   ],
    "spawns": 261,
    "zones": [
     "Arathi Highlands",
@@ -331,6 +377,9 @@
    "skill": 170,
    "nodes": [
     "Goldthorn"
+   ],
+   "nodeIds": [
+    2046
    ],
    "spawns": 684,
    "zones": [
@@ -355,6 +404,9 @@
    "nodes": [
     "Khadgar's Whisker"
    ],
+   "nodeIds": [
+    2043
+   ],
    "spawns": 488,
    "zones": [
     "Stranglethorn Vale",
@@ -376,6 +428,9 @@
    "nodes": [
     "Wintersbite"
    ],
+   "nodeIds": [
+    2044
+   ],
    "spawns": 34,
    "zones": [
     "Alterac Mountains"
@@ -389,6 +444,9 @@
    "skill": 210,
    "nodes": [
     "Purple Lotus"
+   ],
+   "nodeIds": [
+    142140
    ],
    "spawns": 298,
    "zones": [
@@ -410,6 +468,9 @@
    "nodes": [
     "Firebloom"
    ],
+   "nodeIds": [
+    2866
+   ],
    "spawns": 155,
    "zones": [
     "Tanaris",
@@ -425,6 +486,10 @@
    "skill": 210,
    "nodes": [
     "Purple Lotus"
+   ],
+   "nodeIds": [
+    142140,
+    180165
    ],
    "spawns": 298,
    "zones": [
@@ -447,6 +512,10 @@
    "nodes": [
     "Arthas' Tears"
    ],
+   "nodeIds": [
+    142141,
+    176642
+   ],
    "spawns": 129,
    "zones": [
     "Western Plaguelands",
@@ -464,6 +533,11 @@
    "skill": 230,
    "nodes": [
     "Sungrass"
+   ],
+   "nodeIds": [
+    142142,
+    176636,
+    180164
    ],
    "spawns": 371,
    "zones": [
@@ -488,6 +562,10 @@
    "nodes": [
     "Blindweed"
    ],
+   "nodeIds": [
+    142143,
+    183046
+   ],
    "spawns": 177,
    "zones": [
     "Swamp of Sorrows",
@@ -504,6 +582,9 @@
    "skill": 245,
    "nodes": [
     "Ghost Mushroom"
+   ],
+   "nodeIds": [
+    142144
    ],
    "spawns": 35,
    "zones": [
@@ -523,6 +604,10 @@
    "nodes": [
     "Gromsblood"
    ],
+   "nodeIds": [
+    142145,
+    176637
+   ],
    "spawns": 78,
    "zones": [
     "Felwood",
@@ -539,6 +624,11 @@
    "skill": 260,
    "nodes": [
     "Golden Sansam"
+   ],
+   "nodeIds": [
+    176583,
+    176638,
+    180167
    ],
    "spawns": 362,
    "zones": [
@@ -561,6 +651,11 @@
    "skill": 270,
    "nodes": [
     "Dreamfoil"
+   ],
+   "nodeIds": [
+    176584,
+    176639,
+    180168
    ],
    "spawns": 499,
    "zones": [
@@ -585,6 +680,11 @@
    "nodes": [
     "Mountain Silversage"
    ],
+   "nodeIds": [
+    176586,
+    176640,
+    180166
+   ],
    "spawns": 285,
    "zones": [
     "Winterspring",
@@ -605,6 +705,10 @@
    "nodes": [
     "Plaguebloom"
    ],
+   "nodeIds": [
+    176587,
+    176641
+   ],
    "spawns": 191,
    "zones": [
     "Eastern Plaguelands",
@@ -620,6 +724,9 @@
    "nodes": [
     "Icecap"
    ],
+   "nodeIds": [
+    176588
+   ],
    "spawns": 182,
    "zones": [
     "Winterspring"
@@ -633,6 +740,9 @@
    "skill": 300,
    "nodes": [
     "Black Lotus"
+   ],
+   "nodeIds": [
+    176589
    ],
    "spawns": 94,
    "zones": [
@@ -662,7 +772,8 @@
     "Wildbend River"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6717,
@@ -674,7 +785,8 @@
    ],
    "subzones": [],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 16970,
@@ -688,7 +800,8 @@
     "Misty Reed Strand"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 16968,
@@ -702,7 +815,8 @@
     "Sar'theris Strand"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 16969,
@@ -717,7 +831,8 @@
     "The Savage Coast"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 1467,
@@ -729,7 +844,8 @@
    ],
    "subzones": [],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6291,
@@ -777,7 +893,8 @@
     "The Deadmines",
     "Wailing Caverns"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6303,
@@ -805,7 +922,8 @@
     "Whispering Shore"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 12238,
@@ -824,7 +942,8 @@
     "Wildbend River"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6522,
@@ -844,6 +963,9 @@
    ],
    "schools": [
     "School of Deviate Fish"
+   ],
+   "schoolIds": [
+    180658
    ]
   },
   {
@@ -917,6 +1039,14 @@
    "schools": [
     "Oily Blackmouth School",
     "School of Tastyfish"
+   ],
+   "schoolIds": [
+    180248,
+    180582,
+    180664,
+    180682,
+    180750,
+    180900
    ]
   },
   {
@@ -929,7 +1059,8 @@
    ],
    "subzones": [],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6289,
@@ -985,7 +1116,8 @@
     "The Deadmines",
     "Wailing Caverns"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6361,
@@ -1019,7 +1151,8 @@
     "Westfall Lighthouse"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6359,
@@ -1083,6 +1216,14 @@
     "Firefin Snapper School",
     "Oil Spill",
     "School of Tastyfish"
+   ],
+   "schoolIds": [
+    180248,
+    180657,
+    180661,
+    180683,
+    180752,
+    180902
    ]
   },
   {
@@ -1138,7 +1279,8 @@
     "The Deadmines",
     "Wailing Caverns"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 8365,
@@ -1166,7 +1308,8 @@
     "Maraudon",
     "Scarlet Monastery"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6362,
@@ -1214,7 +1357,8 @@
     "Zuuldaia Ruins"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 16967,
@@ -1228,7 +1372,8 @@
     "Verdantis River"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13757,
@@ -1258,7 +1403,8 @@
     "Stratholme",
     "Zul'Gurub"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13754,
@@ -1278,7 +1424,8 @@
     "Tower of Eldara"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13759,
@@ -1307,7 +1454,8 @@
     "Stratholme",
     "Zul'Gurub"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13758,
@@ -1336,7 +1484,8 @@
     "Stratholme",
     "Zul'Gurub"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 4603,
@@ -1387,7 +1536,8 @@
     "Zuuldaia Ruins"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13756,
@@ -1422,6 +1572,7 @@
    ],
    "dungeons": [],
    "schools": [],
+   "schoolIds": [],
    "season": "summer"
   },
   {
@@ -1451,7 +1602,8 @@
     "Stratholme",
     "Zul'Gurub"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13422,
@@ -1477,6 +1629,10 @@
    "schools": [
     "School of Tastyfish",
     "Stonescale Eel Swarm"
+   ],
+   "schoolIds": [
+    180248,
+    180712
    ]
   },
   {
@@ -1506,6 +1662,7 @@
    ],
    "dungeons": [],
    "schools": [],
+   "schoolIds": [],
    "season": "winter"
   },
   {
@@ -1522,7 +1679,8 @@
     "Scalebeard's Cave"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13893,
@@ -1538,7 +1696,8 @@
     "Scalebeard's Cave"
    ],
    "dungeons": [],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13890,
@@ -1560,7 +1719,8 @@
     "Stratholme",
     "Zul'Gurub"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 13889,
@@ -1582,7 +1742,8 @@
     "Stratholme",
     "Zul'Gurub"
    ],
-   "schools": []
+   "schools": [],
+   "schoolIds": []
   },
   {
    "id": 6309,
@@ -1638,6 +1799,7 @@
     "Wailing Caverns"
    ],
    "schools": [],
+   "schoolIds": [],
    "weights": [
     {
      "id": 6309,
@@ -1680,6 +1842,7 @@
    ],
    "dungeons": [],
    "schools": [],
+   "schoolIds": [],
    "weights": [
     {
      "id": 13876,
@@ -1718,6 +1881,7 @@
    ],
    "dungeons": [],
    "schools": [],
+   "schoolIds": [],
    "weights": [
     {
      "id": 13907,
@@ -1764,6 +1928,7 @@
    ],
    "dungeons": [],
    "schools": [],
+   "schoolIds": [],
    "weights": [
     {
      "id": 13914,
@@ -1802,6 +1967,7 @@
    ],
    "dungeons": [],
    "schools": [],
+   "schoolIds": [],
    "weights": [
     {
      "id": 6292,
@@ -1835,6 +2001,7 @@
     "Maraudon"
    ],
    "schools": [],
+   "schoolIds": [],
    "weights": [
     {
      "id": 13885,
@@ -1883,6 +2050,7 @@
     "Zul'Gurub"
    ],
    "schools": [],
+   "schoolIds": [],
    "weights": [
     {
      "id": 13901,
@@ -1906,5 +2074,40 @@
     }
    ]
   }
+ ],
+ "schools": [
+  180184,
+  180248,
+  180369,
+  180582,
+  180655,
+  180656,
+  180657,
+  180658,
+  180661,
+  180662,
+  180663,
+  180664,
+  180682,
+  180683,
+  180684,
+  180685,
+  180712,
+  180750,
+  180751,
+  180752,
+  180753,
+  180900,
+  180901,
+  180902,
+  182951,
+  182952,
+  182953,
+  182954,
+  182956,
+  182957,
+  182958,
+  182959,
+  184956
  ]
 }
