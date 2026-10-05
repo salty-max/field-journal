@@ -105,6 +105,7 @@ local function ui()
       if k == "GetHeight" then return function(self) return rawget(self, "height") or 100 end end
       if k == "SetVerticalScroll" then return function(self, v) self.vscroll = v end end
       if k == "GetVerticalScrollRange" then return function() return 0 end end
+      if k == "GetFrameLevel" then return function() return 1 end end
       if k == "GetVerticalScroll" then return function(self) return rawget(self, "vscroll") or 0 end end
       if k == "GetWidth" then return function() return 140 end end
       if k == "GetCenter" then return function() return 0, 0 end end
@@ -233,7 +234,7 @@ function GetBindLocation() return "Kharanos" end
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
-for _, f in ipairs({ "Core.lua", "Atlas.lua", "Achievements.lua", "Book.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
+for _, f in ipairs({ "Core.lua", "Atlas.lua", "Achievements.lua", "Book.lua", "AtlasBook.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
   assert(loadfile(DIR .. f))("FieldJournal", ns)
 end
 local D = ns.data
@@ -333,7 +334,7 @@ check(not rec(1124), "a creature the data knows isn't recorded while it can't be
 
 -- ── the atlas ────────────────────────────────────────────────────────────────
 local dun = D.atlas.zones[1426].places
-local function texture(place) return { offsetX = place[2], offsetY = place[3] } end
+local function texture(place) return { offsetX = place[2], offsetY = place[3], textureWidth = 300, textureHeight = 200, fileDataIDs = { 1, 2, 3, 4 }, isShownByMouseOver = false } end
 state.map, state.explored[1426] = 1426, { texture(dun[1]) }
 printed = {}
 fire("PLAYER_ENTERING_WORLD")
@@ -417,6 +418,24 @@ FieldJournalFrame:Hide()
 linkHandlers.fieldjournal("fieldjournal:c1132")
 check(FieldJournalFrame.shown and FieldJournalPage.title.text:find("^Timber"), "a link in chat opens the book at the creature's page")
 
+-- The atlas in the book.
+C_Map.GetMapArtLayers = function() return { { layerWidth = 1002, layerHeight = 668, tileWidth = 256, tileHeight = 256 } } end
+C_Map.GetMapArtLayerTextures = function() local t = {} for i = 1, 12 do t[i] = 1000 + i end return t end
+FieldJournalFrame:Hide()
+linkHandlers.fieldjournal("fieldjournal:z1426")
+local atlasRecord = {}
+for _, p in ipairs(ns.atlasPairs) do if p.shown then atlasRecord[p.label.text] = p.value.text end end
+check(FieldJournalFrame.selectedTab == 2 and FieldJournalAtlasPage.title.text == "Dun Morogh" and FieldJournalAtlasPage.map.shown,
+  "a zone's link opens the Atlas at its page, with its map")
+check(atlasRecord.Explored:find(dun[1][1], 1, true) and atlasRecord.Explored:find(dun[2][1], 1, true), "… the places explored, by name")
+check(FieldJournalAtlasPage.sub.text:find(("2 of %d places explored"):format(#dun), 1, true), "… and how many remain")
+local zoneRows = {}
+for _, r in ipairs(ns.atlasRows) do if r.shown then zoneRows[r.text.text] = r end end
+check(zoneRows["Eastern Kingdoms"] and zoneRows["Dun Morogh"] and zoneRows.Durotar and not zoneRows.Tanaris, "the list: continents, the zones entered, none other")
+zoneRows.Travels.scripts.OnClick(zoneRows.Travels)
+check(FieldJournalAtlasPage.title.text == "Travels", "the travels page sums them up")
+FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
+
 -- Milestones.
 check(ns.milestoneById["zone-1426"] and ns.milestoneVisible(ns.milestoneById["zone-1426"]), "Timber met: the rares of Dun Morogh have their milestone in the list")
 check(not ns.milestoneVisible(ns.milestoneById["zone-1429"]), "… the rares of Elwynn, none met yet, don't (no spoilers)")
@@ -427,7 +446,7 @@ FieldJournalFrame:Hide()
 linkHandlers.fieldjournal("fieldjournal:mtrophies-1")
 local row
 for _, r in ipairs(ns.milestoneRows) do if r.shown and r.id == "trophies-1" then row = r end end
-check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == 2 and row and row.status.text:find("^Level"), "a milestone's link opens the Milestones tab, the milestone earned with its level")
+check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == 3 and row and row.status.text:find("^Level"), "a milestone's link opens the Milestones tab, the milestone earned with its level")
 check(FieldJournalFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
 FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
 check(FieldJournalFrame.selectedTab == 1 and FieldJournalPage and shown("Wolves"), "the Bestiary tab brings the book back")

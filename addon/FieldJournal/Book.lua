@@ -594,7 +594,8 @@ end
 
 function ns.refresh()
   if not book then return end
-  if book.selectedTab == 2 then return ns.refreshMilestones() end
+  if book.selectedTab == 3 then return ns.refreshMilestones() end
+  if book.selectedTab == 2 then return ns.refreshAtlas and ns.refreshAtlas() end
   local creatures, families, slain = ns.counts()
   book.count:SetText(("%d creatures, %d families, %d slain"):format(creatures, families, slain))
   for _, r in ipairs(rows) do r:Hide() end
@@ -884,15 +885,24 @@ end
 
 -- The book's two tabs, under its bottom edge, in the style of the character
 -- sheet's (the shared panel tabs where that template doesn't exist: Forever).
+-- The tabs: 1 the Bestiary, 2 the Atlas (AtlasBook.lua: its own list and
+-- page in the same panels), 3 the Milestones.
 function ns.showTab(n)
   if not book then return end
   book.selectedTab = n
   if PanelTemplates_SetTab then PanelTemplates_SetTab(book, n) end
-  book.left:SetShown(n == 1)
+  if n == 2 and not rawget(book, "atlasList") and ns.buildAtlasBook then ns.buildAtlasBook(book) end
+  book.left:SetShown(n ~= 3)
+  book.sheet:SetShown(n ~= 3)
   book.search:SetShown(n == 1)
-  book.sheet:SetShown(n == 1)
-  book.milestonePanel:SetShown(n == 2)
-  if n == 2 then ns.refreshMilestones() else ns.refresh() end
+  list:SetShown(n == 1)
+  page:SetShown(n == 1)
+  if rawget(book, "atlasList") then
+    book.atlasList:SetShown(n == 2)
+    book.atlasPage:SetShown(n == 2)
+  end
+  book.milestonePanel:SetShown(n == 3)
+  ns.refresh()
 end
 
 local function hasTemplate(name)
@@ -902,7 +912,7 @@ end
 
 local function buildTabs()
   local template = hasTemplate("CharacterFrameTabButtonTemplate") and "CharacterFrameTabButtonTemplate" or "PanelTabButtonTemplate"
-  for n, text in ipairs({ "Bestiary", "Milestones" }) do
+  for n, text in ipairs({ "Bestiary", "Atlas", "Milestones" }) do
     local tab = CreateFrame("Button", "FieldJournalFrameTab" .. n, book, template)
     tab:SetID(n)
     tab:SetText(text)
@@ -918,7 +928,7 @@ local function buildTabs()
     end)
     if PanelTemplates_TabResize then PanelTemplates_TabResize(tab, 0) end
   end
-  if PanelTemplates_SetNumTabs then PanelTemplates_SetNumTabs(book, 2) end
+  if PanelTemplates_SetNumTabs then PanelTemplates_SetNumTabs(book, 3) end
   book.selectedTab = 1
   if PanelTemplates_SetTab then PanelTemplates_SetTab(book, 1) end
 end
@@ -928,7 +938,7 @@ function ns.openMilestones(id)
   if not book then build() end
   selectedMilestone = id
   if not book:IsShown() then book:Show() end
-  ns.showTab(2)
+  ns.showTab(3)
 end
 
 -- ── the book ─────────────────────────────────────────────────────────────────
@@ -1099,6 +1109,8 @@ local function followLink(link)
   if not key then return end
   local milestone = key:match("^m(.+)$")
   if milestone then return ns.openMilestones(milestone) end
+  local zone = tonumber(key:match("^z(%d+)$"))
+  if zone then return ns.openZone and ns.openZone(zone) end
   local creature = tonumber(key:match("^c(%d+)$"))
   if creature then
     ns.openCreature(creature)
@@ -1128,3 +1140,11 @@ ns.onRecord = function()
   if C_Timer then C_Timer.After(0.5, run) else run() end
 end
 ns.onMilestone = ns.onRecord
+ns.onAtlas = ns.onRecord
+
+-- The book's look, for the Atlas's pages (AtlasBook.lua).
+ns.ui = {
+  T = T, TITLE_FONT = TITLE_FONT, BODY_FONT = BODY_FONT, WIDTH = WIDTH, HEADER_H = HEADER_H, SOFT = SOFT,
+  label = label, rule = rule, roundPortrait = roundPortrait, scrollArea = scrollArea, icon = icon,
+  book = function() return book end, build = function() if not book then build() end return book end,
+}

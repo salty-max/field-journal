@@ -14,6 +14,7 @@ Core.lua
 Atlas.lua
 Achievements.lua
 Book.lua
+AtlasBook.lua
 Minimap.lua
 Settings.lua
 Hints.lua
