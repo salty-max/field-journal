@@ -9,6 +9,6 @@ match:
 ---
 The turtles of Azeroth come in two kinds: the snapjaws of the rivers and lakes, which bite, and the great sea turtles of the southern coasts, which are mostly too large to need to. Both are older than they look and slower than they seem only until they decide otherwise.
 
-The snapjaw's beak can take a finger cleanly. The surf gliders of Tanaris and Azshara drift the warm coastal waters like islands with opinions.
+The snapjaw's beak can take a finger cleanly. The surf gliders of Tanaris drift the warm coastal waters like islands with opinions, and the coralshell tortoises of Azshara are not much quicker.
 
 Their shells are prized by armourers and their patience by philosophers. Admire them from the bank.

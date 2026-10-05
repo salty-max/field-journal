@@ -6,7 +6,7 @@ match:
   - ids: 2551, 7039, 8981, 10120   # named or unusual members (sharing the family's model)
   - name: "\b(Earth|Rock|Stone|Boulder|Rumbler|Shard|Crystal|Basalt|Obsidian|Granite|Gravel|Rumble|Pebble|Shale|Landslide|Avalanche|Golem|Construct|Stone Keeper|Obsidion)\w*\b"
 ---
-Earth elementals are stone given will: rock elementals in the Badlands and the Arathi hills, golems of stone and obsidian in Uldaman, rumblers in the Searing Gorge. Some are wild spirits of the land; some were made, long ago, to guard the works of the titans.
+Earth elementals are stone given will: rock elementals in the Badlands and the Burning Steppes, the stone keepers of Uldaman, rumblers and obsidian elementals in the Searing Gorge and the Steppes. Some are wild spirits of the land; some were made, long ago, to guard the works of the titans.
 
 They are slow to anger and very hard to stop once angry. Blades blunt on them and arrows bounce.
 

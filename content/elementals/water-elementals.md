@@ -10,4 +10,4 @@ Water elementals are rarer than their fiery cousins on land, and usually seen wh
 
 They move like a wave breaking, and they hit like one.
 
-The befouled ones of Ashenvale and the Barrens were once clean springs. That is worth remembering when you wonder why the druids are so angry.
+The befouled ones of Ashenvale were once clean springs. That is worth remembering when you wonder why the druids are so angry.

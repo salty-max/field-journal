@@ -10,4 +10,4 @@ The Sandfury are the trolls of the Tanaris desert, tall, lean and hard as the sa
 
 They worship the great hydra Gahz'rilla in its sacred pool, and they raise their own dead to keep working when they fall.
 
-Their witch doctors make a tempering agent from the desert sands that every smith in Gadgetzan would kill for, and some have tried.
+The gnomes and goblins of the Shimmering Flats pay well for the scales of their god. I would not ask a Sandfury's opinion of that trade.
