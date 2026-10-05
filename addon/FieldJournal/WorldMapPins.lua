@@ -66,6 +66,7 @@ local function create()
     place(atlas.deaths, SKULL, "Died here")
   end
   WorldMapFrame:AddDataProvider(provider)
+  ns.worldMapPinsAttached = true
 end
 
 -- Only an open map (a closed one refreshes its layers when it opens).

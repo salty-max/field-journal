@@ -9,8 +9,9 @@ map's explorable places: each overlay is lifted from the fog by the areas it
 names, as the game's exploration achievements count them), AreaTable (the
 places' names). Forever's build is pinned, as the Codex's.
 
-Each zone: { id (uiMap), name, continent (uiMap), places: [{ name, areas, x, y }] }
-(x, y: the overlay's offset on the map art, as C_MapExplorationInfo reports it).
+Each zone: { id (uiMap), name, continent (uiMap), places: [{ name, areas, rect }] }
+(rect: left, top, right, bottom on the map art: the addon asks the game which
+of the place's areas are explored at points inside it).
 Battlegrounds are left out.
 """
 import csv, json, os, urllib.request
@@ -47,22 +48,26 @@ def zones(game):
     for r in table(game, "WorldMapOverlay"):
         ids = [int(r[f"AreaID_{i}"]) for i in range(4) if int(r[f"AreaID_{i}"])]
         if ids:
-            overlays.setdefault(int(r["UiMapArtID"]), []).append((ids, int(r["OffsetX"]), int(r["OffsetY"])))
+            # the overlay's hover rectangle on the map art (its texture's
+            # rectangle where it has none): where to ask the game about it
+            ox, oy = int(r["OffsetX"]), int(r["OffsetY"])
+            rect = [int(r["HitRectLeft"]), int(r["HitRectTop"]), int(r["HitRectRight"]), int(r["HitRectBottom"])]
+            if rect[2] <= rect[0] or rect[3] <= rect[1]:
+                rect = [ox, oy, ox + int(r["TextureWidth"]), oy + int(r["TextureHeight"])]
+            overlays.setdefault(int(r["UiMapArtID"]), []).append((ids, rect))
     out = []
     for uid, m in sorted(uimaps.items()):
         if m["Type"] != "3" or uid in BATTLEGROUNDS:
             continue
         parent = uimaps.get(int(m["ParentUiMapID"]))
         places, seen = [], set()
-        for ids, ox, oy in overlays.get(art.get(uid), []):
+        for ids, rect in overlays.get(art.get(uid), []):
             key = tuple(sorted(ids))
             if key in seen:
                 continue
             seen.add(key)
             name = next((areas[a]["AreaName_lang"] for a in ids if a in areas), "?")
-            # the overlay's place on the map art: GetExploredMapTextures names
-            # explored overlays by it
-            places.append({"name": name, "areas": ids, "x": ox, "y": oy})
+            places.append({"name": name, "areas": ids, "rect": rect})
         places.sort(key=lambda p: p["name"])
         out.append({
             "id": uid,

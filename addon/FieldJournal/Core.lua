@@ -393,6 +393,10 @@ SlashCmdList.FIELDJOURNAL = function(msg)
     print(PREFIX .. "the journal starts afresh.")
     return
   end
+  if msg == "atlas" then
+    if ns.atlasReport then ns.atlasReport() end
+    return
+  end
   if msg == "minimap" then
     ns.setOption("minimapHidden", not ns.option("minimapHidden"))
     return

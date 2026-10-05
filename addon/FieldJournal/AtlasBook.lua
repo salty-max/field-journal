@@ -319,7 +319,7 @@ function showZone(uiMap)
   if total > 0 then
     local names = {}
     for _, place in ipairs(zone.places) do
-      if z.places[place[4]] then table.insert(names, place[1]) end
+      if z.places[ns.placeKey(place)] then table.insert(names, place[1]) end
     end
     row2("Explored", #names > 0 and table.concat(names, ", ") or (ui.SOFT .. "nothing yet|r"))
     if done < total then row2("", ui.SOFT .. ("%d still to find."):format(total - done) .. "|r") end

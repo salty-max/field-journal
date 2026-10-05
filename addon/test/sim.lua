@@ -214,7 +214,14 @@ local MAPS = {
 }
 C_Map.GetMapInfo = function(id) return MAPS[id] end
 state.explored = {}
-C_MapExplorationInfo = { GetExploredMapTextures = function(id) return state.explored[id] end }
+-- What the character has discovered: area ids (the game answers by position;
+-- here, wherever asked), and the overlays the map draws (for the book).
+state.discovered = {}
+C_MapExplorationInfo = {
+  GetExploredMapTextures = function(id) return state.explored[id] end,
+  GetExploredAreaIDsAtPosition = function() local ids = {} for id in pairs(state.discovered) do table.insert(ids, id) end return ids end,
+}
+function CreateVector2D(x, y) return { x = x, y = y } end
 state.health = 100
 function UnitHealth() return state.health end
 function UnitHealthMax() return 100 end
@@ -347,15 +354,20 @@ check(not rec(1124), "a creature the data knows isn't recorded while it can't be
 -- ── the atlas ────────────────────────────────────────────────────────────────
 local dun = D.atlas.zones[1426].places
 local function texture(place) return { offsetX = place[2], offsetY = place[3], textureWidth = 300, textureHeight = 200, fileDataIDs = { 1, 2, 3, 4 }, isShownByMouseOver = false } end
-state.map, state.explored[1426] = 1426, { texture(dun[1]) }
+local function key(place) return place[6] end
+-- Moonglade's map draws its one overlay for everyone: no discovery for all that.
+state.explored[1450] = { texture(D.atlas.zones[1450].places[1]) }
+state.map, state.explored[1426], state.discovered[key(dun[1])] = 1426, { texture(dun[1]) }, true
 printed = {}
 fire("PLAYER_ENTERING_WORLD")
 local atlas = FieldJournalChar.atlas
-check(atlas.seeded and atlas.zones[1426].places[dun[1][4]].retro, "the fog a character had already lifted fills its atlas quietly")
+check(atlas.seeded and atlas.zones[1426].places[key(dun[1])].retro, "the places a character had already discovered fill its atlas quietly")
+check(not atlas.zones[1450], "… and not a zone the map merely draws (Moonglade), never discovered")
 check(atlas.zones[1426].first and atlas.zones[1426].visits == 1 and #printed == 0, "… and the zone it stands in is visited, without a word")
 table.insert(state.explored[1426], texture(dun[2]))
+state.discovered[key(dun[2])] = true
 fire("MAP_EXPLORATION_UPDATED")
-local place = atlas.zones[1426].places[dun[2][4]]
+local place = atlas.zones[1426].places[key(dun[2])]
 check(place and place.at and not place.retro and place.level == state.level, "a place newly explored is recorded, with the day and level")
 local done, total = ns.zoneProgress(1426)
 check(done == 2 and total == #dun and total > 10, "a zone counts its places explored, of all it has")
@@ -383,6 +395,23 @@ fire("PLAYER_DEAD")
 check(atlas.deaths[1] and atlas.deaths[1].by == (FOREVER and "Starving Winter Wolf" or "Winter Wolf"),
   FOREVER and "Forever: a death names the last foe targeted" or "a death names what last hurt you (the combat log)")
 state.health, state.map, state.target = 100, 1426, nil
+-- An atlas recorded by 0.3.0, which trusted the overlays the map draws.
+local saved = FieldJournalChar.atlas
+FieldJournalChar.atlas = {
+  zones = {
+    [1450] = { retro = true, places = { [key(D.atlas.zones[1450].places[1])] = { retro = true } } },
+    [1426] = { first = { at = clock, level = 3 }, places = { [key(dun[1])] = { retro = true }, [key(dun[2])] = { at = clock, level = 3 } } },
+  },
+  seeded = true, deaths = {}, closeCalls = {}, flights = {}, routes = {}, crossings = {}, binds = {},
+}
+FieldJournalChar.achievements["explore-1450"] = { at = clock, level = 3, retro = true }
+fire("PLAYER_ENTERING_WORLD")
+local migrated = FieldJournalChar.atlas
+check(not migrated.zones[1450] and not FieldJournalChar.achievements["explore-1450"],
+  "an atlas from 0.3.0 loses the zones it never discovered, and their milestones")
+check(migrated.zones[1426].places[key(dun[1])].retro and migrated.zones[1426].places[key(dun[2])].at,
+  "… and keeps what is truly discovered")
+FieldJournalChar.atlas = saved
 check(ns.earnedMilestone("crossing") and said("[Across the Sea]"), "crossing the sea earns a milestone")
 check(ns.milestoneVisible(ns.milestoneById["explore-1426"]) and not ns.milestoneVisible(ns.milestoneById["explore-1446"]),
   "a zone's exploration milestone shows once the zone is entered (Dun Morogh), not before (Tanaris)")

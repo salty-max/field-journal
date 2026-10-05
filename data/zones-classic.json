@@ -17,88 +17,132 @@
       370,
       410
      ],
-     "x": 427,
-     "y": 78
+     "rect": [
+      475,
+      120,
+      575,
+      210
+     ]
     },
     {
      "name": "Echo Isles",
      "areas": [
       368
      ],
-     "x": 549,
-     "y": 427
+     "rect": [
+      600,
+      470,
+      710,
+      660
+     ]
     },
     {
      "name": "Kolkar Crag",
      "areas": [
       366
      ],
-     "x": 413,
-     "y": 476
+     "rect": [
+      460,
+      500,
+      520,
+      560
+     ]
     },
     {
      "name": "Orgrimmar",
      "areas": [
       1637
      ],
-     "x": 244,
-     "y": 0
+     "rect": [
+      355,
+      10,
+      585,
+      60
+     ]
     },
     {
      "name": "Razor Hill",
      "areas": [
       362
      ],
-     "x": 432,
-     "y": 170
+     "rect": [
+      500,
+      245,
+      595,
+      325
+     ]
     },
     {
      "name": "Razormane Grounds",
      "areas": [
       816
      ],
-     "x": 301,
-     "y": 189
+     "rect": [
+      350,
+      230,
+      475,
+      350
+     ]
     },
     {
      "name": "Sen'jin Village",
      "areas": [
       367
      ],
-     "x": 474,
-     "y": 384
+     "rect": [
+      525,
+      450,
+      600,
+      525
+     ]
     },
     {
      "name": "Skull Rock",
      "areas": [
       817
      ],
-     "x": 464,
-     "y": 33
+     "rect": [
+      500,
+      55,
+      575,
+      105
+     ]
     },
     {
      "name": "Thunder Ridge",
      "areas": [
       369
      ],
-     "x": 327,
-     "y": 60
+     "rect": [
+      355,
+      105,
+      460,
+      220
+     ]
     },
     {
      "name": "Tiragarde Keep",
      "areas": [
       372
      ],
-     "x": 462,
-     "y": 286
+     "rect": [
+      535,
+      325,
+      620,
+      425
+     ]
     },
     {
      "name": "Valley of Trials",
      "areas": [
       363
      ],
-     "x": 355,
-     "y": 320
+     "rect": [
+      395,
+      395,
+      495,
+      500
+     ]
     }
    ]
   },
@@ -112,32 +156,48 @@
      "areas": [
       404
      ],
-     "x": 255,
-     "y": 214
+     "rect": [
+      290,
+      260,
+      385,
+      360
+     ]
     },
     {
      "name": "Bloodhoof Village",
      "areas": [
       222
      ],
-     "x": 367,
-     "y": 303
+     "rect": [
+      415,
+      345,
+      535,
+      445
+     ]
     },
     {
      "name": "Palemane Rock",
      "areas": [
       818
      ],
-     "x": 303,
-     "y": 307
+     "rect": [
+      330,
+      355,
+      400,
+      475
+     ]
     },
     {
      "name": "Ravaged Caravan",
      "areas": [
       224
      ],
-     "x": 473,
-     "y": 260
+     "rect": [
+      505,
+      285,
+      585,
+      345
+     ]
     },
     {
      "name": "Red Cloud Mesa",
@@ -145,80 +205,120 @@
       220,
       221
      ],
-     "x": 270,
-     "y": 425
+     "rect": [
+      340,
+      480,
+      560,
+      625
+     ]
     },
     {
      "name": "Red Rocks",
      "areas": [
       225
      ],
-     "x": 502,
-     "y": 16
+     "rect": [
+      555,
+      75,
+      670,
+      195
+     ]
     },
     {
      "name": "The Golden Plains",
      "areas": [
       820
      ],
-     "x": 428,
-     "y": 80
+     "rect": [
+      485,
+      120,
+      575,
+      280
+     ]
     },
     {
      "name": "The Rolling Plains",
      "areas": [
       821
      ],
-     "x": 523,
-     "y": 356
+     "rect": [
+      575,
+      410,
+      685,
+      495
+     ]
     },
     {
      "name": "The Venture Co. Mine",
      "areas": [
       360
      ],
-     "x": 532,
-     "y": 238
+     "rect": [
+      585,
+      280,
+      650,
+      390
+     ]
     },
     {
      "name": "Thunder Bluff",
      "areas": [
       1638
      ],
-     "x": 249,
-     "y": 59
+     "rect": [
+      295,
+      105,
+      480,
+      265
+     ]
     },
     {
      "name": "Thunderhorn Water Well",
      "areas": [
       397
      ],
-     "x": 379,
-     "y": 242
+     "rect": [
+      415,
+      270,
+      480,
+      340
+     ]
     },
     {
      "name": "Wildmane Water Well",
      "areas": [
       398
      ],
-     "x": 291,
-     "y": 0
+     "rect": [
+      330,
+      50,
+      460,
+      115
+     ]
     },
     {
      "name": "Windfury Ridge",
      "areas": [
       819
      ],
-     "x": 395,
-     "y": 0
+     "rect": [
+      450,
+      45,
+      555,
+      115
+     ]
     },
     {
      "name": "Winterhoof Water Well",
      "areas": [
       396
      ],
-     "x": 458,
-     "y": 369
+     "rect": [
+      505,
+      410,
+      580,
+      470
+     ]
     }
    ]
   },
@@ -232,200 +332,300 @@
      "areas": [
       1700
      ],
-     "x": 340,
-     "y": 234
+     "rect": [
+      390,
+      275,
+      475,
+      370
+     ]
     },
     {
      "name": "Bael Modan",
      "areas": [
       359
      ],
-     "x": 431,
-     "y": 479
+     "rect": [
+      450,
+      530,
+      505,
+      590
+     ]
     },
     {
      "name": "Blackthorn Ridge",
      "areas": [
       1701
      ],
-     "x": 335,
-     "y": 462
+     "rect": [
+      385,
+      490,
+      450,
+      565
+     ]
     },
     {
      "name": "Boulder Lode Mine",
      "areas": [
       381
      ],
-     "x": 555,
-     "y": 0
+     "rect": [
+      595,
+      10,
+      645,
+      80
+     ]
     },
     {
      "name": "Bramblescar",
      "areas": [
       1698
      ],
-     "x": 442,
-     "y": 298
+     "rect": [
+      485,
+      355,
+      530,
+      425
+     ]
     },
     {
      "name": "Camp Taurajo",
      "areas": [
       378
      ],
-     "x": 365,
-     "y": 350
+     "rect": [
+      425,
+      380,
+      490,
+      435
+     ]
     },
     {
      "name": "Dreadmist Peak",
      "areas": [
       384
      ],
-     "x": 419,
-     "y": 63
+     "rect": [
+      450,
+      95,
+      520,
+      150
+     ]
     },
     {
      "name": "Far Watch Post",
      "areas": [
       379
      ],
-     "x": 564,
-     "y": 52
+     "rect": [
+      590,
+      115,
+      635,
+      170
+     ]
     },
     {
      "name": "Field of Giants",
      "areas": [
       390
      ],
-     "x": 355,
-     "y": 402
+     "rect": [
+      425,
+      445,
+      500,
+      500
+     ]
     },
     {
      "name": "Grol'dom Farm",
      "areas": [
       1704
      ],
-     "x": 492,
-     "y": 63
+     "rect": [
+      530,
+      105,
+      585,
+      150
+     ]
     },
     {
      "name": "Honor's Stand",
      "areas": [
       1702
      ],
-     "x": 306,
-     "y": 130
+     "rect": [
+      335,
+      155,
+      415,
+      225
+     ]
     },
     {
      "name": "Lushwater Oasis",
      "areas": [
       387
      ],
-     "x": 365,
-     "y": 177
+     "rect": [
+      435,
+      225,
+      500,
+      295
+     ]
     },
     {
      "name": "Northwatch Hold",
      "areas": [
       385
      ],
-     "x": 527,
-     "y": 307
+     "rect": [
+      575,
+      340,
+      650,
+      400
+     ]
     },
     {
      "name": "Raptor Grounds",
      "areas": [
       1697
      ],
-     "x": 507,
-     "y": 294
+     "rect": [
+      530,
+      320,
+      590,
+      365
+     ]
     },
     {
      "name": "Ratchet",
      "areas": [
       392
      ],
-     "x": 556,
-     "y": 189
+     "rect": [
+      600,
+      225,
+      655,
+      275
+     ]
     },
     {
      "name": "Razorfen Downs",
      "areas": [
       1316
      ],
-     "x": 407,
-     "y": 553
+     "rect": [
+      445,
+      580,
+      535,
+      645
+     ]
     },
     {
      "name": "Razorfen Kraul",
      "areas": [
       1717
      ],
-     "x": 341,
-     "y": 537
+     "rect": [
+      370,
+      555,
+      450,
+      625
+     ]
     },
     {
      "name": "The Crossroads",
      "areas": [
       380
      ],
-     "x": 431,
-     "y": 118
+     "rect": [
+      485,
+      165,
+      550,
+      215
+     ]
     },
     {
      "name": "The Dry Hills",
      "areas": [
       383
      ],
-     "x": 317,
-     "y": 29
+     "rect": [
+      350,
+      60,
+      445,
+      135
+     ]
     },
     {
      "name": "The Forgotten Pools",
      "areas": [
       386
      ],
-     "x": 384,
-     "y": 115
+     "rect": [
+      420,
+      125,
+      490,
+      190
+     ]
     },
     {
      "name": "The Merchant Coast",
      "areas": [
       391
      ],
-     "x": 581,
-     "y": 247
+     "rect": [
+      615,
+      270,
+      660,
+      335
+     ]
     },
     {
      "name": "The Mor'shan Rampart",
      "areas": [
       1703
      ],
-     "x": 412,
-     "y": 0
+     "rect": [
+      440,
+      15,
+      520,
+      75
+     ]
     },
     {
      "name": "The Sludge Fen",
      "areas": [
       382
      ],
-     "x": 456,
-     "y": 0
+     "rect": [
+      505,
+      20,
+      605,
+      80
+     ]
     },
     {
      "name": "The Stagnant Oasis",
      "areas": [
       388
      ],
-     "x": 481,
-     "y": 211
+     "rect": [
+      530,
+      255,
+      585,
+      315
+     ]
     },
     {
      "name": "Thorn Hill",
      "areas": [
       1699
      ],
-     "x": 498,
-     "y": 119
+     "rect": [
+      540,
+      165,
+      600,
+      215
+     ]
     }
    ]
   },
@@ -440,16 +640,24 @@
       1684,
       3486
      ],
-     "x": 626,
-     "y": 253
+     "rect": [
+      730,
+      330,
+      915,
+      560
+     ]
     },
     {
      "name": "Corrahn's Dagger",
      "areas": [
       1679
      ],
-     "x": 399,
-     "y": 380
+     "rect": [
+      435,
+      495,
+      530,
+      625
+     ]
     },
     {
      "name": "Crushridge Hold",
@@ -457,104 +665,156 @@
       282,
       283
      ],
-     "x": 334,
-     "y": 162
+     "rect": [
+      435,
+      215,
+      535,
+      345
+     ]
     },
     {
      "name": "Dalaran",
      "areas": [
       279
      ],
-     "x": 26,
-     "y": 262
+     "rect": [
+      75,
+      360,
+      230,
+      520
+     ]
     },
     {
      "name": "Dandred's Fold",
      "areas": [
       1682
      ],
-     "x": 276,
-     "y": 0
+     "rect": [
+      370,
+      70,
+      440,
+      160
+     ]
     },
     {
      "name": "Gallows' Corner",
      "areas": [
       1357
      ],
-     "x": 406,
-     "y": 279
+     "rect": [
+      460,
+      355,
+      545,
+      430
+     ]
     },
     {
      "name": "Gavin's Naze",
      "areas": [
       1677
      ],
-     "x": 225,
-     "y": 478
+     "rect": [
+      270,
+      525,
+      345,
+      620
+     ]
     },
     {
      "name": "Growless Cave",
      "areas": [
       1683
      ],
-     "x": 317,
-     "y": 372
+     "rect": [
+      345,
+      420,
+      450,
+      505
+     ]
     },
     {
      "name": "Lordamere Internment Camp",
      "areas": [
       278
      ],
-     "x": 44,
-     "y": 403
+     "rect": [
+      160,
+      525,
+      250,
+      610
+     ]
     },
     {
      "name": "Misty Shore",
      "areas": [
       1681
      ],
-     "x": 196,
-     "y": 131
+     "rect": [
+      220,
+      190,
+      345,
+      315
+     ]
     },
     {
      "name": "Ruins of Alterac",
      "areas": [
       281
      ],
-     "x": 270,
-     "y": 197
+     "rect": [
+      330,
+      295,
+      470,
+      420
+     ]
     },
     {
      "name": "Sofera's Naze",
      "areas": [
       1678
      ],
-     "x": 462,
-     "y": 307
+     "rect": [
+      540,
+      415,
+      630,
+      505
+     ]
     },
     {
      "name": "Strahnbrad",
      "areas": [
       280
      ],
-     "x": 549,
-     "y": 105
+     "rect": [
+      570,
+      255,
+      700,
+      350
+     ]
     },
     {
      "name": "The Headland",
      "areas": [
       1680
      ],
-     "x": 314,
-     "y": 471
+     "rect": [
+      345,
+      545,
+      435,
+      660
+     ]
     },
     {
      "name": "The Uplands",
      "areas": [
       284
      ],
-     "x": 462,
-     "y": 77
+     "rect": [
+      500,
+      120,
+      630,
+      245
+     ]
     }
    ]
   },
@@ -568,72 +828,108 @@
      "areas": [
       1858
      ],
-     "x": 232,
-     "y": 145
+     "rect": [
+      350,
+      215,
+      405,
+      340
+     ]
     },
     {
      "name": "Boulderfist Hall",
      "areas": [
       316
      ],
-     "x": 432,
-     "y": 362
+     "rect": [
+      475,
+      425,
+      610,
+      560
+     ]
     },
     {
      "name": "Circle of East Binding",
      "areas": [
       333
      ],
-     "x": 558,
-     "y": 112
+     "rect": [
+      595,
+      175,
+      680,
+      280
+     ]
     },
     {
      "name": "Circle of Inner Binding",
      "areas": [
       335
      ],
-     "x": 286,
-     "y": 310
+     "rect": [
+      315,
+      365,
+      420,
+      460
+     ]
     },
     {
      "name": "Circle of Outer Binding",
      "areas": [
       336
      ],
-     "x": 419,
-     "y": 293
+     "rect": [
+      485,
+      320,
+      570,
+      385
+     ]
     },
     {
      "name": "Circle of West Binding",
      "areas": [
       334
      ],
-     "x": 138,
-     "y": 54
+     "rect": [
+      170,
+      110,
+      275,
+      230
+     ]
     },
     {
      "name": "Dabyrie's Farmstead",
      "areas": [
       315
      ],
-     "x": 472,
-     "y": 165
+     "rect": [
+      505,
+      230,
+      600,
+      300
+     ]
     },
     {
      "name": "Faldir's Cove",
      "areas": [
       327
      ],
-     "x": 171,
-     "y": 424
+     "rect": [
+      215,
+      475,
+      405,
+      590
+     ]
     },
     {
      "name": "Go'Shek Farm",
      "areas": [
       314
      ],
-     "x": 531,
-     "y": 276
+     "rect": [
+      575,
+      340,
+      655,
+      415
+     ]
     },
     {
      "name": "Hammerfall",
@@ -641,56 +937,84 @@
       321,
       318
      ],
-     "x": 655,
-     "y": 120
+     "rect": [
+      690,
+      190,
+      815,
+      300
+     ]
     },
     {
      "name": "Northfold Manor",
      "areas": [
       313
      ],
-     "x": 192,
-     "y": 90
+     "rect": [
+      275,
+      150,
+      360,
+      270
+     ]
     },
     {
      "name": "Refuge Pointe",
      "areas": [
       320
      ],
-     "x": 370,
-     "y": 186
+     "rect": [
+      420,
+      260,
+      500,
+      370
+     ]
     },
     {
      "name": "Stromgarde Keep",
      "areas": [
       324
      ],
-     "x": 108,
-     "y": 287
+     "rect": [
+      140,
+      340,
+      315,
+      490
+     ]
     },
     {
      "name": "Thandol Span",
      "areas": [
       880
      ],
-     "x": 355,
-     "y": 412
+     "rect": [
+      400,
+      485,
+      520,
+      625
+     ]
     },
     {
      "name": "Thoradin's Wall",
      "areas": [
       1857
      ],
-     "x": 87,
-     "y": 138
+     "rect": [
+      125,
+      180,
+      230,
+      325
+     ]
     },
     {
      "name": "Witherbark Village",
      "areas": [
       317
      ],
-     "x": 559,
-     "y": 333
+     "rect": [
+      595,
+      410,
+      740,
+      485
+     ]
     }
    ]
   },
@@ -704,32 +1028,48 @@
      "areas": [
       345
      ],
-     "x": 345,
-     "y": 389
+     "rect": [
+      400,
+      420,
+      545,
+      570
+     ]
     },
     {
      "name": "Angor Fortress",
      "areas": [
       338
      ],
-     "x": 325,
-     "y": 148
+     "rect": [
+      360,
+      170,
+      500,
+      275
+     ]
     },
     {
      "name": "Apocryphan's Rest",
      "areas": [
       337
      ],
-     "x": 17,
-     "y": 310
+     "rect": [
+      100,
+      360,
+      215,
+      465
+     ]
     },
     {
      "name": "Camp Boff",
      "areas": [
       342
      ],
-     "x": 501,
-     "y": 341
+     "rect": [
+      545,
+      400,
+      685,
+      570
+     ]
     },
     {
      "name": "Camp Cagg",
@@ -737,64 +1077,96 @@
       344,
       347
      ],
-     "x": 12,
-     "y": 428
+     "rect": [
+      40,
+      475,
+      225,
+      615
+     ]
     },
     {
      "name": "Camp Kosh",
      "areas": [
       341
      ],
-     "x": 551,
-     "y": 48
+     "rect": [
+      600,
+      100,
+      725,
+      200
+     ]
     },
     {
      "name": "Dustwind Gulch",
      "areas": [
       1898
      ],
-     "x": 498,
-     "y": 209
+     "rect": [
+      565,
+      245,
+      690,
+      370
+     ]
     },
     {
      "name": "Hammertoe's Digsite",
      "areas": [
       346
      ],
-     "x": 445,
-     "y": 120
+     "rect": [
+      500,
+      190,
+      635,
+      295
+     ]
     },
     {
      "name": "Kargath",
      "areas": [
       340
      ],
-     "x": 0,
-     "y": 148
+     "rect": [
+      10,
+      265,
+      165,
+      370
+     ]
     },
     {
      "name": "Lethlor Ravine",
      "areas": [
       339
      ],
-     "x": 611,
-     "y": 110
+     "rect": [
+      685,
+      225,
+      885,
+      455
+     ]
     },
     {
      "name": "Mirage Flats",
      "areas": [
       1879
      ],
-     "x": 148,
-     "y": 384
+     "rect": [
+      215,
+      420,
+      400,
+      585
+     ]
     },
     {
      "name": "The Dustbowl",
      "areas": [
       1878
      ],
-     "x": 159,
-     "y": 199
+     "rect": [
+      220,
+      275,
+      390,
+      415
+     ]
     },
     {
      "name": "The Maker's Terrace",
@@ -802,16 +1174,24 @@
       1897,
       1517
      ],
-     "x": 389,
-     "y": 7
+     "rect": [
+      400,
+      50,
+      585,
+      170
+     ]
     },
     {
      "name": "Valley of Fangs",
      "areas": [
       1877
      ],
-     "x": 349,
-     "y": 256
+     "rect": [
+      400,
+      320,
+      530,
+      440
+     ]
     }
    ]
   },
@@ -825,72 +1205,108 @@
      "areas": [
       1441
      ],
-     "x": 310,
-     "y": 133
+     "rect": [
+      365,
+      180,
+      430,
+      245
+     ]
     },
     {
      "name": "Dreadmaul Hold",
      "areas": [
       1437
      ],
-     "x": 361,
-     "y": 15
+     "rect": [
+      385,
+      65,
+      480,
+      125
+     ]
     },
     {
      "name": "Dreadmaul Post",
      "areas": [
       1439
      ],
-     "x": 361,
-     "y": 195
+     "rect": [
+      450,
+      255,
+      560,
+      335
+     ]
     },
     {
      "name": "Garrison Armory",
      "areas": [
       1457
      ],
-     "x": 472,
-     "y": 9
+     "rect": [
+      520,
+      65,
+      600,
+      120
+     ]
     },
     {
      "name": "Nethergarde Keep",
      "areas": [
       1438
      ],
-     "x": 559,
-     "y": 30
+     "rect": [
+      595,
+      85,
+      695,
+      160
+     ]
     },
     {
      "name": "Rise of the Defiler",
      "areas": [
       2517
      ],
-     "x": 405,
-     "y": 123
+     "rect": [
+      445,
+      160,
+      530,
+      240
+     ]
     },
     {
      "name": "Serpent's Coil",
      "areas": [
       1440
      ],
-     "x": 501,
-     "y": 140
+     "rect": [
+      575,
+      190,
+      685,
+      255
+     ]
     },
     {
      "name": "The Dark Portal",
      "areas": [
       72
      ],
-     "x": 453,
-     "y": 259
+     "rect": [
+      520,
+      325,
+      650,
+      430
+     ]
     },
     {
      "name": "The Tainted Scar",
      "areas": [
       73
      ],
-     "x": 212,
-     "y": 178
+     "rect": [
+      265,
+      295,
+      495,
+      540
+     ]
     }
    ]
   },
@@ -904,120 +1320,180 @@
      "areas": [
       157
      ],
-     "x": 335,
-     "y": 139
+     "rect": [
+      384,
+      183,
+      522,
+      303
+     ]
     },
     {
      "name": "Balnir Farmstead",
      "areas": [
       165
      ],
-     "x": 630,
-     "y": 326
+     "rect": [
+      664,
+      335,
+      795,
+      489
+     ]
     },
     {
      "name": "Brightwater Lake",
      "areas": [
       162
      ],
-     "x": 587,
-     "y": 139
+     "rect": [
+      633,
+      165,
+      735,
+      398
+     ]
     },
     {
      "name": "Brill",
      "areas": [
       159
      ],
-     "x": 537,
-     "y": 299
+     "rect": [
+      560,
+      320,
+      635,
+      418
+     ]
     },
     {
      "name": "Cold Hearth Manor",
      "areas": [
       166
      ],
-     "x": 474,
-     "y": 327
+     "rect": [
+      502,
+      365,
+      575,
+      436
+     ]
     },
     {
      "name": "Crusader Outpost",
      "areas": [
       167
      ],
-     "x": 694,
-     "y": 289
+     "rect": [
+      708,
+      292,
+      853,
+      395
+     ]
     },
     {
      "name": "Deathknell",
      "areas": [
       154
      ],
-     "x": 227,
-     "y": 328
+     "rect": [
+      279,
+      366,
+      411,
+      488
+     ]
     },
     {
      "name": "Garren's Haunt",
      "areas": [
       164
      ],
-     "x": 497,
-     "y": 145
+     "rect": [
+      531,
+      182,
+      627,
+      328
+     ]
     },
     {
      "name": "Nightmare Vale",
      "areas": [
       811
      ],
-     "x": 363,
-     "y": 349
+     "rect": [
+      401,
+      396,
+      547,
+      490
+     ]
     },
     {
      "name": "Scarlet Watch Post",
      "areas": [
       459
      ],
-     "x": 689,
-     "y": 104
+     "rect": [
+      740,
+      114,
+      820,
+      325
+     ]
     },
     {
      "name": "Solliden Farmstead",
      "areas": [
       156
      ],
-     "x": 239,
-     "y": 250
+     "rect": [
+      284,
+      290,
+      437,
+      371
+     ]
     },
     {
      "name": "Stillwater Pond",
      "areas": [
       810
      ],
-     "x": 395,
-     "y": 277
+     "rect": [
+      429,
+      307,
+      532,
+      378
+     ]
     },
     {
      "name": "The Bulwark",
      "areas": [
       152
      ],
-     "x": 698,
-     "y": 362
+     "rect": [
+      770,
+      380,
+      905,
+      550
+     ]
     },
     {
      "name": "Undercity",
      "areas": [
       1497
      ],
-     "x": 463,
-     "y": 361
+     "rect": [
+      547,
+      406,
+      693,
+      551
+     ]
     },
     {
      "name": "Venomweb Vale",
      "areas": [
       812
      ],
-     "x": 757,
-     "y": 205
+     "rect": [
+      777,
+      240,
+      970,
+      408
+     ]
     },
     {
      "name": "Whispering Gardens",
@@ -1025,8 +1501,12 @@
       160,
       161
      ],
-     "x": 746,
-     "y": 125
+     "rect": [
+      766,
+      144,
+      933,
+      295
+     ]
     }
    ]
   },
@@ -1040,24 +1520,36 @@
      "areas": [
       233
      ],
-     "x": 494,
-     "y": 262
+     "rect": [
+      580,
+      370,
+      690,
+      470
+     ]
     },
     {
      "name": "Beren's Peril",
      "areas": [
       231
      ],
-     "x": 491,
-     "y": 417
+     "rect": [
+      550,
+      450,
+      630,
+      515
+     ]
     },
     {
      "name": "Deep Elem Mine",
      "areas": [
       213
      ],
-     "x": 470,
-     "y": 261
+     "rect": [
+      530,
+      285,
+      595,
+      360
+     ]
     },
     {
      "name": "Fenris Isle",
@@ -1065,8 +1557,12 @@
       172,
       232
      ],
-     "x": 593,
-     "y": 74
+     "rect": [
+      625,
+      125,
+      815,
+      260
+     ]
     },
     {
      "name": "Malden's Orchard",
@@ -1074,72 +1570,108 @@
       238,
       239
      ],
-     "x": 465,
-     "y": 0
+     "rect": [
+      535,
+      50,
+      600,
+      90
+     ]
     },
     {
      "name": "North Tide's Hollow",
      "areas": [
       928
      ],
-     "x": 323,
-     "y": 128
+     "rect": [
+      365,
+      160,
+      445,
+      220
+     ]
     },
     {
      "name": "Olsen's Farthing",
      "areas": [
       229
      ],
-     "x": 382,
-     "y": 252
+     "rect": [
+      430,
+      330,
+      510,
+      390
+     ]
     },
     {
      "name": "Pyrewood Village",
      "areas": [
       204
      ],
-     "x": 391,
-     "y": 446
+     "rect": [
+      410,
+      465,
+      490,
+      520
+     ]
     },
     {
      "name": "Shadowfang Keep",
      "areas": [
       236
      ],
-     "x": 364,
-     "y": 359
+     "rect": [
+      390,
+      410,
+      495,
+      475
+     ]
     },
     {
      "name": "The Dead Field",
      "areas": [
       240
      ],
-     "x": 402,
-     "y": 65
+     "rect": [
+      430,
+      115,
+      500,
+      175
+     ]
     },
     {
      "name": "The Decrepit Ferry",
      "areas": [
       237
      ],
-     "x": 457,
-     "y": 144
+     "rect": [
+      510,
+      205,
+      600,
+      280
+     ]
     },
     {
      "name": "The Greymane Wall",
      "areas": [
       230
      ],
-     "x": 379,
-     "y": 447
+     "rect": [
+      420,
+      530,
+      510,
+      620
+     ]
     },
     {
      "name": "The Sepulcher",
      "areas": [
       228
      ],
-     "x": 352,
-     "y": 168
+     "rect": [
+      405,
+      240,
+      490,
+      305
+     ]
     },
     {
      "name": "The Shining Strand",
@@ -1147,16 +1679,24 @@
       927,
       227
      ],
-     "x": 459,
-     "y": 13
+     "rect": [
+      510,
+      115,
+      575,
+      190
+     ]
     },
     {
      "name": "The Skittering Dark",
      "areas": [
       226
      ],
-     "x": 286,
-     "y": 37
+     "rect": [
+      325,
+      70,
+      425,
+      140
+     ]
     }
    ]
   },
@@ -1170,104 +1710,156 @@
      "areas": [
       2298
      ],
-     "x": 600,
-     "y": 412
+     "rect": [
+      640,
+      455,
+      740,
+      550
+     ]
     },
     {
      "name": "Dalson's Tears",
      "areas": [
       200
      ],
-     "x": 381,
-     "y": 265
+     "rect": [
+      420,
+      315,
+      510,
+      390
+     ]
     },
     {
      "name": "Darrowmere Lake",
      "areas": [
       2297
      ],
-     "x": 504,
-     "y": 343
+     "rect": [
+      555,
+      410,
+      815,
+      575
+     ]
     },
     {
      "name": "Felstone Field",
      "areas": [
       199
      ],
-     "x": 300,
-     "y": 311
+     "rect": [
+      335,
+      340,
+      415,
+      405
+     ]
     },
     {
      "name": "Gahrron's Withering",
      "areas": [
       201
      ],
-     "x": 520,
-     "y": 250
+     "rect": [
+      580,
+      345,
+      680,
+      420
+     ]
     },
     {
      "name": "Hearthglen",
      "areas": [
       190
      ],
-     "x": 307,
-     "y": 16
+     "rect": [
+      365,
+      55,
+      580,
+      185
+     ]
     },
     {
      "name": "Northridge Lumber Camp",
      "areas": [
       192
      ],
-     "x": 382,
-     "y": 164
+     "rect": [
+      425,
+      195,
+      525,
+      290
+     ]
     },
     {
      "name": "Ruins of Andorhal",
      "areas": [
       193
      ],
-     "x": 260,
-     "y": 355
+     "rect": [
+      380,
+      420,
+      495,
+      505
+     ]
     },
     {
      "name": "Sorrow Hill",
      "areas": [
       197
      ],
-     "x": 355,
-     "y": 462
+     "rect": [
+      470,
+      485,
+      565,
+      575
+     ]
     },
     {
      "name": "The Bulwark",
      "areas": [
       813
      ],
-     "x": 137,
-     "y": 293
+     "rect": [
+      205,
+      350,
+      325,
+      425
+     ]
     },
     {
      "name": "The Weeping Cave",
      "areas": [
       198
      ],
-     "x": 566,
-     "y": 198
+     "rect": [
+      615,
+      240,
+      690,
+      325
+     ]
     },
     {
      "name": "The Writhing Haunt",
      "areas": [
       202
      ],
-     "x": 451,
-     "y": 323
+     "rect": [
+      500,
+      405,
+      570,
+      470
+     ]
     },
     {
      "name": "Thondroril River",
      "areas": [
       2620
      ],
-     "x": 590,
-     "y": 86
+     "rect": [
+      625,
+      120,
+      730,
+      395
+     ]
     }
    ]
   },
@@ -1281,176 +1873,264 @@
      "areas": [
       2624
      ],
-     "x": 442,
-     "y": 199
+     "rect": [
+      475,
+      290,
+      565,
+      375
+     ]
     },
     {
      "name": "Corin's Crossing",
      "areas": [
       2264
      ],
-     "x": 537,
-     "y": 367
+     "rect": [
+      550,
+      430,
+      645,
+      510
+     ]
     },
     {
      "name": "Crown Guard Tower",
      "areas": [
       2263
      ],
-     "x": 291,
-     "y": 401
+     "rect": [
+      345,
+      465,
+      430,
+      545
+     ]
     },
     {
      "name": "Darrowshire",
      "areas": [
       2262
      ],
-     "x": 309,
-     "y": 489
+     "rect": [
+      340,
+      560,
+      460,
+      640
+     ]
     },
     {
      "name": "Eastwall Tower",
      "areas": [
       2271
      ],
-     "x": 592,
-     "y": 241
+     "rect": [
+      645,
+      290,
+      715,
+      375
+     ]
     },
     {
      "name": "Lake Mereldar",
      "areas": [
       2621
      ],
-     "x": 537,
-     "y": 463
+     "rect": [
+      565,
+      490,
+      690,
+      580
+     ]
     },
     {
      "name": "Light's Hope Chapel",
      "areas": [
       2268
      ],
-     "x": 716,
-     "y": 299
+     "rect": [
+      785,
+      350,
+      860,
+      430
+     ]
     },
     {
      "name": "Northdale",
      "areas": [
       2272
      ],
-     "x": 620,
-     "y": 128
+     "rect": [
+      665,
+      170,
+      750,
+      255
+     ]
     },
     {
      "name": "Northpass Tower",
      "areas": [
       2275
      ],
-     "x": 457,
-     "y": 109
+     "rect": [
+      515,
+      145,
+      645,
+      235
+     ]
     },
     {
      "name": "Pestilent Scar",
      "areas": [
       2622
      ],
-     "x": 620,
-     "y": 291
+     "rect": [
+      695,
+      355,
+      790,
+      480
+     ]
     },
     {
      "name": "Plaguewood",
      "areas": [
       2277
      ],
-     "x": 169,
-     "y": 83
+     "rect": [
+      235,
+      160,
+      495,
+      290
+     ]
     },
     {
      "name": "Quel'Lithien Lodge",
      "areas": [
       2276
      ],
-     "x": 422,
-     "y": 36
+     "rect": [
+      485,
+      80,
+      575,
+      140
+     ]
     },
     {
      "name": "Stratholme",
      "areas": [
       2279
      ],
-     "x": 194,
-     "y": 9
+     "rect": [
+      245,
+      35,
+      380,
+      170
+     ]
     },
     {
      "name": "Terrordale",
      "areas": [
       2627
      ],
-     "x": 79,
-     "y": 98
+     "rect": [
+      115,
+      180,
+      240,
+      250
+     ]
     },
     {
      "name": "The Fungal Vale",
      "areas": [
       2258
      ],
-     "x": 271,
-     "y": 261
+     "rect": [
+      355,
+      300,
+      455,
+      395
+     ]
     },
     {
      "name": "The Infectis Scar",
      "areas": [
       2623
      ],
-     "x": 409,
-     "y": 345
+     "rect": [
+      475,
+      405,
+      580,
+      485
+     ]
     },
     {
      "name": "The Marris Stead",
      "areas": [
       2260
      ],
-     "x": 156,
-     "y": 360
+     "rect": [
+      215,
+      455,
+      320,
+      525
+     ]
     },
     {
      "name": "The Noxious Glade",
      "areas": [
       2270
      ],
-     "x": 722,
-     "y": 166
+     "rect": [
+      785,
+      225,
+      905,
+      330
+     ]
     },
     {
      "name": "The Undercroft",
      "areas": [
       2261
      ],
-     "x": 172,
-     "y": 477
+     "rect": [
+      245,
+      520,
+      325,
+      610
+     ]
     },
     {
      "name": "Thondroril River",
      "areas": [
       2619
      ],
-     "x": 7,
-     "y": 231
+     "rect": [
+      25,
+      255,
+      130,
+      550
+     ]
     },
     {
      "name": "Tyr's Hand",
      "areas": [
       2266
      ],
-     "x": 717,
-     "y": 471
+     "rect": [
+      765,
+      505,
+      935,
+      605
+     ]
     },
     {
      "name": "Zul'Mashar",
      "areas": [
       2273
      ],
-     "x": 614,
-     "y": 30
+     "rect": [
+      670,
+      60,
+      795,
+      135
+     ]
     }
    ]
   },
@@ -1464,96 +2144,144 @@
      "areas": [
       288
      ],
-     "x": 175,
-     "y": 275
+     "rect": [
+      215,
+      345,
+      310,
+      420
+     ]
     },
     {
      "name": "Darrow Hill",
      "areas": [
       1056
      ],
-     "x": 414,
-     "y": 154
+     "rect": [
+      435,
+      190,
+      585,
+      260
+     ]
     },
     {
      "name": "Dun Garok",
      "areas": [
       290
      ],
-     "x": 637,
-     "y": 294
+     "rect": [
+      675,
+      405,
+      770,
+      550
+     ]
     },
     {
      "name": "Durnholde Keep",
      "areas": [
       275
      ],
-     "x": 605,
-     "y": 75
+     "rect": [
+      705,
+      220,
+      835,
+      325
+     ]
     },
     {
      "name": "Eastern Strand",
      "areas": [
       294
      ],
-     "x": 524,
-     "y": 339
+     "rect": [
+      550,
+      440,
+      690,
+      555
+     ]
     },
     {
      "name": "Hillsbrad Fields",
      "areas": [
       286
      ],
-     "x": 198,
-     "y": 155
+     "rect": [
+      250,
+      200,
+      450,
+      400
+     ]
     },
     {
      "name": "Nethander Stead",
      "areas": [
       289
      ],
-     "x": 541,
-     "y": 236
+     "rect": [
+      580,
+      290,
+      700,
+      450
+     ]
     },
     {
      "name": "Purgation Isle",
      "areas": [
       896
      ],
-     "x": 109,
-     "y": 482
+     "rect": [
+      110,
+      480,
+      235,
+      585
+     ]
     },
     {
      "name": "Southpoint Tower",
      "areas": [
       285
      ],
-     "x": 2,
-     "y": 192
+     "rect": [
+      75,
+      245,
+      235,
+      370
+     ]
     },
     {
      "name": "Southshore",
      "areas": [
       271
      ],
-     "x": 418,
-     "y": 201
+     "rect": [
+      445,
+      310,
+      550,
+      430
+     ]
     },
     {
      "name": "Tarren Mill",
      "areas": [
       272
      ],
-     "x": 509,
-     "y": 0
+     "rect": [
+      545,
+      100,
+      680,
+      245
+     ]
     },
     {
      "name": "Western Strand",
      "areas": [
       295
      ],
-     "x": 208,
-     "y": 368
+     "rect": [
+      240,
+      415,
+      475,
+      495
+     ]
     }
    ]
   },
@@ -1567,112 +2295,168 @@
      "areas": [
       348
      ],
-     "x": 13,
-     "y": 245
+     "rect": [
+      85,
+      285,
+      210,
+      390
+     ]
     },
     {
      "name": "Agol'watha",
      "areas": [
       1884
      ],
-     "x": 374,
-     "y": 164
+     "rect": [
+      440,
+      205,
+      555,
+      290
+     ]
     },
     {
      "name": "Hiri'watha",
      "areas": [
       1885
      ],
-     "x": 171,
-     "y": 306
+     "rect": [
+      230,
+      365,
+      335,
+      460
+     ]
     },
     {
      "name": "Jintha'Alor",
      "areas": [
       354
      ],
-     "x": 505,
-     "y": 333
+     "rect": [
+      550,
+      360,
+      700,
+      570
+     ]
     },
     {
      "name": "Plaguemist Ravine",
      "areas": [
       1882
      ],
-     "x": 158,
-     "y": 149
+     "rect": [
+      190,
+      180,
+      265,
+      330
+     ]
     },
     {
      "name": "Quel'Danil Lodge",
      "areas": [
       350
      ],
-     "x": 237,
-     "y": 185
+     "rect": [
+      255,
+      225,
+      375,
+      350
+     ]
     },
     {
      "name": "Seradane",
      "areas": [
       356
      ],
-     "x": 509,
-     "y": 19
+     "rect": [
+      560,
+      90,
+      725,
+      250
+     ]
     },
     {
      "name": "Shadra'Alor",
      "areas": [
       353
      ],
-     "x": 240,
-     "y": 387
+     "rect": [
+      295,
+      430,
+      400,
+      525
+     ]
     },
     {
      "name": "Shaol'watha",
      "areas": [
       1917
      ],
-     "x": 571,
-     "y": 239
+     "rect": [
+      635,
+      285,
+      770,
+      390
+     ]
     },
     {
      "name": "Skulk Rock",
      "areas": [
       351
      ],
-     "x": 512,
-     "y": 232
+     "rect": [
+      550,
+      250,
+      635,
+      325
+     ]
     },
     {
      "name": "The Altar of Zul",
      "areas": [
       355
      ],
-     "x": 373,
-     "y": 365
+     "rect": [
+      440,
+      405,
+      535,
+      480
+     ]
     },
     {
      "name": "The Creeping Ruin",
      "areas": [
       1886
      ],
-     "x": 408,
-     "y": 260
+     "rect": [
+      455,
+      315,
+      550,
+      400
+     ]
     },
     {
      "name": "The Overlook Cliffs",
      "areas": [
       307
      ],
-     "x": 693,
-     "y": 303
+     "rect": [
+      755,
+      350,
+      835,
+      570
+     ]
     },
     {
      "name": "Valorwind Lake",
      "areas": [
       1883
      ],
-     "x": 319,
-     "y": 302
+     "rect": [
+      365,
+      355,
+      440,
+      425
+     ]
     }
    ]
   },
@@ -1686,32 +2470,48 @@
      "areas": [
       803
      ],
-     "x": 573,
-     "y": 280
+     "rect": [
+      605,
+      315,
+      665,
+      360
+     ]
     },
     {
      "name": "Brewnall Village",
      "areas": [
       137
      ],
-     "x": 252,
-     "y": 249
+     "rect": [
+      280,
+      275,
+      330,
+      340
+     ]
     },
     {
      "name": "Chill Breeze Valley",
      "areas": [
       801
      ],
-     "x": 274,
-     "y": 296
+     "rect": [
+      320,
+      320,
+      400,
+      390
+     ]
     },
     {
      "name": "Coldridge Pass",
      "areas": [
       800
      ],
-     "x": 295,
-     "y": 385
+     "rect": [
+      320,
+      420,
+      380,
+      490
+     ]
     },
     {
      "name": "Coldridge Valley",
@@ -1719,40 +2519,60 @@
       132,
       77
      ],
-     "x": 155,
-     "y": 403
+     "rect": [
+      190,
+      445,
+      340,
+      560
+     ]
     },
     {
      "name": "Frostmane Hold",
      "areas": [
       135
      ],
-     "x": 217,
-     "y": 287
+     "rect": [
+      260,
+      315,
+      305,
+      375
+     ]
     },
     {
      "name": "Gates of Ironforge",
      "areas": [
       809
      ],
-     "x": 397,
-     "y": 163
+     "rect": [
+      440,
+      205,
+      550,
+      295
+     ]
     },
     {
      "name": "Gnomeregan",
      "areas": [
       133
      ],
-     "x": 166,
-     "y": 184
+     "rect": [
+      205,
+      215,
+      280,
+      295
+     ]
     },
     {
      "name": "Gol'Bolar Quarry",
      "areas": [
       134
      ],
-     "x": 608,
-     "y": 291
+     "rect": [
+      640,
+      340,
+      735,
+      430
+     ]
     },
     {
      "name": "Helm's Bed Lake",
@@ -1760,16 +2580,24 @@
       212,
       716
      ],
-     "x": 694,
-     "y": 273
+     "rect": [
+      730,
+      315,
+      810,
+      410
+     ]
     },
     {
      "name": "Iceflow Lake",
      "areas": [
       211
      ],
-     "x": 281,
-     "y": 167
+     "rect": [
+      315,
+      195,
+      385,
+      320
+     ]
     },
     {
      "name": "Kharanos",
@@ -1777,56 +2605,84 @@
       131,
       189
      ],
-     "x": 386,
-     "y": 294
+     "rect": [
+      386,
+      294,
+      586,
+      494
+     ]
     },
     {
      "name": "Misty Pine Refuge",
      "areas": [
       138
      ],
-     "x": 502,
-     "y": 221
+     "rect": [
+      545,
+      245,
+      605,
+      325
+     ]
     },
     {
      "name": "North Gate Outpost",
      "areas": [
       808
      ],
-     "x": 759,
-     "y": 173
+     "rect": [
+      800,
+      205,
+      860,
+      300
+     ]
     },
     {
      "name": "Shimmer Ridge",
      "areas": [
       802
      ],
-     "x": 347,
-     "y": 163
+     "rect": [
+      380,
+      220,
+      440,
+      315
+     ]
     },
     {
      "name": "South Gate Outpost",
      "areas": [
       806
      ],
-     "x": 792,
-     "y": 279
+     "rect": [
+      825,
+      305,
+      885,
+      375
+     ]
     },
     {
      "name": "The Grizzled Den",
      "areas": [
       136
      ],
-     "x": 314,
-     "y": 311
+     "rect": [
+      380,
+      350,
+      440,
+      425
+     ]
     },
     {
      "name": "The Tundrid Hills",
      "areas": [
       804
      ],
-     "x": 522,
-     "y": 322
+     "rect": [
+      555,
+      355,
+      645,
+      410
+     ]
     }
    ]
   },
@@ -1840,56 +2696,84 @@
      "areas": [
       1957
      ],
-     "x": 77,
-     "y": 366
+     "rect": [
+      155,
+      415,
+      305,
+      565
+     ]
     },
     {
      "name": "Dustfire Valley",
      "areas": [
       1959
      ],
-     "x": 422,
-     "y": 8
+     "rect": [
+      530,
+      60,
+      820,
+      330
+     ]
     },
     {
      "name": "Firewatch Ridge",
      "areas": [
       1442
      ],
-     "x": 85,
-     "y": 30
+     "rect": [
+      160,
+      130,
+      400,
+      320
+     ]
     },
     {
      "name": "Grimesilt Dig Site",
      "areas": [
       247
      ],
-     "x": 494,
-     "y": 300
+     "rect": [
+      560,
+      345,
+      740,
+      440
+     ]
     },
     {
      "name": "Tanner Camp",
      "areas": [
       1958
      ],
-     "x": 545,
-     "y": 407
+     "rect": [
+      605,
+      440,
+      785,
+      580
+     ]
     },
     {
      "name": "The Cauldron",
      "areas": [
       246
      ],
-     "x": 250,
-     "y": 170
+     "rect": [
+      315,
+      260,
+      610,
+      400
+     ]
     },
     {
      "name": "The Sea of Cinders",
      "areas": [
       1444
      ],
-     "x": 247,
-     "y": 388
+     "rect": [
+      330,
+      460,
+      570,
+      665
+     ]
     }
    ]
   },
@@ -1903,80 +2787,120 @@
      "areas": [
       255
      ],
-     "x": 36,
-     "y": 109
+     "rect": [
+      100,
+      150,
+      215,
+      280
+     ]
     },
     {
      "name": "Blackrock Mountain",
      "areas": [
       254
      ],
-     "x": 173,
-     "y": 101
+     "rect": [
+      220,
+      145,
+      380,
+      280
+     ]
     },
     {
      "name": "Blackrock Pass",
      "areas": [
       2417
      ],
-     "x": 589,
-     "y": 279
+     "rect": [
+      680,
+      385,
+      825,
+      530
+     ]
     },
     {
      "name": "Blackrock Stronghold",
      "areas": [
       252
      ],
-     "x": 334,
-     "y": 114
+     "rect": [
+      370,
+      160,
+      505,
+      310
+     ]
     },
     {
      "name": "Draco'dar",
      "areas": [
       2421
      ],
-     "x": 56,
-     "y": 258
+     "rect": [
+      125,
+      330,
+      435,
+      545
+     ]
     },
     {
      "name": "Dreadmaul Rock",
      "areas": [
       249
      ],
-     "x": 707,
-     "y": 168
+     "rect": [
+      745,
+      205,
+      885,
+      350
+     ]
     },
     {
      "name": "Morgan's Vigil",
      "areas": [
       2418
      ],
-     "x": 708,
-     "y": 311
+     "rect": [
+      805,
+      350,
+      970,
+      515
+     ]
     },
     {
      "name": "Ruins of Thaurissan",
      "areas": [
       250
      ],
-     "x": 513,
-     "y": 99
+     "rect": [
+      550,
+      145,
+      755,
+      315
+     ]
     },
     {
      "name": "Terror Wing Path",
      "areas": [
       2420
      ],
-     "x": 722,
-     "y": 46
+     "rect": [
+      780,
+      115,
+      995,
+      365
+     ]
     },
     {
      "name": "The Pillar of Ash",
      "areas": [
       253
      ],
-     "x": 377,
-     "y": 285
+     "rect": [
+      415,
+      325,
+      590,
+      430
+     ]
     }
    ]
   },
@@ -1990,24 +2914,36 @@
      "areas": [
       62
      ],
-     "x": 577,
-     "y": 419
+     "rect": [
+      615,
+      495,
+      735,
+      565
+     ]
     },
     {
      "name": "Crystal Lake",
      "areas": [
       18
      ],
-     "x": 422,
-     "y": 332
+     "rect": [
+      450,
+      380,
+      605,
+      475
+     ]
     },
     {
      "name": "Eastvale Logging Camp",
      "areas": [
       88
      ],
-     "x": 704,
-     "y": 330
+     "rect": [
+      775,
+      400,
+      900,
+      485
+     ]
     },
     {
      "name": "Fargodeep Mine",
@@ -2016,8 +2952,12 @@
       63,
       64
      ],
-     "x": 238,
-     "y": 428
+     "rect": [
+      300,
+      510,
+      470,
+      615
+     ]
     },
     {
      "name": "Forest's Edge",
@@ -2025,56 +2965,84 @@
       60,
       120
      ],
-     "x": 124,
-     "y": 327
+     "rect": [
+      200,
+      445,
+      300,
+      645
+     ]
     },
     {
      "name": "Goldshire",
      "areas": [
       87
      ],
-     "x": 250,
-     "y": 270
+     "rect": [
+      370,
+      400,
+      455,
+      465
+     ]
     },
     {
      "name": "Jerod's Landing",
      "areas": [
       797
      ],
-     "x": 425,
-     "y": 431
+     "rect": [
+      460,
+      495,
+      615,
+      615
+     ]
     },
     {
      "name": "Northshire Valley",
      "areas": [
       9
      ],
-     "x": 381,
-     "y": 147
+     "rect": [
+      425,
+      190,
+      600,
+      375
+     ]
     },
     {
      "name": "Ridgepoint Tower",
      "areas": [
       798
      ],
-     "x": 696,
-     "y": 435
+     "rect": [
+      790,
+      505,
+      915,
+      570
+     ]
     },
     {
      "name": "Stone Cairn Lake",
      "areas": [
       86
      ],
-     "x": 587,
-     "y": 190
+     "rect": [
+      675,
+      250,
+      830,
+      415
+     ]
     },
     {
      "name": "Stormwind City",
      "areas": [
       1519
      ],
-     "x": 0,
-     "y": 0
+     "rect": [
+      115,
+      120,
+      370,
+      355
+     ]
     },
     {
      "name": "Tower of Azora",
@@ -2082,8 +3050,12 @@
       91,
       54
      ],
-     "x": 551,
-     "y": 292
+     "rect": [
+      610,
+      400,
+      745,
+      490
+     ]
     }
    ]
   },
@@ -2098,24 +3070,36 @@
       2697,
       2938
      ],
-     "x": 249,
-     "y": 76
+     "rect": [
+      315,
+      125,
+      590,
+      355
+     ]
     },
     {
      "name": "Karazhan",
      "areas": [
       2562
      ],
-     "x": 269,
-     "y": 337
+     "rect": [
+      335,
+      380,
+      520,
+      540
+     ]
     },
     {
      "name": "The Vice",
      "areas": [
       2561
      ],
-     "x": 426,
-     "y": 299
+     "rect": [
+      510,
+      325,
+      665,
+      540
+     ]
     }
    ]
   },
@@ -2129,16 +3113,24 @@
      "areas": [
       536
      ],
-     "x": 55,
-     "y": 342
+     "rect": [
+      160,
+      415,
+      275,
+      510
+     ]
     },
     {
      "name": "Brightwood Grove",
      "areas": [
       242
      ],
-     "x": 504,
-     "y": 117
+     "rect": [
+      570,
+      165,
+      685,
+      380
+     ]
     },
     {
      "name": "Darkshire",
@@ -2146,24 +3138,36 @@
       42,
       576
      ],
-     "x": 631,
-     "y": 162
+     "rect": [
+      710,
+      250,
+      835,
+      350
+     ]
     },
     {
      "name": "Manor Mistmantle",
      "areas": [
       1098
      ],
-     "x": 653,
-     "y": 120
+     "rect": [
+      695,
+      195,
+      795,
+      255
+     ]
     },
     {
      "name": "Raven Hill",
      "areas": [
       94
      ],
-     "x": 102,
-     "y": 302
+     "rect": [
+      155,
+      340,
+      260,
+      410
+     ]
     },
     {
      "name": "Raven Hill Cemetery",
@@ -2171,64 +3175,96 @@
       492,
       243
      ],
-     "x": 85,
-     "y": 149
+     "rect": [
+      145,
+      210,
+      260,
+      350
+     ]
     },
     {
      "name": "The Darkened Bank",
      "areas": [
       799
      ],
-     "x": 89,
-     "y": 31
+     "rect": [
+      125,
+      85,
+      970,
+      200
+     ]
     },
     {
      "name": "The Hushed Bank",
      "areas": [
       1097
      ],
-     "x": 19,
-     "y": 132
+     "rect": [
+      56,
+      191,
+      145,
+      403
+     ]
     },
     {
      "name": "The Rotting Orchard",
      "areas": [
       241
      ],
-     "x": 539,
-     "y": 369
+     "rect": [
+      580,
+      430,
+      705,
+      545
+     ]
     },
     {
      "name": "The Yorgen Farmstead",
      "areas": [
       245
      ],
-     "x": 390,
-     "y": 382
+     "rect": [
+      445,
+      440,
+      540,
+      540
+     ]
     },
     {
      "name": "Tranquil Gardens Cemetery",
      "areas": [
       121
      ],
-     "x": 690,
-     "y": 353
+     "rect": [
+      755,
+      430,
+      850,
+      505
+     ]
     },
     {
      "name": "Twilight Grove",
      "areas": [
       856
      ],
-     "x": 298,
-     "y": 79
+     "rect": [
+      370,
+      145,
+      585,
+      395
+     ]
     },
     {
      "name": "Vul'Gol Ogre Mound",
      "areas": [
       93
      ],
-     "x": 243,
-     "y": 348
+     "rect": [
+      285,
+      435,
+      440,
+      545
+     ]
     }
    ]
   },
@@ -2242,24 +3278,36 @@
      "areas": [
       936
      ],
-     "x": 309,
-     "y": 310
+     "rect": [
+      395,
+      395,
+      510,
+      525
+     ]
     },
     {
      "name": "Ironband's Excavation Site",
      "areas": [
       142
      ],
-     "x": 482,
-     "y": 321
+     "rect": [
+      625,
+      380,
+      765,
+      495
+     ]
     },
     {
      "name": "Mo'grosh Stronghold",
      "areas": [
       143
      ],
-     "x": 542,
-     "y": 48
+     "rect": [
+      620,
+      105,
+      800,
+      230
+     ]
     },
     {
      "name": "North Gate Pass",
@@ -2267,64 +3315,96 @@
       838,
       925
      ],
-     "x": 125,
-     "y": 12
+     "rect": [
+      160,
+      45,
+      290,
+      160
+     ]
     },
     {
      "name": "Silver Stream Mine",
      "areas": [
       149
      ],
-     "x": 229,
-     "y": 11
+     "rect": [
+      290,
+      90,
+      400,
+      200
+     ]
     },
     {
      "name": "Stonesplinter Valley",
      "areas": [
       923
      ],
-     "x": 215,
-     "y": 348
+     "rect": [
+      275,
+      430,
+      425,
+      610
+     ]
     },
     {
      "name": "Stonewrought Dam",
      "areas": [
       146
      ],
-     "x": 339,
-     "y": 11
+     "rect": [
+      380,
+      45,
+      580,
+      125
+     ]
     },
     {
      "name": "The Farstrider Lodge",
      "areas": [
       147
      ],
-     "x": 546,
-     "y": 199
+     "rect": [
+      790,
+      380,
+      875,
+      460
+     ]
     },
     {
      "name": "The Loch",
      "areas": [
       556
      ],
-     "x": 352,
-     "y": 87
+     "rect": [
+      405,
+      115,
+      600,
+      450
+     ]
     },
     {
      "name": "Thelsamar",
      "areas": [
       144
      ],
-     "x": 217,
-     "y": 203
+     "rect": [
+      300,
+      265,
+      400,
+      350
+     ]
     },
     {
      "name": "Valley of Kings",
      "areas": [
       924
      ],
-     "x": 109,
-     "y": 370
+     "rect": [
+      150,
+      400,
+      260,
+      585
+     ]
     }
    ]
   },
@@ -2338,8 +3418,12 @@
      "areas": [
       97
      ],
-     "x": 399,
-     "y": 129
+     "rect": [
+      475,
+      220,
+      595,
+      345
+     ]
     },
     {
      "name": "Galardell Valley",
@@ -2347,32 +3431,48 @@
       1000,
       96
      ],
-     "x": 654,
-     "y": 161
+     "rect": [
+      700,
+      195,
+      865,
+      375
+     ]
     },
     {
      "name": "Lake Everstill",
      "areas": [
       68
      ],
-     "x": 133,
-     "y": 240
+     "rect": [
+      245,
+      325,
+      595,
+      465
+     ]
     },
     {
      "name": "Lakeridge Highway",
      "areas": [
       1001
      ],
-     "x": 187,
-     "y": 333
+     "rect": [
+      220,
+      445,
+      545,
+      535
+     ]
     },
     {
      "name": "Lakeshire",
      "areas": [
       69
      ],
-     "x": 83,
-     "y": 197
+     "rect": [
+      165,
+      250,
+      345,
+      330
+     ]
     },
     {
      "name": "Redridge Canyons",
@@ -2380,8 +3480,12 @@
       95,
       98
      ],
-     "x": 121,
-     "y": 72
+     "rect": [
+      175,
+      125,
+      400,
+      250
+     ]
     },
     {
      "name": "Render's Camp",
@@ -2389,16 +3493,24 @@
       996,
       998
      ],
-     "x": 277,
-     "y": 0
+     "rect": [
+      305,
+      25,
+      500,
+      200
+     ]
     },
     {
      "name": "Render's Valley",
      "areas": [
       997
      ],
-     "x": 484,
-     "y": 361
+     "rect": [
+      535,
+      470,
+      930,
+      570
+     ]
     },
     {
      "name": "Stonewatch",
@@ -2406,24 +3518,36 @@
       70,
       999
      ],
-     "x": 500,
-     "y": 215
+     "rect": [
+      595,
+      300,
+      730,
+      435
+     ]
     },
     {
      "name": "Stonewatch Falls",
      "areas": [
       71
      ],
-     "x": 595,
-     "y": 320
+     "rect": [
+      655,
+      405,
+      840,
+      490
+     ]
     },
     {
      "name": "Three Corners",
      "areas": [
       1002
      ],
-     "x": 0,
-     "y": 284
+     "rect": [
+      95,
+      375,
+      275,
+      550
+     ]
     }
    ]
   },
@@ -2437,24 +3561,36 @@
      "areas": [
       123
      ],
-     "x": 241,
-     "y": 92
+     "rect": [
+      270,
+      115,
+      320,
+      150
+     ]
     },
     {
      "name": "Balia'mah Ruins",
      "areas": [
       127
      ],
-     "x": 371,
-     "y": 129
+     "rect": [
+      390,
+      185,
+      445,
+      230
+     ]
     },
     {
      "name": "Bloodsail Compound",
      "areas": [
       1739
      ],
-     "x": 194,
-     "y": 284
+     "rect": [
+      220,
+      325,
+      320,
+      390
+     ]
     },
     {
      "name": "Booty Bay",
@@ -2462,192 +3598,288 @@
       35,
       312
      ],
-     "x": 203,
-     "y": 433
+     "rect": [
+      220,
+      460,
+      305,
+      530
+     ]
     },
     {
      "name": "Crystalvein Mine",
      "areas": [
       310
      ],
-     "x": 345,
-     "y": 276
+     "rect": [
+      380,
+      310,
+      440,
+      365
+     ]
     },
     {
      "name": "Grom'gol Base Camp",
      "areas": [
       117
      ],
-     "x": 260,
-     "y": 132
+     "rect": [
+      285,
+      160,
+      350,
+      205
+     ]
     },
     {
      "name": "Gurubashi Arena",
      "areas": [
       1741
      ],
-     "x": 235,
-     "y": 189
+     "rect": [
+      250,
+      255,
+      340,
+      335
+     ]
     },
     {
      "name": "Jaguero Isle",
      "areas": [
       297
      ],
-     "x": 314,
-     "y": 493
+     "rect": [
+      350,
+      510,
+      430,
+      590
+     ]
     },
     {
      "name": "Kal'ai Ruins",
      "areas": [
       125
      ],
-     "x": 299,
-     "y": 88
+     "rect": [
+      320,
+      120,
+      370,
+      160
+     ]
     },
     {
      "name": "Kurzen's Compound",
      "areas": [
       101
      ],
-     "x": 388,
-     "y": 0
+     "rect": [
+      415,
+      35,
+      495,
+      90
+     ]
     },
     {
      "name": "Lake Nazferiti",
      "areas": [
       37
      ],
-     "x": 331,
-     "y": 59
+     "rect": [
+      375,
+      100,
+      435,
+      150
+     ]
     },
     {
      "name": "Mistvale Valley",
      "areas": [
       1737
      ],
-     "x": 280,
-     "y": 368
+     "rect": [
+      320,
+      395,
+      355,
+      465
+     ]
     },
     {
      "name": "Mizjah Ruins",
      "areas": [
       129
      ],
-     "x": 311,
-     "y": 131
+     "rect": [
+      350,
+      180,
+      390,
+      215
+     ]
     },
     {
      "name": "Mosh'Ogg Ogre Mound",
      "areas": [
       105
      ],
-     "x": 432,
-     "y": 94
+     "rect": [
+      455,
+      160,
+      535,
+      240
+     ]
     },
     {
      "name": "Nek'mani Wellspring",
      "areas": [
       1738
      ],
-     "x": 211,
-     "y": 359
+     "rect": [
+      230,
+      385,
+      285,
+      450
+     ]
     },
     {
      "name": "Nesingwary's Expedition",
      "areas": [
       100
      ],
-     "x": 269,
-     "y": 26
+     "rect": [
+      305,
+      60,
+      380,
+      115
+     ]
     },
     {
      "name": "Rebel Camp",
      "areas": [
       99
      ],
-     "x": 284,
-     "y": 0
+     "rect": [
+      335,
+      20,
+      415,
+      55
+     ]
     },
     {
      "name": "Ruins of Aboraz",
      "areas": [
       311
      ],
-     "x": 350,
-     "y": 335
+     "rect": [
+      375,
+      375,
+      420,
+      415
+     ]
     },
     {
      "name": "Ruins of Jubuwal",
      "areas": [
       477
      ],
-     "x": 306,
-     "y": 301
+     "rect": [
+      335,
+      325,
+      380,
+      365
+     ]
     },
     {
      "name": "Ruins of Zul'Kunda",
      "areas": [
       102
      ],
-     "x": 196,
-     "y": 3
+     "rect": [
+      220,
+      55,
+      300,
+      110
+     ]
     },
     {
      "name": "Ruins of Zul'Mamwe",
      "areas": [
       103
      ],
-     "x": 394,
-     "y": 212
+     "rect": [
+      435,
+      250,
+      500,
+      315
+     ]
     },
     {
      "name": "The Vile Reef",
      "areas": [
       104
      ],
-     "x": 152,
-     "y": 90
+     "rect": [
+      180,
+      135,
+      305,
+      235
+     ]
     },
     {
      "name": "Venture Co. Base Camp",
      "areas": [
       1740
      ],
-     "x": 387,
-     "y": 64
+     "rect": [
+      420,
+      100,
+      465,
+      165
+     ]
     },
     {
      "name": "Wild Shore",
      "areas": [
       43
      ],
-     "x": 229,
-     "y": 422
+     "rect": [
+      300,
+      505,
+      350,
+      555
+     ]
     },
     {
      "name": "Ziata'jai Ruins",
      "areas": [
       128
      ],
-     "x": 364,
-     "y": 231
+     "rect": [
+      385,
+      235,
+      430,
+      315
+     ]
     },
     {
      "name": "Zul'Gurub",
      "areas": [
       19
      ],
-     "x": 483,
-     "y": 8
+     "rect": [
+      525,
+      50,
+      675,
+      200
+     ]
     },
     {
      "name": "Zuuldaia Ruins",
      "areas": [
       122
      ],
-     "x": 156,
-     "y": 42
+     "rect": [
+      190,
+      80,
+      235,
+      120
+     ]
     }
    ]
   },
@@ -2661,16 +3893,24 @@
      "areas": [
       76
      ],
-     "x": 492,
-     "y": 0
+     "rect": [
+      540,
+      60,
+      765,
+      240
+     ]
     },
     {
      "name": "Itharius's Cave",
      "areas": [
       1777
      ],
-     "x": 0,
-     "y": 262
+     "rect": [
+      100,
+      350,
+      200,
+      490
+     ]
     },
     {
      "name": "Misty Reed Strand",
@@ -2678,72 +3918,108 @@
       300,
       1978
      ],
-     "x": 746,
-     "y": 0
+     "rect": [
+      815,
+      75,
+      955,
+      630
+     ]
     },
     {
      "name": "Misty Valley",
      "areas": [
       116
      ],
-     "x": 0,
-     "y": 140
+     "rect": [
+      50,
+      190,
+      215,
+      290
+     ]
     },
     {
      "name": "Pool of Tears",
      "areas": [
       74
      ],
-     "x": 565,
-     "y": 218
+     "rect": [
+      620,
+      265,
+      805,
+      440
+     ]
     },
     {
      "name": "Sorrowmurk",
      "areas": [
       1778
      ],
-     "x": 724,
-     "y": 120
+     "rect": [
+      775,
+      175,
+      905,
+      445
+     ]
     },
     {
      "name": "Splinterspear Junction",
      "areas": [
       1780
      ],
-     "x": 129,
-     "y": 236
+     "rect": [
+      150,
+      290,
+      340,
+      410
+     ]
     },
     {
      "name": "Stagalbog",
      "areas": [
       1797
      ],
-     "x": 552,
-     "y": 378
+     "rect": [
+      615,
+      455,
+      795,
+      600
+     ]
     },
     {
      "name": "Stonard",
      "areas": [
       75
      ],
-     "x": 279,
-     "y": 237
+     "rect": [
+      370,
+      300,
+      585,
+      435
+     ]
     },
     {
      "name": "The Harborage",
      "areas": [
       657
      ],
-     "x": 171,
-     "y": 145
+     "rect": [
+      215,
+      190,
+      340,
+      290
+     ]
     },
     {
      "name": "The Shifting Mire",
      "areas": [
       1798
      ],
-     "x": 286,
-     "y": 110
+     "rect": [
+      320,
+      160,
+      560,
+      305
+     ]
     }
    ]
   },
@@ -2757,40 +4033,60 @@
      "areas": [
       219
      ],
-     "x": 204,
-     "y": 260
+     "rect": [
+      325,
+      295,
+      440,
+      405
+     ]
     },
     {
      "name": "Demont's Place",
      "areas": [
       921
      ],
-     "x": 208,
-     "y": 375
+     "rect": [
+      260,
+      420,
+      365,
+      510
+     ]
     },
     {
      "name": "Furlbrow's Pumpkin Farm",
      "areas": [
       109
      ],
-     "x": 387,
-     "y": 11
+     "rect": [
+      465,
+      100,
+      555,
+      185
+     ]
     },
     {
      "name": "Gold Coast Quarry",
      "areas": [
       113
      ],
-     "x": 220,
-     "y": 102
+     "rect": [
+      255,
+      230,
+      375,
+      325
+     ]
     },
     {
      "name": "Jangolode Mine",
      "areas": [
       111
      ],
-     "x": 307,
-     "y": 29
+     "rect": [
+      405,
+      125,
+      490,
+      200
+     ]
     },
     {
      "name": "Moonbrook",
@@ -2798,72 +4094,108 @@
       20,
       919
      ],
-     "x": 317,
-     "y": 331
+     "rect": [
+      390,
+      370,
+      495,
+      505
+     ]
     },
     {
      "name": "Saldean's Farm",
      "areas": [
       107
      ],
-     "x": 459,
-     "y": 105
+     "rect": [
+      505,
+      180,
+      605,
+      255
+     ]
     },
     {
      "name": "Sentinel Hill",
      "areas": [
       108
      ],
-     "x": 442,
-     "y": 241
+     "rect": [
+      515,
+      280,
+      605,
+      385
+     ]
     },
     {
      "name": "The Dagger Hills",
      "areas": [
       920
      ],
-     "x": 339,
-     "y": 418
+     "rect": [
+      380,
+      490,
+      560,
+      565
+     ]
     },
     {
      "name": "The Dead Acre",
      "areas": [
       917
      ],
-     "x": 524,
-     "y": 252
+     "rect": [
+      575,
+      370,
+      675,
+      450
+     ]
     },
     {
      "name": "The Dust Plains",
      "areas": [
       922
      ],
-     "x": 523,
-     "y": 377
+     "rect": [
+      560,
+      450,
+      710,
+      520
+     ]
     },
     {
      "name": "The Jansen Stead",
      "areas": [
       916
      ],
-     "x": 488,
-     "y": 0
+     "rect": [
+      520,
+      75,
+      615,
+      160
+     ]
     },
     {
      "name": "The Molsen Farm",
      "areas": [
       918
      ],
-     "x": 328,
-     "y": 148
+     "rect": [
+      395,
+      200,
+      505,
+      285
+     ]
     },
     {
      "name": "Westfall Lighthouse",
      "areas": [
       115
      ],
-     "x": 205,
-     "y": 467
+     "rect": [
+      260,
+      530,
+      380,
+      620
+     ]
     }
    ]
   },
@@ -2877,32 +4209,48 @@
      "areas": [
       1036
      ],
-     "x": 347,
-     "y": 218
+     "rect": [
+      400,
+      270,
+      550,
+      375
+     ]
     },
     {
      "name": "Black Channel Marsh",
      "areas": [
       1018
      ],
-     "x": 77,
-     "y": 245
+     "rect": [
+      125,
+      285,
+      275,
+      370
+     ]
     },
     {
      "name": "Bluegill Marsh",
      "areas": [
       1022
      ],
-     "x": 89,
-     "y": 142
+     "rect": [
+      120,
+      205,
+      265,
+      280
+     ]
     },
     {
      "name": "Direforge Hill",
      "areas": [
       1016
      ],
-     "x": 507,
-     "y": 115
+     "rect": [
+      550,
+      150,
+      665,
+      285
+     ]
     },
     {
      "name": "Dragonmaw Gates",
@@ -2910,72 +4258,108 @@
       1038,
       1037
      ],
-     "x": 611,
-     "y": 230
+     "rect": [
+      710,
+      280,
+      930,
+      570
+     ]
     },
     {
      "name": "Dun Modr",
      "areas": [
       205
      ],
-     "x": 401,
-     "y": 21
+     "rect": [
+      445,
+      80,
+      545,
+      145
+     ]
     },
     {
      "name": "Ironbeard's Tomb",
      "areas": [
       309
      ],
-     "x": 349,
-     "y": 115
+     "rect": [
+      385,
+      150,
+      510,
+      265
+     ]
     },
     {
      "name": "Menethil Harbor",
      "areas": [
       150
      ],
-     "x": 13,
-     "y": 314
+     "rect": [
+      70,
+      345,
+      135,
+      415
+     ]
     },
     {
      "name": "Mosshide Fen",
      "areas": [
       1020
      ],
-     "x": 527,
-     "y": 264
+     "rect": [
+      565,
+      305,
+      675,
+      425
+     ]
     },
     {
      "name": "Raptor Ridge",
      "areas": [
       1017
      ],
-     "x": 628,
-     "y": 176
+     "rect": [
+      665,
+      210,
+      780,
+      300
+     ]
     },
     {
      "name": "Saltspray Glen",
      "areas": [
       1023
      ],
-     "x": 237,
-     "y": 41
+     "rect": [
+      275,
+      95,
+      410,
+      230
+     ]
     },
     {
      "name": "Sundown Marsh",
      "areas": [
       1024
      ],
-     "x": 92,
-     "y": 82
+     "rect": [
+      140,
+      140,
+      325,
+      240
+     ]
     },
     {
      "name": "The Green Belt",
      "areas": [
       1025
      ],
-     "x": 456,
-     "y": 125
+     "rect": [
+      485,
+      170,
+      590,
+      320
+     ]
     },
     {
      "name": "Thelgen Rock",
@@ -2983,16 +4367,24 @@
       1021,
       836
      ],
-     "x": 470,
-     "y": 371
+     "rect": [
+      505,
+      405,
+      625,
+      515
+     ]
     },
     {
      "name": "Whelgar's Excavation Site",
      "areas": [
       118
      ],
-     "x": 247,
-     "y": 205
+     "rect": [
+      310,
+      295,
+      410,
+      360
+     ]
     }
    ]
   },
@@ -3006,80 +4398,120 @@
      "areas": [
       736
      ],
-     "x": 382,
-     "y": 281
+     "rect": [
+      420,
+      305,
+      510,
+      460
+     ]
     },
     {
      "name": "Darnassus",
      "areas": [
       1657
      ],
-     "x": 101,
-     "y": 247
+     "rect": [
+      200,
+      290,
+      350,
+      480
+     ]
     },
     {
      "name": "Dolanaar",
      "areas": [
       186
      ],
-     "x": 462,
-     "y": 323
+     "rect": [
+      495,
+      340,
+      610,
+      420
+     ]
     },
     {
      "name": "Gnarlpine Hold",
      "areas": [
       261
      ],
-     "x": 368,
-     "y": 443
+     "rect": [
+      400,
+      465,
+      480,
+      535
+     ]
     },
     {
      "name": "Lake Al'Ameth",
      "areas": [
       259
      ],
-     "x": 436,
-     "y": 380
+     "rect": [
+      495,
+      425,
+      660,
+      525
+     ]
     },
     {
      "name": "Pools of Arlithrien",
      "areas": [
       478
      ],
-     "x": 335,
-     "y": 313
+     "rect": [
+      375,
+      380,
+      435,
+      470
+     ]
     },
     {
      "name": "Rut'theran Village",
      "areas": [
       702
      ],
-     "x": 494,
-     "y": 548
+     "rect": [
+      550,
+      600,
+      565,
+      615
+     ]
     },
     {
      "name": "Shadowglen",
      "areas": [
       188
      ],
-     "x": 491,
-     "y": 153
+     "rect": [
+      535,
+      205,
+      660,
+      330
+     ]
     },
     {
      "name": "Starbreeze Village",
      "areas": [
       260
      ],
-     "x": 561,
-     "y": 292
+     "rect": [
+      605,
+      345,
+      710,
+      425
+     ]
     },
     {
      "name": "The Oracle Glade",
      "areas": [
       264
      ],
-     "x": 272,
-     "y": 127
+     "rect": [
+      350,
+      170,
+      410,
+      315
+     ]
     },
     {
      "name": "Wellspring Lake",
@@ -3087,8 +4519,12 @@
       266,
       265
      ],
-     "x": 377,
-     "y": 93
+     "rect": [
+      415,
+      165,
+      525,
+      310
+     ]
     }
    ]
   },
@@ -3102,24 +4538,36 @@
      "areas": [
       447
      ],
-     "x": 324,
-     "y": 306
+     "rect": [
+      395,
+      350,
+      460,
+      420
+     ]
     },
     {
      "name": "Auberdine",
      "areas": [
       442
      ],
-     "x": 318,
-     "y": 162
+     "rect": [
+      355,
+      255,
+      430,
+      330
+     ]
     },
     {
      "name": "Bashal'Aran",
      "areas": [
       446
      ],
-     "x": 365,
-     "y": 181
+     "rect": [
+      415,
+      215,
+      485,
+      270
+     ]
     },
     {
      "name": "Cliffspring River",
@@ -3127,48 +4575,72 @@
       456,
       445
      ],
-     "x": 375,
-     "y": 94
+     "rect": [
+      485,
+      190,
+      590,
+      255
+     ]
     },
     {
      "name": "Grove of the Ancients",
      "areas": [
       448
      ],
-     "x": 305,
-     "y": 412
+     "rect": [
+      385,
+      475,
+      475,
+      555
+     ]
     },
     {
      "name": "Remtravel's Excavation",
      "areas": [
       450
      ],
-     "x": 229,
-     "y": 485
+     "rect": [
+      320,
+      540,
+      380,
+      600
+     ]
     },
     {
      "name": "Ruins of Mathystra",
      "areas": [
       443
      ],
-     "x": 510,
-     "y": 0
+     "rect": [
+      555,
+      60,
+      620,
+      160
+     ]
     },
     {
      "name": "The Master's Glaive",
      "areas": [
       449
      ],
-     "x": 329,
-     "y": 510
+     "rect": [
+      370,
+      555,
+      460,
+      630
+     ]
     },
     {
      "name": "Tower of Althalaxx",
      "areas": [
       444
      ],
-     "x": 468,
-     "y": 85
+     "rect": [
+      520,
+      145,
+      610,
+      205
+     ]
     }
    ]
   },
@@ -3182,16 +4654,24 @@
      "areas": [
       415
      ],
-     "x": 272,
-     "y": 251
+     "rect": [
+      310,
+      295,
+      435,
+      395
+     ]
     },
     {
      "name": "Bough Shadow",
      "areas": [
       438
      ],
-     "x": 856,
-     "y": 151
+     "rect": [
+      895,
+      200,
+      985,
+      285
+     ]
     },
     {
      "name": "Fallen Sky Lake",
@@ -3199,48 +4679,72 @@
       422,
       432
      ],
-     "x": 547,
-     "y": 426
+     "rect": [
+      635,
+      505,
+      750,
+      590
+     ]
     },
     {
      "name": "Felfire Hill",
      "areas": [
       434
      ],
-     "x": 713,
-     "y": 344
+     "rect": [
+      750,
+      465,
+      915,
+      570
+     ]
     },
     {
      "name": "Fire Scar Shrine",
      "areas": [
       417
      ],
-     "x": 189,
-     "y": 324
+     "rect": [
+      235,
+      390,
+      300,
+      460
+     ]
     },
     {
      "name": "Iris Lake",
      "areas": [
       424
      ],
-     "x": 392,
-     "y": 218
+     "rect": [
+      430,
+      275,
+      500,
+      350
+     ]
     },
     {
      "name": "Lake Falathim",
      "areas": [
       441
      ],
-     "x": 131,
-     "y": 137
+     "rect": [
+      175,
+      230,
+      235,
+      310
+     ]
     },
     {
      "name": "Maestra's Post",
      "areas": [
       413
      ],
-     "x": 205,
-     "y": 38
+     "rect": [
+      250,
+      90,
+      335,
+      255
+     ]
     },
     {
      "name": "Mystral Lake",
@@ -3249,8 +4753,12 @@
       420,
       2359
      ],
-     "x": 356,
-     "y": 347
+     "rect": [
+      420,
+      430,
+      570,
+      550
+     ]
     },
     {
      "name": "Night Run",
@@ -3258,72 +4766,108 @@
       428,
       431
      ],
-     "x": 597,
-     "y": 258
+     "rect": [
+      660,
+      340,
+      775,
+      450
+     ]
     },
     {
      "name": "Raynewood Retreat",
      "areas": [
       426
      ],
-     "x": 520,
-     "y": 238
+     "rect": [
+      560,
+      305,
+      660,
+      385
+     ]
     },
     {
      "name": "Satyrnaar",
      "areas": [
       430
      ],
-     "x": 694,
-     "y": 225
+     "rect": [
+      750,
+      290,
+      890,
+      355
+     ]
     },
     {
      "name": "The Howling Vale",
      "areas": [
       419
      ],
-     "x": 463,
-     "y": 141
+     "rect": [
+      500,
+      200,
+      625,
+      295
+     ]
     },
     {
      "name": "The Ruins of Stardust",
      "areas": [
       418
      ],
-     "x": 260,
-     "y": 373
+     "rect": [
+      295,
+      405,
+      375,
+      495
+     ]
     },
     {
      "name": "The Shrine of Aessina",
      "areas": [
       416
      ],
-     "x": 104,
-     "y": 259
+     "rect": [
+      175,
+      305,
+      270,
+      400
+     ]
     },
     {
      "name": "The Zoram Strand",
      "areas": [
       414
      ],
-     "x": 19,
-     "y": 28
+     "rect": [
+      45,
+      60,
+      215,
+      235
+     ]
     },
     {
      "name": "Thistlefur Village",
      "areas": [
       2301
      ],
-     "x": 203,
-     "y": 158
+     "rect": [
+      335,
+      215,
+      405,
+      275
+     ]
     },
     {
      "name": "Warsong Lumber Camp",
      "areas": [
       437
      ],
-     "x": 796,
-     "y": 311
+     "rect": [
+      855,
+      355,
+      970,
+      435
+     ]
     }
    ]
   },
@@ -3338,72 +4882,108 @@
       480,
       2237
      ],
-     "x": 0,
-     "y": 0
+     "rect": [
+      65,
+      40,
+      260,
+      195
+     ]
     },
     {
      "name": "Darkcloud Pinnacle",
      "areas": [
       2097
      ],
-     "x": 259,
-     "y": 131
+     "rect": [
+      305,
+      190,
+      395,
+      295
+     ]
     },
     {
      "name": "Freewind Post",
      "areas": [
       484
      ],
-     "x": 357,
-     "y": 264
+     "rect": [
+      400,
+      300,
+      525,
+      405
+     ]
     },
     {
      "name": "Highperch",
      "areas": [
       482
      ],
-     "x": 31,
-     "y": 155
+     "rect": [
+      70,
+      150,
+      200,
+      305
+     ]
     },
     {
      "name": "Splithoof Crag",
      "areas": [
       481
      ],
-     "x": 391,
-     "y": 192
+     "rect": [
+      400,
+      225,
+      560,
+      325
+     ]
     },
     {
      "name": "The Great Lift",
      "areas": [
       485
      ],
-     "x": 205,
-     "y": 70
+     "rect": [
+      275,
+      115,
+      370,
+      185
+     ]
     },
     {
      "name": "The Screeching Canyon",
      "areas": [
       483
      ],
-     "x": 179,
-     "y": 200
+     "rect": [
+      225,
+      235,
+      390,
+      400
+     ]
     },
     {
      "name": "The Shimmering Flats",
      "areas": [
       439
      ],
-     "x": 610,
-     "y": 300
+     "rect": [
+      660,
+      325,
+      910,
+      650
+     ]
     },
     {
      "name": "Windbreak Canyon",
      "areas": [
       2303
      ],
-     "x": 492,
-     "y": 250
+     "rect": [
+      550,
+      285,
+      700,
+      450
+     ]
     }
    ]
   },
@@ -3417,80 +4997,120 @@
      "areas": [
       2540
      ],
-     "x": 572,
-     "y": 561
+     "rect": [
+      600,
+      580,
+      700,
+      660
+     ]
     },
     {
      "name": "Camp Aparaje",
      "areas": [
       2538
      ],
-     "x": 718,
-     "y": 571
+     "rect": [
+      745,
+      600,
+      805,
+      635
+     ]
     },
     {
      "name": "Grimtotem Post",
      "areas": [
       2537
      ],
-     "x": 668,
-     "y": 515
+     "rect": [
+      700,
+      555,
+      815,
+      605
+     ]
     },
     {
      "name": "Malaka'jin",
      "areas": [
       2539
      ],
-     "x": 663,
-     "y": 582
+     "rect": [
+      695,
+      605,
+      765,
+      660
+     ]
     },
     {
      "name": "Mirkfallon Lake",
      "areas": [
       464
      ],
-     "x": 390,
-     "y": 145
+     "rect": [
+      425,
+      220,
+      560,
+      325
+     ]
     },
     {
      "name": "Sishir Canyon",
      "areas": [
       2541
      ],
-     "x": 475,
-     "y": 433
+     "rect": [
+      500,
+      465,
+      590,
+      535
+     ]
     },
     {
      "name": "Stonetalon Peak",
      "areas": [
       467
      ],
-     "x": 247,
-     "y": 0
+     "rect": [
+      270,
+      30,
+      475,
+      150
+     ]
     },
     {
      "name": "Sun Rock Retreat",
      "areas": [
       460
      ],
-     "x": 389,
-     "y": 320
+     "rect": [
+      410,
+      345,
+      520,
+      435
+     ]
     },
     {
      "name": "The Charred Vale",
      "areas": [
       465
      ],
-     "x": 210,
-     "y": 234
+     "rect": [
+      245,
+      375,
+      395,
+      520
+     ]
     },
     {
      "name": "Webwinder Path",
      "areas": [
       1076
      ],
-     "x": 457,
-     "y": 282
+     "rect": [
+      500,
+      315,
+      710,
+      600
+     ]
     },
     {
      "name": "Windshear Crag",
@@ -3498,8 +5118,12 @@
       461,
       1277
      ],
-     "x": 553,
-     "y": 197
+     "rect": [
+      570,
+      240,
+      830,
+      435
+     ]
     }
    ]
   },
@@ -3513,120 +5137,180 @@
      "areas": [
       2405
      ],
-     "x": 311,
-     "y": 61
+     "rect": [
+      345,
+      135,
+      475,
+      275
+     ]
     },
     {
      "name": "Gelkis Village",
      "areas": [
       606
      ],
-     "x": 293,
-     "y": 426
+     "rect": [
+      320,
+      540,
+      450,
+      650
+     ]
     },
     {
      "name": "Kodo Graveyard",
      "areas": [
       596
      ],
-     "x": 387,
-     "y": 244
+     "rect": [
+      435,
+      325,
+      580,
+      450
+     ]
     },
     {
      "name": "Kolkar Village",
      "areas": [
       609
      ],
-     "x": 607,
-     "y": 215
+     "rect": [
+      695,
+      275,
+      795,
+      375
+     ]
     },
     {
      "name": "Kormek's Hut",
      "areas": [
       2407
      ],
-     "x": 555,
-     "y": 181
+     "rect": [
+      590,
+      230,
+      700,
+      310
+     ]
     },
     {
      "name": "Magram Village",
      "areas": [
       604
      ],
-     "x": 590,
-     "y": 365
+     "rect": [
+      650,
+      425,
+      775,
+      550
+     ]
     },
     {
      "name": "Mannoroc Coven",
      "areas": [
       602
      ],
-     "x": 399,
-     "y": 380
+     "rect": [
+      455,
+      470,
+      615,
+      590
+     ]
     },
     {
      "name": "Nijel's Point",
      "areas": [
       608
      ],
-     "x": 554,
-     "y": 0
+     "rect": [
+      600,
+      25,
+      700,
+      100
+     ]
     },
     {
      "name": "Ranazjar Isle",
      "areas": [
       2406
      ],
-     "x": 241,
-     "y": 6
+     "rect": [
+      255,
+      25,
+      325,
+      85
+     ]
     },
     {
      "name": "Sargeron",
      "areas": [
       603
      ],
-     "x": 625,
-     "y": 33
+     "rect": [
+      695,
+      95,
+      825,
+      210
+     ]
     },
     {
      "name": "Shadowbreak Ravine",
      "areas": [
       2198
      ],
-     "x": 690,
-     "y": 444
+     "rect": [
+      760,
+      485,
+      850,
+      575
+     ]
     },
     {
      "name": "Shadowprey Village",
      "areas": [
       2408
      ],
-     "x": 167,
-     "y": 389
+     "rect": [
+      195,
+      420,
+      315,
+      520
+     ]
     },
     {
      "name": "Tethris Aran",
      "areas": [
       2404
      ],
-     "x": 431,
-     "y": 0
+     "rect": [
+      495,
+      50,
+      595,
+      115
+     ]
     },
     {
      "name": "Thunder Axe Fortress",
      "areas": [
       599
      ],
-     "x": 447,
-     "y": 102
+     "rect": [
+      490,
+      150,
+      600,
+      225
+     ]
     },
     {
      "name": "Valley of Spears",
      "areas": [
       607
      ],
-     "x": 212,
-     "y": 215
+     "rect": [
+      250,
+      255,
+      415,
+      440
+     ]
     }
    ]
   },
@@ -3640,120 +5324,180 @@
      "areas": [
       1099
      ],
-     "x": 689,
-     "y": 233
+     "rect": [
+      715,
+      250,
+      795,
+      315
+     ]
     },
     {
      "name": "Dire Maul",
      "areas": [
       2577
      ],
-     "x": 454,
-     "y": 201
+     "rect": [
+      525,
+      235,
+      655,
+      325
+     ]
     },
     {
      "name": "Dream Bough",
      "areas": [
       1111
      ],
-     "x": 454,
-     "y": 0
+     "rect": [
+      490,
+      40,
+      540,
+      95
+     ]
     },
     {
      "name": "Feral Scar Vale",
      "areas": [
       1105
      ],
-     "x": 486,
-     "y": 329
+     "rect": [
+      510,
+      350,
+      580,
+      410
+     ]
     },
     {
      "name": "Frayfeather Highlands",
      "areas": [
       1106
      ],
-     "x": 478,
-     "y": 386
+     "rect": [
+      505,
+      415,
+      570,
+      535
+     ]
     },
     {
      "name": "Gordunni Outpost",
      "areas": [
       1103
      ],
-     "x": 690,
-     "y": 141
+     "rect": [
+      725,
+      175,
+      825,
+      240
+     ]
     },
     {
      "name": "Grimtotem Compound",
      "areas": [
       1100
      ],
-     "x": 623,
-     "y": 167
+     "rect": [
+      650,
+      220,
+      710,
+      320
+     ]
     },
     {
      "name": "Isle of Dread",
      "areas": [
       1121
      ],
-     "x": 192,
-     "y": 375
+     "rect": [
+      225,
+      410,
+      370,
+      645
+     ]
     },
     {
      "name": "Lower Wilds",
      "areas": [
       1137
      ],
-     "x": 751,
-     "y": 198
+     "rect": [
+      800,
+      240,
+      925,
+      335
+     ]
     },
     {
      "name": "Oneiros",
      "areas": [
       1113
      ],
-     "x": 493,
-     "y": 70
+     "rect": [
+      520,
+      95,
+      575,
+      130
+     ]
     },
     {
      "name": "Ruins of Isildien",
      "areas": [
       2522
      ],
-     "x": 540,
-     "y": 320
+     "rect": [
+      565,
+      375,
+      665,
+      520
+     ]
     },
     {
      "name": "Ruins of Ravenwind",
      "areas": [
       1114
      ],
-     "x": 305,
-     "y": 0
+     "rect": [
+      360,
+      45,
+      435,
+      100
+     ]
     },
     {
      "name": "Sardor Isle",
      "areas": [
       1120
      ],
-     "x": 208,
-     "y": 234
+     "rect": [
+      235,
+      280,
+      370,
+      390
+     ]
     },
     {
      "name": "The Forgotten Coast",
      "areas": [
       1108
      ],
-     "x": 404,
-     "y": 256
+     "rect": [
+      430,
+      275,
+      500,
+      555
+     ]
     },
     {
      "name": "The Twin Colossals",
      "areas": [
       1119
      ],
-     "x": 319,
-     "y": 75
+     "rect": [
+      395,
+      100,
+      550,
+      240
+     ]
     },
     {
      "name": "The Writhing Deep",
@@ -3761,8 +5505,12 @@
       1101,
       2519
      ],
-     "x": 618,
-     "y": 298
+     "rect": [
+      645,
+      340,
+      815,
+      475
+     ]
     }
    ]
   },
@@ -3776,8 +5524,12 @@
      "areas": [
       2079
      ],
-     "x": 660,
-     "y": 21
+     "rect": [
+      695,
+      55,
+      820,
+      180
+     ]
     },
     {
      "name": "Brackenwall Village",
@@ -3785,32 +5537,48 @@
       496,
       507
      ],
-     "x": 230,
-     "y": 0
+     "rect": [
+      305,
+      70,
+      435,
+      235
+     ]
     },
     {
      "name": "The Den of Flame",
      "areas": [
       509
      ],
-     "x": 257,
-     "y": 313
+     "rect": [
+      315,
+      345,
+      425,
+      475
+     ]
     },
     {
      "name": "The Quagmire",
      "areas": [
       2302
      ],
-     "x": 239,
-     "y": 189
+     "rect": [
+      320,
+      240,
+      570,
+      410
+     ]
     },
     {
      "name": "Theramore Isle",
      "areas": [
       513
      ],
-     "x": 534,
-     "y": 224
+     "rect": [
+      615,
+      280,
+      750,
+      405
+     ]
     },
     {
      "name": "Witch Hill",
@@ -3818,16 +5586,24 @@
       502,
       518
      ],
-     "x": 422,
-     "y": 0
+     "rect": [
+      445,
+      60,
+      635,
+      245
+     ]
     },
     {
      "name": "Wyrmbog",
      "areas": [
       511
      ],
-     "x": 367,
-     "y": 381
+     "rect": [
+      440,
+      435,
+      615,
+      570
+     ]
     }
    ]
   },
@@ -3841,160 +5617,240 @@
      "areas": [
       1939
      ],
-     "x": 363,
-     "y": 194
+     "rect": [
+      410,
+      240,
+      505,
+      330
+     ]
     },
     {
      "name": "Broken Pillar",
      "areas": [
       1938
      ],
-     "x": 473,
-     "y": 234
+     "rect": [
+      500,
+      275,
+      565,
+      335
+     ]
     },
     {
      "name": "Caverns of Time",
      "areas": [
       2300
      ],
-     "x": 561,
-     "y": 256
+     "rect": [
+      595,
+      295,
+      690,
+      365
+     ]
     },
     {
      "name": "Dunemaul Compound",
      "areas": [
       983
      ],
-     "x": 325,
-     "y": 289
+     "rect": [
+      380,
+      335,
+      460,
+      415
+     ]
     },
     {
      "name": "Eastmoon Ruins",
      "areas": [
       984
      ],
-     "x": 395,
-     "y": 346
+     "rect": [
+      435,
+      410,
+      500,
+      460
+     ]
     },
     {
      "name": "Gadgetzan",
      "areas": [
       976
      ],
-     "x": 421,
-     "y": 91
+     "rect": [
+      460,
+      140,
+      565,
+      225
+     ]
     },
     {
      "name": "Land's End Beach",
      "areas": [
       987
      ],
-     "x": 445,
-     "y": 511
+     "rect": [
+      480,
+      565,
+      620,
+      660
+     ]
     },
     {
      "name": "Lost Rigger Cove",
      "areas": [
       1336
      ],
-     "x": 629,
-     "y": 220
+     "rect": [
+      675,
+      255,
+      760,
+      375
+     ]
     },
     {
      "name": "Noonshade Ruins",
      "areas": [
       1937
      ],
-     "x": 533,
-     "y": 104
+     "rect": [
+      570,
+      140,
+      630,
+      190
+     ]
     },
     {
      "name": "Sandsorrow Watch",
      "areas": [
       979
      ],
-     "x": 299,
-     "y": 100
+     "rect": [
+      365,
+      155,
+      435,
+      225
+     ]
     },
     {
      "name": "Southbreak Shore",
      "areas": [
       1940
      ],
-     "x": 499,
-     "y": 293
+     "rect": [
+      570,
+      365,
+      680,
+      430
+     ]
     },
     {
      "name": "Southmoon Ruins",
      "areas": [
       992
      ],
-     "x": 323,
-     "y": 359
+     "rect": [
+      365,
+      445,
+      440,
+      510
+     ]
     },
     {
      "name": "Steamwheedle Port",
      "areas": [
       977
      ],
-     "x": 592,
-     "y": 75
+     "rect": [
+      630,
+      110,
+      710,
+      175
+     ]
     },
     {
      "name": "The Gaping Chasm",
      "areas": [
       981
      ],
-     "x": 449,
-     "y": 372
+     "rect": [
+      490,
+      415,
+      600,
+      530
+     ]
     },
     {
      "name": "The Noxious Lair",
      "areas": [
       982
      ],
-     "x": 252,
-     "y": 199
+     "rect": [
+      310,
+      255,
+      385,
+      355
+     ]
     },
     {
      "name": "Thistleshrub Valley",
      "areas": [
       980
      ],
-     "x": 203,
-     "y": 286
+     "rect": [
+      245,
+      360,
+      370,
+      475
+     ]
     },
     {
      "name": "Valley of the Watchers",
      "areas": [
       990
      ],
-     "x": 291,
-     "y": 434
+     "rect": [
+      330,
+      490,
+      410,
+      585
+     ]
     },
     {
      "name": "Waterspring Field",
      "areas": [
       985
      ],
-     "x": 509,
-     "y": 168
+     "rect": [
+      550,
+      210,
+      645,
+      295
+     ]
     },
     {
      "name": "Zalashji's Den",
      "areas": [
       986
      ],
-     "x": 611,
-     "y": 147
+     "rect": [
+      640,
+      190,
+      700,
+      255
+     ]
     },
     {
      "name": "Zul'Farrak",
      "areas": [
       978
      ],
-     "x": 254,
-     "y": 0
+     "rect": [
+      300,
+      25,
+      450,
+      145
+     ]
     }
    ]
   },
@@ -4008,152 +5864,228 @@
      "areas": [
       1227
      ],
-     "x": 479,
-     "y": 201
+     "rect": [
+      505,
+      255,
+      675,
+      475
+     ]
     },
     {
      "name": "Bitter Reaches",
      "areas": [
       2497
      ],
-     "x": 644,
-     "y": 40
+     "rect": [
+      685,
+      80,
+      850,
+      180
+     ]
     },
     {
      "name": "Forlorn Ridge",
      "areas": [
       1233
      ],
-     "x": 191,
-     "y": 369
+     "rect": [
+      220,
+      425,
+      370,
+      530
+     ]
     },
     {
      "name": "Haldarr Encampment",
      "areas": [
       1236
      ],
-     "x": 77,
-     "y": 331
+     "rect": [
+      165,
+      370,
+      250,
+      435
+     ]
     },
     {
      "name": "Jagged Reef",
      "areas": [
       1230
      ],
-     "x": 366,
-     "y": 0
+     "rect": [
+      400,
+      35,
+      880,
+      115
+     ]
     },
     {
      "name": "Lake Mennar",
      "areas": [
       1234
      ],
-     "x": 296,
-     "y": 429
+     "rect": [
+      375,
+      490,
+      490,
+      580
+     ]
     },
     {
      "name": "Legash Encampment",
      "areas": [
       1219
      ],
-     "x": 478,
-     "y": 44
+     "rect": [
+      495,
+      90,
+      665,
+      150
+     ]
     },
     {
      "name": "Ravencrest Monument",
      "areas": [
       1232
      ],
-     "x": 552,
-     "y": 499
+     "rect": [
+      660,
+      535,
+      755,
+      600
+     ]
     },
     {
      "name": "Ruins of Eldarath ",
      "areas": [
       1221
      ],
-     "x": 238,
-     "y": 221
+     "rect": [
+      305,
+      310,
+      430,
+      415
+     ]
     },
     {
      "name": "Shadowsong Shrine",
      "areas": [
       1235
      ],
-     "x": 35,
-     "y": 422
+     "rect": [
+      125,
+      455,
+      225,
+      545
+     ]
     },
     {
      "name": "Southridge Beach",
      "areas": [
       1231
      ],
-     "x": 389,
-     "y": 353
+     "rect": [
+      440,
+      420,
+      730,
+      540
+     ]
     },
     {
      "name": "Temple of Arkkoran",
      "areas": [
       1226
      ],
-     "x": 681,
-     "y": 153
+     "rect": [
+      715,
+      225,
+      820,
+      325
+     ]
     },
     {
      "name": "Thalassian Base Camp",
      "areas": [
       1220
      ],
-     "x": 499,
-     "y": 119
+     "rect": [
+      535,
+      160,
+      685,
+      225
+     ]
     },
     {
      "name": "The Ruined Reaches",
      "areas": [
       1256
      ],
-     "x": 396,
-     "y": 540
+     "rect": [
+      440,
+      580,
+      725,
+      645
+     ]
     },
     {
      "name": "The Shattered Strand",
      "areas": [
       1228
      ],
-     "x": 404,
-     "y": 194
+     "rect": [
+      430,
+      245,
+      485,
+      370
+     ]
     },
     {
      "name": "Timbermaw Hold",
      "areas": [
       1216
      ],
-     "x": 250,
-     "y": 106
+     "rect": [
+      320,
+      170,
+      425,
+      275
+     ]
     },
     {
      "name": "Tower of Eldara",
      "areas": [
       1229
      ],
-     "x": 818,
-     "y": 107
+     "rect": [
+      850,
+      160,
+      920,
+      245
+     ]
     },
     {
      "name": "Ursolan",
      "areas": [
       1225
      ],
-     "x": 422,
-     "y": 95
+     "rect": [
+      430,
+      150,
+      510,
+      230
+     ]
     },
     {
      "name": "Valormok",
      "areas": [
       1237
      ],
-     "x": 84,
-     "y": 229
+     "rect": [
+      165,
+      310,
+      265,
+      365
+     ]
     }
    ]
   },
@@ -4167,24 +6099,36 @@
      "areas": [
       1765
      ],
-     "x": 292,
-     "y": 263
+     "rect": [
+      360,
+      295,
+      490,
+      355
+     ]
     },
     {
      "name": "Deadwood Village",
      "areas": [
       1761
      ],
-     "x": 408,
-     "y": 533
+     "rect": [
+      450,
+      580,
+      535,
+      640
+     ]
     },
     {
      "name": "Emerald Sanctuary",
      "areas": [
       2479
      ],
-     "x": 405,
-     "y": 429
+     "rect": [
+      470,
+      505,
+      565,
+      560
+     ]
     },
     {
      "name": "Felpaw Village",
@@ -4192,72 +6136,108 @@
       1762,
       1769
      ],
-     "x": 483,
-     "y": 0
+     "rect": [
+      585,
+      35,
+      685,
+      110
+     ]
     },
     {
      "name": "Irontree Woods",
      "areas": [
       1767
      ],
-     "x": 420,
-     "y": 54
+     "rect": [
+      455,
+      120,
+      550,
+      195
+     ]
     },
     {
      "name": "Jadefire Glen",
      "areas": [
       2480
      ],
-     "x": 332,
-     "y": 465
+     "rect": [
+      370,
+      510,
+      455,
+      595
+     ]
     },
     {
      "name": "Jadefire Run",
      "areas": [
       2618
      ],
-     "x": 330,
-     "y": 29
+     "rect": [
+      370,
+      85,
+      455,
+      155
+     ]
     },
     {
      "name": "Jaedenar",
      "areas": [
       1763
      ],
-     "x": 271,
-     "y": 331
+     "rect": [
+      300,
+      375,
+      430,
+      425
+     ]
     },
     {
      "name": "Morlos'Aran",
      "areas": [
       2478
      ],
-     "x": 496,
-     "y": 509
+     "rect": [
+      540,
+      560,
+      615,
+      615
+     ]
     },
     {
      "name": "Ruins of Constellas",
      "areas": [
       2481
      ],
-     "x": 297,
-     "y": 381
+     "rect": [
+      335,
+      425,
+      425,
+      500
+     ]
     },
     {
      "name": "Shatter Scar Vale",
      "areas": [
       1766
      ],
-     "x": 307,
-     "y": 123
+     "rect": [
+      370,
+      175,
+      475,
+      295
+     ]
     },
     {
      "name": "Talonbranch Glade ",
      "areas": [
       1998
      ],
-     "x": 548,
-     "y": 90
+     "rect": [
+      585,
+      130,
+      660,
+      195
+     ]
     }
    ]
   },
@@ -4271,56 +6251,84 @@
      "areas": [
       537
      ],
-     "x": 367,
-     "y": 178
+     "rect": [
+      415,
+      250,
+      595,
+      415
+     ]
     },
     {
      "name": "Golakka Hot Springs",
      "areas": [
       543
      ],
-     "x": 121,
-     "y": 151
+     "rect": [
+      215,
+      235,
+      390,
+      435
+     ]
     },
     {
      "name": "Ironstone Plateau",
      "areas": [
       1943
      ],
-     "x": 582,
-     "y": 67
+     "rect": [
+      625,
+      145,
+      825,
+      320
+     ]
     },
     {
      "name": "Lakkari Tar Pits",
      "areas": [
       538
      ],
-     "x": 160,
-     "y": 6
+     "rect": [
+      355,
+      25,
+      660,
+      250
+     ]
     },
     {
      "name": "Terror Run",
      "areas": [
       539
      ],
-     "x": 158,
-     "y": 368
+     "rect": [
+      300,
+      415,
+      445,
+      575
+     ]
     },
     {
      "name": "The Marshlands",
      "areas": [
       1942
      ],
-     "x": 560,
-     "y": 240
+     "rect": [
+      615,
+      305,
+      780,
+      540
+     ]
     },
     {
      "name": "The Slithering Scar",
      "areas": [
       540
      ],
-     "x": 367,
-     "y": 380
+     "rect": [
+      440,
+      470,
+      595,
+      600
+     ]
     }
    ]
   },
@@ -4335,8 +6343,12 @@
       656,
       2361
      ],
-     "x": 244,
-     "y": 89
+     "rect": [
+      365,
+      235,
+      650,
+      495
+     ]
     }
    ]
   },
@@ -4352,8 +6364,12 @@
       3097,
       2739
      ],
-     "x": 344,
-     "y": 197
+     "rect": [
+      475,
+      215,
+      540,
+      285
+     ]
     },
     {
      "name": "Hive'Ashi",
@@ -4361,8 +6377,12 @@
       2742,
       3426
      ],
-     "x": 265,
-     "y": 12
+     "rect": [
+      385,
+      100,
+      515,
+      225
+     ]
     },
     {
      "name": "Hive'Regal",
@@ -4370,16 +6390,24 @@
       2744,
       3427
      ],
-     "x": 245,
-     "y": 285
+     "rect": [
+      490,
+      425,
+      655,
+      650
+     ]
     },
     {
      "name": "Hive'Zora",
      "areas": [
       2743
      ],
-     "x": 97,
-     "y": 144
+     "rect": [
+      165,
+      310,
+      330,
+      470
+     ]
     },
     {
      "name": "Southwind Village",
@@ -4387,16 +6415,24 @@
       2738,
       3077
      ],
-     "x": 500,
-     "y": 65
+     "rect": [
+      585,
+      315,
+      665,
+      395
+     ]
     },
     {
      "name": "The Crystal Vale",
      "areas": [
       2740
      ],
-     "x": 104,
-     "y": 24
+     "rect": [
+      150,
+      50,
+      315,
+      185
+     ]
     },
     {
      "name": "The Scarab Wall",
@@ -4404,8 +6440,12 @@
       2737,
       2741
      ],
-     "x": 116,
-     "y": 413
+     "rect": [
+      220,
+      615,
+      360,
+      655
+     ]
     }
    ]
   },
@@ -4419,104 +6459,156 @@
      "areas": [
       2256
      ],
-     "x": 447,
-     "y": 441
+     "rect": [
+      490,
+      500,
+      670,
+      610
+     ]
     },
     {
      "name": "Everlook",
      "areas": [
       2255
      ],
-     "x": 509,
-     "y": 107
+     "rect": [
+      565,
+      220,
+      655,
+      285
+     ]
     },
     {
      "name": "Frostfire Hot Springs",
      "areas": [
       2246
      ],
-     "x": 222,
-     "y": 172
+     "rect": [
+      275,
+      220,
+      395,
+      270
+     ]
     },
     {
      "name": "Frostsaber Rock",
      "areas": [
       2241
      ],
-     "x": 368,
-     "y": 7
+     "rect": [
+      440,
+      55,
+      550,
+      115
+     ]
     },
     {
      "name": "Frostwhisper Gorge",
      "areas": [
       2249
      ],
-     "x": 523,
-     "y": 376
+     "rect": [
+      575,
+      420,
+      665,
+      495
+     ]
     },
     {
      "name": "Ice Thistle Hills",
      "areas": [
       2247
      ],
-     "x": 611,
-     "y": 242
+     "rect": [
+      650,
+      265,
+      715,
+      345
+     ]
     },
     {
      "name": "Lake Kel'Theril",
      "areas": [
       2251
      ],
-     "x": 401,
-     "y": 198
+     "rect": [
+      485,
+      250,
+      580,
+      330
+     ]
     },
     {
      "name": "Mazthoril",
      "areas": [
       2245
      ],
-     "x": 493,
-     "y": 258
+     "rect": [
+      555,
+      360,
+      615,
+      415
+     ]
     },
     {
      "name": "Owl Wing Thicket",
      "areas": [
       2250
      ],
-     "x": 593,
-     "y": 340
+     "rect": [
+      620,
+      380,
+      690,
+      445
+     ]
     },
     {
      "name": "Starfall Village",
      "areas": [
       2253
      ],
-     "x": 392,
-     "y": 137
+     "rect": [
+      445,
+      160,
+      550,
+      220
+     ]
     },
     {
      "name": "The Hidden Grove",
      "areas": [
       2242
      ],
-     "x": 555,
-     "y": 27
+     "rect": [
+      600,
+      80,
+      695,
+      150
+     ]
     },
     {
      "name": "Timbermaw Post",
      "areas": [
       2243
      ],
-     "x": 229,
-     "y": 243
+     "rect": [
+      365,
+      270,
+      440,
+      310
+     ]
     },
     {
      "name": "Winterfall Village",
      "areas": [
       2244
      ],
-     "x": 617,
-     "y": 158
+     "rect": [
+      650,
+      220,
+      720,
+      270
+     ]
     }
    ]
   },
