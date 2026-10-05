@@ -232,7 +232,8 @@
       0,
       521,
       225
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "The Golden Plains",
@@ -1416,7 +1417,8 @@
       361,
       783,
       617
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Scarlet Watch Post",
@@ -1465,7 +1467,8 @@
       125,
       1002,
       381
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "The Bulwark",
@@ -1501,7 +1504,8 @@
       198,
       339,
       622
-     ]
+     ],
+     "visit": true
     }
    ]
   },
@@ -2540,7 +2544,8 @@
       163,
       717,
       419
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Gnomeregan",
@@ -4254,7 +4259,8 @@
       230,
       995,
       614
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Ironbeard's Tomb",
@@ -6029,7 +6035,8 @@
       106,
       506,
       394
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Tower of Eldara",
@@ -6329,7 +6336,8 @@
       89,
       820,
       601
-     ]
+     ],
+     "visit": true
     }
    ]
   },
@@ -6420,7 +6428,8 @@
       196,
       663,
       452
-     ]
+     ],
+     "visit": true
     }
    ]
   },
@@ -7166,7 +7175,8 @@
       0,
       917,
       415
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Evenshade's Overlook",
@@ -7178,7 +7188,8 @@
       178,
       466,
       479
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Forlorn Gardens",
@@ -7190,7 +7201,8 @@
       323,
       887,
       654
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Magram Front",
@@ -7202,7 +7214,8 @@
       255,
       752,
       484
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Outcast Hideaway",
@@ -7214,7 +7227,8 @@
       362,
       469,
       668
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Shen'dralas",
@@ -7226,7 +7240,8 @@
       180,
       666,
       668
-     ]
+     ],
+     "visit": true
     },
     {
      "name": "Valley of Bones",
@@ -7238,7 +7253,8 @@
       0,
       701,
       344
-     ]
+     ],
+     "visit": true
     }
    ]
   },

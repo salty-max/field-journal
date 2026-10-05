@@ -34,7 +34,7 @@ function ns.atlas()
   if not c then return end
   local a = c.atlas
   if not a then
-    a = { zones = {}, deaths = {}, closeCalls = {}, flights = {}, routes = {}, crossings = {}, binds = {}, version = 3 }
+    a = { zones = {}, deaths = {}, closeCalls = {}, flights = {}, routes = {}, crossings = {}, binds = {}, version = 4 }
     c.atlas = a
   end
   return a
@@ -94,8 +94,11 @@ end
 -- Points inside a place's rectangle where to ask: the centre, then around it.
 local SAMPLES = { { 0.5, 0.5 }, { 0.3, 0.3 }, { 0.7, 0.3 }, { 0.3, 0.7 }, { 0.7, 0.7 } }
 
--- Has the character discovered one of the place's areas?
+-- Has the character discovered one of the place's areas? Never asked of a
+-- place the map draws for everyone (visit: Forever's Moonglade and a few
+-- others): the game would say yes; those count once visited (below).
 local function discovered(uiMap, place, w, h)
+  if place.visit then return false end
   local ask = C_MapExplorationInfo and C_MapExplorationInfo.GetExploredAreaIDsAtPosition
   if not (ask and CreateVector2D) then return false end
   local areas = {}
@@ -141,7 +144,7 @@ ns.syncAtlasZone = syncZone
 -- cleared, and the milestones of exploration they gave that no longer hold
 -- are withdrawn; then the Atlas is seeded again from the character's own
 -- discoveries.
-local VERSION = 3 -- 3: places only of the areas a character can discover
+local VERSION = 4 -- 3: places only of the areas a character can discover; 4: visit-only places
 local function migrate(a)
   for uiMap, z in pairs(a.zones) do
     for key, p in pairs(z.places or {}) do
@@ -212,6 +215,21 @@ local function enter()
   end
   z.last = now
   syncZone(zone)
+  -- Places the game can't tell us about: visited when the zone or subzone
+  -- you stand in bears the name of one of their areas.
+  local here1, here2 = GetRealZoneText and GetRealZoneText(), GetSubZoneText and GetSubZoneText()
+  for _, place in ipairs(A.zones[zone].places) do
+    local key = placeKey(place)
+    if place.visit and not z.places[key] then
+      for i = FIRST_AREA, #place do
+        local name = (C_Map.GetAreaInfo and C_Map.GetAreaInfo(place[i])) or (i == FIRST_AREA and place[1])
+        if name and not secret(name) and (name == here1 or name == here2) then
+          z.places[key] = stamp()
+          break
+        end
+      end
+    end
+  end
   if ns.checkMilestones then ns.checkMilestones() end
   if ns.onAtlas then ns.onAtlas() end
 end

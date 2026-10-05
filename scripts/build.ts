@@ -215,7 +215,7 @@ function zoneRares(kept: Creature[]) {
 // The Atlas's zones, per game (data/zones-<client>.json, scripts/zones.py):
 // a zone's name, its continent, and its places (name, the overlay's hover
 // rectangle on the map art: left, top, right, bottom; the areas it covers).
-type Zone = { id: number; name: string; continent: number; places: { name: string; areas: number[]; rect: number[] }[] };
+type Zone = { id: number; name: string; continent: number; places: { name: string; areas: number[]; rect: number[]; visit?: boolean }[] };
 // The surveyor's notes: atlas/<zone>.md (front matter: zone: <uiMap>; then
 // paragraphs), plain ASCII like the naturalist's.
 const zoneNotes = new Map<number, string[]>();
@@ -243,7 +243,7 @@ function atlasLua(client: string) {
     continents = { ${used.map((c) => `[${c}] = ${q(continents[String(c)])}`).join(", ")} },
     zones = {
 ${kept
-  .map((z) => `      [${z.id}] = { name = ${q(z.name)}, continent = ${z.continent},${zoneNotes.has(z.id) ? ` note = { ${zoneNotes.get(z.id)!.map(q).join(", ")} },` : ""} places = { ${z.places.map((p) => `{ ${q(p.name)}, ${p.rect.join(", ")}, ${p.areas.join(", ")} }`).join(", ")} } },`)
+  .map((z) => `      [${z.id}] = { name = ${q(z.name)}, continent = ${z.continent},${zoneNotes.has(z.id) ? ` note = { ${zoneNotes.get(z.id)!.map(q).join(", ")} },` : ""} places = { ${z.places.map((p) => `{ ${q(p.name)}, ${p.rect.join(", ")}, ${p.areas.join(", ")}${p.visit ? ", visit = true" : ""} }`).join(", ")} } },`)
   .join("\n")}
     },
   },`;

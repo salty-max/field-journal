@@ -49,8 +49,14 @@ def zones(game):
     # zone's map, Forever's Dalaran behind its dome), and its exploration
     # achievements leave them out. A place with none of them is no place.
     explorable = {i for i, a in areas.items() if int(a["Flags_0"]) & 0x40}
+    # Forever marks the overlays that exploration lifts (flag 4); the others
+    # it draws for everyone, and reports as explored: their places count only
+    # once visited (the game names the zone or subzone you stand in after
+    # them). Classic marks none, and lifts them all.
+    rows = table(game, "WorldMapOverlay")
+    flagged = any(int(r["Flags"]) & 4 for r in rows)
     overlays = {}
-    for r in table(game, "WorldMapOverlay"):
+    for r in rows:
         ids = [int(r[f"AreaID_{i}"]) for i in range(4) if int(r[f"AreaID_{i}"]) in explorable]
         if ids:
             # the overlay's hover rectangle on the map art (its texture's
@@ -59,20 +65,21 @@ def zones(game):
             rect = [int(r["HitRectLeft"]), int(r["HitRectTop"]), int(r["HitRectRight"]), int(r["HitRectBottom"])]
             if rect[2] <= rect[0] or rect[3] <= rect[1]:
                 rect = [ox, oy, ox + int(r["TextureWidth"]), oy + int(r["TextureHeight"])]
-            overlays.setdefault(int(r["UiMapArtID"]), []).append((ids, rect))
+            visit = flagged and not int(r["Flags"]) & 4
+            overlays.setdefault(int(r["UiMapArtID"]), []).append((ids, rect, visit))
     out = []
     for uid, m in sorted(uimaps.items()):
         if m["Type"] != "3" or uid in BATTLEGROUNDS:
             continue
         parent = uimaps.get(int(m["ParentUiMapID"]))
         places, seen = [], set()
-        for ids, rect in overlays.get(art.get(uid), []):
+        for ids, rect, visit in overlays.get(art.get(uid), []):
             key = tuple(sorted(ids))
             if key in seen:
                 continue
             seen.add(key)
             name = next((areas[a]["AreaName_lang"] for a in ids if a in areas), "?")
-            places.append({"name": name, "areas": ids, "rect": rect})
+            places.append({"name": name, "areas": ids, "rect": rect, **({"visit": True} if visit else {})})
         places.sort(key=lambda p: p["name"])
         out.append({
             "id": uid,

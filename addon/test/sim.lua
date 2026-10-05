@@ -371,6 +371,20 @@ local atlas = FieldJournalChar.atlas
 check(atlas.seeded and atlas.zones[1426].places[key(dun[1])].retro, "the places a character had already discovered fill its atlas quietly")
 check(not atlas.zones[1450], "… and not a zone the map merely draws (Moonglade), never discovered")
 check(atlas.zones[1426].first and atlas.zones[1426].visits == 1 and #printed == 0, "… and the zone it stands in is visited, without a word")
+if FOREVER then
+  -- Forever draws Moonglade's overlay for everyone: the game would report it
+  -- explored; it counts once visited.
+  state.discovered[493] = true
+  ns.syncAtlasZone(1450, true)
+  check(not atlas.zones[1450], "Forever: a place the map draws for everyone is never taken from the game's word")
+  state.discovered[493] = nil
+  MAPS[1450] = { name = "Moonglade", parentMapID = 1414 }
+  state.map, state.zone, state.sub = 1450, "Moonglade", "Nighthaven"
+  fire("ZONE_CHANGED_NEW_AREA")
+  check(atlas.zones[1450] and atlas.zones[1450].places[key(D.atlas.zones[1450].places[1])], "… but once visited")
+  state.map, state.zone, state.sub = 1426, "Dun Morogh", "Coldridge Pass"
+  fire("ZONE_CHANGED_NEW_AREA")
+end
 table.insert(state.explored[1426], texture(dun[2]))
 state.discovered[key(dun[2])] = true
 fire("MAP_EXPLORATION_UPDATED")
@@ -383,7 +397,8 @@ fire("ZONE_CHANGED_NEW_AREA")
 check(atlas.zones[1429] and said("|Hfieldjournal:z1429|h[Elwynn Forest]|h|r added to the atlas."), "a new zone is announced in chat, with a link")
 state.map = 1411
 fire("ZONE_CHANGED_NEW_AREA")
-check(atlas.crossings[1] and atlas.crossings[1].from == 1429 and atlas.crossings[1].to == 1411, "crossing to another continent is recorded")
+local crossing = atlas.crossings[#atlas.crossings]
+check(crossing and crossing.from == 1429 and crossing.to == 1411, "crossing to another continent is recorded")
 TakeTaxiNode(2)
 check(atlas.flights[1].from == "Ironforge" and atlas.flights[1].to == "Thelsamar" and atlas.routes["Ironforge > Thelsamar"] == 1, "a flight is recorded, with its route")
 fire("HEARTHSTONE_BOUND")
