@@ -5,7 +5,7 @@ local _, ns = ...
 
 local DEFAULTS = { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true }
 
--- Sounds for a new family or a trophy: all from the original game's interface. -1 is the
+-- Sounds for a trophy: all from the original game's interface. -1 is the
 -- sting heard on discovering a new zone, which differs by race.
 ns.SOUNDS = {
   { -1, "Zone discovery" },
@@ -56,9 +56,9 @@ function ns.createSettingsPanel()
       function(value) ns.setOption(key, value ~= invert) end)
     Settings.CreateCheckbox(category, setting, tooltip)
   end
-  checkbox("chat", "Announce in chat", "A line in chat for each new family met and each trophy (a rare or a boss slain).")
+  checkbox("chat", "Announce in chat", "A line in chat for each new creature recorded and each trophy (a rare or a boss slain), with a link to its page.")
 
-  local sound = Settings.RegisterProxySetting(category, "FIELDJOURNAL_SOUND", Settings.VarType.Number, "Sound for a new family",
+  local sound = Settings.RegisterProxySetting(category, "FIELDJOURNAL_SOUND", Settings.VarType.Number, "Sound for a trophy",
     DEFAULTS.sound,
     function() return ns.option("sound") end,
     function(value) ns.setOption("sound", value); ns.playSound(value) end)
@@ -66,7 +66,7 @@ function ns.createSettingsPanel()
     local options = Settings.CreateControlTextContainer()
     for _, s in ipairs(ns.SOUNDS) do options:Add(s[1], s[2]) end
     return options:GetData()
-  end, "Played when a new family or a trophy is added to the journal.")
+  end, "Played when you slay a rare or a boss for the first time.")
 
   checkbox("tooltipHints", "Hints on tooltips", "A line on creature tooltips: not yet in the journal, or how many you have slain.")
 

@@ -26,8 +26,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   one installable addon per game (its data file as `Data.lua`, its TOC from
   the `@INTERFACE@` template: the source folder is not installable).
 - `addon/FieldJournal/`: `Core.lua` (records: meet on target/mouseover, slay
-  from the combat log or on Forever from loot/dead targets, loot from the loot
-  window, trophies; announcements; `/journal`), `Book.lua` (the book),
+  from the combat log or on Forever from loot/dead targets it fought, loot from
+  the loot window, trophies; a chat line per new creature, a sound only for
+  trophies; `/journal`), `Book.lua` (the book: entries with 3D portraits from
+  the data's display ids, `PlayerModel:SetDisplayInfo` as the quest window),
   `Hints.lua` (tooltip line), `Settings.lua`, `Minimap.lua`.
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).

@@ -87,8 +87,8 @@ local function attackable(unit)
   return ok and not secret(ok)
 end
 
--- Meets the unit's creature (target or mouseover): records it, and announces a
--- new family. Returns the creature's id.
+-- Meets the unit's creature (target or mouseover): records it, and announces
+-- it in chat (a link to its page; no sound). Returns the creature's id.
 local function meet(unit)
   if not char or not UnitExists(unit) or UnitIsPlayer(unit) then return end
   local id = creatureId(UnitGUID(unit))
@@ -110,13 +110,11 @@ local function meet(unit)
     rec.first = h
     char.creatures[id] = rec
     local key = ns.familyKey(id, rec)
-    if key and not char.families[key] then
-      char.families[key] = { at = h.at, level = h.level }
-      if ns.option("chat") then
-        print(PREFIX .. ("a new family in the Bestiary: |cffffd100|Hfieldjournal:%s|h[%s]|h|r (%s)"):format(
-          tostring(key), ns.familyTitle(key), rec.name or "?"))
-      end
-      ns.playSound()
+    local newFamily = key and not char.families[key]
+    if newFamily then char.families[key] = { at = h.at, level = h.level } end
+    if ns.option("chat") and key then
+      print(PREFIX .. ("|cffffd100|Hfieldjournal:c%d|h[%s]|h|r recorded (%s%s)."):format(
+        id, rec.name or "?", ns.familyTitle(key), newFamily and ", a new family" or ""))
     end
   end
   local h = here()
@@ -144,6 +142,21 @@ function ns.rank(id, unit)
       if c == "rare" then return "r" elseif c == "rareelite" then return "R" elseif c == "worldboss" then return "b" end
     end
   end
+end
+
+-- Forever: the creatures this character fought (targeted or moused over while
+-- both were in combat), so a dead target only counts if it was one of them:
+-- other people's kills lying about don't.
+local engaged, engagedOrder = {}, {}
+local function engage(unit)
+  if not UnitExists(unit) or UnitIsDead(unit) then return end
+  local mine, theirs = UnitAffectingCombat("player"), UnitAffectingCombat(unit)
+  if secret(mine) or secret(theirs) or not (mine and theirs) or not attackable(unit) then return end
+  local guid = UnitGUID(unit)
+  if not guid or secret(guid) or engaged[guid] then return end
+  engaged[guid] = true
+  table.insert(engagedOrder, guid)
+  if #engagedOrder > 200 then engaged[table.remove(engagedOrder, 1)] = nil end
 end
 
 -- Corpses already counted (Forever: a kill is counted once, at its first loot
@@ -214,16 +227,24 @@ end
 
 handlers.PLAYER_TARGET_CHANGED = function()
   meet("target")
-  -- Forever (no combat log): a dead creature targeted after a fight we took
-  -- part in counts as slain, once per corpse.
-  if ns.meetKills and UnitExists("target") and UnitIsDead("target") then
+  if not ns.meetKills then return end
+  engage("target")
+  -- Forever (no combat log): a dead creature this character fought counts as
+  -- slain when targeted, once per corpse.
+  if UnitExists("target") and UnitIsDead("target") then
     local guid = UnitGUID("target")
     local id = creatureId(guid)
-    local tapped = UnitIsTapDenied and UnitIsTapDenied("target")
-    if id and not secret(tapped) and not tapped and once(guid) then slay(id, "target") end
+    if id and engaged[guid] and once(guid) then slay(id, "target") end
   end
 end
-handlers.UPDATE_MOUSEOVER_UNIT = function() meet("mouseover") end
+handlers.UPDATE_MOUSEOVER_UNIT = function()
+  meet("mouseover")
+  if ns.meetKills then engage("mouseover") end
+end
+-- Entering combat with something already targeted.
+handlers.PLAYER_REGEN_DISABLED = function()
+  if ns.meetKills then engage("target") end
+end
 
 -- Kills: yours or your pet's (the combat log's PARTY_KILL names the killer).
 function handlers.COMBAT_LOG_EVENT_UNFILTERED()

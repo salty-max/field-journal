@@ -10,10 +10,18 @@ local INK = { 0.22, 0.14, 0.05 }
 local TROPHIES = "trophies"
 
 local book, list, page
-local current -- family key (number or "?…" string) or TROPHIES
+local current -- family key (a number, or a "?type/family" string) or TROPHIES
 local build
 
 -- ── the open page ────────────────────────────────────────────────────────────
+-- A page: the family's title and the naturalist's note, then an entry per
+-- creature met: its 3D portrait (the quest window's way of showing a face),
+-- its name and this character's record of it.
+local PORTRAIT = 64
+local entries = {}
+ns.pageEntries = entries -- for the tests
+local focus -- a creature to scroll to when the page opens (a link in chat)
+
 local function place(rec)
   local p = rec.places and rec.places[1]
   if not p then return nil end
@@ -41,25 +49,87 @@ end
 
 local RANK = { r = "rare", R = "rare elite", b = "boss" }
 
--- One creature's record, as a few lines of the page.
-local function creatureText(id, rec)
-  local journal = ns.journal()
+-- What a creature's entry says under its name.
+local function factsOf(id, rec, trophyPage)
   local lines = {}
-  local mark = rec.trophy and (" |cff8a3a1c(%s, trophy)|r"):format(RANK[rec.trophy.rank] or "trophy")
-    or (ns.rank(id) and (" |cff6b4a26(%s)|r"):format(RANK[ns.rank(id)]) or "")
-  table.insert(lines, ("|cff38240d%s|r%s"):format(rec.name or ("creature " .. id), mark))
   local facts = {}
-  if rec.low then table.insert(facts, rec.low == rec.high and ("level %d"):format(rec.low) or ("levels %d-%d"):format(rec.low, rec.high)) end
+  if rec.low then table.insert(facts, rec.low == rec.high and ("Level %d"):format(rec.low) or ("Levels %d-%d"):format(rec.low, rec.high)) end
   local where = place(rec)
   if where then table.insert(facts, where) end
-  table.insert(facts, (rec.slain or 0) > 0 and ("%d slain"):format(rec.slain) or "none slain")
-  table.insert(lines, table.concat(facts, " - "))
-  if rec.first then
-    table.insert(lines, ("First met %s, at level %d."):format(date("%d %b %Y", rec.first.at or 0), rec.first.level or 0))
+  if #facts > 0 then table.insert(lines, table.concat(facts, " - ")) end
+  if trophyPage then
+    table.insert(lines, ("%s, slain %s at level %d."):format(ns.familyTitle(ns.familyKey(id, rec)), date("%d %b %Y", rec.trophy.at), rec.trophy.level or 0))
+  else
+    table.insert(lines, (rec.slain or 0) > 0 and ("Slain: %d. First met %s, at level %d."):format(rec.slain, date("%d %b %Y", rec.first and rec.first.at or 0), rec.first and rec.first.level or 0)
+      or ("None slain. First met %s, at level %d."):format(date("%d %b %Y", rec.first and rec.first.at or 0), rec.first and rec.first.level or 0))
   end
   local loot = lootLine(rec)
-  if loot then table.insert(lines, loot) end
+  if loot and not trophyPage then table.insert(lines, loot) end
   return table.concat(lines, "\n")
+end
+
+local function nameOf(id, rec)
+  local rank = rec.trophy and rec.trophy.rank or ns.rank(id)
+  local mark = ""
+  if rec.trophy then mark = (" |cff8a3a1c(%s, trophy)|r"):format(RANK[rank] or "trophy")
+  elseif rank then mark = (" |cff6b4a26(%s)|r"):format(RANK[rank]) end
+  return (rec.name or ("Creature " .. id)) .. mark
+end
+
+local function entry(i)
+  local e = entries[i]
+  if e then return e end
+  e = CreateFrame("Frame", nil, page.child)
+  e:SetSize(420, PORTRAIT + 8)
+  -- The portrait: a dark well, the model, a thin gold frame.
+  e.well = e:CreateTexture(nil, "BACKGROUND")
+  e.well:SetPoint("TOPLEFT", 0, -2)
+  e.well:SetSize(PORTRAIT, PORTRAIT)
+  e.well:SetColorTexture(0.12, 0.08, 0.04, 0.9)
+  e.model = CreateFrame("PlayerModel", nil, e)
+  e.model:SetPoint("TOPLEFT", e.well, 1, -1)
+  e.model:SetPoint("BOTTOMRIGHT", e.well, -1, 1)
+  e.unknown = e:CreateTexture(nil, "ARTWORK")
+  e.unknown:SetPoint("CENTER", e.well)
+  e.unknown:SetSize(36, 36)
+  e.unknown:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark")
+  e.frame = CreateFrame("Frame", nil, e, "BackdropTemplate")
+  e.frame:SetPoint("TOPLEFT", e.well, -2, 2)
+  e.frame:SetPoint("BOTTOMRIGHT", e.well, 2, -2)
+  e.frame:SetBackdrop({ edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 10 })
+  e.frame:SetBackdropBorderColor(0.72, 0.56, 0.24)
+  e.name = e:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+  e.name:SetPoint("TOPLEFT", e.well, "TOPRIGHT", 10, -2)
+  e.name:SetWidth(420 - PORTRAIT - 10)
+  e.name:SetJustifyH("LEFT")
+  e.name:SetTextColor(unpack(INK))
+  e.name:SetShadowColor(0, 0, 0, 0)
+  e.facts = e:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+  e.facts:SetPoint("TOPLEFT", e.name, "BOTTOMLEFT", 0, -4)
+  e.facts:SetWidth(420 - PORTRAIT - 10)
+  e.facts:SetJustifyH("LEFT")
+  e.facts:SetSpacing(2)
+  e.facts:SetTextColor(0.30, 0.20, 0.09)
+  e.facts:SetShadowColor(0, 0, 0, 0)
+  entries[i] = e
+  return e
+end
+
+-- The creature's face: its display id from the data; creatures the data
+-- doesn't know try the client's own lookup, else a question mark.
+local function portrait(e, id)
+  local display = D.models and D.models[id]
+  e.model:ClearModel()
+  if display then
+    e.model:SetDisplayInfo(display)
+  elseif e.model.SetCreature then
+    e.model:SetCreature(id)
+  end
+  e.model:SetPortraitZoom(0.9)
+  e.model:SetCamDistanceScale(1)
+  local shown = display ~= nil or e.model.SetCreature ~= nil
+  e.model:SetShown(shown)
+  e.unknown:SetShown(not shown)
 end
 
 local function sortedIds(ids)
@@ -76,38 +146,51 @@ local function showPage(key, keep)
   current = key
   local journal = ns.journal()
   if not journal or not key then return end
-  local paras = {}
+  local intro, ids, trophyPage = {}, {}, key == TROPHIES
   local title
-  if key == TROPHIES then
+  if trophyPage then
     title = "Trophies"
-    table.insert(paras, "|cff6b4a26The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed.|r")
-    local ids = {}
+    table.insert(intro, "The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed.")
     for id, rec in pairs(journal.creatures) do
       if rec.trophy then table.insert(ids, id) end
     end
     table.sort(ids, function(a, b) return journal.creatures[a].trophy.at < journal.creatures[b].trophy.at end)
-    if #ids == 0 then table.insert(paras, "None yet.") end
-    for _, id in ipairs(ids) do
-      local rec = journal.creatures[id]
-      table.insert(paras, ("|cff38240d%s|r - %s, slain %s at level %d"):format(rec.name or ("creature " .. id),
-        ns.familyTitle(ns.familyKey(id, rec)), date("%d %b %Y", rec.trophy.at), rec.trophy.level or 0))
-    end
+    if #ids == 0 then table.insert(intro, "None yet.") end
   else
     title = ns.familyTitle(key)
     local family = type(key) == "number" and D.families[key]
     if family and #family.note > 0 then
-      for _, p in ipairs(family.note) do table.insert(paras, p) end
+      for _, p in ipairs(family.note) do table.insert(intro, p) end
     else
-      table.insert(paras, "|cff6b4a26The naturalist has not yet written of these. What follows is your own record.|r")
+      table.insert(intro, "|cff6b4a26The naturalist has not yet written of these. What follows is your own record.|r")
     end
-    local ids = sortedIds(ns.metByFamily()[key] or {})
-    table.insert(paras, ("|cff6b4a26Met: %d|r"):format(#ids))
-    for _, id in ipairs(ids) do table.insert(paras, creatureText(id, journal.creatures[id])) end
+    ids = sortedIds(ns.metByFamily()[key] or {})
   end
   page.title:SetText(title)
-  page.body:SetText(table.concat(paras, "\n\n"))
-  if not keep then page.scroll:SetVerticalScroll(0) end
-  page.child:SetHeight(page.title:GetStringHeight() + page.body:GetStringHeight() + 60)
+  page.body:SetText(table.concat(intro, "\n\n"))
+  for _, e in ipairs(entries) do e:Hide() end
+  local y = page.title:GetStringHeight() + 12 + page.body:GetStringHeight() + 18
+  local focusY
+  for i, id in ipairs(ids) do
+    local rec = journal.creatures[id]
+    local e = entry(i)
+    e:ClearAllPoints()
+    e:SetPoint("TOPLEFT", page.child, "TOPLEFT", 0, -y)
+    e.name:SetText(nameOf(id, rec))
+    e.facts:SetText(factsOf(id, rec, trophyPage))
+    portrait(e, id)
+    e.id = id
+    e:Show()
+    if id == focus then focusY = y end
+    y = y + math.max(PORTRAIT + 8, e.name:GetStringHeight() + 6 + e.facts:GetStringHeight()) + 12
+  end
+  page.child:SetHeight(y + 20)
+  if focusY then
+    page.scroll:SetVerticalScroll(math.max(0, focusY - 20))
+  elseif not keep then
+    page.scroll:SetVerticalScroll(0)
+  end
+  focus = nil
 end
 
 -- ── the list ─────────────────────────────────────────────────────────────────
@@ -341,9 +424,10 @@ end
 
 -- Open the book at a family (a link in chat: fieldjournal:<family index>,
 -- fieldjournal:?<type>/<family> or fieldjournal:c<creature id>).
-function ns.openFamily(key)
+function ns.openFamily(key, creature)
   if not book then build() end
   current = key
+  focus = creature
   if book:IsShown() then
     showPage(key)
     ns.refresh()
@@ -355,14 +439,14 @@ end
 local function followLink(link)
   local key = link:match("^fieldjournal:(.+)$")
   if not key then return end
-  local creature = key:match("^c(%d+)$")
+  local creature = tonumber(key:match("^c(%d+)$"))
   if creature then
     local journal = ns.journal()
-    key = ns.familyKey(tonumber(creature), journal and journal.creatures[tonumber(creature)])
+    key = ns.familyKey(creature, journal and journal.creatures[creature])
   else
     key = tonumber(key) or key
   end
-  if key then ns.openFamily(key) end
+  if key then ns.openFamily(key, creature) end
 end
 if LinkUtil and LinkUtil.RegisterLinkHandler then
   LinkUtil.RegisterLinkHandler("fieldjournal", function(link)

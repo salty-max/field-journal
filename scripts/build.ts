@@ -38,7 +38,7 @@ const CONTENT = join(ROOT, "content");
 const VERBOSE = process.argv.includes("--verbose");
 const CLIENTS = ["classic", "forever"];
 
-type Creature = { id: number; name: string; type: string; family: number; rank: string; levels: [number, number] };
+type Creature = { id: number; name: string; type: string; family: number; rank: string; levels: [number, number]; model: number };
 type Rule = { kind: "ids"; ids: number[] } | { kind: "people"; people: string } | { kind: "name"; re: RegExp } | { kind: "beast"; family: number } | { kind: "fallback" };
 type Family = { id: string; title: string; order: number; section: string; type: string; anytype: boolean; client: string; rules: Rule[]; note: string[]; file: string };
 type Section = { id: string; title: string; type: string; order: number };
@@ -213,6 +213,10 @@ ${kept
   -- creature id = family index (into families above)
   creatures = {
 ${chunks(sorted.map((c) => `[${c.id}]=${index.get(familyOf.get(c.id)!.id)}`), 12).join("\n")}
+  },
+  -- creature id = display id (the 3D portrait)
+  models = {
+${chunks(sorted.filter((c) => c.model).map((c) => `[${c.id}]=${c.model}`), 10).join("\n")}
   },
   -- marks: r rare, R rare elite, b boss
   ranks = {

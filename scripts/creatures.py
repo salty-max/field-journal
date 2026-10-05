@@ -131,6 +131,8 @@ def main():
             "family": int(d["Family"]),
             "rank": RANKS.get(rank, "normal"),
             "levels": [int(d["MinLevel"]), int(d["MaxLevel"])],
+            # the first of its display ids: the book's 3D portrait
+            "model": next((int(d[k]) for k in ("ModelId1", "ModelId2", "ModelId3", "ModelId4") if int(d[k])), 0),
         })
     out.sort(key=lambda c: c["id"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

@@ -184,6 +184,8 @@ function UnitCreatureFamily(u) local i = info(u); return i and i.family end
 function UnitClassification(u) local i = info(u); return i and i.class or "normal" end
 local deadTarget = false
 function UnitIsDead(u) return u == "target" and deadTarget end
+local inCombat = false
+function UnitAffectingCombat(u) return inCombat and not (u == "target" and deadTarget) end
 function UnitIsTapDenied() return false end
 local realUnitLevel = UnitLevel
 function UnitLevel(u)
@@ -220,11 +222,14 @@ check(D.client == (FOREVER and "forever" or "classic"), "each game's data file i
 
 target(1131)
 check(rec(1131) and rec(1131).name == "Winter Wolf" and rec(1131).low == 7 and rec(1131).first.zone == "Dun Morogh", "targeting a creature records it, with its level and where")
-check(said("a new family in the Bestiary: |cffffd100|Hfieldjournal:" .. D.creatures[1131] .. "|h[Wolves]|h|r (Winter Wolf)") and sounds == 1,
-  "the first wolf opens the Wolves family, announced in chat as a link, with a sound")
+check(said("|cffffd100|Hfieldjournal:c1131|h[Winter Wolf]|h|r recorded (Wolves, a new family).") and sounds == 0,
+  "a new creature is announced in chat with a link to its page (and its new family), without a sound")
 state.mouseover = 1133
 fire("UPDATE_MOUSEOVER_UNIT")
-check(rec(1133) and sounds == 1, "mousing over another wolf records it, without a second announcement")
+check(rec(1133) and said("[Starving Winter Wolf]|h|r recorded (Wolves).") and sounds == 0, "every new creature gets its line, the family only once")
+printed = {}
+fire("UPDATE_MOUSEOVER_UNIT")
+check(#printed == 0, "… and only the first time it's met")
 state.sub = "Coldridge Pass"
 target(1131)
 check(#rec(1131).places == 2 and rec(1131).places[2] == "Dun Morogh: Coldridge Pass", "a creature remembers the places it was met")
@@ -232,13 +237,23 @@ check(#rec(1131).places == 2 and rec(1131).places[2] == "Dun Morogh: Coldridge P
 -- Slaying.
 local function kill(id)
   if FOREVER then
-    state.target = id; deadTarget = true
+    -- the fight: targeted alive while both are in combat, then the corpse
+    state.target = id; inCombat = true
+    fire("PLAYER_TARGET_CHANGED")
+    inCombat = false; deadTarget = true
     fire("PLAYER_TARGET_CHANGED")
     deadTarget = false
     return
   end
   combatLog = { clock, "PARTY_KILL", false, PLAYER, "Thorin", 0, 0, creature(id), "?", 0, 0 }
   fire("COMBAT_LOG_EVENT_UNFILTERED")
+end
+if FOREVER then
+  -- someone else's kill lying about: never fought, targeted dead
+  state.target = 1131; deadTarget = true
+  fire("PLAYER_TARGET_CHANGED")
+  deadTarget = false
+  check(not rec(1131).slain, "Forever: a corpse this character didn't fight doesn't count")
 end
 kill(1131)
 check(rec(1131).slain == 1 and rec(1131).firstSlain.level == 3, "slaying a creature counts it, with when and at what level")
@@ -269,7 +284,7 @@ printed = {}
 target(1132)
 kill(1132)
 check(rec(1132).trophy and rec(1132).trophy.rank == "r", "slaying a rare (Timber) makes a trophy")
-check(said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r"), "… announced in chat")
+check(said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r") and sounds == 1, "… announced in chat, with the trophy sound")
 
 -- Creatures the data doesn't know (Forever's new ones).
 target(99001)
@@ -289,7 +304,11 @@ end
 check(shown("Wolves") and shown("Beasts") and shown("Trophies") and shown("Unrecorded Beast: Galestrider"), "the list shows the families met, under their type, the trophies, and the unrecorded")
 check(not shown("Spiders"), "… and no family not yet met")
 shown("Wolves").scripts.OnClick(shown("Wolves"))
-check(FieldJournalPage and FieldJournalFrame.shown, "a family opens on the right")
+local wolves = {}
+for _, e in ipairs(ns.pageEntries) do if e.shown then wolves[e.id] = e end end
+check(wolves[1131] and wolves[1133] and wolves[1132], "a family's page has an entry per creature met")
+check(wolves[1131].name.text == "Winter Wolf" and wolves[1131].facts.text:find("Level 7", 1, true) and wolves[1131].facts.text:find("Slain:", 1, true), "… with its name and its record")
+check(wolves[1131].model.shown and not wolves[1131].unknown.shown and D.models[1131], "… and its portrait, from its display id")
 FieldJournalSearch:SetText("timber")
 ns.refresh()
 check(shown("Wolves") and not shown("Ice Trolls"), "search finds a family by a creature's name")
