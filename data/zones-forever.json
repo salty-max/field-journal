@@ -1,0 +1,3847 @@
+{
+ "continents": {
+  "1414": "Kalimdor",
+  "1415": "Eastern Kingdoms",
+  "1463": "Eastern Kingdoms",
+  "1464": "Kalimdor"
+ },
+ "zones": [
+  {
+   "id": 1411,
+   "name": "Durotar",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Drygulch Ravine",
+     "areas": [
+      370
+     ]
+    },
+    {
+     "name": "Echo Isles",
+     "areas": [
+      368
+     ]
+    },
+    {
+     "name": "Kolkar Crag",
+     "areas": [
+      366
+     ]
+    },
+    {
+     "name": "Orgrimmar",
+     "areas": [
+      1637
+     ]
+    },
+    {
+     "name": "Razor Hill",
+     "areas": [
+      362
+     ]
+    },
+    {
+     "name": "Razormane Grounds",
+     "areas": [
+      816
+     ]
+    },
+    {
+     "name": "Sen'jin Village",
+     "areas": [
+      367
+     ]
+    },
+    {
+     "name": "Skull Rock",
+     "areas": [
+      817
+     ]
+    },
+    {
+     "name": "Thunder Ridge",
+     "areas": [
+      369
+     ]
+    },
+    {
+     "name": "Tiragarde Keep",
+     "areas": [
+      372
+     ]
+    },
+    {
+     "name": "Valley of Trials",
+     "areas": [
+      363
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1412,
+   "name": "Mulgore",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Bael'dun Digsite",
+     "areas": [
+      404
+     ]
+    },
+    {
+     "name": "Bloodhoof Village",
+     "areas": [
+      222
+     ]
+    },
+    {
+     "name": "Brambleblade Ravine",
+     "areas": [
+      358
+     ]
+    },
+    {
+     "name": "Palemane Rock",
+     "areas": [
+      818
+     ]
+    },
+    {
+     "name": "Ravaged Caravan",
+     "areas": [
+      224
+     ]
+    },
+    {
+     "name": "Red Cloud Mesa",
+     "areas": [
+      220
+     ]
+    },
+    {
+     "name": "Red Rocks",
+     "areas": [
+      225
+     ]
+    },
+    {
+     "name": "Skywatcher Plateau",
+     "areas": [
+      17045
+     ]
+    },
+    {
+     "name": "The Golden Plains",
+     "areas": [
+      820
+     ]
+    },
+    {
+     "name": "The Rolling Plains",
+     "areas": [
+      821
+     ]
+    },
+    {
+     "name": "The Venture Co. Mine",
+     "areas": [
+      360
+     ]
+    },
+    {
+     "name": "Thunder Bluff",
+     "areas": [
+      1638
+     ]
+    },
+    {
+     "name": "Thunderhorn Water Well",
+     "areas": [
+      397
+     ]
+    },
+    {
+     "name": "Wildmane Water Well",
+     "areas": [
+      398
+     ]
+    },
+    {
+     "name": "Windfury Ridge",
+     "areas": [
+      819
+     ]
+    },
+    {
+     "name": "Winterhoof Water Well",
+     "areas": [
+      396
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1413,
+   "name": "The Barrens",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Agama'gor",
+     "areas": [
+      1700
+     ]
+    },
+    {
+     "name": "Bael Modan",
+     "areas": [
+      359
+     ]
+    },
+    {
+     "name": "Blackthorn Ridge",
+     "areas": [
+      1701
+     ]
+    },
+    {
+     "name": "Boulder Lode Mine",
+     "areas": [
+      381
+     ]
+    },
+    {
+     "name": "Bramblescar",
+     "areas": [
+      1698
+     ]
+    },
+    {
+     "name": "Camp Taurajo",
+     "areas": [
+      378
+     ]
+    },
+    {
+     "name": "Dreadmist Peak",
+     "areas": [
+      384
+     ]
+    },
+    {
+     "name": "Far Watch Post",
+     "areas": [
+      379
+     ]
+    },
+    {
+     "name": "Field of Giants",
+     "areas": [
+      390
+     ]
+    },
+    {
+     "name": "Grol'dom Farm",
+     "areas": [
+      1704
+     ]
+    },
+    {
+     "name": "Honor's Stand",
+     "areas": [
+      1702
+     ]
+    },
+    {
+     "name": "Lushwater Oasis",
+     "areas": [
+      387
+     ]
+    },
+    {
+     "name": "Northwatch Hold",
+     "areas": [
+      385
+     ]
+    },
+    {
+     "name": "Raptor Grounds",
+     "areas": [
+      1697
+     ]
+    },
+    {
+     "name": "Ratchet",
+     "areas": [
+      392
+     ]
+    },
+    {
+     "name": "Razorfen Downs",
+     "areas": [
+      1316
+     ]
+    },
+    {
+     "name": "Razorfen Kraul",
+     "areas": [
+      1717
+     ]
+    },
+    {
+     "name": "The Crossroads",
+     "areas": [
+      380
+     ]
+    },
+    {
+     "name": "The Dry Hills",
+     "areas": [
+      383
+     ]
+    },
+    {
+     "name": "The Forgotten Pools",
+     "areas": [
+      386
+     ]
+    },
+    {
+     "name": "The Merchant Coast",
+     "areas": [
+      391
+     ]
+    },
+    {
+     "name": "The Mor'shan Rampart",
+     "areas": [
+      1703
+     ]
+    },
+    {
+     "name": "The Sludge Fen",
+     "areas": [
+      382
+     ]
+    },
+    {
+     "name": "The Stagnant Oasis",
+     "areas": [
+      388
+     ]
+    },
+    {
+     "name": "Thorn Hill",
+     "areas": [
+      1699
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1416,
+   "name": "Alterac Mountains",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Chillwind Point",
+     "areas": [
+      1684,
+      3486
+     ]
+    },
+    {
+     "name": "Corrahn's Dagger",
+     "areas": [
+      1679
+     ]
+    },
+    {
+     "name": "Crushridge Hold",
+     "areas": [
+      282,
+      283
+     ]
+    },
+    {
+     "name": "Dalaran",
+     "areas": [
+      279
+     ]
+    },
+    {
+     "name": "Dandred's Fold",
+     "areas": [
+      1682
+     ]
+    },
+    {
+     "name": "Gallows' Corner",
+     "areas": [
+      1357
+     ]
+    },
+    {
+     "name": "Gavin's Naze",
+     "areas": [
+      1677
+     ]
+    },
+    {
+     "name": "Growless Cave",
+     "areas": [
+      1683
+     ]
+    },
+    {
+     "name": "Lordamere Internment Camp",
+     "areas": [
+      278
+     ]
+    },
+    {
+     "name": "Misty Shore",
+     "areas": [
+      1681
+     ]
+    },
+    {
+     "name": "Ruins of Alterac",
+     "areas": [
+      281
+     ]
+    },
+    {
+     "name": "Sofera's Naze",
+     "areas": [
+      1678
+     ]
+    },
+    {
+     "name": "Strahnbrad",
+     "areas": [
+      280
+     ]
+    },
+    {
+     "name": "The Headland",
+     "areas": [
+      1680
+     ]
+    },
+    {
+     "name": "The Uplands",
+     "areas": [
+      284
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1417,
+   "name": "Arathi Highlands",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Boulder'gor",
+     "areas": [
+      1858
+     ]
+    },
+    {
+     "name": "Boulderfist Hall",
+     "areas": [
+      316
+     ]
+    },
+    {
+     "name": "Circle of East Binding",
+     "areas": [
+      333
+     ]
+    },
+    {
+     "name": "Circle of Inner Binding",
+     "areas": [
+      335
+     ]
+    },
+    {
+     "name": "Circle of Outer Binding",
+     "areas": [
+      336
+     ]
+    },
+    {
+     "name": "Circle of West Binding",
+     "areas": [
+      334
+     ]
+    },
+    {
+     "name": "Dabyrie's Farmstead",
+     "areas": [
+      315
+     ]
+    },
+    {
+     "name": "Faldir's Cove",
+     "areas": [
+      327
+     ]
+    },
+    {
+     "name": "Go'Shek Farm",
+     "areas": [
+      314
+     ]
+    },
+    {
+     "name": "Hammerfall",
+     "areas": [
+      321
+     ]
+    },
+    {
+     "name": "Northfold Manor",
+     "areas": [
+      313
+     ]
+    },
+    {
+     "name": "Refuge Pointe",
+     "areas": [
+      320
+     ]
+    },
+    {
+     "name": "Stromgarde Keep",
+     "areas": [
+      324
+     ]
+    },
+    {
+     "name": "Thandol Span",
+     "areas": [
+      880
+     ]
+    },
+    {
+     "name": "Thoradin's Wall",
+     "areas": [
+      1857
+     ]
+    },
+    {
+     "name": "Witherbark Village",
+     "areas": [
+      317
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1418,
+   "name": "Badlands",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Agmond's End",
+     "areas": [
+      345
+     ]
+    },
+    {
+     "name": "Angor Fortress",
+     "areas": [
+      338
+     ]
+    },
+    {
+     "name": "Apocryphan's Rest",
+     "areas": [
+      337
+     ]
+    },
+    {
+     "name": "Camp Boff",
+     "areas": [
+      342
+     ]
+    },
+    {
+     "name": "Camp Cagg",
+     "areas": [
+      344
+     ]
+    },
+    {
+     "name": "Camp Kosh",
+     "areas": [
+      341
+     ]
+    },
+    {
+     "name": "Dustwind Gulch",
+     "areas": [
+      1898
+     ]
+    },
+    {
+     "name": "Hammertoe's Digsite",
+     "areas": [
+      346
+     ]
+    },
+    {
+     "name": "Kargath",
+     "areas": [
+      340
+     ]
+    },
+    {
+     "name": "Lethlor Ravine",
+     "areas": [
+      339
+     ]
+    },
+    {
+     "name": "Mirage Flats",
+     "areas": [
+      1879
+     ]
+    },
+    {
+     "name": "The Dustbowl",
+     "areas": [
+      1878
+     ]
+    },
+    {
+     "name": "The Maker's Terrace",
+     "areas": [
+      1897
+     ]
+    },
+    {
+     "name": "Valley of Fangs",
+     "areas": [
+      1877
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1419,
+   "name": "Blasted Lands",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Altar of Storms",
+     "areas": [
+      1441
+     ]
+    },
+    {
+     "name": "Dreadmaul Hold",
+     "areas": [
+      1437
+     ]
+    },
+    {
+     "name": "Dreadmaul Post",
+     "areas": [
+      1439
+     ]
+    },
+    {
+     "name": "Garrison Armory",
+     "areas": [
+      1457
+     ]
+    },
+    {
+     "name": "Nethergarde Keep",
+     "areas": [
+      1438
+     ]
+    },
+    {
+     "name": "Rise of the Defiler",
+     "areas": [
+      2517
+     ]
+    },
+    {
+     "name": "Serpent's Coil",
+     "areas": [
+      1440
+     ]
+    },
+    {
+     "name": "The Dark Portal",
+     "areas": [
+      72
+     ]
+    },
+    {
+     "name": "The Tainted Scar",
+     "areas": [
+      73
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1420,
+   "name": "Tirisfal Glades",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Agamand Mills",
+     "areas": [
+      157
+     ]
+    },
+    {
+     "name": "Balnir Farmstead",
+     "areas": [
+      165
+     ]
+    },
+    {
+     "name": "Brightwater Lake",
+     "areas": [
+      162
+     ]
+    },
+    {
+     "name": "Brill",
+     "areas": [
+      159
+     ]
+    },
+    {
+     "name": "Cold Hearth Manor",
+     "areas": [
+      166
+     ]
+    },
+    {
+     "name": "Crusader Outpost",
+     "areas": [
+      167
+     ]
+    },
+    {
+     "name": "Deathknell",
+     "areas": [
+      154
+     ]
+    },
+    {
+     "name": "Garren's Haunt",
+     "areas": [
+      164
+     ]
+    },
+    {
+     "name": "Nightmare Vale",
+     "areas": [
+      811
+     ]
+    },
+    {
+     "name": "Ruins of Lordaeron",
+     "areas": [
+      153
+     ]
+    },
+    {
+     "name": "Scarlet Watch Post",
+     "areas": [
+      459
+     ]
+    },
+    {
+     "name": "Solliden Farmstead",
+     "areas": [
+      156
+     ]
+    },
+    {
+     "name": "Stillwater Pond",
+     "areas": [
+      810
+     ]
+    },
+    {
+     "name": "Terrace of Repose",
+     "areas": [
+      161,
+      160
+     ]
+    },
+    {
+     "name": "The Bulwark",
+     "areas": [
+      152
+     ]
+    },
+    {
+     "name": "Venomweb Vale",
+     "areas": [
+      812
+     ]
+    },
+    {
+     "name": "Whispering Forest",
+     "areas": [
+      16616
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1421,
+   "name": "Silverpine Forest",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Ambermill",
+     "areas": [
+      233
+     ]
+    },
+    {
+     "name": "Beren's Peril",
+     "areas": [
+      231
+     ]
+    },
+    {
+     "name": "Deep Elem Mine",
+     "areas": [
+      213
+     ]
+    },
+    {
+     "name": "Fenris Isle",
+     "areas": [
+      172
+     ]
+    },
+    {
+     "name": "Malden's Orchard",
+     "areas": [
+      238
+     ]
+    },
+    {
+     "name": "North Tide's Hollow",
+     "areas": [
+      928
+     ]
+    },
+    {
+     "name": "Olsen's Farthing",
+     "areas": [
+      229
+     ]
+    },
+    {
+     "name": "Pyrewood Village",
+     "areas": [
+      204
+     ]
+    },
+    {
+     "name": "Shadowfang Keep",
+     "areas": [
+      236
+     ]
+    },
+    {
+     "name": "The Dead Field",
+     "areas": [
+      240
+     ]
+    },
+    {
+     "name": "The Decrepit Ferry",
+     "areas": [
+      237
+     ]
+    },
+    {
+     "name": "The Greymane Wall",
+     "areas": [
+      230
+     ]
+    },
+    {
+     "name": "The Sepulcher",
+     "areas": [
+      228
+     ]
+    },
+    {
+     "name": "The Shining Strand",
+     "areas": [
+      927
+     ]
+    },
+    {
+     "name": "The Skittering Dark",
+     "areas": [
+      226
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1422,
+   "name": "Western Plaguelands",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Caer Darrow",
+     "areas": [
+      2298
+     ]
+    },
+    {
+     "name": "Dalson's Tears",
+     "areas": [
+      200
+     ]
+    },
+    {
+     "name": "Darrowmere Lake",
+     "areas": [
+      2297
+     ]
+    },
+    {
+     "name": "Felstone Field",
+     "areas": [
+      199
+     ]
+    },
+    {
+     "name": "Gahrron's Withering",
+     "areas": [
+      201
+     ]
+    },
+    {
+     "name": "Hearthglen",
+     "areas": [
+      190
+     ]
+    },
+    {
+     "name": "Northridge Lumber Camp",
+     "areas": [
+      192
+     ]
+    },
+    {
+     "name": "Ruins of Andorhal",
+     "areas": [
+      193
+     ]
+    },
+    {
+     "name": "Sorrow Hill",
+     "areas": [
+      197
+     ]
+    },
+    {
+     "name": "The Bulwark",
+     "areas": [
+      813
+     ]
+    },
+    {
+     "name": "The Weeping Cave",
+     "areas": [
+      198
+     ]
+    },
+    {
+     "name": "The Writhing Haunt",
+     "areas": [
+      202
+     ]
+    },
+    {
+     "name": "Thondroril River",
+     "areas": [
+      2620
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1423,
+   "name": "Eastern Plaguelands",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Blackwood Lake",
+     "areas": [
+      2624
+     ]
+    },
+    {
+     "name": "Corin's Crossing",
+     "areas": [
+      2264
+     ]
+    },
+    {
+     "name": "Crown Guard Tower",
+     "areas": [
+      2263
+     ]
+    },
+    {
+     "name": "Darrowshire",
+     "areas": [
+      2262
+     ]
+    },
+    {
+     "name": "Eastwall Tower",
+     "areas": [
+      2271
+     ]
+    },
+    {
+     "name": "Lake Mereldar",
+     "areas": [
+      2621
+     ]
+    },
+    {
+     "name": "Light's Hope Chapel",
+     "areas": [
+      2268
+     ]
+    },
+    {
+     "name": "New Avalon",
+     "areas": [
+      16335
+     ]
+    },
+    {
+     "name": "Northdale",
+     "areas": [
+      2272
+     ]
+    },
+    {
+     "name": "Northpass Tower",
+     "areas": [
+      2275
+     ]
+    },
+    {
+     "name": "Pestilent Scar",
+     "areas": [
+      2622
+     ]
+    },
+    {
+     "name": "Plaguewood",
+     "areas": [
+      2277
+     ]
+    },
+    {
+     "name": "Quel'Lithien Lodge",
+     "areas": [
+      2276
+     ]
+    },
+    {
+     "name": "Stratholme",
+     "areas": [
+      2279
+     ]
+    },
+    {
+     "name": "Terrordale",
+     "areas": [
+      2627
+     ]
+    },
+    {
+     "name": "The Fungal Vale",
+     "areas": [
+      2258
+     ]
+    },
+    {
+     "name": "The Infectis Scar",
+     "areas": [
+      2623
+     ]
+    },
+    {
+     "name": "The Marris Stead",
+     "areas": [
+      2260
+     ]
+    },
+    {
+     "name": "The Noxious Glade",
+     "areas": [
+      2270
+     ]
+    },
+    {
+     "name": "The Undercroft",
+     "areas": [
+      2261
+     ]
+    },
+    {
+     "name": "Thondroril River",
+     "areas": [
+      2619
+     ]
+    },
+    {
+     "name": "Tyr's Hand",
+     "areas": [
+      2266
+     ]
+    },
+    {
+     "name": "Zul'Mashar",
+     "areas": [
+      2273
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1424,
+   "name": "Hillsbrad Foothills",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Azurelode Mine",
+     "areas": [
+      288
+     ]
+    },
+    {
+     "name": "Darrow Hill",
+     "areas": [
+      1056
+     ]
+    },
+    {
+     "name": "Dun Garok",
+     "areas": [
+      290
+     ]
+    },
+    {
+     "name": "Durnholde Keep",
+     "areas": [
+      275
+     ]
+    },
+    {
+     "name": "Eastern Strand",
+     "areas": [
+      294
+     ]
+    },
+    {
+     "name": "Hillsbrad Fields",
+     "areas": [
+      286
+     ]
+    },
+    {
+     "name": "Nethander Stead",
+     "areas": [
+      289
+     ]
+    },
+    {
+     "name": "Purgation Isle",
+     "areas": [
+      896
+     ]
+    },
+    {
+     "name": "Southpoint Tower",
+     "areas": [
+      285
+     ]
+    },
+    {
+     "name": "Southshore",
+     "areas": [
+      271
+     ]
+    },
+    {
+     "name": "Tarren Mill",
+     "areas": [
+      272
+     ]
+    },
+    {
+     "name": "Western Strand",
+     "areas": [
+      295
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1425,
+   "name": "The Hinterlands",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Aerie Peak",
+     "areas": [
+      348
+     ]
+    },
+    {
+     "name": "Agol'watha",
+     "areas": [
+      1884
+     ]
+    },
+    {
+     "name": "Hiri'watha",
+     "areas": [
+      1885
+     ]
+    },
+    {
+     "name": "Jintha'Alor",
+     "areas": [
+      354
+     ]
+    },
+    {
+     "name": "Plaguemist Ravine",
+     "areas": [
+      1882
+     ]
+    },
+    {
+     "name": "Quel'Danil Lodge",
+     "areas": [
+      350
+     ]
+    },
+    {
+     "name": "Seradane",
+     "areas": [
+      356
+     ]
+    },
+    {
+     "name": "Shadra'Alor",
+     "areas": [
+      353
+     ]
+    },
+    {
+     "name": "Shaol'watha",
+     "areas": [
+      1917
+     ]
+    },
+    {
+     "name": "Skulk Rock",
+     "areas": [
+      351
+     ]
+    },
+    {
+     "name": "The Altar of Zul",
+     "areas": [
+      355
+     ]
+    },
+    {
+     "name": "The Creeping Ruin",
+     "areas": [
+      1886
+     ]
+    },
+    {
+     "name": "The Overlook Cliffs",
+     "areas": [
+      307
+     ]
+    },
+    {
+     "name": "Valorwind Lake",
+     "areas": [
+      1883
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1426,
+   "name": "Dun Morogh",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Amberstill Ranch",
+     "areas": [
+      803
+     ]
+    },
+    {
+     "name": "Brewnall Village",
+     "areas": [
+      137
+     ]
+    },
+    {
+     "name": "Chill Breeze Valley",
+     "areas": [
+      801
+     ]
+    },
+    {
+     "name": "Coldridge Pass",
+     "areas": [
+      800
+     ]
+    },
+    {
+     "name": "Coldridge Valley",
+     "areas": [
+      132,
+      77
+     ]
+    },
+    {
+     "name": "Frostmane Hold",
+     "areas": [
+      135
+     ]
+    },
+    {
+     "name": "Gnomeregan",
+     "areas": [
+      133
+     ]
+    },
+    {
+     "name": "Gol'Bolar Quarry",
+     "areas": [
+      134
+     ]
+    },
+    {
+     "name": "Helm's Bed Lake",
+     "areas": [
+      212
+     ]
+    },
+    {
+     "name": "Iceflow Lake",
+     "areas": [
+      211
+     ]
+    },
+    {
+     "name": "Ironforge",
+     "areas": [
+      1537,
+      809
+     ]
+    },
+    {
+     "name": "Kharanos",
+     "areas": [
+      131
+     ]
+    },
+    {
+     "name": "Misty Pine Refuge",
+     "areas": [
+      138
+     ]
+    },
+    {
+     "name": "North Gate Outpost",
+     "areas": [
+      808
+     ]
+    },
+    {
+     "name": "Shimmer Ridge",
+     "areas": [
+      802
+     ]
+    },
+    {
+     "name": "South Gate Outpost",
+     "areas": [
+      806
+     ]
+    },
+    {
+     "name": "The Grizzled Den",
+     "areas": [
+      136
+     ]
+    },
+    {
+     "name": "The Tundrid Hills",
+     "areas": [
+      804
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1427,
+   "name": "Searing Gorge",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Blackchar Cave",
+     "areas": [
+      1957
+     ]
+    },
+    {
+     "name": "Dustfire Valley",
+     "areas": [
+      1959
+     ]
+    },
+    {
+     "name": "Firewatch Ridge",
+     "areas": [
+      1442
+     ]
+    },
+    {
+     "name": "Grimesilt Dig Site",
+     "areas": [
+      247
+     ]
+    },
+    {
+     "name": "Tanner Camp",
+     "areas": [
+      1958
+     ]
+    },
+    {
+     "name": "The Cauldron",
+     "areas": [
+      246
+     ]
+    },
+    {
+     "name": "The Sea of Cinders",
+     "areas": [
+      1444
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1428,
+   "name": "Burning Steppes",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Altar of Storms",
+     "areas": [
+      255
+     ]
+    },
+    {
+     "name": "Blackrock Mountain",
+     "areas": [
+      254
+     ]
+    },
+    {
+     "name": "Blackrock Pass",
+     "areas": [
+      2417
+     ]
+    },
+    {
+     "name": "Blackrock Stronghold",
+     "areas": [
+      252
+     ]
+    },
+    {
+     "name": "Draco'dar",
+     "areas": [
+      2421
+     ]
+    },
+    {
+     "name": "Dreadmaul Rock",
+     "areas": [
+      249
+     ]
+    },
+    {
+     "name": "Morgan's Vigil",
+     "areas": [
+      2418
+     ]
+    },
+    {
+     "name": "Ruins of Thaurissan",
+     "areas": [
+      250
+     ]
+    },
+    {
+     "name": "Terror Wing Path",
+     "areas": [
+      2420
+     ]
+    },
+    {
+     "name": "The Pillar of Ash",
+     "areas": [
+      253
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1429,
+   "name": "Elwynn Forest",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Brackwell Pumpkin Patch",
+     "areas": [
+      62
+     ]
+    },
+    {
+     "name": "Crystal Lake",
+     "areas": [
+      18
+     ]
+    },
+    {
+     "name": "Eastvale Logging Camp",
+     "areas": [
+      88
+     ]
+    },
+    {
+     "name": "Fargodeep Mine",
+     "areas": [
+      57
+     ]
+    },
+    {
+     "name": "Forest's Edge",
+     "areas": [
+      60
+     ]
+    },
+    {
+     "name": "Goldshire",
+     "areas": [
+      87
+     ]
+    },
+    {
+     "name": "Jerod's Landing",
+     "areas": [
+      797
+     ]
+    },
+    {
+     "name": "Northshire Valley",
+     "areas": [
+      9
+     ]
+    },
+    {
+     "name": "Ridgepoint Tower",
+     "areas": [
+      798
+     ]
+    },
+    {
+     "name": "Stone Cairn Lake",
+     "areas": [
+      86
+     ]
+    },
+    {
+     "name": "Stormwind City",
+     "areas": [
+      1519,
+      1617,
+      80
+     ]
+    },
+    {
+     "name": "Tower of Azora",
+     "areas": [
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1430,
+   "name": "Deadwind Pass",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Deadman's Crossing",
+     "areas": [
+      2697
+     ]
+    },
+    {
+     "name": "Karazhan",
+     "areas": [
+      2562
+     ]
+    },
+    {
+     "name": "The Vice",
+     "areas": [
+      2561
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1431,
+   "name": "Duskwood",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Addle's Stead",
+     "areas": [
+      536
+     ]
+    },
+    {
+     "name": "Brightwood Grove",
+     "areas": [
+      242
+     ]
+    },
+    {
+     "name": "Darkshire",
+     "areas": [
+      42
+     ]
+    },
+    {
+     "name": "Manor Mistmantle",
+     "areas": [
+      1098
+     ]
+    },
+    {
+     "name": "Raven Hill",
+     "areas": [
+      94
+     ]
+    },
+    {
+     "name": "Raven Hill Cemetery",
+     "areas": [
+      492
+     ]
+    },
+    {
+     "name": "The Darkened Bank",
+     "areas": [
+      799
+     ]
+    },
+    {
+     "name": "The Hushed Bank",
+     "areas": [
+      1097
+     ]
+    },
+    {
+     "name": "The Rotting Orchard",
+     "areas": [
+      241
+     ]
+    },
+    {
+     "name": "The Yorgen Farmstead",
+     "areas": [
+      245
+     ]
+    },
+    {
+     "name": "Tranquil Gardens Cemetery",
+     "areas": [
+      121
+     ]
+    },
+    {
+     "name": "Twilight Grove",
+     "areas": [
+      856
+     ]
+    },
+    {
+     "name": "Vul'Gol Ogre Mound",
+     "areas": [
+      93
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1432,
+   "name": "Loch Modan",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Grizzlepaw Ridge",
+     "areas": [
+      936
+     ]
+    },
+    {
+     "name": "Ironband's Excavation Site",
+     "areas": [
+      142
+     ]
+    },
+    {
+     "name": "Mo'grosh Stronghold",
+     "areas": [
+      143
+     ]
+    },
+    {
+     "name": "North Gate Pass",
+     "areas": [
+      838
+     ]
+    },
+    {
+     "name": "Silver Stream Mine",
+     "areas": [
+      149
+     ]
+    },
+    {
+     "name": "Stonesplinter Valley",
+     "areas": [
+      923
+     ]
+    },
+    {
+     "name": "Stonewrought Dam",
+     "areas": [
+      146
+     ]
+    },
+    {
+     "name": "The Farstrider Lodge",
+     "areas": [
+      147
+     ]
+    },
+    {
+     "name": "The Loch",
+     "areas": [
+      556
+     ]
+    },
+    {
+     "name": "Thelsamar",
+     "areas": [
+      144
+     ]
+    },
+    {
+     "name": "Valley of Kings",
+     "areas": [
+      924
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1433,
+   "name": "Redridge Mountains",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Alther's Mill",
+     "areas": [
+      97
+     ]
+    },
+    {
+     "name": "Galardell Valley",
+     "areas": [
+      1000,
+      96
+     ]
+    },
+    {
+     "name": "Lake Everstill",
+     "areas": [
+      68
+     ]
+    },
+    {
+     "name": "Lakeridge Highway",
+     "areas": [
+      1001
+     ]
+    },
+    {
+     "name": "Lakeshire",
+     "areas": [
+      69
+     ]
+    },
+    {
+     "name": "Redridge Canyons",
+     "areas": [
+      95,
+      98
+     ]
+    },
+    {
+     "name": "Render's Camp",
+     "areas": [
+      996,
+      998
+     ]
+    },
+    {
+     "name": "Render's Valley",
+     "areas": [
+      997
+     ]
+    },
+    {
+     "name": "Stonewatch",
+     "areas": [
+      70,
+      999
+     ]
+    },
+    {
+     "name": "Stonewatch Falls",
+     "areas": [
+      71
+     ]
+    },
+    {
+     "name": "Three Corners",
+     "areas": [
+      1002
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1434,
+   "name": "Stranglethorn Vale",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Bal'lal Ruins",
+     "areas": [
+      123
+     ]
+    },
+    {
+     "name": "Balia'mah Ruins",
+     "areas": [
+      127
+     ]
+    },
+    {
+     "name": "Bloodsail Compound",
+     "areas": [
+      1739
+     ]
+    },
+    {
+     "name": "Booty Bay",
+     "areas": [
+      35
+     ]
+    },
+    {
+     "name": "Crystalvein Mine",
+     "areas": [
+      310
+     ]
+    },
+    {
+     "name": "Grom'gol Base Camp",
+     "areas": [
+      117
+     ]
+    },
+    {
+     "name": "Gurubashi Arena",
+     "areas": [
+      1741
+     ]
+    },
+    {
+     "name": "Jaguero Isle",
+     "areas": [
+      297
+     ]
+    },
+    {
+     "name": "Kal'ai Ruins",
+     "areas": [
+      125
+     ]
+    },
+    {
+     "name": "Kurzen's Compound",
+     "areas": [
+      101
+     ]
+    },
+    {
+     "name": "Lake Nazferiti",
+     "areas": [
+      37
+     ]
+    },
+    {
+     "name": "Mistvale Valley",
+     "areas": [
+      1737
+     ]
+    },
+    {
+     "name": "Mizjah Ruins",
+     "areas": [
+      129
+     ]
+    },
+    {
+     "name": "Mosh'Ogg Ogre Mound",
+     "areas": [
+      105
+     ]
+    },
+    {
+     "name": "Nek'mani Wellspring",
+     "areas": [
+      1738
+     ]
+    },
+    {
+     "name": "Nesingwary's Expedition",
+     "areas": [
+      100
+     ]
+    },
+    {
+     "name": "Rebel Camp",
+     "areas": [
+      99
+     ]
+    },
+    {
+     "name": "Ruins of Aboraz",
+     "areas": [
+      311
+     ]
+    },
+    {
+     "name": "Ruins of Jubuwal",
+     "areas": [
+      477
+     ]
+    },
+    {
+     "name": "Ruins of Zul'Kunda",
+     "areas": [
+      102
+     ]
+    },
+    {
+     "name": "Ruins of Zul'Mamwe",
+     "areas": [
+      103
+     ]
+    },
+    {
+     "name": "The Vile Reef",
+     "areas": [
+      104
+     ]
+    },
+    {
+     "name": "Venture Co. Base Camp",
+     "areas": [
+      1740
+     ]
+    },
+    {
+     "name": "Wild Shore",
+     "areas": [
+      43
+     ]
+    },
+    {
+     "name": "Ziata'jai Ruins",
+     "areas": [
+      128
+     ]
+    },
+    {
+     "name": "Zul'Gurub",
+     "areas": [
+      19
+     ]
+    },
+    {
+     "name": "Zuuldaia Ruins",
+     "areas": [
+      122
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1435,
+   "name": "Swamp of Sorrows",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Fallow Sanctuary",
+     "areas": [
+      76
+     ]
+    },
+    {
+     "name": "Itharius's Cave",
+     "areas": [
+      1777
+     ]
+    },
+    {
+     "name": "Misty Reed Strand",
+     "areas": [
+      300
+     ]
+    },
+    {
+     "name": "Misty Valley",
+     "areas": [
+      116
+     ]
+    },
+    {
+     "name": "Pool of Tears",
+     "areas": [
+      74
+     ]
+    },
+    {
+     "name": "Sorrowmurk",
+     "areas": [
+      1778
+     ]
+    },
+    {
+     "name": "Splinterspear Junction",
+     "areas": [
+      1780
+     ]
+    },
+    {
+     "name": "Stagalbog",
+     "areas": [
+      1797
+     ]
+    },
+    {
+     "name": "Stonard",
+     "areas": [
+      75
+     ]
+    },
+    {
+     "name": "The Harborage",
+     "areas": [
+      657
+     ]
+    },
+    {
+     "name": "The Shifting Mire",
+     "areas": [
+      1798
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1436,
+   "name": "Westfall",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Alexston Farmstead",
+     "areas": [
+      219
+     ]
+    },
+    {
+     "name": "Demont's Place",
+     "areas": [
+      921
+     ]
+    },
+    {
+     "name": "Furlbrow's Pumpkin Farm",
+     "areas": [
+      109
+     ]
+    },
+    {
+     "name": "Gold Coast Quarry",
+     "areas": [
+      113
+     ]
+    },
+    {
+     "name": "Jangolode Mine",
+     "areas": [
+      111
+     ]
+    },
+    {
+     "name": "Moonbrook",
+     "areas": [
+      20
+     ]
+    },
+    {
+     "name": "Saldean's Farm",
+     "areas": [
+      107
+     ]
+    },
+    {
+     "name": "Sentinel Hill",
+     "areas": [
+      108
+     ]
+    },
+    {
+     "name": "The Dagger Hills",
+     "areas": [
+      920
+     ]
+    },
+    {
+     "name": "The Dead Acre",
+     "areas": [
+      917
+     ]
+    },
+    {
+     "name": "The Dust Plains",
+     "areas": [
+      922
+     ]
+    },
+    {
+     "name": "The Jansen Stead",
+     "areas": [
+      916
+     ]
+    },
+    {
+     "name": "The Molsen Farm",
+     "areas": [
+      918
+     ]
+    },
+    {
+     "name": "Westfall Lighthouse",
+     "areas": [
+      115
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1437,
+   "name": "Wetlands",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Angerfang Encampment",
+     "areas": [
+      1036
+     ]
+    },
+    {
+     "name": "Black Channel Marsh",
+     "areas": [
+      1018
+     ]
+    },
+    {
+     "name": "Bluegill Marsh",
+     "areas": [
+      1022
+     ]
+    },
+    {
+     "name": "Direforge Hill",
+     "areas": [
+      1016
+     ]
+    },
+    {
+     "name": "Dun Modr",
+     "areas": [
+      205
+     ]
+    },
+    {
+     "name": "Grim Batol",
+     "areas": [
+      1037
+     ]
+    },
+    {
+     "name": "Ironbeard's Tomb",
+     "areas": [
+      309
+     ]
+    },
+    {
+     "name": "Menethil Harbor",
+     "areas": [
+      150
+     ]
+    },
+    {
+     "name": "Mosshide Fen",
+     "areas": [
+      1020
+     ]
+    },
+    {
+     "name": "Raptor Ridge",
+     "areas": [
+      1017
+     ]
+    },
+    {
+     "name": "Saltspray Glen",
+     "areas": [
+      1023
+     ]
+    },
+    {
+     "name": "Sundown Marsh",
+     "areas": [
+      1024
+     ]
+    },
+    {
+     "name": "The Green Belt",
+     "areas": [
+      1025
+     ]
+    },
+    {
+     "name": "Thelgen Rock",
+     "areas": [
+      1021
+     ]
+    },
+    {
+     "name": "Whelgar's Excavation Site",
+     "areas": [
+      118
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1438,
+   "name": "Teldrassil",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Ban'ethil Hollow",
+     "areas": [
+      736
+     ]
+    },
+    {
+     "name": "Darnassus",
+     "areas": [
+      1657,
+      1660,
+      1662
+     ]
+    },
+    {
+     "name": "Dolanaar",
+     "areas": [
+      186
+     ]
+    },
+    {
+     "name": "Gnarlpine Hold",
+     "areas": [
+      261
+     ]
+    },
+    {
+     "name": "Lake Al'Ameth",
+     "areas": [
+      259
+     ]
+    },
+    {
+     "name": "Pools of Arlithrien",
+     "areas": [
+      478
+     ]
+    },
+    {
+     "name": "Rut'theran Village",
+     "areas": [
+      702
+     ]
+    },
+    {
+     "name": "Shadowglen",
+     "areas": [
+      188
+     ]
+    },
+    {
+     "name": "Starbreeze Village",
+     "areas": [
+      260
+     ]
+    },
+    {
+     "name": "The Oracle Glade",
+     "areas": [
+      264
+     ]
+    },
+    {
+     "name": "Wellspring Lake",
+     "areas": [
+      266
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1439,
+   "name": "Darkshore",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Ameth'Aran",
+     "areas": [
+      447
+     ]
+    },
+    {
+     "name": "Auberdine",
+     "areas": [
+      442
+     ]
+    },
+    {
+     "name": "Bashal'Aran",
+     "areas": [
+      446
+     ]
+    },
+    {
+     "name": "Cliffspring River",
+     "areas": [
+      456
+     ]
+    },
+    {
+     "name": "Grove of the Ancients",
+     "areas": [
+      448
+     ]
+    },
+    {
+     "name": "Remtravel's Excavation",
+     "areas": [
+      450
+     ]
+    },
+    {
+     "name": "Ruins of Mathystra",
+     "areas": [
+      443
+     ]
+    },
+    {
+     "name": "The Master's Glaive",
+     "areas": [
+      449
+     ]
+    },
+    {
+     "name": "Tower of Althalaxx",
+     "areas": [
+      444
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1440,
+   "name": "Ashenvale",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Astranaar",
+     "areas": [
+      415
+     ]
+    },
+    {
+     "name": "Bough Shadow",
+     "areas": [
+      438
+     ]
+    },
+    {
+     "name": "Fallen Sky Lake",
+     "areas": [
+      422
+     ]
+    },
+    {
+     "name": "Felfire Hill",
+     "areas": [
+      434
+     ]
+    },
+    {
+     "name": "Fire Scar Shrine",
+     "areas": [
+      417
+     ]
+    },
+    {
+     "name": "Iris Lake",
+     "areas": [
+      424
+     ]
+    },
+    {
+     "name": "Lake Falathim",
+     "areas": [
+      441
+     ]
+    },
+    {
+     "name": "Maestra's Post",
+     "areas": [
+      413
+     ]
+    },
+    {
+     "name": "Mystral Lake",
+     "areas": [
+      421
+     ]
+    },
+    {
+     "name": "Night Run",
+     "areas": [
+      428
+     ]
+    },
+    {
+     "name": "Raynewood Retreat",
+     "areas": [
+      426
+     ]
+    },
+    {
+     "name": "Satyrnaar",
+     "areas": [
+      430
+     ]
+    },
+    {
+     "name": "The Howling Vale",
+     "areas": [
+      419
+     ]
+    },
+    {
+     "name": "The Ruins of Stardust",
+     "areas": [
+      418
+     ]
+    },
+    {
+     "name": "The Shrine of Aessina",
+     "areas": [
+      416
+     ]
+    },
+    {
+     "name": "The Zoram Strand",
+     "areas": [
+      414
+     ]
+    },
+    {
+     "name": "Thistlefur Village",
+     "areas": [
+      2301
+     ]
+    },
+    {
+     "name": "Warsong Lumber Camp",
+     "areas": [
+      437
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1441,
+   "name": "Thousand Needles",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Camp E'thok",
+     "areas": [
+      480
+     ]
+    },
+    {
+     "name": "Darkcloud Pinnacle",
+     "areas": [
+      2097
+     ]
+    },
+    {
+     "name": "Freewind Post",
+     "areas": [
+      484
+     ]
+    },
+    {
+     "name": "Highperch",
+     "areas": [
+      482
+     ]
+    },
+    {
+     "name": "Splithoof Crag",
+     "areas": [
+      481
+     ]
+    },
+    {
+     "name": "The Great Lift",
+     "areas": [
+      485
+     ]
+    },
+    {
+     "name": "The Screeching Canyon",
+     "areas": [
+      483
+     ]
+    },
+    {
+     "name": "The Shimmering Flats",
+     "areas": [
+      439
+     ]
+    },
+    {
+     "name": "Windbreak Canyon",
+     "areas": [
+      2303
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1442,
+   "name": "Stonetalon Mountains",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Boulderslide Ravine",
+     "areas": [
+      2540
+     ]
+    },
+    {
+     "name": "Camp Aparaje",
+     "areas": [
+      2538
+     ]
+    },
+    {
+     "name": "Grimtotem Post",
+     "areas": [
+      2537
+     ]
+    },
+    {
+     "name": "Malaka'jin",
+     "areas": [
+      2539
+     ]
+    },
+    {
+     "name": "Mirkfallon Lake",
+     "areas": [
+      464
+     ]
+    },
+    {
+     "name": "Sishir Canyon",
+     "areas": [
+      2541
+     ]
+    },
+    {
+     "name": "Stonetalon Peak",
+     "areas": [
+      467
+     ]
+    },
+    {
+     "name": "Sun Rock Retreat",
+     "areas": [
+      460
+     ]
+    },
+    {
+     "name": "The Charred Vale",
+     "areas": [
+      465
+     ]
+    },
+    {
+     "name": "Webwinder Path",
+     "areas": [
+      1076
+     ]
+    },
+    {
+     "name": "Windshear Crag",
+     "areas": [
+      461
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1443,
+   "name": "Desolace",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Ethel Rethor",
+     "areas": [
+      2405
+     ]
+    },
+    {
+     "name": "Gelkis Village",
+     "areas": [
+      606
+     ]
+    },
+    {
+     "name": "Kodo Graveyard",
+     "areas": [
+      596
+     ]
+    },
+    {
+     "name": "Kolkar Village",
+     "areas": [
+      609
+     ]
+    },
+    {
+     "name": "Kormek's Hut",
+     "areas": [
+      2407
+     ]
+    },
+    {
+     "name": "Magram Village",
+     "areas": [
+      604
+     ]
+    },
+    {
+     "name": "Mannoroc Coven",
+     "areas": [
+      602
+     ]
+    },
+    {
+     "name": "Nijel's Point",
+     "areas": [
+      608
+     ]
+    },
+    {
+     "name": "Ranazjar Isle",
+     "areas": [
+      2406
+     ]
+    },
+    {
+     "name": "Sargeron",
+     "areas": [
+      603
+     ]
+    },
+    {
+     "name": "Shadowbreak Ravine",
+     "areas": [
+      2198
+     ]
+    },
+    {
+     "name": "Shadowprey Village",
+     "areas": [
+      2408
+     ]
+    },
+    {
+     "name": "Tethris Aran",
+     "areas": [
+      2404
+     ]
+    },
+    {
+     "name": "Thunder Axe Fortress",
+     "areas": [
+      599
+     ]
+    },
+    {
+     "name": "Valley of Spears",
+     "areas": [
+      607
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1444,
+   "name": "Feralas",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Camp Mojache",
+     "areas": [
+      1099
+     ]
+    },
+    {
+     "name": "Dire Maul",
+     "areas": [
+      2577
+     ]
+    },
+    {
+     "name": "Dream Bough",
+     "areas": [
+      1111
+     ]
+    },
+    {
+     "name": "Feral Scar Vale",
+     "areas": [
+      1105
+     ]
+    },
+    {
+     "name": "Frayfeather Highlands",
+     "areas": [
+      1106
+     ]
+    },
+    {
+     "name": "Gordunni Outpost",
+     "areas": [
+      1103
+     ]
+    },
+    {
+     "name": "Grimtotem Compound",
+     "areas": [
+      1100
+     ]
+    },
+    {
+     "name": "Isle of Dread",
+     "areas": [
+      1121
+     ]
+    },
+    {
+     "name": "Lower Wilds",
+     "areas": [
+      1137
+     ]
+    },
+    {
+     "name": "Oneiros",
+     "areas": [
+      1113
+     ]
+    },
+    {
+     "name": "Ruins of Isildien",
+     "areas": [
+      2522
+     ]
+    },
+    {
+     "name": "Ruins of Ravenwind",
+     "areas": [
+      1114
+     ]
+    },
+    {
+     "name": "Sardor Isle",
+     "areas": [
+      1120
+     ]
+    },
+    {
+     "name": "The Forgotten Coast",
+     "areas": [
+      1108
+     ]
+    },
+    {
+     "name": "The Twin Colossals",
+     "areas": [
+      1119
+     ]
+    },
+    {
+     "name": "The Writhing Deep",
+     "areas": [
+      1101
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1445,
+   "name": "Dustwallow Marsh",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Alcaz Island",
+     "areas": [
+      2079
+     ]
+    },
+    {
+     "name": "Brackenwall Village",
+     "areas": [
+      496,
+      499,
+      507
+     ]
+    },
+    {
+     "name": "The Den of Flame",
+     "areas": [
+      509,
+      508,
+      498,
+      510
+     ]
+    },
+    {
+     "name": "The Quagmire",
+     "areas": [
+      2302,
+      501,
+      517
+     ]
+    },
+    {
+     "name": "Theramore Isle",
+     "areas": [
+      513,
+      503
+     ]
+    },
+    {
+     "name": "Witch Hill",
+     "areas": [
+      502,
+      518,
+      504,
+      516
+     ]
+    },
+    {
+     "name": "Wyrmbog",
+     "areas": [
+      511,
+      517
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1446,
+   "name": "Tanaris",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Abyssal Sands",
+     "areas": [
+      1939
+     ]
+    },
+    {
+     "name": "Broken Pillar",
+     "areas": [
+      1938
+     ]
+    },
+    {
+     "name": "Caverns of Time",
+     "areas": [
+      2300
+     ]
+    },
+    {
+     "name": "Dunemaul Compound",
+     "areas": [
+      983
+     ]
+    },
+    {
+     "name": "Eastmoon Ruins",
+     "areas": [
+      984
+     ]
+    },
+    {
+     "name": "Gadgetzan",
+     "areas": [
+      976
+     ]
+    },
+    {
+     "name": "Land's End Beach",
+     "areas": [
+      987
+     ]
+    },
+    {
+     "name": "Lost Rigger Cove",
+     "areas": [
+      1336
+     ]
+    },
+    {
+     "name": "Noonshade Ruins",
+     "areas": [
+      1937
+     ]
+    },
+    {
+     "name": "Sandsorrow Watch",
+     "areas": [
+      979
+     ]
+    },
+    {
+     "name": "Southbreak Shore",
+     "areas": [
+      1940
+     ]
+    },
+    {
+     "name": "Southmoon Ruins",
+     "areas": [
+      992
+     ]
+    },
+    {
+     "name": "Steamwheedle Port",
+     "areas": [
+      977
+     ]
+    },
+    {
+     "name": "The Gaping Chasm",
+     "areas": [
+      981
+     ]
+    },
+    {
+     "name": "The Noxious Lair",
+     "areas": [
+      982
+     ]
+    },
+    {
+     "name": "Thistleshrub Valley",
+     "areas": [
+      980
+     ]
+    },
+    {
+     "name": "Valley of the Watchers",
+     "areas": [
+      990
+     ]
+    },
+    {
+     "name": "Waterspring Field",
+     "areas": [
+      985
+     ]
+    },
+    {
+     "name": "Zalashji's Den",
+     "areas": [
+      986
+     ]
+    },
+    {
+     "name": "Zul'Farrak",
+     "areas": [
+      978
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1447,
+   "name": "Azshara",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Bay of Storms",
+     "areas": [
+      1227
+     ]
+    },
+    {
+     "name": "Bitter Reaches",
+     "areas": [
+      2497
+     ]
+    },
+    {
+     "name": "Forlorn Ridge",
+     "areas": [
+      1233
+     ]
+    },
+    {
+     "name": "Haldarr Encampment",
+     "areas": [
+      1236
+     ]
+    },
+    {
+     "name": "Jagged Reef",
+     "areas": [
+      1230
+     ]
+    },
+    {
+     "name": "Lake Mennar",
+     "areas": [
+      1234
+     ]
+    },
+    {
+     "name": "Legashi Encampment",
+     "areas": [
+      1219
+     ]
+    },
+    {
+     "name": "Ravencrest Monument",
+     "areas": [
+      1232
+     ]
+    },
+    {
+     "name": "Ruins of Eldarath",
+     "areas": [
+      1221
+     ]
+    },
+    {
+     "name": "Shadowsong Shrine",
+     "areas": [
+      1235
+     ]
+    },
+    {
+     "name": "Southridge Beach",
+     "areas": [
+      1231
+     ]
+    },
+    {
+     "name": "Temple of Arkkoran",
+     "areas": [
+      1226
+     ]
+    },
+    {
+     "name": "Thalassian Base Camp",
+     "areas": [
+      1220
+     ]
+    },
+    {
+     "name": "The Ruined Reaches",
+     "areas": [
+      1256
+     ]
+    },
+    {
+     "name": "The Shattered Strand",
+     "areas": [
+      1228
+     ]
+    },
+    {
+     "name": "Timbermaw Hold",
+     "areas": [
+      1769
+     ]
+    },
+    {
+     "name": "Tower of Eldara",
+     "areas": [
+      1229
+     ]
+    },
+    {
+     "name": "Ursolan",
+     "areas": [
+      1225
+     ]
+    },
+    {
+     "name": "Valormok",
+     "areas": [
+      1237
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1448,
+   "name": "Felwood",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Bloodvenom Falls",
+     "areas": [
+      1765
+     ]
+    },
+    {
+     "name": "Deadwood Village",
+     "areas": [
+      1761
+     ]
+    },
+    {
+     "name": "Emerald Sanctuary",
+     "areas": [
+      2479
+     ]
+    },
+    {
+     "name": "Felpaw Village",
+     "areas": [
+      1762
+     ]
+    },
+    {
+     "name": "Irontree Woods",
+     "areas": [
+      1767
+     ]
+    },
+    {
+     "name": "Jadefire Glen",
+     "areas": [
+      2480
+     ]
+    },
+    {
+     "name": "Jadefire Run",
+     "areas": [
+      2618
+     ]
+    },
+    {
+     "name": "Jaedenar",
+     "areas": [
+      1763
+     ]
+    },
+    {
+     "name": "Morlos'Aran",
+     "areas": [
+      2478
+     ]
+    },
+    {
+     "name": "Ruins of Constellas",
+     "areas": [
+      2481
+     ]
+    },
+    {
+     "name": "Shatter Scar Vale",
+     "areas": [
+      1766
+     ]
+    },
+    {
+     "name": "Talonbranch Glade ",
+     "areas": [
+      1998
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1449,
+   "name": "Un'Goro Crater",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Fire Plume Ridge",
+     "areas": [
+      537
+     ]
+    },
+    {
+     "name": "Golakka Hot Springs",
+     "areas": [
+      543
+     ]
+    },
+    {
+     "name": "Ironstone Plateau",
+     "areas": [
+      1943
+     ]
+    },
+    {
+     "name": "Lakkari Tar Pits",
+     "areas": [
+      538
+     ]
+    },
+    {
+     "name": "Terror Run",
+     "areas": [
+      539
+     ]
+    },
+    {
+     "name": "The Marshlands",
+     "areas": [
+      1942
+     ]
+    },
+    {
+     "name": "The Slithering Scar",
+     "areas": [
+      540
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1450,
+   "name": "Moonglade",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Moonglade",
+     "areas": [
+      493,
+      656,
+      2362,
+      2361
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1451,
+   "name": "Silithus",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Hive'Ashi",
+     "areas": [
+      2742
+     ]
+    },
+    {
+     "name": "Hive'Regal",
+     "areas": [
+      2744
+     ]
+    },
+    {
+     "name": "Hive'Zora",
+     "areas": [
+      2743
+     ]
+    },
+    {
+     "name": "Southwind Village",
+     "areas": [
+      2738
+     ]
+    },
+    {
+     "name": "The Crystal Vale",
+     "areas": [
+      2740
+     ]
+    },
+    {
+     "name": "The Scarab Wall",
+     "areas": [
+      2737
+     ]
+    },
+    {
+     "name": "Twilight Base Camp",
+     "areas": [
+      2739
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1452,
+   "name": "Winterspring",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Darkwhisper Gorge",
+     "areas": [
+      2256,
+      16005
+     ]
+    },
+    {
+     "name": "Everlook",
+     "areas": [
+      2255
+     ]
+    },
+    {
+     "name": "Frostfire Hot Springs",
+     "areas": [
+      2246
+     ]
+    },
+    {
+     "name": "Frostsaber Rock",
+     "areas": [
+      2241
+     ]
+    },
+    {
+     "name": "Frostwhisper Gorge",
+     "areas": [
+      2249
+     ]
+    },
+    {
+     "name": "Ice Thistle Hills",
+     "areas": [
+      2247
+     ]
+    },
+    {
+     "name": "Lake Kel'Theril",
+     "areas": [
+      2251
+     ]
+    },
+    {
+     "name": "Mazthoril",
+     "areas": [
+      2245
+     ]
+    },
+    {
+     "name": "Owl Wing Thicket",
+     "areas": [
+      2250
+     ]
+    },
+    {
+     "name": "Starfall Village",
+     "areas": [
+      2253
+     ]
+    },
+    {
+     "name": "The Hidden Grove",
+     "areas": [
+      2242
+     ]
+    },
+    {
+     "name": "Timbermaw Post",
+     "areas": [
+      2243
+     ]
+    },
+    {
+     "name": "Winterfall Village",
+     "areas": [
+      2244
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1453,
+   "name": "Stormwind City",
+   "continent": 1415,
+   "places": []
+  },
+  {
+   "id": 1454,
+   "name": "Orgrimmar",
+   "continent": 1414,
+   "places": []
+  },
+  {
+   "id": 1455,
+   "name": "Ironforge",
+   "continent": 1415,
+   "places": []
+  },
+  {
+   "id": 1456,
+   "name": "Thunder Bluff",
+   "continent": 1414,
+   "places": []
+  },
+  {
+   "id": 1457,
+   "name": "Darnassus",
+   "continent": 1414,
+   "places": []
+  },
+  {
+   "id": 1458,
+   "name": "Undercity",
+   "continent": 1415,
+   "places": []
+  },
+  {
+   "id": 2482,
+   "name": "Mount Hyjal",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Cradle of Tranquility",
+     "areas": [
+      17145
+     ]
+    },
+    {
+     "name": "Dae'gun",
+     "areas": [
+      16866
+     ]
+    },
+    {
+     "name": "Elderwild",
+     "areas": [
+      16848
+     ]
+    },
+    {
+     "name": "Felblood Scar",
+     "areas": [
+      17050
+     ]
+    },
+    {
+     "name": "Malorne's Retreat",
+     "areas": [
+      17144
+     ]
+    },
+    {
+     "name": "Mourning's Rest",
+     "areas": [
+      16868
+     ]
+    },
+    {
+     "name": "Shrine of Aviana",
+     "areas": [
+      16867
+     ]
+    },
+    {
+     "name": "Summit of Eternity",
+     "areas": [
+      16849
+     ]
+    },
+    {
+     "name": "Tainted Foothills",
+     "areas": [
+      16853
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2521,
+   "name": "Zephras Isle",
+   "continent": 0,
+   "places": [
+    {
+     "name": "East Pylon Watchtower",
+     "areas": [
+      17675
+     ]
+    },
+    {
+     "name": "Fairweather Stables",
+     "areas": [
+      17684
+     ]
+    },
+    {
+     "name": "Falaath Village",
+     "areas": [
+      16636
+     ]
+    },
+    {
+     "name": "Gustberry Lowlands",
+     "areas": [
+      16626
+     ]
+    },
+    {
+     "name": "Overlook Standing Stones",
+     "areas": [
+      17677
+     ]
+    },
+    {
+     "name": "Rohashi Spires",
+     "areas": [
+      16630
+     ]
+    },
+    {
+     "name": "Ruins of Ban'aethal",
+     "areas": [
+      16833
+     ]
+    },
+    {
+     "name": "Shadowgale Forest",
+     "areas": [
+      16631
+     ]
+    },
+    {
+     "name": "Shen'dar Highlands",
+     "areas": [
+      16623
+     ]
+    },
+    {
+     "name": "Shen'dar Village",
+     "areas": [
+      16624
+     ]
+    },
+    {
+     "name": "Shrine of Akir",
+     "areas": [
+      16629
+     ]
+    },
+    {
+     "name": "Thendal Grove",
+     "areas": [
+      16622
+     ]
+    },
+    {
+     "name": "Thendal Standing Stones",
+     "areas": [
+      17678,
+      16635
+     ]
+    },
+    {
+     "name": "Thendal Village",
+     "areas": [
+      16635
+     ]
+    },
+    {
+     "name": "Valanaar",
+     "areas": [
+      16638,
+      16628
+     ]
+    },
+    {
+     "name": "West Pylon Watchtower",
+     "areas": [
+      17674
+     ]
+    },
+    {
+     "name": "Windfield Orchard",
+     "areas": [
+      16663
+     ]
+    },
+    {
+     "name": "Windsong Lake",
+     "areas": [
+      16625
+     ]
+    },
+    {
+     "name": "Windsong Standing Stones",
+     "areas": [
+      17676
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2548,
+   "name": "Riverglades",
+   "continent": 1415,
+   "places": [
+    {
+     "name": "Bolder'ok",
+     "areas": [
+      16726
+     ]
+    },
+    {
+     "name": "Bristle Hills",
+     "areas": [
+      16737
+     ]
+    },
+    {
+     "name": "Elbrim's Farm",
+     "areas": [
+      16734
+     ]
+    },
+    {
+     "name": "Farholde Keep",
+     "areas": [
+      16724
+     ]
+    },
+    {
+     "name": "Krol'dok Stronghold",
+     "areas": [
+      17780
+     ]
+    },
+    {
+     "name": "Meadowsbrook",
+     "areas": [
+      16735
+     ]
+    },
+    {
+     "name": "Powderfuse Port",
+     "areas": [
+      16727
+     ]
+    },
+    {
+     "name": "Rog'mar",
+     "areas": [
+      16743
+     ]
+    },
+    {
+     "name": "Sunnyglade",
+     "areas": [
+      16723
+     ]
+    },
+    {
+     "name": "Terral's Watch",
+     "areas": [
+      16729
+     ]
+    },
+    {
+     "name": "Turner's Logging Camp",
+     "areas": [
+      16736
+     ]
+    },
+    {
+     "name": "Twilight's Shroud",
+     "areas": [
+      16685
+     ]
+    },
+    {
+     "name": "Wheeler's Grange",
+     "areas": [
+      16725
+     ]
+    },
+    {
+     "name": "Windstead",
+     "areas": [
+      16731
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2652,
+   "name": "Shen'dralas",
+   "continent": 1414,
+   "places": [
+    {
+     "name": "Bristleback Retreat",
+     "areas": [
+      16677
+     ]
+    },
+    {
+     "name": "Evenshade's Overlook",
+     "areas": [
+      16678
+     ]
+    },
+    {
+     "name": "Forlorn Gardens",
+     "areas": [
+      16742
+     ]
+    },
+    {
+     "name": "Magram Front",
+     "areas": [
+      16675
+     ]
+    },
+    {
+     "name": "Outcast Hideaway",
+     "areas": [
+      16676
+     ]
+    },
+    {
+     "name": "Shen'dralas",
+     "areas": [
+      16651
+     ]
+    },
+    {
+     "name": "Valley of Bones",
+     "areas": [
+      2657
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2665,
+   "name": "Zephras Isle",
+   "continent": 0,
+   "places": []
+  }
+ ]
+}
