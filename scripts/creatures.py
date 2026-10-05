@@ -34,7 +34,7 @@ RANKS = {0: "normal", 1: "elite", 2: "rareelite", 3: "boss", 4: "rare"}
 NOT_SELECTABLE = 0x02000000
 # Event and friendly NPCs the faction rules let through (elite town guards of
 # events, festival NPCs, leaders who appear in scripted scenes, captives).
-EVENT = re.compile(r"Infantry|Infantryman|Booty Bay Elite|Lookout|Lunar Festival|Christmas|^Tyrande$|^Fandral Staghelm$|^Rhonin$|^Argent |Argent Dawn|Captive|Spectator|Enslaved|Quarry Slave|Cenarion Hold|^Narnie$|^Cornish Rex$|^Bombay$|^Senegal$|^Cockatiel$|^Cockroach$|^Black Kingsnake$|^\"Plucky\" Johnson$")
+EVENT = re.compile(r"Infantry|Infantryman|Booty Bay Elite|Lookout|Lunar Festival|Christmas|^Tyrande$|^Fandral Staghelm$|^Rhonin$|^Argent |Argent Dawn|Captive|Spectator|Enslaved|Quarry Slave|Cenarion Hold|^Warrior \d+$|^Qiraji (Officer|Lieutenant|Captain|Major|Brigadier General)|^Narnie$|^Cornish Rex$|^Bombay$|^Senegal$|^Cockatiel$|^Cockroach$|^Black Kingsnake$|^\"Plucky\" Johnson$")
 HELPER = re.compile(r"\b(Trigger|Doodad|Dummy|Marker|Target|Bunny|DND|UNUSED|unused|Visual|Spell|Generator|TEST|Test)\b|^\[|\(1\)$")
 
 
@@ -111,6 +111,11 @@ def main():
     sides, friendly = aligned_factions()
     spawn_cols = columns(sql, "creature")
     spawned = {int(r[spawn_cols.index("id")]) for r in rows(sql, "creature")}
+    # Creatures that share a spawn point with others (a rare that sometimes
+    # takes an ordinary mob's place) are listed in their own tables.
+    for table, col in (("creature_spawn_entry", "entry"), ("spawn_group_entry", "Entry")):
+        cols_ = columns(sql, table)
+        spawned |= {int(r[cols_.index(col)]) for r in rows(sql, table)}
     # Dungeon and raid bosses: the encounters' kill credits (creditType 0). The
     # templates call most of them merely elite.
     enc_cols = columns(sql, "instance_encounters")
@@ -126,7 +131,9 @@ def main():
             rank = 3
         if cid not in spawned and rank != 3:
             continue
-        if int(d["NpcFlags"]) or int(d["UnitFlags"]) & NOT_SELECTABLE or HELPER.search(d["Name"]) or EVENT.search(d["Name"]):
+        # Gossip or quest flags mark town folk, but some rares carry them too
+        # (Old Grizzlegut, Commander Felstrom): rares stay.
+        if (int(d["NpcFlags"]) and rank not in (2, 3, 4)) or int(d["UnitFlags"]) & NOT_SELECTABLE or HELPER.search(d["Name"]) or EVENT.search(d["Name"]):
             continue
         # Either side's folk out. Those friendly to every player too, except
         # elites, rares and bosses: many start friendly and turn on you through
