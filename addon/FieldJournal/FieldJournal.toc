@@ -2,7 +2,7 @@
 ## Title: Explorer's Field Journal
 ## Notes: A bestiary that fills in as you travel: every creature you meet, slay and loot, with a League naturalist's notes. /journal to read it.
 ## Author: salty-max
-## Version: 0.2.1
+## Version: 0.3.0
 ## SavedVariablesPerCharacter: FieldJournalChar
 ## SavedVariables: FieldJournalSettings
 ## IconTexture: Interface\Icons\INV_Misc_Book_11
