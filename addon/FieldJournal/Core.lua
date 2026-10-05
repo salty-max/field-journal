@@ -327,10 +327,21 @@ function handlers.LOOT_OPENED()
   end
 end
 
+-- Other files listen through this frame too (ns.on): the Atlas.
+local listeners = {}
 frame:SetScript("OnEvent", function(_, event, ...)
   if event ~= "PLAYER_LOGIN" and not char then return end
-  handlers[event](...)
+  if handlers[event] then handlers[event](...) end
+  for _, fn in ipairs(listeners[event] or {}) do fn(...) end
 end)
+function ns.on(event, fn)
+  if not listeners[event] then
+    listeners[event] = {}
+    -- An event a client doesn't know is simply never heard.
+    if not handlers[event] then pcall(frame.RegisterEvent, frame, event) end
+  end
+  table.insert(listeners[event], fn)
+end
 -- The combat log, for kills: not on Forever, which forbids it (registering it
 -- throws); if any client refuses it, loot and dead targets count instead.
 for event in pairs(handlers) do

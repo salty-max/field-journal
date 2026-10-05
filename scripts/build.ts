@@ -212,6 +212,24 @@ function zoneRares(kept: Creature[]) {
   return [...by.entries()].sort((a, b) => a[0] - b[0]);
 }
 
+// The Atlas's zones, per game (data/zones-<client>.json, scripts/zones.py):
+// a zone's name, its continent, and its places (name, the overlay's offset on
+// the map art, the areas that lift it from the fog).
+type Zone = { id: number; name: string; continent: number; places: { name: string; areas: number[]; x: number; y: number }[] };
+function atlasLua(client: string) {
+  const { continents, zones } = JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8")) as { continents: Record<string, string>; zones: Zone[] };
+  const kept = zones.filter((z) => z.continent || z.places.length);
+  const used = [...new Set(kept.map((z) => z.continent).filter(Boolean))].sort((a, b) => a - b);
+  return `  atlas = {
+    continents = { ${used.map((c) => `[${c}] = ${q(continents[String(c)])}`).join(", ")} },
+    zones = {
+${kept
+  .map((z) => `      [${z.id}] = { name = ${q(z.name)}, continent = ${z.continent}, places = { ${z.places.map((p) => `{ ${q(p.name)}, ${p.x}, ${p.y}, ${p.areas.join(", ")} }`).join(", ")} } },`)
+  .join("\n")}
+    },
+  },`;
+}
+
 function luaFor(client: string) {
   const kept = families.filter((f) => !f.client || f.client === client);
   const index = new Map(kept.map((f, i) => [f.id, i + 1]));
@@ -252,6 +270,7 @@ ${chunks(sorted.filter((c) => c.levels?.[0]).map((c) => `[${c.id}]=${c.levels[0]
   rareZones = {
 ${[...zoneRares(sorted)].map(([zone, ids]) => `    [${zone}] = { name = ${q(zoneNames[zone] ?? "?")}, ${ids.join(", ")} },`).join("\n")}
   },
+${atlasLua(client)}
   -- marks: r rare, R rare elite, b boss
   ranks = {
 ${chunks(sorted.filter((c) => RANK[c.rank]).map((c) => `[${c.id}]="${RANK[c.rank]}"`), 12).join("\n")}

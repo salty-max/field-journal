@@ -9,7 +9,9 @@ map's explorable places: each overlay is lifted from the fog by the areas it
 names, as the game's exploration achievements count them), AreaTable (the
 places' names). Forever's build is pinned, as the Codex's.
 
-Each zone: { id (uiMap), name, continent (uiMap), places: [{ name, areas }] }.
+Each zone: { id (uiMap), name, continent (uiMap), places: [{ name, areas, x, y }] }
+(x, y: the overlay's offset on the map art, as C_MapExplorationInfo reports it).
+Battlegrounds are left out.
 """
 import csv, json, os, urllib.request
 
@@ -21,6 +23,7 @@ GAMES = {
 TABLES = ("UiMap", "UiMapXMapArt", "WorldMapOverlay", "AreaTable")
 UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max/field-journal)"}
 SUBDIR = {"classic": "era", "forever": "forever"}
+BATTLEGROUNDS = {1459, 1460, 1461}  # Alterac Valley, Warsong Gulch, Arathi Basin
 
 
 def table(game, name):
@@ -44,20 +47,22 @@ def zones(game):
     for r in table(game, "WorldMapOverlay"):
         ids = [int(r[f"AreaID_{i}"]) for i in range(4) if int(r[f"AreaID_{i}"])]
         if ids:
-            overlays.setdefault(int(r["UiMapArtID"]), []).append(ids)
+            overlays.setdefault(int(r["UiMapArtID"]), []).append((ids, int(r["OffsetX"]), int(r["OffsetY"])))
     out = []
     for uid, m in sorted(uimaps.items()):
-        if m["Type"] != "3":
+        if m["Type"] != "3" or uid in BATTLEGROUNDS:
             continue
         parent = uimaps.get(int(m["ParentUiMapID"]))
         places, seen = [], set()
-        for ids in overlays.get(art.get(uid), []):
+        for ids, ox, oy in overlays.get(art.get(uid), []):
             key = tuple(sorted(ids))
             if key in seen:
                 continue
             seen.add(key)
             name = next((areas[a]["AreaName_lang"] for a in ids if a in areas), "?")
-            places.append({"name": name, "areas": ids})
+            # the overlay's place on the map art: GetExploredMapTextures names
+            # explored overlays by it
+            places.append({"name": name, "areas": ids, "x": ox, "y": oy})
         places.sort(key=lambda p: p["name"])
         out.append({
             "id": uid,

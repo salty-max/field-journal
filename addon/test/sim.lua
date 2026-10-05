@@ -205,10 +205,35 @@ function GetLootSlotLink(slot) return loot[slot][1] end
 function GetLootSourceInfo(slot) return unpack(loot[slot][2]) end
 C_Timer.After = function(_, fn) fn() end
 
+-- The Atlas: maps, the fog lifted, health, taxis.
+local MAPS = {
+  [1426] = { name = "Dun Morogh", parentMapID = 1415 }, [1429] = { name = "Elwynn Forest", parentMapID = 1415 },
+  [1411] = { name = "Durotar", parentMapID = 1414 }, [1415] = { name = "Eastern Kingdoms", parentMapID = 947 },
+  [1414] = { name = "Kalimdor", parentMapID = 947 },
+}
+C_Map.GetMapInfo = function(id) return MAPS[id] end
+state.explored = {}
+C_MapExplorationInfo = { GetExploredMapTextures = function(id) return state.explored[id] end }
+state.health = 100
+function UnitHealth() return state.health end
+function UnitHealthMax() return 100 end
+function UnitIsDeadOrGhost() return state.health <= 0 end
+function UnitOnTaxi() return false end
+function hooksecurefunc(name, fn)
+  local original = _G[name]
+  _G[name] = function(...) local r = original(...); fn(...); return r end
+end
+local TAXI = { "Ironforge", "Thelsamar", "Menethil Harbor" }
+function NumTaxiNodes() return #TAXI end
+function TaxiNodeName(i) return TAXI[i] end
+function TaxiNodeGetType(i) return i == 1 and "CURRENT" or "REACHABLE" end
+function TakeTaxiNode() end
+function GetBindLocation() return "Kharanos" end
+
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
-for _, f in ipairs({ "Core.lua", "Achievements.lua", "Book.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
+for _, f in ipairs({ "Core.lua", "Atlas.lua", "Achievements.lua", "Book.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
   assert(loadfile(DIR .. f))("FieldJournal", ns)
 end
 local D = ns.data
@@ -305,6 +330,46 @@ target(99002)
 check(not rec(99002), "… unless it can't be fought (friendly folk)")
 target(1124)
 check(not rec(1124), "a creature the data knows isn't recorded while it can't be fought either")
+
+-- ── the atlas ────────────────────────────────────────────────────────────────
+local dun = D.atlas.zones[1426].places
+local function texture(place) return { offsetX = place[2], offsetY = place[3] } end
+state.map, state.explored[1426] = 1426, { texture(dun[1]) }
+printed = {}
+fire("PLAYER_ENTERING_WORLD")
+local atlas = FieldJournalChar.atlas
+check(atlas.seeded and atlas.zones[1426].places[dun[1][4]].retro, "the fog a character had already lifted fills its atlas quietly")
+check(atlas.zones[1426].first and atlas.zones[1426].visits == 1 and #printed == 0, "… and the zone it stands in is visited, without a word")
+table.insert(state.explored[1426], texture(dun[2]))
+fire("MAP_EXPLORATION_UPDATED")
+local place = atlas.zones[1426].places[dun[2][4]]
+check(place and place.at and not place.retro and place.level == state.level, "a place newly explored is recorded, with the day and level")
+local done, total = ns.zoneProgress(1426)
+check(done == 2 and total == #dun and total > 10, "a zone counts its places explored, of all it has")
+state.map = 1429
+fire("ZONE_CHANGED_NEW_AREA")
+check(atlas.zones[1429] and said("|Hfieldjournal:z1429|h[Elwynn Forest]|h|r added to the atlas."), "a new zone is announced in chat, with a link")
+state.map = 1411
+fire("ZONE_CHANGED_NEW_AREA")
+check(atlas.crossings[1] and atlas.crossings[1].from == 1429 and atlas.crossings[1].to == 1411, "crossing to another continent is recorded")
+TakeTaxiNode(2)
+check(atlas.flights[1].from == "Ironforge" and atlas.flights[1].to == "Thelsamar" and atlas.routes["Ironforge > Thelsamar"] == 1, "a flight is recorded, with its route")
+fire("HEARTHSTONE_BOUND")
+check(atlas.binds[1].place == "Kharanos", "a new hearthstone bind is recorded")
+state.target = 1133
+fire("PLAYER_TARGET_CHANGED")
+state.health = 5
+fire("UNIT_HEALTH", "player")
+check(atlas.closeCalls[1] and atlas.closeCalls[1].zone == 1411 and atlas.closeCalls[1].x == 30, "a close call: under a tenth of your health and alive after")
+if not FOREVER then
+  combatLog = { clock, "SWING_DAMAGE", false, creature(1131), "Winter Wolf", 0, 0, PLAYER, "Thorin", 0, 0 }
+  fire("COMBAT_LOG_EVENT_UNFILTERED")
+end
+state.health = 0
+fire("PLAYER_DEAD")
+check(atlas.deaths[1] and atlas.deaths[1].by == (FOREVER and "Starving Winter Wolf" or "Winter Wolf"),
+  FOREVER and "Forever: a death names the last foe targeted" or "a death names what last hurt you (the combat log)")
+state.health, state.map, state.target = 100, 1426, nil
 
 -- ── the book ─────────────────────────────────────────────────────────────────
 SlashCmdList.FIELDJOURNAL("")
