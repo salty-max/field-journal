@@ -3,7 +3,7 @@
 -- so does a right-click on the minimap button.
 local _, ns = ...
 
-local DEFAULTS = { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true }
+local DEFAULTS = { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true, milestoneToast = true }
 
 -- Sounds for a trophy: all from the original game's interface. -1 is the
 -- sting heard on discovering a new zone, which differs by race.
@@ -56,7 +56,7 @@ function ns.createSettingsPanel()
       function(value) ns.setOption(key, value ~= invert) end)
     Settings.CreateCheckbox(category, setting, tooltip)
   end
-  checkbox("chat", "Announce in chat", "A line in chat for each new creature recorded and each trophy (a rare or a boss slain), with a link to its page.")
+  checkbox("chat", "Announce in chat", "A line in chat for each new creature recorded, each trophy (a rare or a boss slain) and each milestone, with a link.")
 
   local sound = Settings.RegisterProxySetting(category, "FIELDJOURNAL_SOUND", Settings.VarType.Number, "Sound for a trophy",
     DEFAULTS.sound,
@@ -68,6 +68,7 @@ function ns.createSettingsPanel()
     return options:GetData()
   end, "Played when you slay a rare or a boss for the first time.")
 
+  checkbox("milestoneToast", "Milestone alerts", "The game's achievement alert when you earn a milestone (the fanfare and the chat line stay).")
   checkbox("tooltipHints", "Hints on tooltips", "A line on creature tooltips: not yet in the journal, or how many you have slain.")
 
   checkbox("minimapHidden", "Minimap button", "The book by the minimap: click to open the journal, drag to move it.", true)

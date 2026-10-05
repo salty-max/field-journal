@@ -594,6 +594,7 @@ end
 
 function ns.refresh()
   if not book then return end
+  if book.selectedTab == 2 then return ns.refreshMilestones() end
   local creatures, families, slain = ns.counts()
   book.count:SetText(("%d creatures, %d families, %d slain"):format(creatures, families, slain))
   for _, r in ipairs(rows) do r:Hide() end
@@ -753,6 +754,183 @@ function ns.refresh()
   rerender()
 end
 
+-- ── the milestones ───────────────────────────────────────────────────────────
+-- A second tab: one row per milestone, under its group's heading: the title
+-- (gold once earned), what it asks, and on the right when it was earned, or
+-- how far along it is (a bar).
+local GROUPS = { { "tally", "Tallies" }, { "type", "Every Family" }, { "feat", "Feats" }, { "zone", "Rares by Zone" } }
+local M_ROW, M_WIDTH = 50, 700
+local milestones
+local mRows, mHeaders = {}, {}
+local selectedMilestone
+
+local function progressBar(parent)
+  local b = CreateFrame("StatusBar", nil, parent)
+  b:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+  b:SetStatusBarColor(0.85, 0.65, 0.13)
+  local bg = b:CreateTexture(nil, "BACKGROUND")
+  bg:SetAllPoints()
+  bg:SetColorTexture(0, 0, 0, 0.5)
+  return b
+end
+
+local function mRow(i)
+  local r = mRows[i]
+  if r then return r end
+  r = CreateFrame("Frame", nil, milestones.child)
+  r:SetSize(M_WIDTH, M_ROW - 4)
+  r.bg = r:CreateTexture(nil, "BACKGROUND")
+  r.bg:SetAllPoints()
+  r.title = label(r, TITLE_FONT, 15, T.gold)
+  r.title:SetPoint("TOPLEFT", 12, -7)
+  r.text = label(r, BODY_FONT, 11, T.soft)
+  r.text:SetPoint("TOPLEFT", r.title, "BOTTOMLEFT", 0, -5)
+  r.text:SetWidth(500)
+  r.status = label(r, BODY_FONT, 11, T.soft)
+  r.status:SetPoint("TOPRIGHT", -12, -8)
+  r.status:SetJustifyH("RIGHT")
+  r.bar = progressBar(r)
+  r.bar:SetSize(150, 5)
+  r.bar:SetPoint("TOPRIGHT", r.status, "BOTTOMRIGHT", 0, -7)
+  mRows[i] = r
+  return r
+end
+
+local function mHeader(i)
+  local h = mHeaders[i]
+  if h then return h end
+  h = CreateFrame("Frame", nil, milestones.child)
+  h:SetSize(M_WIDTH, 26)
+  h.text = label(h, TITLE_FONT, 17, T.gold)
+  h.text:SetPoint("BOTTOMLEFT", 2, 5)
+  h.line = rule(h)
+  h.line:SetPoint("BOTTOMLEFT")
+  h.line:SetPoint("BOTTOMRIGHT")
+  mHeaders[i] = h
+  return h
+end
+ns.milestoneRows = mRows -- for the tests
+
+function ns.refreshMilestones()
+  if not milestones then return end
+  book.count:SetText(("%d of %d milestones"):format(ns.milestoneCount()))
+  local i, y, selectedY = 0, 0, nil
+  for g, group in ipairs(GROUPS) do
+    local shown = {}
+    for _, m in ipairs(ns.milestones) do
+      if m.group == group[1] and ns.milestoneVisible(m) then table.insert(shown, m) end
+    end
+    local h = mHeader(g)
+    h:SetShown(#shown > 0)
+    if #shown > 0 then
+      h:ClearAllPoints()
+      h:SetPoint("TOPLEFT", 0, -y)
+      h.text:SetText(group[2])
+      y = y + 34
+    end
+    for _, m in ipairs(shown) do
+      i = i + 1
+      local r = mRow(i)
+      r:ClearAllPoints()
+      r:SetPoint("TOPLEFT", 0, -y)
+      r.id = m.id
+      if m.id == selectedMilestone then selectedY = y end
+      local earned = ns.earnedMilestone(m.id)
+      local done, need = m.progress()
+      r.title:SetText(m.title)
+      r.text:SetText(m.text)
+      if earned then
+        r.title:SetTextColor(unpack(T.gold))
+        r.text:SetTextColor(unpack(T.text))
+        r.status:SetText(("Level %d, %s"):format(earned.level or 0, date("%d %b %Y", earned.at or 0)))
+        r.bar:Hide()
+      else
+        r.title:SetTextColor(0.55, 0.53, 0.50)
+        r.text:SetTextColor(unpack(T.soft))
+        r.status:SetText(("%d/%d"):format(math.min(done, need), need))
+        r.bar:SetMinMaxValues(0, math.max(need, 1))
+        r.bar:SetValue(math.min(done, need))
+        r.bar:SetShown(need > 1)
+      end
+      if m.id == selectedMilestone then r.bg:SetColorTexture(0.85, 0.70, 0.42, 0.22)
+      elseif earned then r.bg:SetColorTexture(0.85, 0.65, 0.13, 0.10)
+      else r.bg:SetColorTexture(1, 1, 1, 0.03) end
+      r:Show()
+      y = y + M_ROW
+    end
+    if #shown > 0 then y = y + 12 end
+  end
+  for k = i + 1, #mRows do mRows[k]:Hide() end
+  milestones.child:SetHeight(y)
+  milestones:UpdateThumb()
+  -- A milestone opened from chat or its alert: bring it into view.
+  if selectedY then
+    local height = milestones:GetHeight()
+    milestones:SetVerticalScroll(math.min(math.max(0, y - height), math.max(0, selectedY - (height - M_ROW) / 2)))
+    milestones:UpdateThumb()
+  end
+end
+
+local function buildMilestones()
+  book.milestonePanel = ns.forever and card(book) or inset(book)
+  book.milestonePanel:SetPoint("TOPLEFT", book.left, "TOPLEFT")
+  book.milestonePanel:SetPoint("BOTTOMRIGHT", book.sheet, "BOTTOMRIGHT")
+  milestones = scrollArea(book.milestonePanel, M_WIDTH)
+  _G.FieldJournalMilestones = milestones
+  milestones:SetPoint("TOPLEFT", 22, -18)
+  milestones:SetPoint("BOTTOMRIGHT", -22, 14)
+  book.milestonePanel:Hide()
+end
+
+-- The book's two tabs, under its bottom edge, in the style of the character
+-- sheet's (the shared panel tabs where that template doesn't exist: Forever).
+function ns.showTab(n)
+  if not book then return end
+  book.selectedTab = n
+  if PanelTemplates_SetTab then PanelTemplates_SetTab(book, n) end
+  book.left:SetShown(n == 1)
+  book.search:SetShown(n == 1)
+  book.sheet:SetShown(n == 1)
+  book.milestonePanel:SetShown(n == 2)
+  if n == 2 then ns.refreshMilestones() else ns.refresh() end
+end
+
+local function hasTemplate(name)
+  if not (C_XMLUtil and C_XMLUtil.GetTemplateInfo) then return name == "CharacterFrameTabButtonTemplate" end
+  return C_XMLUtil.GetTemplateInfo(name) ~= nil
+end
+
+local function buildTabs()
+  local template = hasTemplate("CharacterFrameTabButtonTemplate") and "CharacterFrameTabButtonTemplate" or "PanelTabButtonTemplate"
+  for n, text in ipairs({ "Bestiary", "Milestones" }) do
+    local tab = CreateFrame("Button", "FieldJournalFrameTab" .. n, book, template)
+    tab:SetID(n)
+    tab:SetText(text)
+    if n == 1 then tab:SetPoint("TOPLEFT", book, "BOTTOMLEFT", 14, 2)
+    else tab:SetPoint("LEFT", "FieldJournalFrameTab" .. (n - 1), "RIGHT", -14, 0) end
+    tab:SetScript("OnClick", function(self)
+      selectedMilestone = nil
+      ns.showTab(self:GetID())
+      if PlaySound and SOUNDKIT and SOUNDKIT.IG_CHARACTER_INFO_TAB then PlaySound(SOUNDKIT.IG_CHARACTER_INFO_TAB) end
+    end)
+    tab:SetScript("OnShow", function(self)
+      if PanelTemplates_TabResize then PanelTemplates_TabResize(self, 0) end
+    end)
+    if PanelTemplates_TabResize then PanelTemplates_TabResize(tab, 0) end
+  end
+  if PanelTemplates_SetNumTabs then PanelTemplates_SetNumTabs(book, 2) end
+  book.selectedTab = 1
+  if PanelTemplates_SetTab then PanelTemplates_SetTab(book, 1) end
+end
+
+-- Open the book at the milestones, one of them picked out.
+function ns.openMilestones(id)
+  if not book then build() end
+  selectedMilestone = id
+  if not book:IsShown() then book:Show() end
+  ns.showTab(2)
+end
+
 -- ── the book ─────────────────────────────────────────────────────────────────
 -- Forever: a standard game window (portrait, title bar), its inset removed.
 local TITLE = "Explorer's Field Journal: the Bestiary"
@@ -808,10 +986,12 @@ function build()
   local edge = window and 8 or 14
   book.count:SetPoint("TOPLEFT", 64, -36)
   local left = ns.forever and card(book) or inset(book, true)
+  book.left = left
   left:SetPoint("TOPLEFT", edge, -58)
   left:SetPoint("BOTTOMLEFT", edge, edge)
   left:SetWidth(244)
   local sheet = ns.forever and card(book) or inset(book)
+  book.sheet = sheet
   sheet:SetPoint("TOPLEFT", left, "TOPRIGHT", 4, 32)
   sheet:SetPoint("BOTTOMRIGHT", -edge, edge)
   -- The search box inside the list's column (its left edge holds the glass).
@@ -873,6 +1053,9 @@ function build()
     end
     ns.refresh()
   end)
+
+  buildMilestones()
+  buildTabs()
 end
 
 function ns.toggle()
@@ -882,6 +1065,7 @@ end
 
 local function open(show)
   if not book then build() end
+  if book.selectedTab ~= 1 then ns.showTab(1) end
   if book:IsShown() then
     show()
     ns.refresh()
@@ -913,6 +1097,8 @@ end
 local function followLink(link)
   local key = link:match("^fieldjournal:(.+)$")
   if not key then return end
+  local milestone = key:match("^m(.+)$")
+  if milestone then return ns.openMilestones(milestone) end
   local creature = tonumber(key:match("^c(%d+)$"))
   if creature then
     ns.openCreature(creature)
@@ -941,3 +1127,4 @@ ns.onRecord = function()
   end
   if C_Timer then C_Timer.After(0.5, run) else run() end
 end
+ns.onMilestone = ns.onRecord

@@ -14,6 +14,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   folk (either side's factions, vendors, quest givers), critters, totems and
   the database's helpers. A community reconstruction, not Blizzard's data.
 - `data/peoples.json`: creature id lists per people (from the Codex's research).
+- `data/rare-zones.json` (rare id -> uiMap) and `data/zones.csv` (the client's
+  zones): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
+  the WoWWiki archive's "Rare mobs by zone", original-game section, else the
+  rare's spawn points in the zones' map rectangles). Dungeon rares have none.
 - `content/<section>/_section.md`: a creature type (title, type, order);
   `content/<section>/<family>.md`: a family (id, title, order, `match:` rules,
   the naturalist's note). Rules, in priority: ids, people, name (regex, the
@@ -28,8 +32,11 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
 - `addon/FieldJournal/`: `Core.lua` (records: meet on target/mouseover, slay
   from the combat log or on Forever from loot/dead targets it fought, loot from
   the loot window, trophies; a chat line per new creature, a sound only for
-  trophies; `/journal`), `Book.lua` (the book: entries with 3D portraits from
-  the data's display ids, `PlayerModel:SetDisplayInfo` as the quest window),
+  trophies; `/journal`), `Achievements.lua` (milestones: tallies, every family
+  of a type, feats, every rare of a zone; the game's achievement toast, fanfare
+  and a chat line; no spoilers before a type or zone is met), `Book.lua` (the
+  book in a standard window: Bestiary and Milestones tabs; still portraits from
+  the data's display ids, `SetPortraitTextureFromCreatureDisplayID`),
   `Hints.lua` (tooltip line), `Settings.lua`, `Minimap.lua`.
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).
@@ -50,6 +57,7 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
 ```bash
 bun run build | check | package
 bun run creatures          # regenerate data/creatures.json (pinned database)
+python3 scripts/rare_zones.py    # then data/rare-zones.json (each rare's zone)
 bun scripts/build.ts --verbose   # per-family counts, overlaps, unsorted
 ```
 

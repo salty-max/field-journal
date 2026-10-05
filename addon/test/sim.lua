@@ -62,7 +62,8 @@ else
 end
 SOUNDKIT = { IG_QUEST_LOG_OPEN = 1 }
 local sounds, lastSound = 0, nil
-function PlaySound(id) sounds = sounds + 1; lastSound = id end
+local played = {}
+function PlaySound(id) sounds = sounds + 1; lastSound = id; played[id] = true; return true end
 local ticker
 local timers = {}
 C_Timer = {
@@ -207,7 +208,7 @@ C_Timer.After = function(_, fn) fn() end
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
-for _, f in ipairs({ "Core.lua", "Book.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
+for _, f in ipairs({ "Core.lua", "Achievements.lua", "Book.lua", "Minimap.lua", "Settings.lua", "Hints.lua" }) do
   assert(loadfile(DIR .. f))("FieldJournal", ns)
 end
 local D = ns.data
@@ -288,7 +289,9 @@ printed = {}
 target(1132)
 kill(1132)
 check(rec(1132).trophy and rec(1132).trophy.rank == "r", "slaying a rare (Timber) makes a trophy")
-check(said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r") and sounds == 1, "… announced in chat, with the trophy sound")
+check(said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r") and played[3175], "… announced in chat, with the trophy sound")
+check(ns.earnedMilestone("trophies-1") and said("you have earned the milestone |cffffd100|Hfieldjournal:mtrophies-1|h[First Trophy]|h|r!") and played[12891],
+  "… and the first trophy earns a milestone, with the game's achievement fanfare and a chat line")
 
 -- Creatures the data doesn't know (Forever's new ones).
 target(99003)
@@ -348,6 +351,26 @@ check(shown("Wolves"), "… and unfolds it")
 FieldJournalFrame:Hide()
 linkHandlers.fieldjournal("fieldjournal:c1132")
 check(FieldJournalFrame.shown and FieldJournalPage.title.text:find("^Timber"), "a link in chat opens the book at the creature's page")
+
+-- Milestones.
+check(ns.milestoneById["zone-1426"] and ns.milestoneVisible(ns.milestoneById["zone-1426"]), "Timber met: the rares of Dun Morogh have their milestone in the list")
+check(not ns.milestoneVisible(ns.milestoneById["zone-1429"]), "… the rares of Elwynn, none met yet, don't (no spoilers)")
+check(ns.milestoneVisible(ns.milestoneById["type-beasts"]) and not ns.milestoneVisible(ns.milestoneById["type-demons"]), "… nor the families of a type not met yet")
+local done, need = ns.milestoneById["zone-1426"].progress()
+check(done == 1 and need >= 5, "a zone's milestone counts its rares slain")
+FieldJournalFrame:Hide()
+linkHandlers.fieldjournal("fieldjournal:mtrophies-1")
+local row
+for _, r in ipairs(ns.milestoneRows) do if r.shown and r.id == "trophies-1" then row = r end end
+check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == 2 and row and row.status.text:find("^Level"), "a milestone's link opens the Milestones tab, the milestone earned with its level")
+check(FieldJournalFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
+FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
+check(FieldJournalFrame.selectedTab == 1 and FieldJournalPage and shown("Wolves"), "the Bestiary tab brings the book back")
+-- A journal from before milestones: what it deserves is recorded quietly.
+FieldJournalChar.achievements = nil
+printed = {}
+ns.checkMilestones(true)
+check(ns.earnedMilestone("trophies-1").retro and #printed == 0, "milestones already deserved are recorded quietly")
 
 -- Tooltip hints.
 local function hover(id)

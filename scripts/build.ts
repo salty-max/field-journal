@@ -194,6 +194,24 @@ const GAMES = [
   { client: "forever", out: join(ROOT, "addon/FieldJournal/Data_Forever.lua") },
 ];
 
+// Rares by zone (data/rare-zones.json, from scripts/rare_zones.py), and the
+// zones' English names (the client's UiMap, cached by that script).
+const rareZone: Record<string, number> = JSON.parse(readFileSync(join(ROOT, "data/rare-zones.json"), "utf8"));
+const zoneNames: Record<number, string> = Object.fromEntries(
+  readFileSync(join(ROOT, "data/zones.csv"), "utf8").trim().split("\n").slice(1).map((l) => {
+    const [id, ...name] = l.split(",");
+    return [Number(id), name.join(",")];
+  }),
+);
+function zoneRares(kept: Creature[]) {
+  const by = new Map<number, number[]>();
+  for (const c of kept) {
+    const zone = rareZone[String(c.id)];
+    if (zone && RANK[c.rank] !== "b") by.set(zone, [...(by.get(zone) ?? []), c.id]);
+  }
+  return [...by.entries()].sort((a, b) => a[0] - b[0]);
+}
+
 function luaFor(client: string) {
   const kept = families.filter((f) => !f.client || f.client === client);
   const index = new Map(kept.map((f, i) => [f.id, i + 1]));
@@ -228,6 +246,11 @@ ${chunks(sorted.filter((c) => c.model).map((c) => `[${c.id}]=${c.model}`), 10).j
   -- creature id = its levels in the world ("5-6", or 7)
   levels = {
 ${chunks(sorted.filter((c) => c.levels?.[0]).map((c) => `[${c.id}]=${c.levels[0] === c.levels[1] ? c.levels[0] : `"${c.levels[0]}-${c.levels[1]}"`}`), 12).join("\n")}
+  },
+  -- the rares of each zone (uiMap id = creature ids; the English name for
+  -- clients that can't name the map), for the trophies-by-zone milestones
+  rareZones = {
+${[...zoneRares(sorted)].map(([zone, ids]) => `    [${zone}] = { name = ${q(zoneNames[zone] ?? "?")}, ${ids.join(", ")} },`).join("\n")}
   },
   -- marks: r rare, R rare elite, b boss
   ranks = {

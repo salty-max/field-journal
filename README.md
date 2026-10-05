@@ -34,7 +34,9 @@ bun run check      # both up to date + simulation on both games
 bun run package    # dist/classic, dist/forever, zipped
 ```
 
-Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned).
+Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned);
+rares by zone: `scripts/rare_zones.py` (the WoWWiki archive's list, spawn points
+otherwise).
 Families: `content/<type>/<family>.md` (rules + the naturalist's note).
 
 ## License

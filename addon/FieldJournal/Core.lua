@@ -157,6 +157,7 @@ local function meet(unit)
       print(PREFIX .. ("|cffffd100|Hfieldjournal:c%d|h[%s]|h|r recorded (%s%s)."):format(
         id, rec.name or "?", ns.familyTitle(key), newFamily and ", a new family" or ""))
     end
+    if ns.checkMilestones then ns.checkMilestones() end
   end
   local h = here()
   rec.last = h
@@ -236,6 +237,7 @@ local function slay(id, unit)
     end
     ns.playSound()
   end
+  if ns.checkMilestones then ns.checkMilestones() end
   if ns.onRecord then ns.onRecord(id) end
 end
 ns.slay = slay
@@ -264,6 +266,8 @@ function handlers.PLAYER_LOGIN()
   end
   if ns.createMinimapButton then ns.createMinimapButton() end
   if ns.createSettingsPanel then ns.createSettingsPanel() end
+  -- Milestones a journal already deserves: recorded quietly.
+  if ns.checkMilestones then ns.checkMilestones(true) end
 end
 
 handlers.PLAYER_TARGET_CHANGED = function()
