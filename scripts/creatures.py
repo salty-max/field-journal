@@ -27,7 +27,7 @@ OUT = os.path.join(ROOT, "data", "creatures.json")
 # soldiers, town folk of either side) are people, not the Bestiary's game.
 FACTIONS_URL = "https://wago.tools/db2/FactionTemplate/csv?product=wow_classic_era"
 FACTIONS = os.path.join(ROOT, ".cache", "FactionTemplate.csv")
-ALLIANCE, HORDE = 2, 4
+PLAYER, ALLIANCE, HORDE = 1, 2, 4
 
 TYPES = {1: "Beast", 2: "Dragonkin", 3: "Demon", 4: "Elemental", 5: "Giant", 6: "Undead", 7: "Humanoid", 9: "Mechanical", 10: "NotSpecified"}
 RANKS = {0: "normal", 1: "elite", 2: "rareelite", 3: "boss", 4: "rare"}
@@ -87,22 +87,25 @@ def rows(sql, table):
 
 
 def aligned_factions():
-    """Faction templates that belong to, or are friends with, either side."""
+    """Faction templates on a side (Alliance or Horde), and those friendly to every player."""
     if not os.path.exists(FACTIONS):
         req = urllib.request.Request(FACTIONS_URL, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req) as r, open(FACTIONS, "wb") as f:
             f.write(r.read())
-    out = set()
+    sides, friendly = set(), set()
     with open(FACTIONS) as f:
         for r in csv.DictReader(f):
-            if (int(r["FactionGroup"]) | int(r["FriendGroup"])) & (ALLIANCE | HORDE):
-                out.add(int(r["ID"]))
-    return out
+            groups = int(r["FactionGroup"]) | int(r["FriendGroup"])
+            if groups & (ALLIANCE | HORDE):
+                sides.add(int(r["ID"]))
+            elif groups & PLAYER:
+                friendly.add(int(r["ID"]))  # mounts, pets, neutral town folk
+    return sides, friendly
 
 
 def main():
     sql = sql_text()
-    aligned = aligned_factions()
+    sides, friendly = aligned_factions()
     spawn_cols = columns(sql, "creature")
     spawned = {int(r[spawn_cols.index("id")]) for r in rows(sql, "creature")}
     # Dungeon and raid bosses: the encounters' kill credits (creditType 0). The
@@ -122,7 +125,12 @@ def main():
             continue
         if int(d["NpcFlags"]) or int(d["UnitFlags"]) & NOT_SELECTABLE or HELPER.search(d["Name"]):
             continue
-        if int(d["Faction"]) in aligned:
+        # Either side's folk out. Those friendly to every player too, except
+        # elites, rares and bosses: many start friendly and turn on you through
+        # their scripts (Zum'rah, Nefarius, the khans of Maraudon, the arena of
+        # Blackrock Depths).
+        faction = int(d["Faction"])
+        if faction in sides or (faction in friendly and rank == 0):
             continue
         out.append({
             "id": cid,

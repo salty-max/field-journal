@@ -82,9 +82,10 @@ local function addPlace(rec, h)
 end
 
 -- ── meeting ──────────────────────────────────────────────────────────────────
+-- Can this character fight it now? A hidden answer (Forever) counts as yes.
 local function attackable(unit)
   local ok = UnitCanAttack("player", unit)
-  return ok and not secret(ok)
+  return secret(ok) or ok == true
 end
 
 -- Meets the unit's creature (target or mouseover): records it, and announces
@@ -96,9 +97,9 @@ local function meet(unit)
   local known = D.creatures[id] ~= nil
   local rec = char.creatures[id]
   if not rec then
-    -- A creature the data doesn't know is only kept if it can be fought: the
-    -- data already left out friendly folk, critters and helpers.
-    if not known and not attackable(unit) then return end
+    -- Only creatures this character could fight: a stable's mounts, a town's
+    -- folk or a foe still friendly before its script turns it aren't game.
+    if not attackable(unit) then return end
     local name = UnitName(unit)
     rec = { name = not secret(name) and name or nil }
     if not known then

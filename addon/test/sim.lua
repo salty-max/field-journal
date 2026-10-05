@@ -174,6 +174,7 @@ local unitInfo = {
   [10184] = { level = 63, type = "Dragonkin", class = "worldboss" },
   [99001] = { level = 5, type = "Beast", family = "Galestrider" },   -- unknown to the data (Forever's)
   [99002] = { level = 5, type = "Humanoid", friendly = true },       -- unknown, not attackable
+  [1124] = { level = 9, type = "Humanoid", friendly = true },        -- known, but friendly now (a scripted foe)
 }
 local function unitId(u) return (u == "target" and state.target) or (u == "mouseover" and state.mouseover) end
 local function info(u) return unitInfo[unitId(u) or 0] end
@@ -292,6 +293,8 @@ local key = ns.familyKey(99001)
 check(key == "?Beast/Galestrider" and ns.familyTitle(key) == "Unrecorded Beast: Galestrider", "a creature the data doesn't know is filed by what the game says")
 target(99002)
 check(not rec(99002), "… unless it can't be fought (friendly folk)")
+target(1124)
+check(not rec(1124), "a creature the data knows isn't recorded while it can't be fought either")
 
 -- ── the book ─────────────────────────────────────────────────────────────────
 SlashCmdList.FIELDJOURNAL("")
