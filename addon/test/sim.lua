@@ -525,7 +525,7 @@ FieldJournalFrame:Hide()
 linkHandlers.fieldjournal("fieldjournal:z1426")
 local atlasRecord = {}
 for _, p in ipairs(ns.atlasPairs) do if p.shown then atlasRecord[p.label.text] = p.value.text end end
-check(FieldJournalFrame.selectedTab == 2 and FieldJournalAtlasPage.title.text == "Dun Morogh" and FieldJournalAtlasPage.map.shown,
+check(FieldJournalFrame.selectedTab == ns.TAB.atlas and FieldJournalAtlasPage.title.text == "Dun Morogh" and FieldJournalAtlasPage.map.shown,
   "a zone's link opens the Atlas at its page, with its map")
 check(FieldJournalAtlasPage.note.shown and FieldJournalAtlasPage.note.text:find("^Snow, stone and dwarves"), "… the surveyor's note")
 check(atlasRecord.Explored:find(dun[1][1], 1, true) and atlasRecord.Explored:find(dun[2][1], 1, true), "… the places explored, by name")
@@ -656,7 +656,7 @@ local frows, fpage = ns.floraRows, nil
 local function rowNamed(text) for _, r in ipairs(frows) do if r.shown and r.text.text == text then return r end end end
 local function pairNamed(label) for _, p in ipairs(ns.floraPairs) do if p.shown and p.label.text == label then return p.value.text end end end
 FieldJournalFrame:Show()
-FieldJournalFrameTab3.scripts.OnClick(FieldJournalFrameTab3)
+FieldJournalFrameTab2.scripts.OnClick(FieldJournalFrameTab2)
 fpage = FieldJournalFloraPage
 check(FieldJournalFrame.selectedTab == ns.TAB.fish and fpage.shown and fpage.title.text == "The catch so far"
   and FieldJournalFrame.count.text == "3 kinds of fish, 4 caught", "the Fish tab: the catch so far")
@@ -668,7 +668,7 @@ check(fpage.title.text == "Catfish" and pairNamed("Heaviest") == "32 pounds" and
   and pairNamed("Zones"):find("Westfall", 1, true) and pairNamed("Where") == "Elwynn Forest (2)", "a kind's page: where it bites (the data), the catches, the heaviest")
 rowNamed("Oily Blackmouth").scripts.OnClick(rowNamed("Oily Blackmouth"))
 check(pairNamed("From schools") == "1" and pairNamed("By day, by night") == "0, 1" and fpage.sub.text == "A reagent", "… from a school, by night")
-FieldJournalFrameTab4.scripts.OnClick(FieldJournalFrameTab4)
+FieldJournalFrameTab3.scripts.OnClick(FieldJournalFrameTab3)
 check(FieldJournalFrame.selectedTab == ns.TAB.plants and fpage.title.text == "The herbs so far" and rowNamed("Apprentice")
   and rowNamed("Peacebloom").count.text == "3" and rowNamed("Stranglekelp") and rowNamed("Journeyman"), "the Plants tab: by Herbalism rank")
 rowNamed("Peacebloom").scripts.OnClick(rowNamed("Peacebloom"))
@@ -680,7 +680,7 @@ check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.fish a
   "a catch's link opens its page")
 linkHandlers.fieldjournal("fieldjournal:h3820")
 check(FieldJournalFrame.selectedTab == ns.TAB.plants and fpage.title.text == "Stranglekelp", "an herb's link opens its page")
-FieldJournalFrameTab3.scripts.OnClick(FieldJournalFrameTab3)
+FieldJournalFrameTab2.scripts.OnClick(FieldJournalFrameTab2)
 fishing = true
 lootWindow({ { link(13755, "Winter Squid"), { BOBBER, 1 } } })
 fishing = false

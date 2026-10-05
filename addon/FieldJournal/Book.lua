@@ -251,7 +251,7 @@ local function placeShort(p) return p and (p:match(": (.+)$") or p) end
 -- ── the page ─────────────────────────────────────────────────────────────────
 local book, list, page
 -- The book's tabs, in order.
-local TAB = { bestiary = 1, atlas = 2, fish = 3, plants = 4, milestones = 5 }
+local TAB = { bestiary = 1, fish = 2, plants = 3, atlas = 4, milestones = 5 }
 ns.TAB = TAB
 -- What the page shows: a family key (a number, or a "?type/family" string),
 -- TROPHIES, or a creature (currentCreature set, current its family).
@@ -928,7 +928,7 @@ end
 
 local function buildTabs()
   local template = hasTemplate("CharacterFrameTabButtonTemplate") and "CharacterFrameTabButtonTemplate" or "PanelTabButtonTemplate"
-  for n, text in ipairs({ "Bestiary", "Atlas", "Fish", "Plants", "Milestones" }) do
+  for n, text in ipairs({ "Bestiary", "Fish", "Plants", "Atlas", "Milestones" }) do
     local tab = CreateFrame("Button", "FieldJournalFrameTab" .. n, book, template)
     tab:SetID(n)
     tab:SetText(text)

@@ -166,7 +166,7 @@ sources, as the Bestiary's.
 
 | Question | Decision |
 |---|---|
-| Shape | Two new tabs beside the Bestiary, the Atlas and the Milestones: Fish, and Plants. |
+| Shape | Two new tabs after the Bestiary, before the Atlas: Fish, and Plants. |
 | Plants | Every herb that reaches the bags counts (gathered, looted, bought, received); the gathered ones are marked. The game tells addons nothing of a node passed or hovered, so nothing is "seen". |
 | Fish | Each catch: zone and subzone, first catch, count, the hour (day or night), from a school or open water. Junk and oddities are not entries; the weighed catches ("32 Pound Catfish") are, one per kind, with the heaviest landed. |
 | Text | A note per species by the League's naturalist (where it grows or bites, its uses, its lore), reviewed against sources like the family notes. |
@@ -236,7 +236,7 @@ node, looted, or found in the bags: bought, rewarded, mailed; those already
 carried at login noted quietly), each new one announced in chat with a link.
 
 Step 3 done (6 October): the Fish and Plants tabs (FloraBook.lua), between the
-Atlas and the Milestones: the kinds found in groups (fish: of the waters,
+Bestiary and the Atlas (Bestiary, Fish, Plants, Atlas, Milestones): the kinds found in groups (fish: of the waters,
 reagents, rare catches, quest fish, weighed catches; herbs by Herbalism rank),
 counts, search; a kind's page (icon, where it bites or grows from the data,
 the character's record), an overview per tab; the chat links open the pages.
