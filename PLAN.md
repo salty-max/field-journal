@@ -84,10 +84,81 @@ may use Forever's own texts), plain ASCII, reviewed against the game's texts.
 
 ## The Atlas (second)
 
-Places visited (first visit: date, level), the roads walked (positions
-sampled every few seconds, kept light), flight paths taken, deaths and close
-calls, drawn on the world map with the game's own map art. Details planned
-once the Bestiary ships.
+### Decisions (5 October 2026)
+
+| Question | Decision |
+|---|---|
+| Records | Places explored, deaths and close calls, flights and travel. Roads walked (a breadcrumb trail) later, if at all. |
+| Display | An Atlas tab in the book, plus optional pins (deaths, close calls) on the game's world map. |
+| Text | A short note per zone by a second hand: a dwarf surveyor of the Explorers' League (roads, fords, passes, where not to camp). Same rules as the Bestiary's notes. |
+| Spoilers | A zone appears once entered, then shows "n of m places explored", as the game's exploration achievements. |
+| Milestones | Yes, in the Milestones tab. |
+| Forever | Every zone is recorded from the game's own map data; notes for the original zones first, Forever's new ones after the launch (from `/codex scan` data). |
+
+### What a character records
+
+`FieldJournalChar.atlas`:
+
+- **zones[uiMap]**: first and last visit (date, level), visits; **places[areaId]**:
+  each place explored (date, level). Seeded quietly at first login from the
+  fog of war the character has already lifted.
+- **deaths[]**: date, level, zone, x/y, and what killed you (Classic: the last
+  damage taken, from the combat log; Forever: the last hostile target, said to
+  be less exact).
+- **closeCalls[]**: health under 10% and alive a few seconds later: date,
+  level, zone, x/y, the foe.
+- **flights[]**: from and to (taxi nodes), date; counts per route. **crossings**:
+  continent changes (boats, zeppelins, portals). **hearth**: each new bind.
+
+### How (game APIs, on both clients)
+
+- Places: `ZONE_CHANGED*` events; the zone from `C_Map.GetBestMapForUnit`, the
+  places explored from `C_MapExplorationInfo.GetExploredAreaIDsAtPosition`. The
+  seed samples each zone's map on a grid, spread over a few seconds.
+- The list of a zone's places (the "m"): the client's `WorldMapOverlay` table
+  (each overlay names the areas it reveals), per game build, from wago.tools,
+  built into the data files like the creatures.
+- Deaths: `PLAYER_DEAD`; close calls: `UNIT_HEALTH` on the player (secret
+  values checked on Forever).
+- Flights: `TakeTaxiNode` (hooked) names the destination, the taxi map the
+  origin; arrival when the player leaves the taxi.
+- The zone's map in the book: `C_Map.GetMapArtLayerTextures` (the world map's
+  own tiles), the explored parts from `C_MapExplorationInfo`, our marks on top.
+- World map pins: a data provider on `WorldMapFrame` with a pin template (an
+  XML file in the addon), turned off in the settings.
+
+### The book
+
+A third tab, between the Bestiary and the Milestones. The list: continents,
+the zones entered in each (with "n of m"). A zone's page: the surveyor's note,
+the zone's map (explored parts, deaths, close calls, flight points), then the
+record: first visit, the places explored, deaths and close calls, flights to
+and from. A link to the Codex's page of the zone when the Codex is installed
+and the page found.
+
+### Milestones
+
+Every place of a zone explored (one per zone, shown once entered), every zone
+of a continent entered, flights taken (10, 50, 100), and feats (survive 10 close
+calls, fly every route from a city...).
+
+### Writing
+
+About 45 notes for the original zones (and the capitals), by the surveyor: a
+voice sample first, for approval; then the zones; then a review against
+sources, as the Bestiary's.
+
+### Steps
+
+1. Data: zones per client, their continent and their places (UiMap,
+   WorldMapOverlay, AreaTable from wago.tools, Classic Era and Forever builds).
+2. The recording engine (`Atlas.lua`), with the simulation: places and the
+   seed, deaths and close calls, flights, crossings, the hearth.
+3. The book's Atlas tab: list, zone page, the map with its marks.
+4. World map pins and their setting.
+5. Milestones.
+6. The surveyor's notes: sample, zones, review.
+7. Release 0.3.0.
 
 ## Engineering (from the Codex)
 
