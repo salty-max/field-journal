@@ -455,6 +455,7 @@ local atlasRecord = {}
 for _, p in ipairs(ns.atlasPairs) do if p.shown then atlasRecord[p.label.text] = p.value.text end end
 check(FieldJournalFrame.selectedTab == 2 and FieldJournalAtlasPage.title.text == "Dun Morogh" and FieldJournalAtlasPage.map.shown,
   "a zone's link opens the Atlas at its page, with its map")
+check(FieldJournalAtlasPage.note.shown and FieldJournalAtlasPage.note.text:find("^Snow, stone and dwarves"), "… the surveyor's note")
 check(atlasRecord.Explored:find(dun[1][1], 1, true) and atlasRecord.Explored:find(dun[2][1], 1, true), "… the places explored, by name")
 check(FieldJournalAtlasPage.sub.text:find(("2 of %d places explored"):format(#dun), 1, true), "… and how many remain")
 local zoneRows = {}

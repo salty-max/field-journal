@@ -216,15 +216,34 @@ function zoneRares(kept: Creature[]) {
 // a zone's name, its continent, and its places (name, the overlay's offset on
 // the map art, the areas that lift it from the fog).
 type Zone = { id: number; name: string; continent: number; places: { name: string; areas: number[]; x: number; y: number }[] };
+// The surveyor's notes: atlas/<zone>.md (front matter: zone: <uiMap>; then
+// paragraphs), plain ASCII like the naturalist's.
+const zoneNotes = new Map<number, string[]>();
+for (const f of readdirSync(join(ROOT, "atlas"))) {
+  if (!f.endsWith(".md")) continue;
+  const file = join(ROOT, "atlas", f);
+  const source = readFileSync(file, "utf8");
+  const odd = source.match(/[^\x00-\x7f]/);
+  if (odd) fail(file, `non-ASCII character "${odd[0]}"`);
+  const { meta, body } = frontMatter(file, source);
+  const zone = Number(meta.zone);
+  if (!zone) fail(file, "zone: the zone's uiMap id");
+  if (zoneNotes.has(zone)) fail(file, `zone ${zone} has two notes`);
+  zoneNotes.set(zone, body.trim().split(/\n\s*\n/).map((p) => p.replace(/\s*\n\s*/g, " ").trim()));
+}
+
 function atlasLua(client: string) {
   const { continents, zones } = JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8")) as { continents: Record<string, string>; zones: Zone[] };
   const kept = zones.filter((z) => z.continent || z.places.length);
+  if (client === "classic") {
+    for (const zone of zoneNotes.keys()) if (!zones.some((z) => z.id === zone)) fail(join(ROOT, "atlas"), `a note for zone ${zone}, which the game doesn't have`);
+  }
   const used = [...new Set(kept.map((z) => z.continent).filter(Boolean))].sort((a, b) => a - b);
   return `  atlas = {
     continents = { ${used.map((c) => `[${c}] = ${q(continents[String(c)])}`).join(", ")} },
     zones = {
 ${kept
-  .map((z) => `      [${z.id}] = { name = ${q(z.name)}, continent = ${z.continent}, places = { ${z.places.map((p) => `{ ${q(p.name)}, ${p.x}, ${p.y}, ${p.areas.join(", ")} }`).join(", ")} } },`)
+  .map((z) => `      [${z.id}] = { name = ${q(z.name)}, continent = ${z.continent},${zoneNotes.has(z.id) ? ` note = { ${zoneNotes.get(z.id)!.map(q).join(", ")} },` : ""} places = { ${z.places.map((p) => `{ ${q(p.name)}, ${p.x}, ${p.y}, ${p.areas.join(", ")} }`).join(", ")} } },`)
   .join("\n")}
     },
   },`;
