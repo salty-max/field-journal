@@ -340,6 +340,10 @@ if FOREVER then
   secrets[creature(1123)] = nil
 end
 
+tipLines = {}
+FieldJournalMinimapButton.scripts.OnEnter(FieldJournalMinimapButton)
+check(table.concat(tipLines, "|"):find("creatures in", 1, true), "the minimap button's tooltip shows the counts")
+
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(next(FieldJournalChar.creatures) == nil and FieldJournalChar.guid == PLAYER, "/journal reset yes starts the journal over")
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")
