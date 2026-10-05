@@ -236,11 +236,22 @@ end
 
 -- The game's achievement toast, with the journal's book.
 local toasts
+
+-- The toast's points shield runs AchievementShield_OnLoad, from the game's
+-- achievement window, which the game loads only when first opened: load it
+-- (as the game does before its own toasts), or show no toast without it.
+local function shieldReady()
+  if AchievementShield_OnLoad then return true end
+  local load = (C_AddOns and C_AddOns.LoadAddOn) or LoadAddOn
+  if load then pcall(load, "Blizzard_AchievementUI") end
+  return AchievementShield_OnLoad ~= nil
+end
+
 local function toast(id)
   if toasts == nil then
     toasts = false
     if AlertFrame and AlertFrame.AddQueuedAlertFrameSubSystem and C_XMLUtil and C_XMLUtil.GetTemplateInfo
-      and C_XMLUtil.GetTemplateInfo("AchievementAlertFrameTemplate") then
+      and C_XMLUtil.GetTemplateInfo("AchievementAlertFrameTemplate") and shieldReady() then
       toasts = AlertFrame:AddQueuedAlertFrameSubSystem("AchievementAlertFrameTemplate", function(frame, mid)
         local m = ns.milestoneById[mid]
         frame.milestone = mid

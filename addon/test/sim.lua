@@ -250,6 +250,21 @@ WorldMapFrame = {
 local worldCanvas
 WorldMapFrame.GetCanvas = function() return worldCanvas end
 
+-- The game's alert system and its achievement toast (whose points shield
+-- needs the achievement window, loaded on demand).
+local toasted, loadedAddOns = {}, {}
+AlertFrame = { AddQueuedAlertFrameSubSystem = function(_, template, setUp)
+  return { AddAlert = function(_, ...)
+    local f = ui()
+    f.Icon, f.Unlocked, f.Name, f.Shield = ui(), ui(), ui(), ui()
+    f.Icon.Texture = ui()
+    setUp(f, ...)
+    table.insert(toasted, f)
+  end }
+end }
+C_XMLUtil = { GetTemplateInfo = function() return {} end }
+C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true; AchievementShield_OnLoad = function() end end }
+
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
@@ -337,6 +352,8 @@ check(rec(1132).trophy and rec(1132).trophy.rank == "r", "slaying a rare (Timber
 check(said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r") and played[3175], "… announced in chat, with the trophy sound")
 check(ns.earnedMilestone("trophies-1") and said("you have earned the milestone |cffffd100|Hfieldjournal:mtrophies-1|h[First Trophy]|h|r!") and played[12891],
   "… and the first trophy earns a milestone, with the game's achievement fanfare and a chat line")
+check(toasted[1] and toasted[1].Name.text == "First Trophy" and loadedAddOns.Blizzard_AchievementUI,
+  "… and the game's achievement toast, the achievement window loaded first (its shield needs it)")
 
 -- Creatures the data doesn't know (Forever's new ones).
 target(99003)
