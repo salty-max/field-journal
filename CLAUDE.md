@@ -27,6 +27,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   nodes, Herbalism skill (the client's Lock table) and zones (the nodes'
   spawns, placed by the Atlas's places of each zone); fish with their zones,
   subzones, dungeons, schools and seasons, and the weighed catches as kinds.
+- `notes/herbs.md`, `notes/fish.md`: the naturalist's note for every herb and
+  fish ("## <item id> <name>", then paragraphs; plain ASCII; the build refuses
+  a missing or unknown one). Places only from the data, uses only from the
+  game's recipes of the original game (docs/flora-review.md).
 - `content/<section>/_section.md`: a creature type (title, type, order);
   `content/<section>/<family>.md`: a family (id, title, order, `match:` rules,
   the naturalist's note). Rules, in priority: ids, people, name (regex, the

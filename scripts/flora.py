@@ -193,6 +193,14 @@ def main():
             **({"inside": True} if not own else {}),  # found in another herb's node
         })
 
+    # Where the database lacks spawns the original game had (checked against the
+    # Warcraft Wiki, docs/flora-review.md): added by hand.
+    EXTRA = {"Gromsblood": ["Blasted Lands"]}  # a third of its nodes in the original game
+    for h in herbs:
+        for z in EXTRA.get(h["name"], []):
+            if z not in h["zones"]:
+                h["zones"].append(z)
+
     # ── fish ──────────────────────────────────────────────────────────────────
     where = collections.defaultdict(set)  # item: areas
     fishing = collections.defaultdict(list)

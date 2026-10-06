@@ -41,9 +41,10 @@ local function now()
   return { at = time(), level = UnitLevel("player"), zone = zone, sub = sub }
 end
 
+-- Night: 6 PM to 6 AM by the game's clock (the hours of the Nightfin Snapper).
 local function night()
   local h = GetGameTime and GetGameTime()
-  return h ~= nil and not secret(h) and (h < 6 or h >= 20)
+  return h ~= nil and not secret(h) and (h < 6 or h >= 18)
 end
 
 local function announce(kind, id, name)

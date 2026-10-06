@@ -250,6 +250,12 @@ and Herbs (first herb, 10 and 20 kinds, every herb, 100 and 1000 gathered,
 Black Lotus, both lotuses, the Plaguelands' two, every herb of each of 37
 zones, shown once one is found there).
 
+Step 5 done (6 October): the naturalist's 69 notes (notes/herbs.md,
+notes/fish.md: 30 herbs, 32 fish, 7 weighed kinds), reviewed against the data,
+the game's own recipes and the Warcraft Wiki (docs/flora-review.md: 11
+corrections; Gromsblood's Blasted Lands added to the data; night counted from
+6 PM). Next: release with the pending toast fix.
+
 1. The data (scripts/flora.py): herbs and fish, their zones; counts checked.
 2. The recording, with the simulation (fishing loot, schools, gathered vs
    looted herbs, bought ones).

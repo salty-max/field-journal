@@ -625,7 +625,7 @@ local smallfish = fish(6291)
 check(smallfish and smallfish.n == 1 and smallfish.day == 1 and smallfish.school == 0 and smallfish.first.zone == 1429
   and smallfish.first.sub == "Crystal Lake" and smallfish.zones[1429] == 1, "a catch in open water: where, when, by day, once per window")
 check(said("a new catch: |cffffd100|Hfieldjournal:f6291|h[Raw Brilliant Smallfish]|h|r"), "… announced in chat, with a link")
-state.hour = 22
+state.hour = 19 -- night from 6 PM, the Nightfin's hours
 lootWindow({ { link(6358, "Oily Blackmouth"), { SCHOOL, 1 } } })
 check(fish(6358) and fish(6358).school == 1 and fish(6358).night == 1, "a catch from a school, by night")
 lootWindow({ { link(6364, "32 Pound Catfish"), { BOBBER, 1 } } })
@@ -674,6 +674,7 @@ check(FieldJournalFrame.selectedTab == ns.TAB.plants and fpage.title.text == "Th
 rowNamed("Peacebloom").scripts.OnClick(rowNamed("Peacebloom"))
 check(fpage.sub.text == "Herbalism 1" and pairNamed("Gathered") == "2" and pairNamed("Looted") == "1"
   and pairNamed("First"):find("(gathered)", 1, true), "an herb's page: its rank, how it was taken")
+check(fpage.note.shown and fpage.note.text:find("The first flower most herbalists ever pick", 1, true), "… and the naturalist's note")
 FieldJournalFrame:Hide()
 linkHandlers.fieldjournal("fieldjournal:f6291")
 check(FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.fish and fpage.title.text == "Raw Brilliant Smallfish",

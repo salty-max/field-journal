@@ -239,6 +239,34 @@ type Herb = { id: number; name: string; skill: number | null; zones: string[]; d
 type Fish = { id: number; name: string; kind: string; zones: string[]; subzones: string[]; dungeons: string[]; schoolIds: number[]; season?: string; weights?: { id: number; pounds: number }[] };
 const flora: { herbs: Herb[]; fish: Fish[]; schools: number[] } = JSON.parse(readFileSync(join(ROOT, "data/flora.json"), "utf8"));
 
+// The naturalist's notes on them: notes/herbs.md and notes/fish.md, one
+// "## <item id> <name>" heading per kind, then paragraphs; plain ASCII. Every
+// herb and fish must have one, and no note may name a kind the data lacks.
+function floraNotes(file: string, kinds: { id: number; name: string }[]) {
+  const source = readFileSync(file, "utf8");
+  const odd = source.match(/[^\x00-\x7f]/);
+  if (odd) fail(file, `non-ASCII character "${odd[0]}"`);
+  const notes = new Map<number, string[]>();
+  const byId = new Map(kinds.map((k) => [k.id, k.name]));
+  for (const part of source.replace(/<!--[\s\S]*?-->/g, "").split(/^## /m).slice(1)) {
+    const [head, ...rest] = part.split("\n");
+    const m = head.match(/^(\d+) (.+)$/);
+    if (!m) { fail(file, `a heading without "<id> <name>": ${head}`); continue; }
+    const id = Number(m[1]);
+    if (!byId.has(id)) fail(file, `no kind ${id} (${m[2]}) in data/flora.json`);
+    else if (byId.get(id) !== m[2].trim()) fail(file, `${id} is ${byId.get(id)}, not ${m[2]}`);
+    if (notes.has(id)) fail(file, `${id} has two notes`);
+    const paras = rest.join("\n").trim().split(/\n\s*\n/).map((p) => p.replace(/\s*\n\s*/g, " ").trim()).filter(Boolean);
+    if (!paras.length) fail(file, `${id} ${m[2]}: an empty note`);
+    notes.set(id, paras);
+  }
+  for (const k of kinds) if (!notes.has(k.id)) fail(file, `no note for ${k.id} ${k.name}`);
+  return notes;
+}
+const herbNotes = floraNotes(join(ROOT, "notes/herbs.md"), flora.herbs);
+const fishNotes = floraNotes(join(ROOT, "notes/fish.md"), flora.fish);
+const noteLua = (paras?: string[]) => (paras ? `, note = { ${paras.map(q).join(", ")} }` : "");
+
 function floraLua(client: string) {
   const { zones } = JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8")) as { zones: Zone[] };
   const byName = new Map(zones.map((z) => [z.name, z.id]));
@@ -258,12 +286,12 @@ function floraLua(client: string) {
   -- entry, pounds }), and every school (fishing hole object id)
   flora = {
     herbs = {
-${flora.herbs.map((h) => `      [${h.id}] = { name = ${q(h.name)}, skill = ${Math.max(1, h.skill ?? 1)}, zones = { ${ids(h.zones, h.name).join(", ")} }, dungeons = ${list(h.dungeons)}${h.inside ? ", inside = true" : ""} },`).join("\n")}
+${flora.herbs.map((h) => `      [${h.id}] = { name = ${q(h.name)}, skill = ${Math.max(1, h.skill ?? 1)}, zones = { ${ids(h.zones, h.name).join(", ")} }, dungeons = ${list(h.dungeons)}${h.inside ? ", inside = true" : ""}${noteLua(herbNotes.get(h.id))} },`).join("\n")}
     },
     herbOrder = { ${[...flora.herbs].sort((a, b) => (a.skill ?? 1) - (b.skill ?? 1) || a.name.localeCompare(b.name)).map((h) => h.id).join(", ")} },
     herbNodes = { ${[...nodes].map(([n, h]) => `[${n}]=${h}`).join(", ")} },
     fish = {
-${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.kind)}, zones = { ${ids(f.zones, f.name).join(", ")} }, subzones = ${list(f.subzones)}, dungeons = ${list(f.dungeons)}${f.season ? `, season = ${q(f.season)}` : ""} },`).join("\n")}
+${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.kind)}, zones = { ${ids(f.zones, f.name).join(", ")} }, subzones = ${list(f.subzones)}, dungeons = ${list(f.dungeons)}${f.season ? `, season = ${q(f.season)}` : ""}${noteLua(fishNotes.get(f.id))} },`).join("\n")}
     },
     fishOrder = { ${flora.fish.map((f) => f.id).join(", ")} },
     weights = { ${flora.fish.flatMap((f) => (f.weights ?? []).map((w) => `[${w.id}]={ ${f.id}, ${w.pounds} }`)).join(", ")} },
