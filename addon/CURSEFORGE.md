@@ -48,7 +48,7 @@ Each game has its own file: pick the one for yours (the CurseForge app does it f
 
 ## Settings
 
-Options → AddOns → Explorer's Field Journal (or `/journal settings`, or right-click the minimap button): chat announcements, the trophy sound, milestone alerts, tooltip hints, the minimap button.
+Options → AddOns → Explorer's Field Journal (or `/journal settings`, or right-click the minimap button): chat announcements, the trophy sound, milestone alerts, deaths and close calls on the world map, tooltip hints, the minimap button.
 
 Other commands: `/journal reset` starts a character's journal over; `/journal minimap` shows or hides the button.
 
