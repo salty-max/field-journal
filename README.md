@@ -3,7 +3,8 @@
 A World of Warcraft addon: **an Explorers' League field journal that fills in
 as you travel.** The first book is the **Bestiary**: every creature you meet,
 slay and loot, sorted into families, each with a League naturalist's note.
-The **Atlas** (places, roads, flights, deaths) comes next.
+Then **Fish** and **Plants** (every catch and every herb, each with a note),
+the **Atlas** (places, roads, flights, deaths) and the **Milestones**.
 
 For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of
 Warcraft: Forever. Each game has its own package.

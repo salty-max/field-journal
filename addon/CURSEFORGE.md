@@ -27,13 +27,17 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 - A Trophies page for the rares and bosses you have brought down.
 - No spoilers: only what you have met is listed, and nothing says how much remains.
 
+## Fish and Plants
+
+Two tabs for what the land and the water give. **Fish**: every catch, with where and when it bit, by day or by night, from a school or open water, and for the weighed catches (the 32 Pound Catfish...) the heaviest you landed. **Plants**: every herb that reaches your bags, gathered from its node, looted, bought or given. Each of the 30 herbs and 32 fish has a naturalist's note (where it grows or bites, what it is used for), and its page says where it is found once you have found it. Each zone's Atlas page lists what grows and bites there.
+
 ## The Atlas
 
-A second book in the same journal: every zone you have entered, by continent, and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), the zone's own map with the parts you have explored and the places you died or came close, and your record of it: first visit, places, deaths, close calls, flights. Your deaths and close calls also show on the game's world map (a setting).
+Another book in the same journal: every zone you have entered, by continent, and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), the zone's own map with the parts you have explored and the places you died or came close, and your record of it: first visit, places, deaths, close calls, flights. Your deaths and close calls also show on the game's world map (a setting).
 
 ## Milestones
 
-A third tab: tallies (kinds recorded, families met, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, and for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
+The last tab: tallies (kinds recorded, families met, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived; and for fishing and herbs: kinds and counts, Nat Pagle's four rare fish, a school of each kind, both seasons, Nightfin by night and Sunscale by day, the Black Lotus, every fish of a continent's waters, every herb of a zone. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
 
 ## Two packages
 
