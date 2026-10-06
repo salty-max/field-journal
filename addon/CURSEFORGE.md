@@ -1,8 +1,10 @@
-# Explorer's Field Journal
+# Explorer's Field Journal: Bestiary, Atlas & Fishing
 
-<!-- Project description for curseforge.com (paste as the project's description). -->
+<!-- Project description for curseforge.com (paste as the project's description).
+The project's title on CurseForge: "Explorer's Field Journal: Bestiary, Atlas &
+Fishing" (the addon's own name stays Explorer's Field Journal). -->
 
-**A bestiary and an atlas that fill in as you travel.** A naturalist of the Explorers' League has left you a field journal: target or mouse over a creature of the wild and it is written down, with what you have learned of it. Slay it, loot it, take its trophy if it is rare, and the journal keeps the count.
+**A bestiary, an atlas, and a record of the fish you catch and the herbs you gather, filled in as you travel.** A naturalist of the Explorers' League has left you a field journal: target or mouse over a creature of the wild and it is written down, with what you have learned of it. Slay it, loot it, take its trophy if it is rare, and the journal keeps the count.
 
 For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever. A companion to [Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex), in the same League's hand.
 

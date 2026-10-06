@@ -1,4 +1,4 @@
-# Explorer's Field Journal
+# Explorer's Field Journal: Bestiary, Atlas & Fishing
 
 A World of Warcraft addon: **an Explorers' League field journal that fills in
 as you travel.** The first book is the **Bestiary**: every creature you meet,
