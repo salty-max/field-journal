@@ -28,15 +28,17 @@ Warcraft: Forever. One source, one package per game, as Lorekeeper's Codex
 
 ### What a character records (SavedVariablesPerCharacter)
 
-Per creature id, from the first meeting on:
+Per creature id, from its first kill on (7 October 2026: before, from the
+first meeting); what was seen of it before (`seen`) comes with it:
 
 - **Met:** first and last time, level and place (zone, subzone, map, x/y).
   Meeting = targeting or mousing over it.
 - **Levels seen** (lowest, highest) and **places seen** (subzones, up to a few).
-- **Slain:** count, first and last. Classic: the combat log's `PARTY_KILL` by
-  the player or the pet. Forever (no combat log for addons): a kill is counted
-  when its corpse is looted or targeted dead after a fight; less exact, said
-  so in the book.
+- **Slain:** count, first and last: the player's or the pet's killing blow,
+  from `PARTY_KILL` (killer, victim), an event of its own on Forever and
+  Classic since 1.15.9; else the combat log's line; else loot and dead
+  targets fought. On Forever, creature identity is secret inside instances
+  (Midnight's rules): nothing there can be recorded.
 - **Loot:** items taken from its corpses, with counts (`LOOT_OPENED`,
   `GetLootSourceInfo` names the corpse).
 - **Trophy:** rares and bosses get a mark, the date and level of the kill.

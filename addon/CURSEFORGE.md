@@ -16,18 +16,19 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 
 ## How it works
 
-- Creatures are recorded on their own: target them or pass the mouse over them. Only creatures you can fight are kept: no town folk, no critters.
+- A creature joins your journal the first time you slay it, with where you first saw it and its levels. Only creatures you can fight are kept: no town folk, no critters.
 - Each new creature is announced by a line in chat, with a link to its page. No banner, no sound: the journal stays out of your way.
-- Kills count when you or your pet land them. Rares and bosses become trophies, with a sound.
+- Kills count when you or your pet land them, however they were dealt: a DoT, an area spell, a creature you never targeted. Rares and bosses become trophies, with a sound.
+- On World of Warcraft: Forever, creatures inside dungeons and raids are hidden from every addon by the game: they can't be recorded there.
 - Each character keeps its own journal.
 - Tooltips say when a creature is not yet in your journal, or how many you have slain.
 
 ## The book
 
-- `/journal` (or `/fj`), or the book by the minimap, opens it: the creature types on the left, their families and the creatures met in each; on the right, a family's note or a creature's page, with the game's own portrait of it.
+- `/journal` (or `/fj`), or the book by the minimap, opens it: the creature types on the left, their families and the creatures in each; on the right, a family's note or a creature's page, with the game's own portrait of it.
 - Search by family or creature name; types and families fold.
 - A Trophies page for the rares and bosses you have brought down.
-- No spoilers: only what you have met is listed, and nothing says how much remains.
+- No spoilers: only what you have slain is listed, and nothing says how much remains.
 
 ## Fish and Plants
 
@@ -39,7 +40,7 @@ Another book in the same journal: every zone you have entered, by continent, and
 
 ## Milestones
 
-The last tab: tallies (kinds recorded, families met, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived; and for fishing and herbs: kinds and counts, Nat Pagle's four rare fish, a school of each kind, both seasons, Nightfin by night and Sunscale by day, the Black Lotus, every fish of a continent's waters, every herb of a zone. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
+The last tab: tallies (kinds recorded, families, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived; and for fishing and herbs: kinds and counts, Nat Pagle's four rare fish, a school of each kind, both seasons, Nightfin by night and Sunscale by day, the Black Lotus, every fish of a continent's waters, every herb of a zone. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
 
 ## Two packages
 

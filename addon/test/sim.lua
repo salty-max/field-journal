@@ -35,8 +35,14 @@ function UnitName(u)
   local id = (u == "target" and state.target) or (u == "mouseover" and state.mouseover)
   return id and NAMES[id] or nil
 end
-local function creature(id) return ("Creature-0-4170-0-12-%d-0000ABCDEF"):format(id) end
+local function creature(id, n) return ("Creature-0-4170-0-12-%d-%010X"):format(id, n or 0xABCDEF) end
 local PLAYER, PET = "Player-6113-0ABCDEF0", "Pet-0-4170-0-12-1860-0100ABCDEF"
+-- the unit a GUID is now, if any (the target or the mouseover, by creature)
+function UnitTokenFromGUID(guid)
+  local id = tonumber(guid:match("^Creature%-%d+%-%d+%-%d+%-%d+%-(%d+)"))
+  if id and id == state.target then return "target" end
+  if id and id == state.mouseover then return "mouseover" end
+end
 function UnitGUID(u)
   if u == "player" then return PLAYER end
   if u == "pet" then return PET end
@@ -156,6 +162,9 @@ function CreateFrame(kind, name)
   f.registered = {}
   f.RegisterEvent = function(self, e)
     if FOREVER and e == "COMBAT_LOG_EVENT_UNFILTERED" then error("COMBAT_LOG_EVENT_UNFILTERED: forbidden") end
+    -- (PARTY_KILL, an event of its own on Forever; the Classic run plays a
+    -- client without it, its kills from the combat log)
+    if not FOREVER and e == "PARTY_KILL" then error("Attempt to register unknown event \"PARTY_KILL\"") end
     self.registered[e] = true
   end
   table.insert(frames, f)
@@ -283,78 +292,72 @@ local function target(id) state.target = id; fire("PLAYER_TARGET_CHANGED") end
 FieldJournalChar = { guid = "Player-6113-0DEAD000", creatures = { [1131] = { name = "Winter Wolf" } }, families = {} }
 fire("PLAYER_LOGIN")
 check(FieldJournalChar.guid == PLAYER and not rec(1131), "a new character named like a deleted one starts a fresh journal")
-check(FOREVER == (ns.meetKills == true) and FOREVER == (events.registered.COMBAT_LOG_EVENT_UNFILTERED == nil),
-  FOREVER and "Forever: no combat log, loot and dead targets count" or "Classic: kills come from the combat log")
+check(ns.partyKill == FOREVER and not ns.meetKills and FOREVER == (events.registered.COMBAT_LOG_EVENT_UNFILTERED == nil),
+  FOREVER and "Forever: kills come from PARTY_KILL (no combat log)" or "Classic (a client without PARTY_KILL): kills come from the combat log")
 check(D.client == (FOREVER and "forever" or "classic"), "each game's data file is its own")
 
+local function seen(id) return FieldJournalChar.seen and FieldJournalChar.seen[id] end
 target(1131)
-check(rec(1131) and rec(1131).name == "Winter Wolf" and rec(1131).low == 7 and rec(1131).first.zone == "Dun Morogh", "targeting a creature records it, with its level and where")
-check(said("|cffffd100|Hfieldjournal:c1131|h[Winter Wolf]|h|r recorded (Wolves, a new family).") and sounds == 0,
-  "a new creature is announced in chat with a link to its page (and its new family), without a sound")
+check(seen(1131) and seen(1131).name == "Winter Wolf" and seen(1131).low == 7 and seen(1131).first.zone == "Dun Morogh" and not rec(1131)
+  and not said("recorded"), "targeting a creature notes it (its level, where), not yet in the book: it joins on its first kill")
 state.mouseover = 1133
 fire("UPDATE_MOUSEOVER_UNIT")
-check(rec(1133) and said("[Starving Winter Wolf]|h|r recorded (Wolves).") and sounds == 0, "every new creature gets its line, the family only once")
-printed = {}
-fire("UPDATE_MOUSEOVER_UNIT")
-check(#printed == 0, "… and only the first time it's met")
+check(seen(1133) and not rec(1133), "… and so does mousing over one")
 state.sub = "Coldridge Pass"
 target(1131)
-check(#rec(1131).places == 2 and rec(1131).places[2] == "Dun Morogh: Coldridge Pass", "a creature remembers the places it was met")
+check(#seen(1131).places == 2 and seen(1131).places[2] == "Dun Morogh: Coldridge Pass", "a creature remembers the places it was met")
 
--- Slaying.
-local function kill(id)
+-- Slaying: my killing blow or my pet's, however dealt.
+local spawn = 0
+local function kill(id, tapped)
+  spawn = spawn + 1
+  local guid = creature(id, spawn)
   if FOREVER then
-    -- as it's played: chosen first, then the fight (its health falling), and
-    -- it dies still targeted (no new target, no loot)
+    -- as it's played: chosen first, then the fight, and it dies; PARTY_KILL
+    -- names the killer (not this character when another hit it first)
     state.target = id
     fire("PLAYER_TARGET_CHANGED")
-    inCombat = true
-    fire("UNIT_HEALTH", "target")
-    inCombat = false; deadTarget = true
-    fire("UNIT_HEALTH", "target")
-    deadTarget = false
+    if not tapped then fire("PARTY_KILL", PLAYER, guid) end
     return
   end
-  combatLog = { clock, "PARTY_KILL", false, PLAYER, "Thorin", 0, 0, creature(id), "?", 0, 0 }
+  combatLog = { clock, "PARTY_KILL", false, tapped and "Player-6113-0FFFFFFF" or PLAYER, "Thorin", 0, 0, guid, "?", 0, 0 }
   fire("COMBAT_LOG_EVENT_UNFILTERED")
-end
-if FOREVER then
-  -- someone else's kill lying about: never fought, targeted dead
-  state.target = 1131; deadTarget = true
-  fire("PLAYER_TARGET_CHANGED")
-  deadTarget = false
-  check(not rec(1131).slain, "Forever: a corpse this character didn't fight doesn't count")
 end
 kill(1131)
-check(rec(1131).slain == 1 and rec(1131).firstSlain.level == 3, "slaying a creature counts it, with when and at what level")
+check(rec(1131) and rec(1131).slain == 1 and rec(1131).firstSlain.level == 3 and not seen(1131), "slaying a creature puts it in the book, counted, with when and at what level")
+check(rec(1131).first.zone == "Dun Morogh" and #rec(1131).places == 2, "… with what was seen of it before")
+check(said("|cffffd100|Hfieldjournal:c1131|h[Winter Wolf]|h|r recorded (Wolves, a new family).") and sounds == 0,
+  "… announced in chat with a link to its page (and its new family), without a sound")
+printed = {}
+kill(1133)
+check(rec(1133) and said("[Starving Winter Wolf]|h|r recorded (Wolves).") and sounds == 0, "every new creature gets its line, the family only once")
+printed = {}
+kill(1131)
+check(#printed == 0 and rec(1131).slain == 2, "… and only the first time it's slain")
+kill(1134, true)
+check(not rec(1134), "a creature someone else killed isn't this character's")
 if FOREVER then
-  -- fought, but someone else hit it first: not this character's
-  state.tapped = true
-  kill(1133)
-  state.tapped = nil
-  check(rec(1133) and not rec(1133).slain, "Forever: a creature someone else claimed doesn't count")
-end
-if not FOREVER then
-  combatLog = { clock, "PARTY_KILL", false, "Player-6113-0FFFFFFF", "Other", 0, 0, creature(1131), "?", 0, 0 }
+  -- a DoT's kill, the creature no longer targeted; my pet's
+  state.target = 1131
+  fire("PLAYER_TARGET_CHANGED")
+  spawn = spawn + 1
+  fire("PARTY_KILL", PLAYER, creature(1133, spawn))
+  spawn = spawn + 1
+  fire("PARTY_KILL", PET, creature(1133, spawn))
+  check(rec(1133).slain == 3, "Forever: a DoT's kill, the creature not targeted, counts, and a pet's")
+else
+  combatLog = { clock, "PARTY_KILL", false, PET, "Pet", 0, 0, creature(1131, 99), "?", 0, 0 }
   fire("COMBAT_LOG_EVENT_UNFILTERED")
-  check(rec(1131).slain == 1, "someone else's kill doesn't count")
-  combatLog = { clock, "PARTY_KILL", false, PET, "Pet", 0, 0, creature(1131), "?", 0, 0 }
-  fire("COMBAT_LOG_EVENT_UNFILTERED")
-  check(rec(1131).slain == 2, "your pet's does")
+  check(rec(1131).slain == 3, "your pet's kill counts")
 end
 local before = rec(1131).slain
 
 -- Loot: the loot window names the corpse.
-local corpse = creature(1131) .. "-corpse"
-loot = { { "|cffffffff|Hitem:2672::::::::3:::::|h[Stringy Wolf Meat]|h|r", { corpse, 1 } }, { "|cff9d9d9d|Hitem:3300::::::::3:::::|h[Rabbit's Foot]|h|r", { corpse, 2 } } }
--- the GUID parser takes the 6th field: keep the corpse a valid creature GUID
-loot[1][2][1] = creature(1131); loot[2][2][1] = creature(1131)
+loot = { { "|cffffffff|Hitem:2672::::::::3:::::|h[Stringy Wolf Meat]|h|r", { creature(1131, 1), 1 } }, { "|cff9d9d9d|Hitem:3300::::::::3:::::|h[Rabbit's Foot]|h|r", { creature(1131, 1), 2 } } }
 fire("LOOT_OPENED")
 fire("LOOT_OPENED")
 check(rec(1131).loot[2672] == 1 and rec(1131).loot[3300] == 2, "looting records what each creature gave, once per corpse")
-if FOREVER then
-  check(rec(1131).slain == before, "Forever: the dead target and its loot count as one kill")
-end
+check(rec(1131).slain == before, "… and a corpse looted isn't another kill")
 
 -- A rare: a trophy.
 printed = {}
@@ -369,18 +372,34 @@ AchievementShield_OnLoad(shield)
 check(toasted[1] and toasted[1].Name.text == "First Trophy" and shield.Saturate and shield.Desaturate,
   "… and the game's achievement toast, its shield's OnLoad stood in at load (the game's own toasts need it too)")
 
--- Creatures the data doesn't know (Forever's new ones).
+-- Creatures the data doesn't know (Forever's new ones): filed by what was seen.
 target(99003)
+kill(99003)
 check(rec(99003) and ns.familyTitle(ns.familyKey(99003)) == "Great Cats", "a creature the data doesn't know is filed by its beast family (a Cat: the great cats)")
 check(said("[Snow Leopard Prowler]|h|r recorded (Great Cats, a new family)."), "… and announced under it")
 target(99001)
+kill(99001)
 check(ns.familyTitle(ns.familyKey(99001)) == "Other Beasts", "… a beast of a family the book has no page for, with the other beasts")
 target(99004)
-check(not rec(99004), "… and no critter")
+check(not seen(99004), "… and no critter")
 target(99002)
-check(not rec(99002), "… unless it can't be fought (friendly folk)")
+check(not seen(99002), "… unless it can't be fought (friendly folk)")
 target(1124)
-check(not rec(1124), "a creature the data knows isn't recorded while it can't be fought either")
+check(not seen(1124), "a creature the data knows isn't noted while it can't be fought either")
+
+-- A journal from before (creatures joined on meeting): the ones never slain
+-- go back to what was seen, once.
+do
+  local saved = FieldJournalChar
+  FieldJournalChar = { guid = PLAYER, creatures = { [1131] = { name = "Winter Wolf", slain = 4 }, [1135] = { name = "Old Sighting" } },
+    families = { [ns.familyKey(1131)] = { at = 1 }, ["only-met"] = { at = 2 } } }
+  fire("PLAYER_LOGIN")
+  local j = FieldJournalChar
+  check(j.creatures[1131] and not j.creatures[1135] and j.seen[1135] and j.families[ns.familyKey(1131)] and not j.families["only-met"] and j.killRule,
+    "an older journal: creatures never slain become sightings, their families with them, once")
+  FieldJournalChar = saved
+  fire("PLAYER_LOGIN")
+end
 
 -- ── the atlas ────────────────────────────────────────────────────────────────
 -- Only places a character can discover: not the capitals drawn on their zone's

@@ -425,7 +425,7 @@ local function showFamily(key, keep)
     for _, s in ipairs(D.sections) do
       if family and s.id == family.section then section = s.title end
     end
-    header(ns.familyTitle(key), joined({ section, ("%d met"):format(#ids) }), function(p)
+    header(ns.familyTitle(key), joined({ section, ("%d slain"):format(#ids) }), function(p)
       if ids[1] then setPortrait(p, ids[1], journal.creatures[ids[1]]) else icon(QUESTION)(p) end
     end)
     intro = family and #family.note > 0 and table.concat(family.note, "\n\n")
@@ -435,7 +435,7 @@ local function showFamily(key, keep)
   page.body:Show()
   local y = HEADER_H + page.body:GetStringHeight() + 22
   local h = heading(1)
-  h.text:SetText(key == TROPHIES and "The trophy shelf" or "Met in the wild")
+  h.text:SetText(key == TROPHIES and "The trophy shelf" or "Slain in the wild")
   h:ClearAllPoints()
   h:SetPoint("TOPLEFT", page.child, "TOPLEFT", 0, -y)
   h:Show()

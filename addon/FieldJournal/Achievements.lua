@@ -1,4 +1,4 @@
--- Milestones: the journal's achievements. Tallies (kinds met, families met,
+-- Milestones: the journal's achievements. Tallies (kinds slain, families,
 -- creatures slain, trophies), one per creature type (every family of it met),
 -- feats, one per zone (every rare of it slain), the Atlas's, and the fish and
 -- herbs' (tallies, feats, every fish of a continent, every herb of a zone). Each character earns its
@@ -97,7 +97,7 @@ for _, t in ipairs({ { 10, "First Sketches" }, { 50, "A Notebook Half Full" }, {
 end
 for _, t in ipairs({ { 10, "Branches of the Tree" }, { 25, "Twenty-Five Families" }, { 50, "Half a Hundred Families" },
   { 75, "The Great Tree of Life" } }) do
-  add("tally", "families-" .. t[1], t[2], ("Meet creatures of %d families."):format(t[1]), function() return familiesMet(), t[1] end)
+  add("tally", "families-" .. t[1], t[2], ("Slay creatures of %d families."):format(t[1]), function() return familiesMet(), t[1] end)
 end
 for _, t in ipairs({ { 100, "Blooded" }, { 500, "Hunter" }, { 1000, "A Thousand Kills" },
   { 5000, "Scourge of the Wild" }, { 10000, "Ten Thousand Kills" } }) do
@@ -119,7 +119,7 @@ for _, s in ipairs(D.sections) do
   local indexes = sectionFamilies(s.id)
   if #indexes > 0 then
     add("type", "type-" .. s.id, SECTION_TITLES[s.id] or s.title,
-      ("Meet a creature of every family of %s."):format(s.title == "Humanoids" and "humanoids" or s.title:lower()),
+      ("Slay a creature of every family of %s."):format(s.title == "Humanoids" and "humanoids" or s.title:lower()),
       function() return familiesMetIn(indexes), #indexes end,
       { visible = function() return familiesMetIn(indexes) > 0 end })
   end
@@ -132,27 +132,27 @@ add("feat", "hogger", "Hogger's End", "Slay Hogger, the terror of Elwynn.", func
 add("feat", "kobolds-50", "You No Take Candle", "Slay 50 kobolds.", function() return slainIn("kobolds"), 50 end)
 add("feat", "murlocs-100", "Mrrgllglrgl!", "Slay 100 murlocs.", function() return slainIn("murlocs"), 100 end)
 add("feat", "rare-elites-10", "Elite Company", "Slay 10 rare elites.", function() return trophyCount("R"), 10 end)
-add("feat", "every-type", "A Little of Everything", "Meet a creature of every type in the book.", function()
+add("feat", "every-type", "A Little of Everything", "Slay a creature of every type in the book.", function()
   local n = 0
   for _, s in ipairs(D.sections) do
     if familiesMetIn(sectionFamilies(s.id)) > 0 then n = n + 1 end
   end
   return n, #D.sections
 end)
-add("feat", "dragonflights", "Every Colour of Dragon", "Meet a dragon of each of the five dragonflights.", function()
+add("feat", "dragonflights", "Every Colour of Dragon", "Slay a dragon of each of the five dragonflights.", function()
   local families = char() and char().families or {}
   local n = 0
   for _, f in ipairs(DRAGONFLIGHTS) do if familyIndex[f] and families[familyIndex[f]] then n = n + 1 end end
   return n, #DRAGONFLIGHTS
 end)
-add("feat", "nightmare", "The Emerald Nightmare", "Meet the four dragons of the Nightmare: Ysondre, Lethon, Emeriss and Taerar.",
+add("feat", "nightmare", "The Emerald Nightmare", "Slay the four dragons of the Nightmare: Ysondre, Lethon, Emeriss and Taerar.",
   function() return count(NIGHTMARE, met), #NIGHTMARE end)
 add("feat", "world-terror", "Terror of the Wild", "Slay Azuregos or Lord Kazzak.",
   function() return (slain(6109) or slain(12397)) and 1 or 0, 1 end)
 add("feat", "onyxia", "Into the Lair", "Slay Onyxia.", function() return slain(10184) and 1 or 0, 1 end)
 add("feat", "ragnaros", "The Firelord Falls", "Slay Ragnaros.", function() return slain(11502) and 1 or 0, 1 end)
 
--- One per zone: every rare of it slain (shown once one of them is met).
+-- One per zone: every rare of it slain (shown once one of them is).
 local function zoneName(uiMap, zone)
   local info = C_Map and C_Map.GetMapInfo and C_Map.GetMapInfo(uiMap)
   return info and info.name or zone.name

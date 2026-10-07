@@ -11,18 +11,18 @@ Warcraft: Forever. Each game has its own package.
 
 ## In game
 
-- Target or mouse over a creature of the wild: it's recorded, with its level
-  and where you met it, and a chat line links to its entry (no sound, no
-  banner).
+- Slay a creature of the wild and it joins the journal, with its level and
+  where you first saw it, and a chat line links to its entry (no sound, no
+  banner). Your kills and your pet's count however they were dealt: a DoT,
+  an area spell, a creature you never targeted.
 - Slain counts, loot taken from each kind of creature, and trophies for rares
-  and bosses (with a sound). On Forever, which closes the combat log to
-  addons, a kill counts when you loot the corpse, or target the corpse of a
-  creature you fought.
+  and bosses (with a sound). On Forever, creatures inside dungeons and raids
+  are hidden from every addon: they can't be recorded there.
 - `/journal` (or `/fj`, or the book by the minimap) opens the Bestiary:
   creature types and the families you've met, a page per family with the
   naturalist's note and an entry per creature: its 3D portrait, its levels,
   where you met it, how many you've slain and what it dropped. Search, folding,
-  trophies. No spoilers: only what you've met.
+  trophies. No spoilers: only what you've slain.
 - Tooltips say "not yet recorded" or how many you've slain.
 - Settings: Options → AddOns → Explorer's Field Journal (`/journal settings`).
   `/journal reset` starts a character's journal over.

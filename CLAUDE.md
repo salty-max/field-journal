@@ -42,8 +42,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
 - `scripts/package.ts` (`bun run package`): `dist/classic`, `dist/forever`,
   one installable addon per game (its data file as `Data.lua`, its TOC from
   the `@INTERFACE@` template: the source folder is not installable).
-- `addon/FieldJournal/`: `Core.lua` (records: meet on target/mouseover, slay
-  from the combat log or on Forever from loot/dead targets it fought, loot from
+- `addon/FieldJournal/`: `Core.lua` (records: a creature met (target,
+  mouseover) is a sighting (`seen`), it joins the book on its first kill;
+  kills from `PARTY_KILL` (an event of its own on Forever and Classic since
+  1.15.9), else the combat log, else loot and dead targets fought; loot from
   the loot window, trophies; a chat line per new creature, a sound only for
   trophies; `/journal`), `Achievements.lua` (milestones: tallies, every family
   of a type, feats, every rare of a zone; the game's achievement toast, fanfare

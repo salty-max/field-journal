@@ -30,7 +30,12 @@ ns.secret = secret
 --     loot = { [itemId] = count }
 --     trophy = { at, level, rank }   a rare's or a boss's first kill
 --   }
---   families[familyKey] = { at, level }   when each family was first met
+--   families[familyKey] = { at, level }   when each family was first slain
+--   seen[id] = { name, type, family, first, last, low, high, places }
+--                              met but not yet slain: a creature joins the
+--                              book (creatures, families) on its first kill,
+--                              with what was seen of it before
+--   killRule                   journals from before that rule, set right once
 local char
 
 local MAX_PLACES = 6
@@ -128,8 +133,9 @@ local function attackable(unit)
   return secret(ok) or ok == true
 end
 
--- Meets the unit's creature (target or mouseover): records it, and announces
--- it in chat (a link to its page; no sound). Returns the creature's id.
+-- Meets the unit's creature (target or mouseover): what is seen of it (where,
+-- its levels) is noted; it joins the book on its first kill (slay). Returns
+-- the creature's id.
 local function meet(unit)
   if not char or not UnitExists(unit) or UnitIsPlayer(unit) then return end
   local id = creatureId(UnitGUID(unit))
@@ -137,28 +143,23 @@ local function meet(unit)
   local known = D.creatures[id] ~= nil
   local rec = char.creatures[id]
   if not rec then
-    -- Only creatures this character could fight: a stable's mounts, a town's
-    -- folk or a foe still friendly before its script turns it aren't game.
-    if not attackable(unit) then return end
-    local name = UnitName(unit)
-    rec = { name = not secret(name) and name or nil }
-    if not known then
-      local ctype, cfam = UnitCreatureType(unit), UnitCreatureFamily(unit)
-      if secret(ctype) or not ns.knownType(ctype) then return end
-      rec.type = ctype
-      rec.family = not secret(cfam) and cfam or nil
+    char.seen = char.seen or {}
+    rec = char.seen[id]
+    if not rec then
+      -- Only creatures this character could fight: a stable's mounts, a town's
+      -- folk or a foe still friendly before its script turns it aren't game.
+      if not attackable(unit) then return end
+      local name = UnitName(unit)
+      rec = { name = not secret(name) and name or nil }
+      if not known then
+        local ctype, cfam = UnitCreatureType(unit), UnitCreatureFamily(unit)
+        if secret(ctype) or not ns.knownType(ctype) then return end
+        rec.type = ctype
+        rec.family = not secret(cfam) and cfam or nil
+      end
+      rec.first = here()
+      char.seen[id] = rec
     end
-    local h = here()
-    rec.first = h
-    char.creatures[id] = rec
-    local key = ns.familyKey(id, rec)
-    local newFamily = key and not char.families[key]
-    if newFamily then char.families[key] = { at = h.at, level = h.level } end
-    if ns.option("chat") and key then
-      print(PREFIX .. ("|cffffd100|Hfieldjournal:c%d|h[%s]|h|r recorded (%s%s)."):format(
-        id, rec.name or "?", ns.familyTitle(key), newFamily and ", a new family" or ""))
-    end
-    if ns.checkMilestones then ns.checkMilestones() end
   end
   local h = here()
   rec.last = h
@@ -168,7 +169,7 @@ local function meet(unit)
     rec.high = math.max(rec.high or level, level)
   end
   addPlace(rec, h)
-  if ns.onRecord then ns.onRecord(id) end
+  if ns.onRecord and char.creatures[id] then ns.onRecord(id) end
   return id
 end
 ns.meet = meet
@@ -216,19 +217,31 @@ local function once(guid)
   return true
 end
 
-local function slay(id, unit)
-  local rec = char.creatures[id]
+-- A creature's first kill: it joins the book, with what was seen of it
+-- (else, for one the data knows, from here and now), its family with it,
+-- announced in chat (a link to its page; no sound).
+local function join(id, unit)
+  if unit then meet(unit) end
+  local rec = char.seen and char.seen[id]
   if not rec then
-    if unit and meet(unit) then rec = char.creatures[id] end
-    if not rec then
-      -- Slain without having been targeted: known creatures still count.
-      if not D.creatures[id] then return end
-      rec = { first = here() }
-      char.creatures[id] = rec
-      local key = ns.familyKey(id, rec)
-      if key and not char.families[key] then char.families[key] = { at = rec.first.at, level = rec.first.level } end
-    end
+    if not D.creatures[id] then return end -- (one the data doesn't know, never seen: nothing to file it by)
+    rec = { first = here() }
   end
+  if char.seen then char.seen[id] = nil end
+  char.creatures[id] = rec
+  local key = ns.familyKey(id, rec)
+  local newFamily = key and not char.families[key]
+  if newFamily then char.families[key] = { at = time(), level = UnitLevel("player") } end
+  if ns.option("chat") and key then
+    print(PREFIX .. ("|cffffd100|Hfieldjournal:c%d|h[%s]|h|r recorded (%s%s)."):format(
+      id, rec.name or "?", ns.familyTitle(key), newFamily and ", a new family" or ""))
+  end
+  return rec
+end
+
+local function slay(id, unit)
+  local rec = char.creatures[id] or join(id, unit)
+  if not rec then return end
   local stamp = { at = time(), level = UnitLevel("player") }
   rec.slain = (rec.slain or 0) + 1
   rec.firstSlain = rec.firstSlain or stamp
@@ -265,6 +278,21 @@ function handlers.PLAYER_LOGIN()
     char = FieldJournalChar
     char.creatures = char.creatures or {}
     char.families = char.families or {}
+    -- From before a creature joined on its first kill (it joined on meeting):
+    -- the ones never slain go back to what was seen, the families with them.
+    if not char.killRule then
+      char.seen = char.seen or {}
+      for id, rec in pairs(char.creatures) do
+        if not rec.slain then char.seen[id], char.creatures[id] = rec, nil end
+      end
+      local kept = {}
+      for id, rec in pairs(char.creatures) do
+        local key = ns.familyKey(id, rec)
+        if key then kept[key] = true end
+      end
+      for key in pairs(char.families) do if not kept[key] then char.families[key] = nil end end
+    end
+    char.killRule = true
   else
     newJournal(guid)
   end
@@ -302,8 +330,22 @@ handlers.PLAYER_REGEN_DISABLED = function()
   if ns.meetKills then engage("target") end
 end
 
--- Kills: yours or your pet's (the combat log's PARTY_KILL names the killer).
+-- Kills: yours or your pet's, however dealt (a DoT, an area spell, a creature
+-- never targeted, one with no loot). PARTY_KILL (killer, victim) is an event
+-- of its own where the client has it (Forever, Classic since 1.15.9), else a
+-- line of the combat log; secret only in a Forever instance, where no creature
+-- can be told from another.
+local function killed(attacker, victim)
+  if not attacker or secret(attacker) or (attacker ~= UnitGUID("player") and attacker ~= UnitGUID("pet")) then return end
+  local id = creatureId(victim)
+  if not id or not once(victim) then return end
+  -- (the unit it still is, if any: for a creature the data doesn't know)
+  local unit = UnitTokenFromGUID and UnitTokenFromGUID(victim)
+  slay(id, (unit and not secret(unit)) and unit or nil)
+end
+handlers.PARTY_KILL = killed
 function handlers.COMBAT_LOG_EVENT_UNFILTERED()
+  if ns.partyKill then return end -- (told by the event of its own)
   local _, sub, _, source, _, _, _, dest = CombatLogGetCurrentEventInfo()
   if sub ~= "PARTY_KILL" or (source ~= UnitGUID("player") and source ~= UnitGUID("pet")) then return end
   local id = creatureId(dest)
@@ -353,14 +395,19 @@ function ns.on(event, fn)
   end
   table.insert(listeners[event], fn)
 end
--- The combat log, for kills: not on Forever, which forbids it (registering it
--- throws); if any client refuses it, loot and dead targets count instead.
+-- Kills: PARTY_KILL where the client has it; else the combat log (not on
+-- Forever, which forbids it: registering it throws); with neither, loot and
+-- dead targets count instead.
 for event in pairs(handlers) do
-  if event == "COMBAT_LOG_EVENT_UNFILTERED" then
-    if ns.forever or not pcall(frame.RegisterEvent, frame, event) then ns.meetKills = true end
-  else
+  if event == "PARTY_KILL" then
+    ns.partyKill = pcall(frame.RegisterEvent, frame, event)
+  elseif event ~= "COMBAT_LOG_EVENT_UNFILTERED" then
     frame:RegisterEvent(event)
   end
+end
+if not ns.partyKill then
+  local log = not ns.forever and pcall(frame.RegisterEvent, frame, "COMBAT_LOG_EVENT_UNFILTERED")
+  if not log then ns.meetKills = true end
 end
 
 -- ── counts ───────────────────────────────────────────────────────────────────
