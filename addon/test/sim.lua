@@ -192,7 +192,7 @@ local deadTarget = false
 function UnitIsDead(u) return u == "target" and deadTarget end
 local inCombat = false
 function UnitAffectingCombat(u) return inCombat and not (u == "target" and deadTarget) end
-function UnitIsTapDenied() return false end
+function UnitIsTapDenied(u) return u == "target" and state.tapped == true end
 local realUnitLevel = UnitLevel
 function UnitLevel(u)
   if u == "player" then return state.level end
@@ -304,11 +304,14 @@ check(#rec(1131).places == 2 and rec(1131).places[2] == "Dun Morogh: Coldridge P
 -- Slaying.
 local function kill(id)
   if FOREVER then
-    -- the fight: targeted alive while both are in combat, then the corpse
-    state.target = id; inCombat = true
+    -- as it's played: chosen first, then the fight (its health falling), and
+    -- it dies still targeted (no new target, no loot)
+    state.target = id
     fire("PLAYER_TARGET_CHANGED")
+    inCombat = true
+    fire("UNIT_HEALTH", "target")
     inCombat = false; deadTarget = true
-    fire("PLAYER_TARGET_CHANGED")
+    fire("UNIT_HEALTH", "target")
     deadTarget = false
     return
   end
@@ -324,6 +327,13 @@ if FOREVER then
 end
 kill(1131)
 check(rec(1131).slain == 1 and rec(1131).firstSlain.level == 3, "slaying a creature counts it, with when and at what level")
+if FOREVER then
+  -- fought, but someone else hit it first: not this character's
+  state.tapped = true
+  kill(1133)
+  state.tapped = nil
+  check(rec(1133) and not rec(1133).slain, "Forever: a creature someone else claimed doesn't count")
+end
 if not FOREVER then
   combatLog = { clock, "PARTY_KILL", false, "Player-6113-0FFFFFFF", "Other", 0, 0, creature(1131), "?", 0, 0 }
   fire("COMBAT_LOG_EVENT_UNFILTERED")

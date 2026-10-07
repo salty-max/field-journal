@@ -195,6 +195,9 @@ local function engage(unit)
   if not UnitExists(unit) or UnitIsDead(unit) then return end
   local mine, theirs = UnitAffectingCombat("player"), UnitAffectingCombat(unit)
   if secret(mine) or secret(theirs) or not (mine and theirs) or not attackable(unit) then return end
+  -- (one someone else hit first isn't this character's to claim)
+  local claimed = UnitIsTapDenied and UnitIsTapDenied(unit)
+  if claimed and not secret(claimed) then return end
   local guid = UnitGUID(unit)
   if not guid or secret(guid) or engaged[guid] then return end
   engaged[guid] = true
@@ -271,18 +274,25 @@ function handlers.PLAYER_LOGIN()
   if ns.checkMilestones then ns.checkMilestones(true) end
 end
 
-handlers.PLAYER_TARGET_CHANGED = function()
-  meet("target")
+-- Forever (no combat log): a creature this character fought, seen dead as its
+-- target, counts as slain, once per corpse. The target is watched through
+-- the fight (its health, its flags), not only when chosen: mostly it is
+-- chosen before the fight and dies still chosen.
+local function watchTarget()
   if not ns.meetKills then return end
   engage("target")
-  -- Forever (no combat log): a dead creature this character fought counts as
-  -- slain when targeted, once per corpse.
   if UnitExists("target") and UnitIsDead("target") then
     local guid = UnitGUID("target")
     local id = creatureId(guid)
     if id and engaged[guid] and once(guid) then slay(id, "target") end
   end
 end
+handlers.PLAYER_TARGET_CHANGED = function()
+  meet("target")
+  watchTarget()
+end
+handlers.UNIT_HEALTH = function(unit) if unit == "target" then watchTarget() end end
+handlers.UNIT_FLAGS = function(unit) if unit == "target" then watchTarget() end end
 handlers.UPDATE_MOUSEOVER_UNIT = function()
   meet("mouseover")
   if ns.meetKills then engage("mouseover") end
