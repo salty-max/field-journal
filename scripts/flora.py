@@ -194,7 +194,7 @@ def main():
         })
 
     # Where the database lacks spawns the original game had (checked against the
-    # Warcraft Wiki, docs/flora-review.md): added by hand.
+    # Warcraft Wiki): added by hand.
     EXTRA = {"Gromsblood": ["Blasted Lands"]}  # a third of its nodes in the original game
     for h in herbs:
         for z in EXTRA.get(h["name"], []):
