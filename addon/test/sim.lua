@@ -36,6 +36,7 @@ end
 function strtrim(s) return (s:gsub("^%s+", ""):gsub("%s+$", "")) end
 tinsert = table.insert
 function UnitLevel() return state.level end
+function GetLocale() return "enUS" end
 local NAMES = {
   [1131] = "Winter Wolf",
   [1133] = "Starving Winter Wolf",
@@ -403,20 +404,10 @@ C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true end }
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
-for _, f in ipairs({
-  "Core.lua",
-  "Atlas.lua",
-  "Flora.lua",
-  "Achievements.lua",
-  "Book.lua",
-  "AtlasBook.lua",
-  "FloraBook.lua",
-  "WorldMapPins.lua",
-  "Minimap.lua",
-  "Settings.lua",
-  "Hints.lua",
-}) do
-  assert(loadfile(DIR .. f))("FieldJournal", ns)
+-- The files in the TOC's order; Data.lua is the game's own data file.
+for line in io.lines(DIR .. "FieldJournal.toc") do
+  local f = line:match("^([%w_]+%.lua)%s*$")
+  if f and f ~= "Data.lua" then assert(loadfile(DIR .. f))("FieldJournal", ns) end
 end
 local D = ns.data
 local function check(cond, msg)
