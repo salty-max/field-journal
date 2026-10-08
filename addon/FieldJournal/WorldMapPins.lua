@@ -36,7 +36,9 @@ local function create()
   provider = CreateFromMixins(MapCanvasDataProviderMixin)
   provider.pins = {}
   function provider:RemoveAllData()
-    for _, p in ipairs(self.pins) do p:Hide() end
+    for _, p in ipairs(self.pins) do
+      p:Hide()
+    end
   end
   function provider:RefreshAllData()
     self:RemoveAllData()
@@ -76,7 +78,9 @@ function ns.refreshWorldMapPins()
 end
 
 ns.on("PLAYER_LOGIN", function()
-  if WorldMapFrame and WorldMapFrame.AddDataProvider and MapCanvasDataProviderMixin and CreateFromMixins then create() end
+  if WorldMapFrame and WorldMapFrame.AddDataProvider and MapCanvasDataProviderMixin and CreateFromMixins then
+    create()
+  end
 end)
 
 -- A death or close call recorded shows at once on an open map.

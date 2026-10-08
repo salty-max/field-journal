@@ -52,12 +52,36 @@ ns.creatureId = creatureId
 -- game says of them: a beast by its family (Cat: the great cats), anything
 -- else in its type's catch-all page. The game's names are localized: they are
 -- matched through its own lookups, with the English names as a fallback.
-local TYPES = { Beast = 1, Dragonkin = 2, Demon = 3, Elemental = 4, Giant = 5, Undead = 6, Humanoid = 7, Mechanical = 9, NotSpecified = 10 }
+local TYPES = {
+  Beast = 1,
+  Dragonkin = 2,
+  Demon = 3,
+  Elemental = 4,
+  Giant = 5,
+  Undead = 6,
+  Humanoid = 7,
+  Mechanical = 9,
+  NotSpecified = 10,
+}
 local TYPE_NAMES = { NotSpecified = "Not specified" }
 local BEAST_NAMES = {
-  [1] = "Wolf", [2] = "Cat", [3] = "Spider", [4] = "Bear", [5] = "Boar", [6] = "Crocolisk", [7] = "Carrion Bird",
-  [8] = "Crab", [9] = "Gorilla", [11] = "Raptor", [12] = "Tallstrider", [20] = "Scorpid", [21] = "Turtle",
-  [24] = "Bat", [25] = "Hyena", [26] = "Owl", [27] = "Wind Serpent",
+  [1] = "Wolf",
+  [2] = "Cat",
+  [3] = "Spider",
+  [4] = "Bear",
+  [5] = "Boar",
+  [6] = "Crocolisk",
+  [7] = "Carrion Bird",
+  [8] = "Crab",
+  [9] = "Gorilla",
+  [11] = "Raptor",
+  [12] = "Tallstrider",
+  [20] = "Scorpid",
+  [21] = "Turtle",
+  [24] = "Bat",
+  [25] = "Hyena",
+  [26] = "Owl",
+  [27] = "Wind Serpent",
 }
 local byBeast, byType
 local function lookups()
@@ -183,7 +207,13 @@ function ns.rank(id, unit)
   if unit then
     local c = UnitClassification(unit)
     if not secret(c) then
-      if c == "rare" then return "r" elseif c == "rareelite" then return "R" elseif c == "worldboss" then return "b" end
+      if c == "rare" then
+        return "r"
+      elseif c == "rareelite" then
+        return "R"
+      elseif c == "worldboss" then
+        return "b"
+      end
     end
   end
 end
@@ -233,8 +263,15 @@ local function join(id, unit)
   local newFamily = key and not char.families[key]
   if newFamily then char.families[key] = { at = time(), level = UnitLevel("player") } end
   if ns.option("chat") and key then
-    print(PREFIX .. ("|cffffd100|Hfieldjournal:c%d|h[%s]|h|r recorded (%s%s)."):format(
-      id, rec.name or "?", ns.familyTitle(key), newFamily and ", a new family" or ""))
+    print(
+      PREFIX
+        .. ("|cffffd100|Hfieldjournal:c%d|h[%s]|h|r recorded (%s%s)."):format(
+          id,
+          rec.name or "?",
+          ns.familyTitle(key),
+          newFamily and ", a new family" or ""
+        )
+    )
   end
   return rec
 end
@@ -263,9 +300,7 @@ ns.slay = slay
 local frame = CreateFrame("Frame")
 local handlers = {}
 
-function ns.belongsTo(saved, guid)
-  return type(saved) == "table" and saved.guid == guid
-end
+function ns.belongsTo(saved, guid) return type(saved) == "table" and saved.guid == guid end
 
 local function newJournal(guid)
   FieldJournalChar = { guid = guid, creatures = {}, families = {} }
@@ -283,14 +318,18 @@ function handlers.PLAYER_LOGIN()
     if not char.killRule then
       char.seen = char.seen or {}
       for id, rec in pairs(char.creatures) do
-        if not rec.slain then char.seen[id], char.creatures[id] = rec, nil end
+        if not rec.slain then
+          char.seen[id], char.creatures[id] = rec, nil
+        end
       end
       local kept = {}
       for id, rec in pairs(char.creatures) do
         local key = ns.familyKey(id, rec)
         if key then kept[key] = true end
       end
-      for key in pairs(char.families) do if not kept[key] then char.families[key] = nil end end
+      for key in pairs(char.families) do
+        if not kept[key] then char.families[key] = nil end
+      end
     end
     char.killRule = true
   else
@@ -319,8 +358,12 @@ handlers.PLAYER_TARGET_CHANGED = function()
   meet("target")
   watchTarget()
 end
-handlers.UNIT_HEALTH = function(unit) if unit == "target" then watchTarget() end end
-handlers.UNIT_FLAGS = function(unit) if unit == "target" then watchTarget() end end
+handlers.UNIT_HEALTH = function(unit)
+  if unit == "target" then watchTarget() end
+end
+handlers.UNIT_FLAGS = function(unit)
+  if unit == "target" then watchTarget() end
+end
 handlers.UPDATE_MOUSEOVER_UNIT = function()
   meet("mouseover")
   if ns.meetKills then engage("mouseover") end
@@ -336,7 +379,9 @@ end
 -- line of the combat log; secret only in a Forever instance, where no creature
 -- can be told from another.
 local function killed(attacker, victim)
-  if not attacker or secret(attacker) or (attacker ~= UnitGUID("player") and attacker ~= UnitGUID("pet")) then return end
+  if not attacker or secret(attacker) or (attacker ~= UnitGUID("player") and attacker ~= UnitGUID("pet")) then
+    return
+  end
   local id = creatureId(victim)
   if not id or not once(victim) then return end
   -- (the unit it still is, if any: for a creature the data doesn't know)
@@ -385,7 +430,9 @@ local listeners = {}
 frame:SetScript("OnEvent", function(_, event, ...)
   if event ~= "PLAYER_LOGIN" and not char then return end
   if handlers[event] then handlers[event](...) end
-  for _, fn in ipairs(listeners[event] or {}) do fn(...) end
+  for _, fn in ipairs(listeners[event] or {}) do
+    fn(...)
+  end
 end)
 function ns.on(event, fn)
   if not listeners[event] then
@@ -432,7 +479,9 @@ function ns.counts()
     creatures = creatures + 1
     slain = slain + (rec.slain or 0)
   end
-  for _ in pairs(char and char.families or {}) do families = families + 1 end
+  for _ in pairs(char and char.families or {}) do
+    families = families + 1
+  end
   return creatures, families, slain
 end
 

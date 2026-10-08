@@ -39,21 +39,35 @@ local function itemIcon(id)
 end
 
 local FISH_GROUPS = {
-  { "food", "Fish of the waters" }, { "reagent", "Reagents" }, { "special", "Rare catches" },
-  { "quest", "Quest fish" }, { "record", "Weighed catches" },
+  { "food", "Fish of the waters" },
+  { "reagent", "Reagents" },
+  { "special", "Rare catches" },
+  { "quest", "Quest fish" },
+  { "record", "Weighed catches" },
 }
-local KIND = { food = "A fish of the waters", reagent = "A reagent", special = "A rare catch", quest = "A quest fish", record = "Weighed catches" }
+local KIND = {
+  food = "A fish of the waters",
+  reagent = "A reagent",
+  special = "A rare catch",
+  quest = "A quest fish",
+  record = "Weighed catches",
+}
 -- The Herbalism ranks, by the skill an herb needs.
 local RANKS = { { 1, "Apprentice" }, { 75, "Journeyman" }, { 150, "Expert" }, { 225, "Artisan" } }
 local function rankOf(skill)
   local name = RANKS[1][2]
-  for _, r in ipairs(RANKS) do if skill >= r[1] then name = r[2] end end
+  for _, r in ipairs(RANKS) do
+    if skill >= r[1] then name = r[2] end
+  end
   return name
 end
 
 local function records() return mode == "fish" and (ns.journal().fish or {}) or (ns.journal().plants or {}) end
 local function info(id) return mode == "fish" and F.fish[id] or F.herbs[id] end
-local function name(id) return mode == "fish" and (info(id).kind == "record" and info(id).name or itemName(id, info(id).name)) or itemName(id, info(id).name) end
+local function name(id)
+  return mode == "fish" and (info(id).kind == "record" and info(id).name or itemName(id, info(id).name))
+    or itemName(id, info(id).name)
+end
 
 -- ── the list ─────────────────────────────────────────────────────────────────
 local function row(i)
@@ -104,7 +118,9 @@ end
 local showKind, showOverview
 
 local function refreshList()
-  for _, r in ipairs(rows) do r:Hide() end
+  for _, r in ipairs(rows) do
+    r:Hide()
+  end
   local i, y, selectedY = 0, 0, nil
   local function add(kind, text, count)
     i = i + 1
@@ -147,7 +163,10 @@ local function refreshList()
   local found, searching = groups()
   if not searching then
     local r = add("overview", mode == "fish" and "The catch so far" or "The herbs so far")
-    r:SetScript("OnClick", function() showOverview(); refreshList() end)
+    r:SetScript("OnClick", function()
+      showOverview()
+      refreshList()
+    end)
     if current[mode] == nil then select(r) end
   end
   local recs = records()
@@ -157,13 +176,14 @@ local function refreshList()
     for _, id in ipairs(g[2]) do
       local r = add("kind", name(id), tostring(recs[id].n or 0))
       r.key = id
-      r:SetScript("OnClick", function() showKind(id); refreshList() end)
+      r:SetScript("OnClick", function()
+        showKind(id)
+        refreshList()
+      end)
       if current[mode] == id then select(r) end
     end
   end
-  if #found == 0 and searching then
-    add("section", "Nothing found")
-  end
+  if #found == 0 and searching then add("section", "Nothing found") end
   list.child:SetHeight(y + 8)
   list:UpdateThumb()
   if selectedY then
@@ -206,8 +226,12 @@ end
 
 local y, hi, pi
 local function start()
-  for _, x in ipairs(pairsPool) do x:Hide() end
-  for _, x in ipairs(lines) do x:Hide() end
+  for _, x in ipairs(pairsPool) do
+    x:Hide()
+  end
+  for _, x in ipairs(lines) do
+    x:Hide()
+  end
   page.note:Hide()
   y, hi, pi = ui.HEADER_H + 2, 0, 0
 end
@@ -240,7 +264,9 @@ end
 
 local function zoneList(zones)
   local names = {}
-  for _, z in ipairs(zones or {}) do table.insert(names, ns.zoneName(z)) end
+  for _, z in ipairs(zones or {}) do
+    table.insert(names, ns.zoneName(z))
+  end
   table.sort(names)
   return #names > 0 and table.concat(names, ", ") or nil
 end
@@ -249,10 +275,14 @@ local function joined(list) return list and #list > 0 and table.concat(list, ", 
 -- Where the character found it most: "Elwynn Forest (12), Westfall (3)".
 local function mostFound(zones)
   local list = {}
-  for z, n in pairs(zones or {}) do table.insert(list, { z, n }) end
+  for z, n in pairs(zones or {}) do
+    table.insert(list, { z, n })
+  end
   table.sort(list, function(a, b) return a[2] > b[2] end)
   local out = {}
-  for i = 1, math.min(#list, 5) do table.insert(out, ("%s (%d)"):format(ns.zoneName(list[i][1]), list[i][2])) end
+  for i = 1, math.min(#list, 5) do
+    table.insert(out, ("%s (%d)"):format(ns.zoneName(list[i][1]), list[i][2]))
+  end
   return joined(out)
 end
 
@@ -307,7 +337,10 @@ function showOverview()
   current[mode] = nil
   start()
   local recs, kinds, total = records(), 0, 0
-  for _, rec in pairs(recs) do kinds = kinds + 1; total = total + (rec.n or 0) end
+  for _, rec in pairs(recs) do
+    kinds = kinds + 1
+    total = total + (rec.n or 0)
+  end
   if mode == "fish" then
     page.title:SetText("The catch so far")
     page.sub:SetText(("%d kinds of fish, %d caught"):format(kinds, total))
@@ -332,11 +365,17 @@ function showOverview()
     page.sub:SetText(("%d herbs, %d taken"):format(kinds, total))
     ui.icon("Interface\\Icons\\INV_Misc_Herb_07")(page.portrait)
     if kinds == 0 then
-      row2("", ui.SOFT .. "No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given.|r")
+      row2(
+        "",
+        ui.SOFT
+          .. "No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given.|r"
+      )
     else
       section("Your herbs")
       local gathered, looted = 0, 0
-      for _, rec in pairs(recs) do gathered, looted = gathered + (rec.gathered or 0), looted + (rec.looted or 0) end
+      for _, rec in pairs(recs) do
+        gathered, looted = gathered + (rec.gathered or 0), looted + (rec.looted or 0)
+      end
       row2("Kinds", tostring(kinds))
       row2("Gathered", tostring(gathered))
       row2("Looted", tostring(looted))
@@ -349,11 +388,20 @@ function ns.refreshFlora(which)
   if not list then return end
   mode = which or mode
   local recs, kinds, total = records(), 0, 0
-  for _, rec in pairs(recs) do kinds = kinds + 1; total = total + (rec.n or 0) end
-  book.count:SetText(mode == "fish" and ("%d kinds of fish, %d caught"):format(kinds, total)
-    or ("%d herbs, %d taken"):format(kinds, total))
+  for _, rec in pairs(recs) do
+    kinds = kinds + 1
+    total = total + (rec.n or 0)
+  end
+  book.count:SetText(
+    mode == "fish" and ("%d kinds of fish, %d caught"):format(kinds, total)
+      or ("%d herbs, %d taken"):format(kinds, total)
+  )
   refreshList()
-  if current[mode] and recs[current[mode]] then showKind(current[mode]) else showOverview() end
+  if current[mode] and recs[current[mode]] then
+    showKind(current[mode])
+  else
+    showOverview()
+  end
 end
 
 -- ── building ─────────────────────────────────────────────────────────────────
@@ -397,8 +445,12 @@ local function open(which, id)
   if not b:IsShown() then b:Show() end
   ns.showTab(which == "fish" and ns.TAB.fish or ns.TAB.plants)
 end
-function ns.openFish(id) if F.fish[id] then open("fish", id) end end
-function ns.openPlant(id) if F.herbs[id] then open("plants", id) end end
+function ns.openFish(id)
+  if F.fish[id] then open("fish", id) end
+end
+function ns.openPlant(id)
+  if F.herbs[id] then open("plants", id) end
+end
 
 -- A new catch or herb while the book shows its tab: the list follows.
 ns.onFlora = function()

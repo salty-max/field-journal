@@ -65,8 +65,14 @@ local function here()
   local pos = C_Map.GetPlayerMapPosition and C_Map.GetPlayerMapPosition(zone, "player")
   local x, y
   if pos and not secret(pos) then
-    if pos.GetXY then x, y = pos:GetXY() else x, y = pos.x, pos.y end
-    if secret(x) or secret(y) then x, y = nil, nil end
+    if pos.GetXY then
+      x, y = pos:GetXY()
+    else
+      x, y = pos.x, pos.y
+    end
+    if secret(x) or secret(y) then
+      x, y = nil, nil
+    end
   end
   return zone, x and math.floor(x * 1000 + 0.5) / 10, y and math.floor(y * 1000 + 0.5) / 10
 end
@@ -102,7 +108,9 @@ local function discovered(uiMap, place, w, h)
   local ask = C_MapExplorationInfo and C_MapExplorationInfo.GetExploredAreaIDsAtPosition
   if not (ask and CreateVector2D) then return false end
   local areas = {}
-  for i = FIRST_AREA, #place do areas[place[i]] = true end
+  for i = FIRST_AREA, #place do
+    areas[place[i]] = true
+  end
   for _, s in ipairs(SAMPLES) do
     local x = place[2] + (place[4] - place[2]) * s[1]
     local y = place[3] + (place[5] - place[3]) * s[2]
@@ -176,7 +184,9 @@ local function seed()
     local old = a.seeded
     migrate(a)
     if old then
-      for uiMap in pairs(A.zones) do syncZone(uiMap, true) end
+      for uiMap in pairs(A.zones) do
+        syncZone(uiMap, true)
+      end
       a.seeded = true
       withdraw()
       if ns.checkMilestones then ns.checkMilestones(true) end
@@ -184,7 +194,9 @@ local function seed()
     end
   end
   if a.seeded then return end
-  for uiMap in pairs(A.zones) do syncZone(uiMap, true) end
+  for uiMap in pairs(A.zones) do
+    syncZone(uiMap, true)
+  end
   a.seeded = true
   -- milestones already deserved by the fog lifted: quietly
   if ns.checkMilestones then ns.checkMilestones(true) end
@@ -204,8 +216,13 @@ local function enter()
     z.visits = (z.visits or 0) + 1
     -- A crossing: another continent, not by flight (boats, zeppelins, portals).
     local from = lastZone and A.zones[lastZone]
-    if from and from.continent ~= 0 and A.zones[zone].continent ~= 0 and from.continent ~= A.zones[zone].continent
-      and not (UnitOnTaxi and UnitOnTaxi("player")) then
+    if
+      from
+      and from.continent ~= 0
+      and A.zones[zone].continent ~= 0
+      and from.continent ~= A.zones[zone].continent
+      and not (UnitOnTaxi and UnitOnTaxi("player"))
+    then
       keep(ns.atlas().crossings, { from = lastZone, to = zone, at = now.at, level = now.level }, 200)
     end
     lastZone = zone
@@ -300,7 +317,11 @@ ns.on("UNIT_HEALTH", function(unit)
     if ns.checkMilestones then ns.checkMilestones() end
     if ns.onAtlas then ns.onAtlas() end
   end
-  if C_Timer then C_Timer.After(5, check) else check() end
+  if C_Timer then
+    C_Timer.After(5, check)
+  else
+    check()
+  end
 end)
 
 -- ── travel ───────────────────────────────────────────────────────────────────
@@ -339,20 +360,35 @@ function ns.atlasReport()
     return
   end
   local w, h = artSize(zone)
-  print(PREFIX .. ("%s (map %d), at %s, %s; map art %dx%d."):format(ns.zoneName(zone), zone, tostring(x), tostring(y), w, h))
+  print(
+    PREFIX .. ("%s (map %d), at %s, %s; map art %dx%d."):format(ns.zoneName(zone), zone, tostring(x), tostring(y), w, h)
+  )
   local z = ns.atlas().zones[zone]
   for _, place in ipairs(A.zones[zone].places) do
     local now = discovered(zone, place, w, h)
     local rec = z and z.places[placeKey(place)]
-    print(("  %s: %s%s"):format(place[1], now and "discovered" or "not discovered",
-      rec and (rec.retro and ", recorded before the journal" or ", recorded") or ""))
+    print(
+      ("  %s: %s%s"):format(
+        place[1],
+        now and "discovered" or "not discovered",
+        rec and (rec.retro and ", recorded before the journal" or ", recorded") or ""
+      )
+    )
   end
   local a = ns.atlas()
   local placed = 0
-  for _, e in ipairs(a.deaths) do if e.x then placed = placed + 1 end end
-  print(("  deaths recorded: %d (%d with a position), close calls: %d; world map pins: %s."):format(
-    #a.deaths, placed, #a.closeCalls,
-    (ns.option("worldMapPins") and "on" or "off") .. (ns.worldMapPinsAttached and ", attached to the map" or ", not attached")))
+  for _, e in ipairs(a.deaths) do
+    if e.x then placed = placed + 1 end
+  end
+  print(
+    ("  deaths recorded: %d (%d with a position), close calls: %d; world map pins: %s."):format(
+      #a.deaths,
+      placed,
+      #a.closeCalls,
+      (ns.option("worldMapPins") and "on" or "off")
+        .. (ns.worldMapPinsAttached and ", attached to the map" or ", not attached")
+    )
+  )
 end
 
 -- ── events ───────────────────────────────────────────────────────────────────

@@ -30,7 +30,10 @@ local function addHint(tooltip)
   end
   local slain = rec.slain or 0
   local mark = rec.trophy and " (trophy)" or ""
-  tooltip:AddLine(("Field Journal: %s%s"):format(slain > 0 and ("%d slain"):format(slain) or "met", mark), unpack(KNOWN))
+  tooltip:AddLine(
+    ("Field Journal: %s%s"):format(slain > 0 and ("%d slain"):format(slain) or "met", mark),
+    unpack(KNOWN)
+  )
 end
 
 if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall and Enum and Enum.TooltipDataType then

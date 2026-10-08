@@ -3,7 +3,8 @@
 -- so does a right-click on the minimap button.
 local _, ns = ...
 
-local DEFAULTS = { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true, milestoneToast = true, worldMapPins = true }
+local DEFAULTS =
+  { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true, milestoneToast = true, worldMapPins = true }
 
 -- Sounds for a trophy: all from the original game's interface. -1 is the
 -- sting heard on discovering a new zone, which differs by race.
@@ -32,7 +33,8 @@ function ns.setOption(key, value)
 end
 
 -- The exploration sound kit of each race (Undead's token is Scourge).
-local DISCOVERY = { Human = 4140, Orc = 4141, Scourge = 4142, Tauren = 4143, Troll = 4144, NightElf = 4145, Gnome = 4146, Dwarf = 4147 }
+local DISCOVERY =
+  { Human = 4140, Orc = 4141, Scourge = 4142, Tauren = 4143, Troll = 4144, NightElf = 4145, Gnome = 4146, Dwarf = 4147 }
 
 function ns.playSound(id)
   id = id or ns.option("sound")
@@ -51,29 +53,65 @@ function ns.createSettingsPanel()
 
   local function checkbox(key, name, tooltip, invert)
     invert = invert or false
-    local setting = Settings.RegisterProxySetting(category, "FIELDJOURNAL_" .. key:upper(), Settings.VarType.Boolean, name,
+    local setting = Settings.RegisterProxySetting(
+      category,
+      "FIELDJOURNAL_" .. key:upper(),
+      Settings.VarType.Boolean,
+      name,
       not DEFAULTS[key] == invert,
       function() return ns.option(key) ~= invert end,
-      function(value) ns.setOption(key, value ~= invert) end)
+      function(value) ns.setOption(key, value ~= invert) end
+    )
     Settings.CreateCheckbox(category, setting, tooltip)
   end
-  checkbox("chat", "Announce in chat", "A line in chat for each new creature recorded, each trophy (a rare or a boss slain) and each milestone, with a link.")
+  checkbox(
+    "chat",
+    "Announce in chat",
+    "A line in chat for each new creature recorded, each trophy (a rare or a boss slain) and each milestone, with a link."
+  )
 
-  local sound = Settings.RegisterProxySetting(category, "FIELDJOURNAL_SOUND", Settings.VarType.Number, "Sound for a trophy",
+  local sound = Settings.RegisterProxySetting(
+    category,
+    "FIELDJOURNAL_SOUND",
+    Settings.VarType.Number,
+    "Sound for a trophy",
     DEFAULTS.sound,
     function() return ns.option("sound") end,
-    function(value) ns.setOption("sound", value); ns.playSound(value) end)
+    function(value)
+      ns.setOption("sound", value)
+      ns.playSound(value)
+    end
+  )
   Settings.CreateDropdown(category, sound, function()
     local options = Settings.CreateControlTextContainer()
-    for _, s in ipairs(ns.SOUNDS) do options:Add(s[1], s[2]) end
+    for _, s in ipairs(ns.SOUNDS) do
+      options:Add(s[1], s[2])
+    end
     return options:GetData()
   end, "Played when you slay a rare or a boss for the first time.")
 
-  checkbox("milestoneToast", "Milestone alerts", "The game's achievement alert when you earn a milestone (the fanfare and the chat line stay).")
-  checkbox("worldMapPins", "Deaths on the world map", "Mark on the game's world map where you died and came close, from the Atlas.")
-  checkbox("tooltipHints", "Hints on tooltips", "A line on creature tooltips: not yet in the journal, or how many you have slain.")
+  checkbox(
+    "milestoneToast",
+    "Milestone alerts",
+    "The game's achievement alert when you earn a milestone (the fanfare and the chat line stay)."
+  )
+  checkbox(
+    "worldMapPins",
+    "Deaths on the world map",
+    "Mark on the game's world map where you died and came close, from the Atlas."
+  )
+  checkbox(
+    "tooltipHints",
+    "Hints on tooltips",
+    "A line on creature tooltips: not yet in the journal, or how many you have slain."
+  )
 
-  checkbox("minimapHidden", "Minimap button", "The book by the minimap: click to open the journal, drag to move it.", true)
+  checkbox(
+    "minimapHidden",
+    "Minimap button",
+    "The book by the minimap: click to open the journal, drag to move it.",
+    true
+  )
 
   Settings.RegisterAddOnCategory(category)
 end

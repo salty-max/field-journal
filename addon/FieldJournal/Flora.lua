@@ -30,9 +30,7 @@ local function objectId(guid)
   if kind == "GameObject" then return tonumber(id) end
 end
 
-local function itemOf(link)
-  return link and not secret(link) and tonumber(link:match("item:(%d+)"))
-end
+local function itemOf(link) return link and not secret(link) and tonumber(link:match("item:(%d+)")) end
 
 local function now()
   local zone = ns.atlasHere and ns.atlasHere()
@@ -49,7 +47,10 @@ end
 
 local function announce(kind, id, name)
   if not ns.option("chat") then return end
-  print(ns.PREFIX .. ("a new %s: |cffffd100|Hfieldjournal:%s%d|h[%s]|h|r"):format(kind == "f" and "catch" or "herb", kind, id, name))
+  print(
+    ns.PREFIX
+      .. ("a new %s: |cffffd100|Hfieldjournal:%s%d|h[%s]|h|r"):format(kind == "f" and "catch" or "herb", kind, id, name)
+  )
 end
 
 local function changed()
@@ -62,7 +63,9 @@ end
 local function caught(itemId, n, school)
   local entry, pounds = itemId, nil
   local w = F.weights[itemId]
-  if w then entry, pounds = w[1], w[2] end
+  if w then
+    entry, pounds = w[1], w[2]
+  end
   if not F.fish[entry] then return end
   local c = char()
   c.fish = c.fish or {}
@@ -75,7 +78,11 @@ local function caught(itemId, n, school)
   end
   rec.n = rec.n + n
   if where.zone then rec.zones[where.zone] = (rec.zones[where.zone] or 0) + n end
-  if night() then rec.night = rec.night + n else rec.day = rec.day + n end
+  if night() then
+    rec.night = rec.night + n
+  else
+    rec.day = rec.day + n
+  end
   if school then rec.school = rec.school + n end
   if pounds and pounds > (rec.heaviest or 0) then rec.heaviest = pounds end
   if new then announce("f", entry, F.fish[entry].name) end
@@ -168,11 +175,27 @@ ns.on("BAG_UPDATE_DELAYED", function()
   if pending then return end
   pending = true
   -- after the loot window's own records, so a looted herb isn't "other"
-  if C_Timer then C_Timer.After(1, lookInBags) else lookInBags() end
+  if C_Timer then
+    C_Timer.After(1, lookInBags)
+  else
+    lookInBags()
+  end
 end)
 local function atLogin() lookInBags(true) end
-ns.on("PLAYER_ENTERING_WORLD", function() if C_Timer then C_Timer.After(3, atLogin) else atLogin() end end)
+ns.on("PLAYER_ENTERING_WORLD", function()
+  if C_Timer then
+    C_Timer.After(3, atLogin)
+  else
+    atLogin()
+  end
+end)
 
 -- For the book and the milestones.
-function ns.fishRecord(id) local c = char() return c and c.fish and c.fish[id] end
-function ns.plantRecord(id) local c = char() return c and c.plants and c.plants[id] end
+function ns.fishRecord(id)
+  local c = char()
+  return c and c.fish and c.fish[id]
+end
+function ns.plantRecord(id)
+  local c = char()
+  return c and c.plants and c.plants[id]
+end

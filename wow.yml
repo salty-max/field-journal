@@ -1,0 +1,177 @@
+# The game's globals the addon uses (selene.toml), and its own: saved
+# variables and the slash command.
+base: lua51
+name: wow
+globals:
+  AchievementShield_Desaturate:
+    any: true
+  AchievementShield_Saturate:
+    any: true
+  AlertFrame:
+    any: true
+  AlertFrame_OnClick:
+    any: true
+  ButtonFrameTemplate_HideButtonBar:
+    any: true
+  C_Container:
+    any: true
+  C_CreatureInfo:
+    any: true
+  C_Item:
+    any: true
+  C_Map:
+    any: true
+  C_MapExplorationInfo:
+    any: true
+  C_Timer:
+    any: true
+  C_XMLUtil:
+    any: true
+  CombatLogGetCurrentEventInfo:
+    any: true
+  CreateFrame:
+    any: true
+  CreateFromMixins:
+    any: true
+  CreateVector2D:
+    any: true
+  Enum:
+    any: true
+  FieldJournalChar:
+    any: true
+  FieldJournalSettings:
+    any: true
+  GameTooltip:
+    any: true
+  GetBindLocation:
+    any: true
+  GetBuildInfo:
+    any: true
+  GetContainerItemID:
+    any: true
+  GetContainerNumSlots:
+    any: true
+  GetCursorPosition:
+    any: true
+  GetGameTime:
+    any: true
+  GetItemIcon:
+    any: true
+  GetItemInfo:
+    any: true
+  GetLocale:
+    any: true
+  GetLootSlotInfo:
+    any: true
+  GetLootSlotLink:
+    any: true
+  GetLootSourceInfo:
+    any: true
+  GetNumLootItems:
+    any: true
+  GetRealZoneText:
+    any: true
+  GetSubZoneText:
+    any: true
+  ITEM_QUALITY_COLORS:
+    any: true
+  IsFishingLoot:
+    any: true
+  LinkProcessorResponse:
+    any: true
+  LinkUtil:
+    any: true
+  MapCanvasDataProviderMixin:
+    any: true
+  Minimap:
+    any: true
+  NumTaxiNodes:
+    any: true
+  PanelTemplates_SetNumTabs:
+    any: true
+  PanelTemplates_SetTab:
+    any: true
+  PanelTemplates_TabResize:
+    any: true
+  PlaySound:
+    any: true
+  SLASH_FIELDJOURNAL1:
+    any: true
+  SLASH_FIELDJOURNAL2:
+    any: true
+  SOUNDKIT:
+    any: true
+  STANDARD_TEXT_FONT:
+    any: true
+  SetItemRef:
+    any: true
+  SetPortraitTextureFromCreatureDisplayID:
+    any: true
+  Settings:
+    any: true
+  SlashCmdList:
+    any: true
+  TakeTaxiNode:
+    any: true
+  TaxiNodeGetType:
+    any: true
+  TaxiNodeName:
+    any: true
+  TooltipDataProcessor:
+    any: true
+  UIParent:
+    any: true
+  UISpecialFrames:
+    any: true
+  UnitAffectingCombat:
+    any: true
+  UnitCanAttack:
+    any: true
+  UnitClassification:
+    any: true
+  UnitCreatureFamily:
+    any: true
+  UnitCreatureType:
+    any: true
+  UnitExists:
+    any: true
+  UnitGUID:
+    any: true
+  UnitHealth:
+    any: true
+  UnitHealthMax:
+    any: true
+  UnitIsDead:
+    any: true
+  UnitIsDeadOrGhost:
+    any: true
+  UnitIsPlayer:
+    any: true
+  UnitIsTapDenied:
+    any: true
+  UnitLevel:
+    any: true
+  UnitName:
+    any: true
+  UnitOnTaxi:
+    any: true
+  UnitRace:
+    any: true
+  UnitTokenFromGUID:
+    any: true
+  WorldMapFrame:
+    any: true
+  date:
+    any: true
+  hooksecurefunc:
+    any: true
+  issecretvalue:
+    any: true
+  strsplit:
+    any: true
+  strtrim:
+    any: true
+  time:
+    any: true
+  tinsert:
+    any: true

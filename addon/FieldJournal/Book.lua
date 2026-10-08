@@ -14,8 +14,13 @@ local TROPHIES = "trophies"
 
 -- ── look ─────────────────────────────────────────────────────────────────────
 local T = {
-  gold = { 0.85, 0.70, 0.42 }, text = { 0.93, 0.88, 0.76 }, soft = { 0.62, 0.57, 0.49 },
-  rule = { 0.85, 0.70, 0.42, 0.25 }, mark = "|cffff9a40", rare = "|cffc7ccd6", link = "|cffd9b36b",
+  gold = { 0.85, 0.70, 0.42 },
+  text = { 0.93, 0.88, 0.76 },
+  soft = { 0.62, 0.57, 0.49 },
+  rule = { 0.85, 0.70, 0.42, 0.25 },
+  mark = "|cffff9a40",
+  rare = "|cffc7ccd6",
+  link = "|cffd9b36b",
 }
 local LIST = T
 
@@ -227,12 +232,15 @@ local function day(stamp) return date("%d %b %Y", stamp and stamp.at or 0) end
 local function levels(id, rec)
   local known = D.levels and D.levels[id]
   local low, high
-  if type(known) == "number" then low, high = known, known
+  if type(known) == "number" then
+    low, high = known, known
   elseif type(known) == "string" then
     local a, b = known:match("^(%d+)-(%d+)$")
     low, high = tonumber(a), tonumber(b)
   end
-  if rec.low then low, high = math.min(low or rec.low, rec.low), math.max(high or rec.high, rec.high) end
+  if rec.low then
+    low, high = math.min(low or rec.low, rec.low), math.max(high or rec.high, rec.high)
+  end
   if not low then return nil end
   return low == high and ("level %d"):format(low) or ("levels %d-%d"):format(low, high)
 end
@@ -367,7 +375,9 @@ end
 
 local function clear()
   for _, pool in ipairs({ entries, headings, pairsPool, lootButtons }) do
-    for _, x in ipairs(pool) do x:Hide() end
+    for _, x in ipairs(pool) do
+      x:Hide()
+    end
   end
   page.body:Hide()
   page.empty:Hide()
@@ -383,7 +393,11 @@ end
 
 local function finish(y, keep)
   page.child:SetHeight(y + 24)
-  if keep then page:UpdateThumb() else page:ScrollTo(0) end
+  if keep then
+    page:UpdateThumb()
+  else
+    page:ScrollTo(0)
+  end
 end
 
 local function layEntries(ids, y, line)
@@ -417,7 +431,8 @@ local function showFamily(key, keep)
     end
     table.sort(ids, function(a, b) return journal.creatures[a].trophy.at < journal.creatures[b].trophy.at end)
     header("Trophies", ("%d brought down"):format(#ids), icon("Interface\\Icons\\INV_Misc_Head_Dragon_01"))
-    intro = "The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed."
+    intro =
+      "The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed."
   else
     ids = sortedIds(ns.metByFamily()[key] or {})
     local family = type(key) == "number" and D.families[key]
@@ -426,7 +441,11 @@ local function showFamily(key, keep)
       if family and s.id == family.section then section = s.title end
     end
     header(ns.familyTitle(key), joined({ section, ("%d slain"):format(#ids) }), function(p)
-      if ids[1] then setPortrait(p, ids[1], journal.creatures[ids[1]]) else icon(QUESTION)(p) end
+      if ids[1] then
+        setPortrait(p, ids[1], journal.creatures[ids[1]])
+      else
+        icon(QUESTION)(p)
+      end
     end)
     intro = family and #family.note > 0 and table.concat(family.note, "\n\n")
       or (SOFT .. "The naturalist has not yet written of these. What follows is your own record.|r")
@@ -441,9 +460,16 @@ local function showFamily(key, keep)
   h:Show()
   y = y + 30
   if key == TROPHIES then
-    y = layEntries(ids, y, function(id, rec)
-      return joined({ ns.familyTitle(ns.familyKey(id, rec)), ("slain %s at level %d"):format(day(rec.trophy), rec.trophy.level or 0) })
-    end)
+    y = layEntries(
+      ids,
+      y,
+      function(id, rec)
+        return joined({
+          ns.familyTitle(ns.familyKey(id, rec)),
+          ("slain %s at level %d"):format(day(rec.trophy), rec.trophy.level or 0),
+        })
+      end
+    )
     if #ids == 0 then
       page.empty:SetText(SOFT .. "None yet.|r")
       page.empty:ClearAllPoints()
@@ -469,8 +495,11 @@ local function showCreature(id, keep)
   current, currentCreature = ns.familyKey(id, rec), id
   clear()
   local rank = rankOf(id, rec)
-  header(rec.name or ("Creature " .. id), joined({ T.link .. ns.familyTitle(current) .. "|r", levels(id, rec), RANK[rank] }),
-    function(p) setPortrait(p, id, rec) end)
+  header(
+    rec.name or ("Creature " .. id),
+    joined({ T.link .. ns.familyTitle(current) .. "|r", levels(id, rec), RANK[rank] }),
+    function(p) setPortrait(p, id, rec) end
+  )
   page.familyLink.key = current
   local y = HEADER_H + 2
   local hi, pi = 0, 0
@@ -509,8 +538,13 @@ local function showCreature(id, keep)
   section("The hunt")
   if (rec.slain or 0) > 0 then
     row("Slain", tostring(rec.slain))
-    row("First kill", joined({ day(rec.firstSlain), rec.firstSlain and ("you were level %d"):format(rec.firstSlain.level or 0) }, ", "))
-    if rec.lastSlain and rec.firstSlain and rec.lastSlain.at ~= rec.firstSlain.at then row("Last kill", day(rec.lastSlain)) end
+    row(
+      "First kill",
+      joined({ day(rec.firstSlain), rec.firstSlain and ("you were level %d"):format(rec.firstSlain.level or 0) }, ", ")
+    )
+    if rec.lastSlain and rec.firstSlain and rec.lastSlain.at ~= rec.firstSlain.at then
+      row("Last kill", day(rec.lastSlain))
+    end
   else
     row("Slain", SOFT .. "none yet|r")
   end
@@ -519,7 +553,9 @@ local function showCreature(id, keep)
 
   section("Spoils")
   local items = {}
-  for itemId, count in pairs(rec.loot or {}) do table.insert(items, { itemId, count }) end
+  for itemId, count in pairs(rec.loot or {}) do
+    table.insert(items, { itemId, count })
+  end
   table.sort(items, function(a, b) return a[2] > b[2] end)
   if #items == 0 then
     row("", SOFT .. "Nothing taken from it yet.|r")
@@ -531,7 +567,11 @@ local function showCreature(id, keep)
       b.icon:SetTexture(itemIcon(item[1]) or QUESTION)
       local quality = itemQuality(item[1])
       local color = quality and ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality]
-      if color then b.border:SetVertexColor(color.r, color.g, color.b) else b.border:SetVertexColor(0.6, 0.6, 0.6) end
+      if color then
+        b.border:SetVertexColor(color.r, color.g, color.b)
+      else
+        b.border:SetVertexColor(0.6, 0.6, 0.6)
+      end
       b.count:SetText(item[2] > 1 and item[2] or "")
       b:ClearAllPoints()
       b:SetPoint("TOPLEFT", page.child, "TOPLEFT", ((i - 1) % perRow) * 40, -(y + math.floor((i - 1) / perRow) * 40))
@@ -545,7 +585,11 @@ ns.showCreature = showCreature
 
 local function rerender()
   if not (current and book:IsShown()) then return end
-  if currentCreature then showCreature(currentCreature, true) else showFamily(current, true) end
+  if currentCreature then
+    showCreature(currentCreature, true)
+  else
+    showFamily(current, true)
+  end
 end
 
 -- ── the list ─────────────────────────────────────────────────────────────────
@@ -604,7 +648,9 @@ function ns.refresh()
   end
   local creatures, families, slain = ns.counts()
   book.count:SetText(("%d creatures, %d families, %d slain"):format(creatures, families, slain))
-  for _, r in ipairs(rows) do r:Hide() end
+  for _, r in ipairs(rows) do
+    r:Hide()
+  end
   local query = (book.search:GetText() or ""):lower():gsub("^%s+", ""):gsub("%s+$", "")
   local searching = query ~= ""
   local by = ns.metByFamily()
@@ -697,7 +743,8 @@ function ns.refresh()
     if not open then return end
     for _, id in ipairs(shownIds) do
       local rec = journal.creatures[id]
-      local c = add("creature", (rec.name or ("Creature " .. id)) .. (rankOf(id, rec) and (" " .. LIST_SOFT .. "*|r") or ""))
+      local c =
+        add("creature", (rec.name or ("Creature " .. id)) .. (rankOf(id, rec) and (" " .. LIST_SOFT .. "*|r") or ""))
       c.id = id
       c:SetScript("OnClick", function()
         showCreature(id)
@@ -727,7 +774,9 @@ function ns.refresh()
       ns.refresh()
     end)
     if searching or not folded()[id] then
-      for _, key in ipairs(shown) do addFamily(key) end
+      for _, key in ipairs(shown) do
+        addFamily(key)
+      end
     end
   end
 
@@ -766,8 +815,14 @@ end
 -- (gold once earned), what it asks, and on the right when it was earned, or
 -- how far along it is (a bar).
 local GROUPS = {
-  { "tally", "Tallies" }, { "type", "Every Family" }, { "feat", "Feats" }, { "zone", "Rares by Zone" },
-  { "fishing", "Fishing" }, { "herbs", "Herbs" }, { "travel", "Travels" }, { "explore", "Exploration" },
+  { "tally", "Tallies" },
+  { "type", "Every Family" },
+  { "feat", "Feats" },
+  { "zone", "Rares by Zone" },
+  { "fishing", "Fishing" },
+  { "herbs", "Herbs" },
+  { "travel", "Travels" },
+  { "explore", "Exploration" },
 }
 local M_ROW, M_WIDTH = 50, 700
 local milestones
@@ -862,15 +917,21 @@ function ns.refreshMilestones()
         r.bar:SetValue(math.min(done, need))
         r.bar:SetShown(need > 1)
       end
-      if m.id == selectedMilestone then r.bg:SetColorTexture(0.85, 0.70, 0.42, 0.22)
-      elseif earned then r.bg:SetColorTexture(0.85, 0.65, 0.13, 0.10)
-      else r.bg:SetColorTexture(1, 1, 1, 0.03) end
+      if m.id == selectedMilestone then
+        r.bg:SetColorTexture(0.85, 0.70, 0.42, 0.22)
+      elseif earned then
+        r.bg:SetColorTexture(0.85, 0.65, 0.13, 0.10)
+      else
+        r.bg:SetColorTexture(1, 1, 1, 0.03)
+      end
       r:Show()
       y = y + M_ROW
     end
     if #shown > 0 then y = y + 12 end
   end
-  for k = i + 1, #mRows do mRows[k]:Hide() end
+  for k = i + 1, #mRows do
+    mRows[k]:Hide()
+  end
   milestones.child:SetHeight(y)
   milestones:UpdateThumb()
   -- A milestone opened from chat or its alert: bring it into view.
@@ -927,13 +988,17 @@ local function hasTemplate(name)
 end
 
 local function buildTabs()
-  local template = hasTemplate("CharacterFrameTabButtonTemplate") and "CharacterFrameTabButtonTemplate" or "PanelTabButtonTemplate"
+  local template = hasTemplate("CharacterFrameTabButtonTemplate") and "CharacterFrameTabButtonTemplate"
+    or "PanelTabButtonTemplate"
   for n, text in ipairs({ "Bestiary", "Fish", "Plants", "Atlas", "Milestones" }) do
     local tab = CreateFrame("Button", "FieldJournalFrameTab" .. n, book, template)
     tab:SetID(n)
     tab:SetText(text)
-    if n == 1 then tab:SetPoint("TOPLEFT", book, "BOTTOMLEFT", 14, 2)
-    else tab:SetPoint("LEFT", "FieldJournalFrameTab" .. (n - 1), "RIGHT", -14, 0) end
+    if n == 1 then
+      tab:SetPoint("TOPLEFT", book, "BOTTOMLEFT", 14, 2)
+    else
+      tab:SetPoint("LEFT", "FieldJournalFrameTab" .. (n - 1), "RIGHT", -14, 0)
+    end
     tab:SetScript("OnClick", function(self)
       selectedMilestone = nil
       ns.showTab(self:GetID())
@@ -966,10 +1031,16 @@ local function gameWindow()
   if ButtonFrameTemplate_HideButtonBar then ButtonFrameTemplate_HideButtonBar(frame) end
   if type(frame.Inset) == "table" then frame.Inset:Hide() end
   local art = "Interface\\Icons\\INV_Misc_Book_11"
-  if frame.SetPortraitToAsset then frame:SetPortraitToAsset(art)
-  elseif type(frame.portrait) == "table" then frame.portrait:SetTexture(art) end
-  if frame.SetTitle then frame:SetTitle(TITLE)
-  elseif type(frame.TitleText) == "table" then frame.TitleText:SetText(TITLE) end
+  if frame.SetPortraitToAsset then
+    frame:SetPortraitToAsset(art)
+  elseif type(frame.portrait) == "table" then
+    frame.portrait:SetTexture(art)
+  end
+  if frame.SetTitle then
+    frame:SetTitle(TITLE)
+  elseif type(frame.TitleText) == "table" then
+    frame.TitleText:SetText(TITLE)
+  end
   return frame
 end
 
@@ -998,7 +1069,9 @@ function build()
     book:SetBackdrop({
       bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
       edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border",
-      tile = true, tileSize = 32, edgeSize = 32,
+      tile = true,
+      tileSize = 32,
+      edgeSize = 32,
       insets = { left = 11, right = 12, top = 12, bottom = 11 },
     })
     local title = label(book, TITLE_FONT, 16, LIST.gold)
@@ -1064,17 +1137,23 @@ function build()
       -- First opening: the most recently met family.
       local journal, latest, at = ns.journal(), nil, -1
       for key, f in pairs(journal and journal.families or {}) do
-        if (f.at or 0) > at then latest, at = key, f.at or 0 end
+        if (f.at or 0) > at then
+          latest, at = key, f.at or 0
+        end
       end
       current = latest
       if current then opened()[familyId(current)] = true end
     end
-    if currentCreature then showCreature(currentCreature)
-    elseif current then showFamily(current)
+    if currentCreature then
+      showCreature(currentCreature)
+    elseif current then
+      showFamily(current)
     else
       clear()
       header("The Bestiary", nil, icon("Interface\\Icons\\INV_Misc_Book_11"))
-      page.body:SetText(SOFT .. "Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here.|r")
+      page.body:SetText(
+        SOFT .. "Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here.|r"
+      )
       page.body:Show()
     end
     ns.refresh()
@@ -1158,14 +1237,31 @@ ns.onRecord = function()
     pending = false
     ns.refresh()
   end
-  if C_Timer then C_Timer.After(0.5, run) else run() end
+  if C_Timer then
+    C_Timer.After(0.5, run)
+  else
+    run()
+  end
 end
 ns.onMilestone = ns.onRecord
 ns.onAtlas = ns.onRecord
 
 -- The book's look, for the Atlas's pages (AtlasBook.lua).
 ns.ui = {
-  T = T, TITLE_FONT = TITLE_FONT, BODY_FONT = BODY_FONT, WIDTH = WIDTH, HEADER_H = HEADER_H, SOFT = SOFT,
-  label = label, rule = rule, roundPortrait = roundPortrait, scrollArea = scrollArea, icon = icon,
-  book = function() return book end, build = function() if not book then build() end return book end,
+  T = T,
+  TITLE_FONT = TITLE_FONT,
+  BODY_FONT = BODY_FONT,
+  WIDTH = WIDTH,
+  HEADER_H = HEADER_H,
+  SOFT = SOFT,
+  label = label,
+  rule = rule,
+  roundPortrait = roundPortrait,
+  scrollArea = scrollArea,
+  icon = icon,
+  book = function() return book end,
+  build = function()
+    if not book then build() end
+    return book
+  end,
 }

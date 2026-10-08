@@ -90,7 +90,9 @@ end
 local PLUS, MINUS = "Interface\\Buttons\\UI-PlusButton-Up", "Interface\\Buttons\\UI-MinusButton-Up"
 
 local function refreshList()
-  for _, r in ipairs(rows) do r:Hide() end
+  for _, r in ipairs(rows) do
+    r:Hide()
+  end
   local query = (book.search:GetText() or ""):lower():gsub("^%s+", ""):gsub("%s+$", "")
   local searching = query ~= ""
   local function hit(name) return not searching or name:lower():find(query, 1, true) ~= nil end
@@ -150,11 +152,16 @@ local function refreshList()
 
   if not searching then
     local r = add("travels", "Travels")
-    r:SetScript("OnClick", function() showTravels(); refreshList() end)
+    r:SetScript("OnClick", function()
+      showTravels()
+      refreshList()
+    end)
     if current == nil then select(r) end
   end
   local continents = {}
-  for id, name in pairs(A.continents) do table.insert(continents, { id, name }) end
+  for id, name in pairs(A.continents) do
+    table.insert(continents, { id, name })
+  end
   table.sort(continents, function(a, b) return a[2] < b[2] end)
   table.insert(continents, { 0, "Elsewhere" })
   local standing = ns.atlasHere and ns.atlasHere()
@@ -200,7 +207,11 @@ local function refreshList()
         end
         r:SetScript("OnClick", function()
           -- the open zone's row folds it; any other opens its page, unfolded
-          if current == uiMap and not selectedPlace and (opened()[uiMap] or (opened()[uiMap] == nil and uiMap == standing)) then
+          if
+            current == uiMap
+            and not selectedPlace
+            and (opened()[uiMap] or (opened()[uiMap] == nil and uiMap == standing))
+          then
             opened()[uiMap] = false
           else
             opened()[uiMap] = true
@@ -268,9 +279,15 @@ end
 -- Lays out a page: header, then blocks (a heading, label/value rows), from y.
 local y, hi, pi
 local function start()
-  for _, x in ipairs(pairsPool) do x:Hide() end
-  for _, x in ipairs(lines) do x:Hide() end
-  for _, x in ipairs(pins) do x:Hide() end
+  for _, x in ipairs(pairsPool) do
+    x:Hide()
+  end
+  for _, x in ipairs(lines) do
+    x:Hide()
+  end
+  for _, x in ipairs(pins) do
+    x:Hide()
+  end
   page.map:Hide()
   page.note:Hide()
   y, hi, pi = ui.HEADER_H + 2, 0, 0
@@ -315,7 +332,9 @@ local function drawMap(uiMap, marks)
   map:SetSize(MAP_W, h * scale)
   map.canvas:SetSize(w, h)
   map.canvas:SetScale(scale)
-  for _, t in ipairs(map.tiles) do t:Hide() end
+  for _, t in ipairs(map.tiles) do
+    t:Hide()
+  end
   local n = 0
   local function tile(file, x, y, tw, th, coords)
     n = n + 1
@@ -329,7 +348,11 @@ local function drawMap(uiMap, marks)
     t:SetPoint("TOPLEFT", map.canvas, "TOPLEFT", x, -y)
     t:SetSize(tw, th)
     t:SetTexture(file)
-    if coords then t:SetTexCoord(unpack(coords)) else t:SetTexCoord(0, 1, 0, 1) end
+    if coords then
+      t:SetTexCoord(unpack(coords))
+    else
+      t:SetTexCoord(0, 1, 0, 1)
+    end
     t:Show()
   end
   -- the art
@@ -338,12 +361,20 @@ local function drawMap(uiMap, marks)
   for r = 1, tilesRows do
     for c = 1, cols do
       local file = files[(r - 1) * cols + c]
-      if file then tile(file, layer.tileWidth * (c - 1), layer.tileHeight * (r - 1), layer.tileWidth, layer.tileHeight) end
+      if file then
+        tile(file, layer.tileWidth * (c - 1), layer.tileHeight * (r - 1), layer.tileWidth, layer.tileHeight)
+      end
     end
   end
   -- the places explored
   local TW, TH = layer.tileWidth, layer.tileHeight
-  local function fileSize(px) local s = 16; while s < px do s = s * 2 end; return s end
+  local function fileSize(px)
+    local s = 16
+    while s < px do
+      s = s * 2
+    end
+    return s
+  end
   for _, info in ipairs(C_MapExplorationInfo.GetExploredMapTextures(uiMap) or {}) do
     if not info.isShownByMouseOver then
       local wide, tall = math.ceil(info.textureWidth / TW), math.ceil(info.textureHeight / TH)
@@ -406,7 +437,11 @@ local function inThisZone(order, data, recs, uiMap, wanted)
     if not wanted or wanted(d) then
       for _, z in ipairs(d.zones) do
         if z == uiMap then
-          if recs[id] then table.insert(found, d.kind == "record" and d.name or nameOf(id, d.name)) else rest = rest + 1 end
+          if recs[id] then
+            table.insert(found, d.kind == "record" and d.name or nameOf(id, d.name))
+          else
+            rest = rest + 1
+          end
           break
         end
       end
@@ -431,9 +466,7 @@ local function inZone(list, uiMap)
   return out
 end
 
-local function eventLine(e)
-  return ("%s, level %d%s"):format(day(e), e.level or 0, e.by and (" - " .. e.by) or "")
-end
+local function eventLine(e) return ("%s, level %d%s"):format(day(e), e.level or 0, e.by and (" - " .. e.by) or "") end
 
 function showZone(uiMap, placeKey)
   current, selectedPlace = uiMap, placeKey
@@ -441,8 +474,10 @@ function showZone(uiMap, placeKey)
   start()
   local done, total = ns.zoneProgress(uiMap)
   page.title:SetText(ns.zoneName(uiMap))
-  page.sub:SetText(table.concat({ A.continents[zone.continent] or "Elsewhere",
-    total > 0 and ("%d of %d places explored"):format(done, total) or nil }, "  -  "))
+  page.sub:SetText(table.concat({
+    A.continents[zone.continent] or "Elsewhere",
+    total > 0 and ("%d of %d places explored"):format(done, total) or nil,
+  }, "  -  "))
   ui.icon("Interface\\Icons\\INV_Misc_Map_01")(page.portrait)
   -- The surveyor's note.
   if zone.note and #zone.note > 0 then
@@ -501,8 +536,12 @@ function showZone(uiMap, placeKey)
   end
   if #deaths > 0 or #calls > 0 then
     section("Close to the end")
-    for _, e in ipairs(deaths) do row2("Died", eventLine(e)) end
-    for _, e in ipairs(calls) do row2("Close call", eventLine(e)) end
+    for _, e in ipairs(deaths) do
+      row2("Died", eventLine(e))
+    end
+    for _, e in ipairs(calls) do
+      row2("Close call", eventLine(e))
+    end
   end
   -- Flights from or to this zone (a taxi node is named "Place, Zone").
   local name, routes = ns.zoneName(uiMap), {}
@@ -512,7 +551,9 @@ function showZone(uiMap, placeKey)
   if #routes > 0 then
     table.sort(routes, function(a, b) return a[2] > b[2] end)
     section("Flights")
-    for _, r in ipairs(routes) do row2(r[2] == 1 and "Once" or ("%d times"):format(r[2]), r[1]) end
+    for _, r in ipairs(routes) do
+      row2(r[2] == 1 and "Once" or ("%d times"):format(r[2]), r[1])
+    end
   end
   finish()
 end
@@ -537,7 +578,9 @@ function showTravels()
   row2("Places", ("%d explored of %d in the zones entered"):format(explored, places))
   local top, topN = nil, 0
   for route, n in pairs(a.routes or {}) do
-    if n > topN then top, topN = route, n end
+    if n > topN then
+      top, topN = route, n
+    end
   end
   row2("Flights", ("%d%s"):format(#(a.flights or {}), top and (" (most often: %s, %d times)"):format(top, topN) or ""))
   if #(a.crossings or {}) > 0 then row2("Crossings", ("%d between continents"):format(#a.crossings)) end
@@ -559,11 +602,17 @@ function ns.refreshAtlas()
   if not list then return end
   book.count:SetText(("%d zones in the atlas"):format((function()
     local n = 0
-    for uiMap in pairs(A.zones) do if entered(uiMap) then n = n + 1 end end
+    for uiMap in pairs(A.zones) do
+      if entered(uiMap) then n = n + 1 end
+    end
     return n
   end)()))
   refreshList()
-  if current then showZone(current, selectedPlace) else showTravels() end
+  if current then
+    showZone(current, selectedPlace)
+  else
+    showTravels()
+  end
 end
 
 -- ── building ─────────────────────────────────────────────────────────────────
