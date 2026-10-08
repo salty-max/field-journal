@@ -228,9 +228,14 @@ local function join(id, unit)
   return rec
 end
 
+local told = {} -- name = when kills of it were told (a quest's count credits the others)
 local function slay(id, unit)
   local rec = ns.journal().creatures[id] or join(id, unit)
   if not rec then return end
+  if rec.name then
+    told[rec.name] = told[rec.name] or {}
+    table.insert(told[rec.name], time())
+  end
   local stamp = { at = time(), level = UnitLevel("player") }
   rec.slain = (rec.slain or 0) + 1
   rec.firstSlain = rec.firstSlain or stamp
@@ -248,12 +253,21 @@ local function slay(id, unit)
 end
 
 -- ── kills ────────────────────────────────────────────────────────────────────
--- Yours or your pet's, however dealt (a DoT, an area spell, a creature never
--- targeted, one with no loot). PARTY_KILL (killer, victim) is an event of its
+-- Yours, your pet's or your group's, however dealt (a DoT, an area spell, a
+-- creature never targeted, one with no loot). PARTY_KILL (killer, victim) is an event of its
 -- own where the client has it (Forever, Classic since 1.15.9), secret only in
 -- a Forever instance, where no creature can be told from another; else a
 -- line of the combat log (Classic before 1.15.9; Forever forbids it).
-local function mine(guid) return guid == UnitGUID("player") or guid == UnitGUID("pet") end
+local function mine(guid)
+  if guid == UnitGUID("player") or guid == UnitGUID("pet") then return true end
+  local raid, n = IsInRaid(), GetNumGroupMembers()
+  if secret(raid) or secret(n) then return false end
+  local unit = raid and "raid" or "party"
+  for i = 1, raid and n or n - 1 do
+    if guid == UnitGUID(unit .. i) or guid == UnitGUID(unit .. "pet" .. i) then return true end
+  end
+  return false
+end
 
 local function killed(attacker, victim)
   if not attacker or secret(attacker) or not mine(attacker) then return end
@@ -280,6 +294,98 @@ end
 
 ns.on("PLAYER_TARGET_CHANGED", function() meet("target") end)
 ns.on("UPDATE_MOUSEOVER_UNIT", function() meet("mouseover") end)
+
+-- ── kills a quest credits ────────────────────────────────────────────────────
+-- A quest's count of a creature gone up ("Snow Leopard Prowler slain: 1/1")
+-- with no kill told: another's killing blow on one this character tagged,
+-- which the game credits it with. Known by its name: the creature met by it.
+local function idByName(name)
+  local c = ns.journal()
+  for _, recs in ipairs({ c.creatures, c.seen or {} }) do
+    for id, rec in pairs(recs) do
+      if rec.name == name then return id end
+    end
+  end
+end
+
+-- "%s slain: %d/%d", or numbered ("%2$d/%3$d %1$s slain"): the name and
+-- the count, wherever the game's format puts them.
+local function slainPattern()
+  local format = QUEST_MONSTERS_KILLED or "%s slain: %d/%d"
+  local order = {}
+  local p = format:gsub("%%(%d*)%$?([sd])", function(at, kind)
+    order[#order + 1] = tonumber(at) or #order + 1
+    return kind == "s" and "\1" or "\2"
+  end)
+  p = p:gsub("([%%%(%)%.%+%-%*%?%[%]%^%$])", "%%%1"):gsub("\1", "(.+)"):gsub("\2", "(%%d+)")
+  return "^" .. p .. "$", order
+end
+
+-- The quests in the log: their ids.
+local function questIds()
+  local ids = {}
+  if C_QuestLog.GetNumQuestLogEntries and C_QuestLog.GetInfo then
+    for i = 1, C_QuestLog.GetNumQuestLogEntries() do
+      local info = C_QuestLog.GetInfo(i)
+      if info and not info.isHeader and info.questID then table.insert(ids, info.questID) end
+    end
+  elseif GetNumQuestLogEntries and GetQuestLogTitle then
+    for i = 1, GetNumQuestLogEntries() do
+      local _, _, _, header, _, _, _, id = GetQuestLogTitle(i)
+      if not header and id then table.insert(ids, id) end
+    end
+  end
+  return ids
+end
+
+-- What the quests in the log count so far: "quest:name" = count.
+local function questCounts()
+  local p, order = slainPattern()
+  local counts = {}
+  for _, id in ipairs(questIds()) do
+    local ok, objectives = pcall(C_QuestLog.GetQuestObjectives, id)
+    for _, o in ipairs(ok and objectives or {}) do
+      if o.type == "monster" and o.text and not secret(o.text) then
+        local got, out = { o.text:match(p) }, {}
+        for i, v in ipairs(got) do
+          out[order[i] or i] = v
+        end
+        local name, have = out[1], tonumber(out[2])
+        if name and have then counts[id .. ":" .. name] = have end
+      end
+    end
+  end
+  return counts
+end
+
+local function credited(name, n)
+  C_Timer.After(2, function()
+    local times, now, left = told[name] or {}, time(), n
+    for i = #times, 1, -1 do
+      if now - times[i] > 10 then
+        table.remove(times, i)
+      elseif left > 0 then
+        table.remove(times, i)
+        left = left - 1
+      end
+    end
+    local id = left > 0 and idByName(name)
+    for _ = 1, id and left or 0 do
+      slay(id)
+      table.remove(told[name]) -- (not a kill the event told)
+    end
+  end)
+end
+
+local lastCounts
+ns.on("QUEST_LOG_UPDATE", function()
+  local counts = questCounts()
+  for key, have in pairs(counts) do
+    local before = lastCounts and lastCounts[key]
+    if before and have > before then credited(key:match("^%d+:(.+)$"), have - before) end
+  end
+  lastCounts = counts
+end)
 
 -- ── loot ─────────────────────────────────────────────────────────────────────
 -- What each corpse gave (the loot window names its source).

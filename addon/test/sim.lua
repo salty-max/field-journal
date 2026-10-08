@@ -46,6 +46,7 @@ local NAMES = {
   [99001] = "Skyborne Galestrider",
   [99002] = "Kharanos Villager",
   [99003] = "Snow Leopard Prowler",
+  [99005] = "Frost Lynx",
   [99004] = "Snowy Hare",
 }
 function UnitName(u)
@@ -63,6 +64,7 @@ function UnitTokenFromGUID(guid)
 end
 function UnitGUID(u)
   if u == "player" then return PLAYER end
+  if state.party and state.party[u] then return state.party[u] end
   if u == "pet" then return PET end
   if u == "target" and state.target then return creature(state.target) end
   if u == "mouseover" and state.mouseover then return creature(state.mouseover) end
@@ -84,7 +86,27 @@ C_Map = {
 -- What every client has, before the scenes that use it set it.
 function IsFishingLoot() return false end
 function GetGameTime() return 12, 0 end
-C_QuestLog = { IsQuestFlaggedCompleted = function(id) return state.questsDone[id] == true end }
+-- The quest log: state.quests = { { id, objectives = { { type, text } } } }.
+QUEST_MONSTERS_KILLED = FOREVER and "%2$d/%3$d %1$s slain" or "%s slain: %d/%d"
+C_QuestLog = {
+  IsQuestFlaggedCompleted = function(id) return state.questsDone[id] == true end,
+  GetNumQuestLogEntries = function() return #(state.quests or {}) end,
+  GetInfo = function(i) return { questID = state.quests[i].id, isHeader = false } end,
+  GetQuestObjectives = function(id)
+    for _, q in ipairs(state.quests or {}) do
+      if q.id == id then return q.objectives end
+    end
+  end,
+}
+-- A group: state.party = { party1 = guid... }.
+function GetNumGroupMembers()
+  local n = 0
+  for _ in pairs(state.party or {}) do
+    n = n + 1
+  end
+  return n > 0 and n + 1 or 0
+end
+function IsInRaid() return false end
 if FOREVER then
   C_Reputation = { GetFactionDataByID = function(id) return { name = "Ironforge", reaction = state.standing[id] } end }
 else
@@ -297,6 +319,7 @@ local unitInfo = {
   [99002] = { level = 5, type = "Humanoid", friendly = true }, -- unknown, not attackable
   [99003] = { level = 6, type = "Beast", family = "Cat" }, -- unknown, of a known beast family
   [99004] = { level = 1, type = "Critter" }, -- unknown critter
+  [99005] = { level = 7, type = "Beast", family = "Cat" }, -- unknown, a quest's quarry
   [1124] = { level = 9, type = "Humanoid", friendly = true }, -- known, but friendly now (a scripted foe)
 }
 local function unitId(u) return (u == "target" and state.target) or (u == "mouseover" and state.mouseover) end
@@ -592,6 +615,33 @@ target(99002)
 check(not seen(99002), "… unless it can't be fought (friendly folk)")
 target(1124)
 check(not seen(1124), "a creature the data knows isn't noted while it can't be fought either")
+
+-- Kills credited: a quest's count gone up for a creature no kill told
+-- (another's blow on one I tagged: the game credits me), and my group's.
+target(99005)
+state.target = nil
+local count = FOREVER and "%d/1 Frost Lynx slain" or "Frost Lynx slain: %d/1"
+state.quests = { { id = 500, objectives = { { type = "monster", text = count:format(0) } } } }
+fire("QUEST_LOG_UPDATE")
+kill(99005, true)
+state.quests[1].objectives[1].text = count:format(1)
+fire("QUEST_LOG_UPDATE")
+check(rec(99005) and rec(99005).slain == 1, "a kill a quest credits me with, another's blow, joins the book")
+kill(99005)
+state.quests[1].objectives[1].text = count:format(2)
+fire("QUEST_LOG_UPDATE")
+check(rec(99005).slain == 2, "… and one told and counted, once")
+state.quests = nil
+state.party = { party1 = "Player-6113-0AAAAAAA" }
+spawn = spawn + 1
+if FOREVER then
+  fire("PARTY_KILL", "Player-6113-0AAAAAAA", creature(99005, spawn))
+else
+  combatLog = { clock, "PARTY_KILL", false, "Player-6113-0AAAAAAA", "Brannor", 0, 0, creature(99005, spawn), "?", 0, 0 }
+  fire("COMBAT_LOG_EVENT_UNFILTERED")
+end
+check(rec(99005).slain == 3, "a groupmate's killing blow is a kill of ours")
+state.party = nil
 
 -- A journal from before (creatures joined on meeting): the ones never slain
 -- go back to what was seen, once.

@@ -46,8 +46,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   file listens to: `ns.on`, and `ns.onUnit` for a unit event heard for one
   unit only; the login and its migrations; `/journal`), `Creatures.lua` (the
   Bestiary's records: a creature met (target, mouseover) is a sighting
-  (`seen`), it joins the book on its first kill; kills from `PARTY_KILL` (an
-  event of its own on Forever and Classic since 1.15.9), else the combat log;
+  (`seen`), it joins the book on its first kill; kills (mine, my pet's or my
+  group's) from `PARTY_KILL` (an event of its own on Forever and Classic since
+  1.15.9), else the combat log, and a quest's count gone up for a creature no
+  kill told (another's blow on one I tagged, which the game credits);
   loot from the loot window, trophies; a
   chat line per new creature, a sound only for trophies), `Atlas.lua` (places
   explored from the fog lifted, `C_MapExplorationInfo`; deaths, close calls,

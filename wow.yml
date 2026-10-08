@@ -171,3 +171,15 @@ globals:
     any: true
   tinsert:
     any: true
+  C_QuestLog:
+    any: true
+  GetNumGroupMembers:
+    any: true
+  GetNumQuestLogEntries:
+    any: true
+  GetQuestLogTitle:
+    any: true
+  IsInRaid:
+    any: true
+  QUEST_MONSTERS_KILLED:
+    any: true
