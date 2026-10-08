@@ -42,20 +42,29 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
 - `scripts/package.ts` (`bun run package`): `dist/classic`, `dist/forever`,
   one installable addon per game (its data file as `Data.lua`, its TOC from
   the `@INTERFACE@` template: the source folder is not installable).
-- `addon/FieldJournal/`: `Core.lua` (records: a creature met (target,
-  mouseover) is a sighting (`seen`), it joins the book on its first kill;
-  kills from `PARTY_KILL` (an event of its own on Forever and Classic since
-  1.15.9), else the combat log, else loot and dead targets fought; loot from
-  the loot window, trophies; a chat line per new creature, a sound only for
-  trophies; `/journal`), `Achievements.lua` (milestones: tallies, every family
-  of a type, feats, every rare of a zone; the game's achievement toast, fanfare
-  and a chat line; no spoilers before a type or zone is met), `Book.lua` (the
-  book in a standard window: Bestiary and Milestones tabs; still portraits from
-  the data's display ids, `SetPortraitTextureFromCreatureDisplayID`),
-  `Atlas.lua` (places explored from the fog lifted, `C_MapExplorationInfo`;
-  deaths, close calls, flights, crossings, binds), `AtlasBook.lua` (the Atlas
-  tab: zones by continent, the zone's map art with its explored overlays and
-  marks), `WorldMapPins.lua` (deaths on the game's world map), `Hints.lua` (tooltip line), `Settings.lua`, `Minimap.lua`.
+- `addon/FieldJournal/`: `Core.lua` (the journal's schema; the events every
+  file listens to: `ns.on`, and `ns.onUnit` for a unit event heard for one
+  unit only; the login and its migrations; `/journal`), `Creatures.lua` (the
+  Bestiary's records: a creature met (target, mouseover) is a sighting
+  (`seen`), it joins the book on its first kill; kills from `PARTY_KILL` (an
+  event of its own on Forever and Classic since 1.15.9), else the combat log,
+  else loot and dead targets fought; loot from the loot window, trophies; a
+  chat line per new creature, a sound only for trophies), `Atlas.lua` (places
+  explored from the fog lifted, `C_MapExplorationInfo`; deaths, close calls,
+  flights, crossings, binds), `Flora.lua` (fish and herbs), `Achievements.lua`
+  (milestones: tallies, every family of a type, feats, every rare of a zone,
+  the Atlas's and the flora's; the game's achievement toast, fanfare and a
+  chat line; no spoilers before a type or zone is met). The book: `Book.lua`
+  (the standard window, its tabs registered by their files with
+  `ns.addTab`, links in chat, and the kit every tab is made of, `ns.ui`:
+  `newList` for the list on the left, `newPage` for the page on the right),
+  `BestiaryBook.lua` (still portraits from the data's display ids,
+  `SetPortraitTextureFromCreatureDisplayID`), `FloraBook.lua` (Fish and
+  Plants), `AtlasBook.lua` (zones by continent, the zone's map art with its
+  explored overlays and marks), `MilestonesBook.lua`. `WorldMapPins.lua`
+  (deaths on the game's world map), `Hints.lua` (tooltip line),
+  `Settings.lua`, `Minimap.lua`. A game function is checked before use only
+  where the clients differ; the test game has every one the addon calls.
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).
 
@@ -82,7 +91,10 @@ bun scripts/build.ts --verbose   # per-family counts, overlaps, unsorted
 ## Conventions
 
 - Conventional Commits, lowercase subjects; no AI co-author trailers.
-- Ask before committing, pushing or releasing.
+- Commit locally; ask before any push, release or deploy.
+- Lua: `bun run format:lua` (StyLua, `stylua.toml`) and `bun run lint:lua`
+  (selene, `selene.toml`; the game's globals in `wow.yml`: add one there when
+  the addon calls a new game function). Both run in `bun run check` and CI.
 - Release: `scripts/release.sh [--version X.Y.Z] NOTES.md` (main pushed
   first); GitHub Actions publishes both zips and uploads them to CurseForge
   once the project exists (variable CURSEFORGE_PROJECT_ID, secret
