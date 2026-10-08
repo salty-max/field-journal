@@ -1,7 +1,7 @@
 -- Runs the addon against a fake WoW API and replays a dwarf's first hunts.
 --   luajit addon/test/sim.lua              (from the repo root): Classic
 --   FOREVER=1 luajit addon/test/sim.lua    the same on Forever's client: no
---                                          combat log (loot and dead targets count), secret values
+--                                          combat log (kills from PARTY_KILL), secret values
 local DIR = "addon/FieldJournal/"
 local FOREVER = os.getenv("FOREVER") == "1"
 function GetBuildInfo() return "1.15.8", "60000", "Oct 1 2026", FOREVER and 16001 or 11509 end
@@ -456,7 +456,7 @@ check(
   "a new character named like a deleted one starts a fresh journal"
 )
 check(
-  ns.partyKill == FOREVER and not ns.meetKills and FOREVER == not registered("COMBAT_LOG_EVENT_UNFILTERED"),
+  ns.partyKill == FOREVER and FOREVER == not registered("COMBAT_LOG_EVENT_UNFILTERED"),
   FOREVER and "Forever: kills come from PARTY_KILL (no combat log)"
     or "Classic (a client without PARTY_KILL): kills come from the combat log"
 )

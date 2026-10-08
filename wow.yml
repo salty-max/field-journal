@@ -123,8 +123,6 @@ globals:
     any: true
   UISpecialFrames:
     any: true
-  UnitAffectingCombat:
-    any: true
   UnitCanAttack:
     any: true
   UnitClassification:
@@ -146,8 +144,6 @@ globals:
   UnitIsDeadOrGhost:
     any: true
   UnitIsPlayer:
-    any: true
-  UnitIsTapDenied:
     any: true
   UnitLevel:
     any: true

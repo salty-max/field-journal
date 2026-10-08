@@ -187,26 +187,8 @@ function ns.rank(id, unit)
   end
 end
 
--- Forever: the creatures this character fought (targeted or moused over while
--- both were in combat), so a dead target only counts if it was one of them:
--- other people's kills lying about don't.
-local engaged, engagedOrder = {}, {}
-local function engage(unit)
-  if not UnitExists(unit) or UnitIsDead(unit) then return end
-  local mine, theirs = UnitAffectingCombat("player"), UnitAffectingCombat(unit)
-  if secret(mine) or secret(theirs) or not (mine and theirs) or not attackable(unit) then return end
-  -- (one someone else hit first isn't this character's to claim)
-  local claimed = UnitIsTapDenied(unit)
-  if claimed and not secret(claimed) then return end
-  local guid = UnitGUID(unit)
-  if not guid or secret(guid) or engaged[guid] then return end
-  engaged[guid] = true
-  table.insert(engagedOrder, guid)
-  if #engagedOrder > 200 then engaged[table.remove(engagedOrder, 1)] = nil end
-end
-
--- Corpses already counted (Forever: a kill is counted once, at its first loot
--- or dead target), so a corpse looted twice counts once.
+-- Corpses already counted: a kill told twice (the event and its log line, a
+-- corpse looted twice) counts once.
 local counted, countedOrder = {}, {}
 local function once(guid)
   if counted[guid] then return false end
@@ -270,8 +252,7 @@ end
 -- targeted, one with no loot). PARTY_KILL (killer, victim) is an event of its
 -- own where the client has it (Forever, Classic since 1.15.9), secret only in
 -- a Forever instance, where no creature can be told from another; else a
--- line of the combat log (not on Forever, which forbids it); with neither,
--- loot and dead targets fought count instead (ns.meetKills).
+-- line of the combat log (Classic before 1.15.9; Forever forbids it).
 local function mine(guid) return guid == UnitGUID("player") or guid == UnitGUID("pet") end
 
 local function killed(attacker, victim)
@@ -290,44 +271,18 @@ local function fromLog()
   if id then slay(id) end
 end
 
--- Without either: a creature this character fought, seen dead as its target,
--- counts as slain, once per corpse. The target is watched through the fight
--- (its health, its flags), not only when chosen: mostly it is chosen before
--- the fight and dies still chosen.
-local function watchTarget()
-  engage("target")
-  if UnitExists("target") and UnitIsDead("target") then
-    local guid = UnitGUID("target")
-    local id = creatureId(guid)
-    if id and engaged[guid] and once(guid) then slay(id, "target") end
-  end
-end
-
 ns.partyKill = ns.knows("PARTY_KILL")
 if ns.partyKill then
   ns.on("PARTY_KILL", killed)
 elseif not ns.forever then
   ns.on("COMBAT_LOG_EVENT_UNFILTERED", fromLog)
-else
-  ns.meetKills = true
-  ns.onUnit("UNIT_HEALTH", "target", watchTarget)
-  ns.onUnit("UNIT_FLAGS", "target", watchTarget)
-  -- entering combat with something already targeted
-  ns.on("PLAYER_REGEN_DISABLED", function() engage("target") end)
 end
 
-ns.on("PLAYER_TARGET_CHANGED", function()
-  meet("target")
-  if ns.meetKills then watchTarget() end
-end)
-ns.on("UPDATE_MOUSEOVER_UNIT", function()
-  meet("mouseover")
-  if ns.meetKills then engage("mouseover") end
-end)
+ns.on("PLAYER_TARGET_CHANGED", function() meet("target") end)
+ns.on("UPDATE_MOUSEOVER_UNIT", function() meet("mouseover") end)
 
 -- ── loot ─────────────────────────────────────────────────────────────────────
--- What each corpse gave (the loot window names its source). Without kills of
--- their own (ns.meetKills), the first loot of a corpse also counts its kill.
+-- What each corpse gave (the loot window names its source).
 local looted, lootedOrder = {}, {}
 ns.on("LOOT_OPENED", function()
   local creatures = ns.journal().creatures
@@ -339,7 +294,6 @@ ns.on("LOOT_OPENED", function()
       local guid, count = sources[i], sources[i + 1] or 1
       local id = creatureId(guid)
       if id then
-        if ns.meetKills and once(guid) then slay(id) end
         local rec = creatures[id]
         local key = guid .. ":" .. slot
         if rec and itemId and not looted[key] then

@@ -36,8 +36,7 @@ first meeting); what was seen of it before (`seen`) comes with it:
 - **Levels seen** (lowest, highest) and **places seen** (subzones, up to a few).
 - **Slain:** count, first and last: the player's or the pet's killing blow,
   from `PARTY_KILL` (killer, victim), an event of its own on Forever and
-  Classic since 1.15.9; else the combat log's line; else loot and dead
-  targets fought. On Forever, creature identity is secret inside instances
+  Classic since 1.15.9; else the combat log's line. On Forever, creature identity is secret inside instances
   (Midnight's rules): nothing there can be recorded.
 - **Loot:** items taken from its corpses, with counts (`LOOT_OPENED`,
   `GetLootSourceInfo` names the corpse).
