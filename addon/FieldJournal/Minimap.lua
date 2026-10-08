@@ -6,15 +6,8 @@ local _, ns = ...
 
 local button
 
-local function settings()
-  FieldJournalSettings = FieldJournalSettings or {}
-  local s = FieldJournalSettings
-  if s.minimapAngle == nil then s.minimapAngle = 225 end -- lower left, clear of the game's buttons
-  return s
-end
-
 local function place()
-  local angle = math.rad(settings().minimapAngle)
+  local angle = math.rad(ns.option("minimapAngle"))
   local r = Minimap:GetWidth() / 2 + 10
   button:ClearAllPoints()
   button:SetPoint("CENTER", Minimap, "CENTER", math.cos(angle) * r, math.sin(angle) * r)
@@ -25,7 +18,7 @@ local function follow()
   local mx, my = Minimap:GetCenter()
   local cx, cy = GetCursorPosition()
   local scale = Minimap:GetEffectiveScale()
-  settings().minimapAngle = math.deg(math.atan2(cy / scale - my, cx / scale - mx))
+  ns.setOption("minimapAngle", math.deg(math.atan2(cy / scale - my, cx / scale - mx)))
   place()
 end
 

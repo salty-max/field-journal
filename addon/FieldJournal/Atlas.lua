@@ -18,7 +18,7 @@
 local _, ns = ...
 local D = ns.data
 local A = D.atlas or { zones = {}, continents = {} }
-local PREFIX = "|cffc9a227Field Journal:|r "
+local PREFIX = ns.PREFIX
 local secret = ns.secret
 
 -- A place: { name, left, top, right, bottom, area ids... }, keyed by its
@@ -52,17 +52,17 @@ local function zoneOf(uiMap)
   for _ = 1, 6 do
     if not uiMap or uiMap == 0 then return end
     if A.zones[uiMap] then return uiMap end
-    local info = C_Map.GetMapInfo and C_Map.GetMapInfo(uiMap)
+    local info = C_Map.GetMapInfo(uiMap)
     uiMap = info and info.parentMapID
   end
 end
 
 local function here()
-  local best = C_Map.GetBestMapForUnit and C_Map.GetBestMapForUnit("player")
+  local best = C_Map.GetBestMapForUnit("player")
   if not best or secret(best) then return end
   local zone = zoneOf(best)
   if not zone then return end
-  local pos = C_Map.GetPlayerMapPosition and C_Map.GetPlayerMapPosition(zone, "player")
+  local pos = C_Map.GetPlayerMapPosition(zone, "player")
   local x, y
   if pos and not secret(pos) then
     if pos.GetXY then
@@ -91,7 +91,7 @@ end
 
 -- The map art's size (the places' rectangles are in its pixels).
 local function artSize(uiMap)
-  local layers = C_Map.GetMapArtLayers and C_Map.GetMapArtLayers(uiMap)
+  local layers = C_Map.GetMapArtLayers(uiMap)
   local layer = layers and not secret(layers) and layers[1]
   if layer and layer.layerWidth and layer.layerWidth > 0 then return layer.layerWidth, layer.layerHeight end
   return 1002, 668
@@ -189,7 +189,7 @@ local function seed()
       end
       a.seeded = true
       withdraw()
-      if ns.checkMilestones then ns.checkMilestones(true) end
+      ns.checkMilestones(true)
       return
     end
   end
@@ -199,7 +199,7 @@ local function seed()
   end
   a.seeded = true
   -- milestones already deserved by the fog lifted: quietly
-  if ns.checkMilestones then ns.checkMilestones(true) end
+  ns.checkMilestones(true)
 end
 
 -- ── entering zones ───────────────────────────────────────────────────────────
@@ -221,7 +221,7 @@ local function enter()
       and from.continent ~= 0
       and A.zones[zone].continent ~= 0
       and from.continent ~= A.zones[zone].continent
-      and not (UnitOnTaxi and UnitOnTaxi("player"))
+      and not UnitOnTaxi("player")
     then
       keep(ns.atlas().crossings, { from = lastZone, to = zone, at = now.at, level = now.level }, 200)
     end
@@ -234,12 +234,12 @@ local function enter()
   syncZone(zone)
   -- Places the game can't tell us about: visited when the zone or subzone
   -- you stand in bears the name of one of their areas.
-  local here1, here2 = GetRealZoneText and GetRealZoneText(), GetSubZoneText and GetSubZoneText()
+  local here1, here2 = GetRealZoneText(), GetSubZoneText()
   for _, place in ipairs(A.zones[zone].places) do
     local key = placeKey(place)
     if place.visit and not z.places[key] then
       for i = FIRST_AREA, #place do
-        local name = (C_Map.GetAreaInfo and C_Map.GetAreaInfo(place[i])) or (i == FIRST_AREA and place[1])
+        local name = C_Map.GetAreaInfo(place[i]) or (i == FIRST_AREA and place[1])
         if name and not secret(name) and (name == here1 or name == here2) then
           z.places[key] = stamp()
           break
@@ -247,12 +247,12 @@ local function enter()
       end
     end
   end
-  if ns.checkMilestones then ns.checkMilestones() end
-  if ns.onAtlas then ns.onAtlas() end
+  ns.checkMilestones()
+  ns.onAtlas()
 end
 
 function ns.zoneName(uiMap)
-  local info = C_Map.GetMapInfo and C_Map.GetMapInfo(uiMap)
+  local info = C_Map.GetMapInfo(uiMap)
   return (info and info.name) or (A.zones[uiMap] and A.zones[uiMap].name) or "?"
 end
 
@@ -298,14 +298,14 @@ end
 
 ns.on("PLAYER_DEAD", function()
   mark(ns.atlas().deaths, 500)
-  if ns.onAtlas then ns.onAtlas() end
+  ns.onAtlas()
 end)
 
 -- A close call: under a tenth of your health, and still alive five seconds
 -- later. One a minute at most.
 local pending, lastClose = false, 0
-ns.on("UNIT_HEALTH", function(unit)
-  if unit ~= "player" or pending or time() - lastClose < 60 then return end
+ns.onUnit("UNIT_HEALTH", "player", function()
+  if pending or time() - lastClose < 60 then return end
   local h, max = UnitHealth("player"), UnitHealthMax("player")
   if secret(h) or secret(max) or not max or max == 0 or h <= 0 or h / max >= 0.1 then return end
   pending = true
@@ -314,42 +314,36 @@ ns.on("UNIT_HEALTH", function(unit)
     if UnitIsDeadOrGhost("player") then return end
     lastClose = time()
     mark(ns.atlas().closeCalls, 500)
-    if ns.checkMilestones then ns.checkMilestones() end
-    if ns.onAtlas then ns.onAtlas() end
+    ns.checkMilestones()
+    ns.onAtlas()
   end
-  if C_Timer then
-    C_Timer.After(5, check)
-  else
-    check()
-  end
+  C_Timer.After(5, check)
 end)
 
 -- ── travel ───────────────────────────────────────────────────────────────────
 -- A flight: the taxi map names where you are (the current node) and where you
 -- asked to go.
-if hooksecurefunc and TakeTaxiNode then
-  hooksecurefunc("TakeTaxiNode", function(index)
-    local to = TaxiNodeName(index)
-    local from
-    for i = 1, NumTaxiNodes() do
-      if TaxiNodeGetType(i) == "CURRENT" then from = TaxiNodeName(i) end
-    end
-    if not (to and from) then return end
-    local a, s = ns.atlas(), stamp()
-    keep(a.flights, { from = from, to = to, at = s.at, level = s.level }, 300)
-    local route = from .. " > " .. to
-    a.routes[route] = (a.routes[route] or 0) + 1
-    if ns.checkMilestones then ns.checkMilestones() end
-    if ns.onAtlas then ns.onAtlas() end
-  end)
-end
+hooksecurefunc("TakeTaxiNode", function(index)
+  local to = TaxiNodeName(index)
+  local from
+  for i = 1, NumTaxiNodes() do
+    if TaxiNodeGetType(i) == "CURRENT" then from = TaxiNodeName(i) end
+  end
+  if not (to and from) then return end
+  local a, s = ns.atlas(), stamp()
+  keep(a.flights, { from = from, to = to, at = s.at, level = s.level }, 300)
+  local route = from .. " > " .. to
+  a.routes[route] = (a.routes[route] or 0) + 1
+  ns.checkMilestones()
+  ns.onAtlas()
+end)
 
 ns.on("HEARTHSTONE_BOUND", function()
-  local place = GetBindLocation and GetBindLocation()
+  local place = GetBindLocation()
   if not place then return end
   local s = stamp()
   keep(ns.atlas().binds, { place = place, at = s.at, level = s.level }, 100)
-  if ns.checkMilestones then ns.checkMilestones() end
+  ns.checkMilestones()
 end)
 
 -- ── /journal atlas: what the game reports here (for testing) ─────────────────
@@ -402,7 +396,7 @@ end
 ns.on("MAP_EXPLORATION_UPDATED", function()
   local zone = here()
   if zone and syncZone(zone) > 0 then
-    if ns.checkMilestones then ns.checkMilestones() end
-    if ns.onAtlas then ns.onAtlas() end
+    ns.checkMilestones()
+    ns.onAtlas()
   end
 end)

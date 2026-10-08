@@ -3,8 +3,17 @@
 -- so does a right-click on the minimap button.
 local _, ns = ...
 
-local DEFAULTS =
-  { chat = true, sound = 3175, minimapHidden = false, tooltipHints = true, milestoneToast = true, worldMapPins = true }
+-- (minimapAngle: the button's place around the minimap, in degrees; 225 is
+-- lower left, clear of the game's buttons)
+local DEFAULTS = {
+  chat = true,
+  sound = 3175,
+  minimapHidden = false,
+  minimapAngle = 225,
+  tooltipHints = true,
+  milestoneToast = true,
+  worldMapPins = true,
+}
 
 -- Sounds for a trophy: all from the original game's interface. -1 is the
 -- sting heard on discovering a new zone, which differs by race.
@@ -18,16 +27,19 @@ ns.SOUNDS = {
   { 0, "None" },
 }
 
+local function saved()
+  if type(FieldJournalSettings) ~= "table" then FieldJournalSettings = {} end
+  return FieldJournalSettings
+end
+
 function ns.option(key)
-  FieldJournalSettings = FieldJournalSettings or {}
-  local v = FieldJournalSettings[key]
+  local v = saved()[key]
   if v == nil then return DEFAULTS[key] end
   return v
 end
 
 function ns.setOption(key, value)
-  FieldJournalSettings = FieldJournalSettings or {}
-  FieldJournalSettings[key] = value
+  saved()[key] = value
   if key == "minimapHidden" then ns.updateMinimapButton() end
   if key == "worldMapPins" and ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
 end

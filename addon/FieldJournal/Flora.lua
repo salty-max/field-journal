@@ -33,15 +33,15 @@ end
 local function itemOf(link) return link and not secret(link) and tonumber(link:match("item:(%d+)")) end
 
 local function now()
-  local zone = ns.atlasHere and ns.atlasHere()
-  local sub = GetSubZoneText and GetSubZoneText()
+  local zone = ns.atlasHere()
+  local sub = GetSubZoneText()
   if secret(sub) or sub == "" then sub = nil end
   return { at = time(), level = UnitLevel("player"), zone = zone, sub = sub }
 end
 
 -- Night: 6 PM to 6 AM by the game's clock (the hours of the Nightfin Snapper).
 local function night()
-  local h = GetGameTime and GetGameTime()
+  local h = GetGameTime()
   return h ~= nil and not secret(h) and (h < 6 or h >= 18)
 end
 
@@ -54,8 +54,8 @@ local function announce(kind, id, name)
 end
 
 local function changed()
-  if ns.checkMilestones then ns.checkMilestones() end
-  if ns.onFlora then ns.onFlora() end
+  ns.checkMilestones()
+  ns.onFlora()
 end
 
 -- ── fish ─────────────────────────────────────────────────────────────────────
@@ -105,7 +105,7 @@ local function herb(itemId, n, how, quiet)
   rec.n = rec.n + n
   if how == "gathered" or how == "looted" then
     rec[how] = rec[how] + n
-    local zone = ns.atlasHere and ns.atlasHere()
+    local zone = ns.atlasHere()
     if zone then rec.zones[zone] = (rec.zones[zone] or 0) + n end
   end
   if new and not quiet then announce("h", itemId, F.herbs[itemId].name) end
@@ -118,14 +118,13 @@ local seen = {}
 ns.on("LOOT_CLOSED", function() seen = {} end)
 
 ns.on("LOOT_OPENED", function()
-  if not (GetNumLootItems and GetLootSlotLink) then return end
-  local fishing = IsFishingLoot and IsFishingLoot()
+  local fishing = IsFishingLoot()
   if secret(fishing) then fishing = false end
   local any = false
   for slot = 1, GetNumLootItems() do
     local itemId = itemOf(GetLootSlotLink(slot))
     if itemId and (F.herbs[itemId] or F.fish[itemId] or F.weights[itemId]) then
-      local guid = GetLootSourceInfo and GetLootSourceInfo(slot)
+      local guid = GetLootSourceInfo(slot)
       local _, _, quantity = GetLootSlotInfo(slot)
       local count = (quantity and not secret(quantity) and quantity > 0) and quantity or 1
       local object = objectId(guid)
@@ -175,20 +174,10 @@ ns.on("BAG_UPDATE_DELAYED", function()
   if pending then return end
   pending = true
   -- after the loot window's own records, so a looted herb isn't "other"
-  if C_Timer then
-    C_Timer.After(1, lookInBags)
-  else
-    lookInBags()
-  end
+  C_Timer.After(1, lookInBags)
 end)
 local function atLogin() lookInBags(true) end
-ns.on("PLAYER_ENTERING_WORLD", function()
-  if C_Timer then
-    C_Timer.After(3, atLogin)
-  else
-    atLogin()
-  end
-end)
+ns.on("PLAYER_ENTERING_WORLD", function() C_Timer.After(3, atLogin) end)
 
 -- For the book and the milestones.
 function ns.fishRecord(id)

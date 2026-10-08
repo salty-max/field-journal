@@ -77,7 +77,13 @@ C_Map = {
   GetAreaInfo = function(id) return ({ [131] = "Kharanos", [1] = "Dun Morogh" })[id] end,
   GetBestMapForUnit = function() return state.map end,
   GetPlayerMapPosition = function() return { x = state.x, y = state.y } end,
+  GetMapInfo = function() return nil end, -- (the maps, below)
+  GetMapArtLayers = function() return nil end, -- (the map's art: the Atlas's book, below)
+  GetMapArtLayerTextures = function() return {} end,
 }
+-- What every client has, before the scenes that use it set it.
+function IsFishingLoot() return false end
+function GetGameTime() return 12, 0 end
 C_QuestLog = { IsQuestFlaggedCompleted = function(id) return state.questsDone[id] == true end }
 if FOREVER then
   C_Reputation = { GetFactionDataByID = function(id) return { name = "Ironforge", reaction = state.standing[id] } end }
@@ -241,11 +247,10 @@ Settings = {
   RegisterAddOnCategory = function() panel.registered = true end,
   OpenToCategory = function(id) panel.opened = id end,
 }
-local events
 local frames = {}
 function CreateFrame(kind, name)
   local f = ui()
-  f.registered = {}
+  f.registered, f.unitsOf = {}, {}
   f.RegisterEvent = function(self, e)
     if FOREVER and e == "COMBAT_LOG_EVENT_UNFILTERED" then error("COMBAT_LOG_EVENT_UNFILTERED: forbidden") end
     -- (PARTY_KILL, an event of its own on Forever; the Classic run plays a
@@ -253,14 +258,32 @@ function CreateFrame(kind, name)
     if not FOREVER and e == "PARTY_KILL" then error('Attempt to register unknown event "PARTY_KILL"') end
     self.registered[e] = true
   end
+  f.UnregisterEvent = function(self, e) self.registered[e] = nil end
+  -- a unit's event, heard for that unit only
+  f.RegisterUnitEvent = function(self, e, ...)
+    self:RegisterEvent(e)
+    self.unitsOf[e] = {}
+    for _, unit in ipairs({ ... }) do
+      self.unitsOf[e][unit] = true
+    end
+  end
   table.insert(frames, f)
-  if not events and kind == "Frame" and not name then events = f end
   if name then _G[name] = f end
   return f
 end
+-- Is the event registered by any frame of the addon?
+local function registered(e)
+  for _, f in ipairs(frames) do
+    if f.registered[e] then return true end
+  end
+  return false
+end
 local function fire(e, ...)
-  assert(events.registered[e], "not registered: " .. e)
-  events.scripts.OnEvent(events, e, ...)
+  assert(registered(e), "not registered: " .. e)
+  local unit = ...
+  for _, f in ipairs(frames) do
+    if f.registered[e] and not (f.unitsOf[e] and not f.unitsOf[e][unit]) then f.scripts.OnEvent(f, e, ...) end
+  end
 end
 
 -- Units: what the game says about the creatures.
@@ -433,7 +456,7 @@ check(
   "a new character named like a deleted one starts a fresh journal"
 )
 check(
-  ns.partyKill == FOREVER and not ns.meetKills and FOREVER == (events.registered.COMBAT_LOG_EVENT_UNFILTERED == nil),
+  ns.partyKill == FOREVER and not ns.meetKills and FOREVER == not registered("COMBAT_LOG_EVENT_UNFILTERED"),
   FOREVER and "Forever: kills come from PARTY_KILL (no combat log)"
     or "Classic (a client without PARTY_KILL): kills come from the combat log"
 )

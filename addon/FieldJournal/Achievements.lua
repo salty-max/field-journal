@@ -11,7 +11,7 @@
 -- of its families or rares has been met.
 local _, ns = ...
 local D = ns.data
-local PREFIX = "|cffc9a227Field Journal:|r "
+local PREFIX = ns.PREFIX
 
 local function char() return ns.journal() end
 local function creatures()
@@ -20,7 +20,7 @@ local function creatures()
 end
 
 -- ── what the journal holds ───────────────────────────────────────────────────
-local function metCount()
+local function recordedCount()
   local n = 0
   for _ in pairs(creatures()) do
     n = n + 1
@@ -66,7 +66,8 @@ local function slainIn(familyId)
   return n
 end
 
-local function met(id) return creatures()[id] ~= nil end
+-- (a creature joins the journal on its first kill: recorded is slain once)
+local function recorded(id) return creatures()[id] ~= nil end
 local function slain(id)
   local rec = creatures()[id]
   return rec ~= nil and (rec.slain or 0) > 0
@@ -110,61 +111,41 @@ local function add(group, id, title, text, progress, extra)
   ns.milestoneById[id] = m
 end
 
--- Tallies.
-for _, t in ipairs({
+-- Tallies: a milestone at each step (need, title) of a count.
+local function tiers(prefix, text, counted, steps)
+  for _, step in ipairs(steps) do
+    local need, title = step[1], step[2]
+    add("tally", prefix .. need, title, text:format(need), function() return counted(), need end)
+  end
+end
+tiers("met-", "Record %d kinds of creature.", recordedCount, {
   { 10, "First Sketches" },
   { 50, "A Notebook Half Full" },
   { 100, "A Hundred Kinds" },
   { 250, "Naturalist" },
   { 500, "Five Hundred Kinds" },
   { 1000, "A Thousand Kinds" },
-}) do
-  add(
-    "tally",
-    "met-" .. t[1],
-    t[2],
-    ("Record %d kinds of creature."):format(t[1]),
-    function() return metCount(), t[1] end
-  )
-end
-for _, t in ipairs({
+})
+tiers("families-", "Slay creatures of %d families.", familiesMet, {
   { 10, "Branches of the Tree" },
   { 25, "Twenty-Five Families" },
   { 50, "Half a Hundred Families" },
   { 75, "The Great Tree of Life" },
-}) do
-  add(
-    "tally",
-    "families-" .. t[1],
-    t[2],
-    ("Slay creatures of %d families."):format(t[1]),
-    function() return familiesMet(), t[1] end
-  )
-end
-for _, t in ipairs({
+})
+tiers("slain-", "Slay %d creatures.", slainCount, {
   { 100, "Blooded" },
   { 500, "Hunter" },
   { 1000, "A Thousand Kills" },
   { 5000, "Scourge of the Wild" },
   { 10000, "Ten Thousand Kills" },
-}) do
-  add("tally", "slain-" .. t[1], t[2], ("Slay %d creatures."):format(t[1]), function() return slainCount(), t[1] end)
-end
-for _, t in ipairs({
+})
+tiers("trophies-", "Take %d trophies (rares and bosses slain).", trophyCount, {
   { 1, "First Trophy" },
   { 10, "A Wall of Trophies" },
   { 25, "Big Game Hunter" },
   { 50, "Master of the Hunt" },
   { 100, "Legend of the Hunt" },
-}) do
-  add(
-    "tally",
-    "trophies-" .. t[1],
-    t[2],
-    ("Take %d trophies (rares and bosses slain)."):format(t[1]),
-    function() return trophyCount(), t[1] end
-  )
-end
+})
 
 -- One per creature type: every family of it met.
 local SECTION_TITLES = {
@@ -226,7 +207,7 @@ add(
   "nightmare",
   "The Emerald Nightmare",
   "Slay the four dragons of the Nightmare: Ysondre, Lethon, Emeriss and Taerar.",
-  function() return count(NIGHTMARE, met), #NIGHTMARE end
+  function() return count(NIGHTMARE, recorded), #NIGHTMARE end
 )
 add(
   "feat",
@@ -257,7 +238,7 @@ for _, z in ipairs(zones) do
     ("The Rares of %s"):format(name),
     ("Slay every rare creature of %s."):format(name),
     function() return count(zone, slain), #zone end,
-    { visible = function() return count(zone, met) > 0 end }
+    { visible = function() return count(zone, recorded) > 0 end }
   )
 end
 
@@ -292,16 +273,16 @@ for id, name in pairs(A.continents) do
 end
 table.sort(continents, function(a, b) return a[2] < b[2] end)
 for _, c in ipairs(continents) do
-  local zones = {}
+  local inContinent = {}
   for uiMap, zone in pairs(A.zones) do
-    if zone.continent == c[1] then table.insert(zones, uiMap) end
+    if zone.continent == c[1] then table.insert(inContinent, uiMap) end
   end
   add(
     "travel",
     "continent-" .. c[1],
     ("Wanderer of %s"):format(c[2]),
     ("Set foot in every zone and city of %s."):format(c[2]),
-    function() return count(zones, enteredZone), #zones end
+    function() return count(inContinent, enteredZone), #inContinent end
   )
 end
 local function flights() return #(atlas() and atlas().flights or {}) end
@@ -575,6 +556,7 @@ local toasts
 -- stand-in does what it does (the shield's two methods); the game's own
 -- replaces it whenever its window loads.
 if not AchievementShield_OnLoad then
+  -- selene: allow(unused_variable)
   function AchievementShield_OnLoad(self)
     self.Desaturate = AchievementShield_Desaturate or function() end
     self.Saturate = AchievementShield_Saturate or function() end
@@ -600,7 +582,7 @@ local function toast(id)
         frame.Shield:Hide() -- no points
         frame:SetScript("OnClick", function(self, button, down)
           if AlertFrame_OnClick and AlertFrame_OnClick(self, button, down) then return end -- right-click: dismissed
-          if ns.openMilestones then ns.openMilestones(self.milestone) end
+          ns.openMilestones(self.milestone)
         end)
       end, 2, 6)
     end
