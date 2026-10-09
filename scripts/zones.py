@@ -19,7 +19,7 @@ import csv, json, os, urllib.request
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 GAMES = {
     "classic": "product=wow_classic_era",
-    "forever": "product=wow_classic_beta&build=1.60.1.70205",
+    "forever": "product=wow_classic_beta&build=1.60.1.70291",
 }
 TABLES = ("UiMap", "UiMapXMapArt", "WorldMapOverlay", "AreaTable")
 UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max/field-journal)"}

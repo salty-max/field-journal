@@ -57,4 +57,4 @@ Other commands: `/journal reset` starts a character's journal over; `/journal mi
 
 ## Source
 
-MIT licensed: [github.com/salty-max/field-journal](https://github.com/salty-max/field-journal). Creature data from the CMaNGOS project's Classic database. Not affiliated with Blizzard Entertainment.
+MIT licensed: [github.com/salty-max/field-journal](https://github.com/salty-max/field-journal). Creature data from the CMaNGOS project's Classic database; Forever's own rares from AllTheThings' Forever database. Not affiliated with Blizzard Entertainment.

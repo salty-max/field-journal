@@ -22,6 +22,11 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   zones): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
   the WoWWiki archive's "Rare mobs by zone", original-game section, else the
   rare's spawn points in the zones' map rectangles). Dungeon rares have none.
+  `data/rare-zones-forever.json` (`python3 scripts/forever_rares.py`, from
+  AllTheThings' Forever database, MIT, pinned): Forever's own rares (Zephras
+  Isle's, the new ones of the old zones), in the Forever package's milestones
+  only. No source gives Forever's new creatures' type, family or rank: the
+  journal files them when met (`Creatures.lua`), from what the game says.
 - `data/flora.json` (`bun run flora`, `scripts/flora.py`): the herbs and fish
   of the Plants and Fish tabs (being built, see PLAN.md): herbs with their
   nodes, Herbalism skill (the client's Lock table) and zones (the nodes'

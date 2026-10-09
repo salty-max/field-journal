@@ -203,12 +203,21 @@ const zoneNames: Record<number, string> = Object.fromEntries(
     return [Number(id), name.join(",")];
   }),
 );
-function zoneRares(kept: Creature[]) {
+// Forever's own rares (data/rare-zones-forever.json, scripts/forever_rares.py):
+// unknown to the data until met, filed then from what the game says of them.
+const foreverZones: { id: number; name: string }[] = JSON.parse(readFileSync(join(ROOT, "data/zones-forever.json"), "utf8")).zones;
+const foreverRares: Record<string, { name: string; zone: number }> =
+  JSON.parse(readFileSync(join(ROOT, "data/rare-zones-forever.json"), "utf8"));
+function zoneRares(kept: Creature[], client: string) {
   const by = new Map<number, number[]>();
   for (const c of kept) {
     const zone = rareZone[String(c.id)];
     if (zone && RANK[c.rank] !== "b") by.set(zone, [...(by.get(zone) ?? []), c.id]);
   }
+  if (client === "forever")
+    for (const [id, r] of Object.entries(foreverRares)) by.set(r.zone, [...(by.get(r.zone) ?? []), Number(id)]);
+  for (const zone of by.keys())
+    if (!zoneNames[zone]) zoneNames[zone] = foreverZones.find((z) => z.id === zone)?.name ?? "?";
   return [...by.entries()].sort((a, b) => a[0] - b[0]);
 }
 
@@ -354,7 +363,7 @@ ${chunks(sorted.filter((c) => c.levels?.[0]).map((c) => `[${c.id}]=${c.levels[0]
   -- the rares of each zone (uiMap id = creature ids; the English name for
   -- clients that can't name the map), for the trophies-by-zone milestones
   rareZones = {
-${[...zoneRares(sorted)].map(([zone, ids]) => `    [${zone}] = { name = ${q(zoneNames[zone] ?? "?")}, ${ids.join(", ")} },`).join("\n")}
+${[...zoneRares(sorted, client)].map(([zone, ids]) => `    [${zone}] = { name = ${q(zoneNames[zone] ?? "?")}, ${ids.join(", ")} },`).join("\n")}
   },
 ${atlasLua(client)}
 ${floraLua(client)}

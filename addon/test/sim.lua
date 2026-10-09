@@ -48,6 +48,7 @@ local NAMES = {
   [99003] = "Snow Leopard Prowler",
   [99005] = "Frost Lynx",
   [99004] = "Snowy Hare",
+  [259398] = "Galemender Delanea",
 }
 function UnitName(u)
   if u == "player" then return "Thorin" end
@@ -320,6 +321,7 @@ local unitInfo = {
   [99003] = { level = 6, type = "Beast", family = "Cat" }, -- unknown, of a known beast family
   [99004] = { level = 1, type = "Critter" }, -- unknown critter
   [99005] = { level = 7, type = "Beast", family = "Cat" }, -- unknown, a quest's quarry
+  [259398] = { level = 10, type = "Humanoid", class = "rare" }, -- Forever's own rare (Zephras Isle)
   [1124] = { level = 9, type = "Humanoid", friendly = true }, -- known, but friendly now (a scripted foe)
 }
 local function unitId(u) return (u == "target" and state.target) or (u == "mouseover" and state.mouseover) end
@@ -615,6 +617,20 @@ target(99002)
 check(not seen(99002), "… unless it can't be fought (friendly folk)")
 target(1124)
 check(not seen(1124), "a creature the data knows isn't noted while it can't be fought either")
+-- Forever's own rares (data/rare-zones-forever.json): a zone's milestone,
+-- counted once met and slain, though the data can't file them.
+if FOREVER then
+  check(ns.milestoneById["zone-2521"] ~= nil, "Forever: the rares of Zephras Isle have their milestone")
+  target(259398)
+  kill(259398)
+  local done, need = ns.milestoneById["zone-2521"].progress()
+  check(
+    done == 1 and need == 1 and ns.rank(259398) == nil,
+    "… earned by slaying Galemender Delanea, unknown to the data"
+  )
+else
+  check(ns.milestoneById["zone-2521"] == nil, "Classic: no milestone for Forever's Zephras Isle")
+end
 
 -- Kills credited: a quest's count gone up for a creature no kill told
 -- (another's blow on one I tagged: the game credits me), and my group's.

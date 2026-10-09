@@ -37,7 +37,8 @@ bun run package    # dist/classic, dist/forever, zipped
 
 Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned);
 rares by zone: `scripts/rare_zones.py` (the WoWWiki archive's list, spawn points
-otherwise).
+otherwise); Forever's own rares: `scripts/forever_rares.py`
+([AllTheThings](https://github.com/ATTWoWAddon/AllTheThings)' Forever database, MIT, pinned).
 Families: `content/<type>/<family>.md` (rules + the naturalist's note).
 
 ## License
