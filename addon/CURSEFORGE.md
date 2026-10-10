@@ -9,7 +9,7 @@ A bestiary, an atlas and a record of your fish and herbs, filled in as you trave
 
 **A bestiary, an atlas, and a record of the fish you catch and the herbs you gather, filled in as you travel.** A naturalist of the Explorers' League has left you a field journal: slay a creature of the wild and it is written down, with where you first met it and what you have learned of it. Loot it, bring down the rare ones for a trophy, and the journal keeps the count.
 
-For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever. A companion to [Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex), in the same League's hand, and a sibling of [Hearthtale](https://github.com/salty-max/hearthtale): the three share one look, each in its own colours, and each stands alone.
+For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever. A companion to [Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex), in the same League's hand, and a sibling of [Hearthtale](https://www.curseforge.com/wow/addons/hearthtale): the three share one look, each in its own colours, and each stands alone.
 
 ## What's inside
 
@@ -58,6 +58,13 @@ The first time each character logs in with the journal, a welcome page introduce
 Settings are each character's own, as in most interface addons. A character can take another's: choose one of your characters of the same game from a list (on the welcome page or the Options page), or bring them from anywhere with a code: `/journal export` on one character, `/journal import CODE` on the other.
 
 Other commands: `/journal reset` starts a character's journal over (it asks first); `/journal minimap` shows or hides the button.
+
+## Siblings
+
+The same look, each in its own colours, and each stands alone:
+
+- **[Hearthtale](https://www.curseforge.com/wow/addons/hearthtale)** ([Wago](https://addons.wago.io/addons/E6gzPnN1)). Your character's own journal, written as you play: a diary entry in their voice at each rest, and an epitaph if a Hardcore life ends.
+- **[Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex)** ([Wago](https://addons.wago.io/addons/j6jAL0NR)). The lore of Azeroth, written for you as you explore: each zone, figure of legend, people and quest you meet adds a page to your codex.
 
 ## Source
 
