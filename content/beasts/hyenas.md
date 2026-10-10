@@ -7,8 +7,6 @@ match:
   - beast: 25
   - name: "\b(Hyena)\b"
 ---
-Hyenas are the scavengers of the hot country: the Barrens, Desolace, the Thousand Needles, Tanaris and the Blasted Lands. They laugh as they hunt, which is unsettling the first time and no less so the tenth, and they hunt in packs that will follow a wounded traveller for miles.
+Hyenas suit the dry country: lean shapes against the dust of the Barrens, Tanaris and Desolace. Their calls give them away even when the grass or a fold in the ground hides the pack.
 
-The centaurs keep them as war dogs, and the gnolls have something of their temper. The blisterpaws of Tanaris and the snickerfangs of the Blasted Lands are the leanest and most vicious of their kind.
-
-They prefer the easy meal. Do not be one.
+The names bestowed on them are seldom affectionate. Snickerfang, blisterpaw, starving hyena: travellers remember the sound, the teeth or the condition of the beast that followed them. There is a whole difficult life in that last name, out where a meal is never assured.

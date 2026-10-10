@@ -7,8 +7,6 @@ match:
   - anytype: true
   - name: "\b(Maggot|Grub|Worm|Borer|Larva)\b"
 ---
-The burrowers and grubs of Azeroth are the earth's cleaners: maggots in the dead fields of the Plaguelands, borers in the rock of Desolace and the sands of Tanaris, grubs under every corpse left too long. Most are small; some are not.
+Much of the world's work goes on beneath its surface. Grubs move through the rot of the Plaguelands, while larger burrowers occupy sand and stone. What looks like empty ground may contain a considerable amount of life.
 
-The rock worms of the deep places can swallow a dwarf, as more than one prospector of the League has learned too late to report.
-
-They are not hunters so much as appetites. That does not make them any safer to stand on.
+The rock worms of deep places bring the subject to a prospector's attention with unusual force. A creature that belongs comfortably inside the earth is an awkward neighbour for anyone trying to make a tunnel through it. The rock, it seems, was not vacant.

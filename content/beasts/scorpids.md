@@ -6,8 +6,6 @@ match:
   - beast: 20
   - name: "\b(Scorpid|Scorpion)\b"
 ---
-Scorpids thrive where little else does: the red canyons of Durotar, the dust of the Barrens, Desolace and the Thousand Needles, the deserts of Tanaris and Silithus, the cinders of the Burning Steppes. Hard-shelled, many-legged and armed with a tail that carries a venom worth respecting, they are the land's own answer to drought.
+Scorpids make remarkably good use of dry ground. Their low shells blend with Durotar's red earth and the dust of the southern deserts, while the lifted tail is visible a disconcerting moment later.
 
-They hunt in the cool of evening and bury themselves in the heat of the day, so that a traveller often walks among more of them than he knows.
-
-The orcs value their shells and their stings. Shake out your boots in the morning.
+Their venom and armour both have uses, which sends young hunters looking for creatures their elders have warned them about. The orcs of Durotar know scorpid shells well. A specimen laid out for study is a handsome piece of natural armour, with joints that repay a close look.

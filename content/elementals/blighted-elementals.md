@@ -6,8 +6,6 @@ match:
   - ids: 13282   # named or unusual members (sharing the family's model)
   - name: "\b(Plague|Blighted|Toxic|Fallout|Viscous|Fetid|Decaying|Rotting|Horror|Tar|Irradiated|Corrosive)\b"
 ---
-Blighted elementals are the earth and water of Azeroth gone wrong: tar beasts rising from Un'Goro's pits, plague monstrosities of the Eastern Plaguelands, the irradiated horrors and fallout of Gnomeregan, and the toxic and entropic horrors of Darkshore and Felwood.
+The tar pits of Un'Goro and the poisoned ground of Felwood both produce moving shapes, but they should not be given the same history merely because neither is pleasant to touch. Tar beasts belong to the crater; toxic horrors belong to a wounded forest.
 
-They are what is left when a land is poisoned long enough to stand up and walk. Their touch carries the sickness that made them.
-
-Wash after fighting them. Wash twice.
+Gnomeregan's fallout and the Plaguelands' blight add other examples to this troubled page. Each bears something of the place that formed it. Their differences matter: what rises from the ground can tell a naturalist what has happened to the ground itself.

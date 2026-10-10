@@ -1,8 +1,8 @@
 ---
 zone: 1434
 ---
-Jungle from the edge of Duskwood to the sea, and the ruins of the troll empire all through it. The road runs south from the Rebel Camp in the north, past Nesingwary's hunting camp and the Horde's Grom'gol, all the way to Booty Bay at the southern tip.
+Stranglethorn runs from Duskwood's southern edge to Booty Bay through a long stretch of jungle. The road passes the northern expeditions and the Horde's Grom'gol before reaching the goblin port at the far end.
 
-Booty Bay is the goblins' port, built into the cliffs of a drowned crater, and it is the safest town in the jungle as long as you pay. The rest belongs to whoever is strongest: the Bloodscalp and Skullsplitter trolls, the ogres of Mosh'Ogg, Colonel Kurzen's renegades, the Bloodsail pirates, and in the east, Zul'Gurub.
+Ruins and occupied camps lie close behind the trees: Kurzen's compound, troll settlements, Mosh'Ogg ground and the approaches to Zul'Gurub. A clearing offers a view without necessarily offering a safe halt.
 
-The boat from Booty Bay goes to Ratchet. The tigers do not take boats, but they do swim.
+Booty Bay is built along steep rock around its harbour, with the boat to Ratchet waiting below the town's tiers. After so much jungle, a route measured across open water is a welcome change.

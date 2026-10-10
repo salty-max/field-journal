@@ -6,8 +6,6 @@ match:
   - ids: 5477, 5622, 5981, 8298, 11198   # named or unusual members (sharing the family's model)
   - name: "\b(Lost One)\b"
 ---
-In the east of the Swamp of Sorrows live the Lost Ones: tall, blue-grey, hooved and tendrilled, people who look like nothing else in Azeroth. A few exiles of their kind, at the Harborage, are sane and gentle and call themselves draenei; they came to this world from the orcs' own, they say.
+The draenei at the Harborage are refugees from Draenor, the world from which the orcs came. The Lost Ones at Fallow Sanctuary share that origin, though their violent isolation makes the connection less apparent to a traveller crossing the swamp.
 
-The journey broke the others. They live like beasts in the Fallow Sanctuary and kill any who come near.
-
-What they were before, the exiles do not like to say, and I have not pressed them.
+Magtoor and his companions offer help where they can, among people who scarcely know what to make of them. Their presence gives the Lost Ones' camp a sadder context: this is another people scattered far from home, with some of its own no longer able to find refuge among the rest.

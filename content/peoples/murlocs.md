@@ -7,8 +7,6 @@ match:
   - name: "\b(Murloc|Blindlight|Squiddic|Ribchaser|Murdaloc|Gluggle|Mugglefin)\b"
   - people: murlocs
 ---
-Murlocs are fish-men of every coast, lake and river of both continents, with wide mouths, many teeth and a gurgling war cry you will hear long before you see them. They live in villages of huts and nets, and they defend them in swarms.
+Murloc villages leave a recognisable mark on a shore: low huts, fishing nets and a great deal of noise when a stranger approaches. Their tools and settlements deserve more attention than the usual accounts of a gurgling charge give them.
 
-They are not clever, but they are many, and they come at once. A traveller who fights one murloc on a beach is about to fight six.
-
-No scholar has yet held a conversation with one. I have tried. The answer was "Mrglglgl", and then a spear.
+They defend those villages together, which explains why a fight begun with one can spread along a beach so quickly. Their speech is difficult for most travellers to understand. That is a difficulty in translation, not evidence that there is nothing being said.

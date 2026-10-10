@@ -5,8 +5,6 @@ order: 530
 match:
   - fallback: true
 ---
-The machines of this page were made by mortal hands, mostly gnomish and goblin: harvest golems gone rogue in the fields of Westfall, the shredders of Stonetalon, the war constructs of Gnomeregan's mad mekgineer and the Dark Irons' golems.
+A harvest golem among Westfall's fields belongs to a different sort of nature. Shredders in Stonetalon, war machines in Gnomeregan and the Dark Irons' constructs all began with a workshop, whatever has become of their instructions since.
 
-They do not think, and that is what makes them dangerous: a machine does what it was built to do long after its maker has stopped wanting it to.
-
-Most of them have an off switch. Finding it under fire is the difficulty.
+Their makers' intentions can survive in the design: cutting arms, harvesting claws, a cannon placed where an animal would have a head. The machine need not explain itself. An observer can often read its purpose in the tools attached to it.

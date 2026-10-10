@@ -1,8 +1,10 @@
 ---
 zone: 1447
 ---
-The queen's land, on the shore of the sea that swallowed her. It is autumn here all year round, among the ruins of the Highborne. The road comes in from Ashenvale; the Horde holds Valormok in the west.
+The road enters from Ashenvale above a coast of broken temples and red-gold trees. Talrendis Point and Valormok offer small footholds near the western approach; farther east, the hills fall steeply toward the Bay of Storms.
 
-Naga hold the ruins along the coast and the temple of Arkkoran; satyrs hold their encampments in the hills; blood elves dig at the Highborne's ruins for their lost magic; and the blue dragon Azuregos guards the southern hills. The Timbermaw furbolgs keep their hold in the north, and the tunnels that lead to Winterspring and Moonglade.
+Naga occupy much of the shore, while satyr camps and elven expeditions hold ground among the ruins. Azuregos ranges the south. A direct line on the map can conceal both a cliff and the considerable distance around it.
 
-Every ruin here is older than any kingdom you can name. Touch nothing you cannot carry away.
+[classic] The great gate in the northern hills is marked Timbermaw Hold, but it is closed. The travelled furbolg tunnels to Moonglade and Winterspring are in Felwood, well west of here.
+
+[forever] The great stone gate in the northern hills leads to Blackmaw Hold, home to a corrupted furbolg tribe. The Timbermaw tunnels to Moonglade and Winterspring remain well west of here, in Felwood.

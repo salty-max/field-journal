@@ -7,8 +7,6 @@ match:
   - beast: 4
   - name: "\b(Bear|Grizzly|Ursa)\b"
 ---
-Bears are the great solitary foragers of the forests, and they are only peaceful until you stand between one and something it wants. The black bears of Dun Morogh, Loch Modan and the Wetlands, the grizzlies of Silverpine, the thistle bears of Darkshore, the ironfurs of Feralas, the shardtooths of Winterspring: each forest grows its own, and the colder ones grow them meaner.
+From the black bears of Khaz Modan to the white shardtooths of Winterspring, bears make a forest seem well occupied even when little else is visible. A broad back among the trees, a heavy paw on the path, and the undergrowth suddenly feels less empty.
 
-The furbolgs revere them, and the druids take their shape. A traveller would do better simply to give them room. A sow with cubs will not distinguish between a careless step and an attack.
-
-They sleep long in winter. They do not wake gently.
+Their strength has earned them a place in the druids' arts as well as in hunters' stories. For a bear, however, the immediate business is its own: food, territory, and whatever has just wandered too close. It is quite possible to admire one without becoming part of that business.

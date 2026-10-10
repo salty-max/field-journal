@@ -6,8 +6,6 @@ match:
   - ids: 3816, 5831   # named or unusual members (sharing the family's model)
   - name: "\b(Stag|Deer|Doe|Fawn|Elk|Stallion|Horse|Steed|Courser|Mare|Zhevra|Giraffe|Stagwing|Mustang|Nightmare)\b"
 ---
-The grazers of the wild are many and mostly peaceful: the zhevras and giraffes of the Barrens, the stags and coursers of Ashenvale and Stonetalon, the mosshoofs of Azshara.
+Zhevras and giraffes belong to the broad view of the Barrens, while the stags of Ashenvale appear between the trunks of old trees. Their different outlines help a traveller read the country before any signpost does.
 
-They are the game of every hunter, from tauren to troll to the Kaldorei who thank the forest for each one taken. Most will flee rather than fight; a stag in the rut, or a mare with a foal, may not.
-
-The stagwings of Feralas and Azshara fly, which is not a sentence I expected to write in a natural history.
+Hunters prize their meat and hides, but Ogtinc of Azshara has another interest in the mosshoof coursers. He sees a confident animal's spirit in their unbroken antlers, and asks for a perfect pair. The impressive crown is also the courser's means of defending itself, which makes an intact specimen difficult to obtain.

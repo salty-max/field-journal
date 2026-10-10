@@ -6,8 +6,6 @@ match:
   - ids: 6584   # named or unusual members (sharing the family's model)
   - name: "\b(Devilsaur|Stegodon|Diemetradon|Pterrordax|Ironhide|Tyrant)\b"
 ---
-In Un'Goro Crater the world has kept a corner of its youth, and the beasts in it are older than any kingdom: the devilsaurs, great two-legged hunters whose tread you feel before you see them; the stegodons with their plated backs; the diemetradons of the hot springs; the pterrordaxes wheeling overhead.
+Un'Goro has room for creatures that would make most other forests seem cramped. Devilsaurs stride above the undergrowth, stegodons carry great plates along their backs, and pterrordaxes circle over the crater rim. A diemetradon by the hot springs can look almost modest in such company.
 
-Nothing in the crater fears a traveller, because nothing in the crater has needed to. A devilsaur walks where it likes, and everything else moves.
-
-The Marshal expedition learned this the hard way. Read their notes before you go, and keep to the high ground.
+The Marshal expedition has given these beasts names and a place in its reports. The crater gives them the rest: dense growth, steaming ground, and room enough for a devilsaur to disappear behind the next stand of trees. Surveying it is a considerable undertaking.

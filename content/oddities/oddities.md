@@ -5,8 +5,6 @@ order: 880
 match:
   - fallback: true
 ---
-Some creatures belong to no family this naturalist can name: the beasts of a single lake, monsters of a single dungeon, things grown strange in the Wailing Caverns or Maraudon, and the great powers that a whole tribe worships.
+Some encounters leave the headings of a natural history looking inadequate. A singular monster, a strange dungeon inhabitant or a creature honoured by a local cult may have no useful kin elsewhere in the book.
 
-Many are the only one of their kind. Some are worshipped, some feared, a few merely inexplicable.
-
-Record what you can. Where I have no family to give them, I can at least give them a page.
+This page keeps the particular encounter intact while its place in the wider account remains uncertain. There is room in a field journal for an unanswered question, especially one that has just walked out of a lake.

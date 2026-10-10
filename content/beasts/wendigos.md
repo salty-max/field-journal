@@ -7,8 +7,6 @@ match:
   - anytype: true
   - name: "\b(Wendigo)\b"
 ---
-The wendigos of Dun Morogh are great shaggy creatures of the snow, cousins of the yeti, living in the caves of the Grizzled Den and coming out when hunger drives them. They are strong enough to break a young dwarf in two, which is why the mountaineers teach their recruits to read wendigo tracks before anything else.
+The wendigos of Dun Morogh inhabit snowy caves such as the Grizzled Den, where white fur is a considerable advantage against the landscape. The size of their hands is less easily overlooked.
 
-They hunt in numbers, and they are cleverer than they look.
-
-There is an old one in the deepest cave, the dwarves say, and they do not say much more about him.
+Their hides and manes are familiar subjects of local hunting work. To a young dwarf, the hills beyond a settlement can seem an extension of home; a wendigo at a cave mouth gives those hills a rather different scale. Not every large shape in the snow is another mountaineer.

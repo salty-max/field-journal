@@ -1,8 +1,8 @@
 ---
 zone: 1436
 ---
-Westfall was the breadbasket of Stormwind, and the fields are still there; the farmers mostly are not. The road from Elwynn crosses the river and runs south past empty farmsteads to Sentinel Hill, where the People's Militia keeps a tower and a fire for anyone who will help.
+Westfall's road crosses from Elwynn into open farmland and continues to Sentinel Hill. The People's Militia holds the tower, which remains a useful landmark over fields whose owners have often fled.
 
-South of the hill lies Moonbrook, which belongs to the Defias, and under Moonbrook the Deadmines, which belong to them more. The Jangolode Mine and the Gold Coast Quarry are theirs too. The harvest golems that should be bringing in the wheat walk the fields with no one at the controls.
+Moonbrook lies farther south, with the Deadmines beneath it. Elsewhere, Defias camps and hostile harvest golems occupy country still divided by hedges and farm tracks.
 
-The lighthouse on the western shore is a good landmark. The coast below it is murloc country, and the murlocs are not interested in landmarks.
+The lighthouse is a clear bearing from the western coast, though murloc camps interrupt the approach. There is ample room to see across Westfall; knowing what waits in the next field is the harder part.

@@ -7,8 +7,6 @@ match:
   - beast: 3
   - name: "\b(Spider|Tarantula|Widow|Recluse|Webwood|Lurker)\b"
 ---
-Spiders have adapted to nearly every dark corner of Azeroth: the mines under Elwynn, the Webwood of Teldrassil, the tombs of Duskwood, the caves of the Wetlands and the Swamp of Sorrows. Their sizes run from a hand's width to a horse's, and their venoms from a sting to a death.
+Webs divide a cave into a space a traveller can see and a space already occupied. In Elwynn's mines and Teldrassil's Webwood, the spiders themselves are often large enough to explain why a familiar path has fallen quiet.
 
-Most of them do not hunt so much as wait. A web across a cave mouth, a burrow at the edge of a path, and the patience of something that can go a season without eating. The matriarchs are the ones to fear: larger, older, and surrounded by their young.
-
-Carry a torch, and keep your eyes on the ceiling as well as the floor.
+Venom sacs and silk bring them to the attention of apothecaries and craftsfolk. The silk is a particularly fine material to find stretched across an abandoned doorway. Its maker has no need of a loom, and no interest in the uses to which the finished work will be put.

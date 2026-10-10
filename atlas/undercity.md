@@ -1,8 +1,8 @@
 ---
 zone: 1458
 ---
-The Forsaken's city, built in the crypts and sewers under the ruins of Lordaeron's capital. Lifts come down from the ruined throne room above.
+The Undercity lies beneath Lordaeron's ruined capital, reached by lifts below the old throne room or through the outer sewer approach. Inside, circular passages and green canals connect the quarters.
 
-The bank, the auction house and the trainers are here, along with the Royal Apothecary Society, which makes things in its quarter that I will not describe. The canals run green.
+The central bank is a useful bearing. The Royal Quarter and the apothecaries' work lie deeper within the city; getting there requires attention to levels as well as turns.
 
-It is dark, it is quiet, and everything in it is watching. The zeppelins leave from a tower outside the ruins.
+Above ground, the zeppelin towers stand outside the ruins. A traveller arriving by air can have a very short walk to the city and still spend some time finding the right way down.

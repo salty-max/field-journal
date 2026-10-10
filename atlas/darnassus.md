@@ -1,8 +1,6 @@
 ---
 zone: 1457
 ---
-The night elves' city in the branches of Teldrassil, all moonlight, water and sentinels. The Temple of the Moon is its heart.
+Darnassus opens around water and broad bridges high in Teldrassil. The Temple of the Moon gives the southern part of the city its great landmark, while traders and craftspeople occupy the terraces farther north.
 
-Trainers, a bank and an auction house are here, quieter than any other city's. Darnassus is reached from Dolanaar by the road, or from Rut'theran Village by the portal at the roots.
-
-It is the only city where I have heard silence. Keep it.
+The road east leads to Dolanaar. At the city's western side, the portal provides passage down to Rut'theran Village and the boats below. A surveyor used to measuring a city's height from the ground has a considerable adjustment to make here.

@@ -7,8 +7,6 @@ match:
   - name: "\b(Scarlet)\b"
   - people: scarlet
 ---
-The Scarlet Crusade are the survivors of Lordaeron's paladins and priests who swore to burn the undead from the land, and who now burn anyone who looks at them wrongly. They hold Tirisfal's monastery, Hearthglen, Tyr's Hand and half of Stratholme.
+The Scarlet Crusade's red banners mark some of Lordaeron's strongest surviving human positions: the monastery, Hearthglen, Tyr's Hand and part of Stratholme. Priests, paladins and soldiers hold those walls against the undead.
 
-Every stranger might be plagued, every elf or dwarf a spy, and the Forsaken simply the enemy. They are brave, and they have killed more of the Scourge than anyone.
-
-They will not thank you for the help. They will most likely attack you while you give it.
+Their suspicion reaches well beyond the Scourge. Outsiders may be treated as carriers of plague or as enemies in disguise, and the Forsaken have no place in their idea of a restored kingdom. A traveller can find living defenders behind the barricades without finding sanctuary.

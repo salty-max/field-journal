@@ -7,8 +7,8 @@ match:
   - name: "\b(Terrowulf)\b"
   - people: worgen
 ---
-The worgen are wolf-men from somewhere else, tall, grey and terribly strong, who walk upright and run on all fours. In Silverpine the mage Arugal summoned them against the Scourge, lost control of them, and made Shadowfang Keep their den; the people of Pyrewood are men by day and worgen by night.
+Arugal called worgen into Silverpine to fight the Scourge and lost control of what he had summoned. Shadowfang Keep is now their stronghold, while nearby Pyrewood bears a curse that changes its people after nightfall.
 
-The worgen of Duskwood, the Nightbane, are another puzzle: where they came from, nobody in Darkshire can tell me.
+The Nightbane of Duskwood belong to another troubled account, entangled with the Scythe of Elune and the summons described by Velinde Starsong. Their presence cannot be explained simply by pointing toward Arugal's tower.
 
-They are cleverer than any wolf. That is all the League knows for certain, and I am in no hurry to learn more.
+Both places have acquired the same terrible outline among the trees: a wolf's head above an upright body. The histories behind it have to be followed separately.

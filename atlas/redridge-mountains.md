@@ -1,8 +1,8 @@
 ---
 zone: 1433
 ---
-Red hills around a long blue lake, and the town of Lakeshire on its western shore, joined by a bridge that the whole valley depends on. The road comes in from Elwynn to the west and meets the road to Duskwood at Three Corners.
+Lakeshire sits on the western shore of Lake Everstill, where bridges and roads join the approaches from Elwynn and Duskwood. The water gives the valley a broad, beautiful centre and an unusually clear set of bearings.
 
-Lake Everstill is beautiful and full of murlocs. The hills are worse: gnolls on the ridges, and in the east the Blackrock orcs hold Stonewatch and the valley beyond it, and come down at night to see what they can burn.
+The eastern heights are another matter. Stonewatch Keep is in Blackrock hands, and gnoll camps occupy the ridges between settled ground and the mountains.
 
-If Lakeshire asks you for help, give it. There is nobody else between the Blackrock and Stormwind, and the people of the town know it.
+From Lakeshire, the far shore looks close enough to be part of the town's own country. The guards' view of it is considerably less peaceful.

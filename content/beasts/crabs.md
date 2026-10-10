@@ -6,8 +6,6 @@ match:
   - beast: 8
   - name: "\b(Crab|Crawler)\b"
 ---
-Crabs crowd every shore of Azeroth, from the beaches of Westfall and Darkshore to the reefs of the Barrens and the Stranglethorn coast. Sand crawlers, surf crawlers, tide crawlers: the names change with the coast, the habits do not.
+A crab carries a little fortress along the shore. The shell covers most of the argument, the claws settle the rest, and the whole arrangement moves sideways with admirable assurance.
 
-They are armoured, short-tempered and sideways, and they defend a patch of sand with a ferocity out of all proportion to its value. The meat inside is sweet, which is why the fishermen of every coast keep their pots baited.
-
-Approach from the front; the claws are slower than the legs. Or leave them be, which is wiser still.
+Sand crawlers and surf crawlers occupy beaches across both continents. Cooks value their meat, while an undisturbed stretch of sand gives a naturalist something worth watching: a creature going about its affairs at the boundary between land and sea. Not everything on a beach is waiting for a ship.

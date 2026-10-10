@@ -5,8 +5,6 @@ order: 330
 match:
   - fallback: true
 ---
-Not every beast fits a family. This page holds the rest: the solitary oddities, the named old monsters of a valley, the creatures too strange or too rare to have kin in this book.
+There are beasts for which a neat family heading would promise more than the evidence allows. An unusual shape, a solitary specimen, or a creature known chiefly by the name on a hunter's commission may find its place here.
 
-Many of them are the subject of a hunter's story or a farmer's curse: a beast that killed a herd, a creature no one can trap, a thing seen once at dusk and never again.
-
-If you have met one, you will know it. Write it down; the League will want to hear.
+A broad catalogue is useful until it hides the animal inside it. These records leave room for the individual: where it was met, what it looked like, and what distinguishes it from the last supposedly unique monster.

@@ -7,8 +7,6 @@ match:
   - people: blackrock
   - name: "\b(Scarshield|Firebrand|Blackwing)\b"
 ---
-The Blackrock were the greatest clan of the old Horde, and those who never went into the camps hold Blackrock Spire and the Burning Steppes still, under Rend Blackhand, who calls himself Warchief. They raid into Redridge and keep the people of Lakeshire penned in their town.
+The Blackrock orcs hold the roads around their mountain as well as the halls within it. From the Burning Steppes their raiders reach Redridge, where Stonewatch Keep gives the people of Lakeshire a standing reminder of the clan's strength.
 
-They are disciplined, well armed and fierce, and they answer, through Rend, to the black dragon who rules the upper Spire.
-
-Whatever the Horde has become in Durotar, this is what it was.
+Rend Blackhand claims the title of Warchief, though his followers serve beneath Nefarian's wings. They carry the weapons and ambitions of the old Horde into a world where Thrall is trying to build another. The difference is visible well before a traveller reaches the Spire.

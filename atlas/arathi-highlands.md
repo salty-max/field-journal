@@ -1,8 +1,8 @@
 ---
 zone: 1417
 ---
-Green hills and old stones: this is the cradle of the human kingdoms, and its ruins are older than Stormwind. The road crosses Thandol Span from the Wetlands and runs north to Thoradin's Wall and Hillsbrad beyond it.
+Thandol Span carries the Wetlands road into a country of green slopes and old fortifications. Thoradin's Wall marks the western passage toward Hillsbrad; Stromgarde's great walls rise above the south-western coast.
 
-Refuge Pointe holds for the Alliance, Hammerfall for the Horde, and Stromgarde Keep for nobody in particular any more: the Syndicate, the ogres and the Witherbark trolls all have a share of it. The standing stones of the binding circles are worth a look and not worth a long stay.
+Refuge Pointe lies among the central hills for the Alliance, while Hammerfall holds the north-east for the Horde. Stromgarde itself is divided between surviving defenders, Syndicate forces and ogres. A wall drawn intact on a map need not enclose a single safe settlement.
 
-Faldir's Cove on the south coast has a wreck in it and pirates on the wreck. Approach from the cliffs.
+The binding circles are conspicuous landmarks on the open ground. Faldir's Cove is tucked below the southern cliffs, much less apparent from the road than from the sea.

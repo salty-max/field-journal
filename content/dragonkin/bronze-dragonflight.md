@@ -5,8 +5,6 @@ order: 380
 match:
   - name: "\b(Bronze|Chronalis|Timeless|Anachronos|Teremus)\w*\b"
 ---
-The bronze dragons are Nozdormu's, the Timeless One's, and they guard the paths of time from their caverns in Tanaris. Few are ever seen outside them; those that are, are usually in mortal shape, and usually on business they will not explain.
+The Caverns of Time open beneath Tanaris, though the bronze flight's business reaches far beyond that stretch of desert. Nozdormu's dragons guard time itself, an undertaking for which the League possesses no satisfactory measuring instruments.
 
-They remember the war against the insects of Ahn'Qiraj, a thousand years ago, as if it were yesterday. For them, perhaps, it was.
-
-A corrupted bronze whelp is a sad and dangerous thing: a fragment of a flight that is not supposed to be able to go wrong.
+Their part in sealing Ahn'Qiraj belongs to recorded history. Anachronos still watches the desert from outside the caverns, an immense living witness to a war whose other traces lie beneath the sand.

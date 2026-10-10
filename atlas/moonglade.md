@@ -1,8 +1,8 @@
 ---
 zone: 1450
 ---
-The druids' sacred valley, around Lake Elune'ara. The town of Nighthaven sits on its shore, and Keeper Remulos keeps his shrine nearby. Druids of every race come and go by their own magic; the rest of us come through the Timbermaw tunnel from Felwood.
+Lake Elune'ara lies at the centre of Moonglade, with Nighthaven on its shore and Keeper Remulos's shrine nearby. Druids arrive by their own magic; other travellers commonly reach the valley through the Timbermaw tunnels from Felwood.
 
-Nobody fights here. Nobody would dare.
+The Cenarion Circle welcomes both factions here, and the Lunar Festival brings visitors from much farther away. The quiet is real, though the struggle around the Emerald Dream has reached even this valley.
 
-In the barrow dens of the valley, Malfurion Stormrage sleeps. The druids will not show you the way, and you should not ask.
+For a surveyor, the lake is the welcome constant: a broad, open bearing after the enclosed mountain passage.

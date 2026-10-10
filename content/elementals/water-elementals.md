@@ -6,8 +6,6 @@ match:
   - ids: 2761, 8837, 10642, 10756, 10757, 13280, 14269   # named or unusual members (sharing the family's model)
   - name: "\b(Water|Tide|Wave|Spray|Tidal|Sea|Brine|Ripple|Surf|Bubbling)\w*\b"
 ---
-Water elementals are rarer than their fiery cousins on land, and usually seen where something has gone wrong: a spring fouled by corruption, a mage's summoning broken loose, or the servants of the Hydraxian Waterlords on their island off Azshara, at war with the Firelord's kind.
+A water elemental gives a spring or pool a moving inhabitant made of its own substance. The befouled elementals of Ashenvale carry their woodland's corruption into that familiar shape.
 
-They move like a wave breaking, and they hit like one.
-
-The befouled ones of Ashenvale were once clean springs. That is worth remembering when you wonder why the druids are so angry.
+Off Azshara, the Hydraxian Waterlords have a very different purpose, opposing Ragnaros and his servants. Mages summon water elementals as well. A wave rising into a body is a striking sight, but it takes something of the place and its history to explain why it is there.

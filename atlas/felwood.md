@@ -1,8 +1,8 @@
 ---
 zone: 1448
 ---
-A forest poisoned by demons, north of Ashenvale. The trees are dying, the water burns and the animals have gone mad. Talonbranch Glade holds the north for the night elves, Bloodvenom Post the south for the Horde, and the Cenarion Circle keeps the Emerald Sanctuary in between.
+Felwood's road runs north from Ashenvale through a forest whose dead and sickened trees leave long gaps in the canopy. Emerald Sanctuary lies near the southern approach; Bloodvenom Post and Talonbranch Glade offer separate footholds farther along the valley.
 
-The Shadow Council keeps Jaedenar, the satyrs keep Jadefire, and the furbolgs of the Deadwood have lost their minds. The road runs north through the length of it to the Timbermaw tunnel to Winterspring.
+Jaedenar and the Jadefire camps occupy some of the most deeply corrupted ground. At the northern end, the Timbermaw tunnels lead into Moonglade and Winterspring, provided their guards allow passage.
 
-Drink nothing that grows here. The green glow is not a good sign.
+A green pool here gives no comfort to a thirsty-looking landscape. The colour belongs to the damage, and often shows through the trees before the pool itself can be seen.

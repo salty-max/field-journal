@@ -1,8 +1,8 @@
 ---
 zone: 1421
 ---
-Grey pines on a grey coast, between the Forsaken's Tirisfal and the wall of Gilneas. The Sepulcher is the Forsaken's town, in the middle of the forest; the road runs north to Tirisfal and south past Pyrewood to Hillsbrad.
+Silverpine stretches between Tirisfal and the closed border of Gilneas. The Sepulcher lies above the main road, which continues south past Pyrewood and turns toward Hillsbrad.
 
-Pyrewood Village looks like any village by day. Do not be in it at night. On the hill above it stands Shadowfang Keep, where the archmage Arugal keeps his worgen, and in the south the Greymane Wall shuts Gilneas away from the world, and has done so for years.
+Shadowfang Keep stands over Pyrewood, whose familiar village streets become worgen ground at night. Farther south, the Greymane Wall blocks the road into Gilneas. It is a boundary with a kingdom behind it, not a pass through the mountains.
 
-Ambermill, on the eastern hills, belongs to mages of Dalaran who do not want visitors. Believe them.
+Ambermill's mages occupy the eastern woods. Between their holdings, the keep and the Forsaken settlements, a short crossing on the map passes several very different claims to the forest.

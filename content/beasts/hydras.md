@@ -6,8 +6,6 @@ match:
   - anytype: true
   - name: "\b(Hydra|Hydraling)\b"
 ---
-Hydras are many-headed serpents of the deep waters, and every legend that says cutting off one head grows two is, as far as I can tell, a slander. One head is quite enough trouble.
+A hydra announces itself several heads at a time. The long necks rise from coastal water or a cavern pool, making it difficult to decide which pair of eyes deserves attention first.
 
-The Mystlash of Ashenvale's and Felwood's waters and the hydras deep in Maraudon rise when anything comes too near. The Sandfury trolls of Tanaris worship a greater one, Gahz'rilla, in their sacred pool.
-
-If the water ahead is unusually calm, take the long way round.
+The Mystlash haunt Kalimdor's shores, while other hydras dwell deep in Maraudon. Gahz'rilla has a sacred pool in Zul'Farrak and the worship of the Sandfury. Most creatures in this book must make do with a feeding ground; that one has acquired a congregation.

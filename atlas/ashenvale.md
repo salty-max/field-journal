@@ -1,8 +1,8 @@
 ---
 zone: 1440
 ---
-The ancient forest of the night elves, and the orcs' axes at its eastern edge. Astranaar is the elves' town, in the middle of the woods; the roads run from it north to Darkshore, west to Stonetalon, east to Azshara and south past the Mor'shan Rampart to the Barrens.
+Ashenvale's main road runs through deep woodland to Astranaar, then east toward the Warsong camps and Azshara. Branches lead north into Darkshore, west through the mountain passage to Stonetalon, and south toward the Mor'shan Rampart.
 
-The Warsong orcs log the east from their lumber camp, and the sentinels fight them for every tree. The Zoram Strand on the coast belongs to the naga; the furbolgs of Thistlefur have gone mad; and demons hold Felfire Hill and the canyon where Mannoroth fell.
+The settlements stand far enough apart for the forest to close around a traveller between them. On the coast, the Zoram Strand opens into naga-held ruins; inland, furbolg camps and the demonic ground around Felfire Hill make several inviting clearings poor stopping places.
 
-The forest is beautiful and very watchful. Do not cut anything you do not have to.
+Astranaar's bridges and lake provide a welcome fixed point in so much timber. Beyond them, the view seldom reaches far enough to show the whole route ahead.

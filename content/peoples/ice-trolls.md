@@ -5,8 +5,6 @@ order: 800
 match:
   - name: "\b(Frostmane|Winterax|Ice Troll|Grik\'nir)\b"
 ---
-The Frostmane are ice trolls, the old masters of Dun Morogh's frozen valleys until dwarven armies drove them into the hills. They hold the caves west of Kharanos still, and when the snow lies deep they come down onto the roads.
+The Frostmane know Dun Morogh as a homeland rather than a road to Ironforge. Their hold west of Kharanos and their camps in the snow remain close to the dwarven settlements that have driven them from much of the valley.
 
-They are not simple beasts. Their seers and shadowcasters keep old and unpleasant rites, and their headhunters earn the name.
-
-A Frostmane fights like the winter itself: patient, cold, and fond of the weak.
+Headhunters, seers and shadowcasters defend what they still possess. For a young dwarf these are often the first troll enemies met; for the Frostmane, the dwarf is another arrival from the city above. The same snowy pass carries two very different accounts of who belongs there.

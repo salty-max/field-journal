@@ -6,8 +6,6 @@ match:
   - ids: 7565   # named or unusual members (sharing the family's model)
   - name: "\b(Snake|Adder|Python|Moccasin|Viper|Cobra|Rattler|Asp)\b"
 ---
-Snakes are everywhere a traveller does not look: under rocks, in long grass, in the warm stones of the south. Most of the small ones in this book are harmless; the ones that are not, are very much not.
+A snake can occupy very little of a traveller's attention until it crosses the path. Its body gives almost no clue to its length while coiled, and a lifted head makes a modest patch of ground seem thoroughly claimed.
 
-The deviate snakes of the Wailing Caverns are twisted by whatever is wrong in that place, and the serpents of Zul'Gurub belong to the blood god's temples and behave accordingly.
-
-Walk heavily, and the snakes will usually leave before you arrive. That is the whole of my advice, and it has served me well.
+The serpents of the Wailing Caverns have been changed by the nightmare there. In Zul'Gurub, serpents have a place in the blood god's worship. Both settings give the naturalist more to consider than scales and venom, though those remain quite sufficient subjects.

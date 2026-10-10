@@ -1,8 +1,8 @@
 ---
 zone: 1438
 ---
-An island that is a tree, and a tree that is a world: the night elves' new home, grown over the sea. Shadowglen, where they train their young, lies in the north-east; the road runs west to Dolanaar and on to Darnassus in the branches.
+Teldrassil carries an entire inhabited forest above the sea. The road runs from Shadowglen through Dolanaar to Darnassus, with branches into glades and barrow country that can feel far removed from an island's edge.
 
-The forest is mostly kind. The Gnarlpine furbolgs have gone mad, the Webwood spiders hold their own corner, and the Ban'ethil barrow has things in it that the sentinels deal with quietly. Lakes and pools are everywhere, and clean.
+Webwood and the Gnarlpine holdings interrupt the settled woods. Pools provide frequent landmarks, though their enclosed banks reveal little of the height beneath them.
 
-To leave, go down to Rut'theran Village at the roots by the portal in Darnassus; the boats go from there.
+The way down is through Darnassus's portal to Rut'theran Village, where the boats leave from the roots. It is worth keeping that route in mind: a coast is not much use to a traveller when it lies so far below the road.

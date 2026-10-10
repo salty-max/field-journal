@@ -1,8 +1,8 @@
 ---
 zone: 1431
 ---
-A forest where the sun never quite gets through, and the only town is Darkshire, held by the Night Watch with more courage than men. The road runs from Elwynn in the north down through the woods to Stranglethorn, with a branch west towards Westfall and another east to Deadwind Pass.
+Duskwood's roads pass through a forest that gives little daylight to the ground. Darkshire is the principal refuge in the east, with the Night Watch holding its approaches. Deadwind Pass lies beyond it; the southern road descends toward Stranglethorn.
 
-Everything off the road is somebody's grave. The dead walk out of Raven Hill's cemetery, wolves and spiders own the woods, and the farms of the Rotting Orchard and Brightwood Grove have worse than wolves in them. Manor Mistmantle has stood empty for years; there is a reason for that.
+To the west, Raven Hill and its cemetery occupy country far less secure than the map's familiar farm names suggest. The Rotting Orchard and abandoned houses preserve the shape of a settled valley without much of its old life.
 
-Travel by day, stay on the road, and listen to the town historian before you go anywhere he warns you about.
+The roads still join the places they were built to serve. That makes them useful bearings, even when the destination has become somewhere a traveller would rather pass by.

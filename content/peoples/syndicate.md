@@ -5,8 +5,6 @@ order: 600
 match:
   - people: syndicate
 ---
-The Syndicate are thieves and cutthroats under a lord's banner: the disinherited nobles of Alterac, the kingdom that sold the Alliance to the Horde. They hold the ruined towns of the Alterac Mountains, Durnholde Keep in Hillsbrad, and the ruins of Stromgarde in Arathi.
+The Syndicate occupies the remains of Alterac's power: ruined settlements in the mountains, positions at Durnholde and a foothold in Stromgarde. Dispossessed nobles and hired criminals make an uneasy replacement for a kingdom.
 
-They are many, and on the whole not very good at what they do; the assassins of Ravenholdt call them hacks. But a great many thieves can do a great deal of harm.
-
-Check your purse after walking through the Alterac foothills. Then check it again.
+Their camps still have officers and ambitions, even when their work amounts to robbery. A fallen lord can retain his title long after losing the means to live by it. In the foothills, the passing traveller may be asked to make up the difference.

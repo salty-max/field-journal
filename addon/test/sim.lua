@@ -486,6 +486,42 @@ check(
     or "Classic (a client without PARTY_KILL): kills come from the combat log"
 )
 check(D.client == (FOREVER and "forever" or "classic"), "each game's data file is its own")
+local function hasNote(notes, text) return table.concat(notes, " "):find(text, 1, true) ~= nil end
+local alterac, azshara = D.atlas.zones[1416].note, D.atlas.zones[1447].note
+check(
+  hasNote(alterac, "Archmage Modera") == FOREVER
+    and hasNote(alterac, "violet dome") == not FOREVER
+    and hasNote(azshara, "Blackmaw Hold") == FOREVER
+    and hasNote(D.atlas.zones[1455].note, "Hall of Thanes") == FOREVER,
+  "the Atlas contains this world's history only, with its shared routes"
+)
+local furbolgs
+for _, family in ipairs(D.families) do
+  if family.id == "furbolgs" then furbolgs = family.note end
+end
+check(
+  furbolgs and hasNote(furbolgs, "Blackmaw Hold") == FOREVER and hasNote(furbolgs, "Timbermaw"),
+  "the Bestiary keeps the Timbermaw distinct from Forever's Blackmaw tribe"
+)
+local function readable(notes)
+  if not notes or #notes == 0 then return false end
+  for _, paragraph in ipairs(notes) do
+    if paragraph == "" or paragraph:match("^%[") then return false end
+  end
+  return true
+end
+for _, family in ipairs(D.families) do
+  assert(readable(family.note), family.id .. ": an unreadable note")
+end
+for _, zone in pairs(D.atlas.zones) do
+  if zone.note then assert(readable(zone.note), zone.name .. ": an unreadable note") end
+end
+for _, kinds in ipairs({ D.flora.herbs, D.flora.fish }) do
+  for _, kind in pairs(kinds) do
+    assert(readable(kind.note), kind.name .. ": an unreadable note")
+  end
+end
+check(true, "every compiled note is nonempty and free of editorial game markers")
 
 local function seen(id) return FieldJournalChar.seen and FieldJournalChar.seen[id] end
 target(1131)
@@ -1207,7 +1243,7 @@ check(
   "an herb's page: its rank, how it was taken"
 )
 check(
-  fpage.note.shown and fpage.note.text:find("The first flower most herbalists ever pick", 1, true),
+  fpage.note.shown and fpage.note.text == table.concat(D.flora.herbs[2447].note, "\n\n"),
   "… and the naturalist's note"
 )
 FieldJournalFrame:Hide()

@@ -6,8 +6,6 @@ match:
   - ids: 5306, 5934, 6648   # named or unusual members (sharing the family's model)
   - name: "\b(Eagle|Hawk|Gryphon|Hippogryph|Wyvern|Razorbeak|Skystormer|Soarer|Thunderhawk|Talon|Cockatrice|Firebird|Phoenix|Pridewing|Mistwing|Highperch|Thunderhead|Skyhunter|Wing)\b"
 ---
-The great birds of the high places are lords of the cliffs: the wyverns of Stonetalon, Feralas and the Thousand Needles, the thunderhawks of the Barrens, the hippogryphs of Azshara and Feralas, and the wild gryphons of the Hillsbrad hills that no rider has yet taken in hand.
+Look up from a Kalimdor pass and the wings above it may belong to a thunderhawk, a hippogryph or a wyvern. Travellers put all three in much the same category. The teeth, antlers and long tails suggest that a naturalist should take a little more trouble.
 
-The wyverns and hippogryphs carry the riders of the Horde and the night elves; their wild kin carry nobody, and defend their nests against anything that climbs.
-
-The firebirds of Tanaris do not look like any bird I know, and they are hot to stand near.
+Hippogryphs bear night elf riders, gryphons are familiar companions to the Wildhammer, and the Horde has its wind riders. Beyond the roosts and aeries, their wild kin fill the same skies. A saddle is a considerable achievement on any creature that can simply fly away.

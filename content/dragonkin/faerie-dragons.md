@@ -6,8 +6,6 @@ match:
   - ids: 14398   # named or unusual members (sharing the family's model)
   - name: "\b(Faerie|Fey|Sprite Darter|Blink)\b"
 ---
-Faerie dragons are small, quick, brightly coloured dragonkin of the old forests of Feralas and Ashenvale, more mischief than menace. They blink in and out of sight and they drain magic from anyone careless enough to cast near them.
+A faerie dragon brings bright wings and a small, quick body into the old forests of Kalimdor. Despite the name and its place on this page, it is not a little member of one of the great dragonflights.
 
-The druids think kindly of them, as creatures of the Dream's edge. The deviate kind of the Wailing Caverns has been twisted by whatever is wrong in that place.
-
-They will mostly leave you alone. Spellcasters, keep your distance.
+These creatures have ties to the Emerald Dream and a peculiar relationship with magic. The night elves know them as forest allies; the deviate kind in the Wailing Caverns belongs to a much less fortunate setting. Colour alone gives a poor account of what has happened to a creature there.

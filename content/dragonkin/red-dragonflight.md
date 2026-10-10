@@ -6,8 +6,6 @@ match:
   - ids: 1045, 1046, 1047, 1048, 1049, 1050   # the dragonkin of Grim Batol
   - name: "\b(Red|Crimson|Scalebane|Caelestrasz|Dragonspawn)\b"
 ---
-The red dragons are Alexstrasza's, the Life-Binder's, and for years the Dragonmaw orcs held their queen captive at Grim Batol and used her children as beasts of war. She was freed, but some of her dragonkin have never left the mountain, and they guard its halls fiercely.
+Red whelps still inhabit the Wetlands, where the larger members of Alexstrasza's flight guard Grim Batol. The mountain once held their queen captive under the Dragonmaw orcs, who used her offspring in the Second War.
 
-Red whelps are still seen in the Wetlands and the hills nearby, and the red flight's dragonspawn and wyrmkin keep Grim Batol shut to all comers.
-
-They are not the enemies the black flight is. They are only very tired of being taken prisoner.
+Her freedom ended that captivity without making Grim Batol a welcoming place. Red dragonkin now keep its approaches against outsiders. For a flight charged with protecting life, those guarded gates carry a long and bitter memory.

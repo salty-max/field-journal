@@ -5,8 +5,6 @@ order: 860
 match:
   - fallback: true
 ---
-This page holds the people no other page claims: lone outlaws and named villains, the servants of a single dungeon, captives and mad hermits, and the foes of every race who fight for no banner the League can name.
+Some foes are best recorded by the place and company in which they were met. A lone outlaw, a dungeon's guard and a renegade magician may share a race without sharing any cause.
 
-Many of them are the subject of a wanted poster in some village or other, and the bounty is often the best part of their story.
-
-If you meet one worth a page of their own, write to the League. We are always short of good stories.
+These pages keep their encounters together without inventing a banner for them. A name, a weapon and a camp are modest beginnings for an account, but they are better than allowing an unfamiliar person to disappear into the word "enemy".

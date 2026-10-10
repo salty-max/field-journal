@@ -6,8 +6,6 @@ match:
   - beast: 11
   - name: "\b(Raptor|Ravasaur|Razormaw)\b"
 ---
-The raptors are hunters to the bone: fast, clever, and bred, it seems, for nothing but the chase. They run in hunting parties through the Barrens, the Wetlands, the Arathi Highlands, Stranglethorn and Dustwallow, and the trolls of the jungle have tamed them for war since before human memory.
+A raptor is all hind legs, tail and teeth, built along lines quite unlike a wolf or cat. The bloodtalons of Durotar and the sunscales of the Barrens are familiar examples; larger kinds hunt through the Wetlands and the southern jungles.
 
-A raptor that sees you will call others. Its screech is not a challenge; it is a summons.
-
-The bloodtalons of Durotar and the sunscales of the Barrens are the smallest of their kind, and the first that most young Horde warriors learn to fear. They are not the last.
+Troll riders have made companions of them, a practice that requires considerable confidence in the animal at one's back. In the wild, a raptor's narrow outline can be lost among reeds until it turns. The head is usually the first part a traveller remembers.

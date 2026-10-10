@@ -6,8 +6,6 @@ match:
   - name: "\b(Sandfury|Jin\'Zallah)\b"
   - people: sandfury
 ---
-The Sandfury are the trolls of the Tanaris desert, tall, lean and hard as the sand they live on. Their capital is Zul'Farrak, and they defend what is left of their land against everyone: Alliance, Horde, goblins, ogres, bandits, and above all the insects of the south.
+Zul'Farrak still rises above the sand as a city, despite all the ruin around it. The Sandfury defend its terraces and sacred pools against a desert increasingly crowded with goblins, bandits and adventurers.
 
-They worship the great hydra Gahz'rilla in its sacred pool, and they raise their own dead to keep working when they fall.
-
-The gnomes and goblins of the Shimmering Flats pay well for the scales of their god. I would not ask a Sandfury's opinion of that trade.
+Gahz'rilla is worshipped there, and the tombs have guardians that did not remain dead. The city is poor ground for treating every old stone as an abandoned relic. Its builders' descendants are quite capable of disputing a visitor's claim to one.

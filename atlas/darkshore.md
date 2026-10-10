@@ -1,8 +1,8 @@
 ---
 zone: 1439
 ---
-A long, misty coast of night elf ruins, across the water from Teldrassil. Auberdine is the only town, and the only port; its boats go to Rut'theran and to Menethil Harbor. The road runs south along the coast to Ashenvale.
+Darkshore is a long journey along a narrow coast. Auberdine gathers the roads and shipping in the middle, with boats across to Rut'theran Village and over the sea to Menethil Harbor. The southern road leads into Ashenvale.
 
-The ruins of Ameth'Aran, Bashal'Aran and Mathystra are full of ghosts and worse. The Dark Strand keep their tower at Althalaxx; the furbolgs of the Blackwood have gone wrong; and at Remtravel's dig the League is, as usual, in over its head.
+The shore and the inland woods offer very different lines of travel. Wrecks and murloc camps interrupt the beaches; inland lie the haunted ruins of Ameth'Aran and Bashal'Aran, the Blackwood camps and the tower of Althalaxx.
 
-The sea fog comes in fast. When it does, stop walking until you can see the road.
+The sea is a steady guide when the trees hide the road. It is also the reason so many broken ships have become landmarks.

@@ -1,8 +1,8 @@
 ---
 zone: 1454
 ---
-The Horde's capital, a fortress in a canyon of red rock, named for the Warchief who freed the orcs. The gate faces Durotar to the south.
+Orgrimmar follows the folds of a red-rock canyon, with its main gate opening south into Durotar. Ramps and passages join the valleys inside; two destinations close together on a flat map may require a considerable climb between them.
 
-The bank, the auction house and every trainer are inside; Thrall keeps Grommash Hold, and the Cleft of Shadow keeps its own secrets. The zeppelins to Undercity and to Grom'gol leave from a tower outside the walls, and the wind riders fly from the tower in the city.
+Grommash Hold stands in the Valley of Wisdom, while the city's wind riders leave from a high tower. Outside the walls, zeppelins connect the capital with the Undercity and Grom'gol.
 
-It is louder than Ironforge, which I did not think possible.
+The canyon is part of the fortress as much as the built walls are. Its shape is easiest to understand from above, which is convenient once a traveller has found the wind riders.

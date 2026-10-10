@@ -5,8 +5,6 @@ order: 370
 match:
   - name: "\b(Blue|Azure|Azuregos|Mana|Spellmaw|Manaclaw|Arcane|Cobalt|Arygos|Azurous|Occulus)\w*\b"
 ---
-The blue dragons are Malygos's, guardians of magic, and they watch over the arcane wherever it pools: in Azshara, where the Highborne left their treasures, and in the ice caves of Mazthoril in Winterspring.
+Blue dragonkin guard arcane places: the old ruins of Azshara and the icy halls of Mazthoril. Malygos's flight has a long responsibility for magic, which gives a mortal rummaging among such treasures an awkward position from the outset.
 
-They are scholars as much as warriors, and suspicious of every mortal who carries a spellbook. The cobalt dragonkin of Winterspring guard their lair with spells as well as claws.
-
-Azuregos, in Azshara, will tell you he is only protecting what belongs to his flight. He will tell you while he fights you.
+Azuregos watches Azshara with a distinctly personal attitude toward visitors. His dealings over an old magical ledger reveal a considerable sense of humour. Ancient duty has not prevented him from finding an adventurer's errands amusing.

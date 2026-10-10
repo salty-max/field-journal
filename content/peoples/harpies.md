@@ -7,8 +7,6 @@ match:
   - people: harpies
   - name: "\b(Harpy|Bloodfeather|Dustwind|Windfury|Witchwing|Screeching|Bloodfury|Northspring|Snowblind|Shelda)\b"
 ---
-Harpies are winged women with taloned feet and arms that end in feathers, as cruel as anything that flies. They nest on the high places of Kalimdor: the Bloodfeather of Teldrassil, the Dustwind of Durotar, the Windfury of Mulgore, the Witchwing of the Barrens, the Bloodfury of Stonetalon and the screeching flocks of Thousand Needles and Feralas.
+Harpies make their homes above the approaches to other people's settlements. The Dustwind roosts of Durotar, the Windfury heights of Mulgore and the Witchwing nests of the Barrens all give wings a considerable advantage over a caravan.
 
-Their storm witches call down lightning on caravans and laugh while they do it.
-
-You will smell their nests before you see them. That, at least, is fair warning.
+Their talons are only part of the danger; storm witches add spells to the shrieking of a disturbed flock. A nest high on a cliff is a difficult place to reach with questions. Much of the League's knowledge of harpies has therefore been gathered from the ground below.

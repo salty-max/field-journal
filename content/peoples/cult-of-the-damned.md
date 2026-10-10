@@ -6,8 +6,6 @@ match:
   - people: cult
   - name: "\b(Necrolyte|Naxxramas|Necropolis|Faerlina|Understudy|Touched Warrior|Skeletal Smith)\b"
 ---
-The Cult of the Damned are the living servants of the Lich King: necromancers, acolytes and their students, who spread the plague through Lordaeron's grain and now keep the Scholomance, the Scourge's school of necromancy under Caer Darrow.
+Among the Scourge's dead stand people who are still alive. The Cult of the Damned supplies necromancers, acolytes and willing hands to an army that would otherwise have to manufacture all of its recruits.
 
-They are men and women who chose the dead, which I find worse than the dead themselves. A ghoul has no choice in what it serves.
-
-They are found wherever the Scourge is strongest, raising more of it.
+The Scholomance beneath Caer Darrow gives those arts a school, with lessons conducted among the remains of Lordaeron. Elsewhere the cult tends plague cauldrons and raises the fallen. A living scholar at a desk ought to be a reassuring sight. Here, the subject of study makes all the difference.

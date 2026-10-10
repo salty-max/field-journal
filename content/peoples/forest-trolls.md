@@ -6,8 +6,8 @@ match:
   - name: "\b(Witherbark|Vilebranch|Mossflayer|Hexx|Thresh\'jin)\b"
   - people: foresttrolls
 ---
-The forest trolls are the heirs of the Amani empire, which ruled the north before there were men in Lordaeron and fought the elves of Quel'Thalas for generations. Their tribes hold the hills still: the Witherbark of Arathi and the Hinterlands, the Vilebranch in their temple-city of Jintha'Alor, the Mossflayer in the Plaguelands.
+The Witherbark, Vilebranch and Mossflayer occupy forests layered with the remains of older troll dominion. Jintha'Alor is still a formidable temple-city, its terraces climbing the Hinterlands rather than sinking quietly into them.
 
-They are tall, green-skinned and tusked, they keep the old gods of the trolls, and some keep worse customs than that.
+The Amani fought Quel'Thalas long before the present human kingdoms took their shape. That long rivalry survives among tribes whose fortunes now differ greatly. The Revantusk trade with the Horde on the Hinterlands coast, while their neighbours hold their own ground inland.
 
-The Revantusk of the Hinterlands have taken the Horde's side. The rest have taken nobody's.
+Green skin and tusks identify a forest troll readily enough. They do not tell a traveller which welcome to expect.

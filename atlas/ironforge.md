@@ -1,8 +1,8 @@
 ---
 zone: 1455
 ---
-The city inside the mountain, around the Great Forge. The gate faces Dun Morogh; inside, it is warm, loud and full of dwarves, which is as it should be.
+Ironforge's gate opens from the snow into a city arranged around the Great Forge. The main ring joins the Commons, the High Seat, Tinker Town and the Hall of Explorers; knowing which direction to take around it saves a good deal of walking.
 
-The bank and the auction house share the Commons; the Hall of Explorers keeps the League's library and its collection, and the Mystic Ward its mages. The Deeprun Tram runs south under the mountains to Stormwind, and the gryphons fly from the Great Forge's upper level.
+The Deeprun Tram leaves from Tinker Town for Stormwind, and gryphons depart beside the Great Forge. The League's hall provides a quieter destination, though the exhibits occasionally attract as much argument as the auction house.
 
-Do not touch the anvils. The smiths will know.
+[forever] Beneath the High Seat, a descent through Old Ironforge reaches the Hall of Thanes. Dark Iron intruders have found a way into its lower vaults. The city has acquired another frontier directly below the king's feet.

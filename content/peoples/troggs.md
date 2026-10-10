@@ -7,8 +7,8 @@ match:
   - people: troggs
   - name: "\b(Trogg|Stonevault|Caverndeep|Irradiated|Irondeep)\b"
 ---
-Troggs are hunched, stone-skinned, brutish things that came up out of the deep places when dwarven digging woke them: the Rockjaw of Dun Morogh, the Stonesplinter of Loch Modan, the Stonevault in Uldaman, and others in Gnomeregan and the Badlands.
+Troggs have come out of the deep places into Dun Morogh, Loch Modan and Gnomeregan. Their strength is plain enough; their connection to dwarven history was a much less welcome discovery.
 
-The titans' own records in Uldaman say what they are: the makers' first attempt at life from living stone, a failure they buried in vaults. The same records say the dwarves came from stone too, from the earthen who followed. I do not enjoy writing this page.
+The records in Uldaman describe an earlier shaping of stone into life, followed by the earthen from whom dwarves descend. Those records make the trogg a subject for the League as well as an enemy at the dig.
 
-They are strong, stupid and never alone. Where you see one trogg, there are a dozen more in the dark.
+The same excavation can therefore produce an ancestor's history and a very angry inhabitant. Archaeology seldom arranges its subjects conveniently.

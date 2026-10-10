@@ -7,8 +7,8 @@ match:
   - people: furbolgs
   - name: "\b(Furbolg|Thistlefur|Foulweald|Deadwood|Winterfall|Gnarlpine|Blackwood|Timbermaw|Felpaw|Ursa)\b"
 ---
-Furbolgs are bear-men of the northern forests of Kalimdor, big, slow-spoken and, for most of their long history, peaceful friends of the night elves. Something has gone badly wrong with them. The Gnarlpine of Teldrassil, the Blackwood of Darkshore, the Thistlefur and Foulweald of Ashenvale, the Deadwood of Felwood and the Winterfall of Winterspring have all fallen into madness.
+Furbolg villages belong to the old forests of Kalimdor. Totems, shelters and shamans give them a place among the forest's peoples, though a traveller arriving at a corrupted camp may see only its violence.
 
-The night elves blame the corruption that soaks the land, and in Felwood, at least, they are surely right. Only the Timbermaw have kept their minds.
+The Gnarlpine, Blackwood, Deadwood and Winterfall have all suffered terrible changes. The Timbermaw have resisted that fate and still guard their tunnels between Felwood, Moonglade and Winterspring. Their distrust of strangers has ample cause.
 
-Fight the mad ones if you must. Mourn them a little afterwards.
+[forever] Azshara's Blackmaw Hold belongs to another tribe. Corruption has taken root there too; the Timbermaw of Felwood should not bear the blame for what lies behind its stone gate.

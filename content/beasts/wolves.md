@@ -7,8 +7,6 @@ match:
   - beast: 1
   - name: "\b(Wolf|Worg|Wolves)\b"
 ---
-Wolves are the first lesson of the wild for most travellers, and the most persistent. They run in packs from the snows of Dun Morogh to the pine slopes of Alterac, through the timber of Elwynn and the hills of Silverpine, and they follow the same law everywhere: the weak at the back, the strong at the front, and anything slower than the pack is supper.
+A howl can make a whole forest seem inhabited. Wolves live from Dun Morogh's snowfields to Elwynn's timber, and their different coats belong as naturally to those places as the trees do. The larger worgs give the familiar outline a heavier jaw.
 
-The worgs of the north are larger and fouler-tempered than their southern kin, and the black ravagers of Duskwood hunt in numbers that should give anyone pause. Coyotes are the same animal grown lean in dry country.
-
-A wolf alone is a nuisance. A howl answered from three directions is a warning. Learn the difference early.
+Orcs have brought wolves into their lives as companions and mounts; young hunters meet the wild packs on a very different footing. Hunger is particularly visible in the starving wolves near settled roads. The distance between wilderness and a village is sometimes a very short one.

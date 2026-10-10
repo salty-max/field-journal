@@ -1,8 +1,8 @@
 ---
 zone: 1420
 ---
-The heart of old Lordaeron, gone grey and quiet. Under the ruins of its capital lies the Undercity of the Forsaken, and from Deathknell, where the Forsaken wake, the road runs east through Brill to the ruins and on to the Bulwark at the edge of the Plaguelands.
+The roads of Tirisfal connect Deathknell, Brill and the ruins of Lordaeron's capital, then run east toward the Bulwark. The old farms and mills still give the countryside recognisable divisions, though many of their inhabitants are dead.
 
-The farms are haunted, the lake is full of murlocs, and the Scarlet Crusade holds the north-east, with its monastery and its watch posts, burning anything that looks dead. In Tirisfal, that is most things.
+The Scarlet Monastery occupies the north-east, with watch posts beyond it. Brightwater Lake has murlocs along its banks, and the woods conceal dangers of their own.
 
-Brill's inn is the best fire for a hundred miles. The zeppelins to Orgrimmar and Grom'gol leave from a tower near the ruins.
+Brill provides the Forsaken's principal roadside settlement. Near the capital's ruins, zeppelin towers connect this quiet country with Orgrimmar and Grom'gol, an unexpectedly busy meeting of routes above the trees.

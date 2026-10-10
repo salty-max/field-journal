@@ -7,8 +7,6 @@ match:
   - anytype: true
   - name: "\b(Yeti|Feral Scar|Rage Scar|Ice Thistle)\b"
 ---
-Yetis are great shaggy brutes of the cold mountains and caves: the hills of Alterac, the ice caves of Winterspring and the high valleys of Feralas. They are stronger than any bear and more stubborn than any dwarf.
+Yetis occupy mountain caves from Alterac to Winterspring, with a shaggy kind in the heights of Feralas as well. Their broad bodies and heavy coats give even a large cavern the appearance of cramped lodgings.
 
-They live in families in deep caves, and they come out hungry. A yeti's roar in a cave carries a long way and summons the rest.
-
-The goblins of Everlook have found uses for their hides and their horns. The yetis have found uses for the goblins.
+Their horns have attracted Umi Rumplesnicker's attention in Everlook. She needs a perfect pair for the mechanical yeti she is building to frighten her friends. The living yetis are inconveniently attached to the parts.

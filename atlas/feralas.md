@@ -1,8 +1,8 @@
 ---
 zone: 1444
 ---
-Giant trees, steady rain and the ruins of the Highborne. Feathermoon Stronghold sits on Sardor Isle off the western coast, for the night elves; Camp Mojache holds the east for the Horde. The road runs from Desolace in the north to the Thousand Needles in the east.
+Feralas closes around the road in great trunks and dense undergrowth. The northern passage comes down from Desolace; eastward, the route reaches Camp Mojache and continues toward Thousand Needles.
 
-The Gordok ogres hold the ruins of Dire Maul, once the elven city of Eldre'Thalas. Yetis live in the Feral Scar Vale, the Grimtotem have their compound, and around the great tree of Dream Bough the green dragons keep their troubled watch.
+Feathermoon Stronghold stands offshore on Sardor Isle, reached by boat from the western coast. Inland, Dire Maul rises above the forest, with ogres occupying much of the ruined city. Dream Bough's great tree marks dragon-held ground farther north.
 
-The forest is wet enough to grow moss on a slow traveller. Do not be a slow traveller.
+The canopy can hide a substantial slope until the road begins climbing it. A survey of Feralas needs room for height as well as distance.

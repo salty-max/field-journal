@@ -1,8 +1,8 @@
 ---
 zone: 1443
 ---
-A grey, dead country of centaurs, bones and demons. Nijel's Point holds the north for the Alliance; Shadowprey Village sits on the western coast for the Horde. The road comes down from Stonetalon and runs south to Feralas.
+Desolace opens below Stonetalon in grey ridges and broad, exposed ground. Nijel's Point occupies the northern heights for the Alliance; Shadowprey Village lies down on the western coast for the Horde. The southern route reaches Feralas.
 
-The five centaur clans fight each other across the middle of it, and the Kodo Graveyard lies between them, full of bones. The Burning Blade hold Thunder Axe Fortress, demons hold the Mannoroc Coven in the south, and the naga hold the coast.
+Centaur territories fill much of the interior, with the Kodo Graveyard among them. Thunder Axe Fortress and Mannoroc Coven mark hostile ground of another kind. On the coast, the country drops toward naga-held water.
 
-Nothing grows here and nothing is buried for long. Keep moving.
+The bones make the graveyard conspicuous from a distance. Shadowprey's waterfront gives the eye something gentler to rest on: a settlement built toward the sea rather than another camp in the dust.

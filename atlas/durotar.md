@@ -1,8 +1,8 @@
 ---
 zone: 1411
 ---
-Red rock and dry gullies, the land Thrall gave his people. Orgrimmar stands in the north; the road runs south from its gate to Razor Hill and on to Sen'jin Village on the coast, and west over the river into the Barrens.
+Durotar's red gullies channel the roads between its settlements. Razor Hill stands at their meeting, with Orgrimmar to the north, Sen'jin Village toward the south coast and the crossing into the Barrens to the west.
 
-New orcs and trolls are trained in the Valley of Trials. The Darkspear keep Sen'jin, though the Echo Isles offshore are not theirs at present. The Burning Blade hides in the caves of Skull Rock, the Kolkar centaurs hold their crag, and the Kul Tirans still keep Tiragarde Keep on the eastern coast.
+The Valley of Trials lies apart from the main road. Tiragarde Keep occupies the eastern coast, while the Echo Isles are visible offshore from Darkspear country without being safely in Darkspear hands.
 
-The zeppelins leave from towers outside Orgrimmar. Do not stand underneath one.
+Outside Orgrimmar, the zeppelin towers give the approach a second skyline above the canyon walls. A traveller looking for a sea crossing here should look upward.

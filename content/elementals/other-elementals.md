@@ -5,8 +5,6 @@ order: 480
 match:
   - fallback: true
 ---
-This page holds the elementals that no single element claims: lords and exiles of mixed nature, spirits of the land too strange to name, constructs animated by elemental power, and the odd servant of a summoner long dead.
+The familiar divisions of earth, air, fire and water do not settle every encounter. Some animated beings and unusual elemental shapes reach this page without a clear place among the others.
 
-Many are found alone, guarding something or waiting for someone. Some are the masters of the others on these pages.
-
-Approach each as its own question. Elementals are not, on the whole, interested in conversation.
+Their setting often supplies the best beginning: a summoner's chamber, an ancient hall, or a strange patch of open country. The record can preserve those particulars even where the nature of the inhabitant remains unsettled.

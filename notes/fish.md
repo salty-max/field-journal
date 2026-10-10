@@ -8,220 +8,234 @@ under their first weight's id. -->
 
 ## 6291 Raw Brilliant Smallfish
 
-The first fish of nearly every angler: a small, bright fish of the lakes and rivers near home, in Elwynn, Dun Morogh, Teldrassil, Darkshore, Durotar, Mulgore and the Barrens, Westfall and Stonetalon, and the canals and pools of the cities. Even the Deadmines and the Wailing Caverns have them.
+Brilliant Smallfish fills an apprentice's first creel in familiar waters, sometimes within sight of a city street.
 
-Cooked, it is a modest meal. Its real worth is the lesson: patience, a steady hand, and an eye on the bobber.
+It makes a plain, useful meal. A modest catch is quite sufficient company for a quiet afternoon, especially when the cook is still learning too.
 
 ## 6303 Raw Slitherskin Mackerel
 
-A slick little sea fish of the coasts: the shores of Westfall and Silverpine, Tirisfal's coast, Teldrassil and Darkshore, and the Durotar and Barrens shoreline. Cast into salt water, not fresh.
+Slitherskin Mackerel is a familiar early catch along the coast. It gives the sea angler a dependable beginning where the inland fisher has smallfish.
 
-It cooks into Slitherskin Mackerel, a plain fare for the young traveller.
+The simple cooked dish keeps the same name.
 
 ## 6289 Raw Longjaw Mud Snapper
 
-A bottom-feeder of slow fresh water, caught in nearly every river and lake of the lower lands, from Elwynn and Dun Morogh to Ashenvale, the Barrens, Duskwood, Hillsbrad and the Wetlands. Blackfathom Deeps, the Deadmines and the Wailing Caverns have them too.
+Longjaw Mud Snapper is common in the home rivers and lakes, and follows anglers well beyond their first lessons.
 
-Cooked as Longjaw Mud Snapper. Now and then one comes up weighing ten pounds or more: those are worth keeping, if only to boast.
+The ordinary catch is easily cooked. The occasional heavy specimen tends to acquire a different purpose: evidence in the evening's account of the fishing.
 
 ## 6317 Raw Loch Frenzy
 
-A fish of one lake only: the great loch of Loch Modan, behind the Stonewrought Dam.
+Loch Frenzy belongs to Loch Modan's great lake, with the Stonewrought Dam holding back the water above the Wetlands.
 
-It cooks into Loch Frenzy Delight.
+Loch Frenzy Delight makes a local supper of a local catch. There are pleasant ways for a traveller to learn the name of a place.
 
 ## 6361 Raw Rainbow Fin Albacore
 
-A fast sea fish with a sheen of colours along its side, caught off the coasts of Westfall, Silverpine, the Hillsbrad Foothills and the Wetlands, at Menethil Harbor and Baradin Bay, and off Darkshore, Ashenvale and the Barrens.
+Rainbow Fin Albacore comes from coastal water on both continents. It is one of the catches that makes an angler learn a shoreline as well as a road.
 
-It cooks into Rainbow Fin Albacore.
+Cooks prepare it under its own name.
 
 ## 12238 Darkshore Grouper
 
-A heavy fish of Darkshore's rivers and falls, from the Cliffspring River to the Wildbend and the waters of the Grove of the Ancients.
+Darkshore Grouper is sought in the rivers and falls inland from the coast.
 
-No cook calls for it, but Gubber Blump of Auberdine does: he wants six of them, in The Family and the Fishing Pole.
+Gubber Blump at Auberdine asks for a catch of them and offers a fishing pole for the work. The fish can therefore help equip an angler for whatever comes out of the next river.
 
 ## 6308 Raw Bristle Whisker Catfish
 
-A whiskered fish of the deeper fresh water, found across the middle lands: the rivers of Alterac, Arathi, Hillsbrad, the Wetlands, Duskwood, Redridge and Stranglethorn, and of Ashenvale, Stonetalon, Desolace, Feralas, the Thousand Needles and Dustwallow. The capitals' waters have them, and so do the Scarlet Monastery and the Wailing Caverns.
+Bristle Whisker Catfish accompanies the freshwater angler across a wide stretch of country, including waters deep inside some very unwelcoming places.
 
-It cooks into Bristle Whisker Catfish. Large catfish, weighed in pounds, come up with them.
+Most go toward supper. A large catfish weighed separately in pounds is likely to remain a subject of conversation considerably longer.
 
 ## 8365 Raw Mithril Head Trout
 
-A trout with a silvery head, caught in the colder and wilder waters: Alterac, Arathi, the Hinterlands and the Western Plaguelands; Azshara, Felwood, Moonglade, Feralas, Desolace, Dustwallow, Un'Goro and the Thousand Needles. Maraudon and the Scarlet Monastery hold them as well.
+Mithril Head Trout is a familiar catch in wilder inland waters, from the foothills to the lakes of Kalimdor.
 
-It cooks into Mithril Headed Trout.
+The cooked dish is Mithril Headed Trout. For all the metal in the name, its most dependable contribution to an expedition is another meal.
 
 ## 6362 Raw Rockscale Cod
 
-A heavy sea fish of the warm coasts: Stranglethorn and Booty Bay, Arathi's shore, the Swamp of Sorrows, Dustwallow Bay, Desolace, Azshara and Tanaris.
+Rockscale Cod comes from coastal water farther along an angler's travels, with Stranglethorn and Tanaris among its fishing grounds.
 
-It cooks into Rockscale Cod.
+The cooked fish provides a straightforward supper.
 
 ## 4603 Raw Spotted Yellowtail
 
-A bright sea fish of the same warm coasts as the Rockscale Cod: Stranglethorn and Booty Bay, Arathi, the Swamp of Sorrows, Dustwallow, Desolace, Tanaris and Azshara.
+Spotted Yellowtail shares much of the coastal fishing ground of Rockscale Cod.
 
-It cooks into Spotted Yellowtail.
+It has its own place in the cook's repertoire, even when both arrive in the same creel. The sea need not provide a rare catch to provide some variety.
 
 ## 13754 Raw Glossy Mightfish
 
-A fish of the southern seas, caught off the coasts of Tanaris and Azshara: the Shattered Strand, Southridge Beach and the Jagged Reef.
+Glossy Mightfish is caught off Tanaris and Azshara, in waters that reward an experienced angler.
 
-It cooks into Cooked Glossy Mightfish.
+Cooked Glossy Mightfish restores health and adds stamina. A smaller fish can therefore supply much the same encouragement before a battle as the larger catch prepared for steaks.
 
 ## 13759 Raw Nightfin Snapper
 
-A dark fish of the high, wild waters that bites in the evening and the night, best in the small hours and never in the afternoon: Azshara, Felwood, Moonglade, Winterspring, Un'Goro, Silithus and Feralas; the Hinterlands, the Burning Steppes and both Plaguelands. Scholomance, Stratholme, Zul'Gurub and Maraudon hold them too.
+Nightfin Snapper makes the hour part of choosing a fishing place. It bites at night and around the day's edges, with the small hours particularly favourable.
 
-Cooked as Nightfin Soup, it restores the mana of those who drink it, and spellcasters pay well for it.
+Nightfin Soup helps restore a spellcaster's mana. A patient angler can give the company a useful reason to be grateful for time spent beside dark water.
 
 ## 13760 Raw Sunscale Salmon
 
-The Nightfin's daylight cousin: a salmon of the same high waters that bites from morning to evening, best in the afternoon and never in the small hours.
+Sunscale Salmon favours daylight in waters also known for Nightfin Snapper. An afternoon that disappoints the night angler may suit this catch very well.
 
-It is cooked as Poached Sunscale Salmon, which keeps a fighter's health returning.
+Poached Sunscale Salmon helps health return steadily. The two catches put the same stretch of water to work for different appetites at different hours.
 
 ## 13758 Raw Redgill
 
-A red-finned fish of the high waters, caught wherever the Nightfin and the Sunscale are, by day or by night.
+Redgill keeps the freshwater angler company by day or night, in many of the waters where the hour determines other catches.
 
-It cooks into Filet of Redgill. Heavy redgill, weighed in pounds, come up with them.
+Filet of Redgill provides a dependable meal. Heavy specimens are weighed separately, and tend to receive rather more attention before anyone fetches the knife.
 
 ## 13756 Raw Summer Bass
 
-A sea bass of the warm southern coasts that runs only in summer: off Stranglethorn, Tanaris, Azshara, Feralas and the Hinterlands, around Jaguero Isle, the Isle of Dread and Feathermoon.
+Summer Bass is a seasonal catch of the southern coasts. An angler revisiting a winter fishing place may find a different supper waiting.
 
-It is smoked as Hot Smoked Bass.
+Hot Smoked Bass gives it a place at the fire. The changing season can reach the cooking pot even when the expedition has stayed in the same camp.
 
 ## 13755 Winter Squid
 
-A squid that comes to the southern coasts only in winter, where the Summer Bass runs in summer: Stranglethorn, Tanaris, Azshara, Feralas and the Hinterlands.
+Winter Squid replaces Summer Bass in the seasonal coastal catch. A familiar fishing place is worth returning to when the year turns.
 
-It is grilled as Grilled Squid, a meal that sharpens the eater's reflexes.
+Grilled Squid sharpens agility. The cooks who value it have a practical interest in keeping track of the season, quite apart from the weather.
 
 ## 13888 Darkclaw Lobster
 
-A dark-shelled lobster of one coast only: Azshara's Bay of Storms, around Hetaera's Clutch and Scalebeard's Cave.
+Azshara's Bay of Storms is the fishing ground for Darkclaw Lobster. The name of the water gives a fair impression of the country around an angler's chosen shore.
 
-It makes Lobster Stew. Lobsters weighed in pounds come from the same waters.
+Lobster Stew repays the journey with a substantial meal. The separately weighed lobsters give the same water another claim on a fisher's memory.
 
 ## 13893 Large Raw Mightfish
 
-A great fish of Azshara's Bay of Storms, caught with the Darkclaw Lobster.
+Large Mightfish comes from the Bay of Storms, where experienced anglers also seek Darkclaw Lobster.
 
-It makes Mightfish Steak, a hearty meal for the strong. The heaviest mightfish, weighed in pounds, are the largest catch in the world's waters.
+Mightfish Steak gives a hearty meal with added stamina. The separately weighed giants of the same waters are a different prize, one that can make a fisher's account sound implausible even when it is exact.
 
 ## 13889 Raw Whitescale Salmon
 
-A pale salmon of the coldest and most dangerous waters: Winterspring, the Burning Steppes, the Eastern Plaguelands, Silithus and Feralas, and the waters of Scholomance, Stratholme and Zul'Gurub.
+Whitescale Salmon is caught in difficult waters, including Winterspring and the lands around the plague's great strongholds.
 
-It is baked as Baked Salmon. Salmon weighed in pounds come up with it.
+Baked Salmon makes a fine meal from the ordinary catch; the heavier specimens are weighed separately.
 
 ## 6358 Oily Blackmouth
 
-A greasy fish valued not for its flesh but for its oil. It is caught off the coasts and in the rivers of most of the middle lands, from Westfall, the Wetlands and Stranglethorn to the Barrens, Darkshore, Ashenvale and Desolace, and best from the schools that gather near the shore.
+Oily Blackmouth gives an angler work for the alchemist as well as the cook. Its schools make a promising sight along the gathering coast.
 
-Its oil, Blackmouth Oil, goes into the Swim Speed Potion and the Elixir of Water Breathing.
+Blackmouth Oil goes into swimming draughts and the Elixir of Water Breathing. The catch can help another traveller spend a little longer in the water it came from.
 
 ## 6359 Firefin Snapper
 
-A red-finned fish of the warm coasts, from Stranglethorn, Arathi and the Wetlands to Tanaris, Desolace and Azshara, best taken from its schools and from the oil spills of the coast.
+Firefin Snapper is sought for oil rather than an evening meal. Its schools and the coast's oily fishing patches deserve an angler's attention.
 
-Its oil, Fire Oil, goes into the Fire Protection Potion and the Elixir of Firepower.
+Fire Oil serves both Fire Protection Potions and the Elixir of Firepower. The alchemist decides whether the catch will help someone withstand the flame or wield it.
 
 ## 13422 Stonescale Eel
 
-An armoured eel of two coasts only: Azshara and Tanaris, from the Bay of Storms to the Shattered Strand. It gathers in swarms, and a swarm is the surest way to a full creel.
+Stonescale Eels are a valuable catch off Azshara and Tanaris, especially where a swarm gathers.
 
-Pressed into Stonescale Oil, it is wanted for the Greater Stoneshield Potion and for flasks.
+Stonescale Oil goes into Greater Stoneshield Potions and powerful flasks. A quiet spell of fishing can end in supplies intended for a very noisy fight.
 
 ## 13757 Lightning Eel
 
-An eel of the high, wild waters, caught where the Nightfin and the Redgill are, in Azshara, Felwood, Winterspring, Un'Goro and the Hinterlands, and in Scholomance, Stratholme, Zul'Gurub and Maraudon.
+Lightning Eel turns up in the wilder inland waters with catches such as Nightfin and Redgill.
 
-No recipe of the original world calls for it.
+It has no familiar place among the cook's or alchemist's preparations. A field journal can still find room for a fish without first finding somebody a use for it.
 
 ## 13890 Plated Armorfish
 
-A fish armoured like a crocolisk, caught in the coldest high waters with the Whitescale Salmon: Winterspring, the Burning Steppes, the Eastern Plaguelands, Silithus and Feralas.
+Plated Armorfish is a less familiar prize from waters that also yield Whitescale Salmon.
 
-No recipe of the original world calls for it, though its plates are a curiosity.
+The cook has no usual preparation for it. Its place in the catch is worth recording all the same; a creel contains more than the ingredients on a shopping list.
 
 ## 6522 Deviate Fish
 
-A twisted fish of the Barrens' oases, the Lushwater, the Forgotten Pools and the Stagnant Oasis, and of the Wailing Caverns beneath, where the druids' dream turned to nightmare. It gathers in schools of its own.
+Deviate Fish inhabits the Barrens' oases and the Wailing Caverns below them, waters entangled with Naralex's troubled dream.
 
-It is as unpredictable as its waters. Cooked as Savory Deviate Delight, it may turn the eater into a pirate or a ninja for a while; alchemists use it in the Elixir of Giant Growth.
+Raw, its effects are unpredictable. Savory Deviate Delight can disguise the diner as a pirate or ninja, while alchemists use the fish in an Elixir of Giant Growth. This is a catch worth identifying before supper.
 
 ## 1467 Spotted Sunfish
 
-A fish of Redridge's lake, at Lakeshire.
+Spotted Sunfish is sought in Lake Everstill at Lakeshire.
 
-Dockmaster Baren of Lakeshire buys them: he asks for ten, in Selling Fish.
+Dockmaster Baren buys a catch of ten. A line cast from the town's waters can therefore contribute a little coin as well as a quiet interval beside the lake.
 
 ## 6717 Gaffer Jack
 
-A fish of Darkshore's waters.
+Gaffer jacks are lost tools, not fish: Wizbang Cranktoggle dropped a box of them overboard on his journey to Auberdine.
 
-Wizbang Cranktoggle of Darkshore wants eight of them, in Gaffer Jacks.
+He needs eight back to tune his stintle pegs. A line cast into the sea can therefore supply the beginnings of another invention, though it was the inventor's drinking that supplied the tools to the sea.
 
 ## 6718 Electropeller
 
-A fish that crackles with a faint charge, caught in Darkshore's rivers and falls: the Cliffspring, the Wildbend and the waters of the Grove of the Ancients.
+Electropellers are pieces of Wizbang Cranktoggle's machinery, lost in Darkshore's inland waters during an unsuccessful outing with an exploding duck decoy.
 
-Wizbang Cranktoggle of Darkshore wants twelve of them, in Electropellers.
+He wants twelve recovered so that his research can continue. The duck decoy does rather more to explain the singed hair in his account than the fishing does.
 
 ## 16967 Feralas Ahi
 
-A rare fish of one river: the Verdantis, in Feralas.
+The Feralas Ahi sends an angler to the Verdantis River, well away from Nat Pagle's own patch of Dustwallow.
 
-Nat Pagle, the angler of Dustwallow Marsh, asks for one, with the three other rare fish of his Nat Pagle, Angler Extreme.
+It is one of the four catches he asks for before passing on his finest teaching. A journey through Feralas is a substantial part of that lesson.
 
 ## 16970 Misty Reed Mahi Mahi
 
-A rare fish of the Misty Reed Strand, in the Swamp of Sorrows.
+Misty Reed Mahi Mahi is sought off the Swamp of Sorrows, on the strand that gives it part of its name.
 
-One of the four fish Nat Pagle of Dustwallow Marsh asks for.
+Nat Pagle includes it among his four testing catches. Reaching the sea through that swamp gives the errand a difficult beginning, before the line is even cast.
 
 ## 16968 Sar'theris Striker
 
-A rare fish of the Sar'theris Strand, on the coast of Desolace.
+The Sar'theris Striker takes Nat Pagle's pupil to the coast of Desolace.
 
-One of the four fish Nat Pagle of Dustwallow Marsh asks for.
+It is one of four catches in his test. The shore offers a change from the grey interior, though the journey remains a considerable one for a single fish.
 
 ## 16969 Savage Coast Blue Sailfin
 
-A rare fish of the Savage Coast, in Stranglethorn.
+Savage Coast Blue Sailfin is Nat Pagle's required catch from Stranglethorn.
 
-One of the four fish Nat Pagle of Dustwallow Marsh asks for.
+For a pupil who has already visited his other fishing grounds, the name marks another long journey. The lesson ranges far beyond the small patch of water where the teacher waits.
 
 ## 6309 Catfish
 
-The big catfish, weighed in pounds rather than counted: seventeen, nineteen, twenty-two, twenty-six and, once in a long while, thirty-two. They bite where the Bristle Whisker Catfish do, across the rivers of the middle lands.
+The large catfish are weighed individually, from seventeen pounds up to the uncommon thirty-two-pound catch.
+
+They share the Bristle Whisker Catfish's waters. An ordinary fishing place can therefore supply quite an extraordinary addition to an evening's story.
 
 ## 6292 Mud Snapper
 
-Mud snappers of ten, twelve and fifteen pounds, caught with the Longjaw Mud Snapper in the home waters of Elwynn, Dun Morogh, Teldrassil, Durotar and Mulgore.
+Mud snappers of ten, twelve and fifteen pounds are caught alongside the Longjaw Mud Snapper.
+
+The familiar home waters still have room for a surprise. A fisher need not reach a distant coast to bring back something worth weighing.
 
 ## 13885 Redgill
 
-Redgill of thirty-four to fifty-two pounds, caught with the Raw Redgill in the high waters of Azshara, Felwood, Moonglade, Un'Goro, the Hinterlands and the Western Plaguelands.
+Heavy redgill run from thirty-four to fifty-two pounds, in the same high-country waters as the ordinary catch.
+
+The notebook becomes particularly useful here. A precise weight is a small defence against the reasonable suspicion that the story has grown on the way home.
 
 ## 13876 Grouper
 
-Groupers of forty to sixty-eight pounds, caught off the southern coasts of Tanaris and Azshara.
+These groupers weigh from forty to sixty-eight pounds and come from the coasts of Tanaris and Azshara.
+
+For once, the weight alone does much of the work of describing a catch. The angler's part in the account is getting it out of the sea.
 
 ## 13901 Salmon
 
-Salmon of fifteen to twenty-nine pounds, caught with the Whitescale Salmon in the cold waters of Winterspring, the Burning Steppes, the Eastern Plaguelands, Silithus and Feralas.
+The separately weighed salmon run from fifteen to twenty-nine pounds and accompany Whitescale Salmon in the catch.
+
+They give a familiar fishing expedition an individual result: this fish, at this weight, from this stretch of water.
 
 ## 13907 Lobster
 
-Lobsters weighed from seven to twenty-two pounds, caught in Azshara's Bay of Storms.
+Weighed lobsters of seven to twenty-two pounds come from Azshara's Bay of Storms.
+
+A catch at the upper end of that range deserves a careful entry in the journal. "A lobster" is a rather modest description of what has come out of the water.
 
 ## 13914 Mightfish
 
-The heaviest catch of all: mightfish of seventy to a hundred and three pounds, from Azshara's Bay of Storms. Land the hundred-pounder and you have caught the largest fish in the world's waters.
+The greatest weighed mightfish run from seventy to a hundred and three pounds, in Azshara's Bay of Storms.
+
+Even without an angler's additions, a catch approaching a hundred pounds is quite sufficient explanation for coming home late.

@@ -6,8 +6,6 @@ match:
   - anytype: true
   - name: "\b(Flamewaker|Firesworn|Fireeater|Lava Surger|Core Rager|Firewalker|Flameguard|Majordomo|Sulfuron|Lucifron|Gehennas|Shazzrah|Flamelash)\b"
 ---
-In the Molten Core, under Blackrock Mountain, Ragnaros keeps servants of his own making: the Flamewakers, tall and burning, and the creatures of fire that guard his domain. They are not elementals as the wild ones are, nor mortals; they are the Firelord's household.
+The flamewakers of the Molten Core are unmistakable servants of Ragnaros: armed figures with serpentine lower bodies, at home among the fires beneath Blackrock Mountain. Lucifron, Gehennas, Shazzrah and their kind guard the approaches to the Firelord.
 
-They are encountered only in the deepest fires of the mountain, and they defend their master with everything they are.
-
-Few travellers record them. Fewer come back to finish the entry.
+Here, the mountain's heat is part of an inhabited realm. What a dwarf might regard as an impossible place to build contains guards, commanders and a master's seat. The absence of comfortable ground is entirely the visitor's problem.

@@ -1,8 +1,8 @@
 ---
 zone: 1445
 ---
-A swamp of mist and mud on Kalimdor's eastern coast. Theramore Isle, Lady Proudmoore's city, sits offshore with a harbour and ships to Menethil; Brackenwall Village, where the Stonemaul ogres keep faith with the Horde, sits in the north-west marsh.
+The Barrens road enters Dustwallow through reeds and shallow water, eventually reaching Theramore's causeway and harbour. Menethil-bound ships leave from the island city. Brackenwall Village, a Horde settlement with Stonemaul ogres among its inhabitants, stands in the north-western marsh.
 
-The black dragons have the Wyrmbog in the south, and Onyxia her lair beneath it. Raptors, crocolisks and worse fill the rest, and the road in from the Barrens is wet the whole way.
+Onyxia's country lies south in the Wyrmbog. Elsewhere, channels and low banks break up ground that looks continuous from a distance. A bend in the road often provides a surer bearing than the trees, which have an unfortunate resemblance to one another.
 
-The fog lies thick at dawn and dusk. A lantern helps; so does a guide.
+From Theramore's stonework, the mainland looks very close. After a few turns through the marsh, the city can seem to have vanished behind it.

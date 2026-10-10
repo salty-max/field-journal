@@ -7,8 +7,6 @@ match:
   - beast: 24
   - name: "\b(Bat|Vampire Bat)\b"
 ---
-Bats roost wherever there is dark and quiet: the caves of Tirisfal, the crypts and barrows of the Plaguelands, the thorn-tunnels of the Razorfen. The duskbats of Tirisfal are the first many of the Forsaken meet on waking, and a fair sample of the rest.
+A cave that looks empty by daylight may have a ceiling full of bats. Duskbats hang over the paths of Tirisfal, while the thorny passages of Razorfen shelter their own colonies. Wings fill a surprisingly large part of a narrow tunnel.
 
-They hunt by sound in the dark, and they come in clouds when disturbed. The plaguebats of the east are another thing altogether: carriers of the Scourge's sickness on the wing.
-
-Keep your mouth shut when you walk under a roost. You will thank me.
+The plaguebats of the eastern lands belong in a less cheerful account. Disease travels with them through country already ruined by the Scourge. A bat's shape is familiar; what it carries depends very much on where it has been roosting.

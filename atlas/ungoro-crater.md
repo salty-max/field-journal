@@ -1,8 +1,10 @@
 ---
 zone: 1449
 ---
-A crater in the south where the world has kept a corner of its youth: jungle, hot springs, tar pits and a volcano, and beasts that should not still be alive. The way in is a long path down from Tanaris; the way to Silithus leaves from the north-west.
+The path down from Tanaris reveals Un'Goro all at once: dense jungle around Fire Plume Ridge, with tar pits and hot springs breaking the green. Marshal's Refuge lies against the northern rim; the route out toward Silithus climbs away in the north-west.
 
-Marshal's Refuge, on the northern rim, is the only camp and the only safe sleep. Everything else is the devilsaurs' and the raptors', and the silithid in the Slithering Scar. Fire Plume Ridge is hot enough to cook on and steep enough to fall from.
+The central volcano is an excellent bearing and difficult ground. Away from it, the canopy hides raptors, devilsaurs and the silithid territory of the Slithering Scar. The crater is easier to overlook from above than to cross below.
 
-Strange crystals grow everywhere in the crater. Nobody knows what they are. I have filled three notebooks with guesses.
+[classic] Bright crystals occur throughout the basin, with the pylons offering another subject for the expedition's investigations. The map marks their positions; explaining them is a different piece of work.
+
+[forever] The Shapers' Terrace gives the crater's Titan traces a place on the map beside the pylons and scattered crystals. A name for one ancient site leaves a great deal of jungle unaccounted for.

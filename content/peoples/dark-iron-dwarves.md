@@ -6,8 +6,8 @@ match:
   - ids: 9019, 10096, 8983, 7291, 2932, 10899, 8978   # Thaurissan, Grimstone, Argelmach and other named Dark Irons
   - people: darkiron
 ---
-The Dark Irons are the third of the three hammers, the clan that lost the war for Ironforge and woke the Firelord in its fury. They serve Ragnaros from Blackrock Mountain, and their slaves, diggers and saboteurs reach into the Searing Gorge, the Burning Steppes, the Badlands, Loch Modan and the Wetlands.
+Dark Iron work is unmistakably dwarven: deep mines, heavy fortifications and machinery built to outlast its makers. The clan's stronghold beneath Blackrock Mountain is a city as well as a fortress, with forges, an arena and an emperor's court.
 
-They fight with fire, black powder and a grudge two centuries deep, and they are very good at all three.
+The War of the Three Hammers left them enemies of Ironforge; Thaurissan's summoning left them subject to Ragnaros. Their agents now work far beyond the mountain, in quarries and camps across Khaz Modan.
 
-It is a hard thing for an Ironforge dwarf to write this page fairly. I have tried.
+Black powder and fine masonry are familiar things to find in another dwarf's hands. It is the direction of the cannon that makes this a difficult page.

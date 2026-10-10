@@ -6,8 +6,6 @@ match:
   - people: southsea
   - people: bloodsail
 ---
-Pirates sail every warm sea of Azeroth. The Bloodsail Buccaneers prey on Booty Bay and the Stranglethorn coast; the Southsea Freebooters hold the Merchant Coast of the Barrens and the coves of Tanaris and rob the goblins' ships.
+A pirate camp has much of a port about it: ships, stores and sailors with work to do. The difference becomes apparent when a Bloodsail ship closes on Booty Bay, or Southsea crews lay claim to another cargo.
 
-They are sailors first and fighters second, but they fight dirty, and in numbers. Their captains are worth a bounty in every goblin port.
-
-There is no great story behind them, no exiled king or lost cause. They are thieves who own boats, and the sea is wide.
+Their strongholds dot the warm coasts, from the Merchant Coast to Tanaris. Goblin trade has made those waters busy enough to support both merchants and the people who rob them. From a distant headland the sails can look much alike.

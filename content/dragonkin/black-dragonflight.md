@@ -7,8 +7,6 @@ match:
   - people: blackdragon
   - name: "\b(Black|Onyxian|Onyxia|Nefari|Blackwing|Death Talon|Chromatic|Firemane|Flamegor|Firemaw|Ebonroc|Razorgore|Chromaggus|Drakkisath|Wyrmthalak|Hematos|Brimgore|Rothos|Lashlayer|Vaelastrasz|Flamescale|Searscale|Scorched)\w*\b"
 ---
-The black dragonflight belongs to Deathwing, the Aspect who betrayed his kind, and his children carry on his work. Onyxia keeps her lair and her brood in the Wyrmbog of Dustwallow; Nefarian rules from the top of Blackrock Spire, where he breeds dragons of every colour together for his own ends.
+Black dragonkin inhabit country marked by fire and broken stone. Whelps appear in Redridge and the Badlands; greater servants guard Nefarian's fortress in Blackrock Spire and Onyxia's lair in Dustwallow.
 
-Their whelps nest in the Burning Steppes, the Badlands and Redridge, and their dragonspawn walk on two legs with blade and spell. The drakes and wyrmkin guard their masters' lairs.
-
-A black whelp is a nuisance. Everything above it on this page is a danger to kingdoms.
+Deathwing's betrayal hangs over the flight, while his children pursue ambitions of their own. Nefarian's experiments bring dragons of different colours into the same terrible work. A naturalist accustomed to describing the distinctions between flights finds very little comfort in what he is trying to make of them.

@@ -6,8 +6,6 @@ match:
   - people: satyrs
   - name: "\b(Satyr)\b"
 ---
-The satyrs were night elves once, Highborne who served the Burning Legion in the war ten thousand years ago, and Sargeras remade them for it: horned, hoofed, clawed, demons in all but birth. Their first was Xavius, Queen Azshara's counsellor.
+A satyr camp is a wound in an old forest. Horned figures move among sickened trees, and the night elves who oppose them are fighting creatures whose history began among their own people.
 
-They haunt the night elves' forests still, in Darkshore, Ashenvale, Felwood, Azshara and Desolace, corrupting whatever they touch: trees sicken, water turns and beasts go mad around their camps.
-
-The night elves kill them on sight. Having seen what they do to a forest, I understand why.
+Xavius, Queen Azshara's counsellor, was the first of the satyrs, remade by Sargeras during the ancient war. Their kind still serve corruption in Ashenvale and Felwood. Ten thousand years have passed, yet the forest is still losing ground around their camps.

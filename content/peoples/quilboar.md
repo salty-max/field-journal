@@ -7,8 +7,8 @@ match:
   - name: "\b(Razorsnout|Thornmantle|Quilguard|Jargba|Agathelos)\b"
   - people: quilboar
 ---
-The quilboar are boar-men, spined and tusked, who live among the colossal thorns of the Barrens and call themselves the children of Agamaggan, the boar demigod who fell there in the War of the Ancients. The Razormane, the Bristleback, the Razorfen and the Death's Head are their tribes.
+The immense thorns of the Barrens are a homeland to the quilboar. Their traditions name Agamaggan as their ancestor, and the fallen demigod's presence belongs to the land as well as to their rites.
 
-They fight the centaurs, the tauren and the orcs with equal fury, and they fought them long before the Horde came. In Razorfen Downs, the Death's Head have bargained with the Scourge.
+Razormane, Bristleback and Razorfen camps defend that country against tauren, centaurs and the new Horde. Their shamans give the thorny settlements another kind of strength. At Razorfen Downs, dealings with the Scourge have carried the Death's Head tribe into a darker allegiance.
 
-Their shamans are cleverer than their warriors, and their warriors are very good at being warriors.
+An outsider sees a wall of brambles. Beyond it are homes, rival tribes and a history older than the road passing by.

@@ -1,8 +1,8 @@
 ---
 zone: 2521
 ---
-An island that flies, in Skywall, the elemental plane of air: the home of the Skyborne. Its wind spirits left it centuries ago, and the pylons that hold it up are failing; Ban'aethal, in the north, began to fall into the sky one night and had to be emptied. No skycutter has reached the other islands, Anvilas and Siroccas, for some time. Valanaar, on the south-east edge, is the capital, with the High Elder's seat and the skydocks.
+Zephras is an inhabited island suspended in Skywall. Valanaar occupies the south-eastern edge, with the High Elder's seat and the skydocks. Ban'aethal in the north has been evacuated as the pylons sustaining the island fail.
 
-The south is farmland: the Gustberry Lowlands, Windfield Orchard and the stables, troubled by bandits. North of it rise the Shen'dar Highlands, with Shen'dar Village, and the Al'Aketh cult's village at Falaath and its high priestess's Shrine of Akir; further north, Thendal Village, and the grove where the trainers teach. Shadowgale Forest is full of shrieklings, and said to be haunted.
+The southern farms give way to the Shen'dar Highlands, then to villages, shrines and Shadowgale Forest. On ordinary ground a broken road is an inconvenience; here the ground itself has become part of the survey's uncertainty.
 
-Mind the edges. The skycutters from Valanaar go down to Azeroth: to Dalaran in the Alterac Mountains, and to Mulgore.
+Skycutters leave Valanaar for Dalaran and Mulgore. The routes to Anvilas and Siroccas have fallen silent, leaving those other islands beyond the traveller's present bearings.

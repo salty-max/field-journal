@@ -5,8 +5,6 @@ order: 510
 match:
   - fallback: true
 ---
-The undead on this page are neither the Lich King's soldiers nor simple ghosts: the cursed, the risen by other hands, the dead of Duskwood's dark woods, the murdered who would not lie down, and the servants of necromancers who answer to no king.
+Lordaeron's plague does not explain every walking corpse. Duskwood has graves disturbed by other hands, and old curses or a necromancer's work can leave the dead moving far from the Scourge's armies.
 
-Many have a story, and some of those stories end badly for whoever disturbs them.
-
-Duskwood's dead in particular repay a visit to the town historian before a visit to the graveyard.
+A name can be especially valuable here. The remains may have outlasted the explanation, while a village record or a surviving relative still preserves it. The creature in the graveyard and the person in the account are sometimes the same subject, approached from opposite ends of a story.

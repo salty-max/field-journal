@@ -1,8 +1,6 @@
 ---
 zone: 1430
 ---
-A dead valley between Duskwood and the Swamp of Sorrows, and the road between them runs through it as fast as it can. Nothing grows here, and the ravens are the only thing that seems at home.
+The road from Duskwood to the Swamp of Sorrows crosses Deadwind Pass between bare rock and deep drops. The main way is short enough on a map, but the dead trees and empty buildings give little reason to linger.
 
-In the south stands Karazhan, the tower of Medivh, the last Guardian. It is sealed, it is haunted, and the League has not yet found anyone willing to survey it.
-
-Do not camp in the pass. Nobody who knows it would.
+A southern branch descends toward Karazhan and the abandoned village beneath it. The tower is sealed in these days. Its height makes an excellent landmark over country in which almost everything else seems to have stopped growing.

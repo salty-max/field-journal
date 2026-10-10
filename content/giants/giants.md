@@ -5,8 +5,6 @@ order: 520
 match:
   - fallback: true
 ---
-The giants of Azeroth are old beyond reckoning: the sea giants who stride the shores of Desolace, Feralas and Tanaris, the cliff giants of Azshara and Feralas, the frost giants of Winterspring, and the earth's own colossi in Uldaman and Maraudon.
+Sea giants stride the coasts of Kalimdor, and great cliff walkers occupy the heights of Azshara and Feralas. Against a distant headland their size can be difficult to judge; a tree or a ruined column beside them supplies the missing measure.
 
-Some say the titans made them to shape the world. Whatever their origin, they are slow to notice travellers and slower to forget one who has annoyed them.
-
-A giant's footstep is a small earthquake. Its fist is a large one.
+Accounts connect the world's giants with its ancient shaping. The League still has much to establish about the different kinds. For a surveyor, even their tracks are substantial features of the ground, and a living specimen can interrupt a very wide view.

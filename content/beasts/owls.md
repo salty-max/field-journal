@@ -6,8 +6,6 @@ match:
   - beast: 26
   - name: "\b(Owl|Strigid)\b"
 ---
-The owls of Azeroth are watchful, solitary hunters of the night forests: the strigids of Teldrassil, the ironbeaks of Felwood, the great owls of Winterspring. The night elves hold them sacred to Elune, and the moonkin who walk upright among them share that blessing in a stranger form.
+An owl is often easiest to find by its eyes. The strigids of Teldrassil sit within a forest already full of night elf watchfulness, while Winterspring's great owls stand out pale against the dark trees.
 
-An owl sees you long before you see it, and most will let you pass. The corrupted owls of Felwood will not, and they strike from above, out of the dark, without a sound.
-
-If you hear wings and nothing else, duck.
+Felwood's ironbeaks belong to a damaged woodland, and share in its dangers. Elsewhere, there is room to appreciate the stillness of a perched bird before the wings open. The forests contain quite enough noise; an owl makes an excellent study in its absence.

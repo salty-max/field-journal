@@ -1,8 +1,8 @@
 ---
 zone: 1442
 ---
-High peaks and old forests, and goblin saws in both. The night elves hold Stonetalon Peak in the north; the Horde holds Sun Rock Retreat in the middle of the range; the Darkspear have Malaka'jin in the south.
+Stonetalon's roads climb through narrow valleys, with Sun Rock Retreat in the middle of the range and Malaka'jin near the southern approaches. The night elves hold Stonetalon Peak far to the north.
 
-The Venture Company is clear-cutting the forests and has already burned the Charred Vale to the ground. The road up from the Barrens is long and climbs through the Webwinder Path, which is named for exactly what you think.
+The Venture Company's cutting has opened great wounds in the forest. Farther west, the Charred Vale is burned ground occupied by harpies and other dangers. The Webwinder Path offers a more literal warning in its name.
 
-The air is thin up here and the drops are long. Stay on the trail.
+The mountain passage to Ashenvale and the roads down toward the Barrens and Desolace make this a place of crossings. Distance alone gives a poor estimate of a journey through so many turns and climbs.

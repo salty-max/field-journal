@@ -5,8 +5,6 @@ order: 850
 match:
   - name: "\b(Kurzen|Wastewander|Bandit|Thug|Brigand|Footpad|Highwayman|Rogue Wizard|Renegade|Deserter|Mercenary|Smuggler|Thief)\b"
 ---
-Not every human foe flies a banner. Bandits haunt the desert roads of Tanaris, deserters and renegades lurk in the hills, and in Stranglethorn the men of Colonel Kurzen, once soldiers of the Alliance, have become something crueller, hunting and raiding from their camp in the north of the jungle.
+A wanted poster makes an outlaw look like a solitary problem. The Wastewander camps of Tanaris and Kurzen's compound in Stranglethorn suggest otherwise: guards, supplies and an organisation that survives the loss of any one bandit.
 
-They are men and women gone wrong, for gold or power or reasons nobody has asked them.
-
-They are the most dangerous creatures in this book in one respect: they think the way you do.
+Kurzen's followers were soldiers before the jungle took its hold on their expedition. Others work for pay or prey on the roads. Their reasons differ, and the banners may be absent, but a guarded camp has much in common with the army it once belonged to.

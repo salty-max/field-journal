@@ -6,8 +6,6 @@ match:
   - ids: 7447, 7449, 8660, 10807, 12803   # named or unusual members (sharing the family's model)
   - name: "\b(Chimaera|Chimaerok)\b"
 ---
-A chimaera is a winged, two-headed beast with a long neck, a longer tail and a temper to match, and it breathes a venom that burns. They nest in the high places of Kalimdor, and in the cold of Winterspring a white-furred kind hunts over the snow.
+Two heads on one winged body make a chimaera unmistakable, even before its breath strikes. The night elves have fought beside these creatures, whose strength and corrosive attack are formidable against stone as well as flesh.
 
-Both heads watch, which makes them very hard to surprise, and both heads bite.
-
-The chimaeroks of Feralas are the largest of their kind, and the most dangerous creatures in that forest that are not ogres.
+Winterspring has a pale, shaggy kind suited to the snow. Off Feralas, the Isle of Dread shelters the enormous chimaeroks. On a map it is a small island; a chimaerok gives a traveller ample reason to consider how much of it remains between beast and shore.

@@ -1,8 +1,8 @@
 ---
 zone: 1453
 ---
-The white city, rebuilt from its ashes and guarded by more walls than it can afford. Every road in Elwynn leads to its gate, past the statues of its heroes.
+Stormwind's gate brings the Elwynn road past the statues of the Valley of Heroes and into the Trade District. Canals divide the quarters, with bridges doing much of the work a broad avenue would do in another city.
 
-Everything a traveller needs is here: the bank, the auction house, trainers of every craft and the cathedral. The Deeprun Tram runs under the mountains to Ironforge, and the gryphons fly from the Trade District.
+Gryphons leave from the Trade District, and the Deeprun Tram connects the Dwarven District with Ironforge. The Cathedral is an easy landmark above the roofs; the Stockade is a less reassuring one beside the water.
 
-The Stockade holds the city's worst prisoners, or did.
+The city's white stone is still an impressive answer to its earlier ruin. Getting across it efficiently requires a little more attention to the bridges than to the skyline.

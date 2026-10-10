@@ -7,8 +7,6 @@ match:
   - people: gnolls
   - name: "\b(Gnoll|Wildpaw|Riverpaw|Shadowhide|Mudsnout|Rot Hide|Mosshide|Woodpaw|Palemane|Redridge|Gnawbone)\b"
 ---
-Gnolls are hyena-men, tall, lean and quarrelsome, living in packs wherever there are farms with poor walls: the Riverpaw of Elwynn and Westfall, the Redridge and Shadowhide packs, the Mosshide of the Wetlands, the Rot Hide of Silverpine, the Palemane of Mulgore, the Woodpaw of Feralas.
+Gnoll camps cluster around mines, fields and poorly guarded roads. Riverpaw tents in Elwynn and Westfall, Mosshide huts in the Wetlands, and Woodpaw camps in Feralas have much the same practical advantage: other people's provisions within reach.
 
-They follow whoever is strongest and fight among themselves when no one is. Hogger of Elwynn is the most famous of their chiefs, and the reason so many young heroes of Stormwind have been carried home.
-
-A single gnoll is a coward. A pack is a different animal.
+Their packs have leaders, spellcasters and raiders, and can put a settlement under considerable pressure. Hogger's reputation has travelled far beyond his patch of Elwynn. It is an unusual distinction for a gnoll, though the people paying his bounty would gladly see it ended.

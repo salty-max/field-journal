@@ -1,8 +1,8 @@
 ---
 zone: 1452
 ---
-Snow, the goblins of Everlook, and the Highborne's curse. The way in is the Timbermaw tunnel from Felwood; Everlook, the goblins' trading town, is the only real roof, and it is neutral and pricey.
+The Timbermaw passage opens into Winterspring's broad snowfields, with Everlook gathering trade near the centre. The goblins' town gives both factions a roof and a meeting of routes among the mountains.
 
-Starfall Village keeps the night elves' watch in the west. The blue dragons hold the caves of Mazthoril, the Winterfall furbolgs have gone wrong, yetis fill the Ice Thistle Hills, and demons haunt Darkwhisper Gorge in the far south.
+Starfall Village lies to the west, Mazthoril's blue dragonkin hold the caves to the south, and yeti country rises beyond the Ice Thistle Hills. Winterfall camps interrupt other approaches through the snow.
 
-The hot springs are the only warmth outside Everlook. The frostsabers know this too.
+Darkwhisper Gorge cuts into the far south, where demons make a bleak boundary to the valley. The hot springs are kinder landmarks: dark open water and rising steam against a great deal of white.

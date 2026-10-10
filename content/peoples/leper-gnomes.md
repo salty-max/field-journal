@@ -5,8 +5,6 @@ order: 830
 match:
   - name: "\b(Leper|Leprous)\b"
 ---
-Not every gnome escaped Gnomeregan. Some lived through the radiation the city was flooded with, and were changed by it: bodies ruined, minds gone strange and violent. They haunt the approaches to the old city and the halls inside it.
+Gnomeregan's fall did not send every survivor to Ironforge. Radiation left some of those within the city changed in body and mind, and the leper gnomes still inhabit its approaches and machinery-filled halls.
 
-The exiles in Ironforge do not like to talk about them, and I understand why.
-
-If you must fight them, traveller, remember that they were someone's neighbours once.
+Their green skin makes the harm visible at once. The familiar gnomish clothes and tools make its meaning harder to put aside. For the exiles, the old city contains neighbours as well as the things that drove them out.

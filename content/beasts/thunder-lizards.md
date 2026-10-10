@@ -5,8 +5,6 @@ order: 220
 match:
   - name: "\b(Lizard|Stormer)\b"
 ---
-The thunder lizards are great lumbering beasts of the Barrens and Desolace, heavy-boned and crackling with a storm of their own making. When they fight, lightning runs over their hides, and the air around them tastes of it.
+A thunder lizard carries the surprise of a storm in a heavy, four-footed body. The thunderheads of the Barrens and the great beasts of Desolace can look like ordinary grazing animals until lightning makes the distinction plain.
 
-The tauren say they were born of the storms over the plains, and having stood near one in a temper I am inclined to believe it.
-
-They graze peacefully enough, in small herds. The cliff stormers of Stonetalon are smaller, quicker and far less peaceful.
+Their bulk is impressive enough without that addition. The smaller cliff stormers of Stonetalon have the same unsettling association with thunder. A clear sky over the pass is therefore no guarantee of a quiet crossing.

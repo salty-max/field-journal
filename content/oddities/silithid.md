@@ -7,8 +7,8 @@ match:
   - people: silithid
   - name: "\b(Silithid|Qiraji|Anubisath|Vekniss|Hive\'?\w*|Swarmguard|Buru|Moam|Ossirian|Rajaxx|Kurinnaxx|Ayamiss|Skeram|Viscidus|Colossus|Obsidian|Prophet|Eradicator|Nullifier|Zerran|Yeggeth|Pakkon|Drenn|Xurrem|Qeez|Tuubid|Gorger|Vek\'nilash|Vek\'lor|Lord Kri)\w*\b"
 ---
-The silithid are the insects of the south, and no insect you have ever swatted: wasps the size of hounds, tunnelers that bring down caves, reavers as big as an ogre. They hollow out the deserts of Silithus, Tanaris and Un'Goro, and their hives push north into Feralas and the Barrens.
+Silithid hives change the shape of the southern deserts. Mounds rise above tunnels occupied by wasps, workers and great armoured reavers; the surface gives only a partial view of the population below.
 
-Their masters are the Qiraji, an older and cleverer kind, who rule from Ahn'Qiraj behind the Scarab Wall. A thousand years ago they sent their swarms against the night elves, and were sealed away by the elves and the dragons together.
+The Qiraji of Ahn'Qiraj command these swarms. A thousand years ago, the War of the Shifting Sands ended with the armies sealed behind the Scarab Wall by night elves and dragons.
 
-The hives are spreading again. Each year the scouts of Kalimdor find new mounds, a little further north.
+The hives beyond that wall make the old war a present concern. A low mound on the horizon can mark a much larger claim beneath the sand.

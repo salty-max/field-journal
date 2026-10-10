@@ -1,8 +1,8 @@
 ---
 zone: 1435
 ---
-A drowned country of mist and mire, with Stonard, the Horde's town, in the middle of it. The road comes in from Deadwind Pass and runs south to the Blasted Lands.
+The western road enters from Deadwind Pass and crosses the marsh toward Stonard, the Horde's principal settlement. A southern branch reaches the Blasted Lands. Beyond the road, shallow water repeatedly interrupts what appears to be solid ground.
 
-The Pool of Tears hides the sunken Temple of Atal'Hakkar under its water. The Lost Ones hold the Fallow Sanctuary in the east, and the few sane ones of their kind keep to the Harborage in the north. Crocolisks and murlocs keep to everywhere else.
+The Pool of Tears covers the Temple of Atal'Hakkar. Fallow Sanctuary lies farther east, while the Harborage shelters draenei refugees in the north. Reaching the coast means passing well beyond the last dependable stretch of road.
 
-The swamp's name is fair. Leave it the way you came, and do not swim in it.
+The swamp gives little height from which to take a bearing. A temple submerged beneath a lake is a particularly unhelpful landmark for anyone trying to find the lake.

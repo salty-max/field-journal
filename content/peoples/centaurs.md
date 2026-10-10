@@ -6,8 +6,8 @@ match:
   - ids: 5837, 5838, 5841, 11559   # named or unusual members (sharing the family's model)
   - people: centaurs
 ---
-The centaurs of Kalimdor are the children of Zaetar, a son of Cenarius, and Theradras, a princess of the elemental earth. They were born savage, and in their savagery they killed their own father. Their clans carry the names of the first khans: the Kolkar, the Gelkis and the Magram, the Galak and the Maraudine.
+Centaur clans occupy the open country of Kalimdor, their villages and warbands spread across the Barrens, Desolace and Thousand Needles. The tauren know them as generations of pursuers. In Desolace, the names Gelkis, Magram and Maraudine mark rival claims as well as different camps.
 
-They are raiders and nothing else: they plant nothing and build little, and take what they want from those who do. For generations they hunted the tauren across the plains.
+A traveller can bargain with some of these clans, though friendship with one is liable to cost the friendship of another. Their shamans speak of the earth, and Theradras has her worshippers among them. There is more here than a raid seen from the road.
 
-A traveller in the Barrens or Desolace learns to listen for hooves.
+Their ancestry leads back to Theradras and Zaetar, the son of Cenarius whose own children killed him. Maraudon holds that family history in a particularly unhappy form.

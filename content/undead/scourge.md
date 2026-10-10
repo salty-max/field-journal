@@ -8,8 +8,8 @@ match:
   - people: scourge
   - name: "\b(Skeletal|Skeleton|Zombie|Ghoul|Corpse|Abomination|Bone|Flesh|Lich|Lichling|Plagued|Plaguebat|Necromancer|Deathknight|Death Knight|Unliving|Ravenous|Ravenclaw|Deathsworn|Plague Spreader)\b"
 ---
-The Scourge is the army of the Lich King: the dead of Lordaeron, raised by the plague and bound to his will. Skeletons and ghouls, zombies and abominations, the spirits of the plague's victims and the necromancers' constructs fill the Plaguelands, Tirisfal, the Scholomance and Stratholme, and reach as far as the Razorfen Downs.
+The Scourge turns a population into an army: skeletons, ghouls, plague victims and stitched abominations fill the roads and ruins of Lordaeron. Its necromancers add new soldiers wherever bodies can be found.
 
-They do not tire, they do not fear, and they do not stop. Each one was someone, once.
+Scholomance and Stratholme are great centres of that work, while Razorfen Downs shows how far its influence reaches. The dead need neither harvest nor rest, and the country they occupy steadily loses the life that once supported it.
 
-The Forsaken, the Argent Dawn and the Scarlet Crusade all fight them. The Scourge does not mind which.
+Among the bones and ruined clothes are the remains of ordinary inhabitants. The army has no use for their old occupations, though a field journal can still acknowledge them.

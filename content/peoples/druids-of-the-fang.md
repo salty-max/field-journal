@@ -5,8 +5,6 @@ order: 844
 match:
   - name: "\b(Druid of the Fang|Cobrahn|Pythas|Anacondra|Serpentis|Boahn|Mutanus)\b"
 ---
-The Druids of the Fang were disciples of the night elf druid Naralex, who went down into the Wailing Caverns to heal the Barrens through the Emerald Dream. The dream went wrong. Naralex has not woken, and his disciples have been twisted by the nightmare that took him.
+Naralex entered the Wailing Caverns hoping to restore the Barrens through the Emerald Dream. He still sleeps there, and the nightmare that caught him has changed both the cavern's beasts and his disciples.
 
-They have taken the shapes and names of serpents, Lord Cobrahn, Lady Anacondra, Lord Pythas and Lord Serpentis among them, and they mean to remake the land after their own dreams.
-
-The druids of Thunder Bluff say their faces haunt them. I would not seek them out without a good reason and good company.
+The Druids of the Fang bear serpent names and take serpent shapes: Cobrahn, Anacondra, Pythas and Serpentis. Their rites occupy caves that were meant to be the beginning of a greener land. Water and growth are plentiful below the Barrens; the trouble is what has grown with them.

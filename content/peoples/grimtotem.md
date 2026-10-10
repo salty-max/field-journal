@@ -7,8 +7,6 @@ match:
   - name: "\b(Grimtotem)\b"
   - people: grimtotem
 ---
-The Grimtotem are tauren, a tribe that believes the other races have no right to Kalimdor at all, tauren who disagree included. Their matriarch sits among the elders of Thunder Bluff itself; her warriors hold Darkcloud Pinnacle in the Thousand Needles, roam the south of the Barrens, and keep a compound in Feralas.
+Grimtotem camps occupy commanding ground: Darkcloud Pinnacle above Thousand Needles, a compound in Feralas, and holdings farther across Kalimdor. Their warriors and shamans have the strength of other tauren, directed against neighbours who often share their ancestry.
 
-They are as strong as any tauren and a good deal less patient.
-
-Ask a tauren of Freewind Post what he thinks of them, and then step back.
+Magatha Grimtotem has a place among Thunder Bluff's elders, even while her tribe's ambitions set it against Cairne's course. The familiar totems and tents can make a hostile camp look deceptively like a refuge from the road.

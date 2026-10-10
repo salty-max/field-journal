@@ -1,8 +1,8 @@
 ---
 zone: 1451
 ---
-The insect desert, at the far south-west of Kalimdor. Cenarion Hold, the druids', is the only camp, and it is on a war footing. The way in is from Un'Goro.
+The path from Un'Goro reaches Silithus at the north-eastern edge of a broad desert. Cenarion Hold rises above the interior, giving travellers a fortified point from which to judge the distances between hives.
 
-The silithid hives fill the desert, the Twilight's Hammer camp in the wastes and calls up things from the elements, and in the south the Scarab Wall holds back Ahn'Qiraj, as it has for a thousand years. Southwind Village is a ruin.
+The Twilight's Hammer occupies camps across the waste, while the great Scarab Wall marks Ahn'Qiraj in the south. Silithid mounds interrupt what can otherwise look like open sand.
 
-Sand gets into everything here, including the instruments. Check your compass against the sun twice a day.
+Southwind Village remains a recognisable settlement on the map and a ruin on the ground. The roads and towers are sparse enough that a single standing building can matter a great deal to one's bearings.

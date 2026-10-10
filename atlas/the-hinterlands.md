@@ -1,8 +1,8 @@
 ---
 zone: 1425
 ---
-Wild green hills, and the Wildhammer's. Aerie Peak, in the west, is their home and their gryphons', and the only friendly hearth for an Alliance traveller. The road climbs in from Hillsbrad and winds east past old troll ruins.
+The western approach climbs from Hillsbrad to Aerie Peak, where the Wildhammer's gryphons share the heights above the valley. The road then winds east through wooded hills and old troll holdings.
 
-The Witherbark hold old troll ruins across the hills; the Vilebranch hold Jintha'Alor, their temple-city in the south-east, and the spider-goddess Shadra has her own temple. In the north, around a great tree at Seradane, the green dragons sleep badly.
+Jintha'Alor rises in terraces in the south-east, while Seradane's great tree marks dragon-held country to the north. Revantusk Village occupies the eastern coast and offers the Horde its own foothold below the hills.
 
-Wildhammer dwarves are not Ironforge dwarves. Do not say so to their faces, and do not ask for directions to the brewery: they will assume you are thirsty.
+Aerie Peak's height gives a fine first view, but much of the route disappears under trees before it reaches the sea. The Wildhammer have chosen an excellent country for travelling by gryphon.

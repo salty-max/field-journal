@@ -7,8 +7,6 @@ match:
   - anytype: true
   - name: "\b(Ooze|Oozeling|Slime|Sludge|Jelly|Gel|Ectoplasm)s?\b"
 ---
-Oozes, slimes and sludges collect wherever there is filth and damp: in Dustwallow's bogs, the fens of the Wetlands and the Hinterlands, the swamps of Sorrows, the radiation of Gnomeregan and the poisoned waters of the Plaguelands and Felwood. They are less creatures than appetites with a shape.
+An ooze has very little shape to help a naturalist describe it. Colour and consistency have to do much of the work: the sludges of a marsh, the strange remains of Gnomeregan's disaster, the moving filth of poisoned water.
 
-They dissolve what they swallow, armour included, and they are harder to hurt than anything without a shape has a right to be.
-
-Do not step in anything that moves. It is a good rule in general and a vital one here.
+Some leave the remains of what they have swallowed, an unappealing but useful record of their surroundings. They are easily overlooked beside a great beast or a walking tree. A patch of slime moving against the slope has its own claim on the notebook.

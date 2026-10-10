@@ -6,8 +6,6 @@ match:
   - ids: 2551, 7039, 8981, 10120   # named or unusual members (sharing the family's model)
   - name: "\b(Earth|Rock|Stone|Boulder|Rumbler|Shard|Crystal|Basalt|Obsidian|Granite|Gravel|Rumble|Pebble|Shale|Landslide|Avalanche|Golem|Construct|Stone Keeper|Obsidion)\w*\b"
 ---
-Earth elementals are stone given will: rock elementals in the Badlands and the Burning Steppes, the stone keepers of Uldaman, rumblers and obsidian elementals in the Searing Gorge and the Steppes. Some are wild spirits of the land; some were made, long ago, to guard the works of the titans.
+Earth elementals bring the hillside with them: heavy shapes of rock moving through the Badlands, obsidian bodies in the scorched lands around Blackrock. The distinction between a boulder and an inhabitant can be a brief one.
 
-They are slow to anger and very hard to stop once angry. Blades blunt on them and arrows bounce.
-
-The stone keepers of Uldaman are of most interest to the League, and I will say only that they are not pleased to see us.
+Uldaman also contains stone keepers, constructs guarding a made place rather than wild spirits roaming open ground. To the League that difference is considerable. A rock elemental may be a feature of the landscape; a stone guardian is evidence that somebody had something to protect.

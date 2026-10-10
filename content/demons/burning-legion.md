@@ -6,8 +6,6 @@ match:
   - people: legion
   - fallback: true
 ---
-The Burning Legion is an army of demons from beyond the world, and it has come for Azeroth twice in force, and once more through the orcs it corrupted. It never entirely leaves. Its servants hold the Blasted Lands around the dead Dark Portal, haunt Desolace's Mannoroc Coven, Ashenvale's Demon Fall Canyon and the poisoned woods of Felwood, and answer to warlocks wherever warlocks gather.
+The Legion's presence changes a landscape. In Felwood the trees bear the damage; in the Blasted Lands, demons occupy ground around the Dark Portal. Mannoroc Coven and Demon Fall Canyon have their own surviving reminders of invasion.
 
-Felhounds that eat magic, infernals that fall from the sky, felguards and doomguard, imps, succubi and dreadlords: the Legion's ranks are as varied as the worlds it has conquered.
-
-No demon in this book is native to Azeroth. All of them would like to be its masters.
+Its ranks differ enormously: a felhound hunts magic, an infernal brings stone and flame, and an imp can make a remarkable amount of trouble in very little space. The wars that brought them here have ended, but a map of their remaining camps is far from empty.

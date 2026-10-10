@@ -6,8 +6,6 @@ match:
   - name: "\b(Venture|Windshear|Wrenchwhistle|Fizsprocket|Gallywix|Silixiz|Lugwizzle)\b"
   - people: venture
 ---
-The Venture Company is a goblin concern with no loyalty to anyone but its board: if a thing can be cut down, dug up or pumped out of the ground, they are already there with a shredder. They clear-cut Stonetalon, mine Mulgore's cliffs against the tauren's wishes, foul the Barrens with oil and log the jungle of Stranglethorn.
+The Venture Company's works are often visible before its workers: a stripped hillside in Stonetalon, oil in the Barrens, a mine cut into Mulgore's cliffs. Shredders, drills and hired guards follow the claim.
 
-Their workers are miners, lumberjacks and engineers more than soldiers, but they defend their claims with goblin enthusiasm and goblin explosives.
-
-Even other goblins think little of them. That is saying a great deal.
+Goblins organise much of the work, though the labour and muscle come from several peoples. To the settlements nearby, the company is less a distant concern than a growing hole or a retreating tree line. Its accounts may put a value on the timber; the empty hillside is harder to price.

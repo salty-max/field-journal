@@ -6,8 +6,6 @@ match:
   - beast: 5
   - name: "\b(Boar|Tusker|Sow|Bristleback Hog)\b"
 ---
-Boars are the plain, stubborn fighters of the wild, found wherever there is soft earth to root in: the stonetusks of Elwynn, the crag boars of Dun Morogh, the goretusks of Westfall and the mottled boars of Durotar's dry gullies.
+Boars turn up in the red gullies of Durotar as readily as in Elwynn's green fields. The colouring changes, and a crag boar has a fine coat against the snow, but the tusks give the same unmistakable outline.
 
-They are not clever, and they do not need to be. A boar charges first and reconsiders never. The farmers of Westfall curse them for the turnips they dig up; the cooks of every inn bless them for the same reason.
-
-The quilboar of the Barrens claim the boar as their sacred kin. Having watched both, I can see the family resemblance.
+Westfall's goretusks are a nuisance to the farms and a useful supply of meat. This leaves the boar in the unfortunate position of being wanted out of a field and into a cooking pot, often by the same person. It generally objects to both.

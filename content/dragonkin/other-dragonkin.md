@@ -5,8 +5,6 @@ order: 390
 match:
   - fallback: true
 ---
-Not every dragon, whelp or dragonspawn can be put in its flight with any confidence. Lone whelps, strays, the dragonkin of mixed blood bred in Blackrock Spire, and creatures that carry a dragon's shape without a dragon's lineage are recorded here.
+A dragon's colour usually offers a beginning to its history. It is less helpful with an unfamiliar specimen, or with the mixed dragonkin produced by Nefarian's experiments in Blackrock Spire.
 
-A whelp away from its flight is usually lost, hungry and dangerous out of all proportion to its size.
-
-Where you meet a stray, look around for the rest of the family. Dragons rarely come alone.
+Such creatures are recorded here until there is sound reason to place them elsewhere. A tidy catalogue should not conceal a difficult identification, particularly when the creature in question is large enough to object to the delay.

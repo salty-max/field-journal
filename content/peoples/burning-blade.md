@@ -6,8 +6,6 @@ match:
   - name: "\b(Ragefire|Searing Blade)\b"
   - people: burningblade
 ---
-The Burning Blade was once an orc clan of blademasters, and is now a cult of warlocks and fanatics who worship the demons that once enslaved their people. They hide in Durotar's caves within sight of Orgrimmar, in the Barrens and in Desolace, and under Orgrimmar itself.
+The Burning Blade's name survives on the lips of warlocks and demon worshippers. Its cultists occupy caves in Durotar and gather in Desolace; beneath Orgrimmar, Ragefire Chasm brings that allegiance uncomfortably close to the Horde's new home.
 
-They answer to the Shadow Council, and they open doors for demons wherever they settle.
-
-They are the Horde's own shame, hiding in its own lands. Thrall's people hunt them wherever they find them.
+Thrall's people have fought to escape the Legion's rule. These cultists invite its servants back, with summoning circles in the very country the freed orcs have settled. For a people recovering an older way of life, they are a particularly bitter neighbour.

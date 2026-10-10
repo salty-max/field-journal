@@ -1,8 +1,8 @@
 ---
 zone: 1418
 ---
-Red rock, no water and a sun that hates you. The road comes down from Loch Modan and crosses the waste west to Kargath, the Horde's outpost.
+The descent from Loch Modan leaves the green country abruptly behind. Red ridges break the Badlands into long, dry valleys, with Kargath's walls in the west and the excavations around Uldaman near the northern approach.
 
-Somewhere in these canyons the titans built Uldaman, and the League has spent years digging it out; the dig at Hammertoe's camp is the place to ask. The Dark Irons hold Angor Fortress, the ogres hold their camps in the south, and the black dragons nest in Lethlor Ravine.
+Angor Fortress is Dark Iron ground. Ogre camps occupy the southern hills, and black dragonkin hold Lethlor Ravine in the east. The clearest open stretch is not necessarily the quietest route.
 
-Carry twice the water you think you need, and travel at dawn. The coyotes will follow you anyway.
+The League's diggings provide several useful landmarks, though a tent and a spoil heap can look much alike from the next ridge. In this country, the colour of the stone tells a surveyor less than its shape.

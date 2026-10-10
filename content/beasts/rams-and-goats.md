@@ -5,8 +5,6 @@ order: 200
 match:
   - name: "\b(Ram|Goat)\b"
 ---
-The rams of Khaz Modan are mountain beasts through and through: thick-fleeced, sure-hooved and possessed of opinions about anyone on their slope. The dwarves have ridden them for generations, and in Alterac Valley the Stormpike tame the valley's wild rams to ride them to war.
+A ram looks entirely at home on ground that makes a dwarf consider the quality of his boots. Thick fleece and curved horns are familiar throughout Khaz Modan, and the animals ridden out of Ironforge have wild kin in the same mountains.
 
-A wild ram will stand its ground and then charge it, horns first. It is the dwarven temperament in four legs, and I say so with affection.
-
-Their wool is fine, their milk better, and their sense of balance makes a dwarf jealous.
+The Stormpike also turn to rams in Alterac Valley. Between a mountain path and a battlefield, there are plenty of demands on a mount's footing. The ram approaches both with the expression of an animal that has already found the ground satisfactory.

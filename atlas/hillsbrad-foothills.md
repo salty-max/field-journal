@@ -1,8 +1,8 @@
 ---
 zone: 1424
 ---
-Farm country on the foothills of Alterac, and fought over farm by farm. Southshore holds the coast for the Alliance; Tarren Mill holds the hills for the Forsaken; between them, the fields of Hillsbrad change hands with the season.
+Hillsbrad lies between Alterac's slopes and the sea. Southshore gives the Alliance a port and a town on the coast; Tarren Mill is the Forsaken's foothold inland. Farms and contested roads occupy the space between them.
 
-Durnholde Keep, on its hill above the road, was once the prison camp where the orcs were held after the Second War. The Syndicate have it now. The road runs north from Arathi through the wall, and on into Alterac and Silverpine, and a branch climbs east to the Hinterlands.
+The eastern route reaches Arathi through Thoradin's Wall. Other ways lead west into Silverpine, north into Alterac and up toward the Hinterlands. Durnholde's ruined walls are conspicuous near the eastern roads, though the Syndicate now holds the old internment keep.
 
-The Southshore inn is good and loud. Keep your voice down about Tarren Mill in it.
+This ought to be simple country to cross: low hills, worked fields and ample roads. The difficulty is seldom the ground.

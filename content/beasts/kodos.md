@@ -6,8 +6,6 @@ match:
   - ids: 3058, 3474, 5827   # named or unusual members (sharing the family's model)
   - name: "\b(Kodo)\b"
 ---
-The kodo are the great grey beasts of the plains, slow, enormous and sure-footed, and the tauren have walked beside them for as long as there have been tauren. Herds cross the Barrens and Desolace; the Horde rides and harnesses them; caravans trust them where no horse would go.
+Kodo herds give the open plains a slow, heavy rhythm. The tauren travel and fight beside these great beasts, and a loaded kodo is a familiar sight wherever the Horde has a long road to cover.
 
-When a kodo grows too old to walk with the herd, it goes alone to die in the graveyard of Desolace, and nobody, tauren or scholar, can tell me how it knows the way.
-
-A frightened kodo is a landslide with legs. Do not frighten one.
+Desolace holds a stranger gathering: the Kodo Graveyard, where aged animals come to die among the bones of their kind. The living herds are impressive, but those immense remains give a different measure of them. A creature so much a part of a moving caravan can leave a very still place behind.

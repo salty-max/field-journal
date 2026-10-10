@@ -6,8 +6,6 @@ match:
   - beast: 27
   - name: "\b(Wind Serpent|Serpent)\b"
 ---
-Wind serpents are winged snakes of the warm skies, gliding over the cliffs of the Thousand Needles, the Barrens, Feralas, Dustwallow and the jungles of the south. They spit lightning, which no honest snake should be able to do, and they nest high where few can follow.
+Wind serpents draw long, bright shapes across the skies of the Barrens and Thousand Needles. Feathered wings carry a body that seems made for the ground, and lightning supplies a further reason to reconsider appearances.
 
-The trolls of Zul'Gurub keep a darker kind, the sons of their blood god, which are best not discussed before supper.
-
-From below they are beautiful. From closer, they are mostly teeth.
+Some trolls revere winged serpents, and darker examples have a place among Hakkar's followers. The wild creatures remain striking in their own right. Against a bare cliff, a wind serpent can provide nearly all the colour in the view.
