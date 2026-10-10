@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "bun scripts/build.ts",
-    "check": "bun run lint:lua && bun scripts/build.ts --check && luajit addon/test/sim.lua && FOREVER=1 luajit addon/test/sim.lua",
+    "check": "bun test scripts/paragraphs.test.ts && bun run lint:lua && bun scripts/build.ts --check && luajit addon/test/sim.lua && FOREVER=1 luajit addon/test/sim.lua",
     "package": "bun scripts/package.ts",
     "creatures": "python3 scripts/creatures.py",
     "flora": "python3 scripts/flora.py",

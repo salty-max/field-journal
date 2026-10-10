@@ -88,6 +88,17 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
 - Lore scope as the Codex: up to Vanilla, from sources published before Wrath
   of the Lich King; Forever-only families may use Forever's own texts. Original
   wording. Plain ASCII (the build rejects others).
+- Classic and Forever are separate accounts of the world. In family notes,
+  Atlas notes and herb/fish notes, prefix a paragraph with `[classic]` or
+  `[forever]` when the accounts differ. Unmarked paragraphs belong to both.
+  Selection happens at build time; markers and the other world's paragraphs
+  never reach the installed book. Each available note must retain text in
+  both games. Use Forever's quests and announcements for its additions;
+  a new map name alone does not establish new history.
+- The Atlas has a dwarf surveyor's voice: terrain, routes, landmarks and the
+  experience of crossing them. Keep its work distinct from the naturalist's
+  creatures and the Codex archivist's history. Herb and fish notes complement
+  the location lists already shown by the book; they need not repeat them.
 - No spoilers: families appear once met; no totals of what remains.
 
 ## Commands

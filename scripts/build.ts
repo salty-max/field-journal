@@ -19,7 +19,8 @@
  *     - beast: 1               # a tameable beast family (CreatureFamily id)
  *     - fallback: true         # every creature of the section's type left over
  *   ---
- *   The naturalist's note: paragraphs separated by blank lines.
+ *   The naturalist's note: paragraphs separated by blank lines. Prefix a
+ *   paragraph with [classic] or [forever] for an account specific to that world.
  *
  * Each creature goes to the first rule that claims it, in this order: ids,
  * people, name (of the creature's own type), beast, name (from a family with
@@ -34,6 +35,7 @@
  */
 import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
+import { forClient, paragraphs, type Paragraph } from "./paragraphs";
 
 const ROOT = join(import.meta.dir, "..");
 const CONTENT = join(ROOT, "content");
@@ -42,11 +44,16 @@ const CLIENTS = ["classic", "forever"];
 
 type Creature = { id: number; name: string; type: string; family: number; rank: string; levels: [number, number]; model: number };
 type Rule = { kind: "ids"; ids: number[] } | { kind: "people"; people: string } | { kind: "name"; re: RegExp } | { kind: "beast"; family: number } | { kind: "fallback" };
-type Family = { id: string; title: string; order: number; section: string; type: string; anytype: boolean; client: string; rules: Rule[]; note: string[]; file: string };
+type Family = { id: string; title: string; order: number; section: string; type: string; anytype: boolean; client: string; rules: Rule[]; note: Paragraph[]; file: string };
 type Section = { id: string; title: string; type: string; order: number };
 
 const errors: string[] = [];
 const fail = (file: string, msg: string) => errors.push(`${relative(ROOT, file)}: ${msg}`);
+
+function note(file: string, body: string): Paragraph[] {
+  try { return paragraphs(body); }
+  catch (error) { fail(file, String(error)); return []; }
+}
 
 function frontMatter(file: string, src: string): { meta: Record<string, string | string[]>; body: string } {
   const m = src.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
@@ -135,7 +142,7 @@ for (const dir of readdirSync(CONTENT).sort()) {
       anytype,
       client,
       rules,
-      note: body.trim() ? body.trim().split(/\n\s*\n/).map((p) => p.replace(/\s*\n\s*/g, " ").trim()) : [],
+      note: note(file, body),
       file,
     });
   }
@@ -225,9 +232,12 @@ function zoneRares(kept: Creature[], client: string) {
 // a zone's name, its continent, and its places (name, the overlay's hover
 // rectangle on the map art: left, top, right, bottom; the areas it covers).
 type Zone = { id: number; name: string; continent: number; places: { name: string; areas: number[]; rect: number[]; visit?: boolean }[] };
+const zoneData: Record<string, { continents: Record<string, string>; zones: Zone[] }> = Object.fromEntries(
+  CLIENTS.map((client) => [client, JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8"))]),
+);
 // The surveyor's notes: atlas/<zone>.md (front matter: zone: <uiMap>; then
 // paragraphs), plain ASCII like the naturalist's.
-const zoneNotes = new Map<number, string[]>();
+const zoneNotes = new Map<number, Paragraph[]>();
 for (const f of readdirSync(join(ROOT, "atlas"))) {
   if (!f.endsWith(".md")) continue;
   const file = join(ROOT, "atlas", f);
@@ -237,8 +247,9 @@ for (const f of readdirSync(join(ROOT, "atlas"))) {
   const { meta, body } = frontMatter(file, source);
   const zone = Number(meta.zone);
   if (!zone) fail(file, "zone: the zone's uiMap id");
+  if (!CLIENTS.some((client) => zoneData[client].zones.some((z) => z.id === zone))) fail(file, `unknown zone ${zone}`);
   if (zoneNotes.has(zone)) fail(file, `zone ${zone} has two notes`);
-  zoneNotes.set(zone, body.trim().split(/\n\s*\n/).map((p) => p.replace(/\s*\n\s*/g, " ").trim()));
+  zoneNotes.set(zone, note(file, body));
 }
 
 // The herbs and fish (data/flora.json, scripts/flora.py), for the Plants and
@@ -255,7 +266,7 @@ function floraNotes(file: string, kinds: { id: number; name: string }[]) {
   const source = readFileSync(file, "utf8");
   const odd = source.match(/[^\x00-\x7f]/);
   if (odd) fail(file, `non-ASCII character "${odd[0]}"`);
-  const notes = new Map<number, string[]>();
+  const notes = new Map<number, Paragraph[]>();
   const byId = new Map(kinds.map((k) => [k.id, k.name]));
   for (const part of source.replace(/<!--[\s\S]*?-->/g, "").split(/^## /m).slice(1)) {
     const [head, ...rest] = part.split("\n");
@@ -265,7 +276,7 @@ function floraNotes(file: string, kinds: { id: number; name: string }[]) {
     if (!byId.has(id)) fail(file, `no kind ${id} (${m[2]}) in data/flora.json`);
     else if (byId.get(id) !== m[2].trim()) fail(file, `${id} is ${byId.get(id)}, not ${m[2]}`);
     if (notes.has(id)) fail(file, `${id} has two notes`);
-    const paras = rest.join("\n").trim().split(/\n\s*\n/).map((p) => p.replace(/\s*\n\s*/g, " ").trim()).filter(Boolean);
+    const paras = note(file, rest.join("\n"));
     if (!paras.length) fail(file, `${id} ${m[2]}: an empty note`);
     notes.set(id, paras);
   }
@@ -274,10 +285,10 @@ function floraNotes(file: string, kinds: { id: number; name: string }[]) {
 }
 const herbNotes = floraNotes(join(ROOT, "notes/herbs.md"), flora.herbs);
 const fishNotes = floraNotes(join(ROOT, "notes/fish.md"), flora.fish);
-const noteLua = (paras?: string[]) => (paras ? `, note = { ${paras.map(q).join(", ")} }` : "");
+const noteLua = (paras: Paragraph[] | undefined, client: string) => (paras ? `, note = { ${forClient(paras, client).map(q).join(", ")} }` : "");
 
 function floraLua(client: string) {
-  const { zones } = JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8")) as { zones: Zone[] };
+  const { zones } = zoneData[client];
   const byName = new Map(zones.map((z) => [z.name, z.id]));
   const ids = (names: string[], who: string) =>
     names.flatMap((n) => {
@@ -295,12 +306,12 @@ function floraLua(client: string) {
   -- entry, pounds }), and every school (fishing hole object id)
   flora = {
     herbs = {
-${flora.herbs.map((h) => `      [${h.id}] = { name = ${q(h.name)}, skill = ${Math.max(1, h.skill ?? 1)}, zones = { ${ids(h.zones, h.name).join(", ")} }, dungeons = ${list(h.dungeons)}${h.inside ? ", inside = true" : ""}${noteLua(herbNotes.get(h.id))} },`).join("\n")}
+${flora.herbs.map((h) => `      [${h.id}] = { name = ${q(h.name)}, skill = ${Math.max(1, h.skill ?? 1)}, zones = { ${ids(h.zones, h.name).join(", ")} }, dungeons = ${list(h.dungeons)}${h.inside ? ", inside = true" : ""}${noteLua(herbNotes.get(h.id), client)} },`).join("\n")}
     },
     herbOrder = { ${[...flora.herbs].sort((a, b) => (a.skill ?? 1) - (b.skill ?? 1) || a.name.localeCompare(b.name)).map((h) => h.id).join(", ")} },
     herbNodes = { ${[...nodes].map(([n, h]) => `[${n}]=${h}`).join(", ")} },
     fish = {
-${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.kind)}, zones = { ${ids(f.zones, f.name).join(", ")} }, subzones = ${list(f.subzones)}, dungeons = ${list(f.dungeons)}${f.season ? `, season = ${q(f.season)}` : ""}${noteLua(fishNotes.get(f.id))} },`).join("\n")}
+${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.kind)}, zones = { ${ids(f.zones, f.name).join(", ")} }, subzones = ${list(f.subzones)}, dungeons = ${list(f.dungeons)}${f.season ? `, season = ${q(f.season)}` : ""}${noteLua(fishNotes.get(f.id), client)} },`).join("\n")}
     },
     fishOrder = { ${flora.fish.map((f) => f.id).join(", ")} },
     weights = { ${flora.fish.flatMap((f) => (f.weights ?? []).map((w) => `[${w.id}]={ ${f.id}, ${w.pounds} }`)).join(", ")} },
@@ -309,17 +320,14 @@ ${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.k
 }
 
 function atlasLua(client: string) {
-  const { continents, zones } = JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8")) as { continents: Record<string, string>; zones: Zone[] };
+  const { continents, zones } = zoneData[client];
   const kept = zones.filter((z) => z.continent || z.places.length);
-  if (client === "classic") {
-    for (const zone of zoneNotes.keys()) if (!zones.some((z) => z.id === zone)) fail(join(ROOT, "atlas"), `a note for zone ${zone}, which the game doesn't have`);
-  }
   const used = [...new Set(kept.map((z) => z.continent).filter(Boolean))].sort((a, b) => a - b);
   return `  atlas = {
     continents = { ${used.map((c) => `[${c}] = ${q(continents[String(c)])}`).join(", ")} },
     zones = {
 ${kept
-  .map((z) => `      [${z.id}] = { name = ${q(z.name)}, continent = ${z.continent},${zoneNotes.has(z.id) ? ` note = { ${zoneNotes.get(z.id)!.map(q).join(", ")} },` : ""} places = { ${z.places.map((p) => `{ ${q(p.name)}, ${p.rect.join(", ")}, ${p.areas.join(", ")}${p.visit ? ", visit = true" : ""} }`).join(", ")} } },`)
+  .map((z) => `      [${z.id}] = { name = ${q(z.name)}, continent = ${z.continent},${zoneNotes.has(z.id) ? ` note = { ${forClient(zoneNotes.get(z.id)!, client).map(q).join(", ")} },` : ""} places = { ${z.places.map((p) => `{ ${q(p.name)}, ${p.rect.join(", ")}, ${p.areas.join(", ")}${p.visit ? ", visit = true" : ""} }`).join(", ")} } },`)
   .join("\n")}
     },
   },`;
@@ -341,7 +349,7 @@ ${[...sections.values()]
   },
   families = {
 ${kept
-  .map((f) => `    { id = ${q(f.id)}, title = ${q(f.title)}, section = ${q(f.section)}, note = { ${f.note.map(q).join(", ")} } },`)
+  .map((f) => `    { id = ${q(f.id)}, title = ${q(f.title)}, section = ${q(f.section)}, note = { ${forClient(f.note, client).map(q).join(", ")} } },`)
   .join("\n")}
   },
   -- creatures the data doesn't know (Forever's new ones): a beast by its
@@ -395,6 +403,23 @@ if (VERBOSE) {
 if (empty.length) console.log(`! families with no creature: ${empty.map((f) => f.id).join(", ")}`);
 if (unsorted.length) console.log(`! ${unsorted.length} creatures fit no family (--verbose lists them)`);
 if (noNote.length) console.log(`! ${noNote.length} of ${families.length} families have no note yet`);
+
+// Validate every source before writing either package, including Atlas/flora
+// errors discovered after family matching. A variant must leave a readable note.
+for (const client of CLIENTS) {
+  for (const f of families.filter((f) => !f.client || f.client === client))
+    if (f.note.length && !forClient(f.note, client).length) fail(f.file, `no paragraphs for ${client}`);
+  for (const [zone, paras] of zoneNotes)
+    if (zoneData[client].zones.some((z) => z.id === zone) && !forClient(paras, client).length)
+      fail(join(ROOT, "atlas"), `zone ${zone}: no paragraphs for ${client}`);
+  for (const [file, notes] of [["notes/herbs.md", herbNotes], ["notes/fish.md", fishNotes]] as const)
+    for (const [id, paras] of notes)
+      if (!forClient(paras, client).length) fail(join(ROOT, file), `${id}: no paragraphs for ${client}`);
+}
+if (errors.length) {
+  console.error(errors.map((e) => `✗ ${e}`).join("\n"));
+  process.exit(1);
+}
 
 if (process.argv.includes("--check")) {
   let stale = false;
