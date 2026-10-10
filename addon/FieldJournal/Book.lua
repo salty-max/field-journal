@@ -8,154 +8,25 @@
 local _, ns = ...
 
 -- ── look ─────────────────────────────────────────────────────────────────────
-local T = {
-  gold = { 0.85, 0.70, 0.42 },
-  text = { 0.93, 0.88, 0.76 },
-  soft = { 0.62, 0.57, 0.49 },
-  rule = { 0.85, 0.70, 0.42, 0.25 },
-  mark = "|cffff9a40",
-  rare = "|cffc7ccd6",
-  link = "|cffd9b36b",
-}
-local LATIN = { enUS = true, enGB = true, frFR = true, deDE = true, esES = true, esMX = true, itIT = true, ptBR = true }
-local BODY_FONT = STANDARD_TEXT_FONT or "Fonts\\FRIZQT__.TTF"
-local TITLE_FONT = LATIN[GetLocale()] and "Fonts\\MORPHEUS.TTF" or BODY_FONT
-local function hex(c) return ("|cff%02x%02x%02x"):format(c[1] * 255, c[2] * 255, c[3] * 255) end
+-- The kit's (Kit.lua), in the Field Journal's theme: a sage accent, the panels
+-- a faint moss, like a naturalist's notes.
+local K = ns.kit
+K.theme({
+  accent = { 0.70, 0.80, 0.55 },
+  ring = { 0.52, 0.62, 0.36 },
+  bar = { 0.55, 0.72, 0.30 },
+  tint = { 0.90, 1.00, 0.88 },
+  shade = { 0.02, 0.03, 0.02, 0.55 },
+  highlight = { 0.80, 1.00, 0.75 },
+})
+local T = K.T
+T.mark, T.rare, T.link = "|cffff9a40", "|cffc7ccd6", K.hex(T.accent)
+local BODY_FONT, TITLE_FONT, hex = K.BODY_FONT, K.TITLE_FONT, K.hex
 local SOFT = hex(T.soft)
 local QUESTION = "Interface\\Icons\\INV_Misc_QuestionMark"
-local MASK = "Interface\\CharacterFrame\\TempPortraitAlphaMask"
-local HIGHLIGHT = "Interface\\QuestFrame\\UI-QuestTitleHighlight"
-
-local function label(parent, font, size, color)
-  local fs = parent:CreateFontString(nil, "OVERLAY")
-  fs:SetFont(font, size, "")
-  fs:SetTextColor(unpack(color))
-  fs:SetShadowOffset(1, -1)
-  fs:SetJustifyH("LEFT")
-  return fs
-end
-
-local function rule(parent, color)
-  local t = parent:CreateTexture(nil, "ARTWORK")
-  t:SetColorTexture(unpack(color or T.rule))
-  t:SetHeight(1)
-  return t
-end
-
--- Forever's Professions card (a dark rounded panel), cut in nine so it
--- stretches to any size without bending its corners.
-local CARD_FILE, CARD_W, CARD_H = 8164414, 1024, 512
-local CARD = { 1, 665, 1, 143 } -- the generic card, in the texture's pixels
-local CORNER = 16
-local function card(parent)
-  local f = CreateFrame("Frame", nil, parent)
-  local xs = { CARD[1], CARD[1] + CORNER, CARD[2] - CORNER, CARD[2] }
-  local ys = { CARD[3], CARD[3] + CORNER, CARD[4] - CORNER, CARD[4] }
-  for i = 1, 3 do
-    for j = 1, 3 do
-      local tex = f:CreateTexture(nil, "BACKGROUND")
-      tex:SetTexture(CARD_FILE)
-      tex:SetTexCoord(xs[j] / CARD_W, xs[j + 1] / CARD_W, ys[i] / CARD_H, ys[i + 1] / CARD_H)
-      if j ~= 2 then tex:SetWidth(CORNER) end
-      if i ~= 2 then tex:SetHeight(CORNER) end
-      -- Corners pinned to the frame's edges; edges and centre between them.
-      if j == 1 then tex:SetPoint("LEFT", f, "LEFT", 0, 0) end
-      if j == 2 then
-        tex:SetPoint("LEFT", f, "LEFT", CORNER, 0)
-        tex:SetPoint("RIGHT", f, "RIGHT", -CORNER, 0)
-      end
-      if j == 3 then tex:SetPoint("RIGHT", f, "RIGHT", 0, 0) end
-      if i == 1 then tex:SetPoint("TOP", f, "TOP", 0, 0) end
-      if i == 2 then
-        tex:SetPoint("TOP", f, "TOP", 0, -CORNER)
-        tex:SetPoint("BOTTOM", f, "BOTTOM", 0, CORNER)
-      end
-      if i == 3 then tex:SetPoint("BOTTOM", f, "BOTTOM", 0, 0) end
-    end
-  end
-  return f
-end
-
--- Classic's panels: the game's inset, darkened a little for the text; behind
--- the list (book), the quest log's dark book (TBC's two-pane log, where the
--- game has it).
-local function inset(parent, book)
-  local ok, f = pcall(CreateFrame, "Frame", nil, parent, "InsetFrameTemplate")
-  if not (ok and f) then f = CreateFrame("Frame", nil, parent) end
-  local shade = f:CreateTexture(nil, "BACKGROUND", nil, 1)
-  shade:SetPoint("TOPLEFT", 3, -3)
-  shade:SetPoint("BOTTOMRIGHT", -3, 3)
-  shade:SetColorTexture(0.03, 0.025, 0.02, 0.55)
-  if not book then return f end
-  local art = f:CreateTexture(nil, "BACKGROUND", nil, 2)
-  art:SetPoint("TOPLEFT", 3, -3)
-  art:SetPoint("BOTTOMRIGHT", -3, 3)
-  if art:SetTexture("Interface\\QuestFrame\\UI-QuestLogDualPane-Left") == false then
-    art:Hide()
-  else
-    art:SetTexCoord(20 / 512, 318 / 512, 74 / 512, 406 / 512)
-  end
-  return f
-end
-
-local function panel(parent, book)
-  if ns.forever then return card(parent) end
-  return inset(parent, book)
-end
-
--- A scroll area moved by the mouse wheel, with a thin gold thumb.
-local function scrollArea(parent, width, name)
-  local s = CreateFrame("ScrollFrame", name, parent)
-  local c = CreateFrame("Frame", nil, s)
-  c:SetSize(width, 1)
-  s:SetScrollChild(c)
-  s.child = c
-  s.thumb = s:CreateTexture(nil, "OVERLAY")
-  s.thumb:SetColorTexture(T.gold[1], T.gold[2], T.gold[3], 0.45)
-  s.thumb:SetWidth(3)
-  function s:UpdateThumb()
-    local range, height = self:GetVerticalScrollRange() or 0, self:GetHeight() or 1
-    if range <= 0 then
-      self.thumb:Hide()
-      return
-    end
-    local size = math.max(24, height * height / (height + range))
-    self.thumb:SetHeight(size)
-    self.thumb:ClearAllPoints()
-    self.thumb:SetPoint("TOPRIGHT", self, "TOPRIGHT", 8, -(height - size) * self:GetVerticalScroll() / range)
-    self.thumb:Show()
-  end
-  function s:ScrollTo(y)
-    self:SetVerticalScroll(math.max(0, math.min(y, self:GetVerticalScrollRange() or 0)))
-    self:UpdateThumb()
-  end
-  s:EnableMouseWheel(true)
-  s:SetScript("OnMouseWheel", function(self, delta) self:ScrollTo(self:GetVerticalScroll() - delta * 40) end)
-  s:SetScript("OnScrollRangeChanged", function(self) self:UpdateThumb() end)
-  return s
-end
-
--- A round portrait in a gold ring (p.tex: what it shows).
-local function roundPortrait(parent, size)
-  local p = CreateFrame("Frame", nil, parent)
-  p:SetSize(size, size)
-  p.ring = p:CreateTexture(nil, "BACKGROUND")
-  p.ring:SetTexture(MASK)
-  p.ring:SetVertexColor(0.72, 0.56, 0.24)
-  p.ring:SetPoint("CENTER")
-  p.ring:SetSize(size + 4, size + 4)
-  p.back = p:CreateTexture(nil, "BORDER")
-  p.back:SetTexture(MASK)
-  p.back:SetVertexColor(0.06, 0.05, 0.04)
-  p.back:SetAllPoints()
-  p.tex = p:CreateTexture(nil, "ARTWORK")
-  p.tex:SetAllPoints()
-  local mask = p:CreateMaskTexture()
-  mask:SetTexture(MASK, "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
-  mask:SetAllPoints(p.tex)
-  p.tex:AddMaskTexture(mask)
-  return p
-end
+local label, rule, panel, scrollArea = K.label, K.rule, K.panel, K.scrollArea
+-- A round portrait in the theme's ring, a dark disc behind it (p.tex: what it shows).
+local function roundPortrait(parent, size) return K.roundIcon(parent, size, true) end
 
 -- An icon for a portrait: icon(path)(portrait).
 local function icon(path)
@@ -219,12 +90,7 @@ function List:row(i)
   r.fold = r:CreateTexture(nil, "ARTWORK")
   r.fold:SetSize(12, 12)
   r.bar = false -- (a progress bar, made by the tab that wants one)
-  r:SetHighlightTexture(HIGHLIGHT, "ADD")
-  r.selected = r:CreateTexture(nil, "BACKGROUND")
-  r.selected:SetAllPoints()
-  r.selected:SetTexture(HIGHLIGHT)
-  r.selected:SetBlendMode("ADD")
-  r.selected:SetAlpha(0.7)
+  r.selected = K.highlight(r)
   self.rows[i] = r
   return r
 end
@@ -290,15 +156,7 @@ local PLUS, MINUS = "Interface\\Buttons\\UI-PlusButton-Up", "Interface\\Buttons\
 local function fold(r, open) r.fold:SetTexture(open and MINUS or PLUS) end
 
 -- A small progress bar (a row's, a milestone's).
-local function progressBar(parent)
-  local b = CreateFrame("StatusBar", nil, parent)
-  b:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-  b:SetStatusBarColor(0.85, 0.65, 0.13)
-  local bg = b:CreateTexture(nil, "BACKGROUND")
-  bg:SetAllPoints()
-  bg:SetColorTexture(0, 0, 0, 0.5)
-  return b
-end
+local progressBar = K.bar
 
 -- ── the page ─────────────────────────────────────────────────────────────────
 -- The sheet on the right: a header (a round portrait, the title, a line under
@@ -432,44 +290,9 @@ ns.TAB = TAB
 local tabs, TAB_TITLES = {}, { "Bestiary", "Fish", "Plants", "Atlas", "Milestones" }
 function ns.addTab(n, tab) tabs[n] = tab end
 
+-- The standard game window (portrait: the journal's book; title bar), else a
+-- plain dialog where the client has no such template (Kit.lua).
 local TITLE = "Explorer's Field Journal"
-local function gameWindow()
-  local ok, frame = pcall(CreateFrame, "Frame", "FieldJournalFrame", UIParent, "ButtonFrameTemplate")
-  if not ok or not frame then return nil end
-  if ButtonFrameTemplate_HideButtonBar then ButtonFrameTemplate_HideButtonBar(frame) end
-  if type(frame.Inset) == "table" then frame.Inset:Hide() end
-  local art = "Interface\\Icons\\INV_Misc_Book_11"
-  if frame.SetPortraitToAsset then
-    frame:SetPortraitToAsset(art)
-  elseif type(frame.portrait) == "table" then
-    frame.portrait:SetTexture(art)
-  end
-  if frame.SetTitle then
-    frame:SetTitle(TITLE)
-  elseif type(frame.TitleText) == "table" then
-    frame.TitleText:SetText(TITLE)
-  end
-  return frame
-end
-
--- No standard window on this client: a plain dialog frame.
-local function dialog()
-  local frame = CreateFrame("Frame", "FieldJournalFrame", UIParent, "BackdropTemplate")
-  frame:SetBackdrop({
-    bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
-    edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border",
-    tile = true,
-    tileSize = 32,
-    edgeSize = 32,
-    insets = { left = 11, right = 12, top = 12, bottom = 11 },
-  })
-  local title = label(frame, TITLE_FONT, 16, T.gold)
-  title:SetPoint("TOP", 0, -16)
-  title:SetText(TITLE)
-  local close = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
-  close:SetPoint("TOPRIGHT", -6, -6)
-  return frame
-end
 
 -- Rewrite what the open tab shows.
 function ns.refresh()
@@ -500,53 +323,10 @@ function ns.showTab(n)
   ns.refresh()
 end
 
--- The tabs, under the window's bottom edge, in the style of the character
--- sheet's (the shared panel tabs where that template doesn't exist: Forever).
-local function hasTemplate(name)
-  if not (C_XMLUtil and C_XMLUtil.GetTemplateInfo) then return name == "CharacterFrameTabButtonTemplate" end
-  return C_XMLUtil.GetTemplateInfo(name) ~= nil
-end
-
-local function buildTabs()
-  local template = hasTemplate("CharacterFrameTabButtonTemplate") and "CharacterFrameTabButtonTemplate"
-    or "PanelTabButtonTemplate"
-  for n, text in ipairs(TAB_TITLES) do
-    local tab = CreateFrame("Button", "FieldJournalFrameTab" .. n, book, template)
-    tab:SetID(n)
-    tab:SetText(text)
-    if n == 1 then
-      tab:SetPoint("TOPLEFT", book, "BOTTOMLEFT", 14, 2)
-    else
-      tab:SetPoint("LEFT", "FieldJournalFrameTab" .. (n - 1), "RIGHT", -14, 0)
-    end
-    tab:SetScript("OnClick", function(self)
-      local chosen = tabs[self:GetID()].chosen
-      if chosen then chosen() end
-      ns.showTab(self:GetID())
-      if SOUNDKIT and SOUNDKIT.IG_CHARACTER_INFO_TAB then PlaySound(SOUNDKIT.IG_CHARACTER_INFO_TAB) end
-    end)
-    tab:SetScript("OnShow", function(self)
-      if PanelTemplates_TabResize then PanelTemplates_TabResize(self, 0) end
-    end)
-    if PanelTemplates_TabResize then PanelTemplates_TabResize(tab, 0) end
-  end
-  if PanelTemplates_SetNumTabs then PanelTemplates_SetNumTabs(book, #TAB_TITLES) end
-end
-
 local function build()
-  local window = gameWindow()
-  book = window or dialog()
-  book:SetSize(780, 560)
-  book:SetPoint("CENTER")
-  book:SetFrameStrata("HIGH")
-  book:SetToplevel(true)
-  book:SetMovable(true)
-  book:EnableMouse(true)
-  book:SetClampedToScreen(true)
-  book:RegisterForDrag("LeftButton")
-  book:SetScript("OnDragStart", book.StartMoving)
-  book:SetScript("OnDragStop", book.StopMovingOrSizing)
-  table.insert(UISpecialFrames, "FieldJournalFrame") -- Escape closes it
+  local window = K.gameWindow("FieldJournalFrame", TITLE, "Interface\\Icons\\INV_Misc_Book_11")
+  book = window or K.dialog("FieldJournalFrame", TITLE)
+  K.movable(book, 780, 560)
 
   -- The count beside the portrait; the list's column below it, the page to
   -- the right, under the title bar; the search box at the top of the list's
@@ -569,7 +349,11 @@ local function build()
 
   book.selectedTab = TAB.bestiary
   book:SetScript("OnShow", function() ns.showTab(book.selectedTab) end)
-  buildTabs()
+  K.tabs(book, TAB_TITLES, function(n)
+    local chosen = tabs[n].chosen
+    if chosen then chosen() end
+    ns.showTab(n)
+  end)
 end
 
 local function window()

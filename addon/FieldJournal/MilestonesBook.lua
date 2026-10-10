@@ -79,9 +79,9 @@ local function fill(r, m)
     r.bar:SetShown(need > 1)
   end
   if m.id == picked then
-    r.bg:SetColorTexture(0.85, 0.70, 0.42, 0.22)
+    r.bg:SetColorTexture(ui.T.accent[1], ui.T.accent[2], ui.T.accent[3], 0.22)
   elseif earned then
-    r.bg:SetColorTexture(0.85, 0.65, 0.13, 0.10)
+    r.bg:SetColorTexture(ui.T.bar[1], ui.T.bar[2], ui.T.bar[3], 0.10)
   else
     r.bg:SetColorTexture(1, 1, 1, 0.03)
   end

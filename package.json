@@ -10,6 +10,8 @@
     "creatures": "python3 scripts/creatures.py",
     "flora": "python3 scripts/flora.py",
     "lint:lua": "stylua --check addon && selene addon/FieldJournal",
-    "format:lua": "stylua addon"
+    "format:lua": "stylua addon",
+    "kit:sync": "bun ../addon-kit/sync.ts addon/FieldJournal",
+    "kit:check": "bun ../addon-kit/sync.ts --check addon/FieldJournal"
   }
 }

@@ -491,7 +491,7 @@ local function build(b)
   map.border = CreateFrame("Frame", nil, map, "BackdropTemplate")
   map.border:SetAllPoints()
   map.border:SetBackdrop({ edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 12 })
-  map.border:SetBackdropBorderColor(0.72, 0.56, 0.24)
+  map.border:SetBackdropBorderColor(unpack(ui.T.ring))
   map.border:SetFrameLevel(map:GetFrameLevel() + 8)
   page.map = map
 end

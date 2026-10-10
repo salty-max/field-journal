@@ -61,10 +61,14 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   flights, crossings, binds), `Flora.lua` (fish and herbs), `Achievements.lua`
   (milestones: tallies, every family of a type, feats, every rare of a zone,
   the Atlas's and the flora's; the game's achievement toast, fanfare and a
-  chat line; no spoilers before a type or zone is met). The book: `Book.lua`
-  (the standard window, its tabs registered by their files with
-  `ns.addTab`, links in chat, and the kit every tab is made of, `ns.ui`:
-  `newList` for the list on the left, `newPage` for the page on the right),
+  chat line; no spoilers before a type or zone is met). The book: `Kit.lua`
+  (a copy of the kit shared with Hearthtale and the Codex, ~/code/addon-kit:
+  the books' look, window, dialog and tabs; never edited here: `bun run
+  kit:sync` after changing the kit, `bun run kit:check` to verify),
+  `Book.lua` (the journal's theme on the kit, the window, its tabs
+  registered by their files with `ns.addTab`, links in chat, and the kit
+  every tab is made of, `ns.ui`: `newList` for the list on the left,
+  `newPage` for the page on the right),
   `BestiaryBook.lua` (still portraits from the data's display ids,
   `SetPortraitTextureFromCreatureDisplayID`), `FloraBook.lua` (Fish and
   Plants), `AtlasBook.lua` (zones by continent, the zone's map art with its

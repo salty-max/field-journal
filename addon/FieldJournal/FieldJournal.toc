@@ -15,6 +15,7 @@ Creatures.lua
 Atlas.lua
 Flora.lua
 Achievements.lua
+Kit.lua
 Book.lua
 BestiaryBook.lua
 AtlasBook.lua
