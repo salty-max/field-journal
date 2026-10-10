@@ -32,7 +32,7 @@ Warcraft: Forever. Each game has its own package.
 ```bash
 bun run build      # content + data → Data_Classic.lua, Data_Forever.lua
 bun run check      # both up to date + simulation on both games
-bun run package    # dist/classic, dist/forever, zipped
+bun run package    # dist/FieldJournal.zip: one package for every game
 ```
 
 Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned);

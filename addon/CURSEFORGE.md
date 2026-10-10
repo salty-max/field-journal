@@ -42,12 +42,11 @@ Another book in the same journal: every zone you have entered, by continent (all
 
 The last tab: tallies (kinds recorded, families, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived; and for fishing and herbs: kinds and counts, Nat Pagle's four rare fish, a school of each kind, both seasons, Nightfin by night and Sunscale by day, the Black Lotus, every fish of a continent's waters, every herb of a zone. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
 
-## Two packages
+## Every game, one download
 
-Each game has its own file: pick the one for yours (the CurseForge app does it for you).
+The same file for Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever: each game loads its own part.
 
-- **Classic**: Classic Era, Hardcore, Season of Discovery, TBC Anniversary.
-- **Forever**: World of Warcraft: Forever, with Zephras Isle in the Atlas and Forever's new rares in each zone's milestones. Forever closes the combat log to addons, so kills come from the game's own kill event.
+On World of Warcraft: Forever, the Atlas holds Zephras Isle, and each zone's milestones count Forever's new rares. Forever closes the combat log to addons, so kills come from the game's own kill event.
 
 ## Settings
 

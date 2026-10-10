@@ -1,6 +1,6 @@
 -- The Bestiary's records: every creature this character meets (targets or
 -- mouses over) is a sighting; it joins the journal on its first kill, with
--- what was seen of it, filed in its family (Data.lua's, else by what the game
+-- what was seen of it, filed in its family (the data file's, else by what the game
 -- says of it). Kills, loot and trophies too. The journal: Core.lua.
 local _, ns = ...
 local D = ns.data
@@ -69,14 +69,14 @@ local function lookups()
 end
 
 -- The families by their id ("wolves"), the key the journal keeps them by:
--- never their place in Data.lua's list, which a new family would shift.
+-- never their place in the data file's list, which a new family would shift.
 local byId = {}
 for _, f in ipairs(D.families) do
   byId[f.id] = f
 end
 ns.familyById = byId
 
--- The family a creature belongs to (its id): Data.lua's, else by what the
+-- The family a creature belongs to (its id): the data file's, else by what the
 -- game said of it when met; a "?type/family" key if even that fails.
 function ns.familyKey(id, rec)
   local index = D.creatures[id]
@@ -176,7 +176,7 @@ local function meet(unit)
 end
 
 -- ── slaying ──────────────────────────────────────────────────────────────────
--- A creature's rank mark: r rare, R rare elite, b boss (Data.lua), else what
+-- A creature's rank mark: r rare, R rare elite, b boss (the data file), else what
 -- the game says now.
 function ns.rank(id, unit)
   local r = D.ranks[id]

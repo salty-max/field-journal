@@ -471,10 +471,10 @@ C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true end }
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
--- The files in the TOC's order; Data.lua is the game's own data file.
-for line in io.lines(DIR .. "FieldJournal.toc") do
+-- The files in the order of the game's own TOC (its data file loaded above).
+for line in io.lines(DIR .. (FOREVER and "FieldJournal_Camelot.toc" or "FieldJournal_Vanilla.toc")) do
   local f = line:match("^([%w_]+%.lua)%s*$")
-  if f and f ~= "Data.lua" then assert(loadfile(DIR .. f))("FieldJournal", ns) end
+  if f and not f:match("^Data_") then assert(loadfile(DIR .. f))("FieldJournal", ns) end
 end
 local D = ns.data
 local function check(cond, msg)
@@ -739,7 +739,7 @@ do
 end
 
 -- The families met are kept by their id and rebuilt from the creatures at
--- each login: an older journal's places in Data.lua's list go, a family kept
+-- each login: an older journal's places in the data file's list go, a family kept
 -- by its id keeps its date, and one a creature has moved into (the Stagwings,
 -- hippogryphs once filed with the grazers) comes, dated by its first kill.
 do

@@ -1,7 +1,7 @@
 /**
  * content/<section>/<family>.md + data/creatures.json → the Bestiary's data,
  * one Lua file per game: addon/FieldJournal/Data_Classic.lua,
- * Data_Forever.lua (scripts/package.ts ships each as Data.lua).
+ * Data_Forever.lua (each game's TOC loads its own).
  *
  * A section (content/<section>/_section.md: title, type, order) holds the
  * families of one creature type. A family:

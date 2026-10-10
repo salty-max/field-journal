@@ -541,7 +541,7 @@ ns.addTab(ns.TAB.bestiary, {
 })
 
 -- Open the book at a family (its id, or ?<type>/<family>; an older link's
--- index in Data.lua's list), unfolded in the list.
+-- index in the data file's list), unfolded in the list.
 function ns.openFamily(key)
   if not ns.journal() then return end
   if type(key) == "number" then key = D.families[key] and D.families[key].id end

@@ -6,7 +6,7 @@
 --   FieldJournalChar (SavedVariablesPerCharacter), whose journal: guid
 --     creatures[id] = {
 --       name, type, family,      as the game named them (type and family for
---                                creatures Data.lua doesn't know)
+--                                creatures the data file doesn't know)
 --       first, last = { at, level, zone, sub, map, x, y }   met
 --       low, high                levels seen
 --       places = { "Zone: Sub" } where met (a few)
@@ -118,7 +118,7 @@ local function killRule(c)
 end
 
 -- The families met, rebuilt from the creatures recorded at each login: a
--- journal kept them by their place in Data.lua's list before 0.6 (which a
+-- journal kept them by their place in the data file's list before 0.6 (which a
 -- new family would shift), and a creature may move to another family between
 -- versions. A family keeps its date, else takes its first creature's kill.
 local function syncFamilies(c)

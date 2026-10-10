@@ -1,0 +1,32 @@
+## Interface: 20506
+## Title: Explorer's Field Journal
+## Notes: A bestiary that fills in as you travel: every creature you meet, slay and loot, with a League naturalist's notes. /journal to read it.
+## Author: salty-max
+## Version: 0.7.1
+## SavedVariablesPerCharacter: FieldJournalChar
+## SavedVariables: FieldJournalSettings
+## IconTexture: Interface\Icons\INV_Misc_Book_11
+## X-Website: https://github.com/salty-max/field-journal
+## X-License: MIT
+## X-Curse-Project-ID: 1728396
+
+# TBC Anniversary. Each game loads its own TOC (_Vanilla: Classic Era, _TBC: TBC
+# Anniversary, _Camelot: Forever), the same but for the interface and the game's
+# data (scripts/package.ts checks).
+Data_Classic.lua
+Core.lua
+Creatures.lua
+Atlas.lua
+Flora.lua
+Achievements.lua
+Kit.lua
+Book.lua
+BestiaryBook.lua
+AtlasBook.lua
+FloraBook.lua
+MilestonesBook.lua
+WorldMapPins.lua
+Minimap.lua
+Settings.lua
+Welcome.lua
+Hints.lua
