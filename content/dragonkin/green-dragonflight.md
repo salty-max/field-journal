@@ -3,6 +3,7 @@ id: green-dragonflight
 title: The Green Dragonflight
 order: 360
 match:
+  - ids: 5277   # the Sunken Temple's Nightmare Scalebane (the red flight's "Scalebane" would claim it)
   - name: "\b(Green|Emerald|Jade|Dream|Dreamer|Ysondre|Lethon|Emeriss|Taerar|Eranikus|Hazzas|Morphaz|Weaver|Verdantine|Boughguard|Merithra|Somnus|Phantim|Lethlas)\w*\b"
 ---
 Ysera's green flight guards the Emerald Dream, but the Nightmare has reached some of its own guardians. The dragonkin at the great portals of Ashenvale, Feralas, the Hinterlands and Duskwood make that danger visible in the waking world.
