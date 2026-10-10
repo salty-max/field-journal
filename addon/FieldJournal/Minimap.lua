@@ -1,6 +1,6 @@
 -- The book's button on the minimap: click to open the journal, drag to move it
--- around the minimap. Its place (and whether it shows) is kept for the whole
--- account in FieldJournalSettings. Built with the textures of the game's
+-- around the minimap. Its place (and whether it shows) is kept with this
+-- character's settings (Settings.lua). Built with the textures of the game's
 -- own minimap buttons (the tracking button's border, the zoom highlight).
 local _, ns = ...
 
@@ -74,5 +74,7 @@ function ns.createMinimapButton()
 end
 
 function ns.updateMinimapButton()
-  if button then button:SetShown(not ns.option("minimapHidden")) end
+  if not button then return end
+  place()
+  button:SetShown(not ns.option("minimapHidden"))
 end

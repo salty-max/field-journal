@@ -34,6 +34,8 @@ function strsplit(sep, s)
   return unpack(out)
 end
 function strtrim(s) return (s:gsub("^%s+", ""):gsub("%s+$", "")) end
+function GetRealmName() return "Nightslayer" end
+function InCombatLockdown() return false end
 tinsert = table.insert
 function UnitLevel() return state.level end
 function GetLocale() return "enUS" end
@@ -125,6 +127,7 @@ end
 local ticker
 local timers = {}
 C_Timer = {
+  After = function(_, fn) fn() end,
   NewTicker = function(_, fn) ticker = fn end,
   NewTimer = function(seconds, fn)
     local t = { seconds = seconds, fn = fn }
@@ -162,7 +165,17 @@ local function ui()
         end
       end
       if k == "Hide" then
-        return function(self) self.shown = false end
+        return function(self)
+          local was = self.shown
+          self.shown = false
+          if was and self.scripts.OnHide then self.scripts.OnHide(self) end
+        end
+      end
+      if k == "SetChecked" then
+        return function(self, v) self.checked = v and true or false end
+      end
+      if k == "GetChecked" then
+        return function(self) return rawget(self, "checked") or false end
       end
       if k == "SetShown" then
         return function(self, v)
@@ -244,7 +257,7 @@ MinimalSliderWithSteppersMixin = { Label = { Right = 2 } }
 -- The game's settings panel: keep what the addon registers.
 local panel = { settings = {}, opened = nil }
 Settings = {
-  VarType = { Boolean = "boolean", Number = "number" },
+  VarType = { Boolean = "boolean", Number = "number", String = "string" },
   RegisterVerticalLayoutCategory = function(name)
     panel.name = name
     return { GetID = function() return 42 end }
@@ -255,7 +268,10 @@ Settings = {
     return s
   end,
   CreateCheckbox = function() end,
-  CreateDropdown = function(_, _, options) panel.options = options end,
+  CreateDropdown = function(_, setting, options)
+    setting.options = options
+    panel.options = panel.options or options -- (the first: the sound's)
+  end,
   CreateSliderOptions = function(min, max, step)
     return { min = min, max = max, step = step, SetLabelFormatter = function(self, _, fn) self.format = fn end }
   end,
@@ -1359,4 +1375,49 @@ check(
   next(FieldJournalChar.creatures) == nil and FieldJournalChar.guid == PLAYER,
   "/journal reset yes starts the journal over"
 )
+-- Settings are each character's own (the kit's profiles); the welcome page
+-- offers them once per character, and another character's to take.
+local P = ns.profiles
+check(
+  P:key() == "Thorin - Nightslayer" and FieldJournalSettings.profiles["Thorin - Nightslayer"],
+  "settings: this character's own profile"
+)
+fire("PLAYER_ENTERING_WORLD", true, false)
+local W = ns.welcome
+check(W.frame and W.frame.shown and #W.rows == 6, "the first login: the welcome page and its six choices")
+local soundRow = W.rows[2]
+check(soundRow.select and soundRow.select:GetValue() == 3175, "… the trophy's sound in a select, as it is")
+soundRow.select.scripts.OnClick(soundRow.select)
+soundRow.select.rows[2].scripts.OnClick(soundRow.select.rows[2])
+check(ns.option("sound") == 878 and lastSound == 878, "… a sound chosen there is heard and kept")
+W.rows[4].scripts.OnClick(W.rows[4])
+check(ns.option("worldMapPins") == false and not W.rows[4].box:GetChecked(), "… a box's words untick it")
+W.frame:Hide()
+fire("PLAYER_ENTERING_WORLD", true, false)
+check(not W.frame.shown and ns.option("welcomed"), "… seen once")
+FieldJournalSettings.profiles["Brann - Nightslayer"] = { chat = false, sound = 0, minimapAngle = 90 }
+SlashCmdList.FIELDJOURNAL("welcome")
+local pick = W.picker.select
+check(pick.rows[1].text:GetText() == "Brann - Nightslayer", "… another character of this game, in its select")
+pick.rows[1].scripts.OnClick(pick.rows[1])
+W.picker.copy.scripts.OnClick(W.picker.copy)
+check(
+  ns.option("chat") == false
+    and ns.option("sound") == 0
+    and ns.option("minimapAngle") == 90
+    and ns.option("worldMapPins") == true,
+  "… its choices copied (what it lacks: the defaults)"
+)
+local code = P:export()
+check(code == "FJ1:c0:s0:m1:w1:t1:h0:a90", "… a code for them: " .. code)
+SlashCmdList.FIELDJOURNAL("import FJ1:c1:s3175")
+check(ns.option("chat") and ns.option("sound") == 3175 and ns.option("minimapAngle") == 90, "… /journal import CODE")
+check(not P:import("LC1:c1") and ns.option("chat"), "… another addon's code refused")
+local copyFrom = panel.settings.FIELDJOURNAL_COPYFROM
+check(
+  copyFrom and copyFrom.options()[2].value == "Brann - Nightslayer",
+  "… the Options page offers the other characters too"
+)
+W.frame:Hide()
+
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")

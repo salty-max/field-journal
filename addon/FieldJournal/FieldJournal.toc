@@ -24,4 +24,5 @@ MilestonesBook.lua
 WorldMapPins.lua
 Minimap.lua
 Settings.lua
+Welcome.lua
 Hints.lua

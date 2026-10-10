@@ -141,7 +141,8 @@ end
 -- character of the same name is not theirs).
 function ns.login()
   local guid = UnitGUID("player")
-  if ns.belongsTo(FieldJournalChar, guid) then
+  local before = ns.belongsTo(FieldJournalChar, guid)
+  if before then
     char = FieldJournalChar
     char.creatures = char.creatures or {}
     char.families = char.families or {}
@@ -150,6 +151,7 @@ function ns.login()
   else
     newJournal(guid)
   end
+  ns.loadProfile(before)
   ns.createMinimapButton()
   ns.createSettingsPanel()
   -- Milestones a journal already deserves: recorded quietly.
@@ -158,12 +160,14 @@ end
 
 -- ── /journal ─────────────────────────────────────────────────────────────────
 local USAGE = "/journal opens the book; /journal settings; /journal minimap shows or hides the button; "
-  .. "/journal reset starts this character's journal over."
+  .. "/journal welcome shows the welcome page again; /journal export gives this character's settings as a code, "
+  .. "/journal import CODE takes them; /journal reset starts this character's journal over."
 
 SLASH_FIELDJOURNAL1 = "/journal"
 SLASH_FIELDJOURNAL2 = "/fj"
 SlashCmdList.FIELDJOURNAL = function(msg)
-  msg = strtrim((msg or ""):lower())
+  local raw = strtrim(msg or "")
+  msg = raw:lower()
   if msg == "" then
     ns.toggle()
   elseif msg == "reset" then
@@ -176,6 +180,16 @@ SlashCmdList.FIELDJOURNAL = function(msg)
     newJournal(char.guid)
     ns.refresh()
     print(PREFIX .. "the journal starts afresh.")
+  elseif msg == "welcome" then
+    ns.showWelcome()
+  elseif msg == "export" then
+    ns.showWelcome("export")
+  elseif msg:match("^import%s") then
+    if ns.profiles:import(raw:match("^%a+%s+(.+)$")) then
+      print(PREFIX .. "settings imported for this character.")
+    else
+      print(PREFIX .. "that isn't an Explorer's Field Journal settings code (/journal export makes one).")
+    end
   elseif msg == "atlas" then
     ns.atlasReport()
   elseif msg == "minimap" then

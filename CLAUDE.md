@@ -80,7 +80,15 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   Plants), `AtlasBook.lua` (zones by continent, the zone's map art with its
   explored overlays and marks), `MilestonesBook.lua`. `WorldMapPins.lua`
   (deaths on the game's world map), `Hints.lua` (tooltip line),
-  `Settings.lua`, `Minimap.lua`. A game function is checked before use only
+  `Settings.lua` (each character's settings, the kit's profiles: a profile
+  "Name - Realm" in FieldJournalSettings, copied from another character of
+  this game or from a code `FJ1:...`, `/journal export` and `/journal import
+  CODE`; a character who kept a journal before starts from the account's old
+  values; the Options page, its "Copy settings from"), `Welcome.lua` (the
+  kit's welcome page, once per character, `/journal welcome`: the logo,
+  `Media/Logo.tga` from `assets/logo.png` with magick, what the journal is,
+  the choices, the sound in a select; the packages carry `Media/`),
+  `Minimap.lua`. A game function is checked before use only
   where the clients differ; the test game has every one the addon calls.
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).

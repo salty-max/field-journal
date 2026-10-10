@@ -51,7 +51,9 @@ Each game has its own file: pick the one for yours (the CurseForge app does it f
 
 ## Settings
 
-Options → AddOns → Explorer's Field Journal (or `/journal settings`, or right-click the minimap button): chat announcements, the trophy sound, milestone alerts, deaths and close calls on the world map, tooltip hints, the minimap button.
+The first time each character logs in with the journal, a welcome page introduces it and offers its choices (`/journal welcome` shows it again). After that: Options → AddOns → Explorer's Field Journal (or `/journal settings`, or right-click the minimap button): chat announcements, the trophy sound, milestone alerts, deaths and close calls on the world map, tooltip hints, the minimap button.
+
+Settings are each character's own, as in most interface addons. A character can take another's: choose one of your characters of the same game from a list (on the welcome page or the Options page), or bring them from anywhere with a code: `/journal export` on one character, `/journal import CODE` on the other.
 
 Other commands: `/journal reset` starts a character's journal over (it asks first); `/journal minimap` shows or hides the button.
 

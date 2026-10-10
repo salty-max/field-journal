@@ -69,9 +69,13 @@ globals:
     any: true
   GetNumLootItems:
     any: true
+  GetRealmName:
+    any: true
   GetRealZoneText:
     any: true
   GetSubZoneText:
+    any: true
+  InCombatLockdown:
     any: true
   ITEM_QUALITY_COLORS:
     any: true
