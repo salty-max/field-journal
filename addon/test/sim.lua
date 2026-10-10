@@ -960,6 +960,24 @@ check(
 )
 check(D.models[1131] and wolves[1131].portrait.display == D.models[1131], "… and its portrait, from its display id")
 check(shown("Winter Wolf") and shown("Starving Winter Wolf"), "an open family lists its creatures under it")
+-- The Bestiary's select, under the search box: its creatures' order.
+local filter = FieldJournalFrame.filter
+check(filter.shown and filter.text:GetText() == "Sorted by name", "the Bestiary's select: by name at first")
+local function order()
+  local out = {}
+  for _, e in ipairs(ns.pageEntries) do
+    if e.shown then table.insert(out, e.id) end
+  end
+  return out
+end
+local slainBefore = FieldJournalChar.creatures[1133].slain
+FieldJournalChar.creatures[1133].slain = 99
+filter.scripts.OnClick(filter)
+filter.rows[2].scripts.OnClick(filter.rows[2])
+ns.openFamily(D.creatures[1131])
+check(order()[1] == 1133 and filter.text:GetText() == "The most slain first", "… the most slain first, chosen")
+filter.rows[1].scripts.OnClick(filter.rows[1])
+FieldJournalChar.creatures[1133].slain = slainBefore
 shown("Winter Wolf").scripts.OnClick(shown("Winter Wolf"))
 local record = {}
 for _, p in ipairs(ns.pagePairs) do
@@ -1044,6 +1062,12 @@ check(
   "… the places explored, by name"
 )
 check(FieldJournalAtlasPage.sub.text:find(("2 of %d places explored"):format(#dun), 1, true), "… and how many remain")
+check(
+  FieldJournalFrame.filter.shown
+    and FieldJournalFrame.filter.text:GetText() == "Every land"
+    and #FieldJournalFrame.filter.options >= 2,
+  "the Atlas's select: every land, or a continent entered"
+)
 local zoneRows = {}
 for _, r in ipairs(ns.atlasRows) do
   if r.shown then zoneRows[r.text.text] = r end
@@ -1056,6 +1080,20 @@ check(
   zoneRows["Dun Morogh"].bar.shown and zoneRows["Dun Morogh"].count.text == ("2/%d"):format(#dun),
   "a zone's row carries a bar and a count of its places"
 )
+do
+  local f = FieldJournalFrame.filter
+  local ek
+  for k, o in ipairs(f.options) do
+    if o.text == "Eastern Kingdoms" then ek = k end
+  end
+  f.rows[ek].scripts.OnClick(f.rows[ek])
+  local only = {}
+  for _, r in ipairs(ns.atlasRows) do
+    if r.shown then only[r.text.text] = true end
+  end
+  check(only["Dun Morogh"] and not only.Durotar, "… one continent chosen: its zones alone")
+  f.rows[1].scripts.OnClick(f.rows[1])
+end
 check(
   zoneRows[dun[1][1]] and zoneRows[dun[2][1]] and zoneRows[dun[1][1]].kind == "place" and not zoneRows[dun[3][1]],
   "… and, open, the places discovered under it, none other"

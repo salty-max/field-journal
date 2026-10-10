@@ -26,7 +26,7 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 ## The book
 
 - `/journal` (or `/fj`), or the book by the minimap, opens it: the creature types on the left, their families and the creatures in each; on the right, a family's note or a creature's page, with the game's own portrait of it.
-- Search by family or creature name; types and families fold.
+- Search by family or creature name; types and families fold; sort a family's creatures by name, the most slain, the last slain or the order you met them.
 - A Trophies page for the rares and bosses you have brought down.
 - No spoilers: only what you have slain is listed, and nothing says how much remains.
 
@@ -36,7 +36,7 @@ Two tabs for what the land and the water give. **Fish**: every catch, with where
 
 ## The Atlas
 
-Another book in the same journal: every zone you have entered, by continent, and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), the zone's own map with the parts you have explored and the places you died or came close, and your record of it: first visit, places, deaths, close calls, flights. Your deaths and close calls also show on the game's world map (a setting).
+Another book in the same journal: every zone you have entered, by continent (all of them, or one at a time), and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), the zone's own map with the parts you have explored and the places you died or came close, and your record of it: first visit, places, deaths, close calls, flights. Your deaths and close calls also show on the game's world map (a setting).
 
 ## Milestones
 

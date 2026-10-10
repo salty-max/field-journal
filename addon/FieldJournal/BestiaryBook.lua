@@ -105,9 +105,30 @@ end
 local function placeShort(p) return p and (p:match(": (.+)$") or p) end
 local function day(stamp) return ui.day(stamp) end
 
+-- The creatures of a family in the order the select asks: by name, the most
+-- slain, the last slain, or in the order they were first met.
+local SORTS = {
+  { value = "name", text = "Sorted by name" },
+  { value = "slain", text = "The most slain first" },
+  { value = "recent", text = "The last slain first" },
+  { value = "met", text = "In the order met" },
+}
 local function sortedIds(ids)
   local creatures = ns.journal().creatures
-  table.sort(ids, function(a, b) return (creatures[a].name or "") < (creatures[b].name or "") end)
+  local by = ns.filterOf(ns.TAB.bestiary) or "name"
+  local function name(id) return creatures[id].name or "" end
+  local function key(id)
+    local rec = creatures[id]
+    if by == "slain" then return -(rec.slain or 0) end
+    if by == "recent" then return -((rec.lastSlain and rec.lastSlain.at) or 0) end
+    if by == "met" then return (rec.firstSlain and rec.firstSlain.at) or (rec.first and rec.first.at) or 0 end
+    return 0
+  end
+  table.sort(ids, function(a, b)
+    local ka, kb = key(a), key(b)
+    if ka ~= kb then return ka < kb end
+    return name(a) < name(b)
+  end)
   return ids
 end
 
@@ -501,7 +522,7 @@ end
 ns.addTab(ns.TAB.bestiary, {
   build = function(b)
     book = b
-    list = ui.newList(book.left, style, rows)
+    list = ui.newList(book.left, style, rows, true)
     page = ui.newPage(book.sheet, "FieldJournalPage", 92, pairsPool)
     -- On a creature's page, its family (the line under the title): a click
     -- opens the family's page.
@@ -516,6 +537,7 @@ ns.addTab(ns.TAB.bestiary, {
     page:SetShown(n == ns.TAB.bestiary)
   end,
   refresh = refresh,
+  filter = { default = "name", options = function() return SORTS end },
 })
 
 -- Open the book at a family (its id, or ?<type>/<family>; an older link's

@@ -142,8 +142,9 @@ local function refreshList()
     end)
     if current == nil then list:pick(r) end
   end
+  local only = ns.filterOf(ns.TAB.atlas)
   for _, c in ipairs(continents()) do
-    local zones = zonesOf(c[1], hit)
+    local zones = (only == "all" or only == c[1]) and zonesOf(c[1], hit) or {}
     if #zones > 0 then
       list:gap(6)
       list:add("section", c[2])
@@ -477,7 +478,7 @@ end
 -- ── building ─────────────────────────────────────────────────────────────────
 local function build(b)
   book = b
-  list = ui.newList(book.left, style, rows)
+  list = ui.newList(book.left, style, rows, true)
   page = ui.newPage(book.sheet, "FieldJournalAtlasPage", 100, pairsPool)
   local map = CreateFrame("Frame", nil, page.child)
   map:SetClipsChildren(true)
@@ -496,6 +497,15 @@ local function build(b)
   page.map = map
 end
 
+-- The select's lands: every one, or a continent entered (none not yet seen).
+local function lands()
+  local out = { { value = "all", text = "Every land" } }
+  for _, c in ipairs(continents()) do
+    if #zonesOf(c[1], function() return true end) > 0 then table.insert(out, { value = c[1], text = c[2] }) end
+  end
+  return out
+end
+
 ns.addTab(ns.TAB.atlas, {
   build = build,
   show = function(n)
@@ -503,6 +513,7 @@ ns.addTab(ns.TAB.atlas, {
     page:SetShown(n == ns.TAB.atlas)
   end,
   refresh = refresh,
+  filter = { default = "all", options = lands },
 })
 
 -- Open the book at a zone's page (fieldjournal:z<uiMap>: a link in chat).

@@ -71,10 +71,11 @@ end
 local ROW_WIDTH = 204
 local List = {}
 
-local function newList(parent, style, rows)
+-- (filtered: under the select of a tab with a filter)
+local function newList(parent, style, rows, filtered)
   local l = extend(scrollArea(parent, ROW_WIDTH), List)
   l.rows, l.style = rows or {}, style
-  l:SetPoint("TOPLEFT", parent, "TOPLEFT", 12, -40)
+  l:SetPoint("TOPLEFT", parent, "TOPLEFT", 12, filtered and -70 or -40)
   l:SetPoint("BOTTOMRIGHT", parent, "BOTTOMRIGHT", -18, 12)
   return l
 end
@@ -286,9 +287,19 @@ local book
 local TAB = { bestiary = 1, fish = 2, plants = 3, atlas = 4, milestones = 5 }
 ns.TAB = TAB
 -- tabs[n] = { build(book), show(selected tab), refresh(), chosen() (its tab
--- clicked), whole (over both panels) }
+-- clicked), whole (over both panels), filter = { default, options() } (a
+-- select under the search box: its choice, ns.filterOf(n)) }
 local tabs, TAB_TITLES = {}, { "Bestiary", "Fish", "Plants", "Atlas", "Milestones" }
 function ns.addTab(n, tab) tabs[n] = tab end
+
+-- A tab's choice in its select (the kit's, under the search box), else its
+-- default; kept for the session.
+function ns.filterOf(n)
+  local tab = tabs[n]
+  if not (tab and tab.filter) then return nil end
+  if tab.filterValue == nil then return tab.filter.default end
+  return tab.filterValue
+end
 
 -- The standard game window (portrait: the journal's book; title bar), else a
 -- plain dialog where the client has no such template (Kit.lua).
@@ -313,6 +324,13 @@ function ns.showTab(n)
   book.left:SetShown(not tab.whole)
   book.sheet:SetShown(not tab.whole)
   book.search:SetShown(not tab.whole)
+  if tab.filter and not tab.whole then
+    book.filter:SetOptions(tab.filter.options())
+    book.filter:SetValue(ns.filterOf(n))
+    book.filter:Show()
+  else
+    book.filter:Hide()
+  end
   local told = {}
   for _, t in ipairs(tabs) do
     if t.built and not told[t] then
@@ -346,6 +364,14 @@ local function build()
   book.search:SetPoint("TOPLEFT", book.left, "TOPLEFT", 18, -10)
   book.search:SetPoint("TOPRIGHT", book.left, "TOPRIGHT", -12, -10)
   book.search:HookScript("OnTextChanged", function() ns.refresh() end)
+  -- Under it, the open tab's own select (a sort, a continent), if it has one.
+  book.filter = K.select(book.left, 220, "")
+  book.filter:SetPoint("TOPLEFT", book.left, "TOPLEFT", 12, -38)
+  book.filter.onChange = function(value)
+    tabs[book.selectedTab].filterValue = value
+    ns.refresh()
+  end
+  book.filter:Hide()
 
   book.selectedTab = TAB.bestiary
   book:SetScript("OnShow", function() ns.showTab(book.selectedTab) end)

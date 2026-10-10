@@ -73,7 +73,9 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   kit:sync` after changing the kit, `bun run kit:check` to verify),
   `Book.lua` (the journal's theme on the kit, the window, its tabs
   registered by their files with `ns.addTab`, links in chat, and the kit
-  every tab is made of, `ns.ui`: `newList` for the list on the left,
+  every tab is made of, `ns.ui`; a tab's own select under the search box,
+  registered with its tab, `filter = { default, options() }`, its choice
+  `ns.filterOf(n)`: the Bestiary's order, the Atlas's continent; `newList` for the list on the left,
   `newPage` for the page on the right),
   `BestiaryBook.lua` (still portraits from the data's display ids,
   `SetPortraitTextureFromCreatureDisplayID`), `FloraBook.lua` (Fish and
