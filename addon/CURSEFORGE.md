@@ -4,9 +4,9 @@
 The project's title on CurseForge: "Explorer's Field Journal: Bestiary, Atlas &
 Fishing" (the addon's own name stays Explorer's Field Journal). -->
 
-**A bestiary, an atlas, and a record of the fish you catch and the herbs you gather, filled in as you travel.** A naturalist of the Explorers' League has left you a field journal: target or mouse over a creature of the wild and it is written down, with what you have learned of it. Slay it, loot it, take its trophy if it is rare, and the journal keeps the count.
+**A bestiary, an atlas, and a record of the fish you catch and the herbs you gather, filled in as you travel.** A naturalist of the Explorers' League has left you a field journal: slay a creature of the wild and it is written down, with where you first met it and what you have learned of it. Loot it, bring down the rare ones for a trophy, and the journal keeps the count.
 
-For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever. A companion to [Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex), in the same League's hand.
+For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever. A companion to [Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex), in the same League's hand, and a sibling of [Hearthtale](https://github.com/salty-max/hearthtale): the three share one look, each in its own colours, and each stands alone.
 
 ## What's inside
 
@@ -18,7 +18,7 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 
 - A creature joins your journal the first time you slay it, with where you first saw it and its levels. Only creatures you can fight are kept: no town folk, no critters.
 - Each new creature is announced by a line in chat, with a link to its page. No banner, no sound: the journal stays out of your way.
-- Kills count when you or your pet land them, however they were dealt: a DoT, an area spell, a creature you never targeted. Rares and bosses become trophies, with a sound.
+- Kills count when you, your pet or your group land them, however they were dealt: a DoT, an area spell, a creature you never targeted. A creature you tagged that another player finished counts too, when a quest of yours counts it. Rares and bosses become trophies, with a sound.
 - On World of Warcraft: Forever, creatures inside dungeons and raids are hidden from every addon by the game: they can't be recorded there.
 - Each character keeps its own journal.
 - Tooltips say when a creature is not yet in your journal, or how many you have slain.
@@ -32,7 +32,7 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 
 ## Fish and Plants
 
-Two tabs for what the land and the water give. **Fish**: every catch, with where and when it bit, by day or by night, from a school or open water, and for the weighed catches (the 32 Pound Catfish...) the heaviest you landed. **Plants**: every herb that reaches your bags, gathered from its node, looted, bought or given. Each of the 30 herbs and 32 fish has a naturalist's note (where it grows or bites, what it is used for), and its page says where it is found once you have found it. Each zone's Atlas page lists what grows and bites there.
+Two tabs for what the land and the water give. **Fish**: every catch, with where and when it bit, by day or by night, from a school or open water, and for the weighed catches (the 32 Pound Catfish...) the heaviest you landed. **Plants**: every herb that reaches your bags, gathered from its node, looted, bought or given. Each of the 30 herbs and 39 fish has a naturalist's note (where it grows or bites, what it is used for), and its page says where it is found once you have found it. Each zone's Atlas page lists what grows and bites there.
 
 ## The Atlas
 
@@ -47,13 +47,13 @@ The last tab: tallies (kinds recorded, families, creatures slain, trophies), eve
 Each game has its own file: pick the one for yours (the CurseForge app does it for you).
 
 - **Classic**: Classic Era, Hardcore, Season of Discovery, TBC Anniversary.
-- **Forever**: World of Warcraft: Forever. Forever closes the combat log to addons, so a kill is counted when you loot the corpse, or target it dead after fighting it.
+- **Forever**: World of Warcraft: Forever, with Zephras Isle in the Atlas and Forever's new rares in each zone's milestones. Forever closes the combat log to addons, so kills come from the game's own kill event.
 
 ## Settings
 
 Options → AddOns → Explorer's Field Journal (or `/journal settings`, or right-click the minimap button): chat announcements, the trophy sound, milestone alerts, deaths and close calls on the world map, tooltip hints, the minimap button.
 
-Other commands: `/journal reset` starts a character's journal over; `/journal minimap` shows or hides the button.
+Other commands: `/journal reset` starts a character's journal over (it asks first); `/journal minimap` shows or hides the button.
 
 ## Source
 
