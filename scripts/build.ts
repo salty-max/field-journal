@@ -23,9 +23,14 @@
  *   paragraph with [classic] or [forever] for an account specific to that world.
  *
  * Each creature goes to the first rule that claims it, in this order: ids,
- * people, name (of the creature's own type), beast, name (from a family with
- * anytype: another type's pattern), fallback. So a raptor stays a raptor even
- * if a plant's pattern matches its name. Two families claiming a creature at the same
+ * people, name (of the creature's own type) and beast (for a beast, its own
+ * family first: the game files a Steeljaw Snapper with the turtles, whatever
+ * its name), model (a family of its own type that the creatures of its model
+ * and type were given by those, when they agree: the game drew it as one of
+ * them; never for the undead, whose allegiance is no matter of looks), name
+ * (from a family with anytype: another type's pattern), fallback. So a
+ * raptor stays a raptor even if a plant's pattern matches its name, and a
+ * rare drawn as a worgen joins the worgen. Two families claiming a creature at the same
  * level is an error (except names: the family with the lower order wins, and
  * the build lists such overlaps with --verbose).
  *
@@ -155,9 +160,17 @@ for (const f of families) {
 }
 
 // ── sorting creatures into families ───────────────────────────────────────────
-const LEVELS = ["ids", "people", "name", "beast", "anyname", "fallback"] as const;
-const claims = (f: Family, c: Creature, level: (typeof LEVELS)[number]) =>
+const LEVELS = ["ids", "people", "name", "beast", "model", "anyname", "fallback"] as const;
+type Level = (typeof LEVELS)[number];
+// The sure levels first (a beast's own family before a name pattern), then
+// the rest, once the sure ones have shown which family each model belongs to.
+const sureLevels = (c: Creature): Level[] =>
+  c.type === "Beast" ? ["ids", "people", "beast", "name"] : ["ids", "people", "name", "beast"];
+const LATE: Level[] = ["model", "anyname", "fallback"];
+const claims = (f: Family, c: Creature, level: Level) =>
   f.rules.some((r) => {
+    if (level === "model")
+      return c.type !== "Undead" && f.type === c.type && modelFamily.get(`${c.type}/${c.model}`) === f && r === f.rules[0];
     if (level === "anyname") return r.kind === "name" && f.anytype && c.type !== f.type && r.re.test(c.name);
     if (r.kind !== level) return false;
     if (r.kind === "ids") return r.ids.includes(c.id);
@@ -170,9 +183,11 @@ const claims = (f: Family, c: Creature, level: (typeof LEVELS)[number]) =>
 const familyOf = new Map<number, Family>();
 const overlaps: string[] = [];
 const unsorted: Creature[] = [];
-for (const c of creatures) {
-  let chosen: Family | undefined;
-  for (const level of LEVELS) {
+// The family the sure rules gave the creatures of each model and type, when
+// they agree on one (a tie decides nothing).
+const modelFamily = new Map<string, Family | undefined>();
+const sort = (c: Creature, levels: Level[]) => {
+  for (const level of levels) {
     const hits = families.filter((f) => claims(f, c, level));
     if (!hits.length) continue;
     if (hits.length > 1) {
@@ -180,9 +195,29 @@ for (const c of creatures) {
       if (level === "name" || level === "anyname") overlaps.push(msg);
       else errors.push(`claimed twice at "${level}": ${msg}`);
     }
-    chosen = hits[0];
-    break;
+    return hits[0];
   }
+};
+for (const c of creatures) {
+  const chosen = sort(c, sureLevels(c));
+  if (chosen) familyOf.set(c.id, chosen);
+}
+const byModel = new Map<string, Map<Family, number>>();
+for (const c of creatures) {
+  const f = familyOf.get(c.id);
+  if (!f || !c.model) continue;
+  const key = `${c.type}/${c.model}`;
+  const counts = byModel.get(key) ?? new Map<Family, number>();
+  counts.set(f, (counts.get(f) ?? 0) + 1);
+  byModel.set(key, counts);
+}
+for (const [key, counts] of byModel) {
+  const ranked = [...counts].sort((a, b) => b[1] - a[1]);
+  modelFamily.set(key, ranked.length === 1 || ranked[0][1] > ranked[1][1] ? ranked[0][0] : undefined);
+}
+for (const c of creatures) {
+  if (familyOf.has(c.id)) continue;
+  const chosen = sort(c, LATE);
   if (chosen) familyOf.set(c.id, chosen);
   else unsorted.push(c);
 }

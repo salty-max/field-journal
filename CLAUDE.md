@@ -38,8 +38,11 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   game's recipes of the original game.
 - `content/<section>/_section.md`: a creature type (title, type, order);
   `content/<section>/<family>.md`: a family (id, title, order, `match:` rules,
-  the naturalist's note). Rules, in priority: ids, people, name (regex, the
-  section's type unless `anytype: true`), beast (CreatureFamily id), fallback.
+  the naturalist's note). Rules, in priority: ids, people, name (regex, the section's type) and beast
+  (CreatureFamily id; for a beast, the game's own family first), model (a
+  family of its own type that the creatures of its model were sorted into by
+  those, when they agree; never for the undead), name of another type (a
+  family with `anytype: true`), fallback.
 - `scripts/build.ts`: sorts every creature into a family, reports overlaps
   (`--verbose`) and families without a note, writes
   `addon/FieldJournal/Data_Classic.lua` and `Data_Forever.lua` (generated,
