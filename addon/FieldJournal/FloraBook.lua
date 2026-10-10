@@ -27,7 +27,7 @@ local FISH_GROUPS = {
   { "food", "Fish of the waters" },
   { "reagent", "Reagents" },
   { "special", "Rare catches" },
-  { "quest", "Quest fish" },
+  { "quest", "Quest catches" },
   { "record", "Weighed catches" },
 }
 local KIND = {

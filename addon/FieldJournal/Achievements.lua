@@ -80,19 +80,19 @@ local function count(ids, test)
   return n
 end
 
--- A section's families, and how many of them have been met.
+-- A section's families (their ids), and how many of them have been met.
 local function sectionFamilies(section)
   local out = {}
-  for i, f in ipairs(D.families) do
-    if f.section == section then table.insert(out, i) end
+  for _, f in ipairs(D.families) do
+    if f.section == section then table.insert(out, f.id) end
   end
   return out
 end
-local function familiesMetIn(indexes)
+local function familiesMetIn(ids)
   local families = char() and char().families or {}
   local n = 0
-  for _, i in ipairs(indexes) do
-    if families[i] then n = n + 1 end
+  for _, id in ipairs(ids) do
+    if families[id] then n = n + 1 end
   end
   return n
 end
@@ -160,15 +160,15 @@ local SECTION_TITLES = {
   oddities = "Curiosities",
 }
 for _, s in ipairs(D.sections) do
-  local indexes = sectionFamilies(s.id)
-  if #indexes > 0 then
+  local ids = sectionFamilies(s.id)
+  if #ids > 0 then
     add(
       "type",
       "type-" .. s.id,
       SECTION_TITLES[s.id] or s.title,
       ("Slay a creature of every family of %s."):format(s.title == "Humanoids" and "humanoids" or s.title:lower()),
-      function() return familiesMetIn(indexes), #indexes end,
-      { visible = function() return familiesMetIn(indexes) > 0 end }
+      function() return familiesMetIn(ids), #ids end,
+      { visible = function() return familiesMetIn(ids) > 0 end }
     )
   end
 end
@@ -198,7 +198,7 @@ add("feat", "dragonflights", "Every Colour of Dragon", "Slay a dragon of each of
   local families = char() and char().families or {}
   local n = 0
   for _, f in ipairs(DRAGONFLIGHTS) do
-    if familyIndex[f] and families[familyIndex[f]] then n = n + 1 end
+    if families[f] then n = n + 1 end
   end
   return n, #DRAGONFLIGHTS
 end)

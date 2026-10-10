@@ -376,10 +376,12 @@ end
 
 -- ── links in chat ────────────────────────────────────────────────────────────
 -- |Hfieldjournal:<what>|h: c<creature id>, m<milestone id>, z<uiMap>,
--- f<fish>, h<herb>, else a family (its index, or "?type/family").
+-- f<fish>, h<herb>, else a family (its id, "murlocs", first: an id may begin
+-- with one of those letters; an older link's index; or "?type/family").
 local function followLink(link)
   local key = link:match("^fieldjournal:(.+)$")
   if not key then return end
+  if ns.familyById[key] then return ns.openFamily(key) end
   local kind, rest = key:sub(1, 1), key:sub(2)
   local id = tonumber(rest)
   if kind == "m" then

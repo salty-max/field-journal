@@ -3,6 +3,7 @@ id: thunder-lizards
 title: Thunder Lizards
 order: 220
 match:
+  - ids: 3238, 3239, 3240   # Stormhide, Thunderhead, Stormsnout (the Cliff Stormers' models)
   - name: "\b(Lizard|Stormer)\b"
 ---
 A thunder lizard carries the surprise of a storm in a heavy, four-footed body. The thunderheads of the Barrens and the great beasts of Desolace can look like ordinary grazing animals until lightning makes the distinction plain.

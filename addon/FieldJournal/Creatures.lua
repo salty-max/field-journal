@@ -68,17 +68,25 @@ local function lookups()
   end
 end
 
--- The family a creature belongs to: Data.lua's index, else by what the game
--- said of it when met; a "?type/family" key if even that fails.
+-- The families by their id ("wolves"), the key the journal keeps them by:
+-- never their place in Data.lua's list, which a new family would shift.
+local byId = {}
+for _, f in ipairs(D.families) do
+  byId[f.id] = f
+end
+ns.familyById = byId
+
+-- The family a creature belongs to (its id): Data.lua's, else by what the
+-- game said of it when met; a "?type/family" key if even that fails.
 function ns.familyKey(id, rec)
   local index = D.creatures[id]
-  if index then return index end
+  if index then return D.families[index].id end
   local c = ns.journal()
   rec = rec or (c and c.creatures[id])
   if not (rec and rec.type) then return end
   lookups()
   index = (rec.family and byBeast[rec.family]) or byType[rec.type]
-  if index then return index end
+  if index then return D.families[index].id end
   return "?" .. rec.type .. (rec.family and ("/" .. rec.family) or "")
 end
 
@@ -90,7 +98,7 @@ function ns.knownType(ctype)
 end
 
 function ns.familyTitle(key)
-  if type(key) == "number" then return D.families[key].title end
+  if byId[key] then return byId[key].title end
   local t, f = key:match("^%?([^/]+)/?(.*)$")
   if f and f ~= "" then return ("Unrecorded %s: %s"):format(t or "?", f) end
   return ("Unrecorded: %s"):format(t or "?")

@@ -209,7 +209,7 @@ local function showFamily(key)
       "The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed."
   else
     ids = sortedIds(ns.metByFamily()[key] or {})
-    local family = type(key) == "number" and D.families[key]
+    local family = ns.familyById[key]
     local section
     for _, s in ipairs(D.sections) do
       if family and s.id == family.section then section = s.title end
@@ -337,7 +337,6 @@ local function journalState(name)
 end
 local function folded() return journalState("collapsed") end
 local function opened() return journalState("open") end
-local function familyId(key) return type(key) == "number" and D.families[key].id or key end
 
 local function style(r, kind)
   if kind == "section" then
@@ -404,16 +403,16 @@ local function refreshList()
       if not searching or titleHit or nameHit(id) then table.insert(shownIds, id) end
     end
     if #shownIds == 0 then return end
-    local open = searching or opened()[familyId(key)]
+    local open = searching or opened()[key]
     local r = list:add("family", ns.familyTitle(key), #ids)
     ui.fold(r, open)
     r.key = key
     r:SetScript("OnClick", function()
       -- The open family's row folds it; any other opens its page, unfolded.
-      if current == key and not currentCreature and opened()[familyId(key)] then
-        opened()[familyId(key)] = nil
+      if current == key and not currentCreature and opened()[key] then
+        opened()[key] = nil
       else
-        opened()[familyId(key)] = true
+        opened()[key] = true
         choose(key)
       end
       ns.refresh()
@@ -462,10 +461,10 @@ local function refreshList()
   local placed = {}
   for _, section in ipairs(D.sections) do
     local keys = {}
-    for index, family in ipairs(D.families) do
-      if family.section == section.id and by[index] then
-        table.insert(keys, index)
-        placed[index] = true
+    for _, family in ipairs(D.families) do
+      if family.section == section.id and by[family.id] then
+        table.insert(keys, family.id)
+        placed[family.id] = true
       end
     end
     addSection(section.id, section.title, keys)
@@ -492,7 +491,7 @@ local function refresh()
     end
     if latest then
       choose(latest)
-      opened()[familyId(latest)] = true
+      opened()[latest] = true
     end
   end
   refreshList()
@@ -519,12 +518,14 @@ ns.addTab(ns.TAB.bestiary, {
   refresh = refresh,
 })
 
--- Open the book at a family (fieldjournal:<family index> or
--- fieldjournal:?<type>/<family>), unfolded in the list.
+-- Open the book at a family (its id, or ?<type>/<family>; an older link's
+-- index in Data.lua's list), unfolded in the list.
 function ns.openFamily(key)
   if not ns.journal() then return end
+  if type(key) == "number" then key = D.families[key] and D.families[key].id end
+  if not key then return end
   choose(key)
-  opened()[familyId(key)] = true
+  opened()[key] = true
   ns.openTab(ns.TAB.bestiary)
 end
 
@@ -534,6 +535,6 @@ function ns.openCreature(id)
   if not rec then return end
   local key = ns.familyKey(id, rec)
   choose(key, id)
-  opened()[familyId(key)] = true
+  opened()[key] = true
   ns.openTab(ns.TAB.bestiary)
 end

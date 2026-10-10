@@ -719,6 +719,39 @@ do
   fire("PLAYER_LOGIN")
 end
 
+-- The families met are kept by their id and rebuilt from the creatures at
+-- each login: an older journal's places in Data.lua's list go, a family kept
+-- by its id keeps its date, and one a creature has moved into (the Stagwings,
+-- hippogryphs once filed with the grazers) comes, dated by its first kill.
+do
+  local saved = FieldJournalChar
+  FieldJournalChar = {
+    guid = PLAYER,
+    killRule = true,
+    creatures = {
+      [1131] = { name = "Winter Wolf", slain = 4, firstSlain = { at = 100, level = 6 } },
+      [5304] = { name = "Frayfeather Stagwing", slain = 1, firstSlain = { at = 200, level = 44 } },
+    },
+    families = { wolves = { at = 50, level = 5 }, [3] = { at = 1 }, [17] = { at = 2 } },
+  }
+  fire("PLAYER_LOGIN")
+  local f = FieldJournalChar.families
+  check(
+    ns.familyKey(1131) == "wolves"
+      and ns.familyKey(5304) == "birds"
+      and f.wolves.at == 50
+      and f.birds
+      and f.birds.at == 200
+      and f.birds.level == 44
+      and not f[3]
+      and not f[17]
+      and not f["stags-and-steeds"],
+    "families kept by their id, rebuilt from the creatures at login: a moved creature brings its new family"
+  )
+  FieldJournalChar = saved
+  fire("PLAYER_LOGIN")
+end
+
 -- ── the atlas ────────────────────────────────────────────────────────────────
 -- Only places a character can discover: not the capitals drawn on their zone's
 -- map, not Forever's Dalaran behind its dome.
@@ -956,6 +989,11 @@ linkHandlers.fieldjournal("fieldjournal:c1132")
 check(
   FieldJournalFrame.shown and FieldJournalPage.title.text:find("^Timber"),
   "a link in chat opens the book at the creature's page"
+)
+linkHandlers.fieldjournal("fieldjournal:murlocs")
+check(
+  FieldJournalPage.title.text == "Murlocs",
+  "… a family's link by its id, even one beginning like a creature's or a milestone's"
 )
 
 -- The atlas in the book.
@@ -1207,7 +1245,7 @@ check(
     and rowNamed("Raw Brilliant Smallfish")
     and rowNamed("Raw Brilliant Smallfish").count.text == "1"
     and not rowNamed("Raw Slitherskin Mackerel")
-    and not rowNamed("Quest fish"),
+    and not rowNamed("Quest catches"),
   "… lists what was caught, in groups, with counts: nothing else (no spoilers)"
 )
 rowNamed("Catfish").scripts.OnClick(rowNamed("Catfish"))

@@ -15,7 +15,9 @@
 --       trophy = { at, level, rank }   a rare's or a boss's first kill
 --       display                  its portrait's display id, asked of the game
 --     }
---     families[familyKey] = { at, level }   when each family was first slain
+--     families[familyId] = { at, level }    when each family was first slain
+--                                (by the family's id, "wolves"; rebuilt from
+--                                the creatures at each login)
 --     seen[id] = { name, type, family, first, last, low, high, places }
 --                                met but not yet slain: a creature joins the
 --                                book (creatures, families) on its first kill,
@@ -103,7 +105,8 @@ local function newJournal(guid)
 end
 
 -- From before a creature joined on its first kill (it joined on meeting):
--- the ones never slain go back to what was seen, the families with them.
+-- the ones never slain go back to what was seen (their families with them,
+-- by syncFamilies).
 local function killRule(c)
   c.seen = c.seen or {}
   for id, rec in pairs(c.creatures) do
@@ -111,15 +114,27 @@ local function killRule(c)
       c.seen[id], c.creatures[id] = rec, nil
     end
   end
-  local kept = {}
+  c.killRule = true
+end
+
+-- The families met, rebuilt from the creatures recorded at each login: a
+-- journal kept them by their place in Data.lua's list before 0.6 (which a
+-- new family would shift), and a creature may move to another family between
+-- versions. A family keeps its date, else takes its first creature's kill.
+local function syncFamilies(c)
+  local families = {}
   for id, rec in pairs(c.creatures) do
     local key = ns.familyKey(id, rec)
-    if key then kept[key] = true end
+    if key then
+      local was, first = families[key], rec.firstSlain or rec.first or {}
+      if type(c.families[key]) == "table" then
+        families[key] = c.families[key]
+      elseif not was or (first.at or 0) < (was.at or 0) then
+        families[key] = { at = first.at, level = first.level }
+      end
+    end
   end
-  for key in pairs(c.families) do
-    if not kept[key] then c.families[key] = nil end
-  end
-  c.killRule = true
+  c.families = families
 end
 
 -- This character's journal, or a new one (a journal saved by another
@@ -131,6 +146,7 @@ function ns.login()
     char.creatures = char.creatures or {}
     char.families = char.families or {}
     if not char.killRule then killRule(char) end
+    syncFamilies(char)
   else
     newJournal(guid)
   end
