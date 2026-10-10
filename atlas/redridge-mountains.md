@@ -5,4 +5,4 @@ Lakeshire sits on the western shore of Lake Everstill, where bridges and roads j
 
 The eastern heights are another matter. Stonewatch Keep is in Blackrock hands, and gnoll camps occupy the ridges between settled ground and the mountains.
 
-From Lakeshire, the far shore looks close enough to be part of the town's own country. The guards' view of it is considerably less peaceful.
+From Lakeshire, the far shore looks close enough to be part of the town's own country. The guards' view of it is much less peaceful.

@@ -7,4 +7,4 @@ Menethil's ships connect the Wetlands with Auberdine and Theramore. Inland, Drag
 
 [forever] Beyond the older dig at Whelgar's site, the new excavation reaches into ancient workings. Relics brought back to Whelgar give the League good reason to keep the approach on its maps.
 
-Off the road, reeds can hide the edge of a channel as readily as a crocolisk. The shortest route to the next rise may contain considerably more water than the map suggests.
+Off the road, reeds can hide the edge of a channel as readily as a crocolisk. The shortest route to the next rise may contain far more water than the map suggests.

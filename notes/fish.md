@@ -40,13 +40,13 @@ Cooks prepare it under its own name.
 
 Darkshore Grouper is sought in the rivers and falls inland from the coast.
 
-Gubber Blump at Auberdine asks for a catch of them and offers a fishing pole for the work. The fish can therefore help equip an angler for whatever comes out of the next river.
+Gubber Blump at Auberdine asks for a catch of them and offers a fishing pole for the work. The fish can help equip an angler for whatever comes out of the next river.
 
 ## 6308 Raw Bristle Whisker Catfish
 
 Bristle Whisker Catfish accompanies the freshwater angler across a wide stretch of country, including waters deep inside some very unwelcoming places.
 
-Most go toward supper. A large catfish weighed separately in pounds is likely to remain a subject of conversation considerably longer.
+Most go toward supper. A large catfish weighed separately in pounds is likely to remain a subject of conversation much longer.
 
 ## 8365 Raw Mithril Head Trout
 
@@ -70,7 +70,7 @@ It has its own place in the cook's repertoire, even when both arrive in the same
 
 Glossy Mightfish is caught off Tanaris and Azshara, in waters that reward an experienced angler.
 
-Cooked Glossy Mightfish restores health and adds stamina. A smaller fish can therefore supply much the same encouragement before a battle as the larger catch prepared for steaks.
+Cooked Glossy Mightfish restores health and adds stamina. A smaller fish can supply much the same encouragement before a battle as the larger catch prepared for steaks.
 
 ## 13759 Raw Nightfin Snapper
 
@@ -160,13 +160,13 @@ Raw, its effects are unpredictable. Savory Deviate Delight can disguise the dine
 
 Spotted Sunfish is sought in Lake Everstill at Lakeshire.
 
-Dockmaster Baren buys a catch of ten. A line cast from the town's waters can therefore contribute a little coin as well as a quiet interval beside the lake.
+Dockmaster Baren buys a catch of ten. A line cast from the town's waters can bring in a little coin as well as a quiet interval beside the lake.
 
 ## 6717 Gaffer Jack
 
 Gaffer jacks are lost tools, not fish: Wizbang Cranktoggle dropped a box of them overboard on his journey to Auberdine.
 
-He needs eight back to tune his stintle pegs. A line cast into the sea can therefore supply the beginnings of another invention, though it was the inventor's drinking that supplied the tools to the sea.
+He needs eight back to tune his stintle pegs. A line cast into the sea can supply the beginnings of another invention, though it was the inventor's drinking that supplied the tools to the sea.
 
 ## 6718 Electropeller
 
@@ -202,7 +202,7 @@ For a pupil who has already visited his other fishing grounds, the name marks an
 
 The large catfish are weighed individually, from seventeen pounds up to the uncommon thirty-two-pound catch.
 
-They share the Bristle Whisker Catfish's waters. An ordinary fishing place can therefore supply quite an extraordinary addition to an evening's story.
+They share the Bristle Whisker Catfish's waters. An ordinary fishing place can supply an extraordinary addition to an evening's story.
 
 ## 6292 Mud Snapper
 

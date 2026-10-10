@@ -27,6 +27,8 @@ jobs:
           echo "$HOME/bin" >> "$GITHUB_PATH"
       - name: Addon Lua formatted and linted
         run: stylua --check addon && selene addon/FieldJournal
+      - name: Paragraph markers
+        run: bun test scripts/paragraphs.test.ts
       - name: Content builds, content files are up to date
         run: bun scripts/build.ts --check
       - name: Simulation

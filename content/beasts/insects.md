@@ -7,4 +7,4 @@ match:
 ---
 Not every large insect belongs to a silithid hive. Beetles and scarabs inhabit the deserts and old ruins in their own right, though their size sometimes makes a traveller reach for a weapon before a notebook.
 
-In Zul'Farrak, scarabs move among the Sandfury's stonework and burial places. Against a temple wall they seem a small detail; gathered at one's boots, they command considerably more attention.
+In Zul'Farrak, scarabs move among the Sandfury's stonework and burial places. Against a temple wall they seem a small detail; gathered at one's boots, they command a good deal more attention.

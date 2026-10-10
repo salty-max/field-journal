@@ -1,7 +1,7 @@
 ---
 zone: 1454
 ---
-Orgrimmar follows the folds of a red-rock canyon, with its main gate opening south into Durotar. Ramps and passages join the valleys inside; two destinations close together on a flat map may require a considerable climb between them.
+Orgrimmar follows the folds of a red-rock canyon, with its main gate opening south into Durotar. Ramps and passages join the valleys inside; two destinations close together on a flat map may require a long climb between them.
 
 Grommash Hold stands in the Valley of Wisdom, while the city's wind riders leave from a high tower. Outside the walls, zeppelins connect the capital with the Undercity and Grom'gol.
 

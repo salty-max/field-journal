@@ -11,4 +11,4 @@ Troggs have come out of the deep places into Dun Morogh, Loch Modan and Gnomereg
 
 The records in Uldaman describe an earlier shaping of stone into life, followed by the earthen from whom dwarves descend. Those records make the trogg a subject for the League as well as an enemy at the dig.
 
-The same excavation can therefore produce an ancestor's history and a very angry inhabitant. Archaeology seldom arranges its subjects conveniently.
+So the same excavation can produce an ancestor's history and a very angry inhabitant. Archaeology seldom arranges its subjects conveniently.

@@ -9,4 +9,4 @@ match:
 ---
 Black dragonkin inhabit country marked by fire and broken stone. Whelps appear in Redridge and the Badlands; greater servants guard Nefarian's fortress in Blackrock Spire and Onyxia's lair in Dustwallow.
 
-Deathwing's betrayal hangs over the flight, while his children pursue ambitions of their own. Nefarian's experiments bring dragons of different colours into the same terrible work. A naturalist accustomed to describing the distinctions between flights finds very little comfort in what he is trying to make of them.
+Deathwing's betrayal hangs over the flight, while his children pursue ambitions of their own. Nefarian's experiments bring dragons of different colours into the same terrible work. A naturalist accustomed to describing the distinctions between flights finds very little comfort in what Nefarian is trying to make of them.
