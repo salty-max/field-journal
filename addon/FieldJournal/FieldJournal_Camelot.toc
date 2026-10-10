@@ -2,7 +2,7 @@
 ## Title: Explorer's Field Journal
 ## Notes: A bestiary, an atlas and a record of your fish and herbs, filled in as you travel, with an Explorers' League naturalist's notes.
 ## Author: salty-max
-## Version: 0.7.1
+## Version: 0.7.2
 ## SavedVariablesPerCharacter: FieldJournalChar
 ## SavedVariables: FieldJournalSettings
 ## IconTexture: Interface\Icons\INV_Misc_Book_11
