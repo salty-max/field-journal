@@ -32,7 +32,9 @@ riddles:
     hint_area: { x: 82.8, y: 77.5, r: 7 }
     danger: "Quiet"
     sources: "quests 6681, 8233"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 2306
+  sources: "quests 523 (Magistrate Maleb), 566 (Tarren Mill's poster)"
 ---
 ## alterac-mountains-ansirem
 By the great lake's northern shore, the city of the mages lies broken,
@@ -69,3 +71,11 @@ Find it, and arrive as its guests do.
 ? A path in the mountains north-west of Durnholde Keep; nobody arrives there in plain sight.
 = Ravenholdt Manor, hall of the Assassin's League. Lord Jorach Ravenholdt is its master.
 + 'Your first task is to find the manor, hidden away in the hills of Hillsbrad and demonstrate your cunning.' The letter Fahrad sends young thieves.
+
+## quarry
+A noble of the fallen kingdom, known for a cold heart
+and brutal practices, put his name to a Syndicate contract.
+Southshore wants him brought to justice; Tarren Mill wants him dead.
+He was last seen in the uplands, north of the ruins of Strahnbrad.
+= Baron Vardus, a high-ranking member of the Syndicate. Magistrate Maleb in Southshore and High Executor Darthalia in Tarren Mill each pay for his head.
++ Maleb was not surprised to find the Baron behind it; Darthalia counts one Syndicate leader fewer.

@@ -32,7 +32,9 @@ riddles:
     hint_area: { x: 62.7, y: 26.0, r: 8 }
     danger: "Quiet"
     sources: "object 21582's text; the Codex's nethergarde-keep page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 8297
+  sources: "the dump: his spawn at Dreadmaul Post, Akubar the Seer's beside it"
 ---
 ## blasted-lands-dark-portal
 At the bottom of the red waste stands the gate the orcs first came through.
@@ -68,3 +70,11 @@ and of the heroes who closed it behind them.
 ? Nethergarde Keep.
 = Beyond the Dark Portal, in the keep Khadgar urged the kingdoms to build.
 + Ner'zhul escaped through one of his own portals with his most trusted servants, while Khadgar fought to bring his comrades home.
+
+## quarry
+The Dreadmaul ogres keep a post in the middle of these blasted lands,
+on the way between their hold in the north and the portal in the south.
+One of them is called the Unyielding, and keeps to that post,
+when he is there at all.
+= Magronos the Unyielding, an ogre of the Dreadmaul. Seldom met: the post is his on some days, and empty of him on most.
++ Akubar the Seer, another of the Dreadmaul as seldom seen, has been met at the same post.

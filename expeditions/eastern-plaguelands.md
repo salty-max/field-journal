@@ -44,7 +44,9 @@ riddles:
     hint_area: { x: 28.9, y: 81.5, r: 8 }
     danger: "Perilous (the infected trolls)"
     sources: "quest 6024"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 11896
+  sources: "quest 6136 (Nathanos Blightcaller)"
 ---
 ## eastern-plaguelands-lights-hope
 In the east of the dead country, a small stone chapel stands on hallowed ground,
@@ -98,3 +100,11 @@ Find the scroll.
 ? The Undercroft, in the south of the Eastern Plaguelands.
 = Hameya's torn scroll: 'Kill me. Before it's too late.'
 + He buried a chest in the dirt beside a wagon behind the crypt, and kept the only key.
+
+## quarry
+Past the Argent Dawn's encampment, west of Northdale,
+a maggot beast grows fatter with everything it eats.
+It has cost the Forsaken entire regiments, and eaten those who came to hunt it.
+Look for it in the northern wastes, and go in numbers.
+= Borelgore, the Corpulent One. Nathanos Blightcaller wants it destroyed, and would rather you won.
++ Bring Nathanos the news, and he may promote you from imbecile to mental deficient, first class.

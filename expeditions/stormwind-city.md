@@ -28,7 +28,7 @@ riddles:
     hint_area: { x: 75.1, y: 55.5, r: 8 }
     danger: "Quiet"
     sources: "object 124374's text"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: a capital has riddles alone
 ---
 ## stormwind-city-faol-plaque
 In the great cathedral of the city, a plaque remembers the archbishop

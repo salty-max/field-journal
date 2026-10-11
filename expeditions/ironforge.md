@@ -27,7 +27,7 @@ riddles:
     hint_area: { x: 70.1, y: 50.5, r: 4 }
     danger: "Quiet"
     sources: "the Codex's high-tinker-mekkatorque page"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: a capital has riddles alone
 ---
 ## ironforge-toothgnasher
 In the hall where the explorers keep their finds,

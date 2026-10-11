@@ -34,7 +34,9 @@ riddles:
     hint_area: { x: 37.8, y: 33.4, r: 5 }
     danger: "Quiet"
     sources: "the Codex's brackenwall-village page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 4841
+  sources: "quest 1205 (Melor Stonehoof)"
 ---
 ## dustwallow-marsh-shady-rest
 On the road from the plains to the island city, an inn where both sides drank
@@ -69,3 +71,11 @@ and his ogres will tell you so, often. Find the overlord.
 ? Brackenwall Village.
 = Overlord Mok'Morokk, of the Stonemaul.
 + The Stonemaul are allies of the Horde thanks to Rexxar, who made Mok'Morokk their leader.
+
+## quarry
+An ancient crocolisk drags his huge body through the marsh;
+his old bones grind, though he still moves with the speed of youth,
+and his great spirit lives on in a body that tortures it.
+The tauren would see him led to peace. He keeps to the quagmire.
+= Deadmire. Melor Stonehoof, in Thunder Bluff, asks for his tooth: it is time the noble creature's pain ended.
++ Melor knows the hunt is not easy, and is glad of it only because the beast's pain is over.

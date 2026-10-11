@@ -39,7 +39,9 @@ riddles:
     hint_area: { x: 33.4, y: 54.7, r: 5 }
     danger: "Quiet"
     sources: "quest 6162; the Codex's bloodvenom-post page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 10648
+  sources: "quests 4906, 939 (Eridan Bluewind, the flute)"
 ---
 ## felwood-emerald-sanctuary
 In the south of the poisoned forest, a grove of druids
@@ -80,3 +82,11 @@ waits for the beast to pay for her life alone. Find her.
 ? Bloodvenom Post.
 = Dreka'Sur, widow of the Bloodvenom Post.
 + 'My husband died in battle--he would have been proud of that. But I could not rest until I knew that the creature that has forced me to live my life alone paid for what it had done.'
+
+## quarry
+The satyrs of the jade fire feed on the corruption of the forest's creatures,
+and their camp in the north answers to a cruel one.
+Another of them tended a corrupted moonwell for his sake.
+He carries a flute whose patterns seem to turn in the hand.
+= Xavaric, of the Jadefire satyrs. Eridan Bluewind, the druid of southern Felwood, asks for his end, and will want to see the flute.
++ Holding it, Eridan senses the suffering of ancient ones: it is almost unbearable.

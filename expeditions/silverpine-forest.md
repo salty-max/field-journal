@@ -41,7 +41,9 @@ riddles:
     hint_area: { x: 44.0, y: 46.7, r: 8 }
     danger: "Quiet"
     sources: "object 24777's text; quest 264"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 1947
+  sources: "quests 366, 446, 442 (Bethor Iceshard, High Executor Hadrec)"
 ---
 ## silverpine-forest-corpse-boat
 At a ferry no one crosses any more,
@@ -87,3 +89,11 @@ Someone has written one word over it since.
 ? The Sepulcher.
 = Yuriv's Tombstone: BETRAYER, crudely scratched over the finely etched epitaph.
 + 'Yuriv lies here. Father, Husband, Paladin.' His widow, Clarice Foster, Forsaken now, sends a pendant back to his tomb: 'Leaves me for his damn crusade... He's dead and I'm bearing the very thing he was trying to stop!'
+
+## quarry
+Three friends studied magic in Dalaran before the plague.
+Two of them fell to it, and came back free of the Lich King;
+the third betrayed his brethren and went over to him.
+He leads the forest's gnolls from his stronghold on the isle.
+= Thule Ravenclaw, once a promising mage of the Kirin Tor, now a necromancer of the Scourge. High Executor Hadrec, at the Sepulcher, wants his head.
++ When he was destroyed, the energies released were felt as far as the Sepulcher.

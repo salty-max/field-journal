@@ -57,7 +57,9 @@ riddles:
     hint_area: { x: 34.7, y: 27.2, r: 5 }
     danger: "Quiet"
     sources: "quests 581, 592; the Codex's gromgol-base-camp page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 731
+  sources: "quest 208 (Hemet Nesingwary)"
 ---
 ## stranglethorn-vale-green-hills
 At a famous hunter's camp in the north of the jungle,
@@ -128,3 +130,11 @@ Find him.
 ? Grom'gol Base Camp.
 = Nimboya, of the Darkspear.
 + Yenniku is held by Zanzil the Outcast at the Ruins of Aboraz; freed, his tale will be etched in stone 'so that it will live forever'.
+
+## quarry
+A hunter who has followed game from Lordaeron's battlefields
+to the deepest jungle keeps a camp in the north of the vale
+for one prize above all: a great white tiger, a king among cats.
+It waits in the jungle's heart, among the old troll ruins.
+= King Bangalash, the great white tiger. Hemet Nesingwary wants his head, and the hunting party will count you among them.
++ He is the reason Nesingwary came to Stranglethorn; Sin'Dall, Bag'thera and Tethis were only on the way to him.

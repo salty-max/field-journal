@@ -47,7 +47,9 @@ riddles:
     hint_area: { x: 79.3, y: 78.9, r: 5 }
     danger: "Quiet"
     sources: "quest 7845; the Codex's revantusk-village page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 7977
+  sources: "quests 7816 (Katoom the Angler), 2941 (Daryn Lightwind)"
 ---
 ## the-hinterlands-rhapsody
 At the high elves' lodge in the western hills, a dwarf rider
@@ -101,3 +103,11 @@ Find her.
 ? Revantusk Village.
 = Primal Torntusk. Her mate, Elder Torntusk, is held atop Jintha'Alor for the Vile Priestess Hexx.
 + 'You must save him! Our village could not stand a loss this great.'
+
+## quarry
+On the coast below the cliffs, among the saltwater snapjaws,
+one turtle leads the rest: a giant, and a thief.
+She snapped an angler's best lure right off the line, and has it still.
+A historian would like a picture of her too.
+= Gammerita. Katoom the Angler, at Revantusk Village, wants the lure back from her stomach.
++ Daryn Lightwind, a historian who studies the snapjaws, sends her interns with an invention that captures a picture: a snapshot, she calls it.

@@ -38,7 +38,9 @@ riddles:
     hint_area: { x: 67.7, y: 23.9, r: 5 }
     danger: "Quiet"
     sources: "quest 4296"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 8977
+  sources: "quest 3822 (Sha'ni Proudtusk, Thal'trak)"
 ---
 ## burning-steppes-thaurissan
 On a plain of ash that was once green mountains, a city of dark iron lies broken.
@@ -83,3 +85,11 @@ Find him.
 ? Flame Crest.
 = Maxwort Uberglint, after the Tablet of the Seven.
 + 'If we can learn more of the Seven, then maybe we can get rich together.'
+
+## quarry
+A soldier from Kargath came with her platoon to these burning lands,
+and the ogres of the great rock took them all.
+Their leader kept her alive for a ritual, chained at his altar,
+and wears her wedding nose-ring on his finger. Search his caves.
+= Krom'Grul, of Dreadmaul Rock. The spirit of Sha'ni Proudtusk, chained at his altar, asks for her ring to go back to Thal'trak in Kargath.
++ They were going to move to the Hinterlands; it was to be her last mission. Thal'trak does not want the ring: not without her.

@@ -40,7 +40,9 @@ riddles:
     hint_area: { x: 52.3, y: 57.0, r: 8 }
     danger: "Quiet"
     sources: "object 175740's text"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 391
+  sources: "quests 103, 104 (Captain Grayson)"
 ---
 ## westfall-aegwynn
 At a farm north of the hill where the militia stands,
@@ -86,3 +88,12 @@ and never knew what had hidden in him before he was born.
 ? Sentinel Hill.
 = The Last Guardian. Aegwynn's son was Medivh, 'keeper of secrets' in the high elven tongue.
 + He grew up at Azeroth's court with two friends, Llane and Anduin Lothar, and the three boys made mischief all over the kingdom.
+
+## quarry
+The lighthouse on the western rocks went dark one night:
+an old murloc had frightened its keepers away.
+They came back and lit it; he came back with others he had cowed,
+and they did not live through the second time.
+He still walks the shore below, and a dead captain keeps the flame.
+= Old Murk-Eye. Captain Grayson, the ghost at the Westfall Lighthouse, watched the keeper's family die and asks for one of his scales.
++ Grayson died upon those rocks himself, the night the light was out. He keeps it lit now so that no sailor follows him.

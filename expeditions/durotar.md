@@ -27,7 +27,9 @@ riddles:
     hint_area: { x: 35.5, y: 60.2, r: 8 }
     danger: "Quiet (the climb is the danger)"
     sources: "quests 1524, 1525, 1526"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 3205
+  sources: "quests 826, 808 (Master Gadrin)"
 ---
 ## durotar-misha
 North-west of the town on the razor's hill, a mother keeps a farm
@@ -55,3 +57,11 @@ unworn by the weather, its bowl cool to the touch.
 ? Above the Southfury, on Durotar's western side, a hidden trail climbs to a shrine of fire.
 = The Brazier of the Dormant Flame, at the shrine Telf Joolam keeps.
 + Telf says many adventurers climb up looking for treasure or something to slay, and are turned away from a seemingly empty shrine. 'Fire is more than chaos and destruction. It is also about life, and creation.'
+
+## quarry
+The isles off the eastern shore were once a tribe's home.
+A witchdoctor holds them now, and sends his hexed
+across the water to drag more of their kin under his sway.
+On the largest isle, skulls sit in his circle of power.
+= Zalazane, the witchdoctor of the Echo Isles. Master Gadrin, in Sen'jin Village, wants his head; the trolls he hexed were Darkspear once.
++ Gadrin's own brother, Minshina, was taken by him, and his spirit bound in his skull until someone carried it out of the circle.

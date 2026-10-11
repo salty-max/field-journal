@@ -30,7 +30,9 @@ riddles:
     hint_area: { x: 65.6, y: 28.5, r: 5 }
     danger: "Quiet"
     sources: "quest 3512"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 10806
+  sources: "quests 5054, 5055 (Storm Shadowhoof)"
 ---
 ## winterspring-remorseful
 By a frozen lake in the middle of the snows, the ghosts of an old town
@@ -63,3 +65,11 @@ A dragon sends messengers to him. Find him.
 ? Eastern Winterspring.
 = Umbranse the Spiritspeaker, a human medium.
 + Itharius, the green dragon of the Swamp of Sorrows, sends travellers to him so that Eranikus may give advice 'in his own words'.
+
+## quarry
+In the snowy hills above Everlook, a skilled hunter stalks his prey:
+a bear of the shardtooth, agile and clever.
+Hunt him before he learns your intent: those who have gone after him
+have quickly found themselves the prey, and he the hunter.
+= Ursius, of the shardtooth bears. Storm Shadowhoof, at Everlook, sends hunters against him, and is not quick to be impressed.
++ Shadowhoof has a second quarry for those who return: Brumeran of the Chillwind, a chimaera gliding over the snows of southern Winterspring.

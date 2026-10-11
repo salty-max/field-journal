@@ -27,7 +27,9 @@ riddles:
     hint_area: { x: 39.5, y: 34.0, r: 12 }
     danger: "Guarded (the Bloodfeather harpies)"
     sources: "quests 934, 937"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 2039
+  sources: "quests 476, 486 (Gaerolas Talvethren, Athridas Bearmantle)"
 ---
 ## teldrassil-feralas-history
 Where the boats come in below the great tree,
@@ -56,3 +58,11 @@ Come before the tree as one comes before the wise.
 ? North of Darnassus, the Sentinels are fighting harpies around an old tree that speaks.
 = The Oracle Glade, and the oldest moonwell of the new tree.
 + Teldrassil grew without the dragons' blessing: Nozdormu refused the Arch Druid for his arrogance, Alexstrasza with him, and the tree's growth has been flawed and unpredictable since.
+
+## quarry
+The furbolgs of the forest were peaceful once.
+Their chieftain drives them mad with the Fel Moss,
+and the Druids of the Talon have slept since he meddled with their calling.
+He keeps to his tribe's hold in the south-west.
+= Ursal the Mauler, chieftain of the Gnarlpine. Athridas Bearmantle, in Dolanaar, needs him dead for the ritual that wakes the Druids of the Talon.
++ The Gnarlpine ambushed a traveller on the road to the Ban'ethil Barrow Den and pillaged Starbreeze Village: the madness had already spread.

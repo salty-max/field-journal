@@ -34,7 +34,9 @@ riddles:
     hint_area: { x: 33.4, y: 45.6, r: 8 }
     danger: "Quiet"
     sources: "object 175736's text"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 1225
+  sources: "quests 271, 531 (Vyrin Swiftwind, Daryl the Youngling)"
 ---
 ## loch-modan-valley-of-kings
 Of three great hammers, two were set in stone.
@@ -70,3 +72,11 @@ with soft skin and mortal hearts, and named themselves anew.
 ? Thelsamar's inn.
 = Ironforge - the Awakening of the Dwarves, in Thelsamar. The vault it names, Uldaman, lies south of the Loch, in the Badlands.
 + The dwarves named their land Khaz Modan for the Titan Khaz'goroth, and built a forge for him in the heart of the mountain; the city grew around it.
+
+## quarry
+A year ago, the hunters of the lodge all tried for one bear,
+and none of them had any luck. The boldest came back
+with a scar over his eye, and has not stopped talking since.
+The bear keeps to his lair in the hills over Thelsamar.
+= Ol' Sooty. Vyrin Swiftwind, at the Farstrider Lodge, would like Daryl the Youngling to see its head.
++ Daryl does not take it well: a finger on his scar, one look at the head, and he wants it out of the Lodge.

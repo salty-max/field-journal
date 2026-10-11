@@ -39,7 +39,9 @@ riddles:
     hint_area: { x: 9.0, y: 64.4, r: 8 }
     danger: "Quiet"
     sources: "object 175750's text"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 2091
+  sources: "quests 465, 474 (Captain Stoutfist)"
 ---
 ## wetlands-rustlocke
 On the great bridge to the north, a small dwarf lies where he was ambushed,
@@ -84,3 +86,11 @@ and how her dragons tore the fortress apart when she was free.
 ? Menethil Harbor.
 = The Battle of Grim Batol, in Menethil Harbor. The mountain it tells of stands at the Wetlands' eastern edge.
 + Grim Batol was a Wildhammer stronghold first, 'some say cursed'; a small band led by the mage Rhonin destroyed the Demon Soul and freed Alexstrasza.
+
+## quarry
+The Dragonmaw have built catapults in their camp in the heart of the wetlands,
+and their chieftain means to lay siege to the harbour.
+With fighting in the pass to the south, no help can come.
+Burn his engines first; then cut the beast down at the neck.
+= Chieftain Nek'rosh, of the Dragonmaw. Captain Stoutfist, at Menethil Harbor, takes his head.
++ With him dead and the catapults burned, Stoutfist says, the clan may never recover, and the harbour is safe.

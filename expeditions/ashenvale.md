@@ -62,7 +62,9 @@ riddles:
     hint_area: { x: 9.8, y: 36.0, r: 5 }
     danger: "Quiet"
     sources: "quests 824, 6564, 6565"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 3987
+  sources: "quest 1054 (Raene Wolfrunner)"
 ---
 ## ashenvale-mel-thandris
 Near the border of the fel-touched woods, wolf-men took a shrine,
@@ -133,3 +135,11 @@ and the name of the old god it means to wake. Find him.
 ? Zoram'gar Outpost, on the Zoram Strand.
 = Je'neu Sancrea, of the Earthen Ring.
 + The Twilight's Hammer would appease Aku'Mai and bring back 'an era of rule by the Old Gods'.
+
+## quarry
+North of the sentinels' town, the furbolgs of the thistle
+have grown in number these past months:
+enough, the town fears, to find the courage to attack.
+Their chieftain's skull would stifle them, for a while.
+= Dal Bloodclaw, chieftain of the Thistlefur. Raene Wolfrunner, in Astranaar, wants his skull.
++ Astranaar lives under constant threat from the furbolg; his death keeps them at bay a little longer.

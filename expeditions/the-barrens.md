@@ -69,7 +69,9 @@ riddles:
     hint_area: { x: 45.9, y: 61.3, r: 5 }
     danger: "Quiet"
     sources: "quests 878, 879"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 3474
+  sources: "quest 883 (the hoof's own words, Jorn Skyseer); the dump's four spawn points"
 ---
 ## the-barrens-ratchet-book
 In the goblins' port, where every side may trade,
@@ -150,3 +152,11 @@ and feel for him what his tribe does not.
 ? Camp Taurajo.
 = Mangletooth, of the Razormane. He trades blessings of Agamaggan for blood shards.
 + 'They should have made sure I was dead when they turned their backs on me instead of leaving me here in this forsaken cage.'
+
+## quarry
+Among the kodos of the plains walks one greater than the rest.
+The tauren call him by a name that means the earth shakes,
+for his steps are like gathered thunder.
+He roams the grass between the thorn-wrapped hill and the bramble scar.
+= Lakota'mani. His hoof, a symbol of the great kodo's strength, goes to Jorn Skyseer at Camp Taurajo.
++ Jorn names whoever brings it Earthshaker too: walk tall, he says, for the kodo's courage goes with you now.

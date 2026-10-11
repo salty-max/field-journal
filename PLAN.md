@@ -58,7 +58,7 @@ picked by hand:
 | Capitals' (three each) | 9 | 9 | 18 |
 | Faction towns' (Alliance + Horde) | 11 + 8 | 9 + 11 | **20 + 19** |
 | **Riddles in all** | | | **202** |
-| **Quarries** (zones with rares) | **21** | **17** | **38** |
+| **Quarries** (zones with rares, not capitals) | **21** | **17** | **38** |
 
 An Alliance reader has 163 (the 123 of the shared zones, the 11 of their
 three starting zones, their capitals' 9 and their towns' 20), a Horde reader
@@ -409,10 +409,27 @@ hunter / would know the hide, and wish its spirit peace.").
    milestones (A Riddle Read Aright, each zone's expedition, the roads, the
    byways and nothing hidden of each continent, every riddle of a continent,
    the gold seals, Respects Paid, Well Read, After Dark) and `/journal where`;
-   the simulation solves Duskwood's five and two others. A zone's
-   expedition counts its riddles alone until the quarries come. Still to do:
-   the hunts (the quarries, the target's layer, the kill), the pictures
-   (`K.snapshot`), Forever's own (Zephras Isle), a test in the game.
+   the simulation solves Duskwood's five and two others.
+
+   The hunts, the same day: the 38 quarries written (one a zone with rares;
+   the capitals have none, Stormwind's Sewer Beast staying the Bestiary's),
+   each the foe its own quests tell of: a wanted poster, a giver's grief or
+   grudge (Hogger, Old Murk-Eye, Mangeclaw beside the pilot it killed,
+   Lakota'mani, Thule Ravenclaw, Krom'Grul, Gammerita, Araj the Summoner...);
+   never one the game makes unkillable without a quest's item (the Defiler's
+   triad) or summons, nor one a riddle's margin already tells (Hetaera); in
+   Hillsbrad and the Blasted Lands, whose quests tell of none, a rare, its
+   poster only what the data shows (the strand, its neighbours, its
+   seldomness). Their haunts from the data script (spawns that Wowhead
+   places within 2%: it records sightings of a creature that moves; a path
+   walked gathered into circles along it: Twilight Marauder Morna's road is
+   seven). The engine: the kill as the Bestiary tells it, the target and its
+   haunts on the world map (tracking asked through the game's confirmation,
+   the gold seal lost for good), kills from before the journal kept the hunts
+   stamped quietly at the login with no seal, each zone's expedition its
+   riddles and its quarry, First Quarry, Without a Map, No Trail Given. Still
+   to do: the pictures (`K.snapshot`), Forever's own (Zephras Isle), a test
+   in the game.
 5. The writing, zone by zone, Duskwood first: candidates from the sources
    above, each spot from the data (an object, a sub-area, two sources), a
    first release with every zone up to level 30; then the rest of the 141 and

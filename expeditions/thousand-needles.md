@@ -35,7 +35,9 @@ riddles:
     hint_area: { x: 47.5, y: 53.6, r: 5 }
     danger: "Quiet"
     sources: "quest 4904"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 10896
+  sources: "quest 5147 (Freewind Post's poster)"
 ---
 ## thousand-needles-raceway
 On the salt flats, gnomes and goblins race their machines,
@@ -72,3 +74,11 @@ Find her, and ease her waiting.
 ? Freewind Post.
 = Thalia Amberhide. Lakota Windsong is held at the Darkcloud Pinnacle.
 + 'Deep in my bones I knew that she would find her way back to me.'
+
+## quarry
+A tauren called the outcast is wanted for murder and kidnapping.
+He was last seen on the cliffs near the Darkcloud Pinnacle,
+and Freewind Post has posted a handsome reward
+for proof of the deed, shown to the one who watches its cliffs.
+= Arnak Grimtotem. Cliffwatcher Longhorn, at Freewind Post, takes his hoof as proof; news of his deeds boiled the watcher's blood.
++ Longhorn had begun to think he would never be brought to justice.

@@ -427,8 +427,9 @@ local function showOverview()
       .. "a book left on a shelf. Each riddle here leads to one, in a land you have entered. It is solved where it "
       .. "leads, and some ask something of you there, as the story would.",
     "A riddle read from its verse alone earns the gold seal, and opens its margin; the clue costs the gold, the "
-      .. "map the silver. Each land with rare creatures has its quarry too, a foe its own people tell of: found from "
-      .. "its poster alone, it earns the gold; tracked, its haunts are shaded on your map.",
+      .. "map the silver. Each land with rare creatures has its quarry too, a foe its people tell of (where none is, "
+      .. "one of its rarest): found from its poster alone, it earns the gold; tracked, its haunts are shaded on "
+      .. "your map.",
   })
   page:section("The record")
   page:row("Riddles", ("%d of %d solved"):format(n.riddles, n.of))

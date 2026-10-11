@@ -48,7 +48,9 @@ riddles:
     hint_area: { x: 70.3, y: 32.8, r: 5 }
     danger: "Quiet"
     sources: "quests 655, 672, 675"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 2783
+  sources: "quests 684 (Refuge Pointe's poster), 673 (Tor'gan)"
 ---
 ## arathi-highlands-goshek-watchers
 Above a farm the orcs work for the dead, two companions from the southern shore
@@ -103,3 +105,11 @@ Honour him as his Warchief would have.
 ? Hammerfall.
 = Gor'mul, once a captive of the camp that is Hammerfall now.
 + 'Mercy was denied me when I was not allowed to die with my Warchief in battle.' Tor'gan still believes the shamans' power will return him to his once proud self.
+
+## quarry
+Within the walls of Stromgarde, which the Syndicate holds,
+a warlock trafficks with demons, and calls them up in numbers
+through a bloodstone orb the orcs of Hammerfall would see destroyed.
+Refuge Pointe has posted her head, and advises extreme caution.
+= Marez Cowl, a high-level advisor and operative of the Syndicate. Captain Nials at Refuge Pointe pays for her head; Tor'gan in Hammerfall wants the orb.
++ Refuge Pointe has heard she carried messages between the Syndicate and some other, darker power.

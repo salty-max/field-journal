@@ -41,7 +41,9 @@ riddles:
     hint_area: { x: 59.7, y: 17.7, r: 8 }
     danger: "Quiet"
     sources: "object 175734's text"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 14277
+  sources: "the dump: her spawn on the Eastern Strand among the Daggerspine (faction 74), Scargil's among the Torn Fin"
 ---
 ## hillsbrad-foothills-durnholde
 A lord raised an orphan of his foes to fight,
@@ -86,3 +88,11 @@ the first human magi and the elves against the troll armies.
 ? Tarren Mill.
 = Arathor and the Troll Wars, in Tarren Mill: the battle was fought at the foot of the Alterac Mountains.
 + The elves taught a hundred humans the basics of magic, no more than was needed; the trolls never rose as one nation again.
+
+## quarry
+Naga have come ashore on the eastern strand of Hillsbrad,
+shorestalkers and screamers of the Daggerspine,
+and one among them goes by a lady's name.
+She keeps to the sand where they landed, and is not always there.
+= Lady Zephris, a naga of the Daggerspine. Rarely met: some days she is on the strand, most days not.
++ Up the western strand, a murloc of the Torn Fin, Scargil, is as seldom seen: the coast keeps its rarities.

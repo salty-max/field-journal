@@ -13,7 +13,7 @@ riddles:
     hint_area: { x: 37.8, y: 43.7, r: 5 }
     danger: "Quiet"
     sources: "the Codex's keeper-remulos page; quest 8446"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: no rare creature lives here
 ---
 ## moonglade-remulos
 In the hidden valley of the druids, by its sacred lake,

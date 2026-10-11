@@ -45,7 +45,9 @@ riddles:
     hint_area: { x: 28.2, y: 67.6, r: 5 }
     danger: "Quiet"
     sources: "quest 5581; the Codex's shadowprey-village page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 5600
+  sources: "quest 1365 (Felgur Twocuts)"
 ---
 ## desolace-kodo-graveyard
 In the middle of the grey country, the great beasts of the plains
@@ -96,3 +98,11 @@ Find him.
 ? Shadowprey Village.
 = Taiga Wisemane, keeper of the Hand of Iruxos.
 + 'Your effort has helped greatly in fighting the demon threat, and all of Azeroth is safer because of it.'
+
+## quarry
+The centaur clans of these dry plains fight and die against one another,
+and it is just as well, the Horde says: united, they would be a fierce foe.
+The surest way to keep them apart is to strike at their khans,
+and the Kolkar's holds their village in the north-east.
+= Khan Dez'hepah, of the Kolkar. Felgur Twocuts wants his head: the centaur, Felgur says, understand strength best.
++ His death disrupts the Kolkar, and gives the other clans pause.

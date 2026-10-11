@@ -12,7 +12,7 @@ riddles:
     hint_area: { x: 44.0, y: 66.0, r: 13 }
     danger: "Perilous (the tower's dead)"
     sources: "objects 175745 (The Dark Portal and the Fall of Stormwind) and 175740 (The Last Guardian)"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: no rare creature lives here
 ---
 ## deadwind-pass-karazhan
 In a pass where nothing grows, a tower stands where a Guardian lost himself:

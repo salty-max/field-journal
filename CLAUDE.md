@@ -42,13 +42,16 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   zone or capital, `riddles`: id, tier, `faction` for a town's, `gestures`
   (emote tokens) or `reading`, `night`, the spot: `object`, `creature`,
   `trigger` or `area` (with an `anchor` where the area has no map overlay),
-  `hint_area`, `danger`, `sources`; `quarry`), then `## <id>` sections: the
-  verse, `? ` the first hint, `= ` the note, `+ ` the margin; plain ASCII.
+  `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
+  rares, never a capital), then `## <id>` sections: the verse, `? ` the
+  first hint, `= ` the note, `+ ` the margin; `## quarry`: its poster (verse,
+  note, margin, no hint); plain ASCII.
   `scripts/expeditions.py` resolves the spots from the game's data into
   `data/expeditions.json` (committed): an object's spawns (dump and Wowhead
   alike, inside the hint circle), a creature's spawn (and whether it walks),
-  a trigger, a sub-area's ids; each zone's size in yards and sub-areas; the
-  client's emote tokens. Rerun it after changing a spot or a hint circle (the
+  a trigger, a sub-area's ids; a quarry's haunts (its spawns that Wowhead
+  places too, and the paths they walk, gathered into circles); each zone's
+  size in yards and sub-areas; the client's emote tokens. Rerun it after changing a spot or a hint circle (the
   build refuses a stale one). `scripts/expeditions.ts` (for build.ts) checks
   every riddle and writes the answers as fingerprints only (salted FNV-1a of
   5-yard cells, sub-areas, the keeper, the gestures), the texts read once

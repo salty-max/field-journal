@@ -33,7 +33,9 @@ riddles:
     hint_area: { x: 51.2, y: 53.2, r: 8 }
     danger: "Quiet"
     sources: "object 175752's text"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 950
+  sources: "quest 2623 (Bengor, the Fallen Hero of the Horde)"
 ---
 ## swamp-of-sorrows-harborage
 In the swamp's north-west, a few exiles from another world
@@ -68,3 +70,11 @@ and named for what he meant him to be.
 ? Stonard.
 = The New Horde, in Stonard: Aedelas Blackmoore and the orphan he called Thrall.
 + Doomhammer fell freeing one of the camps; Thrall took up his warhammer and his black plate, and became warchief of the Horde.
+
+## quarry
+A messenger carrying the Warchief's orders to the Blasted Lands
+was ambushed by murlocs in the swamp, many of them,
+and one, called the Swamp Talker, took the orders from the messenger's hands.
+The wounded messenger could only say: east... a cave.
+= The Swamp Talker. The Warchief's Orders go back to the Fallen Hero of the Horde.
++ The Fallen Hero reads them and grieves: nineteen men could have been spared, had the Hero not acted so rashly.

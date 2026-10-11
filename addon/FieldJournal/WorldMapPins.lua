@@ -42,6 +42,11 @@ local function circle(i)
   c.tex:SetAllPoints()
   c.tex:SetTexture(CIRCLE)
   c.tex:SetVertexColor(0.95, 0.8, 0.35, 0.55)
+  -- (hovered for its tooltip, never in the way of a click on the map)
+  if c.SetMouseClickEnabled then
+    c:SetMouseMotionEnabled(true)
+    c:SetMouseClickEnabled(false)
+  end
   c:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
     GameTooltip:AddLine(self.title, 1, 0.82, 0)

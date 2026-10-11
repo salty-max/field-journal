@@ -50,7 +50,9 @@ riddles:
     hint_area: { x: 23.8, y: 49.5, r: 5 }
     danger: "Quiet"
     sources: "quests 3504, 3505, 3506, 3507"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 8408
+  sources: "quest 9362 (Archmage Xylem)"
 ---
 ## azshara-ravencrest
 On the southern cliffs, the broken legs of a great statue still stand,
@@ -110,3 +112,11 @@ and she killed them all. He wants vengeance. Find him.
 ? Valormok.
 = Ag'tor Bloodfist, of Valormok.
 + Belgrom Rockmaul, in Orgrimmar, trusted Magus Rimtori; when her head comes back to him he 'would give you a kingdom if it were in my power'.
+
+## quarry
+Among the ruins of the elves' old city, in the temple the naga have taken,
+a warlord hides behind his guards
+with a prismatic shell he covets above everything.
+A mage in a tower atop the cliffs has seen it while scrying.
+= Warlord Krellian, of the Spitelash naga. Archmage Xylem, in the tower, asks mages to bring the shell.
++ The shell has a strange aura: Xylem would have the one who brings it test what it can do.

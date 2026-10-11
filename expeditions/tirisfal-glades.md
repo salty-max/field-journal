@@ -34,7 +34,9 @@ riddles:
     hint_area: { x: 80.5, y: 38.5, r: 8 }
     danger: "Perilous (the Scarlet Crusade)"
     sources: "the game's Faol's Rest; Warcraft II: Tides of Darkness's manual (Faol and the Knights of the Silver Hand); object 177199"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 1753
+  sources: "quest 398 (Brill's poster)"
 ---
 ## tirisfal-glades-solliden
 North of the graves where the Forsaken wake, living farmers
@@ -71,3 +73,11 @@ Do there what he taught a kingdom to do, if the Crusade lets you.
 ? South-west of the Scarlet Monastery, where its fallen come back.
 = Faol's Rest, in sight of the zealots who claim his Light.
 + Stormwind remembers him too: a plaque in its cathedral calls him the 'benevolent patron of the Church of Light', who began his work in Stratholme and raised the funds to rebuild Stormwind after the Second War.
+
+## quarry
+Even among gnolls, one is called foul:
+he steals the dead for the Lich King's army,
+and the Forsaken have sentenced him for it.
+Look north of Brill, where the gnolls have taken a farm.
+= Maggot Eye. The town of Brill pays for his paw, shown to Executor Zygand; mercy, its poster says, is for the weak.
++ What he stole went to the Scourge, whose dead the Forsaken once were.

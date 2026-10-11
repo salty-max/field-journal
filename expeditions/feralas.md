@@ -52,7 +52,9 @@ riddles:
     hint_area: { x: 74.5, y: 40.7, r: 5 }
     danger: "Quiet"
     sources: "quest 2973"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 14661
+  sources: "quest 7731 (Hadoken Swiftstrider)"
 ---
 ## feralas-dire-maul
 Among the giant trees stands a city of white stone
@@ -112,3 +114,11 @@ and wants it to shine with the wings of faerie dragons. Find him.
 ? Camp Mojache.
 = Krueg Skullsplitter, of Camp Mojache.
 + His life-mate is Korrin; they came to Feralas on a mission for their masters in Orgrimmar.
+
+## quarry
+In the twisted ground of the eastern deep, insects have come,
+and one of them is larger than the rest,
+wandering the warped terrain with an aura the others lack.
+Camp Mojache gave it a name, and wants its glands.
+= Stinglasher, named by the scouts of Camp Mojache. Hadoken Swiftstrider wants its secretion glands, to learn how to meet the new threat.
++ If it is one of their strongest, Hadoken says, its study will be worth a great deal in time.

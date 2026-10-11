@@ -35,7 +35,9 @@ riddles:
     hint_area: { x: 29.5, y: 52.8, r: 8 }
     danger: "Guarded (the Bael'dun dwarves)"
     sources: "object 175739's text; quest 843"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 3068
+  sources: "quest 766 (Maur Raincaller)"
 ---
 ## mulgore-ravaged-caravan
 On the north shore of the bull's lake, a caravan burned:
@@ -73,3 +75,11 @@ three hammers, a firelord woken, two kings in stone.
 ? The Bael'dun Digsite, in Mulgore's western cliffs.
 = War of the Three Hammers, at the Bael'dun Digsite. The diggers brought their own history to someone else's land.
 + Their kin dig at Bael Modan, in the Barrens, where Gann Stonespire wants them driven out by force: 'He was an infidel on these lands.'
+
+## quarry
+At Bloodhoof, a tauren remembers his grandfather's stories
+of a strider with demon-red eyes and talons like blades.
+Crossing the plains, he met it himself, and its bite festers.
+Listen for a screech on the open grass, and a blaze of colour.
+= Mazzranache. Maur Raincaller, at Bloodhoof Village, is curing its bite with a wolf's heart, a cougar's femur, a plainstrider's scale and a swoop's gizzard.
++ It is no young bird: Maur's grandfather fought it, and Maur found it as terrible as the old stories said.

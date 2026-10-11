@@ -55,8 +55,10 @@ UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max
 # (a statue's base can be a few yards from its centre), a trigger by its own
 # radius (never less).
 NEAR = 10
-# Dump and Wowhead must agree within this, in percent of the map.
-AGREE = 0.6
+# Dump and Wowhead must agree within this, in percent of the map (a quarry's
+# spawn within AGREE_HAUNT: Wowhead's points are sightings of a creature that
+# moves, and its haunt is a circle of HAUNT_MIN at least).
+AGREE, AGREE_HAUNT = 0.6, 2.0
 # The map art's height over its width (1002 by 668): a hint circle's radius is
 # in percent of the width.
 ASPECT = 668 / 1002
@@ -180,15 +182,18 @@ def main():
             paths[(t, d[key])].append((float(d["PositionX"]), float(d["PositionY"])))
     graves = {int(d["id"]): (int(d["map"]), float(d["x"]), float(d["y"])) for d in tab("world_safe_locs")}
 
+    def path(d):
+        """The points a spawn walks through (world x, y), if it walks a path."""
+        if d["MovementType"] != "2":
+            return []
+        return paths[("creature_movement", d["guid"])] or paths[("creature_movement_template", d["id"])]
+
     def wanders(d):
         """How far a spawn goes from where it stands, in yards."""
         if d["MovementType"] == "1":
             return float(d["spawndist"])
-        if d["MovementType"] == "2":
-            path = paths[("creature_movement", d["guid"])] or paths[("creature_movement_template", d["id"])]
-            x, y = float(d["position_x"]), float(d["position_y"])
-            return max((((a - x) ** 2 + (b - y) ** 2) ** 0.5 for a, b in path), default=0)
-        return 0
+        x, y = float(d["position_x"]), float(d["position_y"])
+        return max((((a - x) ** 2 + (b - y) ** 2) ** 0.5 for a, b in path(d)), default=0)
 
     assignments = collections.defaultdict(list)
     for a in table("UiMapAssignment"):
@@ -229,24 +234,31 @@ def main():
             todo += children[i]
         return sorted(out)
 
-    def agreed(kind, id, uimap, points):
+    def agreed(kind, id, uimap, points, tolerance=AGREE):
         """The dump's points on the zone's map that Wowhead places in the zone
         too (the maps overlap at their edges, a city lies inside its zone's
         rectangle: a point of the dump alone is another place's)."""
         theirs = wowhead(kind, id, zone_area(uimap)) or []
-        return [(x, y) for x, y in points if any(abs(x - a) <= AGREE and abs(y - b) <= AGREE for a, b in theirs)]
+        return [(x, y) for x, y in points if any(abs(x - a) <= tolerance and abs(y - b) <= tolerance for a, b in theirs)]
 
     def haunts(uimap, id, w):
-        """A quarry's haunts on the zone's map: [[x, y, r]] (percent of the width)."""
+        """A quarry's haunts on the zone's map: [[x, y, r]] (percent of the width).
+        A spawn that walks a path haunts its path: each of its points is one."""
         found = []
         for g in sorted(takes[id]):
             d = spawn[g]
             p = on(uimap, int(d["map"]), float(d["position_x"]), float(d["position_y"]))
             if p:
-                found.append((p, wanders(d)))
-        kept = set(agreed("npc", id, uimap, [p for p, _ in found]))
+                found.append((p, d))
+        kept = set(agreed("npc", id, uimap, [p for p, _ in found], AGREE_HAUNT))
+        points = []
+        for p, d in found:
+            if p not in kept:
+                continue
+            walk = [q for q in (on(uimap, int(d["map"]), a, b) for a, b in path(d)) if q]
+            points += [(p, 0)] + [(q, 0) for q in walk] if walk else [(p, wanders(d))]
         out = []
-        for p, far in [(p, far) for p, far in found if p in kept]:
+        for p, far in points:
             for c in out:
                 cx, cy = sum(q[0] for q, _ in c) / len(c), sum(q[1] for q, _ in c) / len(c)
                 if ((p[0] - cx) ** 2 + ((p[1] - cy) * ASPECT) ** 2) ** 0.5 <= HAUNT:

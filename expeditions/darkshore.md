@@ -32,7 +32,9 @@ riddles:
     hint_area: { x: 35.7, y: 46.2, r: 5 }
     danger: "Quiet"
     sources: "quest 963"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 6788
+  sources: "quest 2139 (Tharnariun Treetender)"
 ---
 ## darkshore-masters-glaive
 In the south of the dark shore a blade stands driven in the earth,
@@ -70,3 +72,11 @@ He cannot bring himself to free her. Find him.
 ? Auberdine, at the town's edge.
 = Cerellean Whiteclaw. Anaya Dawnrunner died at Ameth'Aran.
 + 'Perhaps it would have been better... if I had done it myself. But even after these thousands of years, I could not bear to raise my hand against my beloved.'
+
+## quarry
+In Auberdine, a night elf grieves for the forest's sick beasts
+and has asked travellers to put them out of their pain.
+His last request is for the mother of the bears' den,
+in a cave to the north-east, near Bashal'Aran.
+= The Den Mother. Tharnariun Treetender, in Auberdine, asks for her death, and hopes it is the last he will have to ask for.
++ He fears for his people as much as for the forest: many, he says, will hide in their homes, or leave for the fortified lands of the Alliance.

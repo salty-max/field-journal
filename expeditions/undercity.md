@@ -27,7 +27,7 @@ riddles:
     hint_area: { x: 68.6, y: 40.9, r: 8 }
     danger: "Quiet"
     sources: "object 175659's text; the Codex's fall-of-lordaeron page"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: a capital has riddles alone
 ---
 ## undercity-kelthuzad-book
 In the city under the ruins, a history tells how an archmage

@@ -39,7 +39,9 @@ riddles:
     hint_area: { x: 47.2, y: 62.5, r: 5 }
     danger: "Quiet"
     sources: "quests 1087, 1088"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 11921
+  sources: "quest 6284 (the warning posted, Maggran Earthbinder)"
 ---
 ## stonetalon-mountains-charred-vale
 South of the peak, a vale was set afire
@@ -85,3 +87,11 @@ Find the stranger.
 ? Sun Rock Retreat, at its edge.
 = Braelyn Firehand, who would rather be in Jaedenar.
 + Braelyn wants the head of Ordanus, one of the eldest sons of the forest god, hidden atop a great tree at Raynewood: 'I knew Ordanus once, long ago.'
+
+## quarry
+A canyon of the mountains is a webbed lair now:
+an old predator and her eight-legged children have claimed it.
+A warning has been posted, and a bounty on her,
+set by one at Sun Rock who still rubs the wound she gave him.
+= Besseleth. Maggran Earthbinder, at Sun Rock Retreat, takes her fang as proof, and calls her an old predator of these parts.
++ With her gone, he says, more will travel to Sun Rock without fearing what lurks in the dark.

@@ -41,7 +41,9 @@ riddles:
     hint_area: { x: 80.7, y: 40.1, r: 8 }
     danger: "Guarded (Ice Claw Bears; Mangeclaw)"
     sources: "quests 419, 417"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 1961
+  sources: "quests 417, 419 (Hildelve's journal, Pilot Hammerfoot)"
 ---
 ## dun-morogh-etched-note
 Below the great gates, where every traveller climbs,
@@ -88,3 +90,11 @@ his friend still waits by the engines.
 ? Pilot Hammerfoot guards the engines in the east; his friend went on foot into the hills.
 = Mori Hildelve, of the Ironforge Siege Brigade: mauled, frozen, his journal still in his hand. It asks for one thing, revenge on Mangeclaw.
 + He was searching for a rare ore needed for a high-grade blastpowder. He drove the bear off once; it came back.
+
+## quarry
+A great bear of the ice claws mauled a pilot on the eastern heights,
+was driven off, and came back to finish him.
+It has not gone far from where he fell.
+His journal asks one thing of whoever finds him.
+= Mangeclaw, a "huge Ice Claw Bear", as Hildelve wrote. Pilot Hammerfoot takes its claw and the journal, for the Ironforge Siege Brigade.
++ Hammerfoot wishes he had been there when the beast was found: Hildelve was a good friend.

@@ -28,7 +28,7 @@ riddles:
     hint_area: { x: 69.2, y: 73.6, r: 8 }
     danger: "Quiet"
     sources: "object 175759's text; the Codex's tyrande-whisperwind page"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: a capital has riddles alone
 ---
 ## darnassus-tyrande
 In the temple of the moon in the tree city, the high priestess

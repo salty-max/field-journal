@@ -33,7 +33,9 @@ riddles:
     hint_area: { x: 22.5, y: 45.8, r: 8 }
     danger: "Quiet"
     sources: "object 1726's text"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 334
+  sources: "quests 169 (Lakeshire's poster), 386"
 ---
 ## redridge-mountains-lockbox
 Above the lake road, a mill stands abandoned,
@@ -69,3 +71,11 @@ and says where he is believed to be held.
 ? Lakeshire, by the inn.
 = Missing: Corporal Keeshan. Marshal Marris pays for his recovery.
 + By mandate of Magistrate Solomon; and the notice is right about where, as whoever goes looking finds.
+
+## quarry
+The orcs who took the keep east of the lake
+answer to one leader, who sends them against the lakeside town.
+He is holed up inside the walls he conquered,
+plotting the clan's next blow. The town has posted his name.
+= Gath'Ilzogg, who led the Blackrock against Stonewatch Keep. Magistrate Solomon, in Lakeshire, pays for his head.
++ His executioner, Targorr the Dread, sits in the Stormwind Stockade, sentenced to die: his methods were ruthless even by the orcs' own measure.

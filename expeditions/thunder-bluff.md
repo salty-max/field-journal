@@ -27,7 +27,7 @@ riddles:
     hint_area: { x: 20.8, y: 20.8, r: 4 }
     danger: "Quiet"
     sources: "quest 853"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: a capital has riddles alone
 ---
 ## thunder-bluff-cairne
 On the high mesas of the plains, the old chieftain who built this city

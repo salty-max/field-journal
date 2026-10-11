@@ -29,7 +29,9 @@ riddles:
     hint_area: { x: 75.0, y: 55.7, r: 8 }
     danger: "Guarded (the Defias Rogue Wizards)"
     sources: "the wiki's Heroes' Vigil and Stone Cairn Lake (the lake's shape, the ring of stones); object 20923; quests 1786-1788"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 448
+  sources: "quest 176 (the Stormwind Army's poster); the dump's six spawn points"
 ---
 ## elwynn-forest-lethargy
 Where Stormwind's lumbermen fell the eastern trees,
@@ -58,3 +60,11 @@ Cross the water, and give the stone what it was raised for.
 ? The ring-shaped lake north of the road to Eastvale has an island in its middle; heroes are honoured there.
 = Heroes' Vigil, and its Stone of Remembrance. The island belongs to the Defias' renegade wizards now.
 + Two paladins came here to spy on the Defias and caught them poring over documents. Henze Faulk never left the island; a paladin learning to raise the fallen is sent to bring him back.
+
+## quarry
+A gnoll bigger than his kind, and the end of every party
+the Stormwind Army has sent to take him.
+He prowls the woods of the south-west, where the forest
+gives way to the farms of the west. The bounty stands.
+= Hogger. Proof of the deed is his claw, a huge one, brought to Marshal Dughan in Goldshire, who calls him a headache the size of Blackrock Spire.
++ He does not keep to one place: he has been met at six spots along the forest's edge, and in the brush between them.

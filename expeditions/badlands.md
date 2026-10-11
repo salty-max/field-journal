@@ -39,7 +39,9 @@ riddles:
     hint_area: { x: 1.5, y: 46.6, r: 5 }
     danger: "Quiet"
     sources: "quests 782, 793; the Codex's kargath page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 2745
+  sources: "quest 762 (Historian Karnik, Advisor Belgrum)"
 ---
 ## badlands-agmond
 In a valley of the red waste, a dwarf who ran the League's southern digs
@@ -85,3 +87,11 @@ Find him.
 ? Kargath.
 = Gorn, of the Kargath Expeditionary Force.
 + Boss Tho'grun's ogres, hired to fetch the key to the drakes' prison, betrayed the Horde for it.
+
+## quarry
+Ragnaros himself sent an envoy of fire to the fortress in the Badlands,
+to mind the Shadowforge who dig for the lost relics of Uldaman.
+Their digging has already cost Ironforge dearly.
+He keeps to the fortress; the dwarves keep digging.
+= Ambassador Infernus, of Angor Fortress. Historian Karnik, in Ironforge, asks for his end, and Advisor Belgrum takes the proof.
++ Once he falls, Belgrum will send aid to the Badlands to take back the excavation site.

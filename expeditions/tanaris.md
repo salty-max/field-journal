@@ -36,7 +36,9 @@ riddles:
     hint_area: { x: 56.0, y: 92.0, r: 9 }
     danger: "Quiet"
     sources: "quest 8599"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 7847
+  sources: "quest 2781 (Gadgetzan's poster)"
 ---
 ## tanaris-marvon
 By a broken pillar in the middle of the desert, a goblin scholar
@@ -79,3 +81,11 @@ Find the beach.
 ? Land's End Beach, at the southern tip of Tanaris.
 = Land's End Beach, where Meridith the Mermaiden waits.
 + Narain Soothfancy, in Steamwheedle Port, receives her love letter: 'She's a fish! A FISH I tell you! And I'm a gnome. It could never work out.'
+
+## quarry
+The Water Company of Gadgetzan has posted a high bounty
+on the leader of the desert's outlaws: his people murder its workers,
+steal its water, and squat on its wells.
+He walks the field of springs south-east of the town.
+= Caliph Scorpidsting, leader of the Wastewander. Chief Engineer Bilgewhizzle, in Gadgetzan, pays for his head.
++ Bilgewhizzle hopes his end will push the squatters off Gadgetzan's water wells at last.

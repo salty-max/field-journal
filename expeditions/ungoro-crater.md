@@ -18,7 +18,9 @@ riddles:
     hint_area: { x: 62.3, y: 64.7, r: 8 }
     danger: "Guarded"
     sources: "quest 3844"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 9622
+  sources: "quest 4301 (Torwa Pathfinder)"
 ---
 ## ungoro-crater-ringo
 On the burning ridge in the middle of the crater,
@@ -35,3 +37,11 @@ Whoever it belonged to forgot a great deal. Find the raft.
 ? A pond in the Marshlands, in the east of Un'Goro.
 = A wrecked raft; at the bottom of the pond, a water-logged pack.
 + It is Linken's, who lost his memory in the crater; 'It's a secret to everybody.'
+
+## quarry
+Among the gorillas of the crater's north, in their cave,
+lives a huge ape, greater than the rest.
+A hunter at the crater's mouth calls him one of the Earth Mother's greatest sons,
+and wonders whether you would survive him.
+= U'cha. Torwa Pathfinder, at the entrance of Un'Goro Crater, takes his pelt, and will defend your right to call yourself a great hunter.
++ Torwa had never seen a greater ape: besting his strength, Torwa says, speaks well of your own.

@@ -18,7 +18,9 @@ riddles:
     hint_area: { x: 69.7, y: 69.6, r: 5 }
     danger: "Quiet"
     sources: "quests 8285, 8323"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 15541
+  sources: "quest 8740 (the tactical briefing, Windcaller Proudhorn)"
 ---
 ## silithus-scarab-wall
 At the southern end of the yellow desert stands a wall
@@ -36,3 +38,11 @@ decoding their bulletins to learn whether they still hunt him. Find him.
 ? The mountains south of Southwind Village, in Silithus's east.
 = Hermit Ortell, deserter of the Twilight's Hammer.
 + 'I see you're familiar with my old organization.' His old sect circulates an encoded bulletin every month, the True Believer.
+
+## quarry
+Mounted cultists of the Twilight's Hammer ride the sands
+beyond the reach of Cenarion Hold, picking off its patrols and caravans.
+Their leader is a terrible warrior.
+They ride a long road through the sands, east and south of the Hold.
+= Twilight Marauder Morna. Windcaller Proudhorn, at Cenarion Hold, wants Morna and the riders defeated.
++ They were costing the Hold's patrols more lives than it could accept.

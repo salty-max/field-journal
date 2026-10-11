@@ -38,7 +38,9 @@ riddles:
     hint_area: { x: 44.8, y: 81.6, r: 5 }
     danger: "Quiet"
     sources: "quests 5344, 5342; the Codex's house-of-barov page"
-# quarry: the zone's own, in the hunts' pass
+quarry:
+  id: 1852
+  sources: "quests 105, 211 (the Bulwark, Chillwind Camp), 5801, 5803"
 ---
 ## western-plaguelands-uthers-tomb
 On a hill of sorrow in the south of the grey fields,
@@ -84,3 +86,11 @@ and each would pay to see the other's head. Find him.
 ? Chillwind Camp, in the southern hills of the Western Plaguelands.
 = Weldon Barov, of the house of Barov.
 + 'A glorious day it is! Finally, the pockmark of house Barov eliminated and my fortune secure!' Weldon, when his brother Alexi is dead.
+
+## quarry
+In the heart of the ruined city a lich holds dominion,
+once the master of the school of the dead, now lord of the ruins he claimed.
+Scourge surround the city's centre, and his own guard is formidable.
+Bring many allies, both camps advise.
+= Araj the Summoner, a lich, and one of the most powerful beings the Scourge calls its own. The Bulwark and Chillwind Camp each want a shard of his phylactery.
++ His scarab, his signet, is the head of the key that opens Scholomance.

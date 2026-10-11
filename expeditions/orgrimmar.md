@@ -27,7 +27,7 @@ riddles:
     hint_area: { x: 48.8, y: 48.7, r: 4 }
     danger: "Quiet"
     sources: "quest 829"
-# quarry: the zone's own, in the hunts' pass
+# no quarry: a capital has riddles alone
 ---
 ## orgrimmar-thrall
 In the hold named for the chieftain who drank the demon's blood and then killed the demon,
