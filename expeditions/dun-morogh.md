@@ -14,36 +14,35 @@ riddles:
     hint_area: { x: 49.8, y: 34.1, r: 8 }
     danger: "Quiet"
     sources: "object 174746's text; quests 1650, 1652, 1653, 1806"
-  - id: dun-morogh-tundra
+  - id: dun-morogh-tog
     tier: near
-    creature: 1266   # Tundra MacGrann, dump 34.6, 51.7; Wowhead 34.6, 51.6
-    hint_area: { x: 33.0, y: 49.2, r: 6 }
+    creature: 6119   # Tog Rustsprocket, dump 47.3, 53.8, in Kharanos
+    found: target   # in the town: only by speaking to him
+    hint_area: { x: 49.0, y: 56.0, r: 4 }
     danger: "Quiet"
-    sources: "quest 312"
-  - id: dun-morogh-brewnall
+    sources: "Tog Rustsprocket's own words (his gossip); the WoWWiki archive's Tog Rustsprocket page"
+  - id: dun-morogh-misty-pine
     tier: off
-    gestures: [TOAST, DRINK, CHUG]
-    area: Brewnall Village   # placed: Rejold Barleybrew, dump 30.2, 45.7; Wowhead 30.2, 45.8
-    hint_area: { x: 27.5, y: 43.5, r: 7 }
+    area: Misty Pine Refuge   # placed: the client's overlay: 57.4, 42.7
+    hint_area: { x: 55.5, y: 45.0, r: 6 }
     danger: "Quiet"
-    sources: "quests 310 (the Barleybrews' rivalry with the Thunderbrews), 318, 319"
-  - id: dun-morogh-onin
+    sources: "the WoWWiki archive's Misty Pine Refuge and Father Gavin pages; the dump (Father Gavin alone)"
+  - id: dun-morogh-ironband
     tier: off
-    gestures: [SILENCE, SNEAK]
-    creature: 6886   # Onin MacHammar, dump 25.2, 44.5; Wowhead 25.2, 44.4
-    hint_area: { x: 24.3, y: 47.4, r: 6 }
-    danger: "Guarded (leper gnomes)"
-    sources: "quests 2238, 412"
-  - id: dun-morogh-mori
+    area: Ironband's Compound   # placed: no overlay of its own (it shares Helm's Bed Lake's)
+    anchor: { creature: 6124 }   # what places its hint: Captain Beld, who holds it
+    hint_area: { x: 75.5, y: 60.0, r: 6 }
+    danger: "Guarded (Dark Iron spies to level 10; Captain Beld, 11)"
+    sources: "the WoWWiki archive's Ironband's Compound and Helm's Bed Lake pages (the abandoned building, the hole in the ice); the dump's spawns"
+  - id: dun-morogh-gibblewilt
     tier: hidden
-    gestures: [MOURN, KNEEL, SALUTE]
-    object: 2059   # dump 79.7, 36.2; Wowhead 79.7, 36.2
-    hint_area: { x: 80.7, y: 40.1, r: 8 }
-    danger: "Guarded (Ice Claw Bears; Mangeclaw)"
-    sources: "quests 419, 417"
+    creature: 8503   # Gibblewilt, two spawns outside Gnomeregan, dump 24.2, 43.6 and 26.4, 36.4
+    hint_area: { x: 23.0, y: 40.0, r: 6 }
+    danger: "Guarded (leper gnomes to level 10; Gibblewilt, 11)"
+    sources: "the WoWWiki archive's Gibblewilt and Leper gnome pages (Gnomeregan's fall); the dump's spawns"
 quarry:
-  id: 1961
-  sources: "quests 417, 419 (Hildelve's journal, Pilot Hammerfoot)"
+  id: 1132   # Timber
+  sources: "the WoWWiki archive's Timber page (the island, his two wolves, the respawn, his drops, the pet); the dump's spawns"
 ---
 ## dun-morogh-etched-note
 Below the great gates, where every traveller climbs,
@@ -54,47 +53,46 @@ Find what he etched beside it.
 = 'This anvil is the property of Jordan Stilwell - Please do NOT use!' Ironforge has a great many anvils. This one is spoken for.
 + Jordan Stilwell is no dwarf: a human smith with a house on Westfall's Longshore, who meant to be a paladin before smithing took him, and came to work beside the dwarves while his wife, Daphne, waited by the sea. The paladins who pass his tests carry a hammer he forges and names for a dwarven paladin he called a friend.
 
-## dun-morogh-tundra
-In the valley of the chill wind, an old hunter with a bad leg
-lost a month of salted meat to a bear he calls Old Icebeard.
-The locker is thorium, and the bear can't open it;
-neither can the hunter reach the cave to take it back. Find his camp.
-? Chill Breeze Valley, on the road west of Kharanos.
-= Tundra MacGrann. He will starve when the cold season comes unless someone fetches his meat from Old Icebeard's cave.
-+ He kept the meat locked away so the bears wouldn't get it; Old Icebeard carried off the whole locker while he was out hunting deer.
+## dun-morogh-tog
+In the brewers' town in the heart of the snows,
+a gnome who cannot abide them stands and grumbles:
+the snow soaks his robe and spoils everything he owns.
+Find him, and let him tell you about it.
+? Kharanos: among its people, a gnome in a wet robe.
+= Tog Rustsprocket, of Kharanos: 'I wish the snow would just all melt away. It's always getting my robe wet and messing up everything!'
++ He keeps a message for the warlocks who come his way, and sends them on to Lago Blackwrench.
 
-## dun-morogh-brewnall
-West of the town of the thunder brewers, a rival family brews
-what the cold road needs: one brew to keep a traveller warm,
-another to lay all but the stoutest dwarf flat.
-Find their casks, and do what casks are for.
-? Rejold Barleybrew brews west of Kharanos; his casks are not there to be looked at.
-= Brewnall Village, where Rejold Barleybrew tries what a careful brewer would not. Some of it tastes good.
-+ Evershine burns so hot that Pilot Bellowfiz throws it in his engine's furnace for a burst of power, and swears it has got him out of more than one tight spot.
+## dun-morogh-misty-pine
+In the pines east of the road that climbs to the great gates,
+a refuge stands that belongs to the Dawn.
+One priest keeps it, alone, studying the plague
+while the rest of his order fights it in the north.
+? North-east of Kharanos, east of the road up to the Gates of Ironforge: a refuge in the pines.
+= Misty Pine Refuge, an outpost of the Argent Dawn, kept by Father Gavin alone.
++ The rest of the Dawn fights the Scourge in the Plaguelands; Gavin keeps the refuge, and studies the plague of undeath from as far away as it gets.
 
-## dun-morogh-onin
-Before the gate of the gnomes' poisoned city, among the lepers,
-a dwarf hides who reports to a circle of thieves:
-they think the king's quarry holds more than one king should keep.
-He would rather not be noticed. Find him without giving him away.
-? Outside Gnomeregan, among the leper gnomes, someone is not a gnome, and would rather nobody noticed.
-= Onin MacHammar, of the Hidden Circle: 'Shhhh! Keep it down you daft fool. They'll hear us.'
-+ Gnomeregan's engineers flooded their own city to stop the troggs, and turned most of their people into leper gnomes; two of them, in Kharanos, are building a machine to turn them back.
+## dun-morogh-ironband
+By a frozen lake whose ice is kept open in one place,
+so that there is always fresh water,
+an abandoned house south of the shore has new tenants:
+dwarves of the dark iron, who do not care for visitors.
+? South of Helm's Bed Lake, in eastern Dun Morogh: the house the Dark Irons have taken.
+= Ironband's Compound, a base of the Dark Iron dwarves in Dun Morogh, under their Captain Beld.
++ Their spies watch the lake from the slopes around it; Ironforge would very much like to know what the Dark Irons are doing so close to its gates.
 
-## dun-morogh-mori
-A pilot of the siege engines drove up a hill too steep,
-went on alone for the ore he was sure of,
-and met a great bear of the ice claws.
-The cold kept him where he fell, on the eastern heights;
-his friend still waits by the engines.
-? Pilot Hammerfoot guards the engines in the east; his friend went on foot into the hills.
-= Mori Hildelve, of the Ironforge Siege Brigade: mauled, frozen, his journal still in his hand. It asks for one thing, revenge on Mangeclaw.
-+ He was searching for a rare ore needed for a high-grade blastpowder. He drove the bear off once; it came back.
+## dun-morogh-gibblewilt
+Outside the gnomes' fallen city, by the small buildings near its door,
+one of its own still makes his rounds,
+though the poison changed him with all the rest.
+He has kept his name, which most of the changed have lost. He is not always there.
+? Outside Gnomeregan, near its entrance: among the leper gnomes, one with a name.
+= Gibblewilt, a leper gnome, one of the few with a name. Like the rest, he takes anyone who comes near for a trogg.
++ When troggs from the Uldaman dig overran Gnomeregan, High Tinker Mekkatorque flooded the city with radiation to drive them out. It killed more gnomes than troggs, and twisted many of those it did not kill.
 
 ## quarry
-A great bear of the ice claws mauled a pilot on the eastern heights,
-was driven off, and came back to finish him.
-It has not gone far from where he fell.
-His journal asks one thing of whoever finds him.
-= Mangeclaw, a "huge Ice Claw Bear", as Hildelve wrote. Pilot Hammerfoot takes its claw and the journal, for the Ironforge Siege Brigade.
-+ Hammerfoot wishes he had been there when the beast was found: Hildelve was a good friend.
+On the island in the middle of the frozen lake to the north-west,
+a white wolf leads the pack, with two starving wolves at his heels.
+Bring him into a fight and he will bring others.
+Thin the island first.
+= Timber, a white wolf, and very likely the alpha of Iceflow Lake's pack. He alone carries the Silver-lined Bracers and the White Wolf Gloves.
++ A hunter can tame him: a good first companion for anyone fond of wolves. He comes back within the hour.
