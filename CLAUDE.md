@@ -52,7 +52,9 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   TBC Anniversary, 20506; `_Camelot.toc`: Forever, 16001), the same but for
   the interface and the game's data (`Data_Classic.lua` or
   `Data_Forever.lua`). `scripts/package.ts` (`bun run package`) checks they
-  agree and zips `dist/FieldJournal.zip` for a test in the game.
+  agree and zips `dist/FieldJournal-<version>.zip` for a test in the game
+  (`git describe`: the tag, or v0.7.3-2-g1234abc between two, -dirty if
+  changed); a release's is `FieldJournal-vX.Y.Z.zip`.
 - `addon/FieldJournal/`: `Core.lua` (the journal's schema; the events every
   file listens to: `ns.on`, and `ns.onUnit` for a unit event heard for one
   unit only, each listener protected: its error reported, the others still
