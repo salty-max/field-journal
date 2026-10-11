@@ -12,144 +12,265 @@ Games: Classic Era (Hardcore, Season of Discovery), TBC Anniversary, World of
 Warcraft: Forever. One source, one package per game, as Lorekeeper's Codex
 (`bun run package`, two zips per release, CurseForge per game).
 
-## Hunts (proposed 11 October 2026)
+## Expeditions (proposed 11 October 2026)
 
-The user's idea, the other half of the Codex's riddles (its PLAN.md,
-"Riddles"): a board of quarries to hunt, the rares (and the few wanderers)
-whose story the lore tells, each on a wanted poster in the naturalist's voice
-with a riddle of its haunts and habits. One chosen on the board is the
-target, and only its haunts are shaded on the game's world map. Brought down:
-its trophy, as the Bestiary keeps it, a picture of the kill, achievements.
+The user's idea: make players look at the world. Every zone has corners few
+reach and things few notice: a grave beside a path, a statue nobody explains,
+a book left on a shelf, a marker on a hill. The journal sends the reader to
+them by riddles, and on the hunt for the quarries the lore tells of: a
+book of expeditions, zone by zone. A solved riddle or a quarry brought down
+is stamped with a seal and a picture of the moment.
 
 ### Decisions (11 October 2026, the user's)
 
 | Question | Decision |
 |---|---|
-| Where | In the Field Journal, not a sixth addon: the Bestiary already knows every rare of the original world (rank, level, zone), draws its portrait, tells a kill on both games, keeps trophies, draws on the world map and earns milestones. |
-| Which quarries | Those whose story the lore tells (a quest, a book, the codex's own pages): curated, each thought through. A rare with nothing to tell has no poster; the Bestiary's trophies still count it. |
-| The map | One quarry at a time: choosing it on the board makes it the target, and only its haunts are shaded on the world map. No layer of every rare. |
-| Achievements | Mandatory: hunts among the Milestones. |
-| Picture | When a quarry is brought down, once the fight is over (a second after leaving combat, over its body): the kit's `K.snapshot`, as the Codex's riddles and Hearthtale's postcards. |
+| Where | The Field Journal, both halves: the riddles (first planned in the Codex, moved here: they are about exploring the land, the journal's purpose) and the hunts. No sixth addon. |
+| What the riddles target | The overlooked: props, graves, statues, plaques, books, peculiarities few players pay attention to; never a capital's front gate or a quest hub's obvious centre. Each holds a small story, true to the original game's lore. |
+| Quality | Each riddle and poster thought through, one by one: fair, lore-true, worth the walk. |
+| How many | One rule, no exceptions: three riddles in every zone and every capital, one quarry in every zone that has rares (below). |
+| Hints | Rewarded when not used: seals and a margin only the unaided read. |
+| The hunt's map | One quarry at a time is the target; only its haunts are shaded on the world map. |
+| Achievements | Mandatory. |
+| Pictures | Taken at the moment a riddle is solved (after its gesture, once the character is in it) and when a quarry is brought down; the postcards' technique, moved into the kit (`K.snapshot`) and shared with Hearthtale's postcards. |
 
-### How many (one rule, no exceptions)
+### How many
 
-One quarry for every zone of the original world that has rares: 38 (the
-Eastern Kingdoms 21, Kalimdor 17; Deadwind Pass, Moonglade and Blackrock
-Mountain have none). Each zone's quarry is the creature with the most story
-that roams it: one of its rares (5 to 25 a zone in the data) first, else a
-named wanderer the lore tells of (Mor'Ladim in Duskwood). Forever adds Zephras
-Isle's and its new zones' by the same rule. The 38 are the goal of the full
-board; a first release ships with a dozen a continent.
+| | Eastern Kingdoms | Kalimdor | All (Classic) |
+|---|---|---|---|
+| Zones | 23 | 18 | 41 |
+| Capitals (their own three, apart from their zone's) | 3 | 3 | 6 |
+| **Riddles** (three each) | **78** | **63** | **141** |
+| **Quarries** (zones with rares) | **21** | **17** | **38** |
 
-### Unaided (the reward for not tracking)
+A zone's three riddles climb: **near the road** (passed every day, never
+looked at), **off the road** (a detour worth making), **hidden** (remote, high,
+at the end of something, or small enough to miss; never behind an exploit or
+off the playable map). Deadwind Pass, Moonglade and Blackrock Mountain have no
+rares, hence no quarry. Forever adds by the same rule: Zephras Isle's three and
+its quarry, its new zones', each capital it adds. The first release ships with
+the riddles of every zone up to level 30 and their quarries; the full book is
+the count above.
 
-As the Codex's riddles: a quarry brought down without ever being the target
-earns its poster a gold seal, tracked a plain one, and the gold opens the
-naturalist's margin on the poster, one more short paragraph of its story
-(sourced as the poster is). Making a quarry the target asks first ("This
-quarry will no longer earn its gold seal"). The board's header counts the
-gold seals.
+### The book (a sixth tab, Expeditions)
 
-### The board (in the Bestiary: a Hunts view beside Trophies)
+- **By zone**, shown once the zone is entered (as the Atlas's): its three
+  riddles (near the road, off the road, hidden) and its quarry. The zone is
+  known; the place is the riddle. A zone's expedition is complete when its
+  three riddles are solved and its quarry brought down.
+- The tab's select (`ns.filterOf`, as the Bestiary's): everything, riddles,
+  hunts, unfinished.
+- **A riddle**: its verse, its tier, its danger, whether it asks for a gesture
+  or a reading, its two hints behind a question (below), and once solved its
+  seal, the naturalist's note, the margin for the unaided, the picture's file
+  name ("in your Screenshots folder: WoWScrnShot_101126_203501.jpg": an addon
+  can't show a picture from that folder).
+- **A quarry** (the board): its portrait, name, level, rank, the riddle of its
+  haunts and habits, the naturalist's note, its danger, and the button that
+  makes it the target. Quarries near you first: this continent, your level
+  band (three below to five above), not yet brought down.
 
-- **Quarries near you first**: on this continent, within the level band
-  (yours, three below to five above), not yet brought down; then the others of
-  the continent; those already taken under them, with their trophy's day. The
-  Bestiary's tab bar stays at five.
-- **A poster**: the quarry's portrait (as the Bestiary's), its name, level and
-  rank, the zone where it is seen (a wanted poster says so), the riddle of its
-  haunts and habits, the naturalist's note, its danger (its own rank and
-  level, and what roams with it, from the pinned spawns), and the button that
-  makes it the target.
-- **The target**: one at a time, kept across sessions. On the game's world
-  map, its zone shades each of its haunts (its spawn points from the pinned
-  CMaNGOS spawns, clustered, a soft circle each; Forever's new rares from
-  AllTheThings' coordinates), with a tooltip naming it; the zone's map pin
-  points from the continent's map. Nothing on the map for any other quarry.
-  The riddle is the game; the map is the help, and a quarry brought down
-  without ever being the target counts for the achievement that asks for it.
-- **Brought down**: the Bestiary's kill (`PARTY_KILL`, or the combat log's
-  line where the client has no such event), the poster stamped, the trophy
-  as now, the alert, a line in chat, the target cleared, the picture.
+### Hints, seals and the margin
+
+- **Two hints a riddle**, each asked for ("This riddle will no longer earn its
+  gold seal"): a plainer clue in prose, then a circle shaded on the world map
+  (wider than the spot, never centred on it).
+- **A quarry's help** is the target: its haunts shaded on the map (its spawn
+  points from the pinned CMaNGOS spawns, clustered into a few soft circles;
+  Forever's new rares from AllTheThings' coordinates), with a tooltip naming
+  it. One target at a time, kept across sessions, nothing on the map for the
+  others.
+- **Seals**: gold, solved from the verse alone (a quarry: never made the
+  target); silver, with the first clue; plain, with the map. A hint taken is
+  kept even unsolved.
+- **The margin**: every riddle and quarry has one more short paragraph of its
+  story, true and sourced like the rest, that only a gold seal opens. A hint
+  closes it for good.
+
+### What solves a riddle (both games, outside combat)
+
+| Condition | How |
+|---|---|
+| The place | The map and position (`C_Map.GetBestMapForUnit`, `GetPlayerMapPosition`; the Atlas reads them already), checked every second while in a riddle's zone, within a few yards of the spot. Open world only: Forever hides the position in its instances. |
+| A gesture | The emote's token, by hooking `DoEmote` (`hooksecurefunc`, no taint): `KNEEL`, `SALUTE`, `BOW`, `PRAY`..., made at the place. Every language: the token, never the text. |
+| A reading | A plaque, a tombstone or a book read there: the game's reader opening (`ITEM_TEXT_BEGIN`, its title from `ItemTextGetItem`) at the place. |
+| The hour | At night (`GetGameTime`, the server's hour), only where the story asks for it. |
+
+A quarry is brought down as the Bestiary already tells a kill (`PARTY_KILL`,
+else the combat log's line); a trophy taken before the expeditions existed
+stamps its poster quietly ("taken before the book").
+
+**The answers stay unreadable**: the data holds no riddle's spot, only a
+salted fingerprint (32-bit FNV-1a) of its map, its cell on a 2% grid and its
+gesture or reading; the check fingerprints the player's cell and the eight
+around it. The map hint's circle is stored plainly (it only shades a region).
+
+### Danger
+
+Each riddle and quarry says how dangerous its place is for its level, from the
+pinned spawns within about 60 yards (their highest level, elites; a quarry's
+own rank and level): "Quiet", "Guarded (to level 32)", "Perilous (elites)", and
+"hostile ground" for a town of the other faction. A Hardcore character is
+never sent blind into an elite camp.
 
 ### What a character records
 
-`FieldJournalChar.hunts[id] = { at, level, tracked, shot }` (when, at what
-level, whether it was ever the target: the seal, kept from the moment it is
-tracked, even before the kill; the picture's stamp);
-`FieldJournalChar.target` (the quarry chosen). A trophy taken before the hunts
-existed stamps its poster quietly ("taken before the board").
+`FieldJournalChar.expeditions = { riddles = { [id] = { at, level, hints = 0..2,
+shot } }, hunts = { [id] = { at, level, tracked, shot } }, target = id }`:
+when, at what level, the seal (hints, or ever tracked), the picture's stamp
+(`MMDDYY_HHMMSS`, at `SCREENSHOT_SUCCEEDED`).
 
-### Content (content/hunts/<id>.md) and data
+### Content and the build
 
 ```
+content/expeditions/<zone>.md        (one file a zone: its three riddles, its quarry)
 ---
-creature: 1132                 # the quarry (ids verified on Wowhead Classic)
-codex: timber                  # optional: the Codex's page of it, for the lore
+zone: 1431                           # the uiMap id
+riddles:
+  - id: duskwood-near
+    tier: near
+    reading: The Birth of the Lich King   # optional: a book or plaque read there
+    gesture: KNEEL                        # optional: an emote's token
+    night: false                          # optional
+    where: { x: 0.0, y: 0.0, r: 2 }       # measured in the game: /journal where
+    area: { x: 0.0, y: 0.0, r: 8 }        # the map hint's circle
+quarry: 522                          # its creature id (verified on Wowhead Classic)
 client: both
 ---
-(the riddle of its haunts and habits, three to five lines)
----
-(the naturalist's note, two or three sentences)
----
-(the margin: one more paragraph of its story, for the gold seal only)
+## duskwood-near
+(verse)
+? (the first hint, prose)
+= (the note, when solved)
++ (the margin, for the gold seal)
 ```
 
-`scripts/build.ts` reads `content/hunts/`, checks the creature is in
-`data/creatures.json` (its rank, zone, level), and writes the posters into
-`Data_Classic.lua` / `Data_Forever.lua`; `scripts/hunt_spawns.py` (from
-`rare_zones.py`'s placing of spawn points in the zones' map rectangles) writes
-each quarry's haunts on its zone's map: `haunts = { [id] = { map, x1, y1, x2,
-y2... } }`, clustered to a handful of circles.
+`scripts/build.ts` checks every field (the zone, the spot inside its zone, a
+known gesture, the hint circle holding the spot, the quarry in
+`data/creatures.json` and of the zone, plain ASCII), computes the danger from
+the pinned spawns, and writes the fingerprints, never the spots, into
+`Data_Classic.lua` and `Data_Forever.lua`; `scripts/hunt_spawns.py` (from
+`rare_zones.py`) writes each quarry's haunts. The spots are measured in the
+game (a `/journal where` like the Codex's) and checked against the data where
+an object marks them.
+
+### Finding the riddles (the sources)
+
+- **The game's own objects** (the pinned CMaNGOS dump, surveyed 11 October
+  2026): 148 readable objects (plaques, tombstones, books on shelves) and 241
+  named props (graves, monuments, statues, shrines, remains) placed in the
+  41 zones: Terenas Menethil's grave by the Undercity, the Memorial to Sully
+  Balloo, Grom's monument in Ashenvale, Eliza's tombstone in Duskwood,
+  Trollbane's tomb in Arathi, the Hyal family's monument in Dustwallow,
+  Yuriv's tombstone in Silverpine, an old lion statue in Redridge, the remains
+  of Featherbeard, Kroshius and Sha'ni Proudtusk, the Armor of Mannoroth.
+  Some are a quest's own (seen only during it): checked in the game.
+- **What the database doesn't hold** (statues and wrecks that are part of the
+  scenery): the wikis' hidden places and easter eggs, dated to the original
+  game, and scouting in the game.
+- **The quests' own words** (the same dump): a grave a quest names, a statue a
+  giver explains, a story told in passing.
 
 ### Writing (the bar)
 
-- The naturalist's voice (the Bestiary's): what is seen and said of the
-  beast, never a lecture. The riddle in verse or plain lines, three to five,
-  about where it roams and how it behaves, every claim backed by its quest,
-  the game's own texts or the Codex's page; no invented colours, scars or
-  habits.
-- The lore's quarries only: a rare with a quest, a book, a figure's story
-  (Mor'Ladim), a creature the codex gave a page (Timber, Ghost Howl). A
-  research pass through the Bestiary's 343 rares (248 rare, 95 rare elite) and
-  the named wanderers keeps the ones with a story.
-- Both factions, every continent; Forever's own rares when their story is
-  known (Zephras Isle).
+- The naturalist's voice for the notes and margins (the Bestiary's); the
+  riddles in verse or plain lines, three to six, read aloud without a stumble;
+  plain ASCII.
+- Never name the answer. Every claim backed by the game's own texts (the
+  object's words, its quest, its giver) or a source of the original game's era
+  cited beside it in the file; no invented sights (colours, weather, what
+  stands where) beyond what the game shows.
+- Fair: the verse alone should lead an attentive player there; the first
+  hint, a newcomer.
+- A gesture or a reading only where the thing calls for it (kneel at a grave,
+  read a plaque, salute a fallen hero). Never a chore.
+- Both factions: a riddle on hostile ground is kept, its danger saying so.
 
-### Achievements (Milestones: Hunts)
+### Achievements (Milestones: Expeditions)
 
 | Achievement | When |
 |---|---|
-| First Quarry | the first poster stamped |
-| Bounty Hunter, Master of the Hunt | 10, all the quarries of this game |
-| The Eastern Kingdoms' Quarries, Kalimdor's Quarries | every quarry of a continent |
-| Without a Map, Tracker's Instinct, No Trail Given | 5, 15, all the quarries with a gold seal |
+| A Riddle Read Aright, First Quarry | the first riddle solved, the first quarry |
+| (per zone) The Duskwood Expedition... | a zone's three riddles and its quarry; shown once the zone is entered |
+| Near the Road, Off the Road, Nothing Hidden | every riddle of that tier on a continent |
+| The Eastern Kingdoms, Kalimdor | every expedition of a continent |
+| By Your Own Light, Clear Sight, Nothing Asked | 10, 50, every gold seal |
+| Without a Map, No Trail Given | 5, every quarry brought down untracked |
+| Respects Paid, Well Read, After Dark | every riddle asking a gesture, a reading, the night |
+| Zephras Isle | Forever: the isle's expedition |
 
-### The first posters (written in full)
+### The picture, in the kit (`K.snapshot`)
 
-1. **Timber** (Dun Morogh; 1132; rare, level 10; codex `timber`).
+Shared by the expeditions and Hearthtale's postcards: `K.snapshot({ after =
+seconds }, done)`.
 
-   > The hunters of Kharanos set their snares, and he walks round;
-   > he doubles on his own trail, and he picks his own ground.
-   > Of all the wolves that run in the snow of the vale,
-   > he is the one larger than the rest, who will not take the bait.
+- The interface made invisible (`UIParent:SetAlpha(0)`, put back as it was,
+  never forced to 1), the minimap as the postcards' last test decides (`/pct
+  4`, `/pct 5`, still owed), the shot (`Screenshot()`) from a timer, the
+  opacity back at `SCREENSHOT_SUCCEEDED`/`FAILED` or after two seconds.
+  Tested on 10 October: in and out of combat, a vendor's window stays open.
+- Never in combat (queued to `PLAYER_REGEN_ENABLED` plus a second, dropped
+  after 20 seconds or a change of zone), never over a loading screen or a
+  cinematic; the interface already hidden (Alt+Z): the shot alone. One at a
+  time across the family: an interface already at opacity 0 waits its turn.
+- Quiet: the game's "Screen captured" silenced; `done(stamp)` gets the file's
+  stamp. Nothing of the game's settings touched. A setting: pictures on (the
+  default, as the user wants them) or off.
 
-   Note: "Every hunter Kharanos has sent after him has been outlived by him.
-   Mind the ground he chooses; he chose it first."
+### The model zone: Duskwood (written in full; spots to measure)
 
-2. **Ghost Howl** (Mulgore; 3056; rare, level 12; codex `ghost-howl`;
-   quest 770).
+Duskwood, levels 18 to 30: its three riddles and its quarry. Facts from the
+pinned dump (objects, quests 225, 228, 253) and the Codex's checked pages
+(`the-embalmer`, `morladim`, `raven-hill`).
 
-   > A wolf runs the plains with a wound on his hide
-   > that no beast of the grassland ever gave him.
-   > The Legion marked him. At Bloodhoof, a hunter
-   > would know the hide, and wish its spirit peace.
+1. **Near the road: the books of Darkshire** (`reading: The Birth of the Lich
+   King`, in Darkshire, where the dump places five history books). Danger:
+   Quiet.
 
-   Note: "Skorn Whitecloud at Bloodhoof Village knows this wolf's hide. Take
-   it to him when you have it; he has a weapon for the hunter who does."
+   > In the town whose watch keeps the dead from its door,
+   > a book on a shelf tells where the dead learned to rise:
+   > a spirit sealed in ice, far in the north.
+   > Find it among its fellows, and read it through.
 
-3. **Mor'Ladim** (Duskwood; 522; elite, level 35; codex `morladim`;
-   quest 228). Danger: Perilous (an elite, wandering).
+   Hint: "The watch's own town has books few open; one of them knows the
+   enemy." Note: "Darkshire keeps a shelf of histories. The Night Watch
+   fights the dead every night; it seems fitting someone here reads how they
+   began." Margin: (from the book's own text: Ner'zhul's spirit, bound in ice
+   by the Legion, and what it became).
+
+2. **Off the road: Eliza's tombstone** (`reading: Eliza's Tombstone`, by the
+   Embalmer's shack above Raven Hill; the dump: 28.9, 30.5). Danger: Guarded
+   (Raven Hill's dead).
+
+   > A kindly man of potions lost his wife,
+   > and would not let her go; he gave her his own heart.
+   > It woke her hungry, so he keeps her in the earth
+   > above the hill of ravens. Read her stone.
+
+   Hint: "An old hermit's shack overlooks the graves of Raven Hill; he did
+   not come alone." Note: "'Beloved wife, may the earth sate your hunger.'
+   (the stone's own words, object 37). The Embalmer meant it kindly, I think,
+   which is the worst of it." Margin: (the
+   children's story Darkshire tells of him, and what the Night Watch found:
+   quest 253).
+
+3. **Hidden: the weathered grave** (`gesture: KNEEL`, Morgan Ladimore's
+   marker, "out past the house on the hill", outside the cemetery's ground).
+   Danger: Guarded; Mor'Ladim himself wanders near (an elite).
+
+   > He came home from the plague to a grave on the hill,
+   > and grief made a killer of a good man's will.
+   > They buried him quickly, past the house on the rise,
+   > outside the hallowed ground. Kneel where the grave lies.
+
+   Hint: "Not every grave of Raven Hill lies inside its walls." Note: "The
+   marker says only MORGAN LADIMORE. The earth over it has been disturbed:
+   he did not stay." Margin: (his daughter Sarah in the Night Watch, and her
+   message to him).
+
+**Duskwood's quarry: Mor'Ladim** (522; elite, level 35; a named wanderer:
+Duskwood's rares are researched in the pass below, and the lore's own story
+here is his; quest 228). The expedition then tells one man's story from both
+ends, his grave and his ghost.
 
    > A knight came home from the plague to a forest gone dark,
    > to his wife's grave on the hill; and something broke in him there.
@@ -159,21 +280,32 @@ y2... } }`, clustered to a handful of circles.
    Note: "Not a beast, and no rare in the Bestiary's sense. The Night Watch
    wants him laid to rest, and his daughter serves in it. Go with company."
 
-Next: the research pass through the rares (the quests and books that name
-them) for each zone's quarry, its margin with it; a dozen a continent before a
-first release, the 38 for the full board.
+Two more posters written, for their zones' expeditions: **Timber** (Dun
+Morogh, 1132, rare 10: "The hunters of Kharanos set their snares, and he
+walks round; / he doubles on his own trail, and he picks his own ground. / Of
+all the wolves that run in the snow of the vale, / he is the one larger than
+the rest, who will not take the bait.") and **Ghost Howl** (Mulgore, 3056,
+rare 12, quest 770: "A wolf runs the plains with a wound on his hide / that no
+beast of the grassland ever gave him. / The Legion marked him. At Bloodhoof, a
+hunter / would know the hide, and wish its spirit peace.").
 
 ### Steps
 
-1. The kit's `K.snapshot` (the Codex's PLAN.md, "The picture, in the kit"),
-   synced here.
-2. The data: `content/hunts/`, the build's checks, `hunt_spawns.py` and the
-   haunts per zone map.
-3. The board: the Hunts view in the Bestiary, the poster, the target and its
-   map layer (the world map's data provider, as `WorldMapPins.lua`), the
-   stamp on a kill, the picture, the achievements; the test game learns the
-   map layer's target and `Screenshot`.
-4. The research pass and the posters, a dozen a continent; then a release.
+1. The picture: the postcards' minimap test (`/pct 4`, `/pct 5`), then
+   `K.snapshot` in the kit, synced to the journal (and to Hearthtale for its
+   postcards).
+2. The data: `content/expeditions/`, the build's checks, the fingerprints,
+   the danger, `hunt_spawns.py`; `/journal where`; the test game learns
+   `DoEmote`, the reader's title, `Screenshot` and the map's target layer.
+3. The engine: `Expeditions.lua` (the place each second in a riddle's zone,
+   the gesture hook, the reading, the hour, the kill; solved, recorded, the
+   seal, the alert, the picture), the target's map layer (the world map's
+   data provider, as `WorldMapPins.lua`).
+4. The tab (`ExpeditionsBook.lua`): zones once entered, their riddles and
+   quarry, hints asked for, seals, notes, margins, pictures; the achievements.
+5. The writing, zone by zone, Duskwood first: candidates from the sources
+   above, each riddle measured in the game, a first release with every zone up
+   to level 30; then the rest of the 141 and the 38.
 
 ## Decisions (5 October 2026)
 
