@@ -27,6 +27,8 @@ globals:
     any: true
   C_XMLUtil:
     any: true
+  CanLootUnit:
+    any: true
   CombatLogGetCurrentEventInfo:
     any: true
   CreateFrame:
@@ -78,6 +80,8 @@ globals:
   GetSubZoneText:
     any: true
   InCombatLockdown:
+    any: true
+  IsInGroup:
     any: true
   ITEM_QUALITY_COLORS:
     any: true

@@ -68,7 +68,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   1.15.9), else the combat log, and a quest's count gone up for a creature no
   kill told (another's blow on one I tagged, which the game credits);
   loot from the loot window (read at `LOOT_READY`, before auto loot or a
-  fast-loot addon empties it, and again at `LOOT_OPENED`), trophies; a
+  fast-loot addon empties it, and again at `LOOT_OPENED`), drop rates
+  (`rec.drops`: of my kills whose corpse I looted, its window's first opening,
+  or found empty, `CanLootUnit` a moment after the kill, solo only; each item
+  once a corpse; `ns.dropRate`, on a spoil's tooltip), trophies; a
   chat line per new creature, a sound only for trophies), `Atlas.lua` (places
   explored from the fog lifted, `C_MapExplorationInfo`; deaths, close calls,
   flights, crossings, binds), `Flora.lua` (fish and herbs, read from the loot

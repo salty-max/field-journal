@@ -15,7 +15,7 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 
 - **Some 3,500 creatures in 96 families**: wolves, raptors and the great cats; kobolds, murlocs and the Defias; the dragonflights, the elementals, the Scourge, the Burning Legion, and every rare and boss of the original world.
 - **A naturalist's note for every family**: what they are, where they live, how they fight and what the League has learned of them, true to the lore of the original game.
-- **Your own record of each creature**: when and where you first met it, the levels it is found at, how many you have slain, what you took from it, and the day you took its trophy.
+- **Your own record of each creature**: when and where you first met it, the levels it is found at, how many you have slain, what you took from it and how often it dropped (hover a spoil: its drop rate over your kills), and the day you took its trophy.
 
 ## How it works
 
@@ -25,6 +25,7 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 - On World of Warcraft: Forever, creatures inside dungeons and raids are hidden from every addon by the game: they can't be recorded there.
 - Each character keeps its own journal.
 - Tooltips say when a creature is not yet in your journal, or how many you have slain.
+- A spoil's drop rate counts the kills whose corpse you looted or found empty (a corpse left where it fell counts for nothing, nor a second look at one, skinning say); in a group, only the corpses you looted. It counts from version 0.7.5 on.
 
 ## The book
 

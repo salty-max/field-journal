@@ -179,6 +179,13 @@ local function lootButton(i)
   b:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     if GameTooltip.SetItemByID then GameTooltip:SetItemByID(self.itemId) end
+    -- (how often it came from my kills of this creature)
+    local drop = ns.dropRate(self.rec, self.itemId)
+    if drop then
+      GameTooltip:AddLine(" ")
+      GameTooltip:AddLine("Drop rate: " .. drop.rate, T.accent[1], T.accent[2], T.accent[3])
+      GameTooltip:AddLine(drop.detail, T.soft[1], T.soft[2], T.soft[3], true)
+    end
     GameTooltip:Show()
   end)
   b:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -309,7 +316,7 @@ local function showCreature(id)
   local perRow = math.floor((ui.WIDTH + 6) / 40)
   for i, item in ipairs(items) do
     local b = lootButton(i)
-    b.itemId = item[1]
+    b.itemId, b.rec = item[1], rec
     b.icon:SetTexture(ui.itemIcon(item[1]) or QUESTION)
     local quality = itemQuality(item[1])
     local color = quality and ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality]

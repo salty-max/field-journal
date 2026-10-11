@@ -236,10 +236,61 @@ local function join(id, unit)
   return rec
 end
 
+-- ── drop rates ───────────────────────────────────────────────────────────────
+-- How often each item came from a kill of mine: of the kills whose corpse I
+-- looted (its loot window's first opening) or found empty (the game says it
+-- holds nothing for me, CanLootUnit, a moment after the kill), each item
+-- counted once a corpse. A corpse left unlooted counts for nothing; in a
+-- group, only the corpses I looted (another's turn would read as empty).
+-- Counted from 0.7.5 on: the spoils before it had no corpses to count by.
+--   rec.drops = { corpses = n, items = { [itemId] = corpses it came from } }
+local EMPTY_AFTER = 1.5 -- seconds after the kill: the corpse's loot is set by then
+local pending, pendingOrder = {}, {} -- guid = creature id: kills not yet looted or found empty
+
+local function dropsOf(rec)
+  rec.drops = rec.drops or { corpses = 0, items = {} }
+  return rec.drops
+end
+
+local function corpse(guid, id)
+  if not guid or secret(guid) or pending[guid] then return end
+  pending[guid] = id
+  table.insert(pendingOrder, guid)
+  if #pendingOrder > 200 then pending[table.remove(pendingOrder, 1)] = nil end
+  if not CanLootUnit then return end
+  C_Timer.After(EMPTY_AFTER, function()
+    if not pending[guid] or IsInGroup() then return end
+    local ok, hasLoot = pcall(CanLootUnit, guid)
+    if not ok or secret(hasLoot) or hasLoot ~= false then return end
+    pending[guid] = nil
+    local rec = ns.journal().creatures[id]
+    if rec then dropsOf(rec).corpses = dropsOf(rec).corpses + 1 end
+  end)
+end
+
+-- An item's drop rate, in words: { rate = "30%", detail = "in 12 of 40 kills
+-- looted or found empty" }, nil before any corpse was counted.
+local function percent(f)
+  local p = f * 100
+  if p > 0 and p < 1 then return "under 1%" end
+  if p < 10 and math.floor(p * 10 + 0.5) % 10 ~= 0 then return ("%.1f%%"):format(p) end
+  return ("%d%%"):format(math.floor(p + 0.5))
+end
+function ns.dropRate(rec, itemId)
+  local d = rec and rec.drops
+  if not d or d.corpses == 0 then return nil end
+  local n = d.items[itemId] or 0
+  return {
+    rate = percent(n / d.corpses),
+    detail = ("in %d of %d %s looted or found empty"):format(n, d.corpses, d.corpses == 1 and "kill" or "kills"),
+  }
+end
+
 local told = {} -- name = when kills of it were told (a quest's count credits the others)
-local function slay(id, unit)
+local function slay(id, unit, guid)
   local rec = ns.journal().creatures[id] or join(id, unit)
   if not rec then return end
+  corpse(guid, id)
   if rec.name then
     told[rec.name] = told[rec.name] or {}
     table.insert(told[rec.name], time())
@@ -283,14 +334,14 @@ local function killed(attacker, victim)
   if not id or not once(victim) then return end
   -- (the unit it still is, if any: for a creature the data doesn't know)
   local unit = UnitTokenFromGUID and UnitTokenFromGUID(victim)
-  slay(id, (unit and not secret(unit)) and unit or nil)
+  slay(id, (unit and not secret(unit)) and unit or nil, victim)
 end
 
 local function fromLog()
   local _, sub, _, source, _, _, _, dest = CombatLogGetCurrentEventInfo()
   if sub ~= "PARTY_KILL" or not mine(source) then return end
   local id = creatureId(dest)
-  if id then slay(id) end
+  if id then slay(id, nil, dest) end
 end
 
 ns.partyKill = ns.knows("PARTY_KILL")
@@ -399,7 +450,11 @@ end)
 -- What each corpse gave (the loot window names its source), read as looting
 -- begins (LOOT_READY: every slot still there, before auto loot or a fast-loot
 -- addon empties them) and as the window opens; each slot of a corpse once.
+-- A kill's corpse opened for the first time counts for its drop rates (the
+-- window's own: a later one on it, skinning say, counts for nothing).
 local looted, lootedOrder = {}, {}
+local window = {} -- the corpses this window counts, and their items counted
+ns.on("LOOT_CLOSED", function() window = {} end)
 local function readLoot()
   local creatures = ns.journal().creatures
   for slot = 1, GetNumLootItems() do
@@ -409,15 +464,26 @@ local function readLoot()
     for i = 1, #sources, 2 do
       local guid, count = sources[i], sources[i + 1] or 1
       local id = creatureId(guid)
-      if id then
-        local rec = creatures[id]
+      local rec = id and creatures[id]
+      if rec then
         local key = guid .. ":" .. slot
-        if rec and itemId and not looted[key] then
+        if itemId and not looted[key] then
           looted[key] = true
           table.insert(lootedOrder, key)
           if #lootedOrder > 400 then looted[table.remove(lootedOrder, 1)] = nil end
           rec.loot = rec.loot or {}
           rec.loot[itemId] = (rec.loot[itemId] or 0) + count
+        end
+        if pending[guid] then
+          pending[guid] = nil
+          window[guid] = true
+          dropsOf(rec).corpses = dropsOf(rec).corpses + 1
+        end
+        local item = itemId and guid .. ":" .. itemId
+        if window[guid] and item and not window[item] then
+          window[item] = true
+          local d = dropsOf(rec)
+          d.items[itemId] = (d.items[itemId] or 0) + 1
         end
       end
     end

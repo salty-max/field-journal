@@ -113,6 +113,10 @@ function GetNumGroupMembers()
   return n > 0 and n + 1 or 0
 end
 function IsInRaid() return false end
+function IsInGroup() return GetNumGroupMembers() > 0 end
+-- A corpse's loot: state.empty[guid], a corpse that holds nothing for me.
+state.empty = {}
+function CanLootUnit(guid) return not state.empty[guid], not state.empty[guid] end
 if FOREVER then
   C_Reputation = { GetFactionDataByID = function(id) return { name = "Ironforge", reaction = state.standing[id] } end }
 else
@@ -632,6 +636,42 @@ check(
   "looting records what each creature gave, once per corpse"
 )
 check(rec(1131).slain == before, "… and a corpse looted isn't another kill")
+
+-- Drop rates: of my kills looted or found empty, each item once a corpse;
+-- a corpse left unlooted, or opened again (skinned), counts for nothing.
+local drops = rec(1131).drops
+check(
+  drops and drops.corpses == 1 and drops.items[2672] == 1 and drops.items[3300] == 1,
+  "a kill looted counts for the drop rates, each item once a corpse (the window read twice)"
+)
+local MEAT = "|cffffffff|Hitem:2672::::::::3:::::|h[Stringy Wolf Meat]|h|r"
+kill(1131)
+local meaty = creature(1131, spawn)
+state.empty[creature(1131, spawn + 1)] = true
+kill(1131)
+kill(1131) -- (left where it fell)
+loot = { { MEAT, { meaty, 1 } } }
+fire("LOOT_READY", true)
+fire("LOOT_OPENED", true)
+fire("LOOT_CLOSED")
+loot = { { "|cffffffff|Hitem:2318::::::::3:::::|h[Light Leather]|h|r", { meaty, 1 } } }
+fire("LOOT_READY", true)
+fire("LOOT_CLOSED")
+check(
+  drops.corpses == 3 and drops.items[2672] == 2 and drops.items[3300] == 1 and not drops.items[2318],
+  "… a corpse found empty counts, one left unlooted doesn't, nor one skinned"
+)
+local meat, foot = ns.dropRate(rec(1131), 2672), ns.dropRate(rec(1131), 3300)
+check(
+  meat.rate == "67%" and meat.detail == "in 2 of 3 kills looted or found empty" and foot.rate == "33%",
+  "… its rate in words, for the item's tooltip"
+)
+check(ns.dropRate(rec(1131), 2318).rate == "0%" and ns.dropRate(rec(1133), 2672) == nil, "… none counted, none said")
+state.party = { party1 = "Player-1-0000000A" }
+state.empty[creature(1131, spawn + 1)] = true
+kill(1131)
+check(drops.corpses == 3, "… in a group, a corpse that reads empty may be another's turn: not counted")
+state.party = nil
 
 -- A rare: a trophy.
 printed = {}
