@@ -1692,13 +1692,13 @@ check(solvedRiddle("silverpine-forest-pyrewood"), "… by night, solved")
 state.hour = 12
 -- The map: a riddle's place shaded on the world map once asked for.
 state.popup = nil
-ns.takeHint("elwynn-forest-lethargy", 2)
+ns.takeHint("elwynn-forest-ridgepoint", 2)
 check(state.popup == nil, "(a hint taken from the code asks nothing)")
 WorldMapFrame.mapID = 1429
 ns.refreshWorldMapPins()
 local circle = mapProvider.circles and mapProvider.circles[1]
 check(
-  circle and circle.shown and circle.text == ns.riddleById["elwynn-forest-lethargy"].verse[1],
+  circle and circle.shown and circle.text == ns.riddleById["elwynn-forest-ridgepoint"].verse[1],
   "the map's hint: a circle on the zone's world map, the riddle's first line on it"
 )
 -- The book: the Expeditions tab, a riddle's page, the seals and the margin.
@@ -1726,11 +1726,11 @@ check(
   rows.Seal == "Silver, with the clue" and rows.Margin:find("only a gold seal") and rows["The clue"],
   "… a silver seal's page: the clue it took, the margin closed"
 )
-ns.openRiddle("elwynn-forest-lethargy")
+ns.openRiddle("elwynn-forest-ridgepoint")
 rows = pageRows()
 local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
 check(
-  FieldJournalExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-lethargy"].tier],
+  FieldJournalExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-ridgepoint"].tier],
   "an unsolved riddle's page: its tier, never its answer"
 )
 check(rows["The map"] and rows["The map"]:find("is shaded"), "… the map asked for")
@@ -1740,13 +1740,13 @@ for _, r in ipairs(ns.expeditionRows) do
 end
 check(listed.Duskwood and listed["Watcher Callahan"], "the list: the zones entered, their riddles solved by name")
 -- Asking from the page: the game's confirmation, then the clue.
-local azora = ns.riddleById["elwynn-forest-azora"]
-ns.openRiddle(azora.id)
+local vigil = ns.riddleById["elwynn-forest-heroes-vigil"]
+ns.openRiddle(vigil.id)
 local ask = FieldJournalExpeditionsPage.buttons[1]
 check(ask and ask.shown, "an unsolved riddle's page offers its clue")
 ask.scripts.OnClick(ask)
 check(
-  state.popup and state.popup:find("gold seal") and ns.riddleRecord(azora.id).hints == 1,
+  state.popup and state.popup:find("gold seal") and ns.riddleRecord(vigil.id).hints == 1,
   "… asked for after the game's confirmation"
 )
 FieldJournalFrame:Hide()
