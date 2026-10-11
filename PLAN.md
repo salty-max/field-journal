@@ -43,6 +43,13 @@ is stamped with a seal and a picture of the moment.
 | **Riddles** (three each) | **78** | **63** | **141** |
 | **Quarries** (zones with rares) | **21** | **17** | **38** |
 
+**Reachable by both factions.** A zone's riddles lie on ground both
+factions can walk: never inside a faction's guarded town (Darkshire, the
+Crossroads), neutral towns welcome (Booty Bay, Gadgetzan, Ratchet, Everlook).
+The capitals' riddles are their own faction's alone: an Alliance reader is
+never sent into Orgrimmar, nor a Horde reader into Stormwind. Each reader has
+**132**: the 41 zones' 123 and their own three capitals' 9.
+
 A zone's three riddles climb: **near the road** (passed every day, never
 looked at), **off the road** (a detour worth making), **hidden** (remote, high,
 at the end of something, or small enough to miss; never behind an exploit or
@@ -54,7 +61,8 @@ the count above.
 
 ### The book (a sixth tab, Expeditions)
 
-- **By zone**, shown once the zone is entered (as the Atlas's): its three
+- **By zone**, shown once the zone is entered (as the Atlas's), and the
+  reader's own faction's capitals: its three
   riddles (near the road, off the road, hidden) and its quarry. The zone is
   known; the place is the riddle. A zone's expedition is complete when its
   three riddles are solved and its quarry brought down.
@@ -109,9 +117,9 @@ around it. The map hint's circle is stored plainly (it only shades a region).
 
 Each riddle and quarry says how dangerous its place is for its level, from the
 pinned spawns within about 60 yards (their highest level, elites; a quarry's
-own rank and level): "Quiet", "Guarded (to level 32)", "Perilous (elites)", and
-"hostile ground" for a town of the other faction. A Hardcore character is
-never sent blind into an elite camp.
+own rank and level): "Quiet", "Guarded (to level 32)", "Perilous (elites)", and "the other
+faction's land" in a zone it holds (its patrols on the roads). A Hardcore
+character is never sent blind into an elite camp.
 
 ### What a character records
 
@@ -132,8 +140,10 @@ riddles:
     reading: The Birth of the Lich King   # optional: a book or plaque read there
     gesture: KNEEL                        # optional: an emote's token
     night: false                          # optional
-    where: { x: 0.0, y: 0.0, r: 2 }       # measured in the game: /journal where
-    area: { x: 0.0, y: 0.0, r: 8 }        # the map hint's circle
+    object: 61                            # the spot: a game object of the dump, or
+    area: Twilight Grove                  # a named sub-area of the game's, or
+    where: { x: 0.0, y: 0.0, r: 2 }       # coordinates two sources agree on
+    hint_area: { x: 0.0, y: 0.0, r: 8 }   # the map hint's circle
 quarry: 522                          # its creature id (verified on Wowhead Classic)
 client: both
 ---
@@ -149,9 +159,30 @@ known gesture, the hint circle holding the spot, the quarry in
 `data/creatures.json` and of the zone, plain ASCII), computes the danger from
 the pinned spawns, and writes the fingerprints, never the spots, into
 `Data_Classic.lua` and `Data_Forever.lua`; `scripts/hunt_spawns.py` (from
-`rare_zones.py`) writes each quarry's haunts. The spots are measured in the
-game (a `/journal where` like the Codex's) and checked against the data where
-an object marks them.
+`rare_zones.py`) writes each quarry's haunts.
+
+**The spots come from the game's data, not a character's walk** (the user has
+no character that reaches everywhere):
+
+1. **A game object** (a grave, a plaque, a book, a statue the server spawns):
+   its world position in the pinned CMaNGOS dump, placed on its zone's map by
+   the client's UiMapAssignment (the zone maps' rectangles overlap at their
+   edges: the zone is the one Wowhead's data gives the object,
+   `nether.wowhead.com/classic/tooltip/object/<id>`, which also gives its
+   coordinates; the two must agree within half a percent, or the build
+   fails). Checked 11 October 2026 on the weathered grave (object 61): the
+   dump gives Duskwood 17.7, 29.1, Wowhead Duskwood 17.7, 29.2.
+2. **A named sub-area** (the game's AreaTable, as the Codex's
+   `data/areas.json`: Duskwood alone has twenty, Twilight Grove, The World
+   Tree, Addle's Stead...): solved on entering it (`GetSubZoneText`, by its
+   id: every language), no coordinates at all.
+3. **Scenery the server doesn't spawn** (a statue or wreck that is part of
+   the map): coordinates from two independent sources of the original game's
+   era (the wikis, Wowhead's guides) that agree, a wider radius; an object or
+   an area preferred whenever the place has one.
+
+A `/journal where` (the map and position, as the Codex's `/codex where`)
+remains for anyone to confirm a spot in passing; no riddle waits on it.
 
 ### Finding the riddles (the sources)
 
@@ -216,26 +247,29 @@ seconds }, done)`.
   stamp. Nothing of the game's settings touched. A setting: pictures on (the
   default, as the user wants them) or off.
 
-### The model zone: Duskwood (written in full; spots to measure)
+### The model zone: Duskwood (written in full; spots from the data)
 
-Duskwood, levels 18 to 30: its three riddles and its quarry. Facts from the
-pinned dump (objects, quests 225, 228, 253) and the Codex's checked pages
-(`the-embalmer`, `morladim`, `raven-hill`).
+Duskwood, levels 18 to 30: its three riddles and its quarry, all on ground
+both factions walk (Darkshire, an Alliance town, has none). Facts from the
+pinned dump (objects 37 and 61, quests 225, 228, 253), the game's sub-areas
+and the Codex's checked pages (`the-embalmer`, `morladim`, `raven-hill`,
+`dragons-of-nightmare`).
 
-1. **Near the road: the books of Darkshire** (`reading: The Birth of the Lich
-   King`, in Darkshire, where the dump places five history books). Danger:
-   Quiet.
+1. **Near the road: Twilight Grove** (`area: Twilight Grove`, the forest's
+   heart, the road running past it; codex page `dragons-of-nightmare` for the
+   lore). Danger: Quiet, Perilous when a dragon of the Nightmare is there (a
+   world boss, at times).
 
-   > In the town whose watch keeps the dead from its door,
-   > a book on a shelf tells where the dead learned to rise:
-   > a spirit sealed in ice, far in the north.
-   > Find it among its fellows, and read it through.
+   > In the heart of the dark wood a great tree stands apart:
+   > a door the sleeping druids walk through to the Dream.
+   > Green dragons were set to keep it; the Nightmare took the keepers.
+   > Stand beneath its boughs, and hope they are elsewhere.
 
-   Hint: "The watch's own town has books few open; one of them knows the
-   enemy." Note: "Darkshire keeps a shelf of histories. The Night Watch
-   fights the dead every night; it seems fitting someone here reads how they
-   began." Margin: (from the book's own text: Ner'zhul's spirit, bound in ice
-   by the Legion, and what it became).
+   Hint: "The road through the forest bends around something older than the
+   town." Note: "One of four such trees in the world, the green dragonflight's
+   doors into the Emerald Dream. Its guardians came back from the Dream
+   changed." Margin: (Remulos's gathering of the Nightmare's traces from the
+   four portals, and what the druids fear of them).
 
 2. **Off the road: Eliza's tombstone** (`reading: Eliza's Tombstone`, by the
    Embalmer's shack above Raven Hill; the dump: 28.9, 30.5). Danger: Guarded
@@ -264,21 +298,23 @@ pinned dump (objects, quests 225, 228, 253) and the Codex's checked pages
 
    Hint: "Not every grave of Raven Hill lies inside its walls." Note: "The
    marker says only MORGAN LADIMORE. The earth over it has been disturbed:
-   he did not stay." Margin: (his daughter Sarah in the Night Watch, and her
-   message to him).
+   he did not stay." Margin: (the name worn down to the one the forest knows,
+   Mor'Ladim; his daughter Sarah in the Night Watch, and her message to him).
 
 **Duskwood's quarry: Mor'Ladim** (522; elite, level 35; a named wanderer:
 Duskwood's rares are researched in the pass below, and the lore's own story
-here is his; quest 228). The expedition then tells one man's story from both
-ends, his grave and his ghost.
+here is his; quest 228).
 
-   > A knight came home from the plague to a forest gone dark,
-   > to his wife's grave on the hill; and something broke in him there.
-   > He walks the woods still, and kills whoever he meets.
-   > His daughter keeps the watch, and holds him to no blame.
+   > The forest calls him by half a name,
+   > the rest worn off like letters from a stone.
+   > He walks among the graves of the hill he came home to,
+   > and kills whoever he meets. Read the stone, and you will know him.
 
    Note: "Not a beast, and no rare in the Bestiary's sense. The Night Watch
    wants him laid to rest, and his daughter serves in it. Go with company."
+   The poster and the hidden riddle lead to each other: the poster sends the
+   reader to the grave; the grave's name (MORGAN LADIMORE, worn to Mor'Ladim)
+   tells who is hunted, the grave's gold margin saying it outright.
 
 Two more posters written, for their zones' expeditions: **Timber** (Dun
 Morogh, 1132, rare 10: "The hunters of Kharanos set their snares, and he
@@ -294,8 +330,9 @@ hunter / would know the hide, and wish its spirit peace.").
 1. The picture: the postcards' minimap test (`/pct 4`, `/pct 5`), then
    `K.snapshot` in the kit, synced to the journal (and to Hearthtale for its
    postcards).
-2. The data: `content/expeditions/`, the build's checks, the fingerprints,
-   the danger, `hunt_spawns.py`; `/journal where`; the test game learns
+2. The data: `content/expeditions/`, the build's checks, the spots (objects
+   placed and checked against Wowhead, sub-areas, agreed coordinates), the
+   fingerprints, the danger, `hunt_spawns.py`; `/journal where`; the test game learns
    `DoEmote`, the reader's title, `Screenshot` and the map's target layer.
 3. The engine: `Expeditions.lua` (the place each second in a riddle's zone,
    the gesture hook, the reading, the hour, the kill; solved, recorded, the
@@ -304,8 +341,9 @@ hunter / would know the hide, and wish its spirit peace.").
 4. The tab (`ExpeditionsBook.lua`): zones once entered, their riddles and
    quarry, hints asked for, seals, notes, margins, pictures; the achievements.
 5. The writing, zone by zone, Duskwood first: candidates from the sources
-   above, each riddle measured in the game, a first release with every zone up
-   to level 30; then the rest of the 141 and the 38.
+   above, each spot from the data (an object, a sub-area, two sources), a
+   first release with every zone up to level 30; then the rest of the 141 and
+   the 38.
 
 ## Decisions (5 October 2026)
 
