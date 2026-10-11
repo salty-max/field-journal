@@ -73,7 +73,7 @@ Gadgetzan, Ratchet, Everlook). A faction's town in a contested zone has its
 own riddle, for that faction. The capitals' riddles are their own faction's
 alone: an Alliance reader is never sent into Orgrimmar, nor a Horde reader
 into Stormwind. The six starting zones are kept the same way (`home:` in
-their files): Elwynn, Dun Morogh and Teldrassil (reached only through
+their files; confirmed by the user, 11 October): Elwynn, Dun Morogh and Teldrassil (reached only through
 Auberdine's boat) for the Alliance, Durotar, Mulgore and Tirisfal for the
 Horde.
 
@@ -212,7 +212,9 @@ down:
    (its spawn on both sources), a graveyard the server names
    (`world_safe_locs`: "Tirisfal Glades, Faol's Rest").
 3. **A creature that stands still** (a prisoner, a keeper): its spawn, the
-   dump's and Wowhead's alike; never one that walks a path.
+   dump's and Wowhead's alike; never one that walks a path. One an escort
+   quest leads away now and then (Kaya Flathoof) is kept: finding the place
+   empty is part of the riddle (the user's, 11 October).
 
 No coordinates from a wiki or a guess: what the data can't place is not
 written.
