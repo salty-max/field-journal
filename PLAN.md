@@ -31,6 +31,25 @@ its trophy, as the Bestiary keeps it, a picture of the kill, achievements.
 | Achievements | Mandatory: hunts among the Milestones. |
 | Picture | When a quarry is brought down, once the fight is over (a second after leaving combat, over its body): the kit's `K.snapshot`, as the Codex's riddles and Hearthtale's postcards. |
 
+### How many (one rule, no exceptions)
+
+One quarry for every zone of the original world that has rares: 38 (the
+Eastern Kingdoms 21, Kalimdor 17; Deadwind Pass, Moonglade and Blackrock
+Mountain have none). Each zone's quarry is the creature with the most story
+that roams it: one of its rares (5 to 25 a zone in the data) first, else a
+named wanderer the lore tells of (Mor'Ladim in Duskwood). Forever adds Zephras
+Isle's and its new zones' by the same rule. The 38 are the goal of the full
+board; a first release ships with a dozen a continent.
+
+### Unaided (the reward for not tracking)
+
+As the Codex's riddles: a quarry brought down without ever being the target
+earns its poster a gold seal, tracked a plain one, and the gold opens the
+naturalist's margin on the poster, one more short paragraph of its story
+(sourced as the poster is). Making a quarry the target asks first ("This
+quarry will no longer earn its gold seal"). The board's header counts the
+gold seals.
+
 ### The board (in the Bestiary: a Hunts view beside Trophies)
 
 - **Quarries near you first**: on this continent, within the level band
@@ -56,7 +75,8 @@ its trophy, as the Bestiary keeps it, a picture of the kill, achievements.
 ### What a character records
 
 `FieldJournalChar.hunts[id] = { at, level, tracked, shot }` (when, at what
-level, whether it was ever the target, the picture's stamp);
+level, whether it was ever the target: the seal, kept from the moment it is
+tracked, even before the kill; the picture's stamp);
 `FieldJournalChar.target` (the quarry chosen). A trophy taken before the hunts
 existed stamps its poster quietly ("taken before the board").
 
@@ -71,6 +91,8 @@ client: both
 (the riddle of its haunts and habits, three to five lines)
 ---
 (the naturalist's note, two or three sentences)
+---
+(the margin: one more paragraph of its story, for the gold seal only)
 ```
 
 `scripts/build.ts` reads `content/hunts/`, checks the creature is in
@@ -100,9 +122,8 @@ y2... } }`, clustered to a handful of circles.
 |---|---|
 | First Quarry | the first poster stamped |
 | Bounty Hunter, Master of the Hunt | 10, all the quarries of this game |
-| Without a Map | 5 quarries brought down without ever being the target |
 | The Eastern Kingdoms' Quarries, Kalimdor's Quarries | every quarry of a continent |
-| (per zone) Every Quarry of Duskwood... | shown once the zone is entered, as the Atlas's |
+| Without a Map, Tracker's Instinct, No Trail Given | 5, 15, all the quarries with a gold seal |
 
 ### The first posters (written in full)
 
@@ -139,7 +160,8 @@ y2... } }`, clustered to a handful of circles.
    wants him laid to rest, and his daughter serves in it. Go with company."
 
 Next: the research pass through the rares (the quests and books that name
-them), a dozen quarries a continent before a first release.
+them) for each zone's quarry, its margin with it; a dozen a continent before a
+first release, the 38 for the full board.
 
 ### Steps
 
