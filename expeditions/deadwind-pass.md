@@ -1,0 +1,24 @@
+---
+zone: 1430   # Deadwind Pass
+client: both
+# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
+# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
+# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
+# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+riddles:
+  - id: deadwind-pass-karazhan
+    tier: off
+    area: Karazhan   # placed: the client's overlay: 42.7, 68.9, half-size 9.2 by 12.0
+    hint_area: { x: 44.0, y: 66.0, r: 13 }
+    danger: "Perilous (the tower's dead)"
+    sources: "objects 175745 (The Dark Portal and the Fall of Stormwind) and 175740 (The Last Guardian)"
+# quarry: the zone's own, in the hunts' pass
+---
+## deadwind-pass-karazhan
+In a pass where nothing grows, a tower stands where a Guardian lost himself:
+a demon had hidden in him before he was born.
+A knight of the old blood and the Guardian's own apprentice climbed to him at last,
+and set his good spirit wandering. Find the tower.
+? Karazhan, at the southern end of Deadwind Pass.
+= Karazhan, Medivh's tower.
++ Lothar and the young Khadgar stormed it and killed Medivh's body, banishing Sargeras's spirit, and freed the Guardian's own to wander the astral plane for many years to come.

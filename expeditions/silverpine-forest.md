@@ -40,7 +40,7 @@ riddles:
     object: 24777   # dump 44.1, 42.7; Wowhead 44.2, 42.6
     hint_area: { x: 44.0, y: 46.7, r: 8 }
     danger: "Quiet"
-    sources: "object 24777's text"
+    sources: "object 24777's text; quest 264"
 # quarry: the zone's own, in the hunts' pass
 ---
 ## silverpine-forest-corpse-boat
@@ -54,8 +54,8 @@ The dead are being carried somewhere; from the boat, you can see where.
 
 ## silverpine-forest-ivar-patch
 In the far north of the pines, a farm and a ghoul share a name.
-He waits in his barn for the guard to drop,
-and two scouts of the Forsaken have learned what he does when it does.
+The ghoul waits in its barn for the guard to drop,
+and two scouts of the Forsaken have learned what it does when it does.
 Find his patch.
 ? North of the Sepulcher, near the coast, a pumpkin patch with a keeper.
 = The Ivar Patch. Rane and Quinn Yorick came to scout the forest and got no further.
@@ -86,4 +86,4 @@ anything he would not do himself.
 Someone has written one word over it since.
 ? The Sepulcher.
 = Yuriv's Tombstone: BETRAYER, crudely scratched over the finely etched epitaph.
-+ 'Yuriv lies here. Father, Husband, Paladin. Let his children bear witness to the fact that his dedication to the Light was unquestionable.'
++ 'Yuriv lies here. Father, Husband, Paladin.' His widow, Clarice Foster, Forsaken now, sends a pendant back to his tomb: 'Leaves me for his damn crusade... He's dead and I'm bearing the very thing he was trying to stop!'

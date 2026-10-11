@@ -56,10 +56,13 @@ picked by hand:
 |---|---|---|---|
 | Zones' riddles | **82** | **63** | **145** |
 | Capitals' (three each) | 9 | 9 | 18 |
-| Faction towns' | counted by the build | | |
+| Faction towns' (Alliance + Horde) | 11 + 8 | 9 + 11 | **20 + 19** |
+| **Riddles in all** | | | **202** |
 | **Quarries** (zones with rares) | **21** | **17** | **38** |
 
-Up to level 30 (the first release): 68 zone riddles (46 in the twelve shared
+An Alliance reader has 163 (the 123 of the shared zones, the 11 of their
+three starting zones, their capitals' 9 and their towns' 20), a Horde reader
+162 (towns' 19). Up to level 30 (the first release): 68 zone riddles (46 in the twelve shared
 zones, 11 in each side's three starting zones) and 17 town riddles (the
 Alliance's 9: Thelsamar, Sentinel Hill, Auberdine, Lakeshire, Stonetalon
 Peak, Astranaar, Menethil Harbor, Southshore, Darkshire; the Horde's 8: the
@@ -391,10 +394,10 @@ hunter / would know the hide, and wish its spirit peace.").
 5. The writing, zone by zone, Duskwood first: candidates from the sources
    above, each spot from the data (an object, a sub-area, two sources), a
    first release with every zone up to level 30; then the rest of the 141 and
-   the 38. Written on 11 October 2026 (`expeditions/`): the 85 riddles up to
-   level 30, the 68 of the 18 zones and the 17 of their faction towns, each
-   with its sources and where the data pins it; Duskwood's quarry. The other
-   quarries come with the hunts' pass.
+   the 38. Written on 11 and 12 October 2026 (`expeditions/`, a file a zone
+   or capital, named as the atlas's): all 202 riddles, each with its sources
+   and where the data pins it (no estimate left), and Duskwood's quarry. The
+   other quarries come with the hunts' pass.
 
 ## Decisions (5 October 2026)
 

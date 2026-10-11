@@ -1,6 +1,6 @@
 ---
 zone: 1426   # Dun Morogh
-home: alliance   # a starting zone: its riddles are its faction's alone, as a capital's
+home: alliance   # a starting zone: its riddles are its faction's alone
 client: both
 # the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
 # placed by the client's map overlay or by something pinned inside it), or a place pinned by the

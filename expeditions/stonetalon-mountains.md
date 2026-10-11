@@ -72,16 +72,16 @@ Find her.
 High on the peak, in the kaldorei's outpost,
 one of the forest's keepers stands watch over the burned valley below,
 alarmed at what greed has done to the sacred hills.
-Greet him as his kind is greeted.
+Show the keeper the respect the old ones of the forest are owed.
 ? On Stonetalon Peak.
 = Keeper Albagorm, a protector of the forest spirits.
-+ He sends travellers south to drive the Bloodfury harpies out of the Charred Vale, so that the land can be reclaimed.
++ The keeper sends travellers south to drive the Bloodfury harpies out of the Charred Vale, so that the land can be reclaimed.
 
 ## stonetalon-mountains-sun-rock
 At the edge of the Horde's retreat on the rock, a stranger hates this land:
-its druids stifle the magic she craves,
-and her master will not let her go home until her work is done.
-Find her.
+its druids stifle the magic the stranger craves,
+and a master forbids any return home until the work is done.
+Find the stranger.
 ? Sun Rock Retreat, at its edge.
 = Braelyn Firehand, who would rather be in Jaedenar.
-+ She wants the head of Ordanus, one of the eldest sons of the forest god, hidden atop a great tree at Raynewood. She knew him once, long ago.
++ Braelyn wants the head of Ordanus, one of the eldest sons of the forest god, hidden atop a great tree at Raynewood: 'I knew Ordanus once, long ago.'

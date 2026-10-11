@@ -75,8 +75,8 @@ a footlocker on the shore, a barrel among the fields,
 and a jug that smells of whiskey by the lone windmill on the sea bluffs.
 Find the jug; the sea will tell you the rest.
 ? On Westfall's northern coast, a windmill stands alone on the bluffs.
-= Captain Sander's old jug. The rest of his treasure lies out to sea, west, if no one has taken it.
-+ The ink of his last clue has run, and the paper smells of whiskey: face west, walk down to the shore, and keep going.
+= Captain Sander's old jug. The rest of the treasure lies out to sea, west, if no one has taken it.
++ The ink of the last clue has run, and the paper smells of whiskey: face west, walk down to the shore, and keep going.
 
 ## westfall-sentinel-hill
 On the hill where the farmers' militia keeps watch,
