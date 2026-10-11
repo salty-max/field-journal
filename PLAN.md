@@ -47,8 +47,12 @@ is stamped with a seal and a picture of the moment.
 factions can walk: never inside a faction's guarded town (Darkshire, the
 Crossroads), neutral towns welcome (Booty Bay, Gadgetzan, Ratchet, Everlook).
 The capitals' riddles are their own faction's alone: an Alliance reader is
-never sent into Orgrimmar, nor a Horde reader into Stormwind. Each reader has
-**132**: the 41 zones' 123 and their own three capitals' 9.
+never sent into Orgrimmar, nor a Horde reader into Stormwind. The six starting
+zones are kept the same way, as their capitals' (`home:` in their files):
+Elwynn, Dun Morogh and Teldrassil (reached only through Auberdine's boat) for
+the Alliance, Durotar, Mulgore and Tirisfal for the Horde. Each reader has
+**123**: the 35 shared zones' 105, their own three starting zones' 9 and their
+own three capitals' 9 (141 in all, as above).
 
 A zone's three riddles climb: **near the road** (passed every day, never
 looked at), **off the road** (a detour worth making), **hidden** (remote, high,
@@ -131,7 +135,7 @@ when, at what level, the seal (hints, or ever tracked), the picture's stamp
 ### Content and the build
 
 ```
-content/expeditions/<zone>.md        (one file a zone: its three riddles, its quarry)
+expeditions/<zone>.md                (one file a zone, named as the atlas's: its three riddles, its quarry)
 ---
 zone: 1431                           # the uiMap id
 riddles:
@@ -330,7 +334,8 @@ hunter / would know the hide, and wish its spirit peace.").
 1. The picture: the postcards' minimap test (`/pct 4`, `/pct 5`), then
    `K.snapshot` in the kit, synced to the journal (and to Hearthtale for its
    postcards).
-2. The data: `content/expeditions/`, the build's checks, the spots (objects
+2. The data: `expeditions/` (beside `atlas/`: `content/` holds the Bestiary's
+   sections), the build's checks, the spots (objects
    placed and checked against Wowhead, sub-areas, agreed coordinates), the
    fingerprints, the danger, `hunt_spawns.py`; `/journal where`; the test game learns
    `DoEmote`, the reader's title, `Screenshot` and the map's target layer.
@@ -343,7 +348,11 @@ hunter / would know the hide, and wish its spirit peace.").
 5. The writing, zone by zone, Duskwood first: candidates from the sources
    above, each spot from the data (an object, a sub-area, two sources), a
    first release with every zone up to level 30; then the rest of the 141 and
-   the 38.
+   the 38. Written on 11 October 2026: the riddles of the 18 zones up to level
+   30 (54, `expeditions/`), each with its sources; what is still to confirm
+   is a riddle's `check:` (a hint circle placed without a spot of its own, a
+   quest's object Wowhead doesn't place, a margin without a source). The
+   quarries, but Duskwood's, come with the hunts' pass.
 
 ## Decisions (5 October 2026)
 
