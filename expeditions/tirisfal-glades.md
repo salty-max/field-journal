@@ -2,57 +2,70 @@
 zone: 1420   # Tirisfal Glades
 home: horde   # a starting zone: its riddles are its faction's alone, as a capital's
 client: both
-# the spots: an object of the pinned dump (placed by UiMapAssignment, agreeing with Wowhead's),
-# a sub-area of the game's (its hint placed by the client's map overlay or a creature in it),
-# or coordinates both sources agree on; danger by hand: the build computes its own from the spawns
+# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
+# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
+# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
+# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: tirisfal-glades-near
+  - id: tirisfal-glades-solliden
     tier: near
-    gesture: KNEEL
-    object: 178090   # dump 31.2, 65.1; Wowhead none
-    hint_area: { x: 35.1, y: 64.1, r: 8 }
-    danger: "Quiet"
-    sources: "quest 6395"
-    check: "Wowhead has no position for the grave (a quest's object): the dump alone places it, in Deathknell's graveyard; confirm it is visible without the quest"
-  - id: tirisfal-glades-off
+    area: Solliden Farmstead   # placed: the client's overlay: 36.0, 49.5, half-size 7.6 by 6.1
+    hint_area: { x: 37.5, y: 48.0, r: 10 }
+    danger: "Guarded (the farmers; the Scarlet Crusade)"
+    sources: "quests 365, 407"
+  - id: tirisfal-glades-agamand-crypt
     tier: off
     area: Agamand Family Crypt   # placed: Captain Dargol, dump 52.8, 26.4; Wowhead 52.4, 26.6
-    hint_area: { x: 52.2, y: 23.0, r: 7 }
+    hint_area: { x: 56.3, y: 26.1, r: 7 }
     danger: "Guarded (Captain Dargol's dead)"
     sources: "quests 354, 361, 362; Captain Dargol (creature 1658) places the hint"
-  - id: tirisfal-glades-hidden
+  - id: tirisfal-glades-gunther
+    tier: off
+    object: 1165   # dump 68.0, 42.1; Wowhead 68.0, 42.1
+    hint_area: { x: 64.3, y: 43.7, r: 8 }
+    danger: "Guarded (Lillith Nefara's altar nearby)"
+    sources: "quests 405, 409, 366, 460"
+  - id: tirisfal-glades-faols-rest
     tier: hidden
-    gesture: KNEEL
-    area: Faol's Rest   # placed: a spirit healer, dump 79.0, 41.0
+    gestures: [PRAY, KNEEL, BOW]
+    area: Faol's Rest   # placed: the server's graveyard 'Tirisfal Glades, Faol's Rest' (world_safe_locs 429): 79.2, 40.9
     hint_area: { x: 80.5, y: 38.5, r: 8 }
     danger: "Perilous (the Scarlet Crusade)"
     sources: "the game's Faol's Rest; Warcraft II: Tides of Darkness's manual (Faol and the Knights of the Silver Hand); object 177199"
-    check: "the hint's circle from the spirit healer nearest the monastery (dump 79.0, 41.0); confirm it is Faol's Rest's"
 # quarry: the zone's own, in the hunts' pass
 ---
-## tirisfal-glades-near
-In the first row of the graveyard where the Forsaken wake,
-a woman lies who loved a man the plague made mindless.
-He killed her, and her last wish was to lie with him.
-Kneel at her grave.
-? Deathknell's graveyard, in its first row.
-= Marla Fipps. If someone has brought Samuel back from the ruined camp on the road, he lies with her.
-+ 'We must respect our dead. It is one of the ways in which we differ from the Scourge.' Novice Elreth, who asks it of the newly risen.
+## tirisfal-glades-solliden
+North of the graves where the Forsaken wake, living farmers
+still grow pumpkins under the watch of the red crusaders' tower,
+and the dead of the town send their newest to steal the harvest.
+Find the farm where the living still work.
+? The Solliden Farmstead, north of Deathknell.
+= The Solliden Farmstead. Its farmers are alive, and want nothing to do with the Forsaken.
++ Apothecary Johaan laces the stolen pumpkins with his latest formula and feeds one to a Scarlet Zealot held in the cellar of Brill's tavern.
 
-## tirisfal-glades-off
+## tirisfal-glades-agamand-crypt
 The most prosperous family of the glades fortified their home
 when the plague came, and kept their workers at the walls.
 The workers died for their pride;
-the family's dead were raised in their own crypt. Find it, above the mills.
+the family's dead were raised in their own crypt, above the mills.
 ? North of Brill, above the Agamand Mills.
 = The Agamand Family Crypt. Captain Dargol of the Scourge raised its dead; Coleman Farthing, who worked their mills, wants their bones.
 + Thurman Agamand's last letter went to Yvette Farthing, who had begged him to leave with her. Forsaken now, she read it and said love was no longer one of her goals.
 
-## tirisfal-glades-hidden
+## tirisfal-glades-gunther
+On an island in the great lake, a lich keeps his books in a camp,
+free of the master who raised him, and sure he was the only one.
+An old friend from the mages' city is free as well,
+and wants him back. Find the books.
+? Gunther's Retreat, the island in Brightwater Lake, north-east of Brill.
+= Gunther Arcanus's books, on his island. He, Bethor Iceshard and Thule Ravenclaw studied together in Dalaran.
++ Thule Ravenclaw, the third of those students, serves the Scourge now; it was his spell that gave his servant Alaric the unlife he cannot escape.
+
+## tirisfal-glades-faols-rest
 Near the monastery of the red crusaders,
 a resting place bears the name of the archbishop
 who gave the Light its first knights.
-Kneel there, if the Crusade lets you.
-? South-west of the Scarlet Monastery.
+Do there what he taught a kingdom to do, if the Crusade lets you.
+? South-west of the Scarlet Monastery, where its fallen come back.
 = Faol's Rest, in sight of the zealots who claim his Light.
 + Stormwind remembers him too: a plaque in its cathedral calls him the 'benevolent patron of the Church of Light', who began his work in Stratholme and raised the funds to rebuild Stormwind after the Second War.

@@ -1,41 +1,50 @@
 ---
 zone: 1441   # Thousand Needles
 client: both
-# the spots: an object of the pinned dump (placed by UiMapAssignment, agreeing with Wowhead's),
-# a sub-area of the game's (its hint placed by the client's map overlay or a creature in it),
-# or coordinates both sources agree on; danger by hand: the build computes its own from the spawns
+# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
+# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
+# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
+# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: thousand-needles-near
+  - id: thousand-needles-raceway
     tier: near
-    area: Tahonda Ruins   # placed: the Saltstone Gazers, dump 71.2-77.0, 87.9-90.7
-    hint_area: { x: 74.0, y: 86.0, r: 10 }
+    gestures: [CHEER, APPLAUD]
+    area: Mirage Raceway   # placed: Pozzik (creature 4630), dump 80.2, 75.9; Trackmaster Zherin, 81.6, 78.0
+    hint_area: { x: 79.0, y: 77.5, r: 7 }
     danger: "Quiet"
-    sources: "the wiki's Tahonda Ruins (in Classic, the Saltstone basilisks)"
-    check: "the hint's circle (from the Saltstone Gazers' spawns, 71-77, 87-91) and a margin; if neither holds, Rizzle's Unguarded Plans (object 20805, 77.2, 77.4, quest 1190) take this place"
-  - id: thousand-needles-off
+    sources: "quests 1186, 1190, 1120"
+  - id: thousand-needles-lonebrow
     tier: off
     object: 19861   # dump 30.7, 24.3; Wowhead 30.7, 24.4
-    hint_area: { x: 31.3, y: 28.3, r: 8 }
+    hint_area: { x: 32.4, y: 20.7, r: 8 }
     danger: "Guarded (quilboar)"
     sources: "quests 1100, 1101; the journal (item 5790)"
-  - id: thousand-needles-hidden
+  - id: thousand-needles-weathered-nook
     tier: hidden
     area: The Weathered Nook   # placed: Dorn Plainstalker, dump 53.9, 41.5; Wowhead 53.8, 41.4
-    hint_area: { x: 50.6, y: 42.6, r: 7 }
+    hint_area: { x: 54.7, y: 38.1, r: 7 }
     danger: "Quiet"
     sources: "quests 1149-1152; Dorn Plainstalker (creature 2986) places the hint"
+  - id: thousand-needles-freewind
+    tier: town
+    faction: horde   # its town's: for that faction alone
+    gestures: [COMFORT, SOOTHE]
+    where: { x: 46.0, y: 51.6, r: 1 }   # Thalia Amberhide, dump 46.0, 51.6; Wowhead 46.0, 51.6
+    hint_area: { x: 47.5, y: 53.6, r: 5 }
+    danger: "Quiet"
+    sources: "quest 4904"
 # quarry: the zone's own, in the hunts' pass
 ---
-## thousand-needles-near
-On the salt flats where the racers run,
-a tauren village came to ruin long ago
-and slipped beneath the sand. Basilisks keep it now.
-Find what is left of it.
-? The south of the Shimmering Flats, toward the path to Tanaris.
-= The Tahonda Ruins. Nobody has written down who lived here.
-+ (to find: no text of the original game tells of Tahonda)
+## thousand-needles-raceway
+On the salt flats, gnomes and goblins race their machines,
+each crew in its own pit, each spying on the other,
+and the racers keep needing new pilots.
+Find the track, and be the crowd they race for.
+? The Mirage Raceway, on the Shimmering Flats.
+= The Mirage Raceway. The Brassbolts race for the gnomes, Pozzik's crew for the goblins.
++ Pozzik's pilot, Razzeric, is the eighteenth; Kravel Koalbeard pays travellers to bring one pit crew or the other a Fool's Stout before the race.
 
-## thousand-needles-off
+## thousand-needles-lonebrow
 Near the boar men's bramble, at the needles' northern edge,
 a dwarf of the Explorers' League lies dead beside his journal.
 He went looking for the bones of a fallen god,
@@ -44,7 +53,7 @@ and the boar men took him instead. Find his journal.
 = Henrig Lonebrow's journal. Its last pages were written in a cell in Razorfen Kraul, beside a dying night elf druid.
 + The druid, Heralath, told him the great boar skull marks where Agamaggan fell fighting the Burning Legion ten thousand years ago, and that thorns grow where his blood sank into the earth.
 
-## thousand-needles-hidden
+## thousand-needles-weathered-nook
 On the canyon's northern wall a cave hides above the road,
 reached by a path most travellers never see.
 A tauren there tests whoever finds him,
@@ -52,3 +61,12 @@ and his first test is a step off the planks. Find his nook.
 ? North-east of Freewind Post, high on the canyon's northern wall.
 = The Weathered Nook, where Dorn Plainstalker tests faith, endurance, strength and lore.
 + 'It does not matter what you believe sometimes. It is just important that you believe in something.' Dorn, after the leap.
+
+## thousand-needles-freewind
+On the high mesas of the needles' outpost, a tauren waits
+for the one she loves, carried off by a Grimtotem she refused,
+whose brother died trying to stop him.
+Find her, and ease her waiting.
+? Freewind Post.
+= Thalia Amberhide. Lakota Windsong is held at the Darkcloud Pinnacle.
++ 'Deep in my bones I knew that she would find her way back to me.'

@@ -2,55 +2,56 @@
 zone: 1411   # Durotar
 home: horde   # a starting zone: its riddles are its faction's alone, as a capital's
 client: both
-# the spots: an object of the pinned dump (placed by UiMapAssignment, agreeing with Wowhead's),
-# a sub-area of the game's (its hint placed by the client's map overlay or a creature in it),
-# or coordinates both sources agree on; danger by hand: the build computes its own from the spawns
+# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
+# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
+# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
+# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: durotar-near
+  - id: durotar-misha
     tier: near
-    area: Darkspear Strand   # placed: Sen'jin Village's overlay: 56.1, 73.0, half-size 3.7 by 5.6
-    hint_area: { x: 59.0, y: 76.0, r: 10 }
+    gestures: [COMFORT, SOOTHE]
+    where: { x: 43.1, y: 30.2, r: 1 }   # Misha Tor'kren, dump 43.1, 30.2; Wowhead 43.0, 30.2
+    hint_area: { x: 41.3, y: 27.8, r: 6 }
     danger: "Quiet"
-    sources: "the wiki's Darkspear Strand (the landing; Sen'jin a few yards away); quest 826"
-    check: "the strand has no position of its own in the data: the hint's circle covers Sen'jin Village's overlay and the shore beside it; confirm the strand lies inside"
-  - id: durotar-off
+    sources: "quest 816"
+  - id: durotar-tiragarde
     tier: off
     reading: Rise of the Horde
     object: 175742   # dump 59.6, 58.1; Wowhead 59.6, 58.2
-    hint_area: { x: 55.8, y: 56.7, r: 8 }
+    hint_area: { x: 61.2, y: 54.4, r: 8 }
     danger: "Guarded (Kul Tiran soldiers)"
     sources: "object 175742's text; quest 784; Warcraft III: Reign of Chaos (Durotar named for Durotan)"
-  - id: durotar-hidden
+  - id: durotar-dormant-flame
     tier: hidden
     object: 61934   # dump 39.0, 58.2; Wowhead 38.9, 58.2
-    hint_area: { x: 40.4, y: 54.5, r: 8 }
+    hint_area: { x: 35.5, y: 60.2, r: 8 }
     danger: "Quiet (the climb is the danger)"
     sources: "quests 1524, 1525, 1526"
 # quarry: the zone's own, in the hunts' pass
 ---
-## durotar-near
-Where the land meets the southern sea, a tribe came ashore
-with what it could carry, from isles a witch doctor had turned against it,
-and built its village a few yards inland, in sight of the isles.
-Stand on the sand where they landed.
-? The beach below Sen'jin Village.
-= The Darkspear Strand. The isles they left are still in sight.
-+ Zalazane sends his trolls to the mainland to hex the Darkspear and drag more of them under his sway: 'former Darkspear trolls, now lost to us'.
+## durotar-misha
+North-west of the town on the razor's hill, a mother keeps a farm
+and waits for a proud son who went to hunt the river's crocolisks
+and stormed off when she warned him. He has not come back.
+Find her, and be kind.
+? Misha Tor'kren's farmstead, north-west of Razor Hill.
+= Misha Tor'kren. Her son Kron went west to the Southfury after crocolisks.
++ 'Now that I know what's happened, perhaps I can finally begin to mourn.' She had a gift ready for his return, and cannot bear to look at it.
 
-## durotar-off
+## durotar-tiragarde
 In the keep the admiral's men took back on the red land's coast,
 a history of the orcs lies among their enemies:
 the arenas the warlocks built, the blood the chieftains drank,
-and the one chieftain who would not. Read it there.
+and the one chieftain who would not.
 ? South of Razor Hill, Kul Tiras still holds a keep on Durotar's shore.
 = Rise of the Horde, at Tiragarde Keep. Durotan alone refused Mannoroth's blood; this land bears his name.
 + The keep fell once, when the Horde threw back the Admiral's attack; his reserves, under Lieutenant Benedict, have retaken it since.
 
-## durotar-hidden
+## durotar-dormant-flame
 Along the river, before it meets the sea,
 a hidden trail climbs one of the highest peaks in the land.
 At the top a keeper watches a brazier a third your height,
-unworn by the weather, its bowl cool to the touch. Find it.
+unworn by the weather, its bowl cool to the touch.
 ? Above the Southfury, on Durotar's western side, a hidden trail climbs to a shrine of fire.
 = The Brazier of the Dormant Flame, at the shrine Telf Joolam keeps.
-+ Telf says many adventurers find their way up looking for treasure or something to slay, and are turned away from a seemingly empty shrine. 'Fire is more than chaos and destruction. It is also about life, and creation.'
++ Telf says many adventurers climb up looking for treasure or something to slay, and are turned away from a seemingly empty shrine. 'Fire is more than chaos and destruction. It is also about life, and creation.'

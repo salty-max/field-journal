@@ -26,9 +26,10 @@ is stamped with a seal and a picture of the moment.
 | Question | Decision |
 |---|---|
 | Where | The Field Journal, both halves: the riddles (first planned in the Codex, moved here: they are about exploring the land, the journal's purpose) and the hunts. No sixth addon. |
-| What the riddles target | The overlooked: props, graves, statues, plaques, books, peculiarities few players pay attention to; never a capital's front gate or a quest hub's obvious centre. Each holds a small story, true to the original game's lore. |
+| What the riddles target | The overlooked: props, graves, statues, plaques, books, peculiarities few players pay attention to; never a capital's front gate or a quest hub's obvious centre. Each holds a small story, true to the original game's lore. Only what the data pins down (below): a place nobody can locate for sure is no riddle. |
 | Quality | Each riddle and poster thought through, one by one: fair, lore-true, worth the walk. |
-| How many | One rule, no exceptions: three riddles in every zone and every capital, one quarry in every zone that has rares (below). |
+| How many | By the land's size, from the game's data (below): a zone's riddles by the places its map reveals, three in each capital, one in each faction town of a contested zone for that faction alone; one quarry in every zone that has rares. |
+| What the reader does | Varied, as the story calls for and never named: one of the client's emotes (kneel at a grave, mourn a fallen comrade, salute a hero, bow to kings, pray at a shrine, raise a toast at a brewery, sniff a suspicious barrel, peer across the water, sleep under the Dream's tree), a reading, the night; or simply being there. No gesture accepted by two riddles of a zone. |
 | Hints | Rewarded when not used: seals and a margin only the unaided read. |
 | The hunt's map | One quarry at a time is the target; only its haunts are shaded on the world map. |
 | Achievements | Mandatory. |
@@ -36,40 +37,62 @@ is stamped with a seal and a picture of the moment.
 
 ### How many
 
+From the client's own tables (wago.tools, Classic Era), so no number is
+picked by hand:
+
+- **A zone**: one riddle for every four places its map reveals as it is
+  explored (its WorldMapOverlay entries), rounded up. The Barrens and
+  Stranglethorn have 7, Ashenvale and Dun Morogh 5, Elwynn and Darkshore 3,
+  Moonglade and Deadwind Pass 1. (The map rectangles' size was no measure:
+  they count the sea.)
+- **A capital**: three (a city reveals no places on its map).
+- **A faction town in a contested zone**: one, for its own faction alone (a
+  town: an innkeeper or a flight master serving one side only, from the
+  dump; a town served for both sides is neutral, everyone's ground). Each
+  side's riddle is its own: Astranaar's for the Alliance, Splintertree's for
+  the Horde.
+
 | | Eastern Kingdoms | Kalimdor | All (Classic) |
 |---|---|---|---|
-| Zones | 23 | 18 | 41 |
-| Capitals (their own three, apart from their zone's) | 3 | 3 | 6 |
-| **Riddles** (three each) | **78** | **63** | **141** |
+| Zones' riddles | **82** | **63** | **145** |
+| Capitals' (three each) | 9 | 9 | 18 |
+| Faction towns' | counted by the build | | |
 | **Quarries** (zones with rares) | **21** | **17** | **38** |
 
-**Reachable by both factions.** A zone's riddles lie on ground both
-factions can walk: never inside a faction's guarded town (Darkshire, the
-Crossroads), neutral towns welcome (Booty Bay, Gadgetzan, Ratchet, Everlook).
-The capitals' riddles are their own faction's alone: an Alliance reader is
-never sent into Orgrimmar, nor a Horde reader into Stormwind. The six starting
-zones are kept the same way, as their capitals' (`home:` in their files):
-Elwynn, Dun Morogh and Teldrassil (reached only through Auberdine's boat) for
-the Alliance, Durotar, Mulgore and Tirisfal for the Horde. Each reader has
-**123**: the 35 shared zones' 105, their own three starting zones' 9 and their
-own three capitals' 9 (141 in all, as above).
+Up to level 30 (the first release): 68 zone riddles (46 in the twelve shared
+zones, 11 in each side's three starting zones) and 17 town riddles (the
+Alliance's 9: Thelsamar, Sentinel Hill, Auberdine, Lakeshire, Stonetalon
+Peak, Astranaar, Menethil Harbor, Southshore, Darkshire; the Horde's 8: the
+Sepulcher, the Crossroads, Camp Taurajo, Sun Rock Retreat, Splintertree Post,
+Zoram'gar Outpost, Tarren Mill, Freewind Post): 85 in all, 66 for an Alliance
+reader and 65 for a Horde one.
 
-A zone's three riddles climb: **near the road** (passed every day, never
-looked at), **off the road** (a detour worth making), **hidden** (remote, high,
-at the end of something, or small enough to miss; never behind an exploit or
-off the playable map). Deadwind Pass, Moonglade and Blackrock Mountain have no
-rares, hence no quarry. Forever adds by the same rule: Zephras Isle's three and
-its quarry, its new zones', each capital it adds. The first release ships with
+**Whose ground.** A zone's own riddles lie on ground both factions can walk:
+never inside a faction's guarded town, neutral towns welcome (Booty Bay,
+Gadgetzan, Ratchet, Everlook). A faction's town in a contested zone has its
+own riddle, for that faction. The capitals' riddles are their own faction's
+alone: an Alliance reader is never sent into Orgrimmar, nor a Horde reader
+into Stormwind. The six starting zones are kept the same way (`home:` in
+their files): Elwynn, Dun Morogh and Teldrassil (reached only through
+Auberdine's boat) for the Alliance, Durotar, Mulgore and Tirisfal for the
+Horde.
+
+A zone's riddles climb: **near the road** (passed every day, never looked
+at), **off the road** (a detour worth making), **hidden** (remote, high, at the
+end of something, or small enough to miss; never behind an exploit or off the
+playable map); a zone of three or more has at least one of each. Deadwind Pass, Moonglade and Blackrock Mountain have no
+rares, hence no quarry. Forever adds by the same rules: Zephras Isle's and its new zones' riddles
+by their maps, its quarries, each capital it adds. The first release ships with
 the riddles of every zone up to level 30 and their quarries; the full book is
 the count above.
 
 ### The book (a sixth tab, Expeditions)
 
 - **By zone**, shown once the zone is entered (as the Atlas's), and the
-  reader's own faction's capitals: its three
-  riddles (near the road, off the road, hidden) and its quarry. The zone is
+  reader's own faction's capitals: its riddles (near the road, off the road,
+  hidden; its faction town's, for that faction) and its quarry. The zone is
   known; the place is the riddle. A zone's expedition is complete when its
-  three riddles are solved and its quarry brought down.
+  riddles are solved and its quarry brought down.
 - The tab's select (`ns.filterOf`, as the Bestiary's): everything, riddles,
   hunts, unfinished.
 - **A riddle**: its verse, its tier, its danger, whether it asks for a gesture
@@ -86,7 +109,10 @@ the count above.
 
 - **Two hints a riddle**, each asked for ("This riddle will no longer earn its
   gold seal"): a plainer clue in prose, then a circle shaded on the world map
-  (wider than the spot, never centred on it).
+  (wider than the spot, never centred on it). A riddle asking a gesture says
+  so on its page ("asks something of you there"), never which: the verse
+  never names it, the story leads to it; the first hint points closer
+  ("Rejold's casks are not there to be looked at"), still without its name.
 - **A quarry's help** is the target: its haunts shaded on the map (its spawn
   points from the pinned CMaNGOS spawns, clustered into a few soft circles;
   Forever's new rares from AllTheThings' coordinates), with a tooltip naming
@@ -104,7 +130,7 @@ the count above.
 | Condition | How |
 |---|---|
 | The place | The map and position (`C_Map.GetBestMapForUnit`, `GetPlayerMapPosition`; the Atlas reads them already), checked every second while in a riddle's zone, within a few yards of the spot. Open world only: Forever hides the position in its instances. |
-| A gesture | The emote's token, by hooking `DoEmote` (`hooksecurefunc`, no taint): `KNEEL`, `SALUTE`, `BOW`, `PRAY`..., made at the place. Every language: the token, never the text. |
+| A gesture | The emote's token, by hooking `DoEmote` (`hooksecurefunc`, no taint), made at the place: any of the client's 256 (EmotesText: `KNEEL`, `MOURN`, `SALUTE`, `BOW`, `PRAY`, `TOAST`, `SNIFF`, `PEER`, `SLEEP`...). Every language: the token, never the text. The reader guesses it from the story, so a riddle accepts the few gestures that mean the same there (a fallen comrade: `MOURN`, `KNEEL`, `SALUTE`; the brewers' casks: `TOAST`, `DRINK`, `CHUG`), never one that doesn't; nothing tells a wrong guess from no guess. |
 | A reading | A plaque, a tombstone or a book read there: the game's reader opening (`ITEM_TEXT_BEGIN`, its title from `ItemTextGetItem`) at the place. |
 | The hour | At night (`GetGameTime`, the server's hour), only where the story asks for it. |
 
@@ -114,7 +140,7 @@ stamps its poster quietly ("taken before the book").
 
 **The answers stay unreadable**: the data holds no riddle's spot, only a
 salted fingerprint (32-bit FNV-1a) of its map, its cell on a 2% grid and its
-gesture or reading; the check fingerprints the player's cell and the eight
+gesture or reading (one fingerprint for each gesture it accepts); the check fingerprints the player's cell and the eight
 around it. The map hint's circle is stored plainly (it only shades a region).
 
 ### Danger
@@ -135,14 +161,14 @@ when, at what level, the seal (hints, or ever tracked), the picture's stamp
 ### Content and the build
 
 ```
-expeditions/<zone>.md                (one file a zone, named as the atlas's: its three riddles, its quarry)
+expeditions/<zone>.md                (one file a zone, named as the atlas's: its riddles, its quarry)
 ---
 zone: 1431                           # the uiMap id
 riddles:
   - id: duskwood-near
     tier: near
     reading: The Birth of the Lich King   # optional: a book or plaque read there
-    gesture: KNEEL                        # optional: an emote's token
+    gestures: [KNEEL, MOURN, PRAY]        # optional: the emotes' tokens it accepts, the story's own first
     night: false                          # optional
     object: 61                            # the spot: a game object of the dump, or
     area: Twilight Grove                  # a named sub-area of the game's, or
@@ -166,24 +192,30 @@ the pinned spawns, and writes the fingerprints, never the spots, into
 `rare_zones.py`) writes each quarry's haunts.
 
 **The spots come from the game's data, not a character's walk** (the user has
-no character that reaches everywhere):
+no character that reaches everywhere), and only where the data pins them
+down:
 
 1. **A game object** (a grave, a plaque, a book, a statue the server spawns):
    its world position in the pinned CMaNGOS dump, placed on its zone's map by
-   the client's UiMapAssignment (the zone maps' rectangles overlap at their
-   edges: the zone is the one Wowhead's data gives the object,
-   `nether.wowhead.com/classic/tooltip/object/<id>`, which also gives its
-   coordinates; the two must agree within half a percent, or the build
-   fails). Checked 11 October 2026 on the weathered grave (object 61): the
-   dump gives Duskwood 17.7, 29.1, Wowhead Duskwood 17.7, 29.2.
+   the client's UiMapAssignment, and the same spawn on Wowhead's page of the
+   object (`wowhead.com/classic/object=<id>`: every copy, per map; the zone
+   maps' rectangles overlap at their edges, and the history books stand in
+   several inns); the two must agree within half a percent, or the build
+   fails. Checked 11 October 2026 on the weathered grave (object 61): the
+   dump gives Duskwood 17.7, 29.1, Wowhead Duskwood 17.7, 29.2. An object of
+   a quest's that the game may show only during it is no spot.
 2. **A named sub-area** (the game's AreaTable, as the Codex's
    `data/areas.json`: Duskwood alone has twenty, Twilight Grove, The World
    Tree, Addle's Stead...): solved on entering it (`GetSubZoneText`, by its
-   id: every language), no coordinates at all.
-3. **Scenery the server doesn't spawn** (a statue or wreck that is part of
-   the map): coordinates from two independent sources of the original game's
-   era (the wikis, Wowhead's guides) that agree, a wider radius; an object or
-   an area preferred whenever the place has one.
+   id: every language). Its hint circle from the client's map overlay for it,
+   or from something the data pins inside it: a creature that stands still
+   (its spawn on both sources), a graveyard the server names
+   (`world_safe_locs`: "Tirisfal Glades, Faol's Rest").
+3. **A creature that stands still** (a prisoner, a keeper): its spawn, the
+   dump's and Wowhead's alike; never one that walks a path.
+
+No coordinates from a wiki or a guess: what the data can't place is not
+written.
 
 A `/journal where` (the map and position, as the Codex's `/codex where`)
 remains for anyone to confirm a spot in passing; no riddle waits on it.
@@ -216,8 +248,16 @@ remains for anyone to confirm a spot in passing; no riddle waits on it.
   stands where) beyond what the game shows.
 - Fair: the verse alone should lead an attentive player there; the first
   hint, a newcomer.
-- A gesture or a reading only where the thing calls for it (kneel at a grave,
-  read a plaque, salute a fallen hero). Never a chore.
+- A gesture or a reading only where the thing calls for it, and the one the
+  story itself asks for, never named in the verse (no "kneel by him", no
+  "smell the powder"): the story leads to it and the reader guesses it.
+  It is what someone who knew the story would do there, as its own words
+  suggest (kneel at a grave, mourn a fallen comrade,
+  pray at an archbishop's resting place, raise a toast at a brewery, sniff
+  the barrel of "strange smelling powder", hush where the dwarf says
+  "Shhhh!"). Never a joke, a taunt or a flourish at someone's grief, never
+  a gesture that only puns on a word of the verse; none rather than a forced
+  one. Never a chore.
 - Both factions: a riddle on hostile ground is kept, its danger saying so.
 
 ### Achievements (Milestones: Expeditions)
@@ -225,7 +265,7 @@ remains for anyone to confirm a spot in passing; no riddle waits on it.
 | Achievement | When |
 |---|---|
 | A Riddle Read Aright, First Quarry | the first riddle solved, the first quarry |
-| (per zone) The Duskwood Expedition... | a zone's three riddles and its quarry; shown once the zone is entered |
+| (per zone) The Duskwood Expedition... | a zone's riddles (its faction town's for that faction) and its quarry; shown once the zone is entered |
 | Near the Road, Off the Road, Nothing Hidden | every riddle of that tier on a continent |
 | The Eastern Kingdoms, Kalimdor | every expedition of a continent |
 | By Your Own Light, Clear Sight, Nothing Asked | 10, 50, every gold seal |
@@ -253,8 +293,9 @@ seconds }, done)`.
 
 ### The model zone: Duskwood (written in full; spots from the data)
 
-Duskwood, levels 18 to 30: its three riddles and its quarry, all on ground
-both factions walk (Darkshire, an Alliance town, has none). Facts from the
+Duskwood, levels 18 to 30: the first three of its four riddles and its
+quarry, on ground both factions walk (the fourth, and Darkshire's for the
+Alliance, are in `expeditions/duskwood.md`). Facts from the
 pinned dump (objects 37 and 61, quests 225, 228, 253), the game's sub-areas
 and the Codex's checked pages (`the-embalmer`, `morladim`, `raven-hill`,
 `dragons-of-nightmare`).
@@ -265,9 +306,9 @@ and the Codex's checked pages (`the-embalmer`, `morladim`, `raven-hill`,
    world boss, at times).
 
    > In the heart of the dark wood a great tree stands apart:
-   > a door the sleeping druids walk through to the Dream.
+   > a door the dreaming druids walk through to the Emerald Dream.
    > Green dragons were set to keep it; the Nightmare took the keepers.
-   > Stand beneath its boughs, and hope they are elsewhere.
+   > The door opens for those who go the druids' way.
 
    Hint: "The road through the forest bends around something older than the
    town." Note: "One of four such trees in the world, the green dragonflight's
@@ -282,7 +323,7 @@ and the Codex's checked pages (`the-embalmer`, `morladim`, `raven-hill`,
    > A kindly man of potions lost his wife,
    > and would not let her go; he gave her his own heart.
    > It woke her hungry, so he keeps her in the earth
-   > above the hill of ravens. Read her stone.
+   > above the hill of ravens, under a stone with a few kind words.
 
    Hint: "An old hermit's shack overlooks the graves of Raven Hill; he did
    not come alone." Note: "'Beloved wife, may the earth sate your hunger.'
@@ -291,14 +332,14 @@ and the Codex's checked pages (`the-embalmer`, `morladim`, `raven-hill`,
    children's story Darkshire tells of him, and what the Night Watch found:
    quest 253).
 
-3. **Hidden: the weathered grave** (`gesture: KNEEL`, Morgan Ladimore's
+3. **Hidden: the weathered grave** (`gestures: [KNEEL, MOURN, PRAY]`, Morgan Ladimore's
    marker, "out past the house on the hill", outside the cemetery's ground).
    Danger: Guarded; Mor'Ladim himself wanders near (an elite).
 
    > He came home from the plague to a grave on the hill,
    > and grief made a killer of a good man's will.
    > They buried him quickly, past the house on the rise,
-   > outside the hallowed ground. Kneel where the grave lies.
+   > outside the hallowed ground, where nobody grieves for him.
 
    Hint: "Not every grave of Raven Hill lies inside its walls." Note: "The
    marker says only MORGAN LADIMORE. The earth over it has been disturbed:
@@ -312,7 +353,7 @@ here is his; quest 228).
    > The forest calls him by half a name,
    > the rest worn off like letters from a stone.
    > He walks among the graves of the hill he came home to,
-   > and kills whoever he meets. Read the stone, and you will know him.
+   > and kills whoever he meets. Find the stone, and you will know him.
 
    Note: "Not a beast, and no rare in the Bestiary's sense. The Night Watch
    wants him laid to rest, and his daughter serves in it. Go with company."
@@ -348,11 +389,10 @@ hunter / would know the hide, and wish its spirit peace.").
 5. The writing, zone by zone, Duskwood first: candidates from the sources
    above, each spot from the data (an object, a sub-area, two sources), a
    first release with every zone up to level 30; then the rest of the 141 and
-   the 38. Written on 11 October 2026: the riddles of the 18 zones up to level
-   30 (54, `expeditions/`), each with its sources; what is still to confirm
-   is a riddle's `check:` (a hint circle placed without a spot of its own, a
-   quest's object Wowhead doesn't place, a margin without a source). The
-   quarries, but Duskwood's, come with the hunts' pass.
+   the 38. Written on 11 October 2026 (`expeditions/`): the 85 riddles up to
+   level 30, the 68 of the 18 zones and the 17 of their faction towns, each
+   with its sources and where the data pins it; Duskwood's quarry. The other
+   quarries come with the hunts' pass.
 
 ## Decisions (5 October 2026)
 
