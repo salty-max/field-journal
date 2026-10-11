@@ -7,62 +7,30 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: teldrassil-feralas-history
+  - id: teldrassil-maneweavers
     tier: near
-    object: 142958   # dump 55.2, 91.5; Wowhead 55.3, 91.4
-    hint_area: { x: 52.1, y: 94.1, r: 8 }
-    danger: "Quiet"
-    sources: "quest 2940"
-  - id: teldrassil-dreamcatcher
-    tier: off
-    gestures: [SEARCH, LOOK]
-    object: 126158   # dump 68.0, 59.7; Wowhead 68.0, 59.6
-    hint_area: { x: 69.9, y: 63.2, r: 8 }
-    danger: "Guarded (the Gnarlpine furbolgs)"
-    sources: "quest 2438"
-  - id: teldrassil-oracle-glade
-    tier: hidden
-    gestures: [BOW, KNEEL]
-    area: The Oracle Glade   # placed: the client's overlay: 37.9, 36.3, half-size 3.0 by 10.9
-    hint_area: { x: 39.5, y: 34.0, r: 12 }
-    danger: "Guarded (the Bloodfeather harpies)"
-    sources: "quests 934, 937"
+    gestures: [THANK, BOW]
+    creature: 3605   # Nadyia Maneweaver, dump 41.9, 49.4 (Radnaal beside her, 42.1, 50.0)
+    hint_area: { x: 44.0, y: 47.5, r: 5 }
+    danger: "Quiet (owls in the trees)"
+    sources: "Nadyia Maneweaver's own words (her gossip); the dump (the house, Radnaal, no quest)"
 quarry:
-  id: 2039
-  sources: "quests 476, 486 (Gaerolas Talvethren, Athridas Bearmantle)"
+  id: 14430   # Duskstalker
+  sources: "the WoWWiki archive's Duskstalker page (the south shore, the two coves, Tendon Rip, the respawn); the dump's spawn; Wowhead's sightings"
 ---
-## teldrassil-feralas-history
-Where the boats come in below the great tree,
-a book lies unopened so long its covers have worn
-and its pages yellowed: the history of a far forest.
-Find it, and ask before you borrow it.
-? Rut'theran Village, at the tree's foot, keeps an old book by the docks.
-= Feralas: A History. Daryn Lightwind owns it, and will lend it, for a favour first.
-+ Someone in Feralas, Troyas, has been looking for exactly this book.
-
-## teldrassil-dreamcatcher
-In a village the corrupted furbolgs took,
-a dresser still holds what its owner could not go back for:
-a charm that draws on the Emerald Dream
-and lends luck to whoever carries it. It is somewhere in the drawers.
-? Starbreeze Village, east of Dolanaar, was once a tranquil place; one house kept its furniture.
-= Tallonkai Swiftroot's dresser. The dreamcatcher in it is a gift 'given only to few'.
-+ It came from Gaerolas Talvethren, warden of the druids in the Ban'ethil Barrow Den.
-
-## teldrassil-oracle-glade
-The first and most powerful of the moonwells
-lies to the north-west, under the boughs of a tree that answers.
-Sentinels hold its glade against the harpies,
-and the last runner it sent to the city never arrived.
-Come before the tree as one comes before the wise.
-? North of Darnassus, the Sentinels are fighting harpies around an old tree that speaks.
-= The Oracle Glade, and the oldest moonwell of the new tree.
-+ Teldrassil grew without the dragons' blessing: Nozdormu refused the Arch Druid for his arrogance, Alexstrasza with him, and the tree's growth has been flawed and unpredictable since.
+## teldrassil-maneweavers
+On the road west to the city, a house stands by itself,
+and the two who keep it work leather and skins.
+They have little to offer, she will tell you,
+and offers it all the same. Accept the welcome.
+? On the road from Dolanaar to Darnassus, west of Ban'ethil Hollow: a house, and two who teach a craft in it.
+= Nadyia and Radnaal Maneweaver, who teach leatherworking and skinning from their own house: 'Welcome to our home. Radnaal and I have little to offer, but you are welcome to what hospitality we can provide.'
++ Nadyia has advice for her students: smaller stitches, so that fewer arrows slip out of the quivers; besides, no one likes a lumpy tunic.
 
 ## quarry
-The furbolgs of the forest were peaceful once.
-Their chieftain drives them mad with the Fel Moss,
-and the Druids of the Talon have slept since he meddled with their calling.
-He keeps to his tribe's hold in the south-west.
-= Ursal the Mauler, chieftain of the Gnarlpine. Athridas Bearmantle, in Dolanaar, needs him dead for the ritual that wakes the Druids of the Talon.
-+ The Gnarlpine ambushed a traveller on the road to the Ban'ethil Barrow Den and pillaged Starbreeze Village: the madness had already spread.
+South of the great lake, along the shore where the owls hunt,
+a cat of the dusk hunts too, and goes where it likes.
+It strikes at the legs first, to slow what it chases.
+Be the one who does the chasing.
+= Duskstalker, a cat of Teldrassil, seldom seen: it comes back an hour or two after it falls.
++ It keeps to the south shore of Lake Al'Ameth, now near one of the shore's two southward coves, now near the other.

@@ -38,9 +38,10 @@ scripts after a few pages), else its tooltip (the zone with the most).
 
 A zone's quarry (`quarry: { id, sources }`): every spawn of the creature on
 the zone's map (its own, or one that may take its place: creature_spawn_entry,
-spawn groups) that Wowhead places there too, gathered into its haunts: the
-spawns within HAUNT percent of each other, each a circle around them wide
-enough for its wandering (the dump's radius or path), HAUNT_MIN at least.
+spawn groups) that Wowhead places there too, and the places Wowhead's
+players met it, gathered into its haunts: the points within HAUNT percent of
+each other, each a circle around them wide enough for its wandering (the
+dump's radius or path), HAUNT_MIN at least.
 
 Anything that fails is printed and nothing is written.
 """
@@ -67,6 +68,9 @@ ASPECT = 668 / 1002
 # A quarry's haunts: spawns this near each other (percent of the width) are
 # one, a circle never smaller than HAUNT_MIN.
 HAUNT, HAUNT_MIN = 6, 3
+# Wowhead's sightings of a quarry count within this of a spawn the two agree
+# on (further out, they are another place's, or noise).
+ROAM = 10
 
 
 def table(name):
@@ -260,7 +264,10 @@ def main():
             if p:
                 found.append((p, d))
         kept = set(agreed("npc", id, uimap, [p for p, _ in found], AGREE_HAUNT))
-        points = []
+        # where players met it, as Wowhead records them (a creature that roams
+        # further than its spawn says), near a spawn the two agree on
+        near = lambda p: any(((p[0] - q[0]) ** 2 + ((p[1] - q[1]) * ASPECT) ** 2) ** 0.5 <= ROAM for q in kept)
+        points = [(tuple(p), 0) for p in (wowhead("npc", id, zone_area(uimap)) or []) if near(p)]
         for p, d in found:
             if p not in kept:
                 continue
