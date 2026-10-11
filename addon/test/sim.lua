@@ -667,6 +667,26 @@ check(
   "… its rate in words, for the item's tooltip"
 )
 check(ns.dropRate(rec(1131), 2318).rate == "0%" and ns.dropRate(rec(1133), 2672) == nil, "… none counted, none said")
+-- (the game read a corpse as empty, too early or too far, then it was looted:
+-- its items count, the corpse once; an item that dropped only outside the
+-- count says so, not a bare 0%)
+local misread = creature(1133, spawn + 1) -- (the next kill's)
+state.empty[misread] = true
+kill(1133)
+check(rec(1133).drops.corpses == 1, "… a corpse that holds nothing counts, as a kill without the item")
+state.empty[misread] = nil
+loot = { { "|cff9d9d9d|Hitem:1811::::::::3:::::|h[Blunt Claymore]|h|r", { misread, 1 } } }
+fire("LOOT_READY", true)
+fire("LOOT_CLOSED")
+check(
+  rec(1133).drops.corpses == 1 and rec(1133).drops.items[1811] == 1 and ns.dropRate(rec(1133), 1811).rate == "100%",
+  "… a corpse read as empty, then looted: its items counted, the corpse once"
+)
+rec(1133).loot[2589] = 2 -- (Linen Cloth, from a kill before the count began)
+check(
+  ns.dropRate(rec(1133), 2589).before and not ns.dropRate(rec(1133), 1811).before,
+  "… an item looted only outside the count says so (not a bare 0%)"
+)
 state.party = { party1 = "Player-1-0000000A" }
 state.empty[creature(1131, spawn + 1)] = true
 kill(1131)

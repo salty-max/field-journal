@@ -185,6 +185,9 @@ local function lootButton(i)
       GameTooltip:AddLine(" ")
       GameTooltip:AddLine("Drop rate: " .. drop.rate, T.accent[1], T.accent[2], T.accent[3])
       GameTooltip:AddLine(drop.detail, T.soft[1], T.soft[2], T.soft[3], true)
+      if drop.before then
+        GameTooltip:AddLine("It dropped for you before the count began.", T.soft[1], T.soft[2], T.soft[3], true)
+      end
     end
     GameTooltip:Show()
   end)

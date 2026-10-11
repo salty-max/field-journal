@@ -246,6 +246,9 @@ end
 --   rec.drops = { corpses = n, items = { [itemId] = corpses it came from } }
 local EMPTY_AFTER = 1.5 -- seconds after the kill: the corpse's loot is set by then
 local pending, pendingOrder = {}, {} -- guid = creature id: kills not yet looted or found empty
+-- (corpses found empty, should one be looted after all: the game read too
+-- early or too far; its items then counted, the corpse not twice)
+local emptied, emptiedOrder = {}, {}
 
 local function dropsOf(rec)
   rec.drops = rec.drops or { corpses = 0, items = {} }
@@ -263,13 +266,17 @@ local function corpse(guid, id)
     local ok, hasLoot = pcall(CanLootUnit, guid)
     if not ok or secret(hasLoot) or hasLoot ~= false then return end
     pending[guid] = nil
+    emptied[guid] = id
+    table.insert(emptiedOrder, guid)
+    if #emptiedOrder > 200 then emptied[table.remove(emptiedOrder, 1)] = nil end
     local rec = ns.journal().creatures[id]
     if rec then dropsOf(rec).corpses = dropsOf(rec).corpses + 1 end
   end)
 end
 
 -- An item's drop rate, in words: { rate = "30%", detail = "in 12 of 40 kills
--- looted or found empty" }, nil before any corpse was counted.
+-- looted or found empty", before (it dropped only before the count began,
+-- or from a kill it doesn't hold) }, nil before any corpse was counted.
 local function percent(f)
   local p = f * 100
   if p > 0 and p < 1 then return "under 1%" end
@@ -283,6 +290,7 @@ function ns.dropRate(rec, itemId)
   return {
     rate = percent(n / d.corpses),
     detail = ("in %d of %d %s looted or found empty"):format(n, d.corpses, d.corpses == 1 and "kill" or "kills"),
+    before = n == 0 and (rec.loot and rec.loot[itemId] or 0) > 0 or nil,
   }
 end
 
@@ -478,6 +486,9 @@ local function readLoot()
           pending[guid] = nil
           window[guid] = true
           dropsOf(rec).corpses = dropsOf(rec).corpses + 1
+        elseif emptied[guid] then
+          emptied[guid] = nil
+          window[guid] = true
         end
         local item = itemId and guid .. ":" .. itemId
         if window[guid] and item and not window[item] then
