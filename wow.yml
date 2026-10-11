@@ -55,6 +55,8 @@ globals:
     any: true
   GetGameTime:
     any: true
+  geterrorhandler:
+    any: true
   GetItemIcon:
     any: true
   GetItemInfo:

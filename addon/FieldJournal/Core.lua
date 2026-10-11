@@ -50,11 +50,17 @@ function ns.journal() return char end
 local frame = CreateFrame("Frame")
 local listeners = {}
 
+-- (one listener's error is reported, and the others still hear the event)
+local function run(fn, ...)
+  local ok, err = pcall(fn, ...)
+  if not ok then geterrorhandler()(err) end
+end
+
 frame:SetScript("OnEvent", function(_, event, ...)
   if event == "PLAYER_LOGIN" then ns.login() end
   if not char then return end
   for _, fn in ipairs(listeners[event] or {}) do
-    fn(...)
+    run(fn, ...)
   end
 end)
 frame:RegisterEvent("PLAYER_LOGIN")
@@ -76,7 +82,7 @@ function ns.onUnit(event, unit, fn)
     f:SetScript("OnEvent", function(_, e, ...)
       if not char then return end
       for _, listener in ipairs(f.listeners[e]) do
-        listener(...)
+        run(listener, ...)
       end
     end)
     units[unit] = f
@@ -161,7 +167,8 @@ end
 -- ── /journal ─────────────────────────────────────────────────────────────────
 local USAGE = "/journal opens the book; /journal settings; /journal minimap shows or hides the button; "
   .. "/journal welcome shows the welcome page again; /journal export gives this character's settings as a code, "
-  .. "/journal import CODE takes them; /journal reset starts this character's journal over."
+  .. "/journal import CODE takes them; /journal reset starts this character's journal over; /journal probe "
+  .. "describes the next loot window, as the game shows it."
 
 SLASH_FIELDJOURNAL1 = "/journal"
 SLASH_FIELDJOURNAL2 = "/fj"
@@ -192,6 +199,8 @@ SlashCmdList.FIELDJOURNAL = function(msg)
     end
   elseif msg == "atlas" then
     ns.atlasReport()
+  elseif msg == "probe" then
+    ns.lootProbe()
   elseif msg == "minimap" then
     ns.setOption("minimapHidden", not ns.option("minimapHidden"))
   elseif msg == "settings" or msg == "options" then

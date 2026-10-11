@@ -113,11 +113,15 @@ local function herb(itemId, n, how, quiet)
 end
 
 -- ── the loot window ──────────────────────────────────────────────────────────
--- Each slot once per window (the game can report a window twice).
+-- Read as looting begins (LOOT_READY: before the window shows, every slot
+-- still there; auto loot and the fast-loot addons empty them right after),
+-- and again as the window opens, should a client or an addon skip the first.
+-- Each slot of each source once per window (the game can report a window
+-- twice).
 local seen = {}
 ns.on("LOOT_CLOSED", function() seen = {} end)
 
-ns.on("LOOT_OPENED", function()
+local function readLoot()
   local fishing = IsFishingLoot()
   if secret(fishing) then fishing = false end
   local any = false
@@ -128,7 +132,7 @@ ns.on("LOOT_OPENED", function()
       local _, _, quantity = GetLootSlotInfo(slot)
       local count = (quantity and not secret(quantity) and quantity > 0) and quantity or 1
       local object = objectId(guid)
-      local key = slot .. ":" .. itemId
+      local key = slot .. ":" .. itemId .. ":" .. tostring(not secret(guid) and guid or "")
       if not seen[key] then
         seen[key] = true
         if fishing then
@@ -140,7 +144,42 @@ ns.on("LOOT_OPENED", function()
     end
   end
   if any then changed() end
-end)
+end
+ns.on("LOOT_READY", readLoot)
+ns.on("LOOT_OPENED", readLoot)
+
+-- /journal probe: the next loot window, as each of its events finds it (how
+-- many slots, what and from what kind of source, a fishing catch or not).
+local probing = false
+function ns.lootProbe()
+  probing = true
+  print(ns.PREFIX .. "the next loot window will be described here: loot something.")
+end
+local function describe(event)
+  if not probing then return end
+  local parts = {}
+  for slot = 1, GetNumLootItems() do
+    local link = GetLootSlotLink(slot)
+    local name = link and not secret(link) and link:match("%[(.-)%]") or "money or nothing"
+    local guid = GetLootSourceInfo(slot)
+    local from = guid and not secret(guid) and guid:match("^(%a+)") or "?"
+    table.insert(parts, ("%s (%s)"):format(name, from))
+  end
+  local fishing = IsFishingLoot()
+  print(
+    ns.PREFIX
+      .. ("%s: %d slots%s%s"):format(
+        event,
+        GetNumLootItems(),
+        (not secret(fishing) and fishing) and ", fishing" or "",
+        #parts > 0 and (": " .. table.concat(parts, ", ")) or ""
+      )
+  )
+  if event == "LOOT_CLOSED" then probing = false end
+end
+for _, e in ipairs({ "LOOT_READY", "LOOT_OPENED", "LOOT_CLOSED" }) do
+  ns.on(e, function() describe(e) end)
+end
 
 -- Herbs that reach the bags another way: bought, a quest's reward, the mail,
 -- a trade. Looked at when the bags settle; only a herb not yet in the record

@@ -396,13 +396,15 @@ ns.on("QUEST_LOG_UPDATE", function()
 end)
 
 -- ── loot ─────────────────────────────────────────────────────────────────────
--- What each corpse gave (the loot window names its source).
+-- What each corpse gave (the loot window names its source), read as looting
+-- begins (LOOT_READY: every slot still there, before auto loot or a fast-loot
+-- addon empties them) and as the window opens; each slot of a corpse once.
 local looted, lootedOrder = {}, {}
-ns.on("LOOT_OPENED", function()
+local function readLoot()
   local creatures = ns.journal().creatures
   for slot = 1, GetNumLootItems() do
     local link = GetLootSlotLink(slot)
-    local itemId = link and tonumber(link:match("item:(%d+)"))
+    local itemId = link and not secret(link) and tonumber(link:match("item:(%d+)"))
     local sources = { GetLootSourceInfo(slot) }
     for i = 1, #sources, 2 do
       local guid, count = sources[i], sources[i + 1] or 1
@@ -420,7 +422,9 @@ ns.on("LOOT_OPENED", function()
       end
     end
   end
-end)
+end
+ns.on("LOOT_READY", readLoot)
+ns.on("LOOT_OPENED", readLoot)
 
 -- ── counts ───────────────────────────────────────────────────────────────────
 -- The creatures recorded, by family key.

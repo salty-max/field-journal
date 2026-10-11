@@ -26,6 +26,9 @@ local state = {
 }
 local printed = {}
 function print(msg) table.insert(printed, msg) end
+-- The game's error handler: an error raised again here, so a check fails on it.
+local errorHandler = function(e) error(e, 0) end
+function geterrorhandler() return errorHandler end
 function strsplit(sep, s)
   local out = {}
   for part in (s .. sep):gmatch("(.-)" .. sep:gsub("%-", "%%-")) do
@@ -1210,10 +1213,13 @@ C_Container = {
 }
 local BOBBER, SCHOOL, NODE =
   "GameObject-0-1-0-0-35591-0000000001", "GameObject-0-1-0-0-180682-0000000002", "GameObject-0-1-0-0-1618-0000000003"
+-- A loot window as the game sends it: looting begins (LOOT_READY), the
+-- window opens (reported twice, as the game can), it closes.
 local function lootWindow(slots)
   loot = slots
-  fire("LOOT_OPENED")
-  fire("LOOT_OPENED") -- the game can report a window twice
+  fire("LOOT_READY", true)
+  fire("LOOT_OPENED", true)
+  fire("LOOT_OPENED", true) -- the game can report a window twice
   fire("LOOT_CLOSED")
 end
 local fish = function(id) return FieldJournalChar.fish and FieldJournalChar.fish[id] end
@@ -1410,6 +1416,38 @@ check(
   "a zone's Atlas page: the herbs and fish found there named, the rest counted"
 )
 FieldJournalFrame:Hide()
+
+-- (auto loot or a fast-loot addon: the slots emptied before the window opens)
+fishing = true
+loot = { { link(6291, "Raw Brilliant Smallfish"), { "GameObject-0-1-0-0-35591-0000000009", 1 } } }
+fire("LOOT_READY", true)
+loot = {}
+fire("LOOT_OPENED", true)
+fire("LOOT_CLOSED")
+fishing = false
+check(fish(6291).n == 2, "a catch taken as looting begins, before auto loot empties the window")
+loot = { { link(2447, "Peacebloom"), { "GameObject-0-1-0-0-1618-0000000009", 1 } } }
+fire("LOOT_READY", true)
+fire("LOOT_CLOSED")
+check(bloom.gathered == 3, "… an herb too, the window never opened")
+-- (one listener's error: reported, the others still hear the event)
+local reported
+errorHandler = function(e) reported = e end
+local heard = false
+ns.on("FJ_TEST_EVENT", function() error("a listener's fault") end)
+ns.on("FJ_TEST_EVENT", function() heard = true end)
+fire("FJ_TEST_EVENT")
+errorHandler = function(e) error(e, 0) end
+check(heard and reported and reported:find("a listener's fault"), "a listener's error is reported, the next still runs")
+-- (/journal probe: the next loot window, as each event finds it)
+SlashCmdList.FIELDJOURNAL("probe")
+fishing = true
+lootWindow({ { link(6291, "Raw Brilliant Smallfish"), { BOBBER, 1 } } })
+fishing = false
+check(
+  said("LOOT_READY: 1 slots, fishing: Raw Brilliant Smallfish (GameObject)") and said("LOOT_CLOSED"),
+  "/journal probe: the next loot window described, event by event"
+)
 
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(

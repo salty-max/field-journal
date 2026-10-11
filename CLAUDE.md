@@ -55,7 +55,8 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   agree and zips `dist/FieldJournal.zip` for a test in the game.
 - `addon/FieldJournal/`: `Core.lua` (the journal's schema; the events every
   file listens to: `ns.on`, and `ns.onUnit` for a unit event heard for one
-  unit only; the login and its migrations; `/journal`), `Creatures.lua` (the
+  unit only, each listener protected: its error reported, the others still
+  run; the login and its migrations; `/journal`), `Creatures.lua` (the
   Bestiary's records: a creature met (target, mouseover) is a sighting
   (`seen`), it joins the book on its first kill, its family with it (the
   families met kept by their id, never their place in Data.lua's list, and
@@ -64,10 +65,13 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   group's) from `PARTY_KILL` (an event of its own on Forever and Classic since
   1.15.9), else the combat log, and a quest's count gone up for a creature no
   kill told (another's blow on one I tagged, which the game credits);
-  loot from the loot window, trophies; a
+  loot from the loot window (read at `LOOT_READY`, before auto loot or a
+  fast-loot addon empties it, and again at `LOOT_OPENED`), trophies; a
   chat line per new creature, a sound only for trophies), `Atlas.lua` (places
   explored from the fog lifted, `C_MapExplorationInfo`; deaths, close calls,
-  flights, crossings, binds), `Flora.lua` (fish and herbs), `Achievements.lua`
+  flights, crossings, binds), `Flora.lua` (fish and herbs, read from the loot
+  window as the Bestiary's loot is; `/journal probe`: the next loot window as
+  each of its events finds it), `Achievements.lua`
   (milestones: tallies, every family of a type, feats, every rare of a zone,
   the Atlas's and the flora's; the game's achievement toast, fanfare and a
   chat line; no spoilers before a type or zone is met). The book: `Kit.lua`
