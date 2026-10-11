@@ -15,6 +15,7 @@ local GROUPS = {
   { "herbs", "Herbs" },
   { "travel", "Travels" },
   { "explore", "Exploration" },
+  { "expeditions", "Expeditions" },
 }
 local ROW_H, WIDTH = 50, 700
 local book, panel, scroll

@@ -1,7 +1,8 @@
 -- Explorer's Field Journal: this character's journal, the events every file
 -- listens to (ns.on, ns.onUnit) and /journal. The records are kept by
--- Creatures.lua (the Bestiary), Atlas.lua, Flora.lua (fish and herbs) and
--- Achievements.lua (milestones); the book shows them (Book.lua).
+-- Creatures.lua (the Bestiary), Atlas.lua, Flora.lua (fish and herbs),
+-- Expeditions.lua (the riddles) and Achievements.lua (milestones); the book
+-- shows them (Book.lua).
 --
 --   FieldJournalChar (SavedVariablesPerCharacter), whose journal: guid
 --     creatures[id] = {
@@ -25,8 +26,10 @@
 --     killRule                   journals from before that rule, set right once
 --     atlas = { ... }            the places explored, deaths, travels (Atlas.lua)
 --     fish, plants               the catches and the herbs (Flora.lua)
+--     expeditions = { riddles }  the riddles solved, the hints taken (Expeditions.lua)
 --     achievements[id]           the milestones earned (Achievements.lua)
---     collapsed, open, atlasOpen the book's folds (types, families, zones)
+--     collapsed, open, atlasOpen, expeditionsOpen   the book's folds (types,
+--                                families, zones)
 local _, ns = ...
 local PREFIX = "|cffc9a227Field Journal:|r "
 ns.PREFIX = PREFIX
@@ -167,8 +170,8 @@ end
 -- ── /journal ─────────────────────────────────────────────────────────────────
 local USAGE = "/journal opens the book; /journal settings; /journal minimap shows or hides the button; "
   .. "/journal welcome shows the welcome page again; /journal export gives this character's settings as a code, "
-  .. "/journal import CODE takes them; /journal reset starts this character's journal over; /journal probe "
-  .. "describes the next loot window, as the game shows it."
+  .. "/journal import CODE takes them; /journal reset starts this character's journal over; /journal where "
+  .. "tells the map and your position on it; /journal probe describes the next loot window, as the game shows it."
 
 SLASH_FIELDJOURNAL1 = "/journal"
 SLASH_FIELDJOURNAL2 = "/fj"
@@ -181,7 +184,7 @@ SlashCmdList.FIELDJOURNAL = function(msg)
     print(
       PREFIX
         .. "this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its "
-        .. "milestones. Type /journal reset yes to do it."
+        .. "riddles, its milestones. Type /journal reset yes to do it."
     )
   elseif msg == "reset yes" then
     newJournal(char.guid)
@@ -199,6 +202,8 @@ SlashCmdList.FIELDJOURNAL = function(msg)
     end
   elseif msg == "atlas" then
     ns.atlasReport()
+  elseif msg == "where" then
+    ns.whereReport()
   elseif msg == "probe" then
     ns.lootProbe()
   elseif msg == "minimap" then

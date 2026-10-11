@@ -1,10 +1,10 @@
 ---
 zone: 1442   # Stonetalon Mountains
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: stonetalon-mountains-charred-vale
     tier: near
@@ -20,7 +20,7 @@ riddles:
     sources: "quest 6421; the quest's trigger in the cave (AreaTrigger 2946)"
   - id: stonetalon-mountains-kaya
     tier: hidden
-    where: { x: 73.5, y: 85.6, r: 1 }   # Kaya Flathoof, dump 73.5, 85.6; Wowhead 73.4, 85.6 (she walks only when escorted)
+    creature: 11856   # Kaya Flathoof, dump 73.5, 85.6; Wowhead 73.4, 85.6 (she walks only when escorted)
     hint_area: { x: 71.2, y: 86.6, r: 5 }
     danger: "Perilous (the Grimtotem)"
     sources: "quests 6548, 6523, 6401"
@@ -28,14 +28,14 @@ riddles:
     tier: town
     faction: alliance   # its town's: for that faction alone
     gestures: [BOW]
-    where: { x: 37.1, y: 8.1, r: 1 }   # Keeper Albagorm, dump 37.1, 8.1; Wowhead 37.0, 8.0
+    creature: 3994   # Keeper Albagorm, dump 37.1, 8.1; Wowhead 37.0, 8.0
     hint_area: { x: 34.7, y: 8.8, r: 5 }
     danger: "Quiet"
     sources: "quest 1057; quest 1088 (the keepers, sons of the forest god)"
   - id: stonetalon-mountains-sun-rock
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 45.9, y: 60.4, r: 1 }   # Braelyn Firehand, dump 45.9, 60.4; Wowhead 46.0, 60.4
+    creature: 4198   # Braelyn Firehand, dump 45.9, 60.4; Wowhead 46.0, 60.4
     hint_area: { x: 47.2, y: 62.5, r: 5 }
     danger: "Quiet"
     sources: "quests 1087, 1088"

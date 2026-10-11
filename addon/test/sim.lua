@@ -82,7 +82,15 @@ function GetSubZoneText() return state.sub end
 C_Map = {
   -- A French client would answer "Kharanos" too; Anvilmar stays unnamed here,
   -- to check the English fallback.
-  GetAreaInfo = function(id) return ({ [131] = "Kharanos", [1] = "Dun Morogh" })[id] end,
+  GetAreaInfo = function(id)
+    return ({
+      [131] = "Kharanos",
+      [1] = "Dun Morogh",
+      [856] = "Twilight Grove",
+      [1098] = "Manor Mistmantle",
+      [204] = "Pyrewood Village",
+    })[id]
+  end,
   GetBestMapForUnit = function() return state.map end,
   GetPlayerMapPosition = function() return { x = state.x, y = state.y } end,
   GetMapInfo = function() return nil end, -- (the maps, below)
@@ -416,9 +424,12 @@ function UnitHealth() return state.health end
 function UnitHealthMax() return 100 end
 function UnitIsDeadOrGhost() return state.health <= 0 end
 function UnitOnTaxi() return false end
-function hooksecurefunc(name, fn)
-  local original = _G[name]
-  _G[name] = function(...)
+function hooksecurefunc(t, name, fn)
+  if type(t) ~= "table" then
+    t, name, fn = _G, t, name
+  end
+  local original = t[name]
+  t[name] = function(...)
     local r = original(...)
     fn(...)
     return r
@@ -474,6 +485,21 @@ C_XMLUtil = { GetTemplateInfo = function() return {} end }
 -- The shield's OnLoad: Classic Era has no achievement window, and Forever's
 -- doesn't define it (its own game type): the addon stands one in at load.
 C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true end }
+-- The expeditions: the emotes (the chat's and the menu's go through
+-- C_ChatInfo.PerformEmote; DoEmote is the game's wrapper around it), the
+-- faction, a target's reach, the game's confirmation (accepted at once).
+C_ChatInfo = { PerformEmote = function() return true end }
+function DoEmote(token, target) return C_ChatInfo.PerformEmote(token, target) end
+state.faction = "Alliance"
+function UnitFactionGroup(u) return u == "player" and state.faction or nil end
+state.near = true
+function CheckInteractDistance() return state.near end
+StaticPopupDialogs = {}
+YES, NO = "Yes", "No"
+function StaticPopup_Show(which, text, _, data)
+  state.popup = text
+  StaticPopupDialogs[which].OnAccept(nil, data)
+end
 
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
@@ -1508,6 +1534,159 @@ check(
   said("LOOT_READY: 1 slots, fishing: Raw Brilliant Smallfish (GameObject)") and said("LOOT_CLOSED"),
   "/journal probe: the next loot window described, event by event"
 )
+
+-- ── the expeditions ──────────────────────────────────────────────────────────
+-- Duskwood's riddles, solved where they lead: a reading, a gesture, a
+-- sub-area, a keeper; a walking keeper found by targeting; a night riddle.
+local function at(map, x, y, sub)
+  state.map, state.x, state.y, state.sub = map, x, y, sub or ""
+  fire("ZONE_CHANGED_NEW_AREA")
+end
+local function solvedRiddle(id) return ns.riddleSolved(id) end
+check(
+  ns.expeditionPrint("duskwood-eliza", "npc", 265) == 2149514546,
+  "the riddles' fingerprints are the build's (32-bit FNV-1a)"
+)
+check(
+  ns.riddleName(ns.riddleById["duskwood-eliza"]) == "Eliza's Tombstone",
+  "… and their veiled names read as the build's"
+)
+local DATA = io.open(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")):read("*a")
+check(
+  not DATA:find("Eliza's Tombstone", 1, true) and not DATA:find("28.86", 1, true),
+  "… the data holds neither an answer's name nor its spot"
+)
+check(
+  #ns.riddlesOf(1431) == 5 and #ns.riddlesOf(1453) == 3,
+  "an Alliance reader: Duskwood's five riddles (Darkshire's too), Stormwind's three"
+)
+state.faction = "Horde"
+check(#ns.riddlesOf(1431) == 4 and #ns.riddlesOf(1453) == 0, "… a Horde reader: four, and none in Stormwind")
+state.faction = "Alliance"
+-- A reading: Eliza's tombstone, read at the stone (never elsewhere, never in combat).
+at(1431, 0.50, 0.50, "Darkshire")
+fire("ITEM_TEXT_BEGIN")
+check(not solvedRiddle("duskwood-eliza"), "a reading elsewhere solves nothing")
+at(1431, 0.2886, 0.3054)
+inCombat = true
+fire("ITEM_TEXT_BEGIN")
+inCombat = false
+check(not solvedRiddle("duskwood-eliza"), "… nor one in combat")
+fire("ITEM_TEXT_BEGIN")
+local eliza = ns.riddleRecord("duskwood-eliza")
+check(
+  eliza
+    and eliza.at
+    and said(
+      "a riddle read aright: |cffffd100|Hfieldjournal:xduskwood-eliza|h[Eliza's Tombstone]|h|r, Duskwood, with a gold seal"
+    ),
+  "the tombstone read where it stands: solved, with a gold seal and a line in chat"
+)
+check(ns.earnedMilestone("riddle-first"), "… the first riddle's milestone")
+-- A gesture: Morgan Ladimore's grave, after asking for the clue (the silver seal).
+ns.takeHint("duskwood-morgan-ladimore", 1)
+check(state.popup == nil and ns.riddleRecord("duskwood-morgan-ladimore").hints == 1, "a clue taken is kept, unsolved")
+at(1431, 0.1773, 0.2908)
+DoEmote("DANCE")
+check(not solvedRiddle("duskwood-morgan-ladimore"), "a gesture the story doesn't ask for solves nothing")
+DoEmote("kneel")
+check(
+  solvedRiddle("duskwood-morgan-ladimore") and ns.riddleSeal(ns.riddleRecord("duskwood-morgan-ladimore")) == "silver",
+  "… the one it asks for does (any of its own), with a silver seal after the clue"
+)
+-- A sub-area with a gesture (Twilight Grove), and one by being there (Manor Mistmantle).
+at(1431, 0.46, 0.40, "Twilight Grove")
+DoEmote("SLEEP")
+check(solvedRiddle("duskwood-twilight-grove"), "a sub-area's riddle: its gesture made in it")
+at(1431, 0.75, 0.34, "Manor Mistmantle")
+ns.expeditionAttempt()
+check(solvedRiddle("duskwood-mistmantle"), "… another's by being there")
+-- A keeper who stands still: Madame Eva, by her table; the expedition complete.
+check(not ns.earnedMilestone("expedition-1431"), "Duskwood's expedition not yet complete")
+at(1431, 0.7579, 0.4532, "Darkshire")
+ns.expeditionAttempt()
+check(
+  solvedRiddle("duskwood-darkshire") and ns.earnedMilestone("expedition-1431") and said("[The Duskwood Expedition]"),
+  "a keeper's riddle, by standing beside her; Duskwood's expedition complete"
+)
+-- A keeper who walks: Kum'isha, found by targeting her near (never too far).
+at(1419, 0.10, 0.10)
+state.target, state.near = 7363, false
+ns.expeditionAttempt()
+check(not solvedRiddle("blasted-lands-kumisha"), "a walking keeper targeted from afar: not yet")
+state.near = true
+ns.expeditionAttempt()
+check(solvedRiddle("blasted-lands-kumisha"), "… targeted near her, wherever her path has taken her")
+state.target = nil
+-- The night: Pyrewood Village answers only after dark.
+state.hour = 12
+at(1421, 0.45, 0.73, "Pyrewood Village")
+ns.expeditionAttempt()
+check(not solvedRiddle("silverpine-forest-pyrewood"), "a night's riddle by day: nothing")
+state.hour = 22
+ns.expeditionAttempt()
+check(solvedRiddle("silverpine-forest-pyrewood"), "… by night, solved")
+state.hour = 12
+-- The map: a riddle's place shaded on the world map once asked for.
+ns.takeHint("elwynn-forest-lethargy", 2)
+check(state.popup == nil, "(a hint taken from the code asks nothing)")
+WorldMapFrame.mapID = 1429
+ns.refreshWorldMapPins()
+local circle = mapProvider.circles and mapProvider.circles[1]
+check(
+  circle and circle.shown and circle.text == ns.riddleById["elwynn-forest-lethargy"].verse[1],
+  "the map's hint: a circle on the zone's world map, the riddle's first line on it"
+)
+-- The book: the Expeditions tab, a riddle's page, the seals and the margin.
+linkHandlers.fieldjournal("fieldjournal:xduskwood-eliza")
+local function pageRows()
+  local out = {}
+  for _, x in ipairs(ns.expeditionPairs) do
+    if x.shown then out[x.label.text] = x.value.text end
+  end
+  return out
+end
+local rows = pageRows()
+check(
+  FieldJournalFrame.selectedTab == ns.TAB.expeditions
+    and FieldJournalExpeditionsPage.title.text == "Eliza's Tombstone"
+    and rows.Seal == "Gold, from the verse alone"
+    and rows.Margin
+    and rows.Margin:find("Darkshire"),
+  "a riddle's link opens its page: its answer, the gold seal, the margin"
+)
+ns.openRiddle("duskwood-morgan-ladimore")
+rows = pageRows()
+check(
+  rows.Seal == "Silver, with the clue" and rows.Margin:find("only a gold seal") and rows["The clue"],
+  "… a silver seal's page: the clue it took, the margin closed"
+)
+ns.openRiddle("elwynn-forest-lethargy")
+rows = pageRows()
+local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
+check(
+  FieldJournalExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-lethargy"].tier],
+  "an unsolved riddle's page: its tier, never its answer"
+)
+check(rows["The map"] and rows["The map"]:find("is shaded"), "… the map asked for")
+local listed = {}
+for _, r in ipairs(ns.expeditionRows) do
+  if r.shown then listed[r.text.text] = true end
+end
+check(listed.Duskwood and listed["Eliza's Tombstone"], "the list: the zones entered, their riddles solved by name")
+-- Asking from the page: the game's confirmation, then the clue.
+local azora = ns.riddleById["elwynn-forest-azora"]
+ns.openRiddle(azora.id)
+local ask = FieldJournalExpeditionsPage.buttons[1]
+check(ask and ask.shown, "an unsolved riddle's page offers its clue")
+ask.scripts.OnClick(ask)
+check(
+  state.popup and state.popup:find("gold seal") and ns.riddleRecord(azora.id).hints == 1,
+  "… asked for after the game's confirmation"
+)
+FieldJournalFrame:Hide()
+SlashCmdList.FIELDJOURNAL("where")
+check(said("(map 1421): 45.00, 73.00, in Pyrewood Village."), "/journal where tells the map and the position")
 
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(

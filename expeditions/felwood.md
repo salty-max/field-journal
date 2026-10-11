@@ -1,10 +1,10 @@
 ---
 zone: 1448   # Felwood
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: felwood-emerald-sanctuary
     tier: near
@@ -14,14 +14,14 @@ riddles:
     sources: "the Codex's emerald-sanctuary page"
   - id: felwood-arkonarin
     tier: off
-    where: { x: 36.2, y: 55.5, r: 1 }   # Captured Arko'narin, dump 36.2, 55.5; Wowhead 36.2, 55.4 (she walks only when escorted)
+    creature: 11016   # Captured Arko'narin, dump 36.2, 55.5; Wowhead 36.2, 55.4 (she walks only when escorted)
     hint_area: { x: 36.6, y: 58.0, r: 5 }
     danger: "Perilous (the Shadow Council)"
     sources: "quests 5203, 5204"
   - id: felwood-trey-lightforge
     tier: hidden
     gestures: [KNEEL, MOURN, PRAY]
-    where: { x: 38.5, y: 50.4, r: 1 }   # the Remains of Trey Lightforge, dump 38.5, 50.4; Wowhead 38.4, 50.4
+    creature: 11020   # the Remains of Trey Lightforge, dump 38.5, 50.4; Wowhead 38.4, 50.4
     hint_area: { x: 36.2, y: 51.3, r: 5 }
     danger: "Perilous"
     sources: "quests 5204, 5385, 5203"
@@ -35,7 +35,7 @@ riddles:
   - id: felwood-bloodvenom
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 34.8, y: 52.7, r: 1 }   # Dreka'Sur, dump 34.8, 52.7; Wowhead 34.8, 52.6
+    creature: 9620   # Dreka'Sur, dump 34.8, 52.7; Wowhead 34.8, 52.6
     hint_area: { x: 33.4, y: 54.7, r: 5 }
     danger: "Quiet"
     sources: "quest 6162; the Codex's bloodvenom-post page"

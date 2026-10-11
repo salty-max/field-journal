@@ -1,11 +1,15 @@
 -- The Atlas on the game's own world map: where this character died (a skull)
--- and came close (a yellow mark), on the zone's map, with a tooltip. A data
--- provider, as the game's own map layers; the setting worldMapPins turns it off.
+-- and came close (a yellow mark), on the zone's map, with a tooltip; and the
+-- place of each riddle whose map was asked for, still unsolved (a shaded
+-- circle, wider than the spot and never centred on it). A data provider, as
+-- the game's own map layers; the setting worldMapPins turns the marks off
+-- (never a hint asked for).
 local _, ns = ...
 
 local SKULL = "Interface\\TargetingFrame\\UI-TargetingFrame-Skull"
 local CLOSE = "Interface\\GossipFrame\\AvailableQuestIcon"
 local SIZE = 22 -- in the map canvas's units (the map art is about 1000 wide)
+local CIRCLE = "Interface\\AddOns\\FieldJournal\\Media\\Circle"
 
 local provider
 
@@ -28,27 +32,67 @@ local function pin(i)
   return p
 end
 
+-- A riddle's circle: under the marks, its verse's first line on hover.
+local function circle(i)
+  local c = provider.circles[i]
+  if c then return c end
+  c = CreateFrame("Frame", nil, provider:GetMap():GetCanvas())
+  c.tex = c:CreateTexture(nil, "ARTWORK")
+  c.tex:SetAllPoints()
+  c.tex:SetTexture(CIRCLE)
+  c.tex:SetVertexColor(0.95, 0.8, 0.35, 0.55)
+  c:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
+    GameTooltip:AddLine("A riddle's place", 1, 0.82, 0)
+    GameTooltip:AddLine(self.text, 1, 1, 1, true)
+    GameTooltip:AddLine("Explorer's Field Journal", 0.6, 0.6, 0.6)
+    GameTooltip:Show()
+  end)
+  c:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  provider.circles[i] = c
+  return c
+end
+
 local function line(e)
   return ("%s, level %d%s"):format(date("%d %b %Y", e.at or 0), e.level or 0, e.by and (" - " .. e.by) or "")
 end
 
 local function create()
   provider = CreateFromMixins(MapCanvasDataProviderMixin)
-  provider.pins = {}
+  provider.pins, provider.circles = {}, {}
   function provider:RemoveAllData()
     for _, p in ipairs(self.pins) do
       p:Hide()
+    end
+    for _, c in ipairs(self.circles) do
+      c:Hide()
     end
   end
   function provider:RefreshAllData()
     self:RemoveAllData()
     local atlas = ns.atlas and ns.atlas()
-    if not (atlas and ns.option("worldMapPins")) then return end
     local map = self:GetMap()
     local mapID = map:GetMapID()
     local canvas = map:GetCanvas()
-    if not (mapID and canvas) then return end
+    if not (atlas and mapID and canvas) then return end
     local w, h = canvas:GetWidth(), canvas:GetHeight()
+    -- the riddles' circles (x, y, r: percent of the map's width)
+    local k = 0
+    for _, r in ipairs(ns.riddlesOf(mapID)) do
+      local rec = ns.riddleRecord(r.id)
+      if rec and (rec.hints or 0) >= 2 and not rec.at then
+        k = k + 1
+        local c = circle(k)
+        local size = 2 * r.circle[3] / 100 * w
+        c:SetSize(size, size)
+        c:SetFrameLevel(canvas:GetFrameLevel() + 1990)
+        c:ClearAllPoints()
+        c:SetPoint("CENTER", canvas, "TOPLEFT", r.circle[1] / 100 * w, -r.circle[2] / 100 * h)
+        c.text = r.verse[1]
+        c:Show()
+      end
+    end
+    if not ns.option("worldMapPins") then return end
     local n = 0
     local function place(list, icon, title)
       for _, e in ipairs(list or {}) do

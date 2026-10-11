@@ -1,10 +1,10 @@
 ---
 zone: 1440   # Ashenvale
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: ashenvale-mel-thandris
     tier: near
@@ -23,7 +23,7 @@ riddles:
   - id: ashenvale-elunes-tear
     tier: off
     gestures: [PRAY]
-    where: { x: 46.3, y: 46.4, r: 1 }   # object 19015, eight spawns on the isle: dump 46.1-46.3, 45.9-46.6; Wowhead 46.0-46.6, 45.9-46.9
+    object: 19015   # object 19015, eight spawns on the isle: dump 46.1-46.3, 45.9-46.6; Wowhead 46.0-46.6, 45.9-46.9
     hint_area: { x: 45.6, y: 48.8, r: 5 }
     danger: "Quiet"
     sources: "quests 1033, 1034, 1035"
@@ -36,7 +36,7 @@ riddles:
   - id: ashenvale-teronis
     tier: hidden
     gestures: [MOURN]
-    where: { x: 20.3, y: 42.3, r: 1 }   # Teronis' Corpse, dump 20.3, 42.3; Wowhead 20.2, 42.2
+    creature: 3891   # Teronis' Corpse, dump 20.3, 42.3; Wowhead 20.2, 42.2
     hint_area: { x: 18.2, y: 43.6, r: 5 }
     danger: "Guarded (murlocs)"
     sources: "quests 1023, 1024, 1028"
@@ -51,14 +51,14 @@ riddles:
   - id: ashenvale-splintertree
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 73.8, y: 61.5, r: 1 }   # Senani Thunderheart, dump 73.8, 61.5; Wowhead 73.6, 61.4
+    creature: 12696   # Senani Thunderheart, dump 73.8, 61.5; Wowhead 73.6, 61.4
     hint_area: { x: 73.5, y: 64.0, r: 5 }
     danger: "Quiet"
     sources: "quests 6382, 6383"
   - id: ashenvale-zoramgar
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 11.6, y: 34.3, r: 1 }   # Je'neu Sancrea, dump 11.6, 34.3; Wowhead 11.6, 34.2
+    creature: 12736   # Je'neu Sancrea, dump 11.6, 34.3; Wowhead 11.6, 34.2
     hint_area: { x: 9.8, y: 36.0, r: 5 }
     danger: "Quiet"
     sources: "quests 824, 6564, 6565"

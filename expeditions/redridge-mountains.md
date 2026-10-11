@@ -1,10 +1,10 @@
 ---
 zone: 1433   # Redridge Mountains
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: redridge-mountains-lockbox
     tier: near
@@ -21,14 +21,14 @@ riddles:
     sources: "quests 94, 249"
   - id: redridge-mountains-keeshan
     tier: hidden
-    where: { x: 28.4, y: 12.6, r: 1 }   # Corporal Keeshan, dump 28.4, 12.6; Wowhead 28.4, 12.6
+    creature: 349   # Corporal Keeshan, dump 28.4, 12.6; Wowhead 28.4, 12.6
     hint_area: { x: 31.4, y: 12.6, r: 6 }
     danger: "Perilous (Blackrock orcs)"
     sources: "object 1726's text; quest 219"
   - id: redridge-mountains-lakeshire
     tier: town
     faction: alliance   # its town's: for that faction alone
-    reading: Missing: Corporal Keeshan
+    reading: "Missing: Corporal Keeshan"
     object: 1726   # dump 26.5, 46.4; Wowhead 26.4, 46.6
     hint_area: { x: 22.5, y: 45.8, r: 8 }
     danger: "Quiet"

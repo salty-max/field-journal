@@ -1,5 +1,6 @@
 -- The journal as a book: the standard game window (portrait, title bar), its
--- tabs (the Bestiary, Fish, Plants, the Atlas, the Milestones: each a file of
+-- tabs (the Bestiary, Fish, Plants, the Atlas, the Expeditions, the
+-- Milestones: each a file of
 -- its own, *Book.lua, registered with ns.addTab), the links in chat that open
 -- it, and the kit every tab is made of (ns.ui): its look, the list on the
 -- left and the page on the right. Light text and gold titles on dark panels:
@@ -284,12 +285,12 @@ end
 
 -- ── the window ───────────────────────────────────────────────────────────────
 local book
-local TAB = { bestiary = 1, fish = 2, plants = 3, atlas = 4, milestones = 5 }
+local TAB = { bestiary = 1, fish = 2, plants = 3, atlas = 4, expeditions = 5, milestones = 6 }
 ns.TAB = TAB
 -- tabs[n] = { build(book), show(selected tab), refresh(), chosen() (its tab
 -- clicked), whole (over both panels), filter = { default, options() } (a
 -- select under the search box: its choice, ns.filterOf(n)) }
-local tabs, TAB_TITLES = {}, { "Bestiary", "Fish", "Plants", "Atlas", "Milestones" }
+local tabs, TAB_TITLES = {}, { "Bestiary", "Fish", "Plants", "Atlas", "Expeditions", "Milestones" }
 function ns.addTab(n, tab) tabs[n] = tab end
 
 -- A tab's choice in its select (the kit's, under the search box), else its
@@ -402,7 +403,7 @@ end
 
 -- ── links in chat ────────────────────────────────────────────────────────────
 -- |Hfieldjournal:<what>|h: c<creature id>, m<milestone id>, z<uiMap>,
--- f<fish>, h<herb>, else a family (its id, "murlocs", first: an id may begin
+-- f<fish>, h<herb>, x<riddle id>, else a family (its id, "murlocs", first: an id may begin
 -- with one of those letters; an older link's index; or "?type/family").
 local function followLink(link)
   local key = link:match("^fieldjournal:(.+)$")
@@ -414,6 +415,8 @@ local function followLink(link)
     ns.openMilestones(rest)
   elseif kind == "z" and id then
     ns.openZone(id)
+  elseif kind == "x" and ns.riddleById[rest] then
+    ns.openRiddle(rest)
   elseif kind == "f" and id then
     ns.openFish(id)
   elseif kind == "h" and id then

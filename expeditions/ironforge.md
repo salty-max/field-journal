@@ -2,10 +2,10 @@
 zone: 1455   # Ironforge
 home: alliance   # a capital: its riddles are its faction's alone
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: ironforge-toothgnasher
     tier: near
@@ -23,7 +23,7 @@ riddles:
     sources: "objects 175679 and 175750's texts"
   - id: ironforge-mekkatorque
     tier: hidden
-    where: { x: 68.8, y: 49.0, r: 1 }   # High Tinker Mekkatorque, dump 68.8, 49.0; Wowhead 69.0, 49.0
+    creature: 7937   # High Tinker Mekkatorque, dump 68.8, 49.0; Wowhead 69.0, 49.0
     hint_area: { x: 70.1, y: 50.5, r: 4 }
     danger: "Quiet"
     sources: "the Codex's high-tinker-mekkatorque page"

@@ -1,10 +1,10 @@
 ---
 zone: 1424   # Hillsbrad Foothills
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: hillsbrad-foothills-durnholde
     tier: near
@@ -29,7 +29,7 @@ riddles:
   - id: hillsbrad-foothills-southshore
     tier: town
     faction: alliance   # its town's: for that faction alone
-    where: { x: 50.3, y: 59.0, r: 1 }   # Phin Odelic, dump 50.3, 59.0; Wowhead 50.2, 58.8
+    creature: 2711   # Phin Odelic, dump 50.3, 59.0; Wowhead 50.2, 58.8
     hint_area: { x: 47.8, y: 59.0, r: 5 }
     danger: "Quiet"
     sources: "quests 659, 657, 661"

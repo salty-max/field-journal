@@ -1,10 +1,10 @@
 ---
 zone: 1443   # Desolace
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: desolace-kodo-graveyard
     tier: near
@@ -27,21 +27,21 @@ riddles:
     sources: "the Codex's mannoroc-coven page; quest 5581"
   - id: desolace-dalinda
     tier: hidden
-    where: { x: 54.9, y: 26.1, r: 1 }   # Dalinda Malem, dump 54.9, 26.1; Wowhead 54.8, 26.2 (she walks only when escorted)
+    creature: 5644   # Dalinda Malem, dump 54.9, 26.1; Wowhead 54.8, 26.2 (she walks only when escorted)
     hint_area: { x: 57.4, y: 26.4, r: 5 }
     danger: "Perilous (the Burning Blade)"
     sources: "quests 1437, 1438"
   - id: desolace-nijels-point
     tier: town
     faction: alliance   # its town's: for that faction alone
-    where: { x: 66.4, y: 11.8, r: 1 }   # Vahlarriel Demonslayer, dump 66.4, 11.8; Wowhead 66.4, 11.8
+    creature: 5642   # Vahlarriel Demonslayer, dump 66.4, 11.8; Wowhead 66.4, 11.8
     hint_area: { x: 68.7, y: 12.7, r: 5 }
     danger: "Quiet"
     sources: "quests 1437, 1465"
   - id: desolace-shadowprey
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 25.8, y: 68.2, r: 1 }   # Taiga Wisemane, dump 25.8, 68.2; Wowhead 25.8, 68.2
+    creature: 11624   # Taiga Wisemane, dump 25.8, 68.2; Wowhead 25.8, 68.2
     hint_area: { x: 28.2, y: 67.6, r: 5 }
     danger: "Quiet"
     sources: "quest 5581; the Codex's shadowprey-village page"

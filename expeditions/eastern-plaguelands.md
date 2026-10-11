@@ -1,10 +1,10 @@
 ---
 zone: 1423   # Eastern Plaguelands
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: eastern-plaguelands-lights-hope
     tier: near
@@ -15,14 +15,14 @@ riddles:
     sources: "the Codex's lights-hope-chapel page"
   - id: eastern-plaguelands-egan
     tier: off
-    where: { x: 14.4, y: 33.7, r: 1 }   # Egan, dump 14.4, 33.7; Wowhead 14.4, 33.6
+    creature: 11140   # Egan, dump 14.4, 33.7; Wowhead 14.4, 33.6
     hint_area: { x: 13.9, y: 36.1, r: 5 }
     danger: "Perilous (Terrordale's dead)"
     sources: "quests 5281, 5282"
   - id: eastern-plaguelands-pamela
     tier: off
     gestures: [INTRODUCE, HELLO, GREET, WAVE]
-    where: { x: 36.5, y: 90.8, r: 1 }   # Pamela Redpath, dump 36.5, 90.8; Wowhead 36.4, 90.8
+    creature: 10926   # Pamela Redpath, dump 36.5, 90.8; Wowhead 36.4, 90.8
     hint_area: { x: 38.6, y: 89.4, r: 5 }
     danger: "Guarded (Darrowshire's dead)"
     sources: "quests 5142, 5149; the Codex's darrowshire page"
@@ -34,7 +34,7 @@ riddles:
     sources: "the Codex's nathanos-blightcaller page"
   - id: eastern-plaguelands-tirion
     tier: hidden
-    where: { x: 7.6, y: 43.7, r: 1 }   # Tirion Fordring, dump 7.6, 43.7; Wowhead 7.4, 43.6
+    creature: 1855   # Tirion Fordring, dump 7.6, 43.7; Wowhead 7.4, 43.6
     hint_area: { x: 10.1, y: 43.8, r: 5 }
     danger: "Quiet"
     sources: "the Codex's tirion-fordring and hearthglen pages"

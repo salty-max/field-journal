@@ -20,11 +20,13 @@ Core.lua
 Creatures.lua
 Atlas.lua
 Flora.lua
+Expeditions.lua
 Achievements.lua
 Kit.lua
 Book.lua
 BestiaryBook.lua
 AtlasBook.lua
+ExpeditionsBook.lua
 FloraBook.lua
 MilestonesBook.lua
 WorldMapPins.lua

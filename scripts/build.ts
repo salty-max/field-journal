@@ -40,6 +40,7 @@
  */
 import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
+import { checkZones, expeditionsLua, readExpeditions } from "./expeditions";
 import { forClient, paragraphs, type Paragraph } from "./paragraphs";
 
 const ROOT = join(import.meta.dir, "..");
@@ -319,6 +320,10 @@ function floraNotes(file: string, kinds: { id: number; name: string }[]) {
   return notes;
 }
 const herbNotes = floraNotes(join(ROOT, "notes/herbs.md"), flora.herbs);
+// The expeditions' riddles (expeditions/<zone>.md, data/expeditions.json:
+// scripts/expeditions.ts).
+const { expeditions, data: expeditionData } = readExpeditions(ROOT, fail, CLIENTS);
+checkZones(expeditions, (client) => new Set(zoneData[client].zones.map((z) => z.id)), new Set(creatures.map((c) => c.id)), CLIENTS, fail);
 const fishNotes = floraNotes(join(ROOT, "notes/fish.md"), flora.fish);
 const noteLua = (paras: Paragraph[] | undefined, client: string) => (paras ? `, note = { ${forClient(paras, client).map(q).join(", ")} }` : "");
 
@@ -410,6 +415,7 @@ ${[...zoneRares(sorted, client)].map(([zone, ids]) => `    [${zone}] = { name = 
   },
 ${atlasLua(client)}
 ${floraLua(client)}
+${expeditionsLua(expeditions, expeditionData, client, q)}
   -- marks: r rare, R rare elite, b boss
   ranks = {
 ${chunks(sorted.filter((c) => RANK[c.rank]).map((c) => `[${c.id}]="${RANK[c.rank]}"`), 12).join("\n")}

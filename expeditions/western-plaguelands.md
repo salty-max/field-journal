@@ -1,10 +1,10 @@
 ---
 zone: 1422   # Western Plaguelands
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: western-plaguelands-uthers-tomb
     tier: near
@@ -21,20 +21,20 @@ riddles:
     sources: "quests 5058, 5059"
   - id: western-plaguelands-felstone
     tier: off
-    where: { x: 38.4, y: 54.1, r: 1 }   # Janice Felstone, dump 38.4, 54.1; Wowhead 38.4, 54.0
+    creature: 10778   # Janice Felstone, dump 38.4, 54.1; Wowhead 38.4, 54.0
     hint_area: { x: 38.8, y: 57.1, r: 6 }
     danger: "Perilous (the farm's dead, a cauldron nearby)"
     sources: "quests 5021, 5022, 5023"
   - id: western-plaguelands-renfray
     tier: hidden
-    where: { x: 65.8, y: 75.4, r: 1 }   # Artist Renfray, dump 65.8, 75.4; Wowhead 65.6, 75.4
+    creature: 11936   # Artist Renfray, dump 65.8, 75.4; Wowhead 65.6, 75.4
     hint_area: { x: 65.6, y: 72.4, r: 6 }
     danger: "Guarded (the island's ghosts)"
     sources: "quests 5846, 5848; the Codex's caer-darrow page"
   - id: western-plaguelands-chillwind
     tier: town
     faction: alliance   # its town's: for that faction alone
-    where: { x: 43.5, y: 83.7, r: 1 }   # Weldon Barov, dump 43.5, 83.7; Wowhead 43.4, 83.6
+    creature: 11023   # Weldon Barov, dump 43.5, 83.7; Wowhead 43.4, 83.6
     hint_area: { x: 44.8, y: 81.6, r: 5 }
     danger: "Quiet"
     sources: "quests 5344, 5342; the Codex's house-of-barov page"

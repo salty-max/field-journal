@@ -2,10 +2,10 @@
 zone: 1420   # Tirisfal Glades
 home: horde   # a starting zone: its riddles are its faction's alone
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: tirisfal-glades-solliden
     tier: near
@@ -16,6 +16,7 @@ riddles:
   - id: tirisfal-glades-agamand-crypt
     tier: off
     area: Agamand Family Crypt   # placed: Captain Dargol, dump 52.8, 26.4; Wowhead 52.4, 26.6
+    anchor: { creature: 1658 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 56.3, y: 26.1, r: 7 }
     danger: "Guarded (Captain Dargol's dead)"
     sources: "quests 354, 361, 362; Captain Dargol (creature 1658) places the hint"
@@ -29,6 +30,7 @@ riddles:
     tier: hidden
     gestures: [PRAY, KNEEL, BOW]
     area: Faol's Rest   # placed: the server's graveyard 'Tirisfal Glades, Faol's Rest' (world_safe_locs 429): 79.2, 40.9
+    anchor: { grave: 429 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 80.5, y: 38.5, r: 8 }
     danger: "Perilous (the Scarlet Crusade)"
     sources: "the game's Faol's Rest; Warcraft II: Tides of Darkness's manual (Faol and the Knights of the Silver Hand); object 177199"

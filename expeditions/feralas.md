@@ -1,10 +1,10 @@
 ---
 zone: 1444   # Feralas
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: feralas-dire-maul
     tier: near
@@ -14,7 +14,7 @@ riddles:
     sources: "the Codex's dire-maul and shendralar pages"
   - id: feralas-colossals
     tier: off
-    where: { x: 45.8, y: 16.5, r: 1 }   # Marli Wishrunner, dump 45.8, 16.5; Wowhead 45.8, 16.4
+    creature: 7773   # Marli Wishrunner, dump 45.8, 16.5; Wowhead 45.8, 16.4
     hint_area: { x: 45.6, y: 19.0, r: 5 }
     danger: "Quiet"
     sources: "quest 3567"
@@ -34,21 +34,21 @@ riddles:
     tier: town
     faction: alliance   # its town's: for that faction alone
     gestures: [SALUTE, BOW]
-    where: { x: 30.3, y: 46.2, r: 1 }   # Shandris Feathermoon, dump 30.3, 46.2; Wowhead 30.2, 46.0
+    creature: 3936   # Shandris Feathermoon, dump 30.3, 46.2; Wowhead 30.2, 46.0
     hint_area: { x: 28.5, y: 44.5, r: 5 }
     danger: "Quiet"
     sources: "the Codex's shandris-feathermoon and feathermoon-stronghold pages"
   - id: feralas-thalanaar
     tier: town
     faction: alliance   # its town's: for that faction alone
-    where: { x: 89.6, y: 46.6, r: 1 }   # Falfindel Waywarder, dump 89.6, 46.6; Wowhead 89.6, 46.6
+    creature: 4048   # Falfindel Waywarder, dump 89.6, 46.6; Wowhead 89.6, 46.6
     hint_area: { x: 90.2, y: 49.0, r: 5 }
     danger: "Quiet"
     sources: "quests 1100, 1101"
   - id: feralas-mojache
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 75.9, y: 42.7, r: 1 }   # Krueg Skullsplitter, dump 75.9, 42.7; Wowhead's page alike
+    creature: 4544   # Krueg Skullsplitter, dump 75.9, 42.7; Wowhead's page alike
     hint_area: { x: 74.5, y: 40.7, r: 5 }
     danger: "Quiet"
     sources: "quest 2973"

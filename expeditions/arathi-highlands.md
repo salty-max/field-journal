@@ -1,15 +1,15 @@
 ---
 zone: 1417   # Arathi Highlands
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: arathi-highlands-goshek-watchers
     tier: near
     gestures: [SILENCE, SNEAK]
-    where: { x: 60.2, y: 53.8, r: 1 }   # Quae, dump 60.2, 53.8; Wowhead 60.2, 53.8
+    creature: 2712   # Quae, dump 60.2, 53.8; Wowhead 60.2, 53.8
     hint_area: { x: 58.8, y: 51.1, r: 6 }
     danger: "Guarded (the orcs of the farm)"
     sources: "quests 659, 658, 661"
@@ -22,7 +22,7 @@ riddles:
   - id: arathi-highlands-lolo
     tier: off
     gestures: [WAVE, GREET, HELLO]
-    where: { x: 31.8, y: 82.7, r: 1 }   # Lolo the Lookout, dump 31.8, 82.7; Wowhead 31.4-31.8, 82.4-82.6
+    creature: 2766   # Lolo the Lookout, dump 31.8, 82.7; Wowhead 31.4-31.8, 82.4-82.6
     hint_area: { x: 28.9, y: 83.6, r: 6 }
     danger: "Guarded (naga in the water)"
     sources: "quests 663, 664"
@@ -36,7 +36,7 @@ riddles:
   - id: arathi-highlands-refuge-pointe
     tier: town
     faction: alliance   # its town's: for that faction alone
-    where: { x: 45.8, y: 47.6, r: 1 }   # Captain Nials, dump 45.8, 47.6; Wowhead 45.8, 47.6
+    creature: 2700   # Captain Nials, dump 45.8, 47.6; Wowhead 45.8, 47.6
     hint_area: { x: 48.2, y: 46.9, r: 5 }
     danger: "Quiet"
     sources: "quest 681"
@@ -44,7 +44,7 @@ riddles:
     tier: town
     faction: horde   # its town's: for that faction alone
     gestures: [SALUTE, BOW]
-    where: { x: 72.6, y: 33.9, r: 1 }   # Gor'mul, dump 72.6, 33.9; Wowhead 72.6, 34.0
+    creature: 2792   # Gor'mul, dump 72.6, 33.9; Wowhead 72.6, 34.0
     hint_area: { x: 70.3, y: 32.8, r: 5 }
     danger: "Quiet"
     sources: "quests 655, 672, 675"

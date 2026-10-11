@@ -2,10 +2,10 @@
 zone: 1426   # Dun Morogh
 home: alliance   # a starting zone: its riddles are its faction's alone
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: dun-morogh-etched-note
     tier: near
@@ -16,7 +16,7 @@ riddles:
     sources: "object 174746's text; quests 1650, 1652, 1653, 1806"
   - id: dun-morogh-tundra
     tier: near
-    where: { x: 34.6, y: 51.7, r: 1 }   # Tundra MacGrann, dump 34.6, 51.7; Wowhead 34.6, 51.6
+    creature: 1266   # Tundra MacGrann, dump 34.6, 51.7; Wowhead 34.6, 51.6
     hint_area: { x: 33.0, y: 49.2, r: 6 }
     danger: "Quiet"
     sources: "quest 312"
@@ -30,7 +30,7 @@ riddles:
   - id: dun-morogh-onin
     tier: off
     gestures: [SILENCE, SNEAK]
-    where: { x: 25.2, y: 44.5, r: 1 }   # Onin MacHammar, dump 25.2, 44.5; Wowhead 25.2, 44.4
+    creature: 6886   # Onin MacHammar, dump 25.2, 44.5; Wowhead 25.2, 44.4
     hint_area: { x: 24.3, y: 47.4, r: 6 }
     danger: "Guarded (leper gnomes)"
     sources: "quests 2238, 412"

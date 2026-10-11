@@ -1,10 +1,10 @@
 ---
 zone: 1447   # Azshara
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: azshara-ravencrest
     tier: near
@@ -20,33 +20,33 @@ riddles:
     sources: "the Codex's ruins-of-eldarath page"
   - id: azshara-kimjael
     tier: off
-    where: { x: 53.5, y: 21.8, r: 1 }   # Kim'jael, dump 53.5, 21.8; Wowhead 53.4, 21.8
+    creature: 8420   # Kim'jael, dump 53.5, 21.8; Wowhead 53.4, 21.8
     hint_area: { x: 55.3, y: 23.5, r: 5 }
     danger: "Perilous (satyrs)"
     sources: "quest 3601"
   - id: azshara-arkkoroc
     tier: hidden
-    where: { x: 77.1, y: 42.8, r: 1 }   # Lord Arkkoroc, dump 77.1, 42.8; Wowhead 77.2, 42.8
+    creature: 6134   # Lord Arkkoroc, dump 77.1, 42.8; Wowhead 77.2, 42.8
     hint_area: { x: 75.9, y: 40.6, r: 5 }
     danger: "Perilous (his minions)"
     sources: "quests 3509, 3510, 3511"
   - id: azshara-hydraxis
     tier: hidden
-    where: { x: 79.3, y: 73.7, r: 1 }   # Duke Hydraxis, dump 79.3, 73.7; Wowhead 79.2, 73.6
+    creature: 13278   # Duke Hydraxis, dump 79.3, 73.7; Wowhead 79.2, 73.6
     hint_area: { x: 81.6, y: 72.8, r: 5 }
     danger: "Quiet"
     sources: "the Codex's hydraxian-waterlords page"
   - id: azshara-talrendis
     tier: town
     faction: alliance   # its town's: for that faction alone
-    where: { x: 11.4, y: 78.2, r: 1 }   # Loh'atu, dump 11.4, 78.2; Wowhead 11.4, 78.0
+    creature: 11548   # Loh'atu, dump 11.4, 78.2; Wowhead 11.4, 78.0
     hint_area: { x: 10.4, y: 80.5, r: 5 }
     danger: "Quiet"
     sources: "quests 5535, 5536"
   - id: azshara-valormok
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 22.3, y: 51.5, r: 1 }   # Ag'tor Bloodfist, dump 22.3, 51.5; Wowhead 22.2, 51.4
+    creature: 8576   # Ag'tor Bloodfist, dump 22.3, 51.5; Wowhead 22.2, 51.4
     hint_area: { x: 23.8, y: 49.5, r: 5 }
     danger: "Quiet"
     sources: "quests 3504, 3505, 3506, 3507"

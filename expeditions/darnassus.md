@@ -2,15 +2,15 @@
 zone: 1457   # Darnassus
 home: alliance   # a capital: its riddles are its faction's alone
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: darnassus-tyrande
     tier: near
     gestures: [BOW, KNEEL]
-    where: { x: 39.1, y: 81.6, r: 1 }   # Tyrande Whisperwind, dump 39.1, 81.6; Wowhead 39.0, 81.6
+    creature: 7999   # Tyrande Whisperwind, dump 39.1, 81.6; Wowhead 39.0, 81.6
     hint_area: { x: 41.1, y: 81.8, r: 4 }
     danger: "Quiet"
     sources: "the Codex's tyrande-whisperwind page"

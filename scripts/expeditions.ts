@@ -1,0 +1,262 @@
+/**
+ * The expeditions' riddles: expeditions/<zone>.md + data/expeditions.json →
+ * the `expeditions` table of Data_Classic.lua and Data_Forever.lua (build.ts).
+ *
+ * A zone's file: front matter (YAML: zone, home, client, riddles, quarry),
+ * then a section per riddle:
+ *
+ *   ## <riddle id>
+ *   the verse, a line each
+ *   ? the first hint (prose)
+ *   = the naturalist's note, read once solved
+ *   + the margin, for the gold seal alone
+ *
+ * Where each riddle is solved comes from scripts/expeditions.py (the game's
+ * data, resolved into data/expeditions.json); the build checks the two agree
+ * and writes fingerprints of the answer, never the answer: the cells of the
+ * spot (yards, CELL by CELL, on the zone's map), its sub-area, the creature to
+ * stand by, the gestures it takes. The addon fingerprints where the reader is
+ * and what they do the same way (Expeditions.lua).
+ */
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+
+export const CELL = 5;
+const SALT = "FJX1";
+const TIERS = ["near", "off", "hidden", "town"];
+const FACTIONS = ["alliance", "horde"];
+const SPOTS = ["object", "creature", "trigger", "area"];
+
+/** 32-bit FNV-1a (Expeditions.lua computes the same). */
+export function fnv(s: string) {
+  let h = 2166136261;
+  for (const c of Buffer.from(s, "utf8")) h = Math.imul(h ^ c, 16777619) >>> 0;
+  return h;
+}
+const print = (...parts: (string | number)[]) => fnv([SALT, ...parts].join("|"));
+
+/** What is read once a riddle is solved (its answer's name, the note, the
+ * margin), veiled: each character turned within plain ASCII by a stream
+ * (MINSTD) seeded from the riddle's id, so the data never spells an answer
+ * out. Expeditions.lua unveils it. */
+export function veil(text: string, id: string, back = false) {
+  let state = (fnv(`${SALT}|veil|${id}`) % 2147483646) + 1;
+  let out = "";
+  for (const ch of text) {
+    state = (state * 48271) % 2147483647;
+    const c = ch.charCodeAt(0) - 32;
+    out += String.fromCharCode(32 + ((((c + (back ? -1 : 1) * (state % 95)) % 95) + 95) % 95));
+  }
+  return out;
+}
+
+type Spot = { zone: number; of: string; hint: number[]; name: string; spots?: number[][]; r?: number; npc?: number; areas?: number[] };
+type Data = { zones: Record<string, { w: number; h: number; areas: number[] }>; riddles: Record<string, Spot>; emotes: string[] };
+type Riddle = {
+  id: string;
+  tier: string;
+  faction?: string;
+  gestures: string[];
+  reading?: string;
+  night: boolean;
+  danger: string;
+  circle: number[];
+  verse: string[];
+  hint: string;
+  note: string;
+  margin: string;
+  spot: Spot;
+};
+export type Expedition = { file: string; zone: number; home?: string; client: string; quarry?: number; riddles: Riddle[] };
+
+export function readExpeditions(root: string, fail: (file: string, msg: string) => void, clients: string[]) {
+  const data: Data = JSON.parse(readFileSync(join(root, "data/expeditions.json"), "utf8"));
+  const emotes = new Set(data.emotes);
+  const dir = join(root, "expeditions");
+  const out: Expedition[] = [];
+  const seen = new Set<string>();
+  for (const f of readdirSync(dir).sort()) {
+    if (!f.endsWith(".md")) continue;
+    const file = join(dir, f);
+    const slug = f.replace(/\.md$/, "");
+    const source = readFileSync(file, "utf8");
+    const odd = source.match(/[^\x00-\x7f]/);
+    if (odd) fail(file, `non-ASCII character "${odd[0]}"`);
+    const m = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+    if (!m) {
+      fail(file, "no front matter");
+      continue;
+    }
+    let meta: any;
+    try {
+      meta = Bun.YAML.parse(m[1]);
+    } catch (e) {
+      fail(file, `front matter: ${e}`);
+      continue;
+    }
+    const zone = Number(meta.zone);
+    const client = String(meta.client ?? "both");
+    if (client !== "both" && !clients.includes(client)) fail(file, `client: both, ${clients.join(" or ")}`);
+    if (meta.home && !FACTIONS.includes(meta.home)) fail(file, `home: ${FACTIONS.join(" or ")}`);
+    if (meta.quarry !== undefined && !Number.isInteger(meta.quarry)) fail(file, "quarry: a creature id");
+
+    // the sections: ## <id>, then the verse and its ?, = and + lines
+    const sections = new Map<string, string[]>();
+    for (const part of m[2].split(/^## /m).slice(1)) {
+      const [head, ...lines] = part.split("\n");
+      if (sections.has(head.trim())) fail(file, `two sections ## ${head}`);
+      sections.set(head.trim(), lines.map((l) => l.trim()).filter(Boolean));
+    }
+    if (meta.quarry !== undefined && !sections.has("quarry")) fail(file, "quarry: no ## quarry section");
+    sections.delete("quarry");
+
+    const riddles: Riddle[] = [];
+    const taken = new Map<string, string>();
+    for (const r of Array.isArray(meta.riddles) ? meta.riddles : []) {
+      const id = String(r.id ?? "");
+      const where = `${id}:`;
+      if (!id.startsWith(`${slug}-`) || !/^[a-z0-9-]+$/.test(id)) fail(file, `${where} an id is the file's name, a dash and lowercase words`);
+      if (seen.has(id)) fail(file, `${where} a second riddle of that id`);
+      seen.add(id);
+      if (!TIERS.includes(r.tier)) fail(file, `${where} tier: one of ${TIERS.join(", ")}`);
+      if ((r.tier === "town") !== Boolean(r.faction)) fail(file, `${where} a town's riddle has its faction, no other has`);
+      if (r.faction && !FACTIONS.includes(r.faction)) fail(file, `${where} faction: ${FACTIONS.join(" or ")}`);
+      const gestures: string[] = r.gestures ?? [];
+      for (const g of gestures) {
+        if (!emotes.has(g)) fail(file, `${where} gesture ${g}: not one of the client's emote tokens`);
+        if (taken.has(g)) fail(file, `${where} gesture ${g} is ${taken.get(g)}'s too: a zone's riddles never share one`);
+        taken.set(g, id);
+      }
+      if (gestures.length && r.reading) fail(file, `${where} a gesture or a reading, not both`);
+      const kinds = SPOTS.filter((k) => r[k] !== undefined);
+      if (kinds.length !== 1) fail(file, `${where} one spot: ${SPOTS.join(", ")}`);
+      const ha = r.hint_area;
+      if (!ha || ![ha.x, ha.y, ha.r].every((n) => typeof n === "number")) fail(file, `${where} hint_area: { x, y, r }`);
+      if (typeof r.danger !== "string" || !r.danger) fail(file, `${where} danger: how dangerous the place is`);
+      if (typeof r.sources !== "string" || !r.sources) fail(file, `${where} sources: what the riddle stands on`);
+
+      // the resolved spot must be this file's
+      const spot = data.riddles[id];
+      const of = kinds.length === 1 ? `${kinds[0]}:${r[kinds[0]]}` + (r.anchor ? " " + Object.entries(r.anchor).map(([k, v]) => `${k}:${v}`).join(",") : "") : "";
+      if (!spot) fail(file, `${where} not in data/expeditions.json: run python3 scripts/expeditions.py`);
+      else if (spot.zone !== zone || spot.of !== of || String(spot.hint) !== String(ha && [ha.x, ha.y, ha.r]))
+        fail(file, `${where} changed since data/expeditions.json was made: run python3 scripts/expeditions.py`);
+
+      const lines = sections.get(id);
+      sections.delete(id);
+      if (!lines) {
+        fail(file, `${where} no section ## ${id}`);
+        continue;
+      }
+      const of1 = (mark: string) => lines.filter((l) => l.startsWith(`${mark} `)).map((l) => l.slice(2).trim());
+      const verse = lines.filter((l) => !/^[?=+] /.test(l));
+      const [hint, note, margin] = [of1("?"), of1("="), of1("+")];
+      if (verse.length < 2) fail(file, `${where} a verse of two lines or more`);
+      for (const [name, xs] of [["hint (?)", hint], ["note (=)", note], ["margin (+)", margin]] as const)
+        if (xs.length !== 1) fail(file, `${where} one ${name} line`);
+      // the verse and its hint never name what is to be done there
+      for (const g of gestures) {
+        const word = new RegExp(`\\b${g}\\b`, "i");
+        if ([...verse, ...hint].some((l) => word.test(l))) fail(file, `${where} the verse or its hint names the gesture ${g}`);
+      }
+      riddles.push({
+        id,
+        tier: r.tier,
+        faction: r.faction,
+        gestures,
+        reading: r.reading,
+        night: r.night === true,
+        danger: r.danger,
+        circle: ha ? [ha.x, ha.y, ha.r] : [],
+        verse,
+        hint: hint[0] ?? "",
+        note: note[0] ?? "",
+        margin: margin[0] ?? "",
+        spot: spot ?? ({} as Spot),
+      });
+    }
+    for (const extra of sections.keys()) fail(file, `## ${extra}: no riddle of that id`);
+    riddles.sort((a, b) => TIERS.indexOf(a.tier) - TIERS.indexOf(b.tier));
+    out.push({ file, zone, home: meta.home, client, quarry: meta.quarry, riddles });
+  }
+  for (const id of Object.keys(data.riddles))
+    if (!seen.has(id)) fail(join(root, "data/expeditions.json"), `${id}: no such riddle in expeditions/: run python3 scripts/expeditions.py`);
+  return { expeditions: out, data };
+}
+
+/** The cells (CELL yards a side) within r yards of a spot, on a map w by h yards. */
+export function cells(spots: number[][], r: number, w: number, h: number) {
+  const out = new Set<string>();
+  for (const [x, y] of spots) {
+    const X = (x / 100) * w;
+    const Y = (y / 100) * h;
+    for (let i = Math.floor((X - r) / CELL); i <= Math.floor((X + r) / CELL); i++)
+      for (let j = Math.floor((Y - r) / CELL); j <= Math.floor((Y + r) / CELL); j++) {
+        const cx = Math.max(i * CELL, Math.min(X, (i + 1) * CELL));
+        const cy = Math.max(j * CELL, Math.min(Y, (j + 1) * CELL));
+        if ((cx - X) ** 2 + (cy - Y) ** 2 < r * r) out.add(`${i}|${j}`);
+      }
+  }
+  return [...out];
+}
+
+export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: (s: string) => string) {
+  const zones = ex.filter((e) => e.client === "both" || e.client === client).sort((a, b) => a.zone - b.zone);
+  const nums = (xs: number[]) => `{ ${xs.join(", ")} }`;
+  const riddle = (r: Riddle, w: number, h: number) => {
+    const s = r.spot;
+    const at = s.areas ? s.areas.map((a) => print(r.id, "area", a)) : cells(s.spots ?? [], s.r ?? 0, w, h).map((c) => print(r.id, c));
+    const fields = [
+      `id = ${q(r.id)}`,
+      `tier = ${q(r.tier)}`,
+      r.faction ? `faction = ${q(r.faction)}` : "",
+      r.gestures.length ? `asks = "gesture"` : r.reading ? `asks = "reading"` : "",
+      r.night ? "night = true" : "",
+      `danger = ${q(r.danger)}`,
+      `circle = ${nums(r.circle)}`,
+      `verse = { ${r.verse.map(q).join(", ")} }`,
+      `hint = ${q(r.hint)}`,
+      `name = ${q(veil(s.name, r.id))}`,
+      `note = ${q(veil(r.note, r.id))}`,
+      `margin = ${q(veil(r.margin, r.id))}`,
+      s.areas ? "area = true" : "",
+      `at = ${nums(at.sort((a, b) => a - b))}`,
+      s.npc ? `npc = ${print(r.id, "npc", s.npc)}` : "",
+      r.gestures.length ? `by = ${nums(r.gestures.map((g) => print(r.id, g)).sort((a, b) => a - b))}` : "",
+    ];
+    return `        { ${fields.filter(Boolean).join(", ")} },`;
+  };
+  return `  -- the expeditions' riddles, by zone (uiMap; scripts/expeditions.ts): the
+  -- zone's size in yards (w, h: the answers' cells are ${CELL} yards a side), its
+  -- faction when it is one's alone (home), its sub-areas (the one the reader
+  -- stands in is found by name); each riddle's tier, faction (a town's), what
+  -- it asks (a gesture, a reading), the night, its danger, its hint's circle
+  -- (x, y, r: percent of the map's width), its verse and first hint; what is
+  -- read once it is solved, veiled (its answer's name, the note, the margin);
+  -- and its answer as fingerprints only: at (the cells of its spot, or its
+  -- sub-area), npc (the creature it may be found by), by (the gestures it takes)
+  expeditions = {
+${zones
+  .map((e) => {
+    const z = data.zones[String(e.zone)];
+    return `    [${e.zone}] = {
+      w = ${z.w}, h = ${z.h},${e.home ? ` home = ${q(e.home)},` : ""}${e.quarry ? ` quarry = ${e.quarry},` : ""}
+      areas = ${nums(z.areas)},
+      riddles = {
+${e.riddles.map((r) => riddle(r, z.w, z.h)).join("\n")}
+      },
+    },`;
+  })
+  .join("\n")}
+  },`;
+}
+
+/** Every zone is one of its games', every quarry a creature of the data. */
+export function checkZones(ex: Expedition[], zoneIds: (client: string) => Set<number>, creatureIds: Set<number>, clients: string[], fail: (file: string, msg: string) => void) {
+  for (const e of ex) {
+    for (const client of clients)
+      if ((e.client === "both" || e.client === client) && !zoneIds(client).has(e.zone))
+        fail(e.file, `zone ${e.zone}: not one of ${client}'s (data/zones-${client}.json)`);
+    if (e.quarry && !creatureIds.has(e.quarry)) fail(e.file, `quarry ${e.quarry}: not in data/creatures.json`);
+  }
+}

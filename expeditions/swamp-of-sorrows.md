@@ -1,27 +1,27 @@
 ---
 zone: 1435   # Swamp of Sorrows
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: swamp-of-sorrows-harborage
     tier: near
-    where: { x: 26.0, y: 31.4, r: 1 }   # Magtoor, dump 26.0, 31.4; Wowhead 26.0, 31.4
+    creature: 1776   # Magtoor, dump 26.0, 31.4; Wowhead 26.0, 31.4
     hint_area: { x: 24.2, y: 33.8, r: 6 }
     danger: "Quiet"
     sources: "quest 1389; the Codex's the-lost-ones page"
   - id: swamp-of-sorrows-fallen-hero
     tier: off
     gestures: [LISTEN]
-    where: { x: 34.3, y: 66.1, r: 1 }   # the Fallen Hero, dump 34.3, 66.1; Wowhead 34.2, 66.0
+    creature: 7572   # the Fallen Hero, dump 34.3, 66.1; Wowhead 34.2, 66.0
     hint_area: { x: 37.2, y: 66.7, r: 6 }
     danger: "Quiet"
     sources: "quests 2621, 2801; the Codex's the-fallen-hero page"
   - id: swamp-of-sorrows-itharius
     tier: hidden
-    where: { x: 13.7, y: 71.7, r: 1 }   # Itharius, dump 13.7, 71.7; Wowhead 13.6, 71.6
+    creature: 5353   # Itharius, dump 13.7, 71.7; Wowhead 13.6, 71.6
     hint_area: { x: 12.7, y: 74.5, r: 6 }
     danger: "Quiet"
     sources: "quest 3512; the Codex's eranikus page"

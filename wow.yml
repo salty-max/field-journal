@@ -11,7 +11,11 @@ globals:
     any: true
   AlertFrame_OnClick:
     any: true
+  bit:
+    any: true
   ButtonFrameTemplate_HideButtonBar:
+    any: true
+  C_ChatInfo:
     any: true
   C_Container:
     any: true
@@ -28,6 +32,8 @@ globals:
   C_XMLUtil:
     any: true
   CanLootUnit:
+    any: true
+  CheckInteractDistance:
     any: true
   CombatLogGetCurrentEventInfo:
     any: true
@@ -97,6 +103,8 @@ globals:
     any: true
   Minimap:
     any: true
+  NO:
+    any: true
   NumTaxiNodes:
     any: true
   PanelTemplates_SetNumTabs:
@@ -122,6 +130,10 @@ globals:
   Settings:
     any: true
   SlashCmdList:
+    any: true
+  StaticPopup_Show:
+    any: true
+  StaticPopupDialogs:
     any: true
   TakeTaxiNode:
     any: true
@@ -149,6 +161,8 @@ globals:
     any: true
   UISpecialFrames:
     any: true
+  UnitAffectingCombat:
+    any: true
   UnitCanAttack:
     any: true
   UnitClassification:
@@ -158,6 +172,8 @@ globals:
   UnitCreatureType:
     any: true
   UnitExists:
+    any: true
+  UnitFactionGroup:
     any: true
   UnitGUID:
     any: true
@@ -208,4 +224,6 @@ globals:
   IsInRaid:
     any: true
   QUEST_MONSTERS_KILLED:
+    any: true
+  YES:
     any: true

@@ -1,14 +1,14 @@
 ---
 zone: 1434   # Stranglethorn Vale
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: stranglethorn-vale-green-hills
     tier: near
-    where: { x: 35.7, y: 10.5, r: 1 }   # Barnil Stonepot, dump 35.7, 10.5; Wowhead 35.6, 10.4
+    creature: 716   # Barnil Stonepot, dump 35.7, 10.5; Wowhead 35.6, 10.4
     hint_area: { x: 37.0, y: 8.4, r: 5 }
     danger: "Quiet"
     sources: "quest 338; the Codex's nesingwarys-expedition page"
@@ -33,7 +33,7 @@ riddles:
     sources: "quest 202; the Codex's kurzen-rebellion page"
   - id: stranglethorn-vale-poobah
     tier: hidden
-    where: { x: 38.5, y: 80.6, r: 1 }   # Princess Poobah, dump 38.5, 80.6; Wowhead 38.4, 80.6
+    creature: 2634   # Princess Poobah, dump 38.5, 80.6; Wowhead 38.4, 80.6
     hint_area: { x: 36.7, y: 82.3, r: 5 }
     danger: "Perilous (King Mukla's gorillas)"
     sources: "quests 594, 630"
@@ -53,7 +53,7 @@ riddles:
   - id: stranglethorn-vale-gromgol
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 32.2, y: 27.7, r: 1 }   # Nimboya, dump 32.2, 27.7; Wowhead 32.2, 27.8
+    creature: 2497   # Nimboya, dump 32.2, 27.7; Wowhead 32.2, 27.8
     hint_area: { x: 34.7, y: 27.2, r: 5 }
     danger: "Quiet"
     sources: "quests 581, 592; the Codex's gromgol-base-camp page"

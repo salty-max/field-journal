@@ -36,6 +36,23 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   fish ("## <item id> <name>", then paragraphs; plain ASCII; the build refuses
   a missing or unknown one). Places only from the data, uses only from the
   game's recipes of the original game.
+- `expeditions/<zone>.md` (named as the atlas's, top level: build.ts reads
+  every `content/` folder as a Bestiary section): a zone's riddles (the
+  Expeditions, PLAN.md): front matter in YAML (`zone`, `home` for a starting
+  zone or capital, `riddles`: id, tier, `faction` for a town's, `gestures`
+  (emote tokens) or `reading`, `night`, the spot: `object`, `creature`,
+  `trigger` or `area` (with an `anchor` where the area has no map overlay),
+  `hint_area`, `danger`, `sources`; `quarry`), then `## <id>` sections: the
+  verse, `? ` the first hint, `= ` the note, `+ ` the margin; plain ASCII.
+  `scripts/expeditions.py` resolves the spots from the game's data into
+  `data/expeditions.json` (committed): an object's spawns (dump and Wowhead
+  alike, inside the hint circle), a creature's spawn (and whether it walks),
+  a trigger, a sub-area's ids; each zone's size in yards and sub-areas; the
+  client's emote tokens. Rerun it after changing a spot or a hint circle (the
+  build refuses a stale one). `scripts/expeditions.ts` (for build.ts) checks
+  every riddle and writes the answers as fingerprints only (salted FNV-1a of
+  5-yard cells, sub-areas, the keeper, the gestures), the texts read once
+  solved veiled.
 - `content/<section>/_section.md`: a creature type (title, type, order);
   `content/<section>/<family>.md`: a family (id, title, order, `match:` rules,
   the naturalist's note). Rules, in priority: ids, people, name (regex, the section's type) and beast
@@ -80,7 +97,7 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   window as the Bestiary's loot is; `/journal probe`: the next loot window as
   each of its events finds it), `Achievements.lua`
   (milestones: tallies, every family of a type, feats, every rare of a zone,
-  the Atlas's and the flora's; the game's achievement toast, fanfare and a
+  the Atlas's, the flora's and the expeditions'; the game's achievement toast, fanfare and a
   chat line; no spoilers before a type or zone is met). The book: `Kit.lua`
   (a copy of the kit shared with Hearthtale and the Codex, ~/code/addon-kit:
   the books' look, window, dialog and tabs; never edited here: `bun run
@@ -94,7 +111,14 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   `BestiaryBook.lua` (still portraits from the data's display ids,
   `SetPortraitTextureFromCreatureDisplayID`), `FloraBook.lua` (Fish and
   Plants), `AtlasBook.lua` (zones by continent, the zone's map art with its
-  explored overlays and marks), `MilestonesBook.lua`. `WorldMapPins.lua`
+  explored overlays and marks), `ExpeditionsBook.lua` (the riddles by zone, a
+  riddle's page, its hints asked for through the game's confirmation),
+  `MilestonesBook.lua`. `Expeditions.lua` (the riddles' records and their
+  solving: each second where the reader stands, a gesture by hooking
+  `C_ChatInfo.PerformEmote` (the chat's, the menu's; `DoEmote` where there is
+  none), a reading at `ITEM_TEXT_BEGIN`, a keeper targeted near
+  (`CheckInteractDistance`), the night by the game's clock; outside combat;
+  `/journal where`). `WorldMapPins.lua`
   (deaths on the game's world map), `Hints.lua` (tooltip line),
   `Settings.lua` (each character's settings, the kit's profiles: a profile
   "Name - Realm" in FieldJournalSettings, copied from another character of

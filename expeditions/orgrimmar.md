@@ -2,15 +2,15 @@
 zone: 1454   # Orgrimmar
 home: horde   # a capital: its riddles are its faction's alone
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: orgrimmar-thrall
     tier: near
     gestures: [SALUTE, BOW]
-    where: { x: 31.7, y: 37.8, r: 1 }   # Thrall, dump 31.7, 37.8; Wowhead 32.0, 37.8
+    creature: 4949   # Thrall, dump 31.7, 37.8; Wowhead 32.0, 37.8
     hint_area: { x: 33.3, y: 36.5, r: 4 }
     danger: "Quiet"
     sources: "the Codex's thrall and orgrimmar pages"
@@ -23,7 +23,7 @@ riddles:
     sources: "object 175658's text; object 21004's text"
   - id: orgrimmar-neeru
     tier: hidden
-    where: { x: 49.5, y: 50.6, r: 1 }   # Neeru Fireblade, dump 49.5, 50.6; Wowhead 49.4, 50.4
+    creature: 3216   # Neeru Fireblade, dump 49.5, 50.6; Wowhead 49.4, 50.4
     hint_area: { x: 48.8, y: 48.7, r: 4 }
     danger: "Quiet"
     sources: "quest 829"

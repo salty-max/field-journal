@@ -1,15 +1,16 @@
 ---
 zone: 1441   # Thousand Needles
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: thousand-needles-raceway
     tier: near
     gestures: [CHEER, APPLAUD]
     area: Mirage Raceway   # placed: Pozzik (creature 4630), dump 80.2, 75.9; Trackmaster Zherin, 81.6, 78.0
+    anchor: { creature: 4630 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 79.0, y: 77.5, r: 7 }
     danger: "Quiet"
     sources: "quests 1186, 1190, 1120"
@@ -22,6 +23,7 @@ riddles:
   - id: thousand-needles-weathered-nook
     tier: hidden
     area: The Weathered Nook   # placed: Dorn Plainstalker, dump 53.9, 41.5; Wowhead 53.8, 41.4
+    anchor: { creature: 2986 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 54.7, y: 38.1, r: 7 }
     danger: "Quiet"
     sources: "quests 1149-1152; Dorn Plainstalker (creature 2986) places the hint"
@@ -29,7 +31,7 @@ riddles:
     tier: town
     faction: horde   # its town's: for that faction alone
     gestures: [COMFORT, SOOTHE]
-    where: { x: 46.0, y: 51.6, r: 1 }   # Thalia Amberhide, dump 46.0, 51.6; Wowhead 46.0, 51.6
+    creature: 10645   # Thalia Amberhide, dump 46.0, 51.6; Wowhead 46.0, 51.6
     hint_area: { x: 47.5, y: 53.6, r: 5 }
     danger: "Quiet"
     sources: "quest 4904"

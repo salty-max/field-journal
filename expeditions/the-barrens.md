@@ -1,10 +1,10 @@
 ---
 zone: 1413   # The Barrens
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: the-barrens-ratchet-book
     tier: near
@@ -16,13 +16,14 @@ riddles:
   - id: the-barrens-mankriks-wife
     tier: near
     gestures: [MOURN, KNEEL, CRY]
-    where: { x: 49.3, y: 50.3, r: 1 }   # the Beaten Corpse, dump 49.3, 50.3; Wowhead 49.2, 50.4
+    creature: 10668   # the Beaten Corpse, dump 49.3, 50.3; Wowhead 49.2, 50.4
     hint_area: { x: 51.5, y: 52.3, r: 6 }
     danger: "Guarded (quilboar)"
     sources: "quests 4921, 899"
   - id: the-barrens-forgotten-pools
     tier: off
-    where: { x: 45.1, y: 22.5, r: 1 }   # the quest's exploration trigger (AreaTrigger 216, radius 9 yards): 45.1, 22.5
+    name: The Forgotten Pools
+    trigger: 216   # the quest's exploration trigger (AreaTrigger 216, radius 9 yards): 45.1, 22.5
     hint_area: { x: 48.7, y: 24.3, r: 8 }
     danger: "Guarded (the Kolkar)"
     sources: "quests 870, 877; the client's AreaTrigger 216"
@@ -34,7 +35,7 @@ riddles:
     sources: "quests 875, 876"
   - id: the-barrens-mahren
     tier: off
-    where: { x: 65.8, y: 43.9, r: 1 }   # Mahren Skyseer, dump 65.8, 43.9; Wowhead 65.8, 43.8
+    creature: 3388   # Mahren Skyseer, dump 65.8, 43.9; Wowhead 65.8, 43.8
     hint_area: { x: 62.9, y: 44.8, r: 6 }
     danger: "Quiet on the shore; perilous in the water"
     sources: "quests 873, 874"
@@ -42,12 +43,13 @@ riddles:
     tier: hidden
     gestures: [SALUTE, BOW]
     area: Shrine of the Fallen Warrior   # placed: Koiter, dump 47.4, 29.7; Wowhead 47.4, 29.6
+    anchor: { creature: 12034 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 49.9, y: 28.1, r: 6 }
     danger: "Quiet"
     sources: "the wiki's Shrine of the Fallen Warrior; Koiter (creature 12034) places the hint"
   - id: the-barrens-dogran
     tier: hidden
-    where: { x: 43.3, y: 47.9, r: 1 }   # Grunt Dogran, dump 43.3, 47.9; Wowhead 43.2, 47.8
+    creature: 5908   # Grunt Dogran, dump 43.3, 47.9; Wowhead 43.2, 47.8
     hint_area: { x: 43.5, y: 50.9, r: 6 }
     danger: "Perilous (the quilboar camp)"
     sources: "quests 1509, 1510, 1515, 1512"
@@ -55,7 +57,7 @@ riddles:
     tier: town
     faction: horde   # its town's: for that faction alone
     gestures: [COMFORT, SOOTHE]
-    where: { x: 52.0, y: 31.6, r: 1 }   # Mankrik, dump 52.0, 31.6; Wowhead 52.0, 31.6
+    creature: 3432   # Mankrik, dump 52.0, 31.6; Wowhead 52.0, 31.6
     hint_area: { x: 53.9, y: 33.3, r: 5 }
     danger: "Quiet"
     sources: "quests 899, 4921"
@@ -63,7 +65,7 @@ riddles:
     tier: town
     faction: horde   # its town's: for that faction alone
     gestures: [PITY]
-    where: { x: 44.5, y: 59.3, r: 1 }   # Mangletooth, dump 44.5, 59.3; Wowhead 44.4, 59.2
+    creature: 3430   # Mangletooth, dump 44.5, 59.3; Wowhead 44.4, 59.2
     hint_area: { x: 45.9, y: 61.3, r: 5 }
     danger: "Quiet"
     sources: "quests 878, 879"

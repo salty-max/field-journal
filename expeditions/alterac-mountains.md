@@ -1,26 +1,26 @@
 ---
 zone: 1416   # Alterac Mountains
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: alterac-mountains-ansirem
     tier: near
-    where: { x: 18.8, y: 78.5, r: 1 }   # Archmage Ansirem Runeweaver, dump 18.8, 78.5; Wowhead 18.8, 78.4
+    creature: 2543   # Archmage Ansirem Runeweaver, dump 18.8, 78.5; Wowhead 18.8, 78.4
     hint_area: { x: 20.4, y: 76.0, r: 6 }
     danger: "Quiet"
     sources: "quests 602, 603"
   - id: alterac-mountains-goldir
     tier: off
-    where: { x: 60.0, y: 43.7, r: 1 }   # Gol'dir, dump 60.0, 43.7; Wowhead 60.0, 43.8
+    creature: 2316   # Gol'dir, dump 60.0, 43.7; Wowhead 60.0, 43.8
     hint_area: { x: 63.0, y: 43.5, r: 6 }
     danger: "Perilous (the Syndicate)"
     sources: "quests 503, 506"
   - id: alterac-mountains-elysa
     tier: off
-    where: { x: 39.3, y: 14.3, r: 1 }   # Elysa, dump 39.3, 14.3; Wowhead 39.2, 14.4
+    creature: 2317   # Elysa, dump 39.3, 14.3; Wowhead 39.2, 14.4
     hint_area: { x: 36.3, y: 14.1, r: 6 }
     danger: "Guarded (the Syndicate)"
     sources: "quests 506, 507, 508"
@@ -28,6 +28,7 @@ riddles:
     tier: hidden
     gestures: [SNEAK]
     area: Ravenholdt Manor   # placed: Lord Jorach Ravenholdt (creature 6768), dump 86.0, 78.9; Wowhead 86.0, 79.0
+    anchor: { creature: 6768 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 82.8, y: 77.5, r: 7 }
     danger: "Quiet"
     sources: "quests 6681, 8233"

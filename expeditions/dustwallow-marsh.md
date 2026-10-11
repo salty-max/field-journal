@@ -1,10 +1,10 @@
 ---
 zone: 1445   # Dustwallow Marsh
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: dustwallow-marsh-shady-rest
     tier: near
@@ -15,7 +15,7 @@ riddles:
   - id: dustwallow-marsh-nat-pagle
     tier: hidden
     gestures: [SIT]
-    where: { x: 58.6, y: 60.1, r: 1 }   # Nat Pagle, dump 58.6, 60.1; Wowhead 58.6, 60.0
+    creature: 12919   # Nat Pagle, dump 58.6, 60.1; Wowhead 58.6, 60.0
     hint_area: { x: 57.1, y: 58.1, r: 5 }
     danger: "Quiet"
     sources: "quest 6607"
@@ -23,14 +23,14 @@ riddles:
     tier: town
     faction: alliance   # its town's: for that faction alone
     gestures: [BOW, CURTSEY]
-    where: { x: 66.3, y: 49.0, r: 1 }   # Lady Jaina Proudmoore, dump 66.3, 49.0; Wowhead 66.2, 49.0
+    creature: 4968   # Lady Jaina Proudmoore, dump 66.3, 49.0; Wowhead 66.2, 49.0
     hint_area: { x: 64.0, y: 48.0, r: 5 }
     danger: "Quiet"
     sources: "the Codex's jaina-proudmoore and theramore-isle pages"
   - id: dustwallow-marsh-brackenwall
     tier: town
     faction: horde   # its town's: for that faction alone
-    where: { x: 36.3, y: 31.4, r: 1 }   # Overlord Mok'Morokk, dump 36.3, 31.4; Wowhead 36.2, 31.4
+    creature: 4500   # Overlord Mok'Morokk, dump 36.3, 31.4; Wowhead 36.2, 31.4
     hint_area: { x: 37.8, y: 33.4, r: 5 }
     danger: "Quiet"
     sources: "the Codex's brackenwall-village page"

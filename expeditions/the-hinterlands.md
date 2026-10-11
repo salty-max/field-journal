@@ -1,27 +1,27 @@
 ---
 zone: 1425   # The Hinterlands
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: the-hinterlands-rhapsody
     tier: near
     gestures: [HICCUP]
-    where: { x: 26.9, y: 48.6, r: 1 }   # Rhapsody Shindigger, dump 26.9, 48.6; Wowhead 26.8, 48.6
+    creature: 5634   # Rhapsody Shindigger, dump 26.9, 48.6; Wowhead 26.8, 48.6
     hint_area: { x: 28.5, y: 46.7, r: 5 }
     danger: "Quiet"
     sources: "quest 1469"
   - id: the-hinterlands-oox
     tier: off
-    where: { x: 49.4, y: 37.7, r: 1 }   # OOX-09/HL, dump 49.4, 37.7; Wowhead 49.4, 37.6 (it walks only when escorted)
+    creature: 7806   # OOX-09/HL, dump 49.4, 37.7; Wowhead 49.4, 37.6 (it walks only when escorted)
     hint_area: { x: 50.3, y: 35.4, r: 5 }
     danger: "Guarded (forest trolls)"
     sources: "quest 485"
   - id: the-hinterlands-atalai-exile
     tier: off
-    where: { x: 33.8, y: 75.2, r: 1 }   # the Atal'ai Exile, dump 33.8, 75.2; Wowhead 33.6, 75.2
+    creature: 5598   # the Atal'ai Exile, dump 33.8, 75.2; Wowhead 33.6, 75.2
     hint_area: { x: 32.7, y: 77.4, r: 5 }
     danger: "Perilous (the Witherbark)"
     sources: "quest 1429; the Codex's shadra page"
@@ -35,7 +35,7 @@ riddles:
     tier: town
     faction: alliance   # its town's: for that faction alone
     gestures: [BOW, SALUTE]
-    where: { x: 11.8, y: 46.8, r: 1 }   # Falstad Wildhammer, dump 11.8, 46.8; Wowhead 11.8, 46.8
+    creature: 5635   # Falstad Wildhammer, dump 11.8, 46.8; Wowhead 11.8, 46.8
     hint_area: { x: 9.8, y: 45.3, r: 5 }
     danger: "Quiet"
     sources: "the Codex's falstad-wildhammer and wildhammer-clan pages; object 175739's text"
@@ -43,7 +43,7 @@ riddles:
     tier: town
     faction: horde   # its town's: for that faction alone
     gestures: [COMFORT, SOOTHE]
-    where: { x: 78.2, y: 81.2, r: 1 }   # Primal Torntusk, dump 78.2, 81.2; Wowhead 78.2, 81.2
+    creature: 14736   # Primal Torntusk, dump 78.2, 81.2; Wowhead 78.2, 81.2
     hint_area: { x: 79.3, y: 78.9, r: 5 }
     danger: "Quiet"
     sources: "quest 7845; the Codex's revantusk-village page"

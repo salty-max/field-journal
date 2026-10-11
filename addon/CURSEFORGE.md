@@ -42,9 +42,18 @@ Two tabs for what the land and the water give. **Fish**: every catch, with where
 
 Another book in the same journal: every zone you have entered, by continent (all of them, or one at a time), and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), the zone's own map with the parts you have explored and the places you died or came close, and your record of it: first visit, places, deaths, close calls, flights. Your deaths and close calls also show on the game's world map (a setting).
 
+## Expeditions
+
+Riddles that send you to the corners of the world most travellers walk past: a grave beside a path, a statue nobody explains, a book left on a shelf, a keeper few stop to talk to. Each zone has its own, more in the large ones, three in each capital, and one in each faction town of the contested lands for that faction: 202 in all, every one true to the original game's lore and placed from the game's own data.
+
+- A riddle is solved where it leads, outside combat. Some ask only that you get there; some ask you to read what is written there; some ask something of you, as the story would, and the verse never says what: you guess, as someone who knew the story would.
+- Two hints for each, asked for: a plainer clue, then its place shaded on your world map. Solved from the verse alone, a riddle earns the gold seal and opens its margin, one more page of its story; the clue costs the gold, the map the silver.
+- The Expeditions tab lists the zones you have entered and your faction's own capitals, with each riddle's verse, its danger, its hints, and once solved its answer, its seal and the naturalist's note.
+- `/journal where` tells the map you are on and your position on it.
+
 ## Milestones
 
-The last tab: tallies (kinds recorded, families, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived; and for fishing and herbs: kinds and counts, Nat Pagle's four rare fish, a school of each kind, both seasons, Nightfin by night and Sunscale by day, the Black Lotus, every fish of a continent's waters, every herb of a zone. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
+The last tab: tallies (kinds recorded, families, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived; and for fishing and herbs: kinds and counts, Nat Pagle's four rare fish, a school of each kind, both seasons, Nightfin by night and Sunscale by day, the Black Lotus, every fish of a continent's waters, every herb of a zone; and for the expeditions: the first riddle, each zone's riddles, the roads, the byways and the hidden places of a continent, the gold seals, every riddle that asks a gesture, a reading or the night. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
 
 ## Every game, one download
 

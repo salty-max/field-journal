@@ -2,10 +2,10 @@
 zone: 1429   # Elwynn Forest
 home: alliance   # a starting zone: its riddles are its faction's alone
 client: both
-# the spots: an object the pinned dump and Wowhead place alike, a sub-area of the game's (its hint
-# placed by the client's map overlay or by something pinned inside it), or a place pinned by the
-# data (a creature that stands still, a quest's exploration trigger); danger by hand: the build
-# computes its own from the spawns. gestures: the emotes it accepts, the story's own first.
+# the spots, pinned by the data (scripts/expeditions.py resolves them): object (every spawn of it on
+# this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
+# trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
+# it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: elwynn-forest-lethargy
     tier: near
@@ -25,6 +25,7 @@ riddles:
     tier: hidden
     gestures: [SALUTE, BOW, KNEEL]
     area: Heroes' Vigil   # placed: the Stone of Remembrance, dump 74.5, 51.7 (no Wowhead position: the area solves, the stone places the hint)
+    anchor: { object: 20923 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 75.0, y: 55.7, r: 8 }
     danger: "Guarded (the Defias Rogue Wizards)"
     sources: "the wiki's Heroes' Vigil and Stone Cairn Lake (the lake's shape, the ring of stones); object 20923; quests 1786-1788"

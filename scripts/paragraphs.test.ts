@@ -21,10 +21,10 @@ test("invalid notes fail without replacing either book", () => {
   const root = join(import.meta.dir, "..");
   const fixture = mkdtempSync(join(tmpdir(), "field-journal-notes-"));
   try {
-    for (const dir of ["content", "atlas", "notes", "data"])
+    for (const dir of ["content", "atlas", "notes", "data", "expeditions"])
       cpSync(join(root, dir), join(fixture, dir), { recursive: true });
     mkdirSync(join(fixture, "scripts"));
-    for (const file of ["build.ts", "paragraphs.ts"])
+    for (const file of ["build.ts", "paragraphs.ts", "expeditions.ts"])
       cpSync(join(root, "scripts", file), join(fixture, "scripts", file));
     mkdirSync(join(fixture, "addon/FieldJournal"), { recursive: true });
     const build = () => Bun.spawnSync([process.execPath, "scripts/build.ts"], { cwd: fixture });
@@ -36,6 +36,9 @@ test("invalid notes fail without replacing either book", () => {
       ["atlas/alterac-mountains.md", (s: string) => s + "\n\n[forver] A different history.\n", "unknown paragraph client"],
       ["notes/herbs.md", (s: string) => s.replace(/(^## [^\n]+\n\n)/m, "$1[forver] "), "unknown paragraph client"],
       ["atlas/alterac-mountains.md", (s: string) => s.replace("zone: 1416", "zone: 999999"), "unknown zone 999999"],
+      ["expeditions/duskwood.md", (s: string) => s.replace("outside the hallowed ground", "kneel outside the hallowed ground"), "names the gesture KNEEL"],
+      ["expeditions/duskwood.md", (s: string) => s.replace("object: 61 ", "object: 62 "), "changed since data/expeditions.json"],
+      ["expeditions/duskwood.md", (s: string) => s.replace("gestures: [SLEEP, LAYDOWN]", "gestures: [SLEEP, KNEEL]"), "gesture KNEEL is duskwood-twilight-grove's too"],
     ] as const;
     for (const [path, invalid, message] of cases) {
       const file = join(fixture, path);

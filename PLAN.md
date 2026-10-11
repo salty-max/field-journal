@@ -132,19 +132,25 @@ the count above.
 
 | Condition | How |
 |---|---|
-| The place | The map and position (`C_Map.GetBestMapForUnit`, `GetPlayerMapPosition`; the Atlas reads them already), checked every second while in a riddle's zone, within a few yards of the spot. Open world only: Forever hides the position in its instances. |
-| A gesture | The emote's token, by hooking `DoEmote` (`hooksecurefunc`, no taint), made at the place: any of the client's 256 (EmotesText: `KNEEL`, `MOURN`, `SALUTE`, `BOW`, `PRAY`, `TOAST`, `SNIFF`, `PEER`, `SLEEP`...). Every language: the token, never the text. The reader guesses it from the story, so a riddle accepts the few gestures that mean the same there (a fallen comrade: `MOURN`, `KNEEL`, `SALUTE`; the brewers' casks: `TOAST`, `DRINK`, `CHUG`), never one that doesn't; nothing tells a wrong guess from no guess. |
-| A reading | A plaque, a tombstone or a book read there: the game's reader opening (`ITEM_TEXT_BEGIN`, its title from `ItemTextGetItem`) at the place. |
+| The place | The map and position (`C_Map.GetBestMapForUnit`, `GetPlayerMapPosition`; the Atlas reads them already), checked every second while in a riddle's zone, within ten yards of the spot (a keeper's wandering added). A sub-area by its name (`GetSubZoneText`, matched to the zone's area ids through `C_Map.GetAreaInfo`: every language). A keeper also by targeting them near (`CheckInteractDistance`, 11 yards): the only way to a keeper who walks a path (Kum'isha, Falfindel). Open world only: Forever hides the position in its instances. |
+| A gesture | The emote's token, by hooking `C_ChatInfo.PerformEmote` (`hooksecurefunc`, no taint: the chat's `/kneel` and the emote menu call it on both clients, as their deprecated `DoEmote` does; Blizzard's UI source, checked 12 October 2026), made at the place: any of the client's 256 (EmotesText: `KNEEL`, `MOURN`, `SALUTE`, `BOW`, `PRAY`, `TOAST`, `SNIFF`, `PEER`, `SLEEP`...). Every language: the token, never the text. The reader guesses it from the story, so a riddle accepts the few gestures that mean the same there (a fallen comrade: `MOURN`, `KNEEL`, `SALUTE`; the brewers' casks: `TOAST`, `DRINK`, `CHUG`), never one that doesn't; nothing tells a wrong guess from no guess. |
+| A reading | A plaque, a tombstone or a book read there: the game's reader opening (`ITEM_TEXT_BEGIN`) at the place. Every reading is a text object of the game's (type 9, its name the reading's title: the data script checks), which opens the reader; a quest's poster would open the quest window instead. |
 | The hour | At night (`GetGameTime`, the server's hour), only where the story asks for it. |
 
 A quarry is brought down as the Bestiary already tells a kill (`PARTY_KILL`,
 else the combat log's line); a trophy taken before the expeditions existed
 stamps its poster quietly ("taken before the book").
 
-**The answers stay unreadable**: the data holds no riddle's spot, only a
-salted fingerprint (32-bit FNV-1a) of its map, its cell on a 2% grid and its
-gesture or reading (one fingerprint for each gesture it accepts); the check fingerprints the player's cell and the eight
-around it. The map hint's circle is stored plainly (it only shades a region).
+**The answers stay unreadable**: the data holds no riddle's spot, only
+salted fingerprints (32-bit FNV-1a) of the riddle with each 5-yard cell
+within reach of its spot (the zone's size in yards from the client's
+UiMapAssignment), with its sub-area's id, with its keeper's creature id, and
+with each gesture it accepts; the check fingerprints the reader's own cell,
+sub-area, target and gesture. What is read once it is solved (the answer's
+name, the note, the margin) is veiled by a stream from the riddle's id. The
+map hint's circle is stored plainly (it only shades a region). (The repo's
+`expeditions/` files are public: this keeps the answers out of the addon's
+files, no more.)
 
 ### Danger
 
@@ -391,6 +397,22 @@ hunter / would know the hide, and wish its spirit peace.").
    data provider, as `WorldMapPins.lua`).
 4. The tab (`ExpeditionsBook.lua`): zones once entered, their riddles and
    quarry, hints asked for, seals, notes, margins, pictures; the achievements.
+
+   Built for the riddles on 12 October 2026: `scripts/expeditions.py`
+   (`data/expeditions.json`: every spot from the game's data; an object's
+   spawns kept where the dump and Wowhead agree and inside the hint circle,
+   a history book's copies in other inns being other riddles'; a keeper's
+   walk measured from the dump's paths), `scripts/expeditions.ts` (the
+   build's checks and the fingerprints), `Expeditions.lua`,
+   `ExpeditionsBook.lua` (a sixth tab before the Milestones), the map's
+   circle (`Media/Circle.tga`, on the world map's data provider), the
+   milestones (A Riddle Read Aright, each zone's expedition, the roads, the
+   byways and nothing hidden of each continent, every riddle of a continent,
+   the gold seals, Respects Paid, Well Read, After Dark) and `/journal where`;
+   the simulation solves Duskwood's five and two others. A zone's
+   expedition counts its riddles alone until the quarries come. Still to do:
+   the hunts (the quarries, the target's layer, the kill), the pictures
+   (`K.snapshot`), Forever's own (Zephras Isle), a test in the game.
 5. The writing, zone by zone, Duskwood first: candidates from the sources
    above, each spot from the data (an object, a sub-area, two sources), a
    first release with every zone up to level 30; then the rest of the 141 and
