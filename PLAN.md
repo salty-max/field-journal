@@ -12,6 +12,147 @@ Games: Classic Era (Hardcore, Season of Discovery), TBC Anniversary, World of
 Warcraft: Forever. One source, one package per game, as Lorekeeper's Codex
 (`bun run package`, two zips per release, CurseForge per game).
 
+## Hunts (proposed 11 October 2026)
+
+The user's idea, the other half of the Codex's riddles (its PLAN.md,
+"Riddles"): a board of quarries to hunt, the rares (and the few wanderers)
+whose story the lore tells, each on a wanted poster in the naturalist's voice
+with a riddle of its haunts and habits. One chosen on the board is the
+target, and only its haunts are shaded on the game's world map. Brought down:
+its trophy, as the Bestiary keeps it, a picture of the kill, achievements.
+
+### Decisions (11 October 2026, the user's)
+
+| Question | Decision |
+|---|---|
+| Where | In the Field Journal, not a sixth addon: the Bestiary already knows every rare of the original world (rank, level, zone), draws its portrait, tells a kill on both games, keeps trophies, draws on the world map and earns milestones. |
+| Which quarries | Those whose story the lore tells (a quest, a book, the codex's own pages): curated, each thought through. A rare with nothing to tell has no poster; the Bestiary's trophies still count it. |
+| The map | One quarry at a time: choosing it on the board makes it the target, and only its haunts are shaded on the world map. No layer of every rare. |
+| Achievements | Mandatory: hunts among the Milestones. |
+| Picture | When a quarry is brought down, once the fight is over (a second after leaving combat, over its body): the kit's `K.snapshot`, as the Codex's riddles and Hearthtale's postcards. |
+
+### The board (in the Bestiary: a Hunts view beside Trophies)
+
+- **Quarries near you first**: on this continent, within the level band
+  (yours, three below to five above), not yet brought down; then the others of
+  the continent; those already taken under them, with their trophy's day. The
+  Bestiary's tab bar stays at five.
+- **A poster**: the quarry's portrait (as the Bestiary's), its name, level and
+  rank, the zone where it is seen (a wanted poster says so), the riddle of its
+  haunts and habits, the naturalist's note, its danger (its own rank and
+  level, and what roams with it, from the pinned spawns), and the button that
+  makes it the target.
+- **The target**: one at a time, kept across sessions. On the game's world
+  map, its zone shades each of its haunts (its spawn points from the pinned
+  CMaNGOS spawns, clustered, a soft circle each; Forever's new rares from
+  AllTheThings' coordinates), with a tooltip naming it; the zone's map pin
+  points from the continent's map. Nothing on the map for any other quarry.
+  The riddle is the game; the map is the help, and a quarry brought down
+  without ever being the target counts for the achievement that asks for it.
+- **Brought down**: the Bestiary's kill (`PARTY_KILL`, or the combat log's
+  line where the client has no such event), the poster stamped, the trophy
+  as now, the alert, a line in chat, the target cleared, the picture.
+
+### What a character records
+
+`FieldJournalChar.hunts[id] = { at, level, tracked, shot }` (when, at what
+level, whether it was ever the target, the picture's stamp);
+`FieldJournalChar.target` (the quarry chosen). A trophy taken before the hunts
+existed stamps its poster quietly ("taken before the board").
+
+### Content (content/hunts/<id>.md) and data
+
+```
+---
+creature: 1132                 # the quarry (ids verified on Wowhead Classic)
+codex: timber                  # optional: the Codex's page of it, for the lore
+client: both
+---
+(the riddle of its haunts and habits, three to five lines)
+---
+(the naturalist's note, two or three sentences)
+```
+
+`scripts/build.ts` reads `content/hunts/`, checks the creature is in
+`data/creatures.json` (its rank, zone, level), and writes the posters into
+`Data_Classic.lua` / `Data_Forever.lua`; `scripts/hunt_spawns.py` (from
+`rare_zones.py`'s placing of spawn points in the zones' map rectangles) writes
+each quarry's haunts on its zone's map: `haunts = { [id] = { map, x1, y1, x2,
+y2... } }`, clustered to a handful of circles.
+
+### Writing (the bar)
+
+- The naturalist's voice (the Bestiary's): what is seen and said of the
+  beast, never a lecture. The riddle in verse or plain lines, three to five,
+  about where it roams and how it behaves, every claim backed by its quest,
+  the game's own texts or the Codex's page; no invented colours, scars or
+  habits.
+- The lore's quarries only: a rare with a quest, a book, a figure's story
+  (Mor'Ladim), a creature the codex gave a page (Timber, Ghost Howl). A
+  research pass through the Bestiary's 343 rares (248 rare, 95 rare elite) and
+  the named wanderers keeps the ones with a story.
+- Both factions, every continent; Forever's own rares when their story is
+  known (Zephras Isle).
+
+### Achievements (Milestones: Hunts)
+
+| Achievement | When |
+|---|---|
+| First Quarry | the first poster stamped |
+| Bounty Hunter, Master of the Hunt | 10, all the quarries of this game |
+| Without a Map | 5 quarries brought down without ever being the target |
+| The Eastern Kingdoms' Quarries, Kalimdor's Quarries | every quarry of a continent |
+| (per zone) Every Quarry of Duskwood... | shown once the zone is entered, as the Atlas's |
+
+### The first posters (written in full)
+
+1. **Timber** (Dun Morogh; 1132; rare, level 10; codex `timber`).
+
+   > The hunters of Kharanos set their snares, and he walks round;
+   > he doubles on his own trail, and he picks his own ground.
+   > Of all the wolves that run in the snow of the vale,
+   > he is the one larger than the rest, who will not take the bait.
+
+   Note: "Every hunter Kharanos has sent after him has been outlived by him.
+   Mind the ground he chooses; he chose it first."
+
+2. **Ghost Howl** (Mulgore; 3056; rare, level 12; codex `ghost-howl`;
+   quest 770).
+
+   > A wolf runs the plains with a wound on his hide
+   > that no beast of the grassland ever gave him.
+   > The Legion marked him. At Bloodhoof, a hunter
+   > would know the hide, and wish its spirit peace.
+
+   Note: "Skorn Whitecloud at Bloodhoof Village knows this wolf's hide. Take
+   it to him when you have it; he has a weapon for the hunter who does."
+
+3. **Mor'Ladim** (Duskwood; 522; elite, level 35; codex `morladim`;
+   quest 228). Danger: Perilous (an elite, wandering).
+
+   > A knight came home from the plague to a forest gone dark,
+   > to his wife's grave on the hill; and something broke in him there.
+   > He walks the woods still, and kills whoever he meets.
+   > His daughter keeps the watch, and holds him to no blame.
+
+   Note: "Not a beast, and no rare in the Bestiary's sense. The Night Watch
+   wants him laid to rest, and his daughter serves in it. Go with company."
+
+Next: the research pass through the rares (the quests and books that name
+them), a dozen quarries a continent before a first release.
+
+### Steps
+
+1. The kit's `K.snapshot` (the Codex's PLAN.md, "The picture, in the kit"),
+   synced here.
+2. The data: `content/hunts/`, the build's checks, `hunt_spawns.py` and the
+   haunts per zone map.
+3. The board: the Hunts view in the Bestiary, the poster, the target and its
+   map layer (the world map's data provider, as `WorldMapPins.lua`), the
+   stamp on a kill, the picture, the achievements; the test game learns the
+   map layer's target and `Screenshot`.
+4. The research pass and the posters, a dozen a continent; then a release.
+
 ## Decisions (5 October 2026)
 
 | Question | Decision |
