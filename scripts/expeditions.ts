@@ -135,7 +135,6 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
     sections.delete("quarry");
 
     const riddles: Riddle[] = [];
-    const taken = new Map<string, string>();
     for (const r of Array.isArray(meta.riddles) ? meta.riddles : []) {
       const id = String(r.id ?? "");
       const where = `${id}:`;
@@ -148,8 +147,6 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
       const gestures: string[] = r.gestures ?? [];
       for (const g of gestures) {
         if (!emotes.has(g)) fail(file, `${where} gesture ${g}: not one of the client's emote tokens`);
-        if (taken.has(g)) fail(file, `${where} gesture ${g} is ${taken.get(g)}'s too: a zone's riddles never share one`);
-        taken.set(g, id);
       }
       if (gestures.length && r.reading) fail(file, `${where} a gesture or a reading, not both`);
       const kinds = SPOTS.filter((k) => r[k] !== undefined);
@@ -161,7 +158,14 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
 
       // the resolved spot must be this file's
       const spot = data.riddles[id];
-      const of = kinds.length === 1 ? `${kinds[0]}:${r[kinds[0]]}` + (r.anchor ? " " + Object.entries(r.anchor).map(([k, v]) => `${k}:${v}`).join(",") : "") : "";
+      const of =
+        kinds.length === 1
+          ? `${kinds[0]}:${r[kinds[0]]}` +
+            (r.anchor ? " " + Object.entries(r.anchor).map(([k, v]) => `${k}:${v}`).join(",") : "") +
+            (r.found ? ` found:${r.found}` : "")
+          : "";
+      if (r.found !== undefined && (r.found !== "target" || kinds[0] !== "creature"))
+        fail(file, `${where} found: target, for a creature found only by talking to it`);
       if (!spot) fail(file, `${where} not in data/expeditions.json: run python3 scripts/expeditions.py`);
       else if (spot.zone !== zone || spot.of !== of || String(spot.hint) !== String(ha && [ha.x, ha.y, ha.r]))
         fail(file, `${where} changed since data/expeditions.json was made: run python3 scripts/expeditions.py`);

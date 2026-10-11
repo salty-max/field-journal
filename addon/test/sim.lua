@@ -54,7 +54,7 @@ local NAMES = {
   [99005] = "Frost Lynx",
   [99004] = "Snowy Hare",
   [259398] = "Galemender Delanea",
-  [522] = "Mor'Ladim",
+  [771] = "Commander Felstrom",
 }
 function UnitName(u)
   if u == "player" then return "Thorin" end
@@ -1537,24 +1537,26 @@ check(
 )
 
 -- ── the expeditions ──────────────────────────────────────────────────────────
--- Duskwood's riddles, solved where they lead: a reading, a gesture, a
--- sub-area, a keeper; a walking keeper found by targeting; a night riddle.
+-- Duskwood's riddles, solved where they lead (a keeper's cave, a gesture at a
+-- lonely post, a sub-area, an unseen household, a watcher found by speaking
+-- to her) and its quarry; a reading in the Barrens; a walking keeper found by
+-- targeting; a night riddle.
 local function at(map, x, y, sub)
   state.map, state.x, state.y, state.sub = map, x, y, sub or ""
   fire("ZONE_CHANGED_NEW_AREA")
 end
 local function solvedRiddle(id) return ns.riddleSolved(id) end
 check(
-  ns.expeditionPrint("duskwood-eliza", "npc", 265) == 2149514546,
+  ns.expeditionPrint("duskwood-naraxis", "npc", 574) == 2852124916,
   "the riddles' fingerprints are the build's (32-bit FNV-1a)"
 )
 check(
-  ns.riddleName(ns.riddleById["duskwood-eliza"]) == "Eliza's Tombstone",
+  ns.riddleName(ns.riddleById["duskwood-darkshire"]) == "Watcher Brownell",
   "… and their veiled names read as the build's"
 )
 local DATA = io.open(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")):read("*a")
 check(
-  not DATA:find("Eliza's Tombstone", 1, true) and not DATA:find("28.86", 1, true),
+  not DATA:find("Watcher Brownell", 1, true) and not DATA:find("74.6", 1, true),
   "… the data holds neither an answer's name nor its spot"
 )
 check(
@@ -1564,55 +1566,66 @@ check(
 state.faction = "Horde"
 check(#ns.riddlesOf(1431) == 4 and #ns.riddlesOf(1453) == 0, "… a Horde reader: four, and none in Stormwind")
 state.faction = "Alliance"
--- A reading: Eliza's tombstone, read at the stone (never elsewhere, never in combat).
-at(1431, 0.50, 0.50, "Darkshire")
+-- A reading: a history book in Ratchet, read where it stands (never elsewhere,
+-- never in combat).
+at(1413, 0.50, 0.50)
 fire("ITEM_TEXT_BEGIN")
-check(not solvedRiddle("duskwood-eliza"), "a reading elsewhere solves nothing")
-at(1431, 0.2886, 0.3054)
+check(not solvedRiddle("the-barrens-ratchet-book"), "a reading elsewhere solves nothing")
+at(1413, 0.6194, 0.3867)
 inCombat = true
 fire("ITEM_TEXT_BEGIN")
 inCombat = false
-check(not solvedRiddle("duskwood-eliza"), "… nor one in combat")
+check(not solvedRiddle("the-barrens-ratchet-book"), "… nor one in combat")
 fire("ITEM_TEXT_BEGIN")
-local eliza = ns.riddleRecord("duskwood-eliza")
+local book = ns.riddleRecord("the-barrens-ratchet-book")
 check(
-  eliza
-    and eliza.at
+  book
+    and book.at
     and said(
-      "a riddle read aright: |cffffd100|Hfieldjournal:xduskwood-eliza|h[Eliza's Tombstone]|h|r, Duskwood, with a gold seal"
+      "a riddle read aright: |cffffd100|Hfieldjournal:xthe-barrens-ratchet-book|h[Exile of the High Elves]|h|r, The Barrens, with a gold seal"
     ),
-  "the tombstone read where it stands: solved, with a gold seal and a line in chat"
+  "the book read where it stands: solved, with a gold seal and a line in chat"
 )
 check(ns.earnedMilestone("riddle-first"), "… the first riddle's milestone")
--- A gesture: Morgan Ladimore's grave, after asking for the clue (the silver seal).
-ns.takeHint("duskwood-morgan-ladimore", 1)
-check(state.popup == nil and ns.riddleRecord("duskwood-morgan-ladimore").hints == 1, "a clue taken is kept, unsolved")
-at(1431, 0.1773, 0.2908)
+-- A gesture: the Night Watch's lonely post, after asking for the clue (the silver seal).
+ns.takeHint("duskwood-callahan", 1)
+check(state.popup == nil and ns.riddleRecord("duskwood-callahan").hints == 1, "a clue taken is kept, unsolved")
+at(1431, 0.8192, 0.1969)
 DoEmote("DANCE")
-check(not solvedRiddle("duskwood-morgan-ladimore"), "a gesture the story doesn't ask for solves nothing")
-DoEmote("kneel")
+check(not solvedRiddle("duskwood-callahan"), "a gesture the story doesn't ask for solves nothing")
+DoEmote("salute")
 check(
-  solvedRiddle("duskwood-morgan-ladimore") and ns.riddleSeal(ns.riddleRecord("duskwood-morgan-ladimore")) == "silver",
+  solvedRiddle("duskwood-callahan") and ns.riddleSeal(ns.riddleRecord("duskwood-callahan")) == "silver",
   "… the one it asks for does (any of its own), with a silver seal after the clue"
 )
--- A sub-area with a gesture (Twilight Grove), and one by being there (Manor Mistmantle).
+-- A sub-area with a gesture (Twilight Grove); a keeper's lair, by being there;
+-- a household no eye sees, by looking harder.
 at(1431, 0.46, 0.40, "Twilight Grove")
 DoEmote("SLEEP")
 check(solvedRiddle("duskwood-twilight-grove"), "a sub-area's riddle: its gesture made in it")
-at(1431, 0.75, 0.34, "Manor Mistmantle")
+at(1431, 0.8636, 0.4757)
 ns.expeditionAttempt()
-check(solvedRiddle("duskwood-mistmantle"), "… another's by being there")
--- A keeper who stands still: Madame Eva, by her table; the expedition complete.
+check(solvedRiddle("duskwood-naraxis"), "a keeper's lair, by being there (whether she is home or not)")
+at(1431, 0.1921, 0.5376)
+ns.expeditionAttempt()
+check(not solvedRiddle("duskwood-unseen"), "the unseen household asks something: being there is not enough")
+DoEmote("PEER")
+check(solvedRiddle("duskwood-unseen"), "… looking harder solves it")
+-- A watcher found only by speaking to her: standing beside her solves nothing.
 check(not ns.earnedMilestone("expedition-1431"), "Duskwood's expedition not yet complete")
-at(1431, 0.7579, 0.4532, "Darkshire")
+at(1431, 0.746, 0.454, "Darkshire")
 ns.expeditionAttempt()
+check(not solvedRiddle("duskwood-darkshire"), "a watcher of the town square: passing by her solves nothing")
+state.target, state.near = 11040, true
+ns.expeditionAttempt()
+state.target = nil
 check(
   solvedRiddle("duskwood-darkshire") and not ns.earnedMilestone("expedition-1431"),
-  "a keeper's riddle, by standing beside her; Duskwood's expedition still waits for its quarry"
+  "… speaking to her does; Duskwood's expedition still waits for its quarry"
 )
--- The hunt: Mor'Ladim's poster, tracked (its haunts on the map, the gold seal
--- lost), untracked, brought down.
-linkHandlers.fieldjournal("fieldjournal:q522")
+-- The hunt: Commander Felstrom's poster, tracked (its haunts on the map, the
+-- gold seal lost), untracked, brought down.
+linkHandlers.fieldjournal("fieldjournal:q771")
 local function rowsOf()
   local out = {}
   for _, x in ipairs(ns.expeditionPairs) do
@@ -1621,27 +1634,29 @@ local function rowsOf()
   return out
 end
 check(
-  FieldJournalExpeditionsPage.title.text == "Mor'Ladim" and rowsOf()["Its haunts"] == "untracked",
+  FieldJournalExpeditionsPage.title.text == "Commander Felstrom" and rowsOf()["Its haunts"] == "untracked",
   "a quarry's link opens its poster, untracked"
 )
 local track = FieldJournalExpeditionsPage.buttons[1]
 track.scripts.OnClick(track)
 check(
-  state.popup:find("gold seal") and ns.huntTarget() and ns.huntTarget().id == 522 and ns.huntRecord(522).tracked,
+  state.popup:find("gold seal") and ns.huntTarget() and ns.huntTarget().id == 771 and ns.huntRecord(771).tracked,
   "… tracked after the game's confirmation"
 )
 WorldMapFrame.mapID = 1431
 ns.refreshWorldMapPins()
 local haunt = mapProvider.circles[1]
-check(haunt.shown and haunt.title == "Mor'Ladim", "… its haunts shaded on Duskwood's world map")
+check(haunt.shown and haunt.title == "Commander Felstrom", "… its haunts shaded on Duskwood's world map")
 ns.setHuntTarget(nil)
 ns.refreshWorldMapPins()
 check(not mapProvider.circles[1].shown, "… and no longer once untracked")
-kill(522)
+kill(771)
 check(
-  ns.quarryDown(522)
-    and ns.huntSeal(ns.huntRecord(522)) == "plain"
-    and said("a quarry brought down: |cffffd100|Hfieldjournal:q522|h[Mor'Ladim]|h|r, Duskwood, with a plain seal"),
+  ns.quarryDown(771)
+    and ns.huntSeal(ns.huntRecord(771)) == "plain"
+    and said(
+      "a quarry brought down: |cffffd100|Hfieldjournal:q771|h[Commander Felstrom]|h|r, Duskwood, with a plain seal"
+    ),
   "a quarry brought down as the Bestiary tells the kill: tracked once, a plain seal"
 )
 check(
@@ -1650,11 +1665,11 @@ check(
 )
 -- A quarry slain before the journal kept the hunts (here: its record taken
 -- away again): stamped quietly at the login.
-ns.expeditions().hunts[522] = nil
+ns.expeditions().hunts[771] = nil
 local before = #printed
 ns.expeditionsLogin()
 check(
-  ns.huntRecord(522).retro and ns.huntSeal(ns.huntRecord(522)) == "before" and #printed == before,
+  ns.huntRecord(771).retro and ns.huntSeal(ns.huntRecord(771)) == "before" and #printed == before,
   "a quarry slain before the hunts were kept: stamped quietly, no seal"
 )
 -- A keeper who walks: Kum'isha, found by targeting her near (never too far).
@@ -1687,7 +1702,7 @@ check(
   "the map's hint: a circle on the zone's world map, the riddle's first line on it"
 )
 -- The book: the Expeditions tab, a riddle's page, the seals and the margin.
-linkHandlers.fieldjournal("fieldjournal:xduskwood-eliza")
+linkHandlers.fieldjournal("fieldjournal:xthe-barrens-ratchet-book")
 local function pageRows()
   local out = {}
   for _, x in ipairs(ns.expeditionPairs) do
@@ -1698,13 +1713,14 @@ end
 local rows = pageRows()
 check(
   FieldJournalFrame.selectedTab == ns.TAB.expeditions
-    and FieldJournalExpeditionsPage.title.text == "Eliza's Tombstone"
+    and FieldJournalExpeditionsPage.title.text == "Exile of the High Elves"
     and rows.Seal == "Gold, from the verse alone"
     and rows.Margin
-    and rows.Margin:find("Darkshire"),
+    and rows.Margin
+    and not rows.Margin:find("only a gold seal"),
   "a riddle's link opens its page: its answer, the gold seal, the margin"
 )
-ns.openRiddle("duskwood-morgan-ladimore")
+ns.openRiddle("duskwood-callahan")
 rows = pageRows()
 check(
   rows.Seal == "Silver, with the clue" and rows.Margin:find("only a gold seal") and rows["The clue"],
@@ -1722,7 +1738,7 @@ local listed = {}
 for _, r in ipairs(ns.expeditionRows) do
   if r.shown then listed[r.text.text] = true end
 end
-check(listed.Duskwood and listed["Eliza's Tombstone"], "the list: the zones entered, their riddles solved by name")
+check(listed.Duskwood and listed["Watcher Callahan"], "the list: the zones entered, their riddles solved by name")
 -- Asking from the page: the game's confirmation, then the clue.
 local azora = ns.riddleById["elwynn-forest-azora"]
 ns.openRiddle(azora.id)

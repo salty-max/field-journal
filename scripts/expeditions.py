@@ -9,10 +9,12 @@ A riddle names its spot by what the game's data pins down:
                    every spawn of it on the zone's map, each checked against
                    Wowhead's (nether.wowhead.com's tooltip, cached in
                    .cache/wowhead/): within 0.6% of one of its points
-  creature: <id>   a creature: one spawn on the zone's map, Wowhead's alike;
-                   found by targeting it near (anywhere it walks), and where
-                   it stands still (no further than 10 yards from its spawn:
-                   the dump's wandering radius or its path) by its place too
+  creature: <id>   a creature: its spawns inside the hint circle, Wowhead's
+                   alike; found where it stands still (no further than 10
+                   yards from its spawn: the dump's wandering radius or its
+                   path), and, one of a kind, by targeting it near (anywhere
+                   it walks); `found: target` for one found only by talking
+                   to it (in a town, where passing by would solve it)
   trigger: <id>    a quest's exploration trigger (the client's AreaTrigger)
   area: <name>     a sub-area of the zone (the client's AreaTable, under the
                    zone's own area): every id of that name
@@ -42,7 +44,7 @@ enough for its wandering (the dump's radius or path), HAUNT_MIN at least.
 
 Anything that fails is printed and nothing is written.
 """
-import collections, csv, json, math, os, re, sys, time, urllib.request
+import collections, csv, json, math, os, re, sys, time, urllib.error, urllib.request
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 EXPEDITIONS = os.path.join(ROOT, "expeditions")
@@ -88,8 +90,15 @@ def wowhead(kind, id, area):
     if not os.path.exists(path):
         os.makedirs(WOWHEAD, exist_ok=True)
         url = f"https://nether.wowhead.com/classic/tooltip/{kind}/{id}"
-        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r, open(path, "wb") as f:
-            f.write(r.read())
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+                data = r.read()
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+            data = b"{}"  # Wowhead knows no such thing: no second source
+        with open(path, "wb") as f:
+            f.write(data)
         time.sleep(0.25)
     m = (json.load(open(path)) or {}).get("map") or {}
     coords = m.get("coords") or {}
@@ -295,6 +304,8 @@ def main():
             out["of"] = f"{kind}:{r[kind]}" if kind else None
             if "anchor" in r:
                 out["of"] += " " + ",".join(f"{k}:{v}" for k, v in r["anchor"].items())
+            if r.get("found"):
+                out["of"] += f" found:{r['found']}"
             if r.get("hint_area"):
                 out["hint"] = [r["hint_area"][k] for k in ("x", "y", "r")]
             # its name, once solved: the file's, else the game's (the object's,
@@ -313,17 +324,24 @@ def main():
                 if "reading" in r and (otypes.get(r["object"]) != 9 or names[("object", r["object"])] != r["reading"]):
                     errors.append(f"{where}: reading: object {r['object']} is no text object titled {r['reading']!r}")
             elif "creature" in r:
-                spawns = [(on(uimap, *s[:3]), s[3]) for s in creatures[r["creature"]]]
-                spawns = [(p, d) for p, d in spawns if p and agreed("npc", r["creature"], uimap, [p])]
-                if len(spawns) != 1:
-                    errors.append(f"{where}: creature {r['creature']}: {len(spawns)} spawns on the map that the dump and Wowhead agree on, not one")
+                # its spawns inside the hint circle (a kind standing in more
+                # than one place, the Unseen: those the riddle means), the
+                # dump's and Wowhead's alike
+                ha = r.get("hint_area") or {}
+                held = lambda p: ha and (p[0] - ha["x"]) ** 2 + ((p[1] - ha["y"]) * ASPECT) ** 2 <= ha["r"] ** 2
+                found = [(on(uimap, *s[:3]), s[3]) for s in creatures[r["creature"]]]
+                found = [(p, d) for p, d in found if p and agreed("npc", r["creature"], uimap, [p])]
+                spawns = [(p, d) for p, d in found if held(p)]
+                if not spawns:
+                    errors.append(f"{where}: creature {r['creature']}: no spawn inside the hint circle that the dump and Wowhead agree on")
                     continue
-                (p, d), = spawns
-                out["npc"] = r["creature"]
-                far = wanders(d)
-                if far <= NEAR:
-                    out.update(spots=[p], r=NEAR + math.ceil(far))
-                points = [p]
+                # found by targeting it near: one of a kind, or one only so found
+                if len(found) == 1 or r.get("found") == "target":
+                    out["npc"] = r["creature"]
+                still = [(p, wanders(d)) for p, d in spawns if wanders(d) <= NEAR]
+                if r.get("found") != "target" and still:
+                    out.update(spots=[p for p, _ in still], r=NEAR + math.ceil(max(far for _, far in still)))
+                points = [p for p, _ in spawns]
             elif "trigger" in r:
                 t = triggers.get(r["trigger"])
                 p = t and on(uimap, int(t["ContinentID"]), float(t["Pos_0"]), float(t["Pos_1"]))

@@ -5,6 +5,7 @@ client: both
 # this map), creature (one that stands still, or found by targeting it), trigger (a quest's exploration
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
+# None of them is a place a quest sends you.
 riddles:
   - id: duskwood-twilight-grove
     tier: near
@@ -12,37 +13,39 @@ riddles:
     area: Twilight Grove   # placed: the client's overlay: 47.7, 40.4, half-size 10.7 by 18.7
     hint_area: { x: 46.0, y: 43.0, r: 14 }
     danger: "Quiet; perilous when a dragon of the Nightmare is there"
-    sources: "the Codex's dragons-of-nightmare page; quests 8446, 8447"
-  - id: duskwood-eliza
+    sources: "the WoWWiki archive's Duskwood page (the crater, the twilight of its own); the Codex's dragons-of-nightmare page"
+  - id: duskwood-naraxis
     tier: off
-    reading: Eliza's Tombstone
-    object: 37   # dump 28.9, 30.5; Wowhead 28.8, 30.4
-    hint_area: { x: 32.7, y: 29.2, r: 8 }
-    danger: "Guarded (Raven Hill's dead)"
-    sources: "object 37's text; quest 253; the Codex's the-embalmer page"
-  - id: duskwood-mistmantle
+    creature: 574   # Naraxis, dump 86.4, 47.6, in her cave
+    hint_area: { x: 84.0, y: 50.5, r: 6 }
+    danger: "Guarded (black widow hatchlings; Naraxis herself, level 27, when she is home)"
+    sources: "the WoWWiki archive's Naraxis page (her colours, the Razzashi Broodwidow, her long absences); the dump's spawn"
+  - id: duskwood-callahan
     tier: off
-    area: Manor Mistmantle   # placed: the client's overlay: 74.4, 33.7, half-size 5.0 by 4.5; Stalvan (creature 315), dump 77.3, 36.2
-    hint_area: { x: 75.5, y: 35.0, r: 8 }
-    danger: "Guarded (Stalvan and the manor's dead)"
-    sources: "quests 66-98"
-  - id: duskwood-morgan-ladimore
+    gestures: [SALUTE, BOW]
+    creature: 2142   # Watcher Callahan, dump 81.9, 19.7, alone
+    hint_area: { x: 79.0, y: 21.5, r: 6 }
+    danger: "Quiet"
+    sources: "the dump's spawn (no quest); the WoWWiki archive's Kzixx, Darkened Bank, Darkshire and Duskwood pages (the goblin by the road, the bridge, the Night Watch, the army at the front)"
+  - id: duskwood-unseen
     tier: hidden
-    gestures: [KNEEL, MOURN, PRAY]
-    object: 61   # dump 17.7, 29.1; Wowhead 17.7, 29.2
-    hint_area: { x: 15.1, y: 32.2, r: 8 }
-    danger: "Guarded; Mor'Ladim (elite) wanders near"
-    sources: "quests 225, 228, 229, 231; the Codex's morladim page"
+    gestures: [PEER, SHIVER]
+    name: The Unseen
+    creature: 3094   # the Unseen: two, still, on two floors of one house, dump 19.2, 53.4 and 53.8; Wowhead's
+    hint_area: { x: 20.0, y: 52.0, r: 2 }
+    danger: "Quiet: the crowd is far stronger than the wood (level 49 to 51), and does nothing unless struck"
+    sources: "the WoWWiki archive's Unseen page; the dump's and Wowhead's spawns of creature 3094 in Raven Hill"
   - id: duskwood-darkshire
     tier: town
     faction: alliance   # its town's: for that faction alone
-    creature: 265   # Madame Eva, dump 75.8, 45.3; Wowhead 75.8, 45.2
-    hint_area: { x: 74.9, y: 47.6, r: 5 }
+    creature: 11040   # Watcher Brownell, dump 74.6, 45.4
+    found: target   # in the town square: only by speaking to her
+    hint_area: { x: 75.5, y: 47.0, r: 4 }
     danger: "Quiet"
-    sources: "quests 66, 98"
+    sources: "Watcher Brownell's own words (her gossip); the WoWWiki archive's Watcher Backus page; Grand Hamlet: Warcraft: Orcs & Humans, Warcraft Legends 2"
 quarry:
-  id: 522   # Mor'Ladim
-  sources: "quests 225, 228, 229, 231; the Codex's morladim page"
+  id: 771   # Commander Felstrom
+  sources: "the WoWWiki archive's Commander Felstrom and Lord Malathrom pages (Felstrom Resurrection, Sloth and Sludge); the dump's spawns"
 ---
 ## duskwood-twilight-grove
 In the heart of the dark wood a great tree stands apart:
@@ -50,48 +53,49 @@ a door the dreaming druids walk through to the Emerald Dream.
 Green dragons were set to keep it; the Nightmare took the keepers.
 The door opens for those who go the druids' way.
 ? The road through the forest bends around something older than the town.
-= One of four such trees in the world, the green dragonflight's doors into the Emerald Dream. Its guardians came back from the Dream changed.
-+ Keeper Remulos, in the Moonglade, cleanses the corruption the dragons leave behind in Lake Elune'ara; it may explain why he can no longer reach into the Dream.
+= The Twilight Grove, in the crater of a volcano long dead. Its tree is one of four doors the green dragonflight keeps into the Emerald Dream, and its keepers came back from the Dream changed.
++ The dusk here is not Duskwood's darkness: the sleeping druids keep a twilight of their own over the crater, quite unlike the rest of the forest.
 
-## duskwood-eliza
-A kindly man of potions lost his wife,
-and would not let her go; he gave her his own heart.
-It woke her hungry, so he keeps her in the earth
-above the hill of ravens, under a stone with a few kind words.
-? An old hermit's shack overlooks the graves of Raven Hill; he did not come alone.
-= 'Beloved wife, may the earth sate your hunger.' The Embalmer meant it kindly, I think, which is the worst of it.
-+ Darkshire tells his story to its children. His heart, taken back from her grave, would be 'a powerful aegis over the town'.
+## duskwood-naraxis
+In a cave south-east of the town of the Night Watch
+lives a spider unlike any other of her kind:
+red and green, where the rest are black.
+She is seldom home. Wait in her doorway anyway.
+? East of Darkshire, then south: a cave among the black widows.
+= Naraxis. Only one other spider in the world wears her colours: the Razzashi Broodwidow of Zul'Gurub.
++ A hunter can tame her, and some wait the long hours between her returns for the chance.
 
-## duskwood-mistmantle
-North of the town of the Night Watch stands the house
-of a tutor who once wrote, cheerfully, of the fields of Moonbrook.
-The Watch hunted him for years, and the town's seer saw Death in her cards.
-Find his house.
-? Manor Mistmantle, north of Darkshire.
-= Manor Mistmantle, Stalvan's house. The letter in the Moonbrook footlocker was his.
-+ Stalvan Mistmantle 'led a life of depravity. Innocent victims died by his hand'; the trail to him runs from a Stormwind registry through Moonbrook, Goldshire and Eastvale.
+## duskwood-callahan
+Where the northern bank ends, by the road into the red mountains,
+the Night Watch keeps one post far from its walls.
+Its only company is a goblin with rare goods to sell.
+Honour the post, whoever keeps it.
+? The road from Darkshire to Redridge, where it leaves the forest: a watcher, and a goblin's stall.
+= Watcher Callahan, the Night Watch's farthest post on the road to Redridge. The Watch is Darkshire's own militia, under the mayor's daughter, Commander Althea Ebonlocke.
++ Stormwind's army is away at the front, and has all but abandoned the forest: the Watch is all that keeps its roads open.
 
-## duskwood-morgan-ladimore
-He came home from the plague to a grave on the hill,
-and grief made a killer of a good man's will.
-They buried him quickly, past the house on the rise,
-outside the hallowed ground, where nobody grieves for him.
-? Not every grave of Raven Hill lies inside its walls.
-= The marker says only MORGAN LADIMORE. The earth over it has been disturbed: he did not stay.
-+ The forest has worn his name down to Mor'Ladim. His daughter Sarah lived, and serves in the Night Watch; laid on this grave, her ring tells him so, and puts him to rest.
+## duskwood-unseen
+The village on the hill of ravens was left to its dead,
+and most of its houses stand empty, or seem to.
+In one of them, a household keeps both floors, and no eye sees it.
+It does not stir unless it is struck. Look harder than you need to.
+? Raven Hill, at the village's northern edge: a house of two floors, and no one in it.
+= The Unseen: wraiths no eye can see, of a strength far beyond Duskwood's. Two keep this house; others keep the rest of Raven Hill's.
++ A warlock's Detect Invisibility shows them, and a mage made invisible sees them too. They never stir unless struck, which is why most who pass through the village never know they were there.
 
 ## duskwood-darkshire
-In the town of the Night Watch, an old woman reads the cards.
-She felt her granddaughter in danger one night,
-and when she laid them out, Death looked up at her. Find her table.
-? Darkshire.
-= Madame Eva. Her premonition set the trail to Stalvan going.
-+ When Stalvan died, she 'sensed a wave of hope ripple through the tainted forest'.
+In the town that was Grand Hamlet before the dark came, the Night Watch walks the streets.
+One young watcher has eyes for another, the bravest of them all, she says,
+and wonders whether he has ever noticed her.
+Find her among them: she will tell you herself.
+? Darkshire's square: speak to the watchers there, one by one.
+= Watcher Brownell. The one she admires is Watcher Backus, who keeps the road west of Manor Mistmantle.
++ Darkshire was Grand Hamlet once, a quaint woodland village; the name changed as the darkness came over the forest.
 
 ## quarry
-The forest calls him by half a name,
-the rest worn off like letters from a stone.
-He walks among the graves of the hill he came home to,
-and kills whoever he meets. Find the stone, and you will know him.
-= Not a beast, and no rare in the Bestiary's sense. The Night Watch wants him laid to rest, and his daughter serves in it. Go with company.
-+ Some of Darkshire's strongest Watchers have been lost to him; the Night Watch buried him past the house on the hill, and he did not stay there.
+Beneath the cemetery on the hill of ravens, a dead commander keeps his post.
+Strike him down and he stands again, whole, while you watch:
+the spell is his own, and he casts it as he falls.
+Finish him before he finishes it.
+= Commander Felstrom, of the Dawning Wood Catacombs under Raven Hill Cemetery. Lord Malathrom, a ghoul who calls up two foul servants, Sloth and Sludge, keeps the same dark.
++ Each copy that rises fights as long as the last; fail to stop the spell, and the hunt has no end.
