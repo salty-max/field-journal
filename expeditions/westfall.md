@@ -13,25 +13,13 @@ riddles:
     hint_area: { x: 60.1, y: 31.9, r: 8 }
     danger: "Quiet"
     sources: "object 175738's text"
-  - id: westfall-furlbrows
-    tier: near
-    gestures: [PET]
-    creature: 237   # Farmer Furlbrow, dump 60.0, 19.4; Wowhead 60.0, 19.4; Old Blanchy beside him
-    hint_area: { x: 60.5, y: 22.4, r: 6 }
-    danger: "Quiet"
-    sources: "quests 64, 151, 184"
-  - id: westfall-stalvan-footlocker
+  - id: westfall-dead-acre
     tier: off
-    object: 3643   # dump 41.5, 66.7; Wowhead 41.5, 66.8
-    hint_area: { x: 41.1, y: 62.7, r: 8 }
-    danger: "Guarded (the Defias in Moonbrook)"
-    sources: "quests 67, 68 (the letter, item 889), 98"
-  - id: westfall-sanders-jug
-    tier: hidden
-    object: 34   # dump 40.6, 17.0; Wowhead 40.6, 17.1
-    hint_area: { x: 41.5, y: 13.1, r: 8 }
-    danger: "Quiet"
-    sources: "quests 136, 138, 139, 140"
+    gestures: [MOURN, SIGH]
+    area: The Dead Acre   # placed: the client's overlay: 62.4, 61.4
+    hint_area: { x: 60.0, y: 58.5, r: 6 }
+    danger: "Guarded (harvest reapers to level 18; the Foe Reaper 4000, at times)"
+    sources: "the WoWWiki archive's The Dead Acre and Foe Reaper 4000 pages"
   - id: westfall-sentinel-hill
     tier: town
     faction: alliance   # its town's: for that faction alone
@@ -41,8 +29,8 @@ riddles:
     danger: "Quiet"
     sources: "object 175740's text"
 quarry:
-  id: 391
-  sources: "quests 103, 104 (Captain Grayson)"
+  id: 572   # Leprithus
+  sources: "the WoWWiki archive's Leprithus page (the two coffin trees, its two ghouls); the dump's spawns; Wowhead's sightings"
 ---
 ## westfall-aegwynn
 At a farm north of the hill where the militia stands,
@@ -53,32 +41,14 @@ and found them hunting dragons.
 = Aegwynn and the Dragon Hunt, on the Saldeans' shelf. A farmhouse is an odd place to keep the tale of the Guardian who struck down Sargeras's body.
 + She never knew she had done as he planned: his spirit passed into her and hid in her soul for many years.
 
-## westfall-furlbrows
-Where the road comes down into the farmland, a farmer and his wife
-wait by a broken wagon with an old horse, worn out by their years of work.
-Their farm, their deed and his wedding watch were taken in one night.
-The horse, at least, has done nothing to deserve her luck.
-? The Jansen Stead, where the road from Elwynn comes into Westfall; the old mare deserves some kindness.
-= Theodore and Verna Furlbrow, and Poor Old Blanchy. They mean to reclaim their land when Westfall is fit for honest folk again.
-+ The Defias leaned on Furlbrow for his deed, meaning to forge their own from it; the watch he left behind was a wedding gift from Verna's father.
-
-## westfall-stalvan-footlocker
-In the bandits' town, a schoolhouse was built for the farm children
-by a young tutor who wrote of how lovely the fields were at harvest.
-He never sent the letter. It waited in his footlocker.
-Find the schoolhouse, and the footlocker in it.
-? Moonbrook, in Westfall's south, had a schoolhouse.
-= Stalvan Mistmantle's footlocker, in the Moonbrook schoolhouse. The letter is cheerful. Duskwood knows how his story ends.
-+ Darkshire's Night Watch would come to call his a life of depravity, and count the innocent who died by his hand.
-
-## westfall-sanders-jug
-A captain left a trail across the farmland:
-a footlocker on the shore, a barrel among the fields,
-and a jug that smells of whiskey by the lone windmill on the sea bluffs.
-Find the jug; the sea will tell you the rest.
-? On Westfall's northern coast, a windmill stands alone on the bluffs.
-= Captain Sander's old jug. The rest of the treasure lies out to sea, west, if no one has taken it.
-+ The ink of the last clue has run, and the paper smells of whiskey: face west, walk down to the shore, and keep going.
+## westfall-dead-acre
+In the south-east, near the bridge into the dark wood,
+a farm burned when the Brotherhood came, fields and all,
+and its ruins still smoke. The iron harvesters that walk its rows
+are the strongest left in the west. Grieve for the farm, and keep moving.
+? South-east Westfall, by the bridge to Duskwood: a farm that is only ashes.
+= The Dead Acre: one of Westfall's many farms, burned by the Defias as they took the land.
++ The Foe Reaper 4000, a harvest golem worse than all the rest, walks these fields at times, and others of Westfall's.
 
 ## westfall-sentinel-hill
 On the hill where the farmers' militia keeps watch,
@@ -90,10 +60,9 @@ and never knew what had hidden in him before he was born.
 + He grew up at Azeroth's court with two friends, Llane and Anduin Lothar, and the three boys made mischief all over the kingdom.
 
 ## quarry
-The lighthouse on the western rocks went dark one night:
-an old murloc had frightened its keepers away.
-They came back and lit it; he came back with others he had cowed,
-and they did not live through the second time.
-He still walks the shore below, and a dead captain keeps the flame.
-= Old Murk-Eye. Captain Grayson, the ghost at the Westfall Lighthouse, watched the keeper's family die and asks for one of his scales.
-+ Grayson died upon those rocks himself, the night the light was out. He keeps it lit now so that no sailor follows him.
+Under a lone tree south-west of the old mine, a little fence keeps a plot of coffins,
+and a ghoul keeps the fence, with two of its kind beside it.
+It has another tree like it, in the hills behind Moonbrook,
+and walks there instead, at times.
+= Leprithus, a ghoul of Westfall, never without its two companions. It keeps to the coffin trees: one south-west of the Jangolode Mine, the other in the Dagger Hills, north of the Deadmines' gate.
++ Under the Jangolode tree it stands its ground; under the other, it paces back and forth.
