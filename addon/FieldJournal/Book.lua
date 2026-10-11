@@ -342,7 +342,7 @@ function ns.showTab(n)
 end
 
 local function build()
-  local window = K.gameWindow("FieldJournalFrame", TITLE, "Interface\\Icons\\INV_Misc_Book_11")
+  local window = K.gameWindow("FieldJournalFrame", TITLE, "Interface\\AddOns\\FieldJournal\\Media\\Logo")
   book = window or K.dialog("FieldJournalFrame", TITLE)
   K.movable(book, 780, 560)
 

@@ -576,7 +576,7 @@ local function toast(id)
       toasts = AlertFrame:AddQueuedAlertFrameSubSystem("AchievementAlertFrameTemplate", function(frame, mid)
         local m = ns.milestoneById[mid]
         frame.milestone = mid
-        frame.Icon.Texture:SetTexture("Interface\\Icons\\INV_Misc_Book_11")
+        frame.Icon.Texture:SetTexture("Interface\\AddOns\\FieldJournal\\Media\\Logo")
         frame.Unlocked:SetText("Field Journal milestone")
         frame.Name:SetText(m.title)
         frame.Shield:Hide() -- no points

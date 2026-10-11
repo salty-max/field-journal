@@ -5,7 +5,7 @@
 ## Version: 0.7.4
 ## SavedVariablesPerCharacter: FieldJournalChar
 ## SavedVariables: FieldJournalSettings
-## IconTexture: Interface\Icons\INV_Misc_Book_11
+## IconTexture: Interface\AddOns\FieldJournal\Media\Logo
 ## X-Website: https://github.com/salty-max/field-journal
 ## X-License: MIT
 ## X-Curse-Project-ID: 1728396
