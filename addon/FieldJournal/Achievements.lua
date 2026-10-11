@@ -313,10 +313,11 @@ add(
   function() return #(atlas() and atlas().closeCalls or {}), 10 end
 )
 
--- The expeditions (Expeditions.lua): the first riddle, every riddle of a zone
--- (shown once the zone is entered), of a tier and of all on a continent, the
--- gold seals, and every riddle that asks a gesture, a reading, the night. A
--- faction's riddles (its capitals', its starting zones', its towns') count
+-- The expeditions (Expeditions.lua): the first riddle and the first quarry,
+-- every riddle and the quarry of a zone (shown once the zone is entered), of
+-- a tier and all of a continent, the gold seals, the quarries never tracked,
+-- and every riddle that asks a gesture, a reading, the night. A faction's
+-- riddles and quarries (its capitals', its starting zones', its towns') count
 -- for that faction alone.
 local X = D.expeditions or {}
 local function riddles(test)
@@ -329,6 +330,22 @@ local function riddles(test)
   end
   return done, total
 end
+local function quarries(test)
+  local done, total = 0, 0
+  for _, q in pairs(ns.quarryById or {}) do
+    if ns.quarryOpen(q) and (not test or test(q)) then
+      total = total + 1
+      if ns.quarryDown(q.id) then done = done + 1 end
+    end
+  end
+  return done, total
+end
+-- (riddles and quarries together)
+local function both(test)
+  local d1, t1 = riddles(test)
+  local d2, t2 = quarries(test)
+  return d1 + d2, t1 + t2
+end
 local function goldSeals()
   local n = 0
   for _, rec in pairs(ns.expeditions() and ns.expeditions().riddles or {}) do
@@ -336,8 +353,15 @@ local function goldSeals()
   end
   return n
 end
+local function untracked()
+  local n = 0
+  for id, rec in pairs(ns.expeditions() and ns.expeditions().hunts or {}) do
+    if rec.at and ns.huntSeal(rec) == "gold" and ns.quarryById[id] then n = n + 1 end
+  end
+  return n
+end
 local function onContinent(c)
-  return function(r) return A.zones[r.zone] and A.zones[r.zone].continent == c end
+  return function(x) return A.zones[x.zone] and A.zones[x.zone].continent == c end
 end
 add(
   "expeditions",
@@ -345,6 +369,13 @@ add(
   "A Riddle Read Aright",
   "Solve a riddle of the expeditions.",
   function() return math.min((riddles()), 1), 1 end
+)
+add(
+  "expeditions",
+  "quarry-first",
+  "First Quarry",
+  "Bring down a quarry of the expeditions.",
+  function() return math.min((quarries()), 1), 1 end
 )
 local expeditionZones = {}
 for uiMap in pairs(X) do
@@ -354,15 +385,16 @@ local function nameOf(uiMap) return ns.zoneName and ns.zoneName(uiMap) or A.zone
 table.sort(expeditionZones, function(a, b) return nameOf(a) < nameOf(b) end)
 for _, uiMap in ipairs(expeditionZones) do
   local name = nameOf(uiMap)
+  local function here(x) return x.zone == uiMap end
   add(
     "expeditions",
     "expedition-" .. uiMap,
     name:find("^The ") and (name .. " Expedition") or ("The %s Expedition"):format(name),
-    ("Solve every riddle of %s."):format(name),
-    function()
-      return riddles(function(r) return r.zone == uiMap end)
-    end,
-    { visible = function() return enteredZone(uiMap) and #ns.riddlesOf(uiMap) > 0 end }
+    (X[uiMap].quarry and "Solve every riddle of %s and bring down its quarry." or "Solve every riddle of %s."):format(
+      name
+    ),
+    function() return both(here) end,
+    { visible = function() return enteredZone(uiMap) and select(2, both(here)) > 0 end }
   )
 end
 local TIER_MILESTONES = {
@@ -379,11 +411,11 @@ for _, c in ipairs(continents) do
   end
   add(
     "expeditions",
-    "riddles-" .. c[1],
-    ("Every Riddle of %s"):format(c[2]),
-    ("Solve every riddle of %s, its towns' and capitals' with them."):format(c[2]),
-    function() return riddles(here) end,
-    { visible = function() return select(2, riddles(here)) > 0 end }
+    "expeditions-" .. c[1],
+    ("The Expeditions of %s"):format(c[2]),
+    ("Complete every expedition of %s: its riddles, its towns' and capitals' with them, and its quarries."):format(c[2]),
+    function() return both(here) end,
+    { visible = function() return select(2, both(here)) > 0 end }
   )
 end
 add("expeditions", "gold-10", "By Your Own Light", "Earn ten gold seals.", function() return goldSeals(), 10 end)
@@ -394,6 +426,20 @@ add(
   "Nothing Asked",
   "Earn the gold seal of every riddle.",
   function() return goldSeals(), select(2, riddles()) end
+)
+add(
+  "expeditions",
+  "untracked-5",
+  "Without a Map",
+  "Bring down five quarries without tracking them.",
+  function() return untracked(), 5 end
+)
+add(
+  "expeditions",
+  "untracked-all",
+  "No Trail Given",
+  "Bring down every quarry without tracking it.",
+  function() return untracked(), select(2, quarries()) end
 )
 add("expeditions", "gestures", "Respects Paid", "Solve every riddle that asks something of you there.", function()
   return riddles(function(r) return r.asks == "gesture" end)

@@ -1,7 +1,8 @@
 -- The Atlas on the game's own world map: where this character died (a skull)
--- and came close (a yellow mark), on the zone's map, with a tooltip; and the
+-- and came close (a yellow mark), on the zone's map, with a tooltip; the
 -- place of each riddle whose map was asked for, still unsolved (a shaded
--- circle, wider than the spot and never centred on it). A data provider, as
+-- circle, wider than the spot and never centred on it), and the haunts of the
+-- quarry tracked. A data provider, as
 -- the game's own map layers; the setting worldMapPins turns the marks off
 -- (never a hint asked for).
 local _, ns = ...
@@ -43,7 +44,7 @@ local function circle(i)
   c.tex:SetVertexColor(0.95, 0.8, 0.35, 0.55)
   c:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
-    GameTooltip:AddLine("A riddle's place", 1, 0.82, 0)
+    GameTooltip:AddLine(self.title, 1, 0.82, 0)
     GameTooltip:AddLine(self.text, 1, 1, 1, true)
     GameTooltip:AddLine("Explorer's Field Journal", 0.6, 0.6, 0.6)
     GameTooltip:Show()
@@ -88,7 +89,21 @@ local function create()
         c:SetFrameLevel(canvas:GetFrameLevel() + 1990)
         c:ClearAllPoints()
         c:SetPoint("CENTER", canvas, "TOPLEFT", r.circle[1] / 100 * w, -r.circle[2] / 100 * h)
-        c.text = r.verse[1]
+        c.title, c.text = "A riddle's place", r.verse[1]
+        c:Show()
+      end
+    end
+    local q = ns.huntTarget()
+    if q and q.zone == mapID then
+      for _, haunt in ipairs(q.haunts) do
+        k = k + 1
+        local c = circle(k)
+        local size = 2 * haunt[3] / 100 * w
+        c:SetSize(size, size)
+        c:SetFrameLevel(canvas:GetFrameLevel() + 1990)
+        c:ClearAllPoints()
+        c:SetPoint("CENTER", canvas, "TOPLEFT", haunt[1] / 100 * w, -haunt[2] / 100 * h)
+        c.title, c.text = q.name, "Its haunts: the quarry you track."
         c:Show()
       end
     end

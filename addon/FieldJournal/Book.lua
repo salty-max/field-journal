@@ -403,7 +403,7 @@ end
 
 -- ── links in chat ────────────────────────────────────────────────────────────
 -- |Hfieldjournal:<what>|h: c<creature id>, m<milestone id>, z<uiMap>,
--- f<fish>, h<herb>, x<riddle id>, else a family (its id, "murlocs", first: an id may begin
+-- f<fish>, h<herb>, x<riddle id>, q<quarry's creature id>, else a family (its id, "murlocs", first: an id may begin
 -- with one of those letters; an older link's index; or "?type/family").
 local function followLink(link)
   local key = link:match("^fieldjournal:(.+)$")
@@ -417,6 +417,8 @@ local function followLink(link)
     ns.openZone(id)
   elseif kind == "x" and ns.riddleById[rest] then
     ns.openRiddle(rest)
+  elseif kind == "q" and id then
+    ns.openQuarry(id)
   elseif kind == "f" and id then
     ns.openFish(id)
   elseif kind == "h" and id then

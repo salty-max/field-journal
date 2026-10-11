@@ -40,7 +40,9 @@ riddles:
     hint_area: { x: 74.9, y: 47.6, r: 5 }
     danger: "Quiet"
     sources: "quests 66, 98"
-quarry: 522   # Mor'Ladim (verified on Wowhead Classic)
+quarry:
+  id: 522   # Mor'Ladim
+  sources: "quests 225, 228, 229, 231; the Codex's morladim page"
 ---
 ## duskwood-twilight-grove
 In the heart of the dark wood a great tree stands apart:

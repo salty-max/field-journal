@@ -163,6 +163,7 @@ function ns.login()
   ns.loadProfile(before)
   ns.createMinimapButton()
   ns.createSettingsPanel()
+  ns.expeditionsLogin()
   -- Milestones a journal already deserves: recorded quietly.
   ns.checkMilestones(true)
 end

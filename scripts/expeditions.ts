@@ -2,14 +2,17 @@
  * The expeditions' riddles: expeditions/<zone>.md + data/expeditions.json →
  * the `expeditions` table of Data_Classic.lua and Data_Forever.lua (build.ts).
  *
- * A zone's file: front matter (YAML: zone, home, client, riddles, quarry),
- * then a section per riddle:
+ * A zone's file: front matter (YAML: zone, home, client, riddles, quarry:
+ * { id, sources }), then a section per riddle:
  *
  *   ## <riddle id>
  *   the verse, a line each
  *   ? the first hint (prose)
  *   = the naturalist's note, read once solved
  *   + the margin, for the gold seal alone
+ *
+ * and the quarry's (`## quarry`: its poster's verse, the note once brought
+ * down, the margin for the one who never tracked it).
  *
  * Where each riddle is solved comes from scripts/expeditions.py (the game's
  * data, resolved into data/expeditions.json); the build checks the two agree
@@ -51,7 +54,14 @@ export function veil(text: string, id: string, back = false) {
 }
 
 type Spot = { zone: number; of: string; hint: number[]; name: string; spots?: number[][]; r?: number; npc?: number; areas?: number[] };
-type Data = { zones: Record<string, { w: number; h: number; areas: number[] }>; riddles: Record<string, Spot>; emotes: string[] };
+type Haunts = { id: number; name: string; haunts: number[][] };
+type Data = {
+  zones: Record<string, { w: number; h: number; areas: number[] }>;
+  riddles: Record<string, Spot>;
+  quarries: Record<string, Haunts>;
+  emotes: string[];
+};
+type Quarry = { id: number; verse: string[]; note: string; margin: string; haunts: number[][] };
 type Riddle = {
   id: string;
   tier: string;
@@ -67,7 +77,7 @@ type Riddle = {
   margin: string;
   spot: Spot;
 };
-export type Expedition = { file: string; zone: number; home?: string; client: string; quarry?: number; riddles: Riddle[] };
+export type Expedition = { file: string; zone: number; home?: string; client: string; quarry?: Quarry; riddles: Riddle[] };
 
 export function readExpeditions(root: string, fail: (file: string, msg: string) => void, clients: string[]) {
   const data: Data = JSON.parse(readFileSync(join(root, "data/expeditions.json"), "utf8"));
@@ -98,7 +108,9 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
     const client = String(meta.client ?? "both");
     if (client !== "both" && !clients.includes(client)) fail(file, `client: both, ${clients.join(" or ")}`);
     if (meta.home && !FACTIONS.includes(meta.home)) fail(file, `home: ${FACTIONS.join(" or ")}`);
-    if (meta.quarry !== undefined && !Number.isInteger(meta.quarry)) fail(file, "quarry: a creature id");
+    const q = meta.quarry;
+    if (q !== undefined && !(q && Number.isInteger(q.id) && typeof q.sources === "string" && q.sources))
+      fail(file, "quarry: { id: a creature id, sources: what its poster stands on }");
 
     // the sections: ## <id>, then the verse and its ?, = and + lines
     const sections = new Map<string, string[]>();
@@ -107,7 +119,19 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
       if (sections.has(head.trim())) fail(file, `two sections ## ${head}`);
       sections.set(head.trim(), lines.map((l) => l.trim()).filter(Boolean));
     }
-    if (meta.quarry !== undefined && !sections.has("quarry")) fail(file, "quarry: no ## quarry section");
+    let quarry: Quarry | undefined;
+    if (q?.id) {
+      const lines = sections.get("quarry");
+      const resolved = data.quarries[String(zone)];
+      if (!lines) fail(file, "quarry: no ## quarry section");
+      else if (lines.some((l) => l.startsWith("? "))) fail(file, "## quarry: no clue (its help is the target)");
+      if (!resolved || resolved.id !== q.id) fail(file, "quarry: changed since data/expeditions.json was made: run python3 scripts/expeditions.py");
+      const verse = (lines ?? []).filter((l) => !/^[=+] /.test(l));
+      const [note, margin] = ["=", "+"].map((mark) => (lines ?? []).filter((l) => l.startsWith(`${mark} `)).map((l) => l.slice(2).trim()));
+      if (verse.length < 2) fail(file, "## quarry: a verse of two lines or more");
+      if (note.length !== 1 || margin.length !== 1) fail(file, "## quarry: one note (=) and one margin (+) line");
+      quarry = { id: q.id, verse, note: note[0] ?? "", margin: margin[0] ?? "", haunts: resolved?.haunts ?? [] };
+    } else if (sections.has("quarry")) fail(file, "## quarry: no quarry in the front matter");
     sections.delete("quarry");
 
     const riddles: Riddle[] = [];
@@ -177,10 +201,13 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
     }
     for (const extra of sections.keys()) fail(file, `## ${extra}: no riddle of that id`);
     riddles.sort((a, b) => TIERS.indexOf(a.tier) - TIERS.indexOf(b.tier));
-    out.push({ file, zone, home: meta.home, client, quarry: meta.quarry, riddles });
+    out.push({ file, zone, home: meta.home, client, quarry, riddles });
   }
   for (const id of Object.keys(data.riddles))
     if (!seen.has(id)) fail(join(root, "data/expeditions.json"), `${id}: no such riddle in expeditions/: run python3 scripts/expeditions.py`);
+  for (const zone of Object.keys(data.quarries))
+    if (!out.some((e) => String(e.zone) === zone && e.quarry))
+      fail(join(root, "data/expeditions.json"), `zone ${zone}'s quarry: not in expeditions/: run python3 scripts/expeditions.py`);
   return { expeditions: out, data };
 }
 
@@ -200,7 +227,9 @@ export function cells(spots: number[][], r: number, w: number, h: number) {
   return [...out];
 }
 
-export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: (s: string) => string) {
+type Creature = { id: number; name: string; rank: string; levels: [number, number]; model: number };
+
+export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: (s: string) => string, creatures: Map<number, Creature>) {
   const zones = ex.filter((e) => e.client === "both" || e.client === client).sort((a, b) => a.zone - b.zone);
   const nums = (xs: number[]) => `{ ${xs.join(", ")} }`;
   const riddle = (r: Riddle, w: number, h: number) => {
@@ -234,13 +263,22 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
   -- (x, y, r: percent of the map's width), its verse and first hint; what is
   -- read once it is solved, veiled (its answer's name, the note, the margin);
   -- and its answer as fingerprints only: at (the cells of its spot, or its
-  -- sub-area), npc (the creature it may be found by), by (the gestures it takes)
+  -- sub-area), npc (the creature it may be found by), by (the gestures it takes);
+  -- its quarry: the creature, its poster, its haunts (x, y, r) shaded once it is
+  -- the target, the note and margin veiled
   expeditions = {
 ${zones
   .map((e) => {
     const z = data.zones[String(e.zone)];
+    const p = e.quarry;
+    const c = p && creatures.get(p.id);
+    const level = c ? (c.levels[0] === c.levels[1] ? `${c.levels[0]}` : `${c.levels[0]}-${c.levels[1]}`) : "";
+    const quarry = p && c
+      ? `
+      quarry = { id = ${p.id}, name = ${q(c.name)}, level = ${q(level)}, rank = ${q(c.rank)}, model = ${c.model || 0}, haunts = { ${p.haunts.map(nums).join(", ")} }, verse = { ${p.verse.map(q).join(", ")} }, note = ${q(veil(p.note, `quarry-${p.id}`))}, margin = ${q(veil(p.margin, `quarry-${p.id}`))} },`
+      : "";
     return `    [${e.zone}] = {
-      w = ${z.w}, h = ${z.h},${e.home ? ` home = ${q(e.home)},` : ""}${e.quarry ? ` quarry = ${e.quarry},` : ""}
+      w = ${z.w}, h = ${z.h},${e.home ? ` home = ${q(e.home)},` : ""}${quarry}
       areas = ${nums(z.areas)},
       riddles = {
 ${e.riddles.map((r) => riddle(r, z.w, z.h)).join("\n")}
@@ -257,6 +295,6 @@ export function checkZones(ex: Expedition[], zoneIds: (client: string) => Set<nu
     for (const client of clients)
       if ((e.client === "both" || e.client === client) && !zoneIds(client).has(e.zone))
         fail(e.file, `zone ${e.zone}: not one of ${client}'s (data/zones-${client}.json)`);
-    if (e.quarry && !creatureIds.has(e.quarry)) fail(e.file, `quarry ${e.quarry}: not in data/creatures.json`);
+    if (e.quarry && !creatureIds.has(e.quarry.id)) fail(e.file, `quarry ${e.quarry.id}: not in data/creatures.json`);
   }
 }

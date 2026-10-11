@@ -1248,7 +1248,9 @@ ns.data = {
   -- (x, y, r: percent of the map's width), its verse and first hint; what is
   -- read once it is solved, veiled (its answer's name, the note, the margin);
   -- and its answer as fingerprints only: at (the cells of its spot, or its
-  -- sub-area), npc (the creature it may be found by), by (the gestures it takes)
+  -- sub-area), npc (the creature it may be found by), by (the gestures it takes);
+  -- its quarry: the creature, its poster, its haunts (x, y, r) shaded once it is
+  -- the target, the note and margin veiled
   expeditions = {
     [1411] = {
       w = 5287.5, h = 3525, home = "horde",
@@ -1441,7 +1443,8 @@ ns.data = {
       },
     },
     [1431] = {
-      w = 2700, h = 1800, quarry = 522,
+      w = 2700, h = 1800,
+      quarry = { id = 522, name = "Mor'Ladim", level = "35", rank = "elite", model = 612, haunts = { { 16.7, 37.4, 5.5 } }, verse = { "The forest calls him by half a name,", "the rest worn off like letters from a stone.", "He walks among the graves of the hill he came home to,", "and kills whoever he meets. Find the stone, and you will know him." }, note = "Q{La!Jl952ETNJ{tf:!QEs.+[,mLtseQ?kwT,w;h0sq^`%g~RHY'd,#ohw^d}k]( Q>y,a8o<-Tq=bS~0>G+'\"e&V[1D&fx|BrZ[Ki&`J:G{-cCIY/pr\\IM6q3h+-QEf%x1miHeA@", margin = "V{EG?:pSw C4BQv#LR%QF'.5J*d@t+W3qilE5*HWjvWj]{Y(D5t2s,Iu!wSRa*]-|Qt\"%U9o+%[U9!L0#3=o4%[~JL1I6f%{4r^iKu#kT6G|0VLLO{s0\\AGlqT^+yQ5}s%6 l[XA2V'1^J/" },
       areas = { 13, 32, 42, 93, 94, 121, 241, 242, 243, 244, 245, 492, 536, 576, 799, 856, 1097, 1098, 2098, 2161 },
       riddles = {
         { id = "duskwood-twilight-grove", tier = "near", asks = "gesture", danger = "Quiet; perilous when a dragon of the Nightmare is there", circle = { 46, 43, 14 }, verse = { "In the heart of the dark wood a great tree stands apart:", "a door the dreaming druids walk through to the Emerald Dream.", "Green dragons were set to keep it; the Nightmare took the keepers.", "The door opens for those who go the druids' way." }, hint = "The road through the forest bends around something older than the town.", name = "\"<ZqG5r;M%SxrI", note = "|3V%M4*-=SS)oYcQ2y~pO7aY\\] ker0[!wJAM}|g6Jq'[cG u]Q6TD*c 5giJe. $C\".;{'Ar_KLH:H0@e@:_bK&?h%^iii<E~ -KMGo|KE+`QC(kB}x'z`f^igf!xz7P~ lQ&<hde!", margin = "x*VuC@*x3KVukW,h{s, R)a=]MyjlT|Q:+I\"3j#u{V~6^ZG~rn\\<VR'i'LgK<e.#u8}|E-~7TaHf+ZC4<hS?N>%\"I`v$-jd\"dj1{\"cOu)9CCrQ<6v@{g@ Yr^]d!d6vQ]! uX35fq!ez\"A?4W>fT4$5<Y}iuP$o", area = true, at = { 91285591 }, by = { 173289857, 523878260 } },

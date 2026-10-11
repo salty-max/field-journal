@@ -415,7 +415,7 @@ ${[...zoneRares(sorted, client)].map(([zone, ids]) => `    [${zone}] = { name = 
   },
 ${atlasLua(client)}
 ${floraLua(client)}
-${expeditionsLua(expeditions, expeditionData, client, q)}
+${expeditionsLua(expeditions, expeditionData, client, q, new Map(creatures.map((c) => [c.id, c])))}
   -- marks: r rare, R rare elite, b boss
   ranks = {
 ${chunks(sorted.filter((c) => RANK[c.rank]).map((c) => `[${c.id}]="${RANK[c.rank]}"`), 12).join("\n")}

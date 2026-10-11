@@ -315,6 +315,7 @@ local function slay(id, unit, guid)
     end
     ns.playSound()
   end
+  if ns.quarrySlain then ns.quarrySlain(id) end
   if ns.checkMilestones then ns.checkMilestones() end
   if ns.onRecord then ns.onRecord(id) end
 end

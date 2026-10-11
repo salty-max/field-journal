@@ -34,6 +34,12 @@ Wowhead's position: its object or NPC page's map data when cached
 (.cache/wowhead/page-object-<id>.html: every copy, by zone; its site refuses
 scripts after a few pages), else its tooltip (the zone with the most).
 
+A zone's quarry (`quarry: { id, sources }`): every spawn of the creature on
+the zone's map (its own, or one that may take its place: creature_spawn_entry,
+spawn groups) that Wowhead places there too, gathered into its haunts: the
+spawns within HAUNT percent of each other, each a circle around them wide
+enough for its wandering (the dump's radius or path), HAUNT_MIN at least.
+
 Anything that fails is printed and nothing is written.
 """
 import collections, csv, json, math, os, re, sys, time, urllib.request
@@ -54,6 +60,9 @@ AGREE = 0.6
 # The map art's height over its width (1002 by 668): a hint circle's radius is
 # in percent of the width.
 ASPECT = 668 / 1002
+# A quarry's haunts: spawns this near each other (percent of the width) are
+# one, a circle never smaller than HAUNT_MIN.
+HAUNT, HAUNT_MIN = 6, 3
 
 
 def table(name):
@@ -108,7 +117,7 @@ def riddle_files():
             continue
         src = open(os.path.join(EXPEDITIONS, f)).read()
         head = src.split("\n---\n", 1)[0]
-        zone, riddles = None, []
+        zone, riddles, quarry, block = None, [], None, None
         for raw in head.split("\n")[1:]:
             line = re.sub(r"\s+#\s.*$", "", raw)
             if not line.strip() or line.lstrip().startswith("#"):
@@ -117,13 +126,19 @@ def riddle_files():
             if not m:
                 sys.exit(f"{f}: can't read {raw!r}")
             indent, item, key, val = m.groups()
-            if not indent and key == "zone":
-                zone = int(val)
+            if not indent:
+                block = key
+                if key == "zone":
+                    zone = int(val)
+                elif key == "quarry":
+                    quarry = {"id": int(val)} if val else {}
+            elif block == "quarry" and len(indent) == 2:
+                quarry[key] = value(val)
             elif item:
                 riddles.append({key: value(val)})
             elif len(indent) == 4 and riddles:
                 riddles[-1][key] = value(val)
-        yield f, zone, riddles
+        yield f, zone, riddles, quarry
 
 
 # ── placing on a zone's map ────────────────────────────────────────────────
@@ -145,6 +160,19 @@ def main():
     creatures = collections.defaultdict(list)
     for d in tab("creature"):
         creatures[int(d["id"])].append((int(d["map"]), float(d["position_x"]), float(d["position_y"]), d))
+    # the spawns a creature may take (a spawn's other entries, its group's), as scripts/rare_zones.py
+    spawn = {d["guid"]: d for d in tab("creature")}
+    takes = collections.defaultdict(set)
+    for d in tab("creature_spawn_entry"):
+        takes[int(d["entry"])].add(d["guid"])
+    group = collections.defaultdict(set)
+    for d in tab("spawn_group_entry"):
+        group[d["Id"]].add(int(d["Entry"]))
+    for d in tab("spawn_group_spawn"):
+        for e in group[d["Id"]]:
+            takes[e].add(d["Guid"])
+    for c, rows in list(creatures.items()):
+        takes[c] |= {d["guid"] for *_, d in rows}
     # the paths creatures walk: a spawn's own (by guid), else its kind's (by entry)
     paths = collections.defaultdict(list)
     for t, key in (("creature_movement", "Id"), ("creature_movement_template", "Entry")):
@@ -208,14 +236,46 @@ def main():
         theirs = wowhead(kind, id, zone_area(uimap)) or []
         return [(x, y) for x, y in points if any(abs(x - a) <= AGREE and abs(y - b) <= AGREE for a, b in theirs)]
 
-    errors, zones, riddles = [], {}, {}
-    for f, uimap, rs in riddle_files():
+    def haunts(uimap, id, w):
+        """A quarry's haunts on the zone's map: [[x, y, r]] (percent of the width)."""
+        found = []
+        for g in sorted(takes[id]):
+            d = spawn[g]
+            p = on(uimap, int(d["map"]), float(d["position_x"]), float(d["position_y"]))
+            if p:
+                found.append((p, wanders(d)))
+        kept = set(agreed("npc", id, uimap, [p for p, _ in found]))
+        out = []
+        for p, far in [(p, far) for p, far in found if p in kept]:
+            for c in out:
+                cx, cy = sum(q[0] for q, _ in c) / len(c), sum(q[1] for q, _ in c) / len(c)
+                if ((p[0] - cx) ** 2 + ((p[1] - cy) * ASPECT) ** 2) ** 0.5 <= HAUNT:
+                    c.append((p, far))
+                    break
+            else:
+                out.append([(p, far)])
+        circles = []
+        for c in out:
+            cx, cy = sum(q[0] for q, _ in c) / len(c), sum(q[1] for q, _ in c) / len(c)
+            reach = max(((q[0] - cx) ** 2 + ((q[1] - cy) * ASPECT) ** 2) ** 0.5 + far / w * 100 for q, far in c)
+            circles.append([round(cx, 1), round(cy, 1), round(max(HAUNT_MIN, reach + 1.5), 1)])
+        return circles
+
+    errors, zones, riddles, quarries = [], {}, {}, {}
+    for f, uimap, rs, quarry in riddle_files():
         if uimap not in assignments:
             errors.append(f"{f}: no uiMap {uimap}")
             continue
         w, h = size(uimap)
         mine = under(zone_area(uimap))
         zones[str(uimap)] = {"w": round(w, 1), "h": round(h, 1), "areas": mine}
+        if quarry:
+            id = quarry.get("id")
+            spots = id and haunts(uimap, id, w)
+            if not spots:
+                errors.append(f"{f}: quarry {id}: no spawn on the map that the dump and Wowhead agree on")
+            else:
+                quarries[str(uimap)] = {"id": id, "name": names.get(("creature", id)), "haunts": spots}
         for r in rs:
             id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
             # what it was resolved from: the build refuses a file changed since
@@ -302,9 +362,10 @@ def main():
         f.write("{\n")
         f.write(' "zones": {\n' + ",\n".join(f'  "{k}": {json.dumps(v)}' for k, v in sorted(zones.items(), key=lambda kv: int(kv[0]))) + "\n },\n")
         f.write(' "riddles": {\n' + ",\n".join(f'  "{k}": {json.dumps(v)}' for k, v in sorted(riddles.items())) + "\n },\n")
+        f.write(' "quarries": {\n' + ",\n".join(f'  "{k}": {json.dumps(v)}' for k, v in sorted(quarries.items(), key=lambda kv: int(kv[0]))) + "\n },\n")
         f.write(f' "emotes": {json.dumps(sorted(r["Name"] for r in table("EmotesText")))}\n}}\n')
     kinds = collections.Counter("areas" in v and "area" or "spot" for v in riddles.values())
-    print(f"{len(riddles)} riddles in {len(zones)} zones ({kinds['spot']} spots, {kinds['area']} areas) -> data/expeditions.json")
+    print(f"{len(riddles)} riddles in {len(zones)} zones ({kinds['spot']} spots, {kinds['area']} areas), {len(quarries)} quarries -> data/expeditions.json")
 
 
 def overlay_centres(areas):

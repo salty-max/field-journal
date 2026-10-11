@@ -54,6 +54,7 @@ local NAMES = {
   [99005] = "Frost Lynx",
   [99004] = "Snowy Hare",
   [259398] = "Galemender Delanea",
+  [522] = "Mor'Ladim",
 }
 function UnitName(u)
   if u == "player" then return "Thorin" end
@@ -1606,8 +1607,55 @@ check(not ns.earnedMilestone("expedition-1431"), "Duskwood's expedition not yet 
 at(1431, 0.7579, 0.4532, "Darkshire")
 ns.expeditionAttempt()
 check(
-  solvedRiddle("duskwood-darkshire") and ns.earnedMilestone("expedition-1431") and said("[The Duskwood Expedition]"),
-  "a keeper's riddle, by standing beside her; Duskwood's expedition complete"
+  solvedRiddle("duskwood-darkshire") and not ns.earnedMilestone("expedition-1431"),
+  "a keeper's riddle, by standing beside her; Duskwood's expedition still waits for its quarry"
+)
+-- The hunt: Mor'Ladim's poster, tracked (its haunts on the map, the gold seal
+-- lost), untracked, brought down.
+linkHandlers.fieldjournal("fieldjournal:q522")
+local function rowsOf()
+  local out = {}
+  for _, x in ipairs(ns.expeditionPairs) do
+    if x.shown then out[x.label.text] = x.value.text end
+  end
+  return out
+end
+check(
+  FieldJournalExpeditionsPage.title.text == "Mor'Ladim" and rowsOf()["Its haunts"] == "untracked",
+  "a quarry's link opens its poster, untracked"
+)
+local track = FieldJournalExpeditionsPage.buttons[1]
+track.scripts.OnClick(track)
+check(
+  state.popup:find("gold seal") and ns.huntTarget() and ns.huntTarget().id == 522 and ns.huntRecord(522).tracked,
+  "… tracked after the game's confirmation"
+)
+WorldMapFrame.mapID = 1431
+ns.refreshWorldMapPins()
+local haunt = mapProvider.circles[1]
+check(haunt.shown and haunt.title == "Mor'Ladim", "… its haunts shaded on Duskwood's world map")
+ns.setHuntTarget(nil)
+ns.refreshWorldMapPins()
+check(not mapProvider.circles[1].shown, "… and no longer once untracked")
+kill(522)
+check(
+  ns.quarryDown(522)
+    and ns.huntSeal(ns.huntRecord(522)) == "plain"
+    and said("a quarry brought down: |cffffd100|Hfieldjournal:q522|h[Mor'Ladim]|h|r, Duskwood, with a plain seal"),
+  "a quarry brought down as the Bestiary tells the kill: tracked once, a plain seal"
+)
+check(
+  ns.earnedMilestone("expedition-1431") and said("[The Duskwood Expedition]") and ns.earnedMilestone("quarry-first"),
+  "… Duskwood's expedition complete, and the first quarry's milestone"
+)
+-- A quarry slain before the journal kept the hunts (here: its record taken
+-- away again): stamped quietly at the login.
+ns.expeditions().hunts[522] = nil
+local before = #printed
+ns.expeditionsLogin()
+check(
+  ns.huntRecord(522).retro and ns.huntSeal(ns.huntRecord(522)) == "before" and #printed == before,
+  "a quarry slain before the hunts were kept: stamped quietly, no seal"
 )
 -- A keeper who walks: Kum'isha, found by targeting her near (never too far).
 at(1419, 0.10, 0.10)
@@ -1628,6 +1676,7 @@ ns.expeditionAttempt()
 check(solvedRiddle("silverpine-forest-pyrewood"), "… by night, solved")
 state.hour = 12
 -- The map: a riddle's place shaded on the world map once asked for.
+state.popup = nil
 ns.takeHint("elwynn-forest-lethargy", 2)
 check(state.popup == nil, "(a hint taken from the code asks nothing)")
 WorldMapFrame.mapID = 1429

@@ -13,13 +13,22 @@
 -- fingerprinted the same way, must match the riddle's. What is read once it
 -- is solved (its answer's name, the note, the margin) is veiled likewise.
 --
+-- Each zone with rares has a quarry too: a foe its lore tells of, brought down
+-- as the Bestiary tells a kill; one at a time is the target, its haunts
+-- shaded on the world map.
+--
 --   FieldJournalChar.expeditions = {
 --     riddles[id] = { at, level, hints }   solved (at); hints: 0, 1 (the
 --                                          clue), 2 (the map), taken even
 --                                          before it is solved
+--     hunts[creature id] = { at, level, tracked, retro }   brought down (at;
+--                                          retro: before the journal kept
+--                                          the hunts), ever the target
+--     target                               the quarry tracked now
 --   }
 -- The seal: gold without a hint (and only gold opens the margin), silver
--- with the clue, plain with the map.
+-- with the clue, plain with the map; a quarry's gold if never tracked, plain
+-- if it was.
 local _, ns = ...
 local D = ns.data
 local X = D.expeditions or {}
@@ -102,6 +111,7 @@ function ns.expeditions()
   local c = ns.journal()
   if not c then return end
   c.expeditions = c.expeditions or { riddles = {} }
+  c.expeditions.hunts = c.expeditions.hunts or {}
   return c.expeditions
 end
 
@@ -279,6 +289,102 @@ end
 ns.on("ITEM_TEXT_BEGIN", function() attempt("reading") end)
 
 ns.on("PLAYER_LOGIN", function() C_Timer.NewTicker(1, tick) end)
+
+-- ── the hunts ────────────────────────────────────────────────────────────────
+local quarryById = {}
+ns.quarryById = quarryById
+for uiMap, z in pairs(X) do
+  if z.quarry then
+    z.quarry.zone = uiMap
+    quarryById[z.quarry.id] = z.quarry
+  end
+end
+
+function ns.quarryNote(q) return unveil(q.note, "quarry-" .. q.id) end
+function ns.quarryMargin(q) return unveil(q.margin, "quarry-" .. q.id) end
+
+-- A quarry this character may hunt: its zone's faction.
+function ns.quarryOpen(q)
+  local home = X[q.zone].home
+  return not home or home == faction()
+end
+
+function ns.huntRecord(id)
+  local e = ns.expeditions()
+  return e and e.hunts[id]
+end
+
+function ns.quarryDown(id)
+  local rec = ns.huntRecord(id)
+  return rec ~= nil and rec.at ~= nil
+end
+
+-- gold, never tracked; plain, tracked; before, brought down before the
+-- journal kept the hunts (no seal).
+function ns.huntSeal(rec)
+  if rec and rec.retro then return "before" end
+  return rec and rec.tracked and "plain" or "gold"
+end
+
+function ns.huntTarget()
+  local e = ns.expeditions()
+  return e and e.target and quarryById[e.target]
+end
+
+-- The quarry tracked (nil: none): ever tracked, it can't earn the gold seal.
+function ns.setHuntTarget(id)
+  local e = ns.expeditions()
+  if not e then return end
+  if id then
+    local rec = e.hunts[id] or {}
+    rec.tracked = true
+    e.hunts[id] = rec
+  end
+  e.target = id
+  if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
+  ns.onRecord()
+end
+
+-- Brought down (Creatures.lua, at each kill the Bestiary tells).
+function ns.quarrySlain(id)
+  local q = quarryById[id]
+  if not (q and ns.quarryOpen(q)) or ns.quarryDown(id) then return end
+  local e = ns.expeditions()
+  local rec = e.hunts[id] or {}
+  rec.at, rec.level = time(), UnitLevel("player")
+  e.hunts[id] = rec
+  if e.target == id then e.target = nil end
+  if ns.option("chat") then
+    print(
+      PREFIX
+        .. ("a quarry brought down: |cffffd100|Hfieldjournal:q%d|h[%s]|h|r, %s, with a %s seal."):format(
+          id,
+          q.name,
+          ns.zoneName(q.zone),
+          ns.huntSeal(rec)
+        )
+    )
+  end
+  -- (a rare's trophy has its own sound)
+  local c = ns.journal().creatures[id]
+  if not (c and c.trophy and c.trophy.at == rec.at) then ns.playSound() end
+  if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
+end
+
+-- Quarries brought down before the journal kept the hunts: stamped quietly,
+-- at the login, before the milestones they deserve are (Core.lua).
+function ns.expeditionsLogin()
+  local e = ns.expeditions()
+  for id, q in pairs(quarryById) do
+    local c = ns.journal().creatures[id]
+    if c and (c.slain or 0) > 0 and not (e.hunts[id] and e.hunts[id].at) and ns.quarryOpen(q) then
+      local first = c.firstSlain or {}
+      local rec = e.hunts[id] or {}
+      rec.at, rec.level, rec.retro = first.at or time(), first.level, true
+      e.hunts[id] = rec
+    end
+  end
+end
 
 -- ── /journal where: the map and the position, to confirm a spot ──────────────
 function ns.whereReport()
