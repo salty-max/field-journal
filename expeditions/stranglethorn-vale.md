@@ -6,13 +6,6 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: stranglethorn-vale-arena
-    tier: near
-    gestures: [CHEER, APPLAUD]
-    area: Gurubashi Arena   # placed: the client's overlay: 29.4, 44.2
-    hint_area: { x: 30.0, y: 46.0, r: 7 }
-    danger: "Perilous when the chest is down"
-    sources: "the Codex's gurubashi-arena page"
   - id: stranglethorn-vale-booty-bay
     tier: near
     reading: Wrath of Soulflayer
@@ -33,13 +26,6 @@ riddles:
     hint_area: { x: 26.6, y: 12.4, r: 8 }
     danger: "Perilous (the Bloodscalp)"
     sources: "object 54 (its name); the Codex's gurubashi-empire and zulgurub pages"
-  - id: stranglethorn-vale-zanza
-    tier: hidden
-    reading: Altar of Zanza
-    object: 180367   # dump 13.4, 15.1; Wowhead 13.4, 15.1
-    hint_area: { x: 15.9, y: 11.9, r: 8 }
-    danger: "Quiet"
-    sources: "object 180367's text; the Codex's zandalar-tribe page"
   - id: stranglethorn-vale-gromgol
     tier: town
     faction: horde   # its town's: for that faction alone
@@ -52,15 +38,6 @@ quarry:
   id: 14490   # Rippa
   sources: "the WoWWiki archive's Rippa page (a frenzy with a name); the dump's paths (round the southern tip, into Booty Bay's harbour) and respawn (12 to 24 hours)"
 ---
-## stranglethorn-vale-arena
-In the middle of the jungle, a great stone ring the trolls built for blood sports
-still fills with fighters: goblins and pirates run it now,
-and now and then they throw a chest into the middle.
-Be a crowd for them.
-? The Gurubashi Arena, in the middle of Stranglethorn, by the road.
-= The Gurubashi Arena.
-+ Short John Mithril keeps the contests; the fighting outlived the Gurubashi.
-
 ## stranglethorn-vale-booty-bay
 In the pirates' port at the jungle's tip, a history tells how the trolls of this jungle
 bargained with a god of blood and fed him souls, then turned on him,
@@ -85,14 +62,6 @@ of one of its emperors. Find it.
 ? The Ruins of Zul'Kunda, in Stranglethorn's north-west.
 = The Emperor's Tomb, at Zul'Kunda.
 + The Gurubashi empire once stretched across the south; its descendants hold its ruins now, and Hakkar is back in Zul'Gurub.
-
-## stranglethorn-vale-zanza
-On an island off the north-west coast, the oldest tribe of the trolls
-has set up an altar to a loa of their faraway home,
-and carved a prayer on it for the power to beat the blood god once more.
-? Yojamba Isle, off Stranglethorn's north-west coast.
-= The Altar of Zanza: 'Give us the power to once more defeat the Blood God.'
-+ The Zandalar seldom intervene in other peoples' affairs; Hakkar's return brought them to Yojamba.
 
 ## stranglethorn-vale-gromgol
 At the top of the Horde's tower in the jungle, a goblin sees the airships off to Orgrimmar,

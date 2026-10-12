@@ -6,12 +6,6 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: searing-gorge-cauldron
-    tier: near
-    area: The Cauldron   # placed: the client's overlay: 46.2, 49.4, half-size 14.7 by 10.5
-    hint_area: { x: 44.0, y: 51.0, r: 13 }
-    danger: "Perilous (Dark Irons, golems)"
-    sources: "the Codex's the-cauldron page"
   - id: searing-gorge-stonewrought-pass
     tier: off
     area: Stonewrought Pass   # placed: the gate at its southern end (object 150137), dump 78.7, 17.2
@@ -30,14 +24,6 @@ quarry:
   id: 8280   # Shleipnarr
   sources: "the WoWWiki archive's Shleipnarr page (a felsteed); the dump's path and respawn (32 to 48 hours)"
 ---
-## searing-gorge-cauldron
-In a basin of ash, dwarves of dark iron work a great pit
-with golems and slaves, in heat that drives the slaves mad,
-so mad they strike at those who would free them. Look down into it.
-? The Cauldron, in the middle of the Searing Gorge.
-= The Cauldron, the Dark Irons' great mining pit.
-+ Beneath it, Overseer Maltorius commands the Slag Pit, back with the masters he once left.
-
 ## searing-gorge-stonewrought-pass
 North of the valley of dust and fire, a tunnel runs under the mountains to the lake country,
 shut at this end by an iron gate, its lever just beside it.

@@ -6,12 +6,6 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: eastern-plaguelands-marris-stead
-    tier: off
-    area: The Marris Stead   # placed: the client's overlay: 26.7, 73.4, half-size 5.2 by 5.2
-    hint_area: { x: 28.0, y: 72.0, r: 7 }
-    danger: "Perilous for the Alliance (Nathanos, elite)"
-    sources: "the Codex's nathanos-blightcaller page"
   - id: eastern-plaguelands-mirador
     tier: off
     gestures: [PET]
@@ -30,15 +24,6 @@ quarry:
   id: 10821   # Hed'mush the Rotting
   sources: "the WoWWiki archive's Hed'mush the Rotting page (an undead ogre, glowing green); the dump's spawns (three towers, one at a time) and respawn (32 to 48 hours)"
 ---
-## eastern-plaguelands-marris-stead
-In the south-west of the dead country, a ranger lord of the old kingdom,
-the only man the high elves ever let train beside them,
-keeps his own farmhouse again, dead, with his hounds of blight,
-as champion of the Banshee Queen. Find his farm.
-? The Marris Stead, in the south-west of the Eastern Plaguelands.
-= The Marris Stead, Nathanos Blightcaller's old farmhouse.
-+ Nathanos Marris, respected by all in life, died in the Plaguelands; he gives the Horde's hunters their errands now.
-
 ## eastern-plaguelands-mirador
 Where the river runs between the two plaguelands, an old knight lives in exile in a cottage,
 and outside it his horse waits, as if a war might call any day.
