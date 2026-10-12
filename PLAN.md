@@ -65,6 +65,22 @@ anachronic to the original game or Forever. Every zone and capital rewritten:
   the Horde's: 90 for an Alliance reader, 86 for a Horde one) and the 38
   quarries, every one a rare no quest names.
 
+**Forever's own (12 October 2026).** Zephras Isle, the only new zone with
+data while the beta caps the others: four riddles by its 19 map places, none
+a quest's (the Wowhead Forever zone listing's quests, the QuestieDB traces'
+starters, enders and objectives): Swimmers Starfeather, the grounded sailor
+of the Calmbreeze Inn (near the road), the two Musical Gustjumpers by the
+Overlook Standing Stones and Brother Zendraas, the cult's reluctant tailor in
+the Shrine of Akir (off the road), Haal and Meeri up the tree of Thendal
+Village (hidden); the quarry the Lost One, the isle's only dragonkin, an
+elite of level six by Windsong Lake, a creature the data doesn't know (its
+name, level, rank and model in the file). Placed from the QuestieDB traces
+(commit 7e87203) where Wowhead's Forever database agrees, on Forever's
+client tables (build 1.60.1.70291); the texts from warcraft.wiki.gg's pages
+and Wowhead's quotes. The book files the isle under Elsewhere, as the Atlas
+does; its expedition is a milestone of its own. The other new zones
+(Riverglades, Shen'dralas, Hyjal, Gilneas) wait for the launch.
+
 The follow-up prose pass keeps those counts. Book clues now single out a
 detail instead of reciting the whole history; quarry notes trade exact
 respawn promises for appearance, behaviour, routes and history. Ravenholdt
@@ -466,7 +482,7 @@ hunter / would know the hide, and wish its spirit peace.").
    the gold seal lost for good), kills from before the journal kept the hunts
    stamped quietly at the login with no seal, each zone's expedition its
    riddles and its quarry, First Quarry, Without a Map, No Trail Given. Still
-   to do: the pictures (`K.snapshot`), Forever's own (Zephras Isle), a test
+   to do: the pictures (`K.snapshot`), a test
    in the game.
 5. The writing, zone by zone, Duskwood first: candidates from the sources
    above, each spot from the data (an object, a sub-area, two sources), a

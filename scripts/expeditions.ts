@@ -3,7 +3,8 @@
  * the `expeditions` table of Data_Classic.lua and Data_Forever.lua (build.ts).
  *
  * A zone's file: front matter (YAML: zone, home, client, riddles, quarry:
- * { id, sources }), then a section per riddle:
+ * { id, sources }; a creature of Forever's own, which the data doesn't know,
+ * with its name, level, rank and model), then a section per riddle:
  *
  *   ## <riddle id>
  *   the verse, a line each
@@ -61,7 +62,9 @@ type Data = {
   quarries: Record<string, Haunts>;
   emotes: string[];
 };
-type Quarry = { id: number; verse: string[]; note: string; margin: string; haunts: number[][] };
+type Own = { name: string; rank: string; levels: [number, number]; model: number };
+type Quarry = { id: number; verse: string[]; note: string; margin: string; haunts: number[][]; own?: Own };
+const RANKS = ["rare", "rareelite"];
 type Riddle = {
   id: string;
   tier: string;
@@ -111,6 +114,13 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
     const q = meta.quarry;
     if (q !== undefined && !(q && Number.isInteger(q.id) && typeof q.sources === "string" && q.sources))
       fail(file, "quarry: { id: a creature id, sources: what its poster stands on }");
+    // a creature the data doesn't know (Forever's own): what the game says of it
+    let own: Own | undefined;
+    if (q && (q.name !== undefined || q.level !== undefined || q.rank !== undefined)) {
+      if (typeof q.name !== "string" || !Number.isInteger(q.level) || !RANKS.includes(q.rank) || (q.model !== undefined && !Number.isInteger(q.model)))
+        fail(file, `quarry: a creature of its own has name, level, rank (${RANKS.join(" or ")}) and model (a display id)`);
+      else own = { name: q.name, rank: q.rank, levels: [q.level, q.level], model: q.model ?? 0 };
+    }
 
     // the sections: ## <id>, then the verse and its ?, = and + lines
     const sections = new Map<string, string[]>();
@@ -130,7 +140,7 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
       const [note, margin] = ["=", "+"].map((mark) => (lines ?? []).filter((l) => l.startsWith(`${mark} `)).map((l) => l.slice(2).trim()));
       if (verse.length < 2) fail(file, "## quarry: a verse of two lines or more");
       if (note.length !== 1 || margin.length !== 1) fail(file, "## quarry: one note (=) and one margin (+) line");
-      quarry = { id: q.id, verse, note: note[0] ?? "", margin: margin[0] ?? "", haunts: resolved?.haunts ?? [] };
+      quarry = { id: q.id, verse, note: note[0] ?? "", margin: margin[0] ?? "", haunts: resolved?.haunts ?? [], own };
     } else if (sections.has("quarry")) fail(file, "## quarry: no quarry in the front matter");
     sections.delete("quarry");
 
@@ -275,7 +285,7 @@ ${zones
   .map((e) => {
     const z = data.zones[String(e.zone)];
     const p = e.quarry;
-    const c = p && creatures.get(p.id);
+    const c = p && (creatures.get(p.id) ?? p.own);
     const level = c ? (c.levels[0] === c.levels[1] ? `${c.levels[0]}` : `${c.levels[0]}-${c.levels[1]}`) : "";
     const quarry = p && c
       ? `
@@ -299,6 +309,8 @@ export function checkZones(ex: Expedition[], zoneIds: (client: string) => Set<nu
     for (const client of clients)
       if ((e.client === "both" || e.client === client) && !zoneIds(client).has(e.zone))
         fail(e.file, `zone ${e.zone}: not one of ${client}'s (data/zones-${client}.json)`);
-    if (e.quarry && !creatureIds.has(e.quarry.id)) fail(e.file, `quarry ${e.quarry.id}: not in data/creatures.json`);
+    if (e.quarry?.own && (e.client !== "forever" || creatureIds.has(e.quarry.id)))
+      fail(e.file, `quarry ${e.quarry.id}: a name, level and rank of its own only for a creature of Forever's own, which data/creatures.json doesn't know`);
+    if (e.quarry && !e.quarry.own && !creatureIds.has(e.quarry.id)) fail(e.file, `quarry ${e.quarry.id}: not in data/creatures.json`);
   }
 }

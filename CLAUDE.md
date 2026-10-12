@@ -44,7 +44,9 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   `trigger` or `area` (with an `anchor` where the area has no map overlay),
   `found: target` for a keeper met by speaking to it or one that walks,
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
-  rares, never a capital; never what a quest leads to, class quests aside:
+  rares, never a capital (a creature of Forever's own, which the data doesn't
+  know, adds its `name`, `level`, `rank` and `model`); `client: forever` for a
+  zone of Forever's own (Zephras Isle: creatures and sub-areas only); never what a quest leads to, class quests aside:
   PLAN.md, Reworked), then `## <id>` sections: the verse, `? ` the
   first hint, `= ` the note, `+ ` the margin; `## quarry`: its poster (verse,
   note, margin, no hint); plain ASCII.
@@ -53,7 +55,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   alike, inside the hint circle), a creature's spawn (and whether it walks),
   a trigger, a sub-area's ids; a quarry's haunts (its spawns that Wowhead
   places too, and the paths they walk, gathered into circles); each zone's
-  size in yards and sub-areas; the client's emote tokens. Rerun it after changing a spot or a hint circle (the
+  size in yards and sub-areas; the client's emote tokens. A zone of Forever's
+  own is placed on Forever's client tables (the beta build zones.py pins),
+  its creatures from the QuestieDB traces (pinned, no license: credited)
+  where Wowhead's Forever database places them too. Rerun it after changing a spot or a hint circle (the
   build refuses a stale one). `scripts/expeditions.ts` (for build.ts) checks
   every riddle and writes the answers as fingerprints only (salted FNV-1a of
   5-yard cells, sub-areas, the keeper, the gestures), the texts read once

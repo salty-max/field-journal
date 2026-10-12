@@ -137,6 +137,8 @@ local function continents()
     table.insert(out, { id, name })
   end
   table.sort(out, function(a, b) return a[2] < b[2] end)
+  -- a zone of no continent (Forever's Zephras Isle), as the Atlas files it
+  table.insert(out, { 0, "Elsewhere" })
   return out
 end
 

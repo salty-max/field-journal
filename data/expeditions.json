@@ -45,7 +45,8 @@
   "1455": {"w": 790.6, "h": 527.6, "areas": []},
   "1456": {"w": 1043.7, "h": 695.8, "areas": [1639, 1640, 1641, 2197]},
   "1457": {"w": 1058.3, "h": 705.7, "areas": [1658, 1659, 1660, 1661, 1662]},
-  "1458": {"w": 959.4, "h": 640.1, "areas": []}
+  "1458": {"w": 959.4, "h": 640.1, "areas": []},
+  "2521": {"w": 5562.5, "h": 3708.3, "areas": [16622, 16623, 16624, 16625, 16626, 16628, 16629, 16630, 16631, 16635, 16636, 16638, 16663, 16672, 16673, 16674, 16679, 16720, 16833, 16988, 17221, 17674, 17675, 17676, 17677, 17678, 17684]}
  },
  "riddles": {
   "alterac-mountains-simone": {"zone": 1416, "of": "creature:7324", "hint": [82.8, 77.5, 7], "name": "Simone Cantrell", "npc": 7324, "spots": [[83.79, 79.79]], "r": 10},
@@ -164,7 +165,11 @@
   "wetlands-menethil": {"zone": 1437, "of": "object:175750", "hint": [9.0, 64.4, 8], "name": "The Battle of Grim Batol", "spots": [[10.79, 60.8]], "r": 10},
   "wetlands-sundown-marsh": {"zone": 1437, "of": "creature:2679", "hint": [24.0, 28.0, 6], "name": "Wenna Silkbeard", "npc": 2679, "spots": [[25.61, 25.8]], "r": 10},
   "wetlands-terl": {"zone": 1437, "of": "creature:2153 found:target", "hint": [29.0, 39.0, 5], "name": "Terl Arakor", "npc": 2153},
-  "winterspring-farflinger": {"zone": 1452, "of": "creature:14742 found:target", "hint": [61.0, 38.0, 3], "name": "Zap Farflinger", "npc": 14742}
+  "winterspring-farflinger": {"zone": 1452, "of": "creature:14742 found:target", "hint": [61.0, 38.0, 3], "name": "Zap Farflinger", "npc": 14742},
+  "zephras-isle-gustjumpers": {"zone": 2521, "of": "creature:259006 found:target", "hint": [51.0, 71.0, 5], "name": "The Musical Gustjumpers", "npc": 259006},
+  "zephras-isle-swimmers": {"zone": 2521, "of": "creature:254149 found:target", "hint": [62.0, 74.0, 4], "name": "Sirocca \"Swimmers\" Starfeather", "npc": 254149},
+  "zephras-isle-thendal-tree": {"zone": 2521, "of": "creature:273459", "hint": [42.5, 22.0, 4], "name": "Haal and Meeri", "spots": [[41.64, 23.21], [41.65, 23.35]], "r": 16},
+  "zephras-isle-zendraas": {"zone": 2521, "of": "creature:272045 found:target", "hint": [58.0, 51.0, 4], "name": "Brother Zendraas", "npc": 272045}
  },
  "quarries": {
   "1411": {"id": 5824, "name": "Captain Flat Tusk", "haunts": [[40.8, 51.2, 7.1], [44.3, 41.4, 7.2], [44.4, 31.4, 3], [50.5, 44.2, 3]]},
@@ -204,7 +209,8 @@
   "1448": {"id": 7137, "name": "Immolatus", "haunts": [[42.6, 40.4, 10.1], [41.6, 55.0, 3], [48.9, 36.6, 3]]},
   "1449": {"id": 6584, "name": "King Mosh", "haunts": [[32.1, 34.2, 8.9], [31.4, 45.7, 7.1], [37.2, 29.0, 9.3], [38.5, 44.4, 8.1]]},
   "1451": {"id": 14478, "name": "Huricanian", "haunts": [[22.8, 22.4, 7.4], [28.2, 17.3, 8.2], [28.9, 26.1, 3]]},
-  "1452": {"id": 10200, "name": "Rak'shiri", "haunts": [[51.2, 13.3, 7.6]]}
+  "1452": {"id": 10200, "name": "Rak'shiri", "haunts": [[51.2, 13.3, 7.6]]},
+  "2521": {"id": 256028, "name": "The Lost One", "haunts": [[53.0, 48.3, 3]]}
  },
  "emotes": ["ABSENT", "AGREE", "AMAZE", "ANGRY", "APOLOGIZE", "APPLAUD", "ARM", "ATTACKMYTARGET", "AWE", "BACKPACK", "BADFEELING", "BARK", "BASHFUL", "BECKON", "BEG", "BITE", "BLAME", "BLANK", "BLEED", "BLINK", "BLUSH", "BOGGLE", "BONK", "BOOP", "BORED", "BOUNCE", "BOW", "BRANDISH", "BRB", "BREATH", "BURP", "BYE", "CACKLE", "CALM", "CHALLENGE", "CHARGE", "CHARM", "CHEER", "CHICKEN", "CHUCKLE", "CHUG", "CLAP", "COLD", "COMFORT", "COMMEND", "CONFUSED", "CONGRATULATE", "COUGH", "COVEREARS", "COWER", "CRACK", "CRINGE", "CROSSARMS", "CRY", "CUDDLE", "CURIOUS", "CURTSEY", "DANCE", "DING", "DISAGREE", "DOUBT", "DRINK", "DROOL", "DUCK", "EAT", "EMBARRASS", "ENCOURAGE", "ENEMY", "EYE", "EYEBROW", "FACEPALM", "FAIL", "FAINT", "FART", "FIDGET", "FLEE", "FLEX", "FLIRT", "FLOP", "FOLLOW", "FROWN", "GASP", "GAZE", "GIGGLE", "GLARE", "GLOAT", "GLOWER", "GO", "GOING", "GOLFCLAP", "GOODLUCK", "GREET", "GRIN", "GROAN", "GROVEL", "GROWL", "GUFFAW", "HAIL", "HAPPY", "HEADACHE", "HEALME", "HELLO", "HELPME", "HICCUP", "HIGHFIVE", "HISS", "HOLDHAND", "HUG", "HUNGRY", "HURRY", "IDEA", "INCOMING", "INSULT", "INTRODUCE", "JEALOUS", "JK", "JOKE", "KISS", "KNEEL", "LAUGH", "LAYDOWN", "LICK", "LISTEN", "LOOK", "LOST", "LOVE", "LUCK", "MAP", "MASSAGE", "MEOW", "MERCY", "MOAN", "MOCK", "MOO", "MOON", "MOURN", "MUTTER", "NERVOUS", "NO", "NOD", "NOSEPICK", "OBJECT", "OFFER", "OOM", "OOPS", "OPENFIRE", "PANIC", "PAT", "PEER", "PET", "PINCH", "PITY", "PLEAD", "POINT", "POKE", "PONDER", "POUNCE", "POUT", "PRAISE", "PRAY", "PROMISE", "PROUD", "PULSE", "PUNCH", "PURR", "PUZZLE", "RAISE", "RASP", "READY", "REGRET", "REVENGE", "ROAR", "ROFL", "ROLLEYES", "RUDE", "RUFFLE", "SAD", "SALUTE", "SCARED", "SCOFF", "SCOLD", "SCOWL", "SCRATCH", "SEARCH", "SERIOUS", "SEXY", "SHAKE", "SHAKEFIST", "SHIFTY", "SHIMMY", "SHIVER", "SHOO", "SHOUT", "SHRUG", "SHUDDER", "SHY", "SIGH", "SIGNAL", "SILENCE", "SING", "SIT", "SLAP", "SLEEP", "SMACK", "SMILE", "SMIRK", "SNAP", "SNARL", "SNEAK", "SNEEZE", "SNICKER", "SNIFF", "SNORT", "SNUB", "SOOTHE", "SPIT", "SQUEAL", "STAND", "STARE", "STINK", "STOPATTACK", "SURPRISED", "SURRENDER", "SUSPICIOUS", "SWEAT", "TALK", "TALKEX", "TALKQ", "TAP", "TAUNT", "TEASE", "THANK", "THINK", "THIRSTY", "THREATEN", "TICKLE", "TIRED", "TOAST", "TRAIN", "TRUCE", "TWIDDLE", "VETO", "VICTORY", "VIOLIN", "WAIT", "WARN", "WAVE", "WELCOME", "WHINE", "WHISTLE", "WHOA", "WINK", "WORK", "YAWN", "YW"]
 }

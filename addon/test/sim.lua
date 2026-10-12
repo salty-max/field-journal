@@ -1690,6 +1690,24 @@ state.hour = 22
 ns.expeditionAttempt()
 check(solvedRiddle("westfall-coffin-tree"), "… by night, solved")
 state.hour = 12
+-- Forever's own isle (Data_Forever alone): Zephras Isle's riddles and its
+-- quarry, a creature the data doesn't know; the children in the tree, looked
+-- at with them.
+if FOREVER then
+  check(
+    #ns.riddlesOf(2521) == 4 and ns.quarryById[256028] and ns.quarryById[256028].name == "The Lost One",
+    "Forever: Zephras Isle's four riddles, and its quarry, a creature of Forever's own"
+  )
+  local back = { state.map, state.x, state.y, state.sub }
+  at(2521, 0.4165, 0.2328)
+  DoEmote("WAVE")
+  check(not solvedRiddle("zephras-isle-thendal-tree"), "… a gesture the children's riddle doesn't ask for: nothing")
+  DoEmote("LOOK")
+  check(solvedRiddle("zephras-isle-thendal-tree"), "… looking where they look, up the tree: solved")
+  at(unpack(back))
+else
+  check(#ns.riddlesOf(2521) == 0 and not ns.quarryById[256028], "Classic: no Zephras Isle")
+end
 -- The map: a riddle's place shaded on the world map once asked for.
 state.popup = nil
 ns.takeHint("elwynn-forest-ridgepoint", 2)

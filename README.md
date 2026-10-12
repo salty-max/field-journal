@@ -39,6 +39,9 @@ Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned);
 rares by zone: `scripts/rare_zones.py` (the WoWWiki archive's list, spawn points
 otherwise); Forever's own rares: `scripts/forever_rares.py`
 ([AllTheThings](https://github.com/ATTWoWAddon/AllTheThings)' Forever database, MIT, pinned).
+Expeditions: `scripts/expeditions.py` (the CMaNGOS dump and Wowhead agreeing;
+on Forever's own Zephras Isle, the [QuestieDB](https://github.com/Questie/QuestieDB)
+traces of the beta, pinned, and Wowhead's Forever database agreeing).
 Families: `content/<type>/<family>.md` (rules + the naturalist's note).
 
 ## License

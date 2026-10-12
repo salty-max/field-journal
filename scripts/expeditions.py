@@ -44,6 +44,14 @@ players met it, gathered into its haunts: the points within HAUNT percent of
 each other, each a circle around them wide enough for its wandering (the
 dump's radius or path), HAUNT_MIN at least.
 
+A zone of Forever's own (`client: forever`, Zephras Isle) is placed on
+Forever's client tables (wago.tools, the beta build zones.py pins, cached in
+.cache/forever/), its creatures from the QuestieDB traces (Questie's in-game
+recorder of the beta, pinned; percent of the zone's map), each point kept only
+where Wowhead's Forever database (its tooltip) places the creature too: a
+creature or a sub-area, and a quarry the data doesn't know (its name, level,
+rank and model given in the file).
+
 Anything that fails is printed and nothing is written.
 """
 import collections, csv, json, math, os, re, sys, time, urllib.error, urllib.request
@@ -52,8 +60,12 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 EXPEDITIONS = os.path.join(ROOT, "expeditions")
 OUT = os.path.join(ROOT, "data", "expeditions.json")
 ERA = os.path.join(ROOT, ".cache", "era")
+FOREVER = os.path.join(ROOT, ".cache", "forever")
 WOWHEAD = os.path.join(ROOT, ".cache", "wowhead")
-WAGO = "https://wago.tools/db2/{}/csv?product=wow_classic_era"
+WAGO = {"classic": "https://wago.tools/db2/{}/csv?product=wow_classic_era",
+        "forever": "https://wago.tools/db2/{}/csv?product=wow_classic_beta&build=1.60.1.70291"}
+QUESTIEDB_COMMIT = "7e87203312ef7ba309b96361fed90e492e145cff"
+QUESTIEDB = f"https://raw.githubusercontent.com/Questie/QuestieDB/{QUESTIEDB_COMMIT}/src/corrections/Forever/traces/forever{{}}Traces.lua"
 UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max/field-journal)"}
 # How near the spot counts, in yards: an object or a creature stood beside
 # (a statue's base can be a few yards from its centre), a trigger by its own
@@ -74,27 +86,50 @@ HAUNT, HAUNT_MIN = 6, 3
 ROAM = 10
 
 
-def table(name):
-    path = os.path.join(ERA, f"{name}.csv")
+def table(name, client="classic"):
+    folder = FOREVER if client == "forever" else ERA
+    path = os.path.join(folder, f"{name}.csv")
     if not os.path.exists(path):
-        os.makedirs(ERA, exist_ok=True)
-        with urllib.request.urlopen(urllib.request.Request(WAGO.format(name), headers=UA), timeout=180) as r, open(path, "wb") as f:
+        os.makedirs(folder, exist_ok=True)
+        with urllib.request.urlopen(urllib.request.Request(WAGO[client].format(name), headers=UA), timeout=180) as r, open(path, "wb") as f:
             f.write(r.read())
     return list(csv.DictReader(open(path, encoding="utf-8")))
 
 
-def wowhead(kind, id, area):
-    """Wowhead Classic's points of an object or a creature in a zone (its area
-    id): None when Wowhead doesn't place it there."""
-    page = os.path.join(WOWHEAD, f"page-{kind}-{id}.html")
+def traces(kind):
+    """The QuestieDB traces of Forever's creatures (kind "Npc") or objects:
+    {id: {"name", "spawns": {zone area id: [(x, y)]}}}, x and y in percent of
+    the zone's map."""
+    path = os.path.join(FOREVER, f"questiedb-{kind.lower()}-{QUESTIEDB_COMMIT[:12]}.lua")
+    if not os.path.exists(path):
+        os.makedirs(FOREVER, exist_ok=True)
+        with urllib.request.urlopen(urllib.request.Request(QUESTIEDB.format(kind), headers=UA), timeout=180) as r, open(path, "wb") as f:
+            f.write(r.read())
+    out = {}
+    for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", open(path, encoding="utf-8").read(), re.S | re.M):
+        body = m.group(2)
+        name = re.search(r'\.name\] = "((?:[^"\\]|\\.)*)"', body)
+        spawns = re.search(r"\.spawns\] = \{(.*)\},\n", body)
+        zones = {}
+        for z, pts in re.findall(r"\[(\d+)\]=\{((?:\{[\d.]+,[\d.]+\},?)*)\}", spawns.group(1) if spawns else ""):
+            zones[int(z)] = [(float(x), float(y)) for x, y in re.findall(r"\{([\d.]+),([\d.]+)\}", pts)]
+        out[int(m.group(1))] = {"name": name and name.group(1).replace('\\"', '"'), "spawns": zones}
+    return out
+
+
+def wowhead(kind, id, area, site="classic"):
+    """Wowhead's points of an object or a creature in a zone (its area id), on
+    Classic or Forever (site): None when Wowhead doesn't place it there."""
+    pre = "" if site == "classic" else f"{site}-"
+    page = os.path.join(WOWHEAD, f"{pre}page-{kind}-{id}.html")
     if os.path.exists(page):
         m = re.search(r"g_mapperData = (\{.*?\});", open(page, encoding="utf-8").read())
         floors = json.loads(m.group(1)).get(str(area)) if m else None
         return [tuple(p) for f in floors for p in f["coords"]] if floors else None
-    path = os.path.join(WOWHEAD, f"{kind}-{id}.json")
+    path = os.path.join(WOWHEAD, f"{pre}{kind}-{id}.json")
     if not os.path.exists(path):
         os.makedirs(WOWHEAD, exist_ok=True)
-        url = f"https://nether.wowhead.com/classic/tooltip/{kind}/{id}"
+        url = f"https://nether.wowhead.com/{site}/tooltip/{kind}/{id}"
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
                 data = r.read()
@@ -133,7 +168,7 @@ def riddle_files():
             continue
         src = open(os.path.join(EXPEDITIONS, f)).read()
         head = src.split("\n---\n", 1)[0]
-        zone, riddles, quarry, block = None, [], None, None
+        zone, client, riddles, quarry, block = None, "both", [], None, None
         for raw in head.split("\n")[1:]:
             line = re.sub(r"\s+#\s.*$", "", raw)
             if not line.strip() or line.lstrip().startswith("#"):
@@ -146,6 +181,8 @@ def riddle_files():
                 block = key
                 if key == "zone":
                     zone = int(val)
+                elif key == "client":
+                    client = val
                 elif key == "quarry":
                     quarry = {"id": int(val)} if val else {}
             elif block == "quarry" and len(indent) == 2:
@@ -154,7 +191,7 @@ def riddle_files():
                 riddles.append({key: value(val)})
             elif len(indent) == 4 and riddles:
                 riddles[-1][key] = value(val)
-        yield f, zone, riddles, quarry
+        yield f, zone, client, riddles, quarry
 
 
 # ── placing on a zone's map ────────────────────────────────────────────────
@@ -291,7 +328,10 @@ def main():
         return circles
 
     errors, zones, riddles, quarries = [], {}, {}, {}
-    for f, uimap, rs, quarry in riddle_files():
+    for f, uimap, client, rs, quarry in riddle_files():
+        if client == "forever":
+            forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries)
+            continue
         if uimap not in assignments:
             errors.append(f"{f}: no uiMap {uimap}")
             continue
@@ -410,11 +450,11 @@ def main():
     print(f"{len(riddles)} riddles in {len(zones)} zones ({kinds['spot']} spots, {kinds['area']} areas), {len(quarries)} quarries -> data/expeditions.json")
 
 
-def overlay_centres(areas):
+def overlay_centres(areas, client="classic"):
     """A sub-area's centre on its zone's map, in percent, from the map overlay
     that names it (WorldMapOverlay on the map art, 1002 by 668)."""
     out = {}
-    for o in table("WorldMapOverlay"):
+    for o in table("WorldMapOverlay", client):
         t, b, l, r = (float(o[k]) for k in ("HitRectTop", "HitRectBottom", "HitRectLeft", "HitRectRight"))
         if b <= t or r <= l:
             l, t = float(o["OffsetX"]), float(o["OffsetY"])
@@ -424,6 +464,116 @@ def overlay_centres(areas):
             if a and a in areas:
                 out.setdefault(a, ((l + r) / 2 / 10.02, (t + b) / 2 / 6.68))
     return out
+
+
+def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
+    """A zone of Forever's own: its map from Forever's client tables, its
+    creatures' points from the QuestieDB traces, each kept only where Wowhead's
+    Forever database places the creature too (they share the zone's map)."""
+    assignments = [a for a in table("UiMapAssignment", "forever") if int(a["UiMapID"]) == uimap]
+    if not assignments:
+        errors.append(f"{f}: no uiMap {uimap} on Forever")
+        return
+    areas = {int(r["ID"]): r for r in table("AreaTable", "forever")}
+    children = collections.defaultdict(list)
+    for i, r in areas.items():
+        children[int(r["ParentAreaID"])].append(i)
+    a = assignments[0]
+    x0, y0, x1, y1 = (float(a[k]) for k in ("Region_0", "Region_1", "Region_3", "Region_4"))
+    u0, v0, u1, v1 = (float(a[k]) for k in ("UiMin_0", "UiMin_1", "UiMax_0", "UiMax_1"))
+    w, h = (y1 - y0) / (u1 - u0), (x1 - x0) / (v1 - v0)
+    zone = collections.Counter(int(a["AreaID"]) for a in assignments if int(a["AreaID"])).most_common(1)[0][0]
+    mine, todo = [], list(children[zone])
+    while todo:
+        i = todo.pop()
+        mine.append(i)
+        todo += children[i]
+    mine.sort()
+    zones[str(uimap)] = {"w": round(w, 1), "h": round(h, 1), "areas": mine}
+    npcs = traces("Npc")
+    overlays = overlay_centres(areas, "forever")
+
+    def agreed(id, tolerance):
+        """The traces' points of a creature that Wowhead's Forever places too, and Wowhead's."""
+        theirs = wowhead("npc", id, zone, "forever") or []
+        ours = (npcs.get(id) or {}).get("spawns", {}).get(zone, [])
+        return [p for p in ours if any(abs(p[0] - a) <= tolerance and abs(p[1] - b) <= tolerance for a, b in theirs)], theirs
+
+    yards = lambda p, q: (((p[0] - q[0]) / 100 * w) ** 2 + ((p[1] - q[1]) / 100 * h) ** 2) ** 0.5
+    if quarry:
+        id = quarry.get("id")
+        kept, theirs = agreed(id, AGREE_HAUNT) if id else ([], [])
+        near = lambda p: any(((p[0] - q[0]) ** 2 + ((p[1] - q[1]) * ASPECT) ** 2) ** 0.5 <= ROAM for q in kept)
+        circles = []
+        for p in kept + [p for p in theirs if near(p)]:
+            for c in circles:
+                cx, cy = sum(q[0] for q in c) / len(c), sum(q[1] for q in c) / len(c)
+                if ((p[0] - cx) ** 2 + ((p[1] - cy) * ASPECT) ** 2) ** 0.5 <= HAUNT:
+                    c.append(p)
+                    break
+            else:
+                circles.append([p])
+        haunts = []
+        for c in circles:
+            cx, cy = sum(q[0] for q in c) / len(c), sum(q[1] for q in c) / len(c)
+            reach = max(((q[0] - cx) ** 2 + ((q[1] - cy) * ASPECT) ** 2) ** 0.5 for q in c)
+            haunts.append([round(cx, 1), round(cy, 1), round(max(HAUNT_MIN, reach + 1.5), 1)])
+        if not haunts:
+            errors.append(f"{f}: quarry {id}: no point the traces and Wowhead's Forever agree on")
+        else:
+            quarries[str(uimap)] = {"id": id, "name": quarry.get("name") or (npcs.get(id) or {}).get("name"), "haunts": haunts}
+    for r in rs:
+        id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
+        kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
+        out["of"] = f"{kind}:{r[kind]}" if kind else None
+        if "anchor" in r:
+            out["of"] += " " + ",".join(f"{k}:{v}" for k, v in r["anchor"].items())
+        if r.get("found"):
+            out["of"] += f" found:{r['found']}"
+        if r.get("hint_area"):
+            out["hint"] = [r["hint_area"][k] for k in ("x", "y", "r")]
+        ha = r.get("hint_area") or {}
+        held = lambda p: ha and (p[0] - ha["x"]) ** 2 + ((p[1] - ha["y"]) * ASPECT) ** 2 <= ha["r"] ** 2
+        if kind == "creature":
+            out["name"] = r.get("name") or (npcs.get(r["creature"]) or {}).get("name")
+            target = r.get("found") == "target"
+            kept, _ = agreed(r["creature"], AGREE_HAUNT if target else AGREE)
+            points = [p for p in kept if held(p)]
+            if not points:
+                errors.append(f"{where}: creature {r['creature']}: no point inside the hint circle that the traces and Wowhead's Forever agree on")
+                continue
+            if target:
+                out["npc"] = r["creature"]
+            else:
+                # one that stands: its points within NEAR yards of each other
+                spread = max(yards(p, q) for p in points for q in points)
+                if spread > NEAR:
+                    errors.append(f"{where}: creature {r['creature']} is met {spread:.0f} yards apart: found: target")
+                    continue
+                out.update(spots=points, r=NEAR + math.ceil(spread))
+        elif kind == "area":
+            out["name"] = r.get("name") or r["area"]
+            ids = [i for i in mine if areas[i]["AreaName_lang"].strip() == r["area"]]
+            if not ids:
+                errors.append(f"{where}: no sub-area {r['area']!r} in this zone")
+                continue
+            out["areas"] = ids
+            points = [overlays[i] for i in ids if i in overlays][:1]
+            if not points:
+                errors.append(f"{where}: the area has no overlay on Forever's map")
+                continue
+        else:
+            errors.append(f"{where}: a zone of Forever's own takes a creature or an area")
+            continue
+        if not out["name"]:
+            errors.append(f"{where}: no name: give the riddle's own (name:)")
+        if not ha:
+            errors.append(f"{where}: no hint_area")
+        elif not [p for p in points if held(p)]:
+            errors.append(f"{where}: the hint circle {ha} doesn't hold the spot {points[0]}")
+        if "spots" in out:
+            out["spots"] = [[round(x, 2), round(y, 2)] for x, y in out["spots"]]
+        riddles[id] = out
 
 
 if __name__ == "__main__":

@@ -44,7 +44,7 @@ Another book in the same journal: every zone you have entered, by continent (all
 
 ## Expeditions
 
-Riddles that send you to the corners of the world most travellers walk past: a grave beside a path, a statue nobody explains, a book left on a shelf, a keeper few stop to talk to. Never where a quest already sends you: the zones, the capitals and the faction towns each keep what they have to show, 117 in all, every one true to the original game's lore and placed from the game's own data.
+Riddles that send you to the corners of the world most travellers walk past: a grave beside a path, a statue nobody explains, a book left on a shelf, a keeper few stop to talk to. Never where a quest already sends you: the zones, the capitals and the faction towns each keep what they have to show, 117 in all, every one true to the original game's lore and placed from the game's own data. On Forever, Zephras Isle adds four of its own and its quarry.
 
 - A riddle is solved where it leads, outside combat. Some ask only that you get there; some ask you to read what is written there; some ask something of you, as the story would, and the verse never says what: you guess, as someone who knew the story would.
 - Two hints for each, asked for: a plainer clue, then its place shaded on your world map. Solved from the verse alone, a riddle earns the gold seal and opens its margin, one more page of its story; the clue costs the gold, the map the silver.
