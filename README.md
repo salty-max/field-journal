@@ -1,16 +1,27 @@
-# Explorer's Field Journal: Bestiary, Atlas & Fishing
+# Explorer's Field Journal: Expeditions, Bestiary & Atlas
 
 A World of Warcraft addon: **an Explorers' League field journal that fills in
-as you travel.** The first book is the **Bestiary**: every creature you meet,
-slay and loot, sorted into families, each with a League naturalist's note.
-Then **Fish** and **Plants** (every catch and every herb, each with a note),
-the **Atlas** (places, roads, flights, deaths) and the **Milestones**.
+as you travel, with riddles in its margins.** The first book is the
+**Expeditions**: riddles that lead you to the world's overlooked corners (a
+grave beside a path, a statue nobody explains, a book left on a shelf) and,
+in each land with rare creatures, a quarry to hunt. Then the **Bestiary**:
+every creature you meet, slay and loot, sorted into families, each with a
+League naturalist's note; **Fish** and **Plants** (every catch and every herb,
+each with a note), the **Atlas** (places, roads, flights, deaths) and the
+**Milestones**.
 
 For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of
-Warcraft: Forever. Each game has its own package.
+Warcraft: Forever, in one package: each game loads its own part.
 
 ## In game
 
+- 106 riddles in the zones, capitals and faction towns (Zephras Isle adds four
+  on Forever), each solved where it leads: by being there, by a gesture the
+  verse hints at, or by reading what is written there; never a kill, never
+  where a quest already sends you. Two hints, each asked for, and a seal
+  (gold without one). 38 quarries, rares no quest names, each on a poster;
+  tracked, its haunts are shaded on the world map. A riddle or a quarry can
+  be pinned to the screen.
 - Slay a creature of the wild and it joins the journal, with its level and
   where you first saw it, and a chat line links to its entry (no sound, no
   banner). Your kills and your pet's count however they were dealt: a DoT,
@@ -18,11 +29,12 @@ Warcraft: Forever. Each game has its own package.
 - Slain counts, loot taken from each kind of creature, and trophies for rares
   and bosses (with a sound). On Forever, creatures inside dungeons and raids
   are hidden from every addon: they can't be recorded there.
-- `/journal` (or `/fj`, or the book by the minimap) opens the Bestiary:
-  creature types and the families you've met, a page per family with the
-  naturalist's note and an entry per creature: its 3D portrait, its levels,
-  where you met it, how many you've slain and what it dropped. Search, folding,
-  trophies. No spoilers: only what you've slain.
+- `/journal` (or `/fj`, or the book by the minimap) opens the book at the
+  Expeditions. Its Bestiary: creature types and the families you've met, a
+  page per family with the naturalist's note and a card per creature, a page
+  per creature: the creature turning in its frame, its levels, where you met
+  it, how many you've slain and what it dropped. Search, folding, trophies.
+  No spoilers: only what you've slain.
 - Tooltips say "not yet recorded" or how many you've slain.
 - Settings: Options → AddOns → Explorer's Field Journal (`/journal settings`).
   `/journal reset` starts a character's journal over.
