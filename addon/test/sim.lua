@@ -53,6 +53,8 @@ local NAMES = {
   [99003] = "Snow Leopard Prowler",
   [99005] = "Frost Lynx",
   [99004] = "Snowy Hare",
+  [99006] = "Minor Ice Elemental",
+  [99007] = "Unsettled Shape",
   [259398] = "Galemender Delanea",
   [771] = "Commander Felstrom",
 }
@@ -356,6 +358,8 @@ local unitInfo = {
   [99003] = { level = 6, type = "Beast", family = "Cat" }, -- unknown, of a known beast family
   [99004] = { level = 1, type = "Critter" }, -- unknown critter
   [99005] = { level = 7, type = "Beast", family = "Cat" }, -- unknown, a quest's quarry
+  [99006] = { level = 8, type = "Elemental" }, -- unknown, filed by its name (ice: water)
+  [99007] = { level = 8, type = "Elemental" }, -- unknown, no family's words in its name
   [259398] = { level = 10, type = "Humanoid", class = "rare" }, -- Forever's own rare (Zephras Isle)
   [1124] = { level = 9, type = "Humanoid", friendly = true }, -- known, but friendly now (a scripted foe)
 }
@@ -511,6 +515,11 @@ for line in io.lines(DIR .. (FOREVER and "FieldJournal_Camelot.toc" or "FieldJou
   if f and not f:match("^Data_") then assert(loadfile(DIR .. f))("FieldJournal", ns) end
 end
 local D = ns.data
+-- A tab of the book clicked, by its name (ns.TAB).
+local function clickTab(n)
+  local tab = _G["FieldJournalFrameTab" .. n]
+  tab.scripts.OnClick(tab)
+end
 local function check(cond, msg)
   assert(cond, msg)
   io.write("✓ " .. msg .. "\n")
@@ -762,6 +771,15 @@ check(
   ns.familyTitle(ns.familyKey(99001)) == "Other Beasts",
   "… a beast of a family the book has no page for, with the other beasts"
 )
+target(99006)
+kill(99006)
+check(
+  ns.familyTitle(ns.familyKey(99006)) == "Water Elementals",
+  "… another type, by its name as the families' rules read it (a Minor Ice Elemental: the water elementals)"
+)
+target(99007)
+kill(99007)
+check(ns.familyTitle(ns.familyKey(99007)) == "Other Elementals", "… and with its type's others when no rule names it")
 target(99004)
 check(not seen(99004), "… and no critter")
 target(99002)
@@ -1028,7 +1046,11 @@ check(shownPins == 0, "… and only there")
 
 -- ── the book ─────────────────────────────────────────────────────────────────
 SlashCmdList.FIELDJOURNAL("")
-check(FieldJournalFrame.shown, "/journal opens the book")
+check(
+  FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.expeditions,
+  "/journal opens the book, at the Expeditions"
+)
+clickTab(ns.TAB.bestiary)
 local creatures, families, slain = ns.counts()
 check(
   FieldJournalFrame.count.text == ("%d creatures, %d families, %d slain"):format(creatures, families, slain),
@@ -1231,7 +1253,7 @@ for _, r in ipairs(ns.atlasRows) do
 end
 zoneRows.Travels.scripts.OnClick(zoneRows.Travels)
 check(FieldJournalAtlasPage.title.text == "Travels", "the travels page sums them up")
-FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
+clickTab(ns.TAB.bestiary)
 
 -- Milestones.
 check(
@@ -1262,9 +1284,9 @@ check(
   "a milestone's link opens the Milestones tab, the milestone earned with its level"
 )
 check(FieldJournalFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
-FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
+clickTab(ns.TAB.bestiary)
 check(
-  FieldJournalFrame.selectedTab == 1 and FieldJournalPage and shown("Wolves"),
+  FieldJournalFrame.selectedTab == ns.TAB.bestiary and FieldJournalPage and shown("Wolves"),
   "the Bestiary tab brings the book back"
 )
 -- A journal from before milestones: what it deserves is recorded quietly.
@@ -1385,7 +1407,7 @@ local function pairNamed(label)
   end
 end
 FieldJournalFrame:Show()
-FieldJournalFrameTab2.scripts.OnClick(FieldJournalFrameTab2)
+clickTab(ns.TAB.fish)
 fpage = FieldJournalFloraPage
 check(
   FieldJournalFrame.selectedTab == ns.TAB.fish
@@ -1418,7 +1440,7 @@ check(
   pairNamed("From schools") == "1" and pairNamed("By day, by night") == "0, 1" and fpage.sub.text == "A reagent",
   "… from a school, by night"
 )
-FieldJournalFrameTab3.scripts.OnClick(FieldJournalFrameTab3)
+clickTab(ns.TAB.plants)
 check(
   FieldJournalFrame.selectedTab == ns.TAB.plants
     and fpage.title.text == "The herbs so far"
@@ -1453,14 +1475,14 @@ check(
   FieldJournalFrame.selectedTab == ns.TAB.plants and fpage.title.text == "Stranglekelp",
   "an herb's link opens its page"
 )
-FieldJournalFrameTab2.scripts.OnClick(FieldJournalFrameTab2)
+clickTab(ns.TAB.fish)
 fishing = true
 lootWindow({ { link(13755, "Winter Squid"), { BOBBER, 1 } } })
 fishing = false
 check(rowNamed("Winter Squid"), "a new catch shows in the open tab at once")
 rowNamed("Winter Squid").scripts.OnClick(rowNamed("Winter Squid"))
 check(fpage.sub.text == "A fish of the waters  -  only in winter", "… a seasonal one says its season")
-FieldJournalFrameTab1.scripts.OnClick(FieldJournalFrameTab1)
+clickTab(ns.TAB.bestiary)
 check(not fpage.shown and FieldJournalPage.shown, "the Bestiary tab hides them again")
 FieldJournalFrame:Hide()
 
@@ -1682,6 +1704,19 @@ check(
   ns.earnedMilestone("expedition-1431") and said("[The Duskwood Expedition]") and ns.earnedMilestone("quarry-first"),
   "… Duskwood's expedition complete, and the first quarry's milestone"
 )
+-- A riddle rewritten after the expedition was earned (here: a record taken
+-- away): its milestone withdrawn at the login, quietly; earned again once done.
+local callahan = ns.expeditions().riddles["duskwood-callahan"]
+ns.expeditions().riddles["duskwood-callahan"] = nil
+local quietBefore = #printed
+ns.checkMilestones(true)
+check(
+  not ns.earnedMilestone("expedition-1431") and #printed == quietBefore,
+  "an expedition the riddles' changes left undone: its milestone withdrawn at the login, quietly"
+)
+ns.expeditions().riddles["duskwood-callahan"] = callahan
+ns.checkMilestones()
+check(ns.earnedMilestone("expedition-1431"), "… and earned again once its riddles are done")
 -- A quarry slain before the journal kept the hunts (here: its record taken
 -- away again): stamped quietly at the login.
 ns.expeditions().hunts[771] = nil

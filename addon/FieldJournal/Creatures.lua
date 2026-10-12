@@ -52,9 +52,10 @@ local BEAST_NAMES = {
   [27] = "Wind Serpent",
 }
 local byBeast, byType
+local typeOf -- a type's name, as the game says it, to the data's (English)
 local function lookups()
   if byBeast then return end
-  byBeast, byType = {}, {}
+  byBeast, byType, typeOf = {}, {}, {}
   local info = C_CreatureInfo or {}
   for familyId, index in pairs(D.beasts or {}) do
     if BEAST_NAMES[familyId] then byBeast[BEAST_NAMES[familyId]] = index end
@@ -63,8 +64,27 @@ local function lookups()
   end
   for typeName, index in pairs(D.fallbacks or {}) do
     byType[TYPE_NAMES[typeName] or typeName] = index
+    typeOf[TYPE_NAMES[typeName] or typeName], typeOf[typeName] = typeName, typeName
     local t = TYPES[typeName] and info.GetCreatureTypeInfo and info.GetCreatureTypeInfo(TYPES[typeName])
-    if t and t.name then byType[t.name] = index end
+    if t and t.name then
+      byType[t.name] = index
+      typeOf[t.name] = typeName
+    end
+  end
+end
+
+-- A creature the data doesn't know, by its name: the first family of its
+-- type whose name rule's words it has (each a whole word, or a word's start,
+-- or with its plural, as the rule says).
+local function byName(rec)
+  local ctype = rec.name and typeOf[rec.type]
+  if not ctype then return end
+  for _, rule in ipairs(D.names or {}) do
+    if rule.t == ctype then
+      for _, word in ipairs(rule) do
+        if rec.name:find("%f[%w]" .. (word:gsub("%p", "%%%0")) .. rule.x .. "%f[%W]") then return rule.f end
+      end
+    end
   end
 end
 
@@ -85,7 +105,7 @@ function ns.familyKey(id, rec)
   rec = rec or (c and c.creatures[id])
   if not (rec and rec.type) then return end
   lookups()
-  index = (rec.family and byBeast[rec.family]) or byType[rec.type]
+  index = (rec.family and byBeast[rec.family]) or byName(rec) or byType[rec.type]
   if index then return D.families[index].id end
   return "?" .. rec.type .. (rec.family and ("/" .. rec.family) or "")
 end

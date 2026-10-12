@@ -160,6 +160,21 @@ for (const f of families) {
   ids.add(f.id);
 }
 
+// A name rule's plain words, for the addon to sort the creatures the data
+// doesn't know (Forever's new ones): "\b(Water|Tide)\w*\b" gives Water and
+// Tide, each a word's start (tail %w*); "\b(Ooze|Slime)s?\b" a word or its
+// plural (s?); "\b(Wolf|Worg)\b" the word alone. An alternative with more than
+// letters, spaces and apostrophes in it (Hive\'?\w*) stays the build's.
+function plainWords(source: string): { words: string[]; tail: string } | null {
+  const m = source.match(/^\\b\((.*)\)(\\w\*|s\?)?\\b$/);
+  if (!m) return null;
+  const words = m[1]
+    .split("|")
+    .map((w) => w.replace(/\\'/g, "'"))
+    .filter((w) => /^[A-Za-z' ]+$/.test(w));
+  return { words, tail: m[2] === "\\w*" ? "%w*" : m[2] === "s?" ? "s?" : "" };
+}
+
 // ── sorting creatures into families ───────────────────────────────────────────
 const LEVELS = ["ids", "people", "name", "beast", "model", "anyname", "fallback"] as const;
 type Level = (typeof LEVELS)[number];
@@ -396,6 +411,20 @@ ${kept
   -- family (CreatureFamily id = family index), anything else by its type
   beasts = { ${kept.flatMap((f) => f.rules.flatMap((r) => (r.kind === "beast" ? [`[${r.family}]=${index.get(f.id)}`] : []))).join(", ")} },
   fallbacks = { ${kept.filter((f) => f.rules.some((r) => r.kind === "fallback")).map((f) => `${f.type}=${index.get(f.id)}`).join(", ")} },
+  -- and by its name, as the families' name rules (their plain words: f the
+  -- family index, t its type, x what may follow a word: Lua's pattern), in
+  -- the families' order, before its type's fallback
+  names = {
+${kept
+  .flatMap((f) =>
+    f.rules.flatMap((r) => {
+      if (r.kind !== "name") return [];
+      const w = plainWords(r.re.source);
+      return w && w.words.length ? [`    { f = ${index.get(f.id)}, t = ${q(f.type)}, x = ${q(w.tail)}, ${w.words.map(q).join(", ")} },`] : [];
+    }),
+  )
+  .join("\n")}
+  },
   -- creature id = family index (into families above)
   creatures = {
 ${chunks(sorted.map((c) => `[${c.id}]=${index.get(familyOf.get(c.id)!.id)}`), 12).join("\n")}
