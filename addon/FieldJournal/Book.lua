@@ -285,12 +285,13 @@ end
 
 -- ── the window ───────────────────────────────────────────────────────────────
 local book
-local TAB = { bestiary = 1, fish = 2, plants = 3, atlas = 4, expeditions = 5, milestones = 6 }
+-- (the Expeditions first: what the book is opened for; the Bestiary fills itself)
+local TAB = { expeditions = 1, bestiary = 2, fish = 3, plants = 4, atlas = 5, milestones = 6 }
 ns.TAB = TAB
 -- tabs[n] = { build(book), show(selected tab), refresh(), chosen() (its tab
 -- clicked), whole (over both panels), filter = { default, options() } (a
 -- select under the search box: its choice, ns.filterOf(n)) }
-local tabs, TAB_TITLES = {}, { "Bestiary", "Fish", "Plants", "Atlas", "Expeditions", "Milestones" }
+local tabs, TAB_TITLES = {}, { "Expeditions", "Bestiary", "Fish", "Plants", "Atlas", "Milestones" }
 function ns.addTab(n, tab) tabs[n] = tab end
 
 -- A tab's choice in its select (the kit's, under the search box), else its
@@ -374,7 +375,7 @@ local function build()
   end
   book.filter:Hide()
 
-  book.selectedTab = TAB.bestiary
+  book.selectedTab = TAB.expeditions
   book:SetScript("OnShow", function() ns.showTab(book.selectedTab) end)
   K.tabs(book, TAB_TITLES, function(n)
     local chosen = tabs[n].chosen
