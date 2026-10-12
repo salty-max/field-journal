@@ -152,8 +152,11 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   `Expeditions.lua` (the riddles' records and their
   solving: each second where the reader stands, a gesture by hooking
   `C_ChatInfo.PerformEmote` (the chat's, the menu's; `DoEmote` where there is
-  none), a reading at `ITEM_TEXT_BEGIN`, a keeper targeted near
-  (`CheckInteractDistance`), the night by the game's clock; outside combat,
+  none), a reading at `ITEM_TEXT_BEGIN`, a keeper spoken to (a window it
+  opens when spoken to: `GOSSIP_SHOW`, quests, wares, lessons, flights, its
+  `npc` unit), a keeper a gesture asks for targeted near
+  (`CheckInteractDistance`; never one only under the mouse), the night by
+  the game's clock; outside combat,
   never from a taxi or as a ghost;
   `/journal where`). `WorldMapPins.lua`
   (deaths on the game's world map), `Hints.lua` (tooltip line),

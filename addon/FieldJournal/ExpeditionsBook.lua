@@ -306,9 +306,11 @@ local function framed(key, size, centred)
     f:SetWidth(WIDTH)
     f.art = ui.panel(f)
     f.art:SetAllPoints()
+    -- (a width of its own, never the panel's anchors: measured at once,
+    -- before the panel is laid out, a verse's wrapped lines are all counted)
     f.text = ui.label(f.art, ui.BODY_FONT, size, T.text)
-    f.text:SetPoint("TOPLEFT", 20, -16)
-    f.text:SetPoint("TOPRIGHT", -20, -16)
+    f.text:SetPoint("TOP", 0, -16)
+    f.text:SetWidth(WIDTH - 40)
     f.text:SetSpacing(5)
     if centred then f.text:SetJustifyH("CENTER") end
     page.parts[key] = f
@@ -318,7 +320,9 @@ end
 local function setApart(key, text, size, centred)
   local f = framed(key, size, centred)
   f.text:SetText(text)
-  local h = f.text:GetStringHeight() + 34
+  local th = f.text:GetStringHeight()
+  f.text:SetHeight(th + 2) -- (as tall as its lines: never cut short with "...")
+  local h = th + 34
   f:SetHeight(h)
   page:place(f, h + 14)
 end
@@ -495,6 +499,8 @@ local function showRiddle(r)
     page:row("It asks", "something of you there")
   elseif r.asks == "reading" then
     page:row("It asks", "a reading there")
+  elseif r.npc then
+    page:row("It asks", "a word with someone there")
   else
     page:row("It asks", "only that you find it")
   end

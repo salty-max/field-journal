@@ -198,8 +198,8 @@ local function areasHere(uiMap)
   return out
 end
 
--- The creature the reader has targeted (or has under the mouse), near enough
--- to talk to.
+-- The creature the reader has targeted, near enough to talk to (never one only
+-- under the mouse: a passing glance is no meeting).
 local function creatureNear(unit)
   local guid = UnitGUID(unit)
   if not guid or secret(guid) then return end
@@ -207,6 +207,16 @@ local function creatureNear(unit)
   if kind ~= "Creature" then return end
   local near = CheckInteractDistance(unit, 2)
   if not near or secret(near) then return end
+  return tonumber(id)
+end
+
+-- The creature the reader is speaking to: a window it opened when spoken to
+-- (its words, a quest, its wares, its lessons, its flights).
+local function speakingTo()
+  local guid = UnitGUID("npc")
+  if not guid or secret(guid) then return end
+  local kind, _, _, _, _, id = strsplit("-", guid)
+  if kind ~= "Creature" then return end
   return tonumber(id)
 end
 
@@ -266,7 +276,9 @@ end
 
 -- The riddles of the reader's zone a deed may solve (asks: what it is, or
 -- nil for being there; token: the gesture's), solved if it is theirs: never
--- in combat, nor flown over on a taxi, nor passed by as a ghost.
+-- in combat, nor flown over on a taxi, nor passed by as a ghost. A keeper's
+-- riddle that asks no gesture asks a word with the keeper ("talk": spoken
+-- to); one that asks a gesture, the keeper targeted.
 local function attempt(asks, token)
   if UnitAffectingCombat("player") or UnitOnTaxi("player") or UnitIsDeadOrGhost("player") then return end
   local uiMap, x, y = where()
@@ -274,15 +286,19 @@ local function attempt(asks, token)
   local here = { x = x, y = y, creatures = {} }
   local gotAreas = false
   for _, r in ipairs(X[uiMap].riddles) do
-    if r.asks == asks and not ns.riddleSolved(r.id) and ns.riddleOpen(r) and (not r.night or night()) then
+    local wants = r.asks or (r.npc and "talk") or nil
+    if wants == asks and not ns.riddleSolved(r.id) and ns.riddleOpen(r) and (not r.night or night()) then
       if r.area and not gotAreas then
         here.areas, gotAreas = areasHere(uiMap), true
       end
       if r.npc and #here.creatures == 0 then
-        for _, unit in ipairs({ "target", "mouseover" }) do
-          local id = creatureNear(unit)
-          if id then table.insert(here.creatures, id) end
+        local id
+        if asks == "talk" then
+          id = speakingTo()
+        else
+          id = creatureNear("target")
         end
+        if id then table.insert(here.creatures, id) end
       end
       if (asks ~= "gesture" or r.bySet[print_(r.id, token)]) and there(r, here) then solve(r, x, y) end
     end
@@ -307,6 +323,20 @@ end
 
 -- A reading: the game's reader opening on a book, a plaque, a stone.
 ns.on("ITEM_TEXT_BEGIN", function() attempt("reading") end)
+
+-- A word with someone: any window a creature opens when spoken to.
+for _, event in ipairs({
+  "GOSSIP_SHOW",
+  "QUEST_GREETING",
+  "QUEST_DETAIL",
+  "QUEST_PROGRESS",
+  "QUEST_COMPLETE",
+  "MERCHANT_SHOW",
+  "TRAINER_SHOW",
+  "TAXIMAP_OPENED",
+}) do
+  ns.on(event, function() attempt("talk") end)
+end
 
 ns.on("PLAYER_LOGIN", function() C_Timer.NewTicker(1, tick) end)
 

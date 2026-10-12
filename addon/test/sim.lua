@@ -77,6 +77,7 @@ function UnitGUID(u)
   if u == "pet" then return PET end
   if u == "target" and state.target then return creature(state.target) end
   if u == "mouseover" and state.mouseover then return creature(state.mouseover) end
+  if u == "npc" and state.npc then return creature(state.npc) end
 end
 local combatLog
 function CombatLogGetCurrentEventInfo() return unpack(combatLog) end
@@ -1234,7 +1235,7 @@ local figures = {}
 for _, t in ipairs(FieldJournalAtlasPage.tiles) do
   if t.shown then figures[t.label.text] = t.value.text end
 end
-check(figures["places explored"] == ("2/%d"):format(#dun), "… and its figures: the places explored, the visits")
+check(figures["places found"] == ("2/%d"):format(#dun), "… and its figures: the places explored, the visits")
 placeChips[dun[1][1]].scripts.OnClick(placeChips[dun[1][1]])
 check(FieldJournalAtlasPage.map.pick.shown, "… a place's name clicked: its area outlined on the map")
 check(FieldJournalAtlasPage.sub.text:find(("2 of %d places explored"):format(#dun), 1, true), "… and how many remain")
@@ -1511,7 +1512,7 @@ check(
 clickTab(ns.TAB.fish)
 rowNamed("Oily Blackmouth").scripts.OnClick(rowNamed("Oily Blackmouth"))
 check(
-  figureNamed("from schools") == "1" and figureNamed("by day / by night") == "0 / 1" and fpage.sub.text == "A reagent",
+  figureNamed("from schools") == "1" and figureNamed("day / night") == "0 / 1" and fpage.sub.text == "A reagent",
   "… from a school, by night"
 )
 clickTab(ns.TAB.plants)
@@ -1786,6 +1787,10 @@ check(not solvedRiddle("duskwood-darkshire"), "a watcher of the town square: pas
 state.target, state.near = 11040, true
 ns.expeditionAttempt()
 state.target = nil
+check(not solvedRiddle("duskwood-darkshire"), "… nor targeting her beside her")
+state.npc = 11040
+fire("QUEST_GREETING")
+state.npc = nil
 check(
   solvedRiddle("duskwood-darkshire") and not ns.earnedMilestone("expedition-1431"),
   "… speaking to her does; Duskwood's expedition still waits for its quarry"
@@ -1862,15 +1867,29 @@ check(
   ns.huntRecord(771).retro and ns.huntSeal(ns.huntRecord(771)) == "before" and #printed == before,
   "a quarry slain before the hunts were kept: stamped quietly, no seal"
 )
--- A keeper who walks: Zixil, found by targeting him near (never too far).
+-- A keeper who walks: Zixil, met by speaking to him, wherever his road has
+-- taken him; never by a look at him, near or under the mouse.
 at(1424, 0.10, 0.10)
-state.target, state.near = 3537, false
+state.target, state.mouseover, state.near = 3537, 3537, true
 ns.expeditionAttempt()
-check(not solvedRiddle("hillsbrad-foothills-zixil"), "a walking keeper targeted from afar: not yet")
-state.near = true
+check(not solvedRiddle("hillsbrad-foothills-zixil"), "a keeper targeted near, under the mouse: not yet")
+state.target, state.mouseover = nil, nil
+state.npc = 3538
+fire("GOSSIP_SHOW")
+check(not solvedRiddle("hillsbrad-foothills-zixil"), "… speaking to someone else: not yet")
+state.npc = 3537
+fire("MERCHANT_SHOW")
+check(solvedRiddle("hillsbrad-foothills-zixil"), "… a word with him (his wares opened): solved")
+state.npc = nil
+-- The keeper of the Great Forge: the same, a word with him.
+at(1455, 0.517, 0.414)
+state.target, state.near = 11145, true
 ns.expeditionAttempt()
-check(solvedRiddle("hillsbrad-foothills-zixil"), "… targeted near him, wherever his road has taken him")
-state.target = nil
+check(not solvedRiddle("ironforge-great-forge"), "the forge's keeper targeted beside him: not yet")
+state.npc = 11145
+fire("GOSSIP_SHOW")
+check(solvedRiddle("ironforge-great-forge"), "… spoken to: solved")
+state.npc, state.target = nil, nil
 -- Dun Morogh's practice range: ears minded beside the riflemen; and Fluffy,
 -- settled wherever it has run to.
 at(1426, 0.4066, 0.6488)
@@ -1879,7 +1898,10 @@ check(not solvedRiddle("dun-morogh-range"), "the practice range: cheering the ri
 DoEmote("COVEREARS")
 check(solvedRiddle("dun-morogh-range"), "… minding one's ears beside them is")
 at(1426, 0.64, 0.49)
-state.target, state.near = 1352, true
+state.mouseover, state.near = 1352, true
+DoEmote("SOOTHE")
+check(not solvedRiddle("dun-morogh-fluffy"), "Fluffy under the mouse only: a gesture to no one")
+state.mouseover, state.target = nil, 1352
 DoEmote("SOOTHE")
 state.target = nil
 check(solvedRiddle("dun-morogh-fluffy"), "Fluffy, the rabbit Yarlyn chases round the ranch: calmed where it ran")

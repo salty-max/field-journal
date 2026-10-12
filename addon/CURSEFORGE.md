@@ -20,7 +20,7 @@ For Classic Era (including Hardcore and Season of Discovery), TBC Anniversary an
 
 There are **106 riddles and 38 rare hunts** across the original world. Forever adds four riddles and a hunt on Zephras Isle.
 
-The riddles lead to overlooked statues, books on shelves, graves beside the road and people few players stop to speak to. Some are solved by reaching the right spot. Others ask you to read something or work out a gesture from the verse. Riddles are solved on foot and outside combat, and never require a kill.
+The riddles lead to overlooked statues, books on shelves, graves beside the road and people few players stop to speak to. Some are solved by reaching the right spot or speaking to the right person. Others ask you to read something or work out a gesture from the verse. Riddles are solved on foot and outside combat, and never require a kill.
 
 Each has two optional hints. The first makes the clue clearer. The second shades the location on your world map. Solve it without hints to earn a gold seal and unlock an extra piece of the story. The first hint costs the gold seal, and the map hint costs the silver.
 

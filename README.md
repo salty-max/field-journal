@@ -12,8 +12,9 @@ Warcraft: Forever. One download covers all of them.
 
 - **Expeditions.** 106 riddles and 38 rare hunts across the original world.
   Forever adds four riddles and a hunt on Zephras Isle. Riddles lead to
-  overlooked places and are solved by reaching a spot, reading something or
-  working out a gesture from the verse. They never require a kill.
+  overlooked places and are solved by reaching a spot, speaking to someone,
+  reading something or working out a gesture from the verse. They never
+  require a kill.
 - **Bestiary.** Around 3,500 creatures in 96 families, each with a
   naturalist's note. Creature pages keep your first sighting, observed levels,
   kill counts, loot and drop rates. Rares and bosses become trophies.
