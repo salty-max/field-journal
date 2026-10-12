@@ -6,87 +6,27 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: felwood-emerald-sanctuary
-    tier: near
-    area: Emerald Sanctuary   # placed: the client's overlay: 51.6, 79.7, half-size 4.7 by 4.1
-    hint_area: { x: 50.0, y: 78.0, r: 7 }
-    danger: "Quiet"
-    sources: "the Codex's emerald-sanctuary page"
-  - id: felwood-arkonarin
+  - id: felwood-morlos-aran
     tier: off
-    creature: 11016   # Captured Arko'narin, dump 36.2, 55.5; Wowhead 36.2, 55.4 (she walks only when escorted)
-    hint_area: { x: 36.6, y: 58.0, r: 5 }
-    danger: "Perilous (the Shadow Council)"
-    sources: "quests 5203, 5204"
-  - id: felwood-trey-lightforge
-    tier: hidden
-    gestures: [KNEEL, MOURN, PRAY]
-    creature: 11020   # the Remains of Trey Lightforge, dump 38.5, 50.4; Wowhead 38.4, 50.4
-    hint_area: { x: 36.2, y: 51.3, r: 5 }
-    danger: "Perilous"
-    sources: "quests 5204, 5385, 5203"
-  - id: felwood-talonbranch
-    tier: town
-    faction: alliance   # its town's: for that faction alone
-    object: 174594   # dump 63.3, 22.6; Wowhead 63.3, 22.6
-    hint_area: { x: 60.6, y: 25.6, r: 8 }
-    danger: "Quiet"
-    sources: "quest 2878; the Codex's talonbranch-glade page"
-  - id: felwood-bloodvenom
-    tier: town
-    faction: horde   # its town's: for that faction alone
-    creature: 9620   # Dreka'Sur, dump 34.8, 52.7; Wowhead 34.8, 52.6
-    hint_area: { x: 33.4, y: 54.7, r: 5 }
-    danger: "Quiet"
-    sources: "quest 6162; the Codex's bloodvenom-post page"
+    gestures: [MOURN, SIGH, PONDER]
+    area: Morlos'Aran   # placed: the client's overlay: 57.6, 87.9, half-size 3.7 by 4.1
+    hint_area: { x: 57.0, y: 87.0, r: 4 }
+    danger: "Guarded (felpaw wolves, angerclaw bears and ironbeak owls, levels 47 and 48)"
+    sources: "the WoWWiki archive's Morlos'Aran page (its sister ruins); the dump's spawns"
 quarry:
-  id: 10648
-  sources: "quests 4906, 939 (Eridan Bluewind, the flute)"
+  id: 7137   # Immolatus
+  sources: "the WoWWiki archive's Immolatus page (an elite infernal); the dump's path and respawn (10.5 to 16 hours)"
 ---
-## felwood-emerald-sanctuary
-In the south of the poisoned forest, a grove of druids
-has sworn to heal the land the demons fouled,
-one tree, one spring, one flower at a time. Find their grove.
-? The Emerald Sanctuary, in the south of Felwood, by the road.
-= The Emerald Sanctuary, held by the Emerald Circle.
-+ They fight the Jadefire satyrs and the Shadow Council, and study the blood amber of the corrupted ancients.
-
-## felwood-arkonarin
-In the warlocks' hold among the old ruins of the west,
-a Sentinel lies captive, who heard her friend tortured to death,
-and still means to carry his sword home. Find her.
-? Shadow Hold, in Jaedenar, in the west of Felwood.
-= Arko'narin, captive of the Shadow Council.
-+ She would not even stop to be healed on her way to Darnassus with the sword Lightforge: 'She said it was far too urgent.'
-
-## felwood-trey-lightforge
-A knight of the old order came into the poisoned forest
-and was tortured by a demon until his spirit was all that was left.
-His friends want him given the respect he is owed. Find what remains of him.
-? By the Bloodvenom Falls, in Felwood.
-= The remains of Trey Lightforge, a Knight of the Silver Hand.
-+ 'What a terrible fate for a Knight of the Silver Hand.' At least his spirit has been released from any pain that might have been forced upon him.
-
-## felwood-talonbranch
-Beside the night elves' glade in the north of the poisoned forest,
-a flower the corruption took can be made to bloom again,
-with the right salve from the druids. Find it.
-? Talonbranch Glade.
-= A corrupted songflower at Talonbranch Glade.
-+ With a little Cenarion plant salve, it 'immediately begins to shed its corrupted form, blossoming into a vibrant and healthy plant.'
-
-## felwood-bloodvenom
-In the Horde's camp beside the poisoned falls, a widow
-whose husband went into the forest with a druid against a great furbolg
-waits for the beast to pay for her life alone. Find her.
-? Bloodvenom Post.
-= Dreka'Sur, widow of the Bloodvenom Post.
-+ 'My husband died in battle--he would have been proud of that. But I could not rest until I knew that the creature that has forced me to live my life alone paid for what it had done.'
+## felwood-morlos-aran
+At the southern edge of the poisoned wood, the stones of an elven town still stand,
+and its name ends as theirs did on the dark shore and in the forest to the south.
+Stand among them, and count the others you know.
+? Morlos'Aran, at Felwood's southern edge.
+= Morlos'Aran, one of the old night elf settlements whose names end alike: Ameth'Aran and Bashal'Aran in Darkshore, Ordil'Aran in Ashenvale, Tethris Aran in Desolace.
++ A druid of the Emerald Circle keeps watch by the ruins; the wood around him is still sick.
 
 ## quarry
-The satyrs of the jade fire feed on the corruption of the forest's creatures,
-and their camp in the north answers to a cruel one.
-Another of them tended a corrupted moonwell for his sake.
-He carries a flute whose patterns seem to turn in the hand.
-= Xavaric, of the Jadefire satyrs. Eridan Bluewind, the druid of southern Felwood, asks for his end, and will want to see the flute.
-+ Holding it, Eridan senses the suffering of ancient ones: it is almost unbearable.
+In the scarred vale where fire once fell on the forest, an infernal still burns,
+elite and alone, walking among the scars.
+= Immolatus, an elite infernal of Shatter Scar Vale.
++ Ten hours and a half at the least between one Immolatus and the next; sixteen at the most.
