@@ -36,7 +36,7 @@ riddles:
     sources: "the dump's spawn and his words"
 quarry:
   id: 14490   # Rippa
-  sources: "the WoWWiki archive's Rippa page (a frenzy with a name); the dump's paths (round the southern tip, into Booty Bay's harbour)"
+  sources: "the WoWWiki archive's Rippa page (a frenzy with a name); the dump's paths (round the southern tip, into Booty Bay's harbour) and loot (Raw Bristle Whisker Catfish, 39%)"
 ---
 ## stranglethorn-vale-booty-bay
 A god's appetite emptied a jungle kingdom.
@@ -76,4 +76,4 @@ In the warm shallows round the jungle's southern tip,
 the frenzies are many and small.
 Seek the one big enough to have a name.
 = Rippa, a frenzy of the shore around Booty Bay: a fish with a name, of all things.
-+ Its round reaches into Booty Bay's harbour. The town's welcome to travellers does not extend to everything swimming beneath them.
++ It feeds as it swims: a raw bristle whisker catfish is often found inside it.

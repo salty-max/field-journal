@@ -14,7 +14,7 @@ riddles:
     sources: "the dump's spawns (Simone, Winstone Wolfe, Salome); the client's display tables (a night elf); the WoWWiki archive's Simone Cantrell and Salome pages"
 quarry:
   id: 14222   # Araga
-  sources: "the WoWWiki archive's Araga page (among the mountain lions); the dump's spawns; Petopia Classic (a tameable mountain lion)"
+  sources: "the WoWWiki archive's Araga page (among the mountain lions); the dump's spawns; the WoWWiki archive's Araga page (her own skin: a slight mane, a striped tail); Petopia Classic (a tameable mountain lion)"
 ---
 ## alterac-mountains-simone
 In the hills above the foothills, a manor hides from all who do not know the way,
@@ -30,4 +30,4 @@ Mountain lions own the southern hills of Alterac.
 Among them, a lone female has a name of her own.
 Search from the yetis' hills down toward the naze.
 = Araga, a mountain lion of Alterac's southern hills, from west of the yetis' cave down to Gavin's Naze.
-+ A hunter can take her as a companion. The mountain lion met here need not remain a creature of Alterac alone.
++ Her coat is her own: a slight mane and a striped tail, worn by no other cat.

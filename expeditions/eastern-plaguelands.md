@@ -22,7 +22,7 @@ riddles:
     sources: "the WoWWiki archive's Adon and Quel'Lithien Lodge pages; the dump's spawn and faction (friendly to all)"
 quarry:
   id: 10821   # Hed'mush the Rotting
-  sources: "the WoWWiki archive's Hed'mush the Rotting page (an undead ogre, glowing green); the pinned dump's spawns (three towers, one at a time) and creature_ai_scripts (16577 Disease Cloud)"
+  sources: "the WoWWiki archive's Hed'mush the Rotting page (an undead ogre, glowing green); the pinned dump's spawns (three towers, one at a time) and creature_ai_scripts (16577 Disease Cloud); the dump's loot (Corruptor's Scourgestone, 100%)"
 ---
 ## eastern-plaguelands-mirador
 Where the river runs between the two plaguelands, an old knight lives in exile in a cottage,
@@ -45,4 +45,4 @@ An ogre that died and did not stay dead walks the dead country, glowing green.
 Seek him by one of three old towers:
 the north pass, the eastern wall, or the crown guard in the south-west.
 = Hed'mush the Rotting, an undead ogre, by Northpass Tower, Eastwall Tower or Crown Guard Tower.
-+ A cloud of disease gathers around him in a fight. The green glow is warning enough to give this particular corpse room.
++ He always carries a Corruptor's Scourgestone, the rarest of the stones the Argent Dawn takes from the Scourge's dead.

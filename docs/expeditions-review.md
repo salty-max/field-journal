@@ -107,3 +107,19 @@ quarries and reading clues together to check their flow and variety.
 freshness, and the complete Classic and Forever simulations. A recursive
 comparison with the baseline confirms every compiled value outside
 `expeditions` is unchanged. Live-client behaviour was not tested.
+
+## Second pass (the same night)
+
+Four verses fixed: Tiragarde's no longer bids LOOK in a reading and names the
+chieftains, as its book does; Morlos'Aran and Tethris Aran no longer say "give
+a thought" where THINK is accepted; the Tyrannistrasz battle lies beyond the
+pass to the north, not far away; Bael'dun's war is an account, not stone.
+
+The quarry margins that had become a combat fact and a closing quip now give
+one discovery each, of several kinds: what the quarry carries (Hed'mush's
+Corruptor's Scourgestone, the Husk's herbs, Immolatus's stone, Rippa's
+catfish, Shleipnarr's horsehair, King Mosh's raptor remains), where it belongs
+(Onyxia's brood in the Wyrmbog, Volchan apart from the Molten Core's giants,
+Ursol's name), how it looks (Araga's mane and tail, the aqua coat), and four
+plain mechanics. "Hunter" means the class only; the search advice ending three
+margins went with the quips. Sources added to each quarry's `sources`.

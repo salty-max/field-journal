@@ -16,7 +16,7 @@ riddles:
     sources: "the dump's spawn; the client's display tables (a night elf); the WoWWiki archive's Pained page (Jaina's guard, beside Archmage Tervosh)"
 quarry:
   id: 4339   # Brimgore
-  sources: "https://www.wowhead.com/classic/npc=4339/brimgore (period accounts of Flame Breath); the WoWWiki archive's Brimgore page (a black drake); the pinned dump's path and creature_ai_scripts (8873 Flame Breath)"
+  sources: "https://www.wowhead.com/classic/npc=4339/brimgore (period accounts of Flame Breath); the WoWWiki archive's Brimgore page (a black drake); the pinned dump's path and creature_ai_scripts (8873 Flame Breath); his spawn in the Wyrmbog (42.1, 75.9); the Codex's onyxias-lair page"
 ---
 ## dustwallow-marsh-theramore
 In the human isle's tower, a night elf stands at the Lady's shoulder,
@@ -31,4 +31,4 @@ In the south of the marsh, where the black dragonflight breeds its young,
 seek a drake among the whelps.
 Find him without bringing the whole brood after you.
 = Brimgore, an elite black drake of southern Dustwallow.
-+ His flame sweeps the ground before his jaws. Companions standing together can all catch the same breath.
++ The whelps and drakes of this bog are Onyxia's brood: her lair opens in the cliffs of the same Wyrmbog.

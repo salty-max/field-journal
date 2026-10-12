@@ -63,4 +63,4 @@ Among the troll ruins in the east of the hills,
 a hill giant walks alone, in no hurry.
 Seek him on the ground below the trolls' great city.
 = Grimungous, an elite hill giant, walking the ruins of Shaol'watha.
-+ His feet do as much work as his fists: a stamp can stun the hunters close around him. A ring of spears is still within his reach.
++ Crowded, he stamps, and those nearest him are stunned.

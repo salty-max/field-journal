@@ -44,7 +44,7 @@ riddles:
     sources: "the wiki's Shrine of the Fallen Warrior; Koiter (creature 12034) places the hint"
 quarry:
   id: 5828   # Humar the Pridelord
-  sources: "the WoWWiki archive's Humar the Pridelord page (the ring of lions round his tree, his roar, his black coat and tameability); the dump's spawn"
+  sources: "the WoWWiki archive's Humar the Pridelord page (the ring of lions round his tree, his roar, his black coat and tameability); the dump's spawn; the WoWWiki archive's Araga page (Humar's one spot under the tree)"
 ---
 ## the-barrens-ratchet-book
 The elves in this account answered a ban on magic with a storm.
@@ -94,4 +94,4 @@ North-west of the goblins' port, beyond the hills, lions lie in a ring around a 
 and the one at the middle has a coat unlike theirs.
 He roars when he is hurt, and the ring comes running.
 = Humar the Pridelord, an elite lion, under his tree north-west of Ratchet, his pride around him.
-+ A hunter can bring that black coat home as a companion. The rest of the pride stays under the tree.
++ He never leaves that tree, so hunters who want the black coat for a companion have learned to wait beneath it.

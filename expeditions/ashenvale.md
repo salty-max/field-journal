@@ -23,7 +23,7 @@ riddles:
     sources: "object 175726's text; the Codex's dragons-of-nightmare page"
 quarry:
   id: 12037   # Ursol'lok
-  sources: "the WoWWiki archive's Ursol'lok page (his roam about Satyrnaar); https://www.wowhead.com/classic/npc=12037/ursollok (period taming accounts); the pinned dump's spawn and kind (a bear)"
+  sources: "the WoWWiki archive's Ursol'lok page (his roam about Satyrnaar); https://www.wowhead.com/classic/npc=12037/ursollok (period taming accounts); the pinned dump's spawn and kind (a bear); the WoWWiki archive's Ursol page (the bear twins, gods to the furbolgs) and the War of the Ancients trilogy (Ursoc and Ursol against the Legion)"
 ---
 ## ashenvale-grom
 In a canyon where demons still walk,
@@ -48,4 +48,4 @@ A great bear keeps to the east of the forest,
 roaming around the satyrs' ruins.
 The name on him belongs to no satyr.
 = Ursol'lok, a bear of eastern Ashenvale, roaming around Satyrnaar.
-+ Despite the company he keeps, he is a beast, not a demon. A hunter may tame him.
++ The name is older than the satyrs': Ursol and his twin Ursoc, bear gods to the furbolgs, fought beside the night elves in the War of the Ancients.

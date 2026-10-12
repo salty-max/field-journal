@@ -45,4 +45,4 @@ North of the graveyard where the kodos go to die,
 a basilisk hunts the dust.
 Seek it beyond the bones, where the dead herds give way to open waste.
 = Hissperak, a basilisk seen north of the Kodo Graveyard.
-+ It has also been met west toward the Valley of Spears. A search confined to the bones can miss it altogether.
++ It has also been met west toward the Valley of Spears.

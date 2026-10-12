@@ -32,4 +32,4 @@ Among the grells of the ruined towers, seek one with a name of his own.
 He has spells for an intruder as well as teeth,
 and makes his home where the elves left theirs.
 = Licillin, a grell spellcaster of Bashal'Aran.
-+ His curse weakens the arm raised against him. The little demon has found a way to make a much larger opponent's blows count for less.
++ Whoever strikes him is cursed, and strikes weaker for it.

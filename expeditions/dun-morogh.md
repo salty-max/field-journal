@@ -95,4 +95,4 @@ a white wolf leads the pack, with two starving wolves at his heels.
 Bring him into a fight and he will bring others.
 Thin the island first.
 = Timber, a white wolf, and very likely the alpha of Iceflow Lake's pack. He alone carries the Silver-lined Bracers and the White Wolf Gloves.
-+ A hunter can tame him: a good first companion for anyone fond of wolves, and a white coat to remember the snow by when the road leads down from Dun Morogh.
++ He walks at level ten, when a hunter first learns to tame: a dwarf or a gnome can take him as a first companion.

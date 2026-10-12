@@ -96,4 +96,4 @@ shorestalkers and screamers of the Daggerspine,
 and one among them goes by a lady's name.
 She keeps to the sand where they landed, and is not always there.
 = Lady Zephris, a naga of the Daggerspine. Rarely met: some days she is on the strand, most days not.
-+ Up the western strand, a murloc of the Torn Fin, Scargil, is as seldom seen: the coast keeps its rarities.
++ Up the western strand, Scargil of the Torn Fin murlocs is no easier to find.

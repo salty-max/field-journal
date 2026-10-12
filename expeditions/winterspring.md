@@ -30,4 +30,4 @@ Below Frostsaber Rock, a saber's coat puts a little colour into the snow:
 aqua beneath the stripes, among the white and lavender of its neighbours.
 Search the slopes and the ground beside the frozen lake.
 = Rak'shiri, an aqua-coated saber of Winterspring, near Frostsaber Rock.
-+ Shy-Rotam wears the same coat. A hunter who brings an aqua saber home has a striking companion, but its colours alone do not tell which cat it was.
++ Only one other cat wears the aqua coat: Shy-Rotam.

@@ -16,7 +16,7 @@ riddles:
     sources: "the dump's spawn, path and words; the client's display tables (a troll); the WoWWiki archive's Simone the Inconspicuous page (the succubus beneath, Precious, Fool's Plight)"
 quarry:
   id: 6584   # King Mosh
-  sources: "the WoWWiki archive's King Mosh page (the infamous devilsaur of the north-west); https://www.wowhead.com/classic/npc=6584/king-mosh (period accounts of fear); the pinned dump's path and creature_ai_scripts (14100 Terrifying Roar)"
+  sources: "the WoWWiki archive's King Mosh page (the infamous devilsaur of the north-west); https://www.wowhead.com/classic/npc=6584/king-mosh (period accounts of fear); the pinned dump's path and creature_ai_scripts (14100 Terrifying Roar); the dump's loot (raptor skulls and feathers)"
 ---
 ## ungoro-crater-simone
 By the hot springs in the crater's west, a troll woman walks with her wolf
@@ -31,4 +31,4 @@ Between the river and the great lakes of the crater's north-west,
 the king of the devilsaurs walks.
 The crater shakes for him.
 = King Mosh, the infamous devilsaur of Un'Goro's north-west.
-+ His roar sends even armed hunters running. In a crater full of teeth, the direction matters.
++ Raptor skulls and feathers are most of what is found on him.

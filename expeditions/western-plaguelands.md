@@ -16,7 +16,7 @@ riddles:
     sources: "the dump's spawn and her words"
 quarry:
   id: 1851   # The Husk
-  sources: "the WoWWiki archive's The Husk and The Weeping Cave pages; the pinned dump's spawn and creature_ai_scripts (17230 Infected Wound)"
+  sources: "the WoWWiki archive's The Husk and The Weeping Cave pages; the pinned dump's spawn and creature_ai_scripts (17230 Infected Wound); the dump's loot (Living Essence, 96%; Firebloom, Icecap, Sungrass)"
 ---
 ## western-plaguelands-chillwind
 In the Alliance's camp at the plague's southern edge, a traveller rests before Hearthglen,
@@ -31,4 +31,4 @@ In a cave above the river at the plague's eastern edge,
 bog beasts and oozes keep the dark.
 Among them, seek a bog beast with a dead thing's name.
 = The Husk, a bog beast of level 62, at the Weeping Cave.
-+ Its wounds can carry infection. The cave's sickness is not confined to the oozes.
++ Herbs take root on him: Firebloom, Icecap and Sungrass come away when he falls, and a living essence nearly always.

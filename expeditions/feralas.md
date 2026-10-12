@@ -48,4 +48,4 @@ Under the two great stone pillars in the north,
 earth elementals stand in the hills.
 A wind serpent circles them, round and round, as if it were their keeper.
 = Arash-ethis, a wind serpent, circling the earth elementals of the Twin Colossals.
-+ Its lightning can leap from one companion to another. The circling serpent has a longer reach than its fangs suggest.
++ Its lightning jumps from the one it strikes to whoever stands near.

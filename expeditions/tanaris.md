@@ -60,4 +60,4 @@ The ogres of the southern desert hold three camps among old troll ruins.
 An ogre with a great axe may be found at any one of them.
 Lost, they call him; he has company enough wherever he turns up.
 = Omgorn the Lost, a Dunemaul ogre, in the Dunemaul Compound, the Eastmoon Ruins or the Southmoon Ruins.
-+ His axe leaves wounds a healer cannot easily close. The name invites a joke; the blade does not.
++ His axe leaves wounds that resist healing.

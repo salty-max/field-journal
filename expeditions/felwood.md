@@ -15,7 +15,7 @@ riddles:
     sources: "the WoWWiki archive's Morlos'Aran page (its sister ruins); the dump's spawns"
 quarry:
   id: 7137   # Immolatus
-  sources: "https://wowwiki-archive.fandom.com/wiki/Immolatus (Knock Away, original level 56 rare elite); the pinned dump's path and creature_ai_scripts (10101 Knock Away)"
+  sources: "https://wowwiki-archive.fandom.com/wiki/Immolatus (Knock Away, original level 56 rare elite); the pinned dump's path and creature_ai_scripts (10101 Knock Away); the dump's loot (Lifeless Stone, Deeprock Salt, Core of Earth)"
 ---
 ## felwood-morlos-aran
 At the southern edge of the poisoned wood, the stones of an elven town still stand,
@@ -30,4 +30,4 @@ In the scarred vale where fire once fell on the forest,
 an infernal still burns.
 Seek the named demon among the forest's wounds.
 = Immolatus, an elite infernal of Shatter Scar Vale.
-+ A blow from him can throw a hunter backwards into the vale's other demons. The space behind you is part of this fight.
++ When the fire goes out of him, stone is what remains: lifeless stone mostly, sometimes salt from deep rock or a core of earth.

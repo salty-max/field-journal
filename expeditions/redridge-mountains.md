@@ -79,4 +79,4 @@ East of the falls below Stonewatch,
 a pass climbs into the mountains.
 A hill giant walks it, up and back, alone.
 = Boulderheart, a hill giant in the pass east of Stonewatch Falls.
-+ He is the only true giant recorded in Redridge. His route stays in the high pass; search above the falls, not along the lake road.
++ He is Redridge's only giant, and never comes down from the pass to the lake road.

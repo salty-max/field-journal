@@ -78,4 +78,4 @@ A carrion bird far too big for these fields comes down on one of them at a time,
 anywhere from the pumpkin farm in the north to the dust plains in the south.
 Its swoop leaves you reeling.
 = Vultros, a carrion bird of level 26, far stronger than Westfall's ordinary scavengers.
-+ It has been seen by Stendel's Pond, Sentinel Hill and the Dead Acre as well as in the northern farms and southern dust. An empty field does not finish the search.
++ It has been seen by Stendel's Pond, Sentinel Hill and the Dead Acre too, as well as in the northern farms and the southern dust.

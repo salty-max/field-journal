@@ -63,4 +63,4 @@ In the Wetlands' east, a ridge of raptors has a cavern.
 Seek the matriarch among the Highland and Elder brood;
 their mother does not keep an empty house.
 = The Razormaw Matriarch, level 31, in the cavern of Raptor Ridge, with her Highland and Elder Razormaws.
-+ She keeps to the cavern and the slope before it, never far from her brood.
++ She never strays far from her brood: the cavern, and the slope before it.

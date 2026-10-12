@@ -31,4 +31,4 @@ In the north of the waste, a cougar with a broken fang
 lies about in the sun, and seems to be asleep.
 His stillness is a poor guide to the speed of his claws.
 = Broken Tooth, a cougar of the Badlands, sunning himself in the north, around Angor Fortress and Hammertoe's Digsite and up to the Maker's Terrace.
-+ Hunters prize him for the speed of his attacks. The broken fang has done nothing to slow his claws.
++ Tamed, he keeps the speed of those claws, which makes him a prize among hunters.

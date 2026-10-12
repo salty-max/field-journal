@@ -67,4 +67,4 @@ a mother of spiders hunts the inner galleries.
 Her hunting ground lies beyond the kobolds' workings.
 Go past the kobolds, and keep going.
 = Mother Fang, a spider of the Jasperlode Mine. A hunter can tame her: a fair first companion, if a demanding one, for she eats only meat.
-+ Her web can stop a retreat without ending the fight. Clear a way back through the mine before disturbing her.
++ Her web holds whoever she catches for a few seconds, long enough for her bite.
