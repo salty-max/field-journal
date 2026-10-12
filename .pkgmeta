@@ -20,6 +20,7 @@ ignore:
   - content
   - data
   - docs
+  - expeditions
   - notes
   - scripts
   - CLAUDE.md
