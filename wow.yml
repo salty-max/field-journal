@@ -3,13 +3,7 @@
 base: lua51
 name: wow
 globals:
-  AchievementShield_Desaturate:
-    any: true
-  AchievementShield_Saturate:
-    any: true
   AlertFrame:
-    any: true
-  AlertFrame_OnClick:
     any: true
   bit:
     any: true
@@ -34,6 +28,8 @@ globals:
   CanLootUnit:
     any: true
   CheckInteractDistance:
+    any: true
+  CLASS_ICON_TCOORDS:
     any: true
   CombatLogGetCurrentEventInfo:
     any: true
@@ -114,6 +110,8 @@ globals:
   PanelTemplates_TabResize:
     any: true
   PlaySound:
+    any: true
+  SetPortraitTexture:
     any: true
   SLASH_FIELDJOURNAL1:
     any: true

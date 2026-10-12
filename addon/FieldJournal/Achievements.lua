@@ -4,8 +4,8 @@
 -- herbs' (tallies, feats, every fish of a continent, every herb of a zone). Each character earns its
 -- own, and each remembers when and at what level:
 --   FieldJournalChar.achievements[id] = { at, level, retro }
--- Earned as in the game's own achievements: its achievement toast, its
--- fanfare and a chat line with a link. Those already deserved when the addon
+-- Earned as in the game's own achievements: a banner among its alerts
+-- (Toasts.lua), its fanfare and a chat line with a link. Those already deserved when the addon
 -- first looks (a journal from before milestones) are recorded quietly.
 -- No spoilers: a type's or a zone's milestone stays out of the list until one
 -- of its families or rares has been met.

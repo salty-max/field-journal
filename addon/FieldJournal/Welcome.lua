@@ -45,7 +45,7 @@ local W = K.welcome({
       },
       {
         text = "Alerts",
-        hint = "The game's alert for a milestone, a riddle solved, a quarry brought down.",
+        hint = "A banner for a milestone, a riddle solved, a quarry brought down.",
         get = function() return ns.option("milestoneToast") end,
         set = function(v) ns.setOption("milestoneToast", v) end,
       },

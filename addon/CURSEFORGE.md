@@ -73,7 +73,7 @@ The first time each character logs in with the journal, a welcome page introduce
 
 Settings are each character's own, as in most interface addons. A character can take another's: choose one of your characters of the same game from a list (on the welcome page or the Options page), or bring them from anywhere with a code: `/journal export` on one character, `/journal import CODE` on the other.
 
-Other commands: `/journal reset` starts a character's journal over (it asks first); `/journal minimap` shows or hides the button; `/journal toast` shows a riddle's alert, as it would come.
+Other commands: `/journal reset` starts a character's journal over (it asks first); `/journal minimap` shows or hides the button; `/journal toast` shows a riddle's banner, as it would come.
 
 ## Siblings
 

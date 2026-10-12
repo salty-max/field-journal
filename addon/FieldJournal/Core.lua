@@ -173,7 +173,7 @@ local USAGE = "/journal opens the book; /journal settings; /journal minimap show
   .. "/journal welcome shows the welcome page again; /journal export gives this character's settings as a code, "
   .. "/journal import CODE takes them; /journal reset starts this character's journal over; /journal where "
   .. "tells the map and your position on it; /journal probe describes the next loot window, as the game shows it; "
-  .. "/journal toast shows a riddle's alert, as it would come."
+  .. "/journal toast shows a riddle's banner, as it would come."
 
 SLASH_FIELDJOURNAL1 = "/journal"
 SLASH_FIELDJOURNAL2 = "/fj"

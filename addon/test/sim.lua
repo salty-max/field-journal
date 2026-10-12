@@ -484,28 +484,26 @@ WorldMapFrame = {
 local worldCanvas
 WorldMapFrame.GetCanvas = function() return worldCanvas end
 
--- The game's alert system and its achievement toast (whose points shield
--- needs the achievement window, loaded on demand).
-local toasted, loadedAddOns = {}, {}
-AlertFrame = {
-  AddQueuedAlertFrameSubSystem = function(_, template, setUp)
-    return {
-      AddAlert = function(_, ...)
-        local f = ui()
-        f.Icon, f.Unlocked, f.Name, f.Shield, f.Title = ui(), ui(), ui(), ui(), ui()
-        -- (a toast that fails to set up: one without its title)
-        if state.brokenToast then rawset(f, "Title", false) end
-        f.Icon.Texture = ui()
-        setUp(f, ...)
-        table.insert(toasted, f)
-      end,
-    }
-  end,
-}
+-- The game's alert container: a frame joins its stack, and it places those
+-- shown, each on top of the one under it (AlertFrameAutoAnchoredMixin's way).
+AlertFrame = { subs = {}, updates = 0 }
+function AlertFrame:AddAutoAnchoredSubSystem(f)
+  f:SetAlertContainer(self)
+  table.insert(self.subs, f)
+end
+function AlertFrame:UpdateAnchors()
+  self.updates = self.updates + 1
+  local rel = self
+  for _, f in ipairs(self.subs) do
+    if f:IsShown() then
+      f:ClearAllPoints()
+      f:SetPoint("BOTTOM", rel, "TOP", 0, 0)
+      f:OnAlertAnchorUpdated()
+      rel = f
+    end
+  end
+end
 C_XMLUtil = { GetTemplateInfo = function() return {} end }
--- The shield's OnLoad: Classic Era has no achievement window, and Forever's
--- doesn't define it (its own game type): the addon stands one in at load.
-C_AddOns = { LoadAddOn = function(name) loadedAddOns[name] = true end }
 -- The expeditions: the emotes (the chat's and the menu's go through
 -- C_ChatInfo.PerformEmote; DoEmote is the game's wrapper around it), the
 -- faction, a target's reach, the game's confirmation (accepted at once).
@@ -531,6 +529,21 @@ for line in io.lines(DIR .. (FOREVER and "FieldJournal_Camelot.toc" or "FieldJou
   if f and not f:match("^Data_") then assert(loadfile(DIR .. f))("FieldJournal", ns) end
 end
 local D = ns.data
+-- The banners shown (what each said, its kind and id), and the kit's banners
+-- themselves, to clear them between scenes.
+local toasted, banners = {}, nil
+do
+  local make = ns.kit.banners
+  ns.kit.banners = function(o)
+    banners = make(o)
+    local show = banners.show
+    banners.show = function(self, b)
+      table.insert(toasted, b)
+      return show(self, b)
+    end
+    return banners
+  end
+end
 -- A tab of the book clicked, by its name (ns.TAB).
 local function clickTab(n)
   local tab = _G["FieldJournalFrameTab" .. n]
@@ -760,17 +773,22 @@ check(
     and played[12891],
   "… and the first trophy earns a milestone, with the game's achievement fanfare and a chat line"
 )
-local shield = {}
-AchievementShield_OnLoad(shield)
 local function toastOf(kind, id)
-  for _, f in ipairs(toasted) do
-    if f.journalKind == kind and f.journalId == id then return f end
+  for _, b in ipairs(toasted) do
+    if b.kind == kind and b.id == id then return b end
   end
 end
-local trophyToast = toastOf("milestone", "trophies-1")
+-- The banner card showing a title, if any.
+local function bannerShowing(title)
+  for i = 1, 2 do
+    local f = _G["FieldJournalBanner" .. i]
+    if f and f.shown and f.title.text == title then return f end
+  end
+end
+local trophyToast, trophyCard = toastOf("milestone", "trophies-1"), bannerShowing("First Trophy")
 check(
-  trophyToast and trophyToast.Name.text == "First Trophy" and shield.Saturate and shield.Desaturate,
-  "… and the game's achievement toast, its shield's OnLoad stood in at load (the game's own toasts need it too)"
+  trophyToast and trophyToast.title == "First Trophy" and trophyCard and trophyCard.joined and AlertFrame.updates > 0,
+  "… and its banner, among the game's own alerts"
 )
 
 -- Creatures the data doesn't know (Forever's new ones): filed by what was seen.
@@ -1691,30 +1709,35 @@ check(ns.earnedMilestone("riddle-first"), "… the first riddle's milestone")
 local riddleToast, firstToast = toastOf("riddle", "the-barrens-ratchet-book"), toastOf("milestone", "riddle-first")
 check(
   riddleToast
-    and riddleToast.Title.text == "A riddle read aright"
-    and riddleToast.Name.text == "Exile of the High Elves"
+    and riddleToast.kicker == "A riddle read aright"
+    and riddleToast.title == "Exile of the High Elves"
+    and riddleToast.medal
     and firstToast,
-  "… a toast for the riddle, and the milestone's beside it, not in its place"
+  "… a banner for the riddle, its seal a medal on it, and the milestone's beside it, not in its place"
 )
--- The game's toast failing to set up (here: its picture): the journal's own
--- card instead, the error said once in chat.
-state.brokenToast = true
-local saidBefore = #printed
+-- Shown, among the game's alerts; a click opens the riddle, the cross closes it.
+banners:clear()
 ns.toast("riddle", "the-barrens-ratchet-book")
-state.brokenToast = nil
+local card = FieldJournalBanner1
 check(
-  FieldJournalBanner
-    and FieldJournalBanner.shown
-    and FieldJournalBanner.name.text == "Exile of the High Elves"
-    and #printed == saidBefore + 1
-    and printed[#printed]:find("its own card instead", 1, true),
-  "… and where the game's toast fails, the journal's own card, the error said once"
+  card.shown and card.joined and card.title.text == "Exile of the High Elves" and card.medal.shown,
+  "… shown among the game's alerts"
 )
-FieldJournalBanner.close.scripts.OnClick(FieldJournalBanner.close)
-check(not FieldJournalBanner.shown, "… closed by its cross")
+card.close.scripts.OnClick(card.close)
+check(not card.shown, "… closed by its cross")
+ns.toast("riddle", "the-barrens-ratchet-book")
+FieldJournalFrame:Hide()
+card.scripts.OnClick(card, "LeftButton")
+check(
+  not card.shown and FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.expeditions,
+  "… a click opens it in the journal"
+)
 local toastsBefore = #toasted
 SlashCmdList.FIELDJOURNAL("toast")
-check(#toasted == toastsBefore + 1 and said("the game's toast"), "/journal toast shows a riddle's alert, and which")
+check(
+  #toasted == toastsBefore + 1 and said("among the game's own alerts"),
+  "/journal toast shows a riddle's banner, and where"
+)
 -- A gesture: the Night Watch's lonely post, after asking for the clue (the silver seal).
 ns.takeHint("duskwood-callahan", 1)
 check(state.popup == nil and ns.riddleRecord("duskwood-callahan").hints == 1, "a clue taken is kept, unsolved")
@@ -1791,8 +1814,8 @@ check(
 )
 local quarryToast = toastOf("quarry", 771)
 check(
-  quarryToast and quarryToast.Title.text == "A quarry brought down" and quarryToast.Name.text == "Commander Felstrom",
-  "… and its toast"
+  quarryToast and quarryToast.kicker == "A quarry brought down" and quarryToast.title == "Commander Felstrom",
+  "… and its banner"
 )
 check(
   ns.earnedMilestone("expedition-1431") and said("[The Duskwood Expedition]") and ns.earnedMilestone("quarry-first"),

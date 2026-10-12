@@ -113,12 +113,13 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   window as the Bestiary's loot is; `/journal probe`: the next loot window as
   each of its events finds it), `Achievements.lua`
   (milestones: tallies, every family of a type, feats, every rare of a zone,
-  the Atlas's, the flora's and the expeditions'; the game's achievement toast, fanfare and a
+  the Atlas's, the flora's and the expeditions'; a banner, the fanfare and a
   chat line; no spoilers before a type or zone is met; an expeditions' one
   that changed riddles leave undone withdrawn at the login, to be earned
   again). The book: `Kit.lua`
-  (a copy of the kit shared with Hearthtale and the Codex, ~/code/wow-addons/addon-kit:
-  the books' look, window, dialog and tabs; never edited here: `bun run
+  (a copy of the kit shared with Hearthtale, the Codex and Second Wind,
+  ~/code/wow-addons/addon-kit: the books' look, window, dialog and tabs, the
+  list and the page with every part of a page, the board, the banners; never edited here: `bun run
   kit:sync` after changing the kit, `bun run kit:check` to verify),
   `Book.lua` (the journal's theme on the kit, the window, its tabs
   registered by their files with `ns.addTab` (the Expeditions first, the
@@ -126,9 +127,9 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   every tab is made of, `ns.ui`; a tab's own select under the search box,
   registered with its tab, `filter = { default, options() }`, its choice
   `ns.filterOf(n)`: the Bestiary's order, the Atlas's continent; `newList` for the list on the left,
-  `newPage` for the page on the right, its parts: rows, sections, cards,
-  paragraphs, a strip of figures, items' icons, names to pick, a medal on a
-  round picture),
+  `newPage` for the page on the right: the kit's `K.list` and `K.page`, its
+  parts: rows, sections, cards, paragraphs, a strip of figures, items'
+  icons, names to pick, a medal on a round picture),
   `BestiaryBook.lua` (still portraits from the data's display ids,
   `SetPortraitTextureFromCreatureDisplayID`; a family's page: figures and a
   card per creature; a creature's: figures, the creature turning in its
@@ -143,10 +144,11 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   asked for through the game's confirmation, its seal, note and margin; a
   quarry's poster, the creature turning in its frame), `ExpeditionsPin.lua`
   (a riddle or quarry pinned to the screen: a card to drag, closed by its
-  cross), `Toasts.lua` (the game's toasts: a milestone's, a riddle's, a
-  quarry's, each queued on its own),
-  `MilestonesBook.lua` (figures on top, each group's picture and count, a
-  medal on each one earned). Every page is made of the same parts (`Book.lua`).
+  cross), `Toasts.lua` (the kit's banners, among the game's alerts: a
+  milestone's, a riddle's (its seal a medal), a quarry's, each its own),
+  `MilestonesBook.lua` (the kit's board: figures on top, each group's
+  picture and count, a medal on each one earned). Every page is made of the
+  same parts (the kit's, shared by the family's books).
   `Expeditions.lua` (the riddles' records and their
   solving: each second where the reader stands, a gesture by hooking
   `C_ChatInfo.PerformEmote` (the chat's, the menu's; `DoEmote` where there is
