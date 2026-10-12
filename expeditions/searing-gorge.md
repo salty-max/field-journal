@@ -12,15 +12,23 @@ riddles:
     hint_area: { x: 44.0, y: 51.0, r: 13 }
     danger: "Perilous (Dark Irons, golems)"
     sources: "the Codex's the-cauldron page"
-  - id: searing-gorge-suntara
+  - id: searing-gorge-stonewrought-pass
+    tier: off
+    area: Stonewrought Pass   # placed: the gate at its southern end (object 150137), dump 78.7, 17.2
+    anchor: { object: 150137 }   # what places its hint: the area has no overlay of its own
+    hint_area: { x: 76.0, y: 19.0, r: 5 }
+    danger: "Guarded (glassweb spiders, level 43); and the gate is locked"
+    sources: "quest 3801's text (Franclorn Forgewright and the stonewrought method); the WoWWiki archive's Stonewrought Pass and Franclorn Forgewright pages"
+  - id: searing-gorge-blackchar
     tier: hidden
-    object: 148498   # dump 41.3, 25.4; Wowhead 41.3, 25.6; the Dying Archaeologist beside it
-    hint_area: { x: 42.4, y: 29.2, r: 8 }
-    danger: "Perilous (the Twilight's Hammer)"
-    sources: "quests 3372, 3371"
+    gestures: [STARE, GASP, SURPRISED, AMAZE]
+    area: Blackchar Cave   # placed: the client's overlay: 23.0, 73.4; its mouth by Elder Ironband's Lunar Festival spot, dump 21.5, 79.0
+    hint_area: { x: 22.5, y: 77.0, r: 5 }
+    danger: "Perilous (lava spiders and fire elementals, levels 46 to 48)"
+    sources: "the WoWWiki archive's Blackchar Cave page (the face on the minimap); Engadget, 'A face in Searing Gorge' (2007); the dump's Lunar Festival spawn"
 quarry:
-  id: 14621
-  sources: "quests 7701 (Overseer Oilfist's poster), 7722 (Master Smith Burninate)"
+  id: 8280   # Shleipnarr
+  sources: "the WoWWiki archive's Shleipnarr page (a felsteed); the dump's path and respawn (32 to 48 hours)"
 ---
 ## searing-gorge-cauldron
 In a basin of ash, dwarves of dark iron work a great pit
@@ -30,19 +38,27 @@ so mad they strike at those who would free them. Look down into it.
 = The Cauldron, the Dark Irons' great mining pit.
 + Beneath it, Overseer Maltorius commands the Slag Pit, back with the masters he once left.
 
-## searing-gorge-suntara
-By an altar in the north-west hills, a digger from a lost expedition lies dying.
-Even after their bodies give out, a power forces his comrades to keep working,
-and he asks only that they be released.
-Find the altar.
-? In the hills north-west of the Cauldron, where the Twilight's Hammer guard a relic.
-= The Altar of Suntara, and the dying archaeologist beside it.
-+ Dorius led the expedition, and did not survive it; his last wish, carried home by a friend with 'an empty, vacuous hole' where a heart used to be, was that his men be freed.
+## searing-gorge-stonewrought-pass
+North of the valley of dust and fire, a tunnel runs under the mountains to the lake country,
+shut at this end by an iron gate, its lever just beside it.
+The way of building that made the pass was a Dark Iron's invention,
+and so was the great dam on the lake beyond. Get inside.
+? The north end of Dustfire Valley, in the Searing Gorge's north-east.
+= Stonewrought Pass: stonewrought, like the dam on Loch Modan, after the method of Franclorn Forgewright, a Dark Iron architect.
++ His ghost, deep in Blackrock Mountain, says so himself: 'You have undoubtedly passed through or stood upon one of my creations.'
+
+## searing-gorge-blackchar
+In the gorge's south-west, a cave is sealed shut under the mountains,
+and there is nothing at its mouth but black rock.
+Stand there and study your map, not the rock:
+something in the mountains is staring back.
+? Blackchar Cave, at the Searing Gorge's south-western edge; what you want is on your minimap.
+= Blackchar Cave, sealed; and in the mountains above it, on the minimap, what can only be a face.
++ The cave keeps its seal all year; only at the Lunar Festival does an elder of Ironforge come to stand at its mouth.
 
 ## quarry
-An agent of the Thorium Brotherhood went back to the Dark Irons,
-and his old clan believes he took the secret of its fiery flux as his price.
-They made him overseer of the crew that works the Slag Pit.
-His brothers have posted his head: look deep inside the pit.
-= Overseer Maltorius. Lookout Captain Lolo Longstriker pays the bounty; Master Smith Burninate wants the flux plans back.
-+ Lolo had not thought to see that ugly mug again: it looks better, Lolo says, without the rest of him attached.
+A demon's horse runs loose in the old dig south-east of the Cauldron,
+burning as it goes, with no rider on its back.
+It is seen once in two days, if that.
+= Shleipnarr, a felsteed with no warlock to ride it, roaming the Grimesilt Dig Site.
++ Slain, it takes a day and a half at the least to come back, and two days at the most.
