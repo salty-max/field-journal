@@ -16,14 +16,16 @@ riddles:
     sources: "object 177199's text"
   - id: stormwind-city-khadgar-plaque
     tier: off
-    reading: Archmage Khadgar of the Kirin Tor
+    gestures: [GOODLUCK, SALUTE, WAVE]
+    name: Archmage Khadgar of the Kirin Tor
     object: 25333   # dump 64.7, 78.2; Wowhead 64.9, 78.2
     hint_area: { x: 62.7, y: 81.7, r: 8 }
     danger: "Quiet"
     sources: "object 25333's text; objects 25329-25332 (Kurdran, Turalyon, Alleria, Danath); object 21582's text"
   - id: stormwind-city-horatio
     tier: hidden
-    reading: Horatio Montgomery, M.D.
+    gestures: [DANCE]
+    name: Horatio Montgomery, M.D.
     object: 124374   # dump 77.5, 58.7; Wowhead 77.6, 58.9
     hint_area: { x: 75.1, y: 55.5, r: 8 }
     danger: "Quiet"
@@ -41,7 +43,7 @@ His work began in a northern city now lost to the living.
 ## stormwind-city-khadgar-plaque
 Among the memorials to those who went through the dark gate,
 one plaque presumes its hero dead, then wishes him well on his travels.
-Find the message left for a wanderer who might yet read it.
+Add your wish to the one carved there, for a wanderer who might yet come home.
 ? Among the memorials to the Alliance Expedition, in the city.
 = Archmage Khadgar of the Kirin Tor: 'Presumed deceased.'
 + 'Never did one so selflessly delve into the dark heart of magic and warfare. We wish you well, bold wanderer. Wherever you are.' - Antonidas, Archmage of Dalaran.
@@ -49,7 +51,8 @@ Find the message left for a wanderer who might yet read it.
 ## stormwind-city-horatio
 Somewhere in the city, a grateful student set up a memorial
 to a healer, teacher and friend who believed it was a healer's duty
-to cleanse the sick and weary of every last ailment. Find it.
+to cleanse the sick and weary of every last ailment.
+His plaque calls one of his talents extraordinary. Honour him with it.
 ? Seek among the city's healers.
 = 'In memory of my dear mentor, Horatio M. Montgomery, M.D. Healer, Teacher, Friend.'
 + 'The world is full of the sick and weary. It is our job, as healers, NAY, as men and women of medicine, to cleanse them ALL of the itis.' - H.M.M., M.D., PhD, JD, Grandmaster Farmer, Dancer Extraordinaire, Friend to the Animals.

@@ -14,6 +14,7 @@ riddles:
     sources: "the Codex's the-scarab-wall and the-scepter-of-the-shifting-sands pages"
   - id: silithus-carnes
     tier: off
+    faction: alliance   # its keeper attacks the other side: this side's alone
     gestures: [COMFORT, PAT, SOOTHE, CONGRATULATE, PITY]
     creature: 15903   # Sergeant Carnes, dump 32.6, 51.8, outside Hive'Zora
     hint_area: { x: 32.0, y: 52.0, r: 4 }
@@ -28,7 +29,7 @@ riddles:
     sources: "the dump's spawn and her words; the client's display tables (a night elf); the WoWWiki archive's Ralo'shan page (her dialogue)"
   - id: silithus-glibb
     tier: hidden
-    gestures: [WAVE, HELLO, GREET, PET, PAT, SOOTHE]
+    gestures: [WAVE, HELLO, GREET, PET]
     creature: 15172   # Glibb, Brann Bronzebeard's Pet Monkey, dump 41.1, 88.6
     hint_area: { x: 41.0, y: 87.0, r: 4 }
     danger: "Perilous (the silithid near the wall)"

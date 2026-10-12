@@ -24,7 +24,7 @@ riddles:
     sources: "Wowhead Forever's npc=259006 and npc=259843 (friendly to both factions; display 6297, Classic's frog) and npc=259005 (the ordinary Gustjumper, neutral); the QuestieDB traces (no quest of theirs)"
   - id: zephras-isle-zendraas
     tier: off
-    gestures: [GLARE, STARE, EYE, DOUBT]
+    gestures: [GLARE, SCOWL, FROWN, EYE, DOUBT]
     creature: 272045   # Brother Zendraas: traces 57.8, 52.0 / 58.5, 50.3 / 58.8, 49.6; Wowhead 57.8, 52.0: the Shrine of Akir
     found: target   # among the cult's own: only by speaking to him
     hint_area: { x: 58.0, y: 51.0, r: 4 }

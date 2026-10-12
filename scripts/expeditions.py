@@ -52,6 +52,21 @@ where Wowhead's Forever database (its tooltip) places the creature too: a
 creature or a sub-area, and a quarry the data doesn't know (its name, level,
 rank and model given in the file).
 
+Then the riddles are checked as a reader meets them:
+
+  - never a kill: a creature asked for is no foe of the side that may solve
+    it (the client's FactionTemplate; a riddle of one side's says so:
+    `faction:`, on any tier);
+  - never the same deed twice in a zone, for either side's reader: one
+    arrival, one reading, one creature found by speaking to it at most, and
+    no gesture two riddles both accept;
+  - never on Forever's own new quests' road (its quests no Classic one is:
+    AllTheThings' Forever database and QuestieDB's traces, both pinned): no
+    new quest gives, ends or asks for the riddle's creature or object, none
+    names it in its title or its objectives, and none sends a player (its
+    giver, its ender, what it asks for, by either source's points) within
+    FOREVER_NEAR of a riddle solved by arriving.
+
 Anything that fails is printed and nothing is written.
 """
 import collections, csv, json, math, os, re, sys, time, urllib.error, urllib.request
@@ -84,6 +99,11 @@ HAUNT, HAUNT_MIN = 6, 3
 # Wowhead's sightings of a quarry count within this of a spawn the two agree
 # on (further out, they are another place's, or noise).
 ROAM = 10
+# AllTheThings' Forever database, pinned (as Hearthtale's scripts/forever-data.ts).
+ATT_REPO, ATT_COMMIT = "ATTWoWAddon/AllTheThings", "a21caf2a7ec636785505a7f4e7e4311d16ce28af"
+# A new quest of Forever's this near an arrival's spot (percent of the map's
+# width) sends its players through it.
+FOREVER_NEAR = 4
 
 
 def table(name, client="classic"):
@@ -114,6 +134,60 @@ def traces(kind):
         for z, pts in re.findall(r"\[(\d+)\]=\{((?:\{[\d.]+,[\d.]+\},?)*)\}", spawns.group(1) if spawns else ""):
             zones[int(z)] = [(float(x), float(y)) for x, y in re.findall(r"\{([\d.]+),([\d.]+)\}", pts)]
         out[int(m.group(1))] = {"name": name and name.group(1).replace('\\"', '"'), "spawns": zones}
+    return out
+
+
+def forever_quests(classic):
+    """Forever's own new quests (none of Classic's ids): {id: {"text": its
+    title and objectives, lower case, "ids": the creatures, objects and items
+    that give, end or are asked for by it, "points": [(map name, x, y)] where
+    AllTheThings sends its players}}. From QuestieDB's traces and
+    AllTheThings' Forever zones (cached in .cache/forever/)."""
+    def fetch(url, path):
+        if not os.path.exists(path):
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180) as r, open(path, "wb") as f:
+                f.write(r.read())
+        return open(path, encoding="utf-8").read()
+
+    out = collections.defaultdict(lambda: {"text": "", "ids": set(), "points": []})
+    src = fetch(QUESTIEDB.format("Quest"), os.path.join(FOREVER, f"questiedb-quest-{QUESTIEDB_COMMIT[:12]}.lua"))
+    for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
+        q = int(m.group(1))
+        if q in classic:
+            continue
+        body = m.group(2)
+        for key in ("name", "objectivesText"):
+            for t in re.findall(r"\." + key + r'\] = \{?((?:"(?:[^"\\]|\\.)*",?\s*)+)', body):
+                out[q]["text"] += " " + " ".join(re.findall(r'"((?:[^"\\]|\\.)*)"', t)).lower()
+        for key in ("startedBy_add", "finishedBy_add", "objectives"):
+            v = re.search(r"\." + key + r"\] = (.*),\n", body)
+            if v:
+                out[q]["ids"] |= {int(n) for n in re.findall(r"\b(\d{2,7})\b", v.group(1))}
+    for kind in ("Npc", "Object"):
+        src = fetch(QUESTIEDB.format(kind), os.path.join(FOREVER, f"questiedb-{kind.lower()}-{QUESTIEDB_COMMIT[:12]}.lua"))
+        for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
+            for v in re.findall(r"quest(?:Starts|Ends)_add\] = \{([\d,\s]*)\}", m.group(2)):
+                for q in re.findall(r"\d+", v):
+                    if int(q) not in classic:
+                        out[int(q)]["ids"].add(int(m.group(1)))
+    tree = json.loads(fetch(f"https://api.github.com/repos/{ATT_REPO}/git/trees/{ATT_COMMIT}?recursive=1",
+                            os.path.join(FOREVER, f"att-tree-{ATT_COMMIT[:12]}.json")))
+    for f in tree["tree"]:
+        if f["type"] != "blob" or not re.match(r"^\.contrib/\.db/forever/zones/.*\.lua$", f["path"]):
+            continue
+        rel = f["path"][len(".contrib/.db/forever/"):]
+        url = f"https://raw.githubusercontent.com/{ATT_REPO}/{ATT_COMMIT}/" + "/".join(urllib.request.quote(x) for x in f["path"].split("/"))
+        src = fetch(url, os.path.join(FOREVER, "att", rel))
+        parts = re.split(r"\bq\((\d+), \{", src)
+        for k in range(1, len(parts), 2):
+            q, body = int(parts[k]), parts[k + 1]
+            if q in classic:
+                continue
+            # (a quest's body ends where the next begins: its givers, providers, coordinates)
+            out[q]["ids"] |= {int(x) for v in re.findall(r'\["qgs?"\] = \{?\s*([\d, ]+)', body) for x in re.findall(r"\d+", v)}
+            out[q]["ids"] |= {int(x) for x in re.findall(r'\{ "[noi]", (\d+) \}', body)}
+            out[q]["points"] += [(c, float(a), float(b)) for a, b, c in re.findall(r"\{ ([\d.]+), ([\d.]+), MAP\.(\w+) \}", body)]
     return out
 
 
@@ -328,6 +402,7 @@ def main():
         return circles
 
     errors, zones, riddles, quarries = [], {}, {}, {}
+    placed = []  # (file, uiMap, riddle, its points on the map), for the checks below
     for f, uimap, client, rs, quarry in riddle_files():
         if client == "forever":
             forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries)
@@ -436,6 +511,88 @@ def main():
                 # the copies of a book elsewhere in the zone are other riddles' (or none)
                 out["spots"] = [[round(x, 2), round(y, 2)] for x, y in inside]
             riddles[id] = out
+            placed.append((f, uimap, r, inside or points))
+
+    # ── as a reader meets them ──────────────────────────────────────────────
+    ct = {int(d["Entry"]): d for d in tab("creature_template")}
+    ft = {int(d["ID"]): d for d in table("FactionTemplate")}
+    SIDES = {"alliance": (2, {469, 72, 47, 54, 69, 1}), "horde": (4, {67, 76, 81, 68, 530, 2})}
+
+    def hostile(template, side):
+        """A creature of this faction template attacks the side's players."""
+        t = ft.get(template)
+        if not t:
+            return False
+        group, factions = SIDES[side]
+        enemies = {int(t[k]) for k in t if k.startswith("Enemies_")}
+        friends = {int(t[k]) for k in t if k.startswith("Friend_")}
+        if friends & factions:
+            return False
+        return bool(int(t["EnemyGroup"]) & (1 | group)) or bool(enemies & factions)
+
+    def deed(r):
+        if "reading" in r:
+            return "reading"
+        if r.get("gestures"):
+            return "gesture"
+        return "speaking" if r.get("found") == "target" else "arrival"
+
+    homes = {f: (re.search(r"^home: (\w+)", open(os.path.join(EXPEDITIONS, f)).read(), re.M) or [None, None])[1] for f, *_ in placed}
+    for f, uimap, r, _ in placed:
+        sides = [r["faction"]] if r.get("faction") else ([homes[f]] if homes[f] else list(SIDES))
+        c = "creature" in r and ct.get(int(r["creature"]))
+        for side in sides:
+            if c and hostile(int(c["Faction"]), side):
+                errors.append(f"{f}: {r['id']}: {c['Name']} attacks the {side}'s players: a riddle never asks for a kill (or give it to the other side: faction:)")
+    files = list(riddle_files())
+    for f, *_ in files:
+        if f not in homes:
+            homes[f] = (re.search(r"^home: (\w+)", open(os.path.join(EXPEDITIONS, f)).read(), re.M) or [None, None])[1]
+    for f, uimap, client, rs, _ in files:
+        for side in SIDES:
+            mine = [r for r in rs if (not homes[f] or homes[f] == side) and r.get("faction", side) == side]
+            for kind in ("arrival", "reading", "speaking"):
+                same = [r["id"] for r in mine if deed(r) == kind]
+                if len(same) > 1:
+                    errors.append(f"{f}: the {side}'s reader meets more than one {kind} here: {', '.join(same)}")
+            asked = collections.defaultdict(list)
+            for r in mine:
+                for token in r.get("gestures") or []:
+                    asked[token].append(r["id"])
+            for token, ids in sorted(asked.items()):
+                if len(ids) > 1:
+                    errors.append(f"{f}: the {side}'s reader is asked {token} twice here: {', '.join(ids)}")
+
+    classic = {int(d["entry"]) for d in tab("quest_template")}
+    new = forever_quests(classic)
+    norm = lambda x: re.sub(r"[^a-z]", "", x.lower())
+    zone_names = {int(z["ID"]): z["Name_lang"] for z in table("UiMap")}
+    npcs, objs = traces("Npc"), traces("Object")
+    # (Forever's own zones: their riddles' creatures and objects, against its quests too)
+    own = [(f, uimap, r, []) for f, uimap, client, rs, _ in files if client == "forever" for r in rs]
+    for f, uimap, r, points in placed + own:
+        where = f"{f}: {r['id']}"
+        subject = [int(r[k]) for k in ("creature", "object") if k in r]
+        subject += [int(v) for k, v in (r.get("anchor") or {}).items() if k in ("creature", "object")]
+        named = {n for n in [r.get("name"), r.get("area"), r.get("reading")] + [names.get(("creature", i)) or names.get(("object", i)) or (npcs.get(i) or {}).get("name") for i in subject] if n and len(n) > 4}
+        for q, d in sorted(new.items()):
+            hit = [i for i in subject if i in d["ids"]]
+            if hit:
+                errors.append(f"{where}: Forever's new quest {q} gives, ends or asks for {hit[0]}")
+            said = [n for n in named if re.search(r"\b" + re.escape(n.lower()) + r"\b", d["text"])]
+            if said:
+                errors.append(f"{where}: Forever's new quest {q} names {said[0]!r}")
+            if deed(r) != "arrival" or not points:
+                continue
+            near = lambda x, y: any(((x - a) ** 2 + ((y - b) * ASPECT) ** 2) ** 0.5 <= FOREVER_NEAR for a, b in points)
+            mine = [(x, y) for m, x, y in d["points"] if norm(m) == norm(zone_names.get(uimap, ""))]
+            area = zone_area(uimap)
+            for i in d["ids"]:
+                for t in (npcs.get(i), objs.get(i)):
+                    mine += (t or {}).get("spawns", {}).get(area, [])
+            close = [(x, y) for x, y in mine if near(x, y)]
+            if close:
+                errors.append(f"{where}: arriving here is Forever's new quest {q}'s road (a point at {close[0][0]:.1f}, {close[0][1]:.1f})")
 
     if errors:
         print("\n".join(f"x {e}" for e in errors))

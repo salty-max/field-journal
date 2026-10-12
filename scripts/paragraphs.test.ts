@@ -37,7 +37,7 @@ test("invalid notes fail without replacing either book", () => {
       ["notes/herbs.md", (s: string) => s.replace(/(^## [^\n]+\n\n)/m, "$1[forver] "), "unknown paragraph client"],
       ["atlas/alterac-mountains.md", (s: string) => s.replace("zone: 1416", "zone: 999999"), "unknown zone 999999"],
       ["expeditions/duskwood.md", (s: string) => s.replace("Honour the post, whoever", "Salute the post, whoever"), "names the gesture SALUTE"],
-      ["expeditions/duskwood.md", (s: string) => s.replace("creature: 574 ", "creature: 575 "), "changed since data/expeditions.json"],
+      ["expeditions/duskwood.md", (s: string) => s.replace("creature: 2142 ", "creature: 2143 "), "changed since data/expeditions.json"],
       ["expeditions/duskwood.md", (s: string) => s.replace("gestures: [SLEEP, LAYDOWN]", "gestures: [SLEEP, NAP_TIME]"), "gesture NAP_TIME: not one of the client's emote tokens"],
     ] as const;
     for (const [path, invalid, message] of cases) {

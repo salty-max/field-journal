@@ -23,7 +23,8 @@ riddles:
     sources: "the dump's spawns and the scene's words (broadcast texts 1994-2014); the WoWWiki archive's Theresa and Gerard Abernathy pages"
   - id: undercity-terenas
     tier: hidden
-    reading: Here Lies King Terenas Menethil II
+    gestures: [KNEEL, BOW, MOURN]
+    name: Here Lies King Terenas Menethil II
     object: 175659   # dump 66.0, 43.9; Wowhead 65.9, 43.4
     hint_area: { x: 68.6, y: 40.9, r: 8 }
     danger: "Quiet"
@@ -49,7 +50,7 @@ and she always comes back. Let your face say what you think of it.
 ## undercity-terenas
 Above the city, in what is left of the palace garden, the last true king
 of the land lies under a stone that asks for his son's deeds
-not to be laid at his feet. Find the stone.
+not to be laid at his feet. Pay him the respect his son did not.
 ? In the gardens of the Ruins of Lordaeron, above the Undercity.
 = 'Here lies King Terenas Menethil II -- Last True King of Lordaeron. Great were his deeds -- long was his reign -- unthinkable was his death.'
 + 'May the Father lie blameless for the deeds of the son. May the bloodied crown stay lost and forgotten.'

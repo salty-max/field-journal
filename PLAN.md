@@ -65,6 +65,55 @@ anachronic to the original game or Forever. Every zone and capital rewritten:
   the Horde's: 90 for an Alliance reader, 86 for a Horde one) and the 38
   quarries, every one a rare no quest names.
 
+### After the first test in the game (12 October 2026, the user's)
+
+Dun Morogh played through: Misty Pine Refuge solved from a flight overhead;
+two of its five riddles only "go there", two meant a kill (Gibblewilt, and
+Ironband's Dark Irons); the two places are now Forever's quests' roads; the
+riddle's own alert lost behind the trophy's; the book's pages bare. So:
+
+- **Never from a taxi, nor as a ghost**, and never in combat, as before.
+- **Never a kill**: a creature a riddle asks for is no foe of the side that
+  may solve it; one that attacks the other side is its own side's riddle
+  (`faction:`, now on any tier: Watcher Callahan, the Southshore gryphons,
+  Sergeant Carnes, Wenna Silkbeard and Terl Arakor the Alliance's; the Horde's
+  runners of Loch Modan and Pooka of the Mor'shan Rampart the Horde's).
+- **Never the same deed twice in a zone**, for either side's reader: one
+  arrival, one reading, one keeper found by speaking at most, and no gesture
+  two riddles both accept.
+- **Never on Forever's new quests' road**: no new quest of Forever's gives,
+  ends or asks for a riddle's creature or object, none names it, and none
+  sends its players (giver, ender, what it asks for) within 4% of a riddle
+  solved by arriving: AllTheThings' Forever database and QuestieDB's traces,
+  both pinned, the new quests those Classic lacks.
+- The resolver checks the three (`scripts/expeditions.py`), and the build
+  refuses what fails.
+
+Dun Morogh: Rumbleshot's practice range (the riflemen's contest and the
+mortar team's dummies, from the camp's own script; mind your ears) and
+Fluffy, the rabbit Yarlyn Amberstill chases round the ram pen, for the
+three. Elwynn: Donni Anthania's cats, for the fisherman and Ridgepoint.
+Redridge: Roger and Jamin on Lakeshire's docks, for the lockbox (Forever's
+"Alther's Mill") and the Lake Thresher. Turned into gestures where a city or
+a land asked one deed twice: the Dark Portal (a farewell), Toothgnasher
+(marvelled at), Khadgar's plaque (a wish added), Horatio Montgomery (his
+extraordinary talent), Terenas's grave (the respect his son did not pay),
+Zapetta (your word), Simone Cantrell's grounds (praised). Dropped with
+nothing untied to put in their place: Naraxis, Brutus, the coffin tree (the
+book has no night riddle now; After Dark waits for one), Sentinel Hill's
+book, Clyde Kellen, Tah Winterhoof, the Maneweavers, the Betrayer Ascendant.
+**106 riddles** (47 both sides', 32 the Alliance's, 27 the Horde's: 79 for an
+Alliance reader, 74 for a Horde one; 62 gestures, 23 readings, 17 keepers
+found by speaking, 8 arrivals), Zephras Isle's four and the 39 quarries.
+
+The book after it: a toast for each riddle and quarry, queued beside a
+milestone's (`Toasts.lua`); the zone's page in words, a card for each riddle
+and its quarry, its map (the Atlas's, now shared: `ZoneMap.lua`) with where
+each was read, the places asked for and the haunts tracked; the verse set
+apart, the seal earned, the note and the margin in their own blocks; the
+quarry turning in its frame on its poster; a riddle or quarry pinned to the
+screen (`ExpeditionsPin.lua`: a card to drag anywhere, closed by its cross).
+
 **Forever's own (12 October 2026).** Zephras Isle, the only new zone with
 data while the beta caps the others: four riddles by its 19 map places, none
 a quest's (the Wowhead Forever zone listing's quests, the QuestieDB traces'
@@ -491,7 +540,8 @@ hunter / would know the hide, and wish its spirit peace.").
    or capital, named as the atlas's): all 202 riddles, each with its sources
    and where the data pins it (no estimate left), and Duskwood's quarry. The
    other quarries come with the hunts' pass.
-   Reworked the same night (above): 117 riddles and 38 quarries, none a quest's.
+   Reworked the same night (above): 117 riddles and 38 quarries, none a quest's;
+   after the first test in the game, 106 (above).
 
 ## Decisions (5 October 2026)
 

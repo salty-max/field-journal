@@ -15,7 +15,8 @@ riddles:
     sources: "the dump's spawn, path, link (his robot) and wares (one of each at a time); the WoWWiki archive's Overwatch Mark I page; https://www.wowhead.com/classic/item=7148/goblin-jumper-cables (chance to revive a player)"
   - id: hillsbrad-foothills-gryphons
     tier: off
-    gestures: [SALUTE, BOW, HAIL]
+    faction: alliance   # its keeper attacks the other side: this side's alone
+    gestures: [SALUTE, HAIL]
     creature: 2473   # Granistad, dump 84.3, 32.8; Kurdros (2474) beside him
     hint_area: { x: 82.0, y: 34.5, r: 5 }
     danger: "Deadly to the Horde (two gryphons of Ironforge, level 40); quiet for the Alliance"

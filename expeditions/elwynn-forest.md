@@ -7,20 +7,14 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: elwynn-forest-crystal-lake
+  - id: elwynn-forest-cats
     tier: near
-    gestures: [CURIOUS, PONDER, PUZZLE, THINK]
-    creature: 1651   # Lee Brown, the fisherman, dump 47.6, 62.3 (Jason Mathers beside him)
-    hint_area: { x: 49.5, y: 60.5, r: 5 }
+    gestures: [MEOW, PURR]
+    name: Donni Anthania's Cats
+    creature: 6367   # Donni Anthania, dump 44.2, 53.4, in her house: her four cats at her feet (Bombay 7385, Wowhead places none of them)
+    hint_area: { x: 45.0, y: 52.5, r: 4 }
     danger: "Quiet"
-    sources: "a Stormwind guard's words (broadcast text 6970); Brill's (6758); the WoWWiki archive's Crystal Lake and Lee Brown pages; the dump (Jason Mathers, the children camping)"
-  - id: elwynn-forest-ridgepoint
-    tier: off
-    gestures: [SALUTE, BOW]
-    area: Ridgepoint Tower   # placed: the client's overlay: 85.1, 80.5
-    hint_area: { x: 82.5, y: 78.0, r: 7 }
-    danger: "Quiet (the guards; prowlers on the slopes)"
-    sources: "the WoWWiki archive's Ridgepoint Tower page; the dump (four Stormwind guards)"
+    sources: "the dump: Donni Anthania <Crazy Cat Lady> and her four cats in her house, and who sells cats (npc_vendor: her four carriers, forty silver each; Lil Timmy's White Kitten, one at a time); warcraft.wiki.gg's Donni Anthania page"
   - id: elwynn-forest-heroes-vigil
     tier: hidden
     gestures: [SALUTE, BOW, KNEEL, MOURN, PRAY]
@@ -33,24 +27,14 @@ quarry:
   id: 471   # Mother Fang
   sources: "the WoWWiki archive's Mother Fang page (the inner mine, the hunter's pet, the meat); https://classic.warcraftdb.com/data/spell/12023 (Web, cast by Mother Fang); the pinned dump's spawn and creature_ai_scripts"
 ---
-## elwynn-forest-crystal-lake
-A city guard tells of a fisherman of the lake east of the gold town
-who once hauled a weird mask out of its water,
-and supposes he'd had one too many at the Lion's Pride that night.
-The fisherman still works that shore, beside a fishmonger called Jason.
-Wonder about it where they stand.
-? Crystal Lake's western shore, east of Goldshire: a fisherman, a fishmonger, and children camping by the water.
-= Lee Brown, who teaches fishing on Crystal Lake's shore. Jason Mathers sells the catch beside him, and a band of children camps by the water.
-+ Brill tells a story of its own: a man who fishes Brightwater Lake, psychos in masks, and a children's summer camp shut down the year before.
-
-## elwynn-forest-ridgepoint
-After the Second War, the kingdom raised towers to watch its forest.
-One stands on a ridge in the far south-east,
-where the forest ends and three kinds of trouble begin.
-Honour the watch that keeps it.
-? Elwynn's south-eastern corner, above the road to Redridge: a guard tower on the ridge.
-= Ridgepoint Tower, one of the guard towers Stormwind raised in Elwynn after the Second War.
-+ It watches three borders at once: the gnolls and orcs of Redridge, the dead that come up from Duskwood, and the Defias camps in the forest itself.
+## elwynn-forest-cats
+In a house on the road between the abbey and the gold town,
+a woman lives with four cats, and her title says what the neighbours make of it.
+The cats have the run of the place.
+Address them in their own tongue.
+? Donni Anthania's house, on the road from Northshire down to Goldshire.
+= Donni Anthania, the Crazy Cat Lady, and her four cats: a Bombay, a Cornish Rex, an Orange Tabby and a Silver Tabby. Every one of them is for sale, at forty silver a carrier.
++ They are four of the five cats anyone in the world will sell you. The fifth, a white kitten, is carried about Stormwind by a boy called Lil Timmy, and sold one at a time.
 
 ## elwynn-forest-heroes-vigil
 In a lake shaped like a ring, an island holds a ring of stones

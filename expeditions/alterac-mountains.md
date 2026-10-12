@@ -8,6 +8,7 @@ client: both
 riddles:
   - id: alterac-mountains-simone
     tier: hidden
+    gestures: [PRAISE, COMMEND, APPLAUD]
     creature: 7324   # Simone Cantrell, Landscape Architect, dump 83.8, 79.8, at Ravenholdt Manor
     hint_area: { x: 82.8, y: 77.5, r: 7 }
     danger: "Quiet"
@@ -20,7 +21,7 @@ quarry:
 In the hills above the foothills, a manor hides from all who do not know the way,
 a hall for those who work unseen.
 And yet someone there works in plain sight, with a title to prove it:
-Find the one who keeps the grounds of this most secret house.
+Find the one who keeps the grounds of this most secret house, and let them hear how fine the work is.
 ? Ravenholdt Manor, up a mountain path north-west of Durnholde Keep.
 = Simone Cantrell, a night elf, Landscape Architect to Ravenholdt Manor, hall of the Assassin's League.
 + Near the master stands Winstone Wolfe, whom the manor calls The Wolf; and a housecat, Salome, has the run of the place.

@@ -447,9 +447,16 @@ end)
 add("expeditions", "readings", "Well Read", "Solve every riddle that asks for a reading.", function()
   return riddles(function(r) return r.asks == "reading" end)
 end)
-add("expeditions", "night", "After Dark", "Solve every riddle that only the night answers.", function()
-  return riddles(function(r) return r.night end)
-end)
+-- (shown only while a riddle asks the night: none does now)
+local function byNight(r) return r.night end
+add(
+  "expeditions",
+  "night",
+  "After Dark",
+  "Solve every riddle that only the night answers.",
+  function() return riddles(byNight) end,
+  { visible = function() return select(2, riddles(byNight)) > 0 end }
+)
 
 -- Fish and herbs (Flora.lua): tallies, feats, every fish of a continent's
 -- waters and every herb of a zone (shown once one of them is found there).

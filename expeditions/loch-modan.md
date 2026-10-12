@@ -15,6 +15,7 @@ riddles:
     sources: "the Codex's valley-of-kings page; object 175739's text"
   - id: loch-modan-horde-runners
     tier: hidden
+    faction: horde   # its keeper attacks the other side: this side's alone
     creature: 2478   # Haren Swifthoof, who runs with Gradok (2477) and Thragomm (7170): dump 55.5, 67.1, a path up the east shore and back
     found: target   # they never stop running
     hint_area: { x: 60.0, y: 60.0, r: 9 }

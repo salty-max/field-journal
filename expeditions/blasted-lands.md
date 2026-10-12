@@ -8,6 +8,7 @@ client: both
 riddles:
   - id: blasted-lands-dark-portal
     tier: near
+    gestures: [SALUTE, BOW, KNEEL]
     area: The Dark Portal   # placed: the client's overlay: 58.4, 56.5, half-size 6.5 by 7.9
     hint_area: { x: 57.0, y: 54.0, r: 10 }
     danger: "Guarded (demons and ogres)"
@@ -34,7 +35,7 @@ quarry:
 At the bottom of the red waste stands the gate the orcs first came through.
 It was shattered, and opened again; the last heroes who went through it
 destroyed it from the far side so that this world would live,
-and nobody knows whether they came home. Go before it.
+and nobody knows whether they came home. Honour them as soldiers honour their own.
 ? The Dark Portal, in the south of the Blasted Lands.
 = The Dark Portal, still and dark.
 + Khadgar, Turalyon, Alleria, Kurdran and Danath chose to stay on the dying world: 'whether or not they escaped the death throes of Draenor remains to be seen.'

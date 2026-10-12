@@ -13,13 +13,6 @@ riddles:
     hint_area: { x: 27.0, y: 76.0, r: 4 }
     danger: "Quiet"
     sources: "object 175856's text"
-  - id: stranglethorn-vale-brutus
-    tier: off
-    gestures: [SALUTE, HAIL, WAVE, GREET, BOW, HELLO]
-    creature: 2551   # Brutus, dump 32.9, 88.3, at the helm of the easternmost Bloodsail ship
-    hint_area: { x: 33.0, y: 86.0, r: 5 }
-    danger: "Perilous (the Bloodsail crews aboard, levels 40 to 45; deep water)"
-    sources: "the WoWWiki archive's Brutus and Ironpatch pages (the golem at Stillwater's helm; an orc of the Bloodsail); the dump's spawns"
   - id: stranglethorn-vale-emperors-tomb
     tier: hidden
     object: 54   # dump 24.7, 8.9; Wowhead 24.7, 9.0
@@ -45,15 +38,6 @@ when they could no longer pay what he demanded.
 ? Booty Bay.
 = Wrath of Soulflayer, in Booty Bay. The Gurubashi fed souls to Hakkar, then drove out the blood god and the priests who still served him. Those priests fled north to the swamps.
 + The Darkspear were among the tribes that went their own way after that war; and some spoke of a prophecy, that Hakkar would one day be reborn and consume the world whole.
-
-## stranglethorn-vale-brutus
-Off the jungle's southern tip, the pirates of the Bloodsail ride at anchor,
-and at the wheel of the easternmost ship stands no pirate at all,
-but a thing of iron that does not sleep.
-Show the helmsman a sailor's courtesy.
-? Out at sea, south-east of Booty Bay, aboard the Bloodsail fleet.
-= Brutus, a golem, at the helm of the easternmost ship of the Bloodsail fleet, Captain Stillwater's.
-+ On the next ship west, an orc called Ironpatch sails with the Bloodsail too: the Buccaneers take their crews where they find them.
 
 ## stranglethorn-vale-emperors-tomb
 In the north-western ruins of the troll empire that ruled the south

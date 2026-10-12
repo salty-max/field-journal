@@ -39,15 +39,18 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
 - `expeditions/<zone>.md` (named as the atlas's, top level: build.ts reads
   every `content/` folder as a Bestiary section): a zone's riddles (the
   Expeditions, PLAN.md): front matter in YAML (`zone`, `home` for a starting
-  zone or capital, `riddles`: id, tier, `faction` for a town's, `gestures`
+  zone or capital, `riddles`: id, tier, `faction` (a town's, or the side a
+  keeper doesn't attack), `gestures`
   (emote tokens) or `reading`, `night`, the spot: `object`, `creature`,
   `trigger` or `area` (with an `anchor` where the area has no map overlay),
   `found: target` for a keeper met by speaking to it or one that walks,
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
   rares, never a capital (a creature of Forever's own, which the data doesn't
   know, adds its `name`, `level`, `rank` and `model`); `client: forever` for a
-  zone of Forever's own (Zephras Isle: creatures and sub-areas only); never what a quest leads to, class quests aside:
-  PLAN.md, Reworked), then `## <id>` sections: the verse, `? ` the
+  zone of Forever's own (Zephras Isle: creatures and sub-areas only); never what a quest leads to, class quests aside,
+  never a kill, never the same deed twice in a zone, never on Forever's new
+  quests' road (the resolver checks these three:
+  PLAN.md, Reworked and After the first test), then `## <id>` sections: the verse, `? ` the
   first hint, `= ` the note, `+ ` the margin; `## quarry`: its poster (verse,
   note, margin, no hint); plain ASCII.
   `scripts/expeditions.py` resolves the spots from the game's data into
@@ -121,13 +124,20 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   `BestiaryBook.lua` (still portraits from the data's display ids,
   `SetPortraitTextureFromCreatureDisplayID`), `FloraBook.lua` (Fish and
   Plants), `AtlasBook.lua` (zones by continent, the zone's map art with its
-  explored overlays and marks), `ExpeditionsBook.lua` (the riddles by zone, a
-  riddle's page, its hints asked for through the game's confirmation),
+  explored overlays and marks, drawn by `ZoneMap.lua`, shared with the
+  Expeditions), `ExpeditionsBook.lua` (the riddles by zone; a zone's page in
+  words, cards and its map; a riddle's page, its verse set apart, its hints
+  asked for through the game's confirmation, its seal, note and margin; a
+  quarry's poster, the creature turning in its frame), `ExpeditionsPin.lua`
+  (a riddle or quarry pinned to the screen: a card to drag, closed by its
+  cross), `Toasts.lua` (the game's toasts: a milestone's, a riddle's, a
+  quarry's, each queued on its own),
   `MilestonesBook.lua`. `Expeditions.lua` (the riddles' records and their
   solving: each second where the reader stands, a gesture by hooking
   `C_ChatInfo.PerformEmote` (the chat's, the menu's; `DoEmote` where there is
   none), a reading at `ITEM_TEXT_BEGIN`, a keeper targeted near
-  (`CheckInteractDistance`), the night by the game's clock; outside combat;
+  (`CheckInteractDistance`), the night by the game's clock; outside combat,
+  never from a taxi or as a ghost;
   `/journal where`). `WorldMapPins.lua`
   (deaths on the game's world map), `Hints.lua` (tooltip line),
   `Settings.lua` (each character's settings, the kit's profiles: a profile

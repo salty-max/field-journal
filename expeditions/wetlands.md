@@ -8,6 +8,7 @@ client: both
 riddles:
   - id: wetlands-sundown-marsh
     tier: off
+    faction: alliance   # its keeper attacks the other side: this side's alone
     gestures: [HELLO, GREET, WAVE, HAIL, BOW]
     creature: 2679   # Wenna Silkbeard, dump 25.6, 25.8; Fradd Swiftgear (2682) beside her
     hint_area: { x: 24.0, y: 28.0, r: 6 }
@@ -15,6 +16,7 @@ riddles:
     sources: "the WoWWiki archive's Sundown Marsh page (the stone house, the windmill); the dump's spawns and wares (one piece at a time); the client's display tables (a dwarf, a gnome); https://www.wowhead.com/classic/item=4381/minor-recombobulator (dispels Polymorph, restores health and mana)"
   - id: wetlands-terl
     tier: hidden
+    faction: alliance   # its keeper attacks the other side: this side's alone
     creature: 2153   # Terl Arakor, dump 27.4, 41.2
     found: target
     hint_area: { x: 29.0, y: 39.0, r: 5 }

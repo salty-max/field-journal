@@ -21,25 +21,22 @@ riddles:
     hint_area: { x: 49.0, y: 56.0, r: 4 }
     danger: "Quiet"
     sources: "Tog Rustsprocket's own words (his gossip); the WoWWiki archive's Tog Rustsprocket page"
-  - id: dun-morogh-misty-pine
-    tier: off
-    area: Misty Pine Refuge   # placed: the client's overlay: 57.4, 42.7
-    hint_area: { x: 55.5, y: 45.0, r: 6 }
+  - id: dun-morogh-range
+    tier: near
+    gestures: [COVEREARS, DUCK, COWER, CRINGE]
+    name: Rumbleshot's Range
+    creature: 10805   # Spotter Klemmy, dump 40.7, 64.9, at the camp: the riflemen and the mortar team beside him
+    hint_area: { x: 41.0, y: 64.0, r: 4 }
     danger: "Quiet"
-    sources: "the WoWWiki archive's Misty Pine Refuge and Father Gavin pages; the dump (Father Gavin alone)"
-  - id: dun-morogh-ironband
+    sources: "the dump's script of the camp (dbscripts_on_creature_movement 1061001 to 1061004: the five head out to the range; broadcast texts 6106 to 6142: the riflemen's contest; the three Mortar Team Target Dummies); warcraft.wiki.gg's Hegnar Rumbleshot, Shorty, Spotter Klemmy, Rifleman Wheeler and Rifleman Middlecamp pages"
+  - id: dun-morogh-fluffy
     tier: off
-    area: Ironband's Compound   # placed: no overlay of its own (it shares Helm's Bed Lake's)
-    anchor: { creature: 6124 }   # what places its hint: Captain Beld, who holds it
-    hint_area: { x: 75.5, y: 60.0, r: 6 }
-    danger: "Guarded (Dark Iron spies to level 10; Captain Beld, 11)"
-    sources: "the WoWWiki archive's Ironband's Compound and Helm's Bed Lake pages (the abandoned building, the hole in the ice); the dump's spawns"
-  - id: dun-morogh-gibblewilt
-    tier: hidden
-    creature: 8503   # Gibblewilt, two spawns outside Gnomeregan, dump 24.2, 43.6 and 26.4, 36.4
-    hint_area: { x: 23.0, y: 40.0, r: 6 }
-    danger: "Guarded (leper gnomes to level 10; Gibblewilt, 11)"
-    sources: "the WoWWiki archive's Gibblewilt and Leper gnome pages (Gnomeregan's fall); the dump's spawns"
+    gestures: [SOOTHE, CALM, PET, COMFORT]
+    creature: 1352   # Fluffy, a rabbit: dump 63.0, 50.8, on a path round the ram pen
+    found: target   # it never stops running
+    hint_area: { x: 63.0, y: 50.5, r: 3 }
+    danger: "Quiet"
+    sources: "the dump: Fluffy's path, and Yarlyn Amberstill's words as she runs after it (broadcast texts 159 to 165, in Dwarvish); warcraft.wiki.gg's Fluffy and Yarlyn Amberstill pages (a dwarf girl, chasing her pet rabbit)"
 quarry:
   id: 1132   # Timber
   sources: "the WoWWiki archive's Timber page (the island, his two wolves, his drops, the pet); the dump's spawns"
@@ -62,32 +59,23 @@ Find him, and let him tell you about it.
 = Tog Rustsprocket, of Kharanos: 'I wish the snow would just all melt away. It's always getting my robe wet and messing up everything!'
 + He keeps a message for the warlocks who come his way, and sends them on to Lago Blackwrench.
 
-## dun-morogh-misty-pine
-In the pines east of the road that climbs to the great gates,
-a refuge stands that belongs to the Dawn.
-One priest keeps it, alone, studying the plague
-while the rest of his order fights it in the north.
-? North-east of Kharanos, east of the road up to the Gates of Ironforge: a refuge in the pines.
-= Misty Pine Refuge, an outpost of the Argent Dawn, kept by Father Gavin alone.
-+ The rest of the Dawn fights the Scourge in the Plaguelands; Gavin keeps the refuge, and studies the plague of undeath from as far away as it gets.
+## dun-morogh-range
+On the road out of the valley where young dwarves begin,
+a gunsmith keeps a camp, and beside it a range.
+Two riflemen settle their differences there, and a mortar team practises
+on dummies a spotter has to run out to. Mind your ears.
+? Hegnar Rumbleshot's camp, by the road from Coldridge Pass to Kharanos.
+= Rumbleshot's practice range. Every so often the five dwarves of the camp head out to it: Riflemen Middlecamp and Wheeler, who shoot at an orc target and a row of bottles; then the mortar team, Angus and Shorty, firing at three target dummies in turn, while Spotter Klemmy runs back and forth.
++ Middlecamp misses the orc target twice and the bottles twice, while Wheeler hits the target without trying, and the middle target dead centre. Then Wheeler only hits the side of the bottles' box, and it is Middlecamp who shoots the orc dummy, turns to the paper target and shoots from the hip at the bottles.
 
-## dun-morogh-ironband
-By a frozen lake whose ice is kept open in one place,
-so that there is always fresh water,
-an abandoned house south of the shore has new tenants:
-dwarves of the dark iron, who do not care for visitors.
-? South of Helm's Bed Lake, in eastern Dun Morogh: the house the Dark Irons have taken.
-= Ironband's Compound, a base of the Dark Iron dwarves in Dun Morogh, under their Captain Beld.
-+ Their spies watch the lake from the slopes around it; Ironforge would very much like to know what the Dark Irons are doing so close to its gates.
-
-## dun-morogh-gibblewilt
-Outside the gnomes' fallen city, by the small buildings near its door,
-one of its own still makes his rounds,
-though the poison changed him with all the rest.
-He has kept his name, which most of the changed have lost. He is not always there.
-? Outside Gnomeregan, near its entrance: among the leper gnomes, one with a name.
-= Gibblewilt, a leper gnome, one of the few with a name. Like the rest, he takes anyone who comes near for a trogg.
-+ When troggs from the Uldaman dig overran Gnomeregan, High Tinker Mekkatorque flooded the city with radiation to drive them out. It killed more gnomes than troggs, and twisted many of those it did not kill.
+## dun-morogh-fluffy
+At the ranch on the road east, where a family raises rams,
+the youngest has spent all day chasing someone small and white
+who wants no part of what she has in mind.
+Settle it, before it runs off again.
+? Amberstill Ranch, by the road to Loch Modan: the girl, and what she is chasing.
+= Fluffy, a rabbit, and Yarlyn Amberstill, who runs after it round the ram pen, calling: 'C'mon Fluffy! I just want to give you a bath!'
++ Her other offers, in Dwarvish: 'Carrots every day for a year if you stop!' And, when that fails: 'Don't make me get my pappy to catch you! He likes to catch bunnies using his rifle!'
 
 ## quarry
 On the island in the middle of the frozen lake to the north-west,

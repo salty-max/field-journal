@@ -1543,10 +1543,10 @@ check(
 )
 
 -- ── the expeditions ──────────────────────────────────────────────────────────
--- Duskwood's riddles, solved where they lead (a keeper's cave, a gesture at a
--- lonely post, a sub-area, an unseen household, a watcher found by speaking
--- to her) and its quarry; a reading in the Barrens; a walking keeper found by
--- targeting; a night riddle.
+-- Duskwood's riddles, solved where they lead (a gesture at a lonely post, a
+-- sub-area, an unseen household, a watcher found by speaking to her) and its
+-- quarry; a reading in the Barrens; a tomb found by arriving (never from a
+-- taxi); a walking keeper found by targeting; a riddle of the night.
 local function at(map, x, y, sub)
   state.map, state.x, state.y, state.sub = map, x, y, sub or ""
   fire("ZONE_CHANGED_NEW_AREA")
@@ -1566,11 +1566,14 @@ check(
   "… the data holds neither an answer's name nor its spot"
 )
 check(
-  #ns.riddlesOf(1431) == 5 and #ns.riddlesOf(1453) == 3,
-  "an Alliance reader: Duskwood's five riddles (Darkshire's too), Stormwind's three"
+  #ns.riddlesOf(1431) == 4 and #ns.riddlesOf(1453) == 3,
+  "an Alliance reader: Duskwood's four riddles (Darkshire's and the Night Watch's too), Stormwind's three"
 )
 state.faction = "Horde"
-check(#ns.riddlesOf(1431) == 4 and #ns.riddlesOf(1453) == 0, "… a Horde reader: four, and none in Stormwind")
+check(
+  #ns.riddlesOf(1431) == 2 and #ns.riddlesOf(1453) == 0,
+  "… a Horde reader: two (none of the Alliance's town or of a watcher who attacks the Horde), and none in Stormwind"
+)
 state.faction = "Alliance"
 -- A reading: a history book in Ratchet, read where it stands (never elsewhere,
 -- never in combat).
@@ -1612,18 +1615,11 @@ check(
   solvedRiddle("duskwood-callahan") and ns.riddleSeal(ns.riddleRecord("duskwood-callahan")) == "silver",
   "… the one it asks for does (any of its own), with a silver seal after the clue"
 )
--- A sub-area with a gesture (Twilight Grove); a keeper's lair, by being there;
--- a household no eye sees, by looking harder.
+-- A sub-area with a gesture (Twilight Grove); a household no eye sees, by
+-- looking harder.
 at(1431, 0.46, 0.40, "Twilight Grove")
 DoEmote("SLEEP")
 check(solvedRiddle("duskwood-twilight-grove"), "a sub-area's riddle: its gesture made in it")
-at(1431, 0.8636, 0.4757)
-state.taxi = true
-ns.expeditionAttempt()
-check(not solvedRiddle("duskwood-naraxis"), "a place flown over on a taxi: nothing")
-state.taxi = false
-ns.expeditionAttempt()
-check(solvedRiddle("duskwood-naraxis"), "a keeper's lair, by being there (whether she is home or not)")
 at(1431, 0.1921, 0.5376)
 ns.expeditionAttempt()
 check(not solvedRiddle("duskwood-unseen"), "the unseen household asks something: being there is not enough")
@@ -1704,15 +1700,34 @@ state.near = true
 ns.expeditionAttempt()
 check(solvedRiddle("hillsbrad-foothills-zixil"), "… targeted near him, wherever his road has taken him")
 state.target = nil
--- The night: Westfall's coffin tree answers only after dark, when its ghoul rises.
-state.hour = 12
-at(1436, 0.417, 0.293)
+-- Dun Morogh's practice range: ears minded beside the riflemen; and Fluffy,
+-- settled wherever it has run to.
+at(1426, 0.4066, 0.6488)
+DoEmote("CHEER")
+check(not solvedRiddle("dun-morogh-range"), "the practice range: cheering the riflemen is not what it asks")
+DoEmote("COVEREARS")
+check(solvedRiddle("dun-morogh-range"), "… minding one's ears beside them is")
+at(1426, 0.64, 0.49)
+state.target, state.near = 1352, true
+DoEmote("SOOTHE")
+state.target = nil
+check(solvedRiddle("dun-morogh-fluffy"), "Fluffy, the rabbit Yarlyn chases round the ranch: calmed where it ran")
+-- A place found by arriving: the Emperor's Tomb at Zul'Kunda, never from a
+-- taxi flying over it; and, made a riddle of the night here (none of the
+-- book's is one now), answering only after dark.
+local tomb = ns.riddleById["stranglethorn-vale-emperors-tomb"]
+at(1434, 0.247, 0.0893)
+state.taxi = true
 ns.expeditionAttempt()
-check(not solvedRiddle("westfall-coffin-tree"), "a night's riddle by day: nothing")
+check(not solvedRiddle(tomb.id), "a place flown over on a taxi: nothing")
+state.taxi = false
+tomb.night, state.hour = true, 12
+ns.expeditionAttempt()
+check(not solvedRiddle(tomb.id), "a night's riddle by day: nothing")
 state.hour = 22
 ns.expeditionAttempt()
-check(solvedRiddle("westfall-coffin-tree"), "… by night, solved")
-state.hour = 12
+check(solvedRiddle(tomb.id), "… by night, by being there: solved")
+tomb.night, state.hour = nil, 12
 -- Forever's own isle (Data_Forever alone): Zephras Isle's riddles and its
 -- quarry, a creature the data doesn't know; the children in the tree, looked
 -- at with them.
@@ -1733,13 +1748,13 @@ else
 end
 -- The map: a riddle's place shaded on the world map once asked for.
 state.popup = nil
-ns.takeHint("elwynn-forest-ridgepoint", 2)
+ns.takeHint("elwynn-forest-cats", 2)
 check(state.popup == nil, "(a hint taken from the code asks nothing)")
 WorldMapFrame.mapID = 1429
 ns.refreshWorldMapPins()
 local circle = mapProvider.circles and mapProvider.circles[1]
 check(
-  circle and circle.shown and circle.text == ns.riddleById["elwynn-forest-ridgepoint"].verse[1],
+  circle and circle.shown and circle.text == ns.riddleById["elwynn-forest-cats"].verse[1],
   "the map's hint: a circle on the zone's world map, the riddle's first line on it"
 )
 -- The book: the Expeditions tab, a riddle's page, the seals and the margin.
@@ -1780,11 +1795,11 @@ check(
     and rows["The clue"],
   "… a silver seal's page: the clue it took, the margin closed"
 )
-ns.openRiddle("elwynn-forest-ridgepoint")
+ns.openRiddle("elwynn-forest-cats")
 rows = pageRows()
 local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
 check(
-  FieldJournalExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-ridgepoint"].tier],
+  FieldJournalExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-cats"].tier],
   "an unsolved riddle's page: its tier, never its answer"
 )
 check(rows["The map"] and rows["The map"]:find("is shaded"), "… the map asked for")
@@ -1847,7 +1862,7 @@ check(
 )
 FieldJournalFrame:Hide()
 SlashCmdList.FIELDJOURNAL("where")
-check(said("(map 1436): 41.70, 29.30."), "/journal where tells the map and the position")
+check(said("(map 1434): 24.70, 8.93."), "/journal where tells the map and the position")
 
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(

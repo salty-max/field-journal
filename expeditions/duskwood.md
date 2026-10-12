@@ -14,14 +14,9 @@ riddles:
     hint_area: { x: 46.0, y: 43.0, r: 14 }
     danger: "Quiet; perilous when a dragon of the Nightmare is there"
     sources: "the WoWWiki archive's Duskwood page (the crater, the twilight of its own); the Codex's dragons-of-nightmare page"
-  - id: duskwood-naraxis
-    tier: off
-    creature: 574   # Naraxis, dump 86.4, 47.6, in her cave
-    hint_area: { x: 84.0, y: 50.5, r: 6 }
-    danger: "Guarded (black widow hatchlings; Naraxis herself, level 27, when she is home)"
-    sources: "the WoWWiki archive's Naraxis page (her colours, the Razzashi Broodwidow, her long absences); the dump's spawn"
   - id: duskwood-callahan
     tier: off
+    faction: alliance   # its keeper attacks the other side: this side's alone
     gestures: [SALUTE, BOW]
     creature: 2142   # Watcher Callahan, dump 81.9, 19.7, alone
     hint_area: { x: 79.0, y: 21.5, r: 6 }
@@ -55,15 +50,6 @@ The door opens for those who go the druids' way.
 ? The road through the forest bends around something older than the town.
 = The Twilight Grove, in the crater of a volcano long dead. Its tree is one of four doors the green dragonflight keeps into the Emerald Dream, and its keepers came back from the Dream changed.
 + The dusk here is not Duskwood's darkness: the sleeping druids keep a twilight of their own over the crater, quite unlike the rest of the forest.
-
-## duskwood-naraxis
-In a cave south-east of the town of the Night Watch
-lives a spider unlike any other of her kind:
-red and green, where the rest are black.
-She is seldom home. Wait in her doorway anyway.
-? East of Darkshire, then south: a cave among the black widows.
-= Naraxis. Only one other spider in the world wears her colours: the Razzashi Broodwidow of Zul'Gurub.
-+ A hunter can tame her, and some wait the long hours between her returns for the chance.
 
 ## duskwood-callahan
 Where the northern bank ends, by the road into the red mountains,

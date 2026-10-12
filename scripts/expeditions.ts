@@ -152,7 +152,8 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
       if (seen.has(id)) fail(file, `${where} a second riddle of that id`);
       seen.add(id);
       if (!TIERS.includes(r.tier)) fail(file, `${where} tier: one of ${TIERS.join(", ")}`);
-      if ((r.tier === "town") !== Boolean(r.faction)) fail(file, `${where} a town's riddle has its faction, no other has`);
+      // (a town's is its side's; another, the side its keeper doesn't attack)
+      if (r.tier === "town" && !r.faction) fail(file, `${where} a town's riddle has its faction`);
       if (r.faction && !FACTIONS.includes(r.faction)) fail(file, `${where} faction: ${FACTIONS.join(" or ")}`);
       const gestures: string[] = r.gestures ?? [];
       for (const g of gestures) {
@@ -272,7 +273,7 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
   return `  -- the expeditions' riddles, by zone (uiMap; scripts/expeditions.ts): the
   -- zone's size in yards (w, h: the answers' cells are ${CELL} yards a side), its
   -- faction when it is one's alone (home), its sub-areas (the one the reader
-  -- stands in is found by name); each riddle's tier, faction (a town's), what
+  -- stands in is found by name); each riddle's tier, faction (one side's), what
   -- it asks (a gesture, a reading), the night, its danger, its hint's circle
   -- (x, y, r: percent of the map's width), its verse and first hint; what is
   -- read once it is solved, veiled (its answer's name, the note, the margin);

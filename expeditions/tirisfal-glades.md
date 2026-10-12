@@ -9,18 +9,12 @@ client: both
 riddles:
   - id: tirisfal-glades-zapetta
     tier: near
+    gestures: [PROMISE, NOD, AGREE]
     creature: 9566   # Zapetta, dump 60.7, 58.9, at the zeppelin tower
     found: target   # where every traveller waits: only by speaking to him
     hint_area: { x: 62.5, y: 61.0, r: 4 }
     danger: "Quiet"
     sources: "Zapetta's and Hin Denburg's own words (their gossip); the WoWWiki archive's Zapetta page"
-  - id: tirisfal-glades-clyde
-    tier: near
-    gestures: [CURIOUS, PONDER, SCARED, SHIVER]
-    creature: 5690   # Clyde Kellen, dump 67.2, 51.0
-    hint_area: { x: 65.0, y: 53.5, r: 5 }
-    danger: "Quiet"
-    sources: "the deathguards' words (broadcast texts 6757, 6758); the WoWWiki archive's Clyde Kellen page"
   - id: tirisfal-glades-stillwater
     tier: off
     gestures: [SIGH, MOURN, CRY]
@@ -64,20 +58,11 @@ quarry:
 ## tirisfal-glades-zapetta
 At the tower north of the city gate, where the airships come in over the sea,
 a goblin takes the fares on the dead side of the water.
-His brother promised good money in it, and never said which of them would live here.
-Find him, and ask how he is getting on.
+His brother talked of good money in it, and never said which of them would live here.
+He has one favour to ask of whoever passes through. Give him your word.
 ? The zeppelin tower north of the Undercity's gates: the goblin who sends the airship to Durotar.
 = Zapetta, the zeppelin master: 'My brother said we could make great money with this trade route, but he didn't tell me I would be the one living on this side. If you come back this way on the Zeppelin, could you bring me something to eat?'
 + Hin Denburg, who sends the other airship south, has a low opinion of the gnomes' tram: if you believe in it, he has a statue in Stranglethorn to sell you.
-
-## tirisfal-glades-clyde
-East of the town of the dead, on the bank of the bright lake,
-the village's bass master keeps his favourite spot.
-The deathguards will tell you where to find him, and to mind the madmen in masks out there:
-they had to shut down the children's summer camp last year.
-? Brightwater Lake, east of Brill: the bass master's favourite spot on the south-western bank.
-= Clyde Kellen, the local bass master, who teaches fishing on Brightwater Lake's south-western bank.
-+ Elwynn tells a story of its own: a lake, a fisherman, a weird mask fished out of the water, and children camping by the shore. The two lakes are an ocean apart.
 
 ## tirisfal-glades-stillwater
 West of the town of the dead, a little pond lies gray and still.

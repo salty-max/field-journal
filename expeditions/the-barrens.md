@@ -29,7 +29,8 @@ riddles:
     sources: "Warcraft: The Roleplaying Game, p. 192 (the stairs beneath the waves, the legend, the divers); the client's AreaTable"
   - id: the-barrens-pooka
     tier: off
-    gestures: [WAVE, HELLO, GREET, BOW, SMILE]
+    faction: horde   # its keeper attacks the other side: this side's alone
+    gestures: [WAVE, HELLO, GREET, SMILE]
     creature: 14909   # Pooka, dump 47.8, 8.8, at the Mor'shan Rampart; Mogg (14908), her son, playing outside
     hint_area: { x: 47.5, y: 10.0, r: 3 }
     danger: "Quiet for the Horde; the rampart's guards for the Alliance"

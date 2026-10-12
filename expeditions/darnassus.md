@@ -29,13 +29,6 @@ riddles:
     hint_area: { x: 59.8, y: 5.7, r: 8 }
     danger: "Quiet"
     sources: "object 175730's text"
-  - id: darnassus-betrayer
-    tier: hidden
-    reading: The Betrayer Ascendant
-    object: 175759   # dump 66.5, 76.6; Wowhead's page alike
-    hint_area: { x: 69.2, y: 73.6, r: 8 }
-    danger: "Quiet"
-    sources: "object 175759's text; the Codex's tyrande-whisperwind page"
 # no quarry: a capital has riddles alone
 ---
 ## darnassus-ainethil
@@ -62,10 +55,3 @@ The price and the promise share a page.
 = The World Tree and the Emerald Dream: Nordrassil, 'crown of the heavens'. Three dragons blessed the tree; the night elves received immortality, and their druids agreed to long years of sleep in Ysera's Dream.
 + 'Though the druids were grieved at the prospect of losing so many years of their lives to hibernation, they selflessly agreed to uphold their bargain with Ysera.'
 
-## darnassus-betrayer
-Power waited inside an orc warlock's skull.
-In the south of the tree city, find the account of the prisoner who took it.
-Ten thousand years behind bars had not cured his appetite.
-? In the south of Darnassus.
-= The Betrayer Ascendant: Illidan, freed from his barrow prison by Tyrande, took the power of the Skull of Gul'dan and later fled to Outland.
-+ Maiev Shadowsong, his jailor for ten thousand years, followed him to Outland, determined to bring him to justice.

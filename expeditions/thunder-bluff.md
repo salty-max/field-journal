@@ -7,13 +7,6 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: thunder-bluff-winterhoof-totems
-    tier: near
-    creature: 3024   # Tah Winterhoof, dump 54.1, 47.0, in the tent of Winterhoof Totems
-    found: target   # in the city: only by finding him
-    hint_area: { x: 54.5, y: 47.5, r: 3 }
-    danger: "Quiet"
-    sources: "the dump's spawns (Tah, the shop's sign); the WoWWiki archive's Tah Winterhoof page (the totems, none for sale)"
   - id: thunder-bluff-white-stag
     tier: off
     reading: The White Stag and the Moon
@@ -30,14 +23,6 @@ riddles:
     sources: "the dump's spawns and Halpa's wares (the prairie dog whistle)"
 # no quarry: a capital has riddles alone
 ---
-## thunder-bluff-winterhoof-totems
-On the high rise, a tauren keeps a tent of great totems, carved and heavy,
-like the one the high chieftain carries into battle.
-He sells none of them. Find the tent, and its keeper.
-? Thunder Bluff's high rise, by the tent of Winterhoof Totems.
-= Tah Winterhoof, of Winterhoof Totems: great totem weapons like Cairne Bloodhoof's, and not one of them for sale.
-+ Down on the plains, the Winterhoofs keep a water well of their own, in Mulgore.
-
 ## thunder-bluff-white-stag
 On the rise of the elders, a tale tells of a white stag
 whose antlers tangled in the stars as he fled the hunters,

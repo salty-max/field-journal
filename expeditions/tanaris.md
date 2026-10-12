@@ -15,14 +15,14 @@ riddles:
     sources: "object 175763's text"
   - id: tanaris-zalashji
     tier: off
-    gestures: [WAVE, HELLO, GREET, BOW, HAIL, SMILE]
+    gestures: [WAVE, HELLO, GREET, BOW, HAIL]
     creature: 8617   # Zalashji, dump 67.7, 32.2, at his den
     hint_area: { x: 67.0, y: 33.0, r: 3 }
     danger: "Guarded (Wastewander bandits and steeljaw snappers nearby)"
     sources: "the WoWWiki archive's Zalashji page (friendly, no purpose anyone knows); the dump's spawn and faction (friendly to all)"
   - id: tanaris-winkey
     tier: hidden
-    gestures: [WAVE, HELLO, GREET, WINK, SMILE, BOW]
+    gestures: [WINK, SMILE, BLUSH]
     creature: 7770   # Winkey, dump 65.7, 64.2, alone on an islet
     hint_area: { x: 64.0, y: 63.0, r: 4 }
     danger: "Guarded (surf gliders and coast striders, level 48, in the shallows)"

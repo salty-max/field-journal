@@ -9,7 +9,8 @@ client: both
 riddles:
   - id: ironforge-toothgnasher
     tier: off
-    reading: Toothgnasher's Skeleton
+    gestures: [AMAZE, AWE, WHOA, GASP]
+    name: Toothgnasher's Skeleton
     object: 175683   # dump 74.3, 21.1; Wowhead's page alike
     hint_area: { x: 78.3, y: 21.6, r: 8 }
     danger: "Quiet"
@@ -33,7 +34,8 @@ riddles:
 ## ironforge-toothgnasher
 In the hall where the explorers keep their finds,
 a scale model stands of a ram out of dwarven folklore,
-too big and too tireless for any scholar to explain. Find it.
+too big and too tireless for any scholar to explain.
+Get beneath it, and be as impressed as the dwarves who told of it.
 ? The Hall of Explorers.
 = Toothgnasher's skeleton, a scale replica.
 + 'The legendary ram was a wonder of Khaz Modan and the subject of many tales of dwarven folklore.'
