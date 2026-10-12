@@ -2,7 +2,8 @@
 -- a deed that earns two shows both, side by side, never one in place of the
 -- other: a milestone earned, the achievement's toast with the journal's book;
 -- a riddle solved or a quarry brought down, the toast of "New Recipe
--- Learned", with the riddle's seal or the quarry's portrait. A click opens
+-- Learned", with what the riddle led to (its keeper's face, a book, a place)
+-- or the quarry's face, and the seal earned as a medal on it. A click opens
 -- the book there, a right-click dismisses it. Nothing where the client lacks
 -- them (the chat line and the sound stay); turned off by the alerts setting.
 local _, ns = ...
@@ -61,25 +62,60 @@ local function round(frame)
   frame.Icon:AddMaskTexture(frame.journalMask)
 end
 
+-- The seal's medal on the toast's picture: its coin, round, in a ring of its
+-- colour, at the picture's lower right.
+local function medal(frame, seal)
+  if not rawget(frame, "journalMedal") then
+    local ring = frame:CreateTexture(nil, "OVERLAY", nil, 6)
+    ring:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
+    ring:SetSize(22, 22)
+    ring:SetPoint("CENTER", frame.Icon, "BOTTOMRIGHT", -5, 5)
+    local coin = frame:CreateTexture(nil, "OVERLAY", nil, 7)
+    coin:SetSize(18, 18)
+    coin:SetPoint("CENTER", ring)
+    if frame.CreateMaskTexture then
+      local mask = frame:CreateMaskTexture()
+      mask:SetTexture(
+        "Interface\\CharacterFrame\\TempPortraitAlphaMask",
+        "CLAMPTOBLACKADDITIVE",
+        "CLAMPTOBLACKADDITIVE"
+      )
+      mask:SetAllPoints(coin)
+      coin:AddMaskTexture(mask)
+    end
+    frame.journalMedal = { ring = ring, coin = coin }
+  end
+  local m = frame.journalMedal
+  m.ring:SetShown(seal ~= nil)
+  m.coin:SetShown(seal ~= nil)
+  if seal then
+    m.ring:SetVertexColor(unpack(seal[4]))
+    m.coin:SetTexture(seal[1])
+    m.coin:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+  end
+end
+
+-- What a page's picture setter draws, drawn on the toast's icon instead.
+local function picture(frame, setter)
+  frame.Icon:SetVertexColor(1, 1, 1)
+  if frame.Icon.SetDesaturated then frame.Icon:SetDesaturated(false) end
+  setter({ tex = frame.Icon })
+end
+
 local function setUpFind(frame, kind, id)
   frame.journalKind, frame.journalId = kind, id -- (a toast frame is used again: never left as it was)
   round(frame)
   if kind == "riddle" then
     local r = ns.riddleById[id]
-    frame.Icon:SetTexture(ns.SEAL_ICON[ns.riddleSeal(ns.riddleRecord(id))])
-    frame.Icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+    picture(frame, ns.riddlePicture(r))
+    medal(frame, ns.SEALS[ns.riddleSeal(ns.riddleRecord(id))])
     frame.Title:SetText("A riddle read aright")
     frame.Name:SetText(ns.riddleName(r))
   else
     local q = ns.quarryById[id]
-    local display = ns.quarryDisplay(q)
-    if display and SetPortraitTextureFromCreatureDisplayID then
-      frame.Icon:SetTexCoord(0, 1, 0, 1)
-      SetPortraitTextureFromCreatureDisplayID(frame.Icon, display)
-    else
-      frame.Icon:SetTexture(BOOK)
-      frame.Icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
-    end
+    picture(frame, ns.quarryPicture(q))
+    local seal = ns.HUNT_SEALS[ns.huntSeal(ns.huntRecord(id))]
+    medal(frame, seal[1] and seal or nil)
     frame.Title:SetText("A quarry brought down")
     frame.Name:SetText(q.name)
   end

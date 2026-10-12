@@ -9,7 +9,6 @@ local _, ns = ...
 local ui = ns.ui
 local T = ui.T
 local WIDTH, PAD = 280, 14
-local NOTE = "Interface\\Icons\\INV_Misc_Note_02"
 local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
 local card
 
@@ -78,6 +77,7 @@ local function build()
   card.body = body
   card.picture = ui.roundPortrait(body, 32)
   card.picture:SetPoint("TOPLEFT", PAD, -PAD)
+  card.badge = ui.badge(card.picture, 15)
   card.title = ui.label(body, ui.TITLE_FONT, 15, T.gold)
   card.title:SetPoint("TOPLEFT", card.picture, "TOPRIGHT", 10, -1)
   card.title:SetPoint("RIGHT", -28, 0)
@@ -130,16 +130,19 @@ local SEAL_COLORS = { gold = { 1, 0.82, 0 }, silver = { 0.78, 0.8, 0.84 }, plain
 
 local function fill(r, q)
   card.riddle, card.quarry = r and r.id, q and q.id
+  card.picture.tex:SetVertexColor(1, 1, 1)
+  card.picture.tex:SetDesaturated(false)
+  ui.setBadge(card.badge, nil)
   local extra = {}
   if r then
     local rec = ns.riddleRecord(r.id) or {}
+    ns.riddlePicture(r)(card.picture)
     if rec.at then
       local s = ns.riddleSeal(rec)
-      ui.icon(ns.SEAL_ICON[s])(card.picture)
+      ui.setBadge(card.badge, ns.SEALS[s])
       card.title:SetText(ns.riddleName(r))
       table.insert(extra, ("Read, with the %s."):format(seal(s .. " seal", SEAL_COLORS[s])))
     else
-      ui.icon(NOTE)(card.picture)
       card.title:SetText(TIERS[r.tier])
       if (rec.hints or 0) >= 1 then table.insert(extra, "The clue: " .. r.hint) end
       if (rec.hints or 0) >= 2 then table.insert(extra, "Its place is shaded on your world map.") end
@@ -148,13 +151,9 @@ local function fill(r, q)
     card.verse:SetText(table.concat(r.verse, "\n"))
   else
     local rec = ns.huntRecord(q.id) or {}
-    local display = ns.quarryDisplay(q)
-    if display and SetPortraitTextureFromCreatureDisplayID then
-      card.picture.tex:SetTexCoord(0, 1, 0, 1)
-      SetPortraitTextureFromCreatureDisplayID(card.picture.tex, display)
-    else
-      ui.icon(NOTE)(card.picture)
-    end
+    ns.quarryPicture(q)(card.picture)
+    local hs = rec.at and ns.HUNT_SEALS[ns.huntSeal(rec)]
+    if hs and hs[1] then ui.setBadge(card.badge, hs) end
     card.title:SetText(q.name)
     card.sub:SetText(ns.zoneName(q.zone) .. "  -  the quarry")
     card.verse:SetText(table.concat(q.verse, "\n"))

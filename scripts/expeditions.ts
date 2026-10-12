@@ -54,7 +54,7 @@ export function veil(text: string, id: string, back = false) {
   return out;
 }
 
-type Spot = { zone: number; of: string; hint: number[]; name: string; spots?: number[][]; r?: number; npc?: number; areas?: number[] };
+type Spot = { zone: number; of: string; hint: number[]; name: string; spots?: number[][]; r?: number; npc?: number; areas?: number[]; face?: number };
 type Haunts = { id: number; name: string; haunts: number[][] };
 type Data = {
   zones: Record<string, { w: number; h: number; areas: number[] }>;
@@ -261,6 +261,7 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
       `verse = { ${r.verse.map(q).join(", ")} }`,
       `hint = ${q(r.hint)}`,
       `name = ${q(veil(s.name, r.id))}`,
+      s.face ? `face = ${q(veil(String(s.face), r.id))}` : "",
       `note = ${q(veil(r.note, r.id))}`,
       `margin = ${q(veil(r.margin, r.id))}`,
       s.areas ? "area = true" : "",
@@ -276,7 +277,8 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
   -- stands in is found by name); each riddle's tier, faction (one side's), what
   -- it asks (a gesture, a reading), the night, its danger, its hint's circle
   -- (x, y, r: percent of the map's width), its verse and first hint; what is
-  -- read once it is solved, veiled (its answer's name, the note, the margin);
+  -- read once it is solved, veiled (its answer's name, its keeper's face, the
+  -- note, the margin);
   -- and its answer as fingerprints only: at (the cells of its spot, or its
   -- sub-area), npc (the creature it may be found by), by (the gestures it takes);
   -- its quarry: the creature, its poster, its haunts (x, y, r) shaded once it is

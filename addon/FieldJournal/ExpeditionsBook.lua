@@ -242,7 +242,6 @@ end
 
 -- ── the page's parts ─────────────────────────────────────────────────────────
 local WIDTH = ui.WIDTH
-local CARD_H = 52
 local TROPHY = "Interface\\Icons\\INV_Misc_Head_Dragon_01"
 
 local NUMBERS = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve" }
@@ -324,22 +323,6 @@ local function setApart(key, text, size, centred)
   page:place(f, h + 14)
 end
 
--- A plain paragraph under a section (the note, a zone's or the overview's
--- words): the page's own note is its head's, so these are pooled.
-local function paragraph(text, color)
-  page.pi2 = (page.pi2 or 0) + 1
-  local p = page.paragraphs[page.pi2]
-  if not p then
-    p = ui.label(page.child, ui.BODY_FONT, 13, T.text)
-    p:SetWidth(WIDTH)
-    p:SetSpacing(4)
-    page.paragraphs[page.pi2] = p
-  end
-  p:SetTextColor(unpack(color or T.text))
-  p:SetText(text)
-  page:place(p, p:GetStringHeight() + 16)
-end
-
 -- The seal earned: its coin, its name in its colour, how and when.
 local function sealBlock(seal, how, rec)
   local s = page.parts.seal
@@ -367,42 +350,13 @@ local function sealBlock(seal, how, rec)
   page:place(s, 66)
 end
 
--- A riddle or the quarry on a zone's page (or the overview's): its picture,
--- its name, a line; a click opens it.
-local function card(i)
-  local c = page.cards[i]
-  if c then return c end
-  c = CreateFrame("Button", nil, page.child)
-  c:SetSize(WIDTH, CARD_H)
-  c.portrait = ui.roundPortrait(c, 40)
-  c.portrait:SetPoint("LEFT", 4, 0)
-  c.name = ui.label(c, ui.TITLE_FONT, 15, T.text)
-  c.name:SetPoint("TOPLEFT", c.portrait, "TOPRIGHT", 12, -2)
-  c.name:SetPoint("RIGHT", -4, 0)
-  c.name:SetWordWrap(false)
-  c.facts = ui.label(c, ui.BODY_FONT, 11, T.soft)
-  c.facts:SetPoint("TOPLEFT", c.name, "BOTTOMLEFT", 0, -5)
-  c.facts:SetPoint("RIGHT", -4, 0)
-  c.facts:SetWordWrap(false)
-  c.line = ui.rule(c)
-  c.line:SetPoint("BOTTOMLEFT", 0, 0)
-  c.line:SetPoint("BOTTOMRIGHT", 0, 0)
-  c:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
-  c:SetScript("OnClick", function(self)
-    current = self.target
+-- A riddle or the quarry as a card (a zone's page, the overview's): a click
+-- opens it.
+local function placeCard(target, name, facts, picture, seal)
+  page:card(name, facts, picture, function()
+    current = target
     ns.refresh()
-  end)
-  page.cards[i] = c
-  return c
-end
-local function placeCard(target, name, facts, picture)
-  page.ci = page.ci + 1
-  local c = card(page.ci)
-  c.target = target
-  c.name:SetText(name)
-  c.facts:SetText(facts)
-  picture(c.portrait)
-  page:place(c, CARD_H + 4)
+  end, seal)
 end
 
 -- A creature's still portrait, by its display id (a note without one).
@@ -417,8 +371,35 @@ local function portrait(model)
   end
 end
 
--- The quarry on its poster: the creature itself, turning slowly in its frame.
-local function modelBlock(display)
+-- The quarry still at large: its portrait in shadow (brought down, its face).
+local function shadowed(model)
+  return function(p)
+    portrait(model)(p)
+    p.tex:SetDesaturated(true)
+    p.tex:SetVertexColor(0.3, 0.3, 0.3)
+  end
+end
+local function quarryPicture(q)
+  local display = ns.quarryDisplay(q)
+  return ns.quarryDown(q.id) and portrait(display) or shadowed(display)
+end
+
+-- A riddle's picture: unsolved, its note; solved, what it led to: its
+-- keeper's face, the book read, a keeper the data has no face for, a place
+-- found or a stone (the seal is the medal on it, never the picture).
+local SPYGLASS, TABLET = "Interface\\Icons\\INV_Misc_Spyglass_02", "Interface\\Icons\\INV_Misc_StoneTablet_05"
+local function riddlePicture(r)
+  if not ns.riddleSolved(r.id) then return ui.icon(NOTE) end
+  local face = ns.riddleFace(r)
+  if face then return portrait(face) end
+  if r.asks == "reading" then return ui.icon(BOOK) end
+  return ui.icon((r.area or r.npc) and SPYGLASS or TABLET)
+end
+
+-- The quarry on its poster: the creature itself, turning slowly in its frame;
+-- still at large, only its shape (the fog of the model's own light), or no
+-- frame where the client can't draw a shape.
+local function modelBlock(display, shape)
   local m = page.parts.model
   if not m then
     m = CreateFrame("Frame", nil, page.child)
@@ -438,10 +419,20 @@ local function modelBlock(display)
     end
     page.parts.model = m
   end
-  if not (m.creature and display) then return end
-  m.creature:ClearModel()
-  m.creature:SetDisplayInfo(display)
-  if m.creature.SetCamDistanceScale then m.creature:SetCamDistanceScale(1.25) end
+  local c = m.creature
+  if not (c and display) or (shape and not c.SetFogColor) then return end
+  c:ClearModel()
+  c:SetDisplayInfo(display)
+  if c.SetCamDistanceScale then c:SetCamDistanceScale(1.25) end
+  if shape then
+    c:SetFogColor(0.16, 0.14, 0.11)
+    c:SetFogNear(0)
+    c:SetFogFar(0.1)
+  elseif c.ClearFog then
+    c:ClearFog()
+  elseif c.SetFogFar then
+    c:SetFogFar(10000)
+  end
   page:place(m, 210 + 14)
 end
 
@@ -452,7 +443,7 @@ local function mapBlock(uiMap, marks, circles, caption)
   local height = page.map:draw(uiMap, marks, circles)
   if not height then return end
   page:section("The map")
-  if caption then paragraph(caption, T.soft) end
+  if caption then page:paragraph(caption, T.soft) end
   page:place(page.map, height + 16)
 end
 
@@ -503,19 +494,16 @@ local function quarryMarks(q, marks, circles)
   end
 end
 
--- (picture: an icon's path, or a portrait's setter)
-local function start(name, sub, picture)
-  for _, pool in ipairs({ page.buttons, page.cards, page.paragraphs }) do
-    for _, x in ipairs(pool) do
-      x:Hide()
-    end
+-- (picture: an icon's path, or a portrait's setter; seal: the medal on it)
+local function start(name, sub, picture, seal)
+  for _, b in ipairs(page.buttons) do
+    b:Hide()
   end
   for _, part in pairs(page.parts) do
     part:Hide()
   end
   page.map:Hide()
-  page.ci, page.pi2 = 0, 0
-  page:start(name, sub, type(picture) == "function" and picture or ui.icon(picture))
+  page:start(name, sub, type(picture) == "function" and picture or ui.icon(picture), seal)
 end
 
 local function pinButton(key)
@@ -526,6 +514,10 @@ local function pinButton(key)
   }
 end
 
+-- (for the card pinned to the screen and the toasts)
+ns.riddlePicture, ns.quarryPicture = riddlePicture, quarryPicture
+ns.SEALS, ns.HUNT_SEALS = SEALS, HUNT_SEALS
+
 -- ── the pages ────────────────────────────────────────────────────────────────
 local RIDDLE_HOW = { gold = "Read from the verse alone", silver = "Read with the clue", plain = "Read with the map" }
 
@@ -535,7 +527,7 @@ local function showRiddle(r)
   local seal = solved and SEALS[ns.riddleSeal(rec)]
   -- (unsolved, its title is its tier already)
   local sub = solved and table.concat({ ns.zoneName(r.zone), TIERS[r.tier] }, "  -  ") or ns.zoneName(r.zone)
-  start(title(r), sub, seal and seal[1] or NOTE)
+  start(title(r), sub, riddlePicture(r), seal or nil)
   setApart("verse", table.concat(r.verse, "\n"), 14, true)
   page:section("The riddle")
   page:row("Danger", r.danger)
@@ -567,12 +559,12 @@ local function showRiddle(r)
     page:section("Solved")
     sealBlock(seal, RIDDLE_HOW[ns.riddleSeal(rec)], rec)
     page:section("The note")
-    paragraph(ns.riddleNote(r))
+    page:paragraph(ns.riddleNote(r))
     page:section("In the margin")
     if hints == 0 then
       setApart("margin", ns.riddleMargin(r), 13)
     else
-      paragraph("Only a gold seal opens the margin, and this riddle was read with a hint.", T.soft)
+      page:paragraph("Only a gold seal opens the margin, and this riddle was read with a hint.", T.soft)
     end
   end
   local marks, circles = {}, {}
@@ -602,8 +594,14 @@ local function showQuarry(q)
   local rec = ns.huntRecord(q.id) or {}
   local down = rec.at ~= nil
   local display = ns.quarryDisplay(q)
-  start(q.name, ("%s  -  the quarry"):format(ns.zoneName(q.zone)), portrait(display))
-  modelBlock(display)
+  local hseal = down and HUNT_SEALS[ns.huntSeal(rec)]
+  start(
+    q.name,
+    ("%s  -  the quarry"):format(ns.zoneName(q.zone)),
+    quarryPicture(q),
+    hseal and hseal[1] and hseal or nil
+  )
+  modelBlock(display, not down)
   setApart("verse", table.concat(q.verse, "\n"), 14, true)
   page:section("The hunt")
   page:row("Danger", danger(q))
@@ -632,12 +630,12 @@ local function showQuarry(q)
     local seal = ns.huntSeal(rec)
     sealBlock(HUNT_SEALS[seal], HUNT_HOW[seal], rec)
     page:section("The note")
-    paragraph(ns.quarryNote(q))
+    page:paragraph(ns.quarryNote(q))
     page:section("In the margin")
     if seal == "gold" then
       setApart("margin", ns.quarryMargin(q), 13)
     else
-      paragraph("Only a gold seal opens the margin: a quarry never tracked.", T.soft)
+      page:paragraph("Only a gold seal opens the margin: a quarry never tracked.", T.soft)
     end
   end
   local marks, circles = {}, {}
@@ -731,7 +729,8 @@ local function showZone(uiMap)
           r.id,
           ns.riddleName(r),
           ("%s  -  the %s seal, %s"):format(TIERS[r.tier], seal[2]:lower(), ui.day(rec)),
-          ui.icon(seal[1])
+          riddlePicture(r),
+          seal
         )
       else
         local hints = rec.hints or 0
@@ -754,7 +753,14 @@ local function showZone(uiMap)
       local target = ns.huntTarget()
       state = (target and target.id == q.id) and "tracked" or "still at large"
     end
-    placeCard("quarry:" .. q.id, q.name, ("%s  -  %s"):format(danger(q), state), portrait(ns.quarryDisplay(q)))
+    local hseal = rec.at and HUNT_SEALS[ns.huntSeal(rec)]
+    placeCard(
+      "quarry:" .. q.id,
+      q.name,
+      ("%s  -  %s"):format(danger(q), state),
+      quarryPicture(q),
+      hseal and hseal[1] and hseal or nil
+    )
     quarryMarks(q, marks, circles)
   end
   mapBlock(
@@ -832,7 +838,7 @@ local function showOverview()
       "quarry:" .. target.id,
       target.name,
       ("tracked, in %s  -  %s"):format(ns.zoneName(target.zone), danger(target)),
-      portrait(ns.quarryDisplay(target))
+      quarryPicture(target)
     )
   end
   local pr = pinned and ns.riddleById[pinned]
@@ -849,7 +855,8 @@ local function showOverview()
           x.riddle.id,
           ns.riddleName(x.riddle),
           ("%s  -  the %s seal, %s"):format(ns.zoneName(x.riddle.zone), seal[2]:lower(), ui.day(x.rec)),
-          ui.icon(seal[1])
+          riddlePicture(x.riddle),
+          seal
         )
       else
         local seal = HUNT_SEALS[ns.huntSeal(x.rec)]
@@ -857,7 +864,8 @@ local function showOverview()
           "quarry:" .. x.quarry.id,
           x.quarry.name,
           ("%s  -  brought down, the %s seal, %s"):format(ns.zoneName(x.quarry.zone), seal[2]:lower(), ui.day(x.rec)),
-          portrait(ns.quarryDisplay(x.quarry))
+          portrait(ns.quarryDisplay(x.quarry)),
+          seal[1] and seal or nil
         )
       end
     end
@@ -897,7 +905,7 @@ local function build(b)
   book = b
   list = ui.newList(book.left, style, rows, true)
   page = ui.newPage(book.sheet, "FieldJournalExpeditionsPage", 90, pairsPool)
-  page.buttons, page.cards, page.paragraphs, page.parts = {}, {}, {}, {}
+  page.buttons, page.parts = {}, {}
   page.actions = CreateFrame("Frame", nil, page.child)
   page.actions:SetSize(WIDTH, 26)
   page.map = ui.newMap(page.child)

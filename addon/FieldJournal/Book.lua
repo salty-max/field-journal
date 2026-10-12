@@ -169,13 +169,36 @@ local WIDTH = 440
 local HEADER_H = 88
 local Page = {}
 
+-- A medal pinned on a round picture's lower edge: a seal's coin in a ring of
+-- its colour (setBadge(b, seal): seal = { icon, name, text, colour }, nil:
+-- none). The seal is the medal; the picture stays the subject's.
+local function badge(portrait, size)
+  local b = K.roundIcon(portrait, size or 20, true)
+  b:SetPoint("CENTER", portrait, "BOTTOMRIGHT", -(size or 20) * 0.3, (size or 20) * 0.3)
+  b:SetFrameLevel(portrait:GetFrameLevel() + 3)
+  b:Hide()
+  return b
+end
+local function setBadge(b, seal)
+  if not seal then
+    b:Hide()
+    return
+  end
+  b.tex:SetTexture(seal[1])
+  b.tex:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+  b.ring:SetVertexColor(unpack(seal[4]))
+  b:Show()
+end
+
 local function newPage(parent, name, labelWidth, pairs)
   local p = extend(scrollArea(parent, WIDTH, name), Page)
   p.labelWidth, p.pairs, p.headings = labelWidth, pairs or {}, {}
+  p.cards, p.paragraphs, p.tiles, p.items = {}, {}, {}, {}
   p:SetPoint("TOPLEFT", parent, "TOPLEFT", 26, -22)
   p:SetPoint("BOTTOMRIGHT", parent, "BOTTOMRIGHT", -22, 14)
   p.portrait = roundPortrait(p.child, 64)
   p.portrait:SetPoint("TOPLEFT", 2, -2)
+  p.portrait.badge = badge(p.portrait, 26)
   p.title = label(p.child, TITLE_FONT, 24, T.gold)
   p.title:SetPoint("TOPLEFT", p.portrait, "TOPRIGHT", 16, -8)
   p.title:SetWidth(WIDTH - 86)
@@ -193,19 +216,22 @@ local function newPage(parent, name, labelWidth, pairs)
 end
 
 -- The page, laid out again: the header's title, the line under it, the
--- portrait (setPicture(portrait): icon(path), say), the blocks after it.
-function Page:start(title, sub, setPicture)
-  for _, x in ipairs(self.pairs) do
-    x:Hide()
-  end
-  for _, x in ipairs(self.headings) do
-    x:Hide()
+-- portrait (setPicture(portrait): icon(path), say) and its medal (a seal, or
+-- none), the blocks after it.
+function Page:start(title, sub, setPicture, seal)
+  for _, pool in ipairs({ self.pairs, self.headings, self.cards, self.paragraphs, self.tiles, self.items }) do
+    for _, x in ipairs(pool) do
+      x:Hide()
+    end
   end
   self.note:Hide()
   self.title:SetText(title)
   self.sub:SetText(sub or "")
+  self.portrait.tex:SetVertexColor(1, 1, 1)
+  self.portrait.tex:SetDesaturated(false)
   setPicture(self.portrait)
-  self.y, self.hi, self.pi = HEADER_H + 2, 0, 0
+  setBadge(self.portrait.badge, seal)
+  self.y, self.hi, self.pi, self.ci, self.qi, self.ti, self.ii = HEADER_H + 2, 0, 0, 0, 0, 0, 0
 end
 
 -- A block at the page's next place (a frame or a font string), so tall.
@@ -271,6 +297,144 @@ function Page:row(name, value)
   local height = math.max(16, p.value:GetStringHeight())
   p:SetHeight(height)
   self:place(p, height + 8)
+end
+
+-- A card: a round picture (setPicture, its medal: a seal or none), a name and
+-- a line under it, a rule below; a click calls click() (nil: none).
+local CARD_H = 52
+function Page:card(name, facts, setPicture, click, seal)
+  self.ci = self.ci + 1
+  local c = self.cards[self.ci]
+  if not c then
+    c = CreateFrame("Button", nil, self.child)
+    c:SetSize(WIDTH, CARD_H)
+    c.portrait = roundPortrait(c, 40)
+    c.portrait:SetPoint("LEFT", 4, 0)
+    c.badge = badge(c.portrait, 18)
+    c.name = label(c, TITLE_FONT, 15, T.text)
+    c.name:SetPoint("TOPLEFT", c.portrait, "TOPRIGHT", 12, -2)
+    c.name:SetPoint("RIGHT", -4, 0)
+    c.name:SetWordWrap(false)
+    c.facts = label(c, BODY_FONT, 11, T.soft)
+    c.facts:SetPoint("TOPLEFT", c.name, "BOTTOMLEFT", 0, -5)
+    c.facts:SetPoint("RIGHT", -4, 0)
+    c.facts:SetWordWrap(false)
+    c.line = rule(c)
+    c.line:SetPoint("BOTTOMLEFT", 0, 0)
+    c.line:SetPoint("BOTTOMRIGHT", 0, 0)
+    c:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+    c:SetScript("OnClick", function(cc)
+      if cc.click then cc.click() end
+    end)
+    self.cards[self.ci] = c
+  end
+  c.click = click
+  c.name:SetText(name)
+  c.facts:SetText(facts or "")
+  c.portrait.tex:SetVertexColor(1, 1, 1)
+  c.portrait.tex:SetDesaturated(false)
+  setPicture(c.portrait)
+  setBadge(c.badge, seal)
+  self:place(c, CARD_H + 4)
+  return c
+end
+
+-- A paragraph of its own under a section (the head's note is the page's).
+function Page:paragraph(text, color)
+  self.qi = self.qi + 1
+  local p = self.paragraphs[self.qi]
+  if not p then
+    p = label(self.child, BODY_FONT, 13, T.text)
+    p:SetWidth(WIDTH)
+    p:SetSpacing(4)
+    self.paragraphs[self.qi] = p
+  end
+  p:SetTextColor(unpack(color or T.text))
+  p:SetText(text)
+  self:place(p, p:GetStringHeight() + 16)
+  return p
+end
+
+-- A strip of figures side by side: { { value, label }, ... }, the value large.
+local TILE_H = 50
+function Page:stats(figures)
+  local w = math.floor((WIDTH - (#figures - 1) * 10) / #figures)
+  local strip = self.tiles.strip
+  if not strip then
+    strip = CreateFrame("Frame", nil, self.child)
+    self.tiles.strip = strip
+  end
+  strip:SetSize(WIDTH, TILE_H)
+  for i, fig in ipairs(figures) do
+    self.ti = self.ti + 1
+    local t = self.tiles[self.ti]
+    if not t then
+      t = CreateFrame("Frame", nil, strip)
+      t.art = panel(t)
+      t.art:SetAllPoints()
+      t.value = label(t.art, TITLE_FONT, 20, T.gold)
+      t.value:SetPoint("TOP", 0, -7)
+      t.label = label(t.art, BODY_FONT, 11, T.soft)
+      t.label:SetPoint("BOTTOM", 0, 8)
+      self.tiles[self.ti] = t
+    end
+    t:SetSize(w, TILE_H)
+    t:ClearAllPoints()
+    t:SetPoint("TOPLEFT", strip, "TOPLEFT", (i - 1) * (w + 10), 0)
+    t.value:SetText(fig[1])
+    t.label:SetText(fig[2])
+    t:Show()
+  end
+  self:place(strip, TILE_H + 14)
+end
+
+-- A row of items' icons (wrapping): { { item id, name, faded } }, each with the
+-- game's tooltip; faded: one still to find (its icon only, darkened).
+local ITEM = 34
+function Page:items(list)
+  local per = math.floor((WIDTH + 6) / (ITEM + 6))
+  local rows = math.ceil(#list / per)
+  local box = self.items.box
+  if not box then
+    box = CreateFrame("Frame", nil, self.child)
+    self.items.box = box
+  end
+  box:SetSize(WIDTH, rows * (ITEM + 6))
+  for i, it in ipairs(list) do
+    self.ii = self.ii + 1
+    local b = self.items[self.ii]
+    if not b then
+      b = CreateFrame("Button", nil, box)
+      b:SetSize(ITEM, ITEM)
+      b.icon = b:CreateTexture(nil, "ARTWORK")
+      b.icon:SetAllPoints()
+      b.border = b:CreateTexture(nil, "OVERLAY")
+      b.border:SetTexture("Interface\\Common\\WhiteIconFrame")
+      b.border:SetAllPoints()
+      b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
+      b:SetScript("OnEnter", function(bb)
+        GameTooltip:SetOwner(bb, "ANCHOR_RIGHT")
+        if bb.faded then
+          GameTooltip:AddLine(bb.name or "?", T.soft[1], T.soft[2], T.soft[3])
+          GameTooltip:AddLine("Still to find here.", 1, 1, 1)
+        elseif GameTooltip.SetItemByID then
+          GameTooltip:SetItemByID(bb.itemId)
+        end
+        GameTooltip:Show()
+      end)
+      b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+      self.items[self.ii] = b
+    end
+    local col, row = (i - 1) % per, math.floor((i - 1) / per)
+    b:ClearAllPoints()
+    b:SetPoint("TOPLEFT", box, "TOPLEFT", col * (ITEM + 6), -row * (ITEM + 6))
+    b.itemId, b.name, b.faded = it[1], it[2], it[3]
+    b.icon:SetTexture(itemIcon(it[1]) or QUESTION)
+    b.icon:SetDesaturated(it[3] and true or false)
+    b.icon:SetVertexColor(it[3] and 0.35 or 1, it[3] and 0.35 or 1, it[3] and 0.35 or 1)
+    b:Show()
+  end
+  self:place(box, rows * (ITEM + 6) + 10)
 end
 
 -- The page's height, scrolled to the top (keep: where it was).
@@ -478,5 +642,7 @@ ns.ui = {
   itemIcon = itemIcon,
   newList = newList,
   newPage = newPage,
+  badge = badge,
+  setBadge = setBadge,
   window = window,
 }

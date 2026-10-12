@@ -281,6 +281,8 @@ def main():
     otypes = {int(d["entry"]): int(d["type"]) for d in tab("gameobject_template")}
     names = {("object", int(d["entry"])): d["name"] for d in tab("gameobject_template")}
     names.update({("creature", int(d["Entry"])): d["Name"] for d in tab("creature_template")})
+    # a creature's face (its display id), shown once its riddle is solved
+    faces = {int(d["Entry"]): int(d["ModelId1"]) for d in tab("creature_template") if d["ModelId1"] not in ("0", "")}
     objects = collections.defaultdict(list)
     for d in tab("gameobject"):
         objects[int(d["id"])].append((int(d["map"]), float(d["position_x"]), float(d["position_y"])))
@@ -465,6 +467,8 @@ def main():
                 # found by targeting it near: one of a kind, or one only so found
                 if len(found) == 1 or r.get("found") == "target":
                     out["npc"] = r["creature"]
+                if faces.get(int(r["creature"])):
+                    out["face"] = faces[int(r["creature"])]
                 still = [(p, wanders(d)) for p, d in spawns if wanders(d) <= NEAR]
                 if r.get("found") != "target" and still:
                     out.update(spots=[p for p, _ in still], r=NEAR + math.ceil(max(far for _, far in still)))

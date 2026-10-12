@@ -89,6 +89,8 @@ for uiMap, z in pairs(X) do
 end
 
 function ns.riddleName(r) return unveil(r.name, r.id) end
+-- its keeper's face (a display id), if it leads to a creature the data knows
+function ns.riddleFace(r) return r.face and tonumber(unveil(r.face, r.id)) end
 function ns.riddleNote(r) return unveil(r.note, r.id) end
 function ns.riddleMargin(r) return unveil(r.margin, r.id) end
 

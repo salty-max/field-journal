@@ -215,6 +215,12 @@ local function ui()
       if k == "SetText" then
         return function(self, v) self.text = v end
       end
+      if k == "SetTexture" then
+        -- (a texture drawn: what it shows, no creature's portrait any more)
+        return function(self, v)
+          self.texture, self.display = v, nil
+        end
+      end
       if k == "GetText" then
         return function(self) return rawget(self, "text") or "" end
       end
@@ -307,9 +313,17 @@ Settings = {
   OpenToCategory = function(id) panel.opened = id end,
 }
 local frames = {}
+-- A creature's portrait drawn on a texture: which display it shows.
+function SetPortraitTextureFromCreatureDisplayID(tex, display) tex.display = display end
 function CreateFrame(kind, name)
   local f = ui()
   f.shown = true -- (a new frame is shown, as in the game)
+  if kind == "PlayerModel" then
+    -- (the model's fog: a shape only while it is near)
+    f.SetFogFar = function(self, v) self.fogFar = v end
+    f.ClearFog = function(self) self.fogFar = nil end
+    f.SetDisplayInfo = function(self, v) self.display = v end
+  end
   f.registered, f.unitsOf = {}, {}
   f.RegisterEvent = function(self, e)
     if FOREVER and e == "COMBAT_LOG_EVENT_UNFILTERED" then error("COMBAT_LOG_EVENT_UNFILTERED: forbidden") end
@@ -1673,6 +1687,11 @@ check(
   FieldJournalExpeditionsPage.title.text == "Commander Felstrom" and rowsOf()["Its haunts"] == "untracked",
   "a quarry's link opens its poster, untracked"
 )
+local poster = FieldJournalExpeditionsPage.parts.model
+check(
+  poster and poster.shown and poster.creature.fogFar == 0.1 and not FieldJournalExpeditionsPage.portrait.badge.shown,
+  "… still at large: only its shape in the frame, its portrait in shadow"
+)
 local track = FieldJournalExpeditionsPage.buttons[1]
 track.scripts.OnClick(track)
 check(
@@ -1821,7 +1840,16 @@ check(
     and paragraphs():find(ns.riddleNote(ns.riddleById["the-barrens-ratchet-book"]), 1, true),
   "a riddle's link opens its page: its verse, its answer, the gold seal, the note and the margin"
 )
+local header = FieldJournalExpeditionsPage.portrait
+check(
+  rawget(header.tex, "display") == nil and header.badge.shown and header.badge.tex.texture == ns.SEAL_ICON.gold,
+  "… its picture what it led to (a book read), the gold seal a medal on it, not in its place"
+)
 ns.openRiddle("duskwood-callahan")
+check(
+  rawget(header.tex, "display") == ns.riddleFace(ns.riddleById["duskwood-callahan"]) and header.tex.display > 0,
+  "… a keeper's riddle: the keeper's face, once solved"
+)
 local rows = pageRows()
 check(
   parts.seal.name.text == "The silver seal"
@@ -1892,8 +1920,9 @@ cards["Commander Felstrom"].scripts.OnClick(cards["Commander Felstrom"])
 check(
   FieldJournalExpeditionsPage.title.text == "Commander Felstrom"
     and FieldJournalExpeditionsPage.parts.model.shown
+    and rawget(FieldJournalExpeditionsPage.parts.model.creature, "fogFar") == nil
     and FieldJournalExpeditionsPage.parts.seal.name.text == "No seal",
-  "… a card opens its page: the quarry's poster, the creature turning in its frame, its seal"
+  "… a card opens its page: the quarry's poster, brought down, the creature itself turning in its frame"
 )
 FieldJournalFrame:Hide()
 SlashCmdList.FIELDJOURNAL("where")
