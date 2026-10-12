@@ -13,19 +13,13 @@ riddles:
     hint_area: { x: 22.0, y: 71.0, r: 14 }
     danger: "Quiet"
     sources: "the Codex's valley-of-kings page; object 175739's text"
-  - id: loch-modan-ironband
-    tier: off
-    area: Ironband's Excavation Site   # placed: the client's overlay: 69.4, 65.5, half-size 7.0 by 8.6
-    hint_area: { x: 68.0, y: 63.0, r: 10 }
-    danger: "Guarded (the Stonesplinter troggs)"
-    sources: "quests 297, 436; the Codex's ironbands-excavation-site page"
-  - id: loch-modan-suspicious-barrel
+  - id: loch-modan-horde-runners
     tier: hidden
-    gestures: [SNIFF]
-    object: 257   # dump 56.1, 13.2; Wowhead 56.1, 13.3
-    hint_area: { x: 58.7, y: 16.3, r: 8 }
-    danger: "Guarded (Dark Iron sappers)"
-    sources: "quests 250, 199"
+    creature: 2478   # Haren Swifthoof, who runs with Gradok (2477) and Thragomm (7170): dump 55.5, 67.1, a path up the east shore and back
+    found: target   # they never stop running
+    hint_area: { x: 60.0, y: 60.0, r: 9 }
+    danger: "Deadly to the Alliance (three elites, levels 19 to 21); to the Horde, friends"
+    sources: "the dump's spawns and their path; the client's display tables (two orcs of one face, a tauren); the WoWWiki archive's Gradok page"
   - id: loch-modan-thelsamar
     tier: town
     faction: alliance   # its town's: for that faction alone
@@ -35,8 +29,8 @@ riddles:
     danger: "Quiet"
     sources: "object 175736's text"
 quarry:
-  id: 1225
-  sources: "quests 271, 531 (Vyrin Swiftwind, Daryl the Youngling)"
+  id: 1398   # Boss Galgosh
+  sources: "the WoWWiki archive's Boss Galgosh page (the platform, the title); quest 217's text (Grawmug); the dump's spawns"
 ---
 ## loch-modan-valley-of-kings
 Of three great hammers, two were set in stone.
@@ -47,23 +41,14 @@ facing the south, where once the third one's fires glowed.
 = Bronzebeard and Wildhammer, side by side, raised by their sons. Their peoples parted ways later; the statues did not.
 + The whole war is in a dwarven history, War of the Three Hammers: Thaurissan's summoning woke Ragnaros, and the statues were meant as a warning to all who would attack the dwarven kingdoms, and a reminder of what the Dark Irons paid.
 
-## loch-modan-ironband
-The League dug in the southern hills and found strange carved idols,
-and before they could study them the troggs came up through the site
-and chased them out. The idols drive the troggs berserk.
-Find where the League was digging.
-? South-east of the Loch, Prospector Ironband's men dug too deep.
-= Ironband's Excavation Site. The Explorers' League's own dig, and the troggs' now.
-+ Magmar Fellhew wants the idols out of trogg hands, and studied; nobody yet knows why they drive the troggs mad.
-
-## loch-modan-suspicious-barrel
-First the great span was blown, then the northern fort pillaged.
-Now sappers in dark iron mill about the dam's eastern ramp,
-and a barrel stands there that no engineer set down.
-What is in it gives itself away before the lid is off.
-? The Stonewrought Dam's eastern ramp; whatever is in the barrel is strong.
-= A Dark Iron barrel of strange-smelling powder, on the Stonewrought Dam. Chief Engineer Hinderweir was right to worry.
-+ Most of the dam's guard was sent to the Alliance front, his top inspector with it; the Dark Irons have noticed.
+## loch-modan-horde-runners
+Three of the Horde run the Loch's eastern shore,
+from the hills south of the water to the foot of the dam and back,
+round and round, in the very middle of the dwarves' country.
+Two of them are orcs. It is the third you want.
+? The east shore of the Loch, anywhere from the southern hills to the dam: they keep running.
+= Haren Swifthoof, a tauren, Horde Runner, with Gradok and Thragomm: three elite runners of the Horde, lapping the shore of an Alliance lake.
++ Gradok and Thragomm share one face: the same orc, twice over.
 
 ## loch-modan-thelsamar
 In the town on the lake road, a book in the inn tells
@@ -74,9 +59,10 @@ with soft skin and mortal hearts, and named themselves anew.
 + The dwarves named their land Khaz Modan for the Titan Khaz'goroth, and built a forge for him in the heart of the mountain; the city grew around it.
 
 ## quarry
-A year ago, the hunters of the lodge all tried for one bear,
-and none of them had any luck. The boldest came back
-with a scar over his eye, and has not stopped talking since.
-The bear keeps to his lair in the hills over Thelsamar.
-= Ol' Sooty. Vyrin Swiftwind, at the Farstrider Lodge, would like Daryl the Youngling to see its head.
-+ Daryl does not take it well: a finger on his scar, one look at the head, and he wants it out of the Lodge.
+The mountaineers' scouts say the troggs follow a chieftain named Grawmug,
+and send the bold to his cave in the valley south-west of the Loch.
+The troggs who took the League's dig in the south-east
+have a chieftain of their own, on the excavation's platform,
+among his diggers and a berserk one. He is called the boss.
+= Boss Galgosh, Stonesplinter Chieftain by his own title: the scouts' Grawmug leads in the valley, but the tribe's chieftain stands at the dig.
++ Magosh, the tribe's shaman and as rare a sight as the boss, keeps to the same dig, a little east of him.
