@@ -30,5 +30,5 @@ find who keeps the grounds, and arrive as the manor's guests do.
 Mountain lions own the southern hills of Alterac, and one of them has a name.
 She looks like any of the others, and is seen by almost no one:
 killed, she takes a day at the least to come back, and a day and a half at the most.
-= Araga, a mountain lion of Alterac's southern hills, west of the yetis' cave.
+= Araga, a mountain lion of Alterac's southern hills, from west of the yetis' cave down to Gavin's Naze.
 + Of all the great cats of these lands, she may be the rarest.
