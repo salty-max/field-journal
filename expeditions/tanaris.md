@@ -6,86 +6,58 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: tanaris-marvon
+  - id: tanaris-gadgetzan
     tier: near
-    creature: 7771   # Marvon Rivetseeker, dump 52.7, 45.9; Wowhead 52.6, 45.8
-    hint_area: { x: 55.2, y: 45.9, r: 5 }
+    reading: Old Hatreds - The Colonization of Kalimdor
+    object: 175763   # dump 51.0, 29.4, in Gadgetzan
+    hint_area: { x: 51.5, y: 28.5, r: 3 }
     danger: "Quiet"
-    sources: "quest 3444"
-  - id: tanaris-caverns-of-time
+    sources: "object 175763's text"
+  - id: tanaris-zalashji
     tier: off
-    area: Caverns of Time   # placed: the client's overlay: 64.1, 49.4, half-size 4.7 by 5.2
-    hint_area: { x: 62.0, y: 51.0, r: 8 }
-    danger: "Quiet"
-    sources: "the Codex's caverns-of-time page; object 175726's text"
-  - id: tanaris-lost-rigger-cove
-    tier: off
-    area: Lost Rigger Cove   # placed: the client's overlay: 71.6, 47.2, half-size 4.2 by 9.0
-    hint_area: { x: 70.0, y: 48.0, r: 9 }
-    danger: "Perilous (the Southsea pirates)"
-    sources: "quests 2875, 8366"
-  - id: tanaris-uldum
+    gestures: [WAVE, HELLO, GREET, BOW]
+    creature: 8617   # Zalashji, dump 67.7, 32.2, at his den
+    hint_area: { x: 67.0, y: 33.0, r: 3 }
+    danger: "Guarded (Wastewander bandits and steeljaw snappers nearby)"
+    sources: "the WoWWiki archive's Zalashji page (friendly, no purpose anyone knows); the dump's spawn and faction (friendly to all)"
+  - id: tanaris-winkey
     tier: hidden
-    object: 142343   # dump 37.6, 81.4; Wowhead 37.7, 81.4
-    hint_area: { x: 40.5, y: 84.1, r: 8 }
-    danger: "Guarded"
-    sources: "quests 2946, 2954; the Codex's uldum page"
-  - id: tanaris-lands-end
-    tier: hidden
-    area: Land's End Beach   # placed: the client's overlay: 54.9, 91.7, half-size 7.0 by 7.1; Meridith (creature 15526) on its shore
-    hint_area: { x: 56.0, y: 92.0, r: 9 }
-    danger: "Quiet"
-    sources: "quest 8599"
+    gestures: [WAVE, HELLO, GREET, WINK]
+    creature: 7770   # Winkey, dump 65.7, 64.2, alone on an islet
+    hint_area: { x: 64.0, y: 63.0, r: 4 }
+    danger: "Guarded (surf gliders and coast striders, level 48, in the shallows)"
+    sources: "the WoWWiki archive's Winkey and Southbreak Shore pages; the dump's spawn and words; quest 3823's text (Oralius and his 'Winky')"
 quarry:
-  id: 7847
-  sources: "quest 2781 (Gadgetzan's poster)"
+  id: 8201   # Omgorn the Lost
+  sources: "the WoWWiki archive's Omgorn the Lost page (one of three camps, a great axe); the dump's spawns and respawn (12 to 24 hours)"
 ---
-## tanaris-marvon
-By a broken pillar in the middle of the desert, a goblin scholar
-who once stumbled out of a sunken temple wading through ooze
-remembers a round room of serpent statues, and a stone to match it. Find him.
-? The Broken Pillar, in the middle of Tanaris.
-= Marvon Rivetseeker.
-+ 'The evil in that place penetrates all that enter.' The Stone Circle waits in his workshop in Ratchet.
+## tanaris-gadgetzan
+In the goblins' town in the desert, a history tells how the orcs came to this continent
+and named their land for a murdered father,
+and how a daughter fought her own father to keep a peace.
+? Gadgetzan.
+= Old Hatreds - The Colonization of Kalimdor, in Gadgetzan: Durotar named for Thrall's father; Jaina Proudmoore against her father, the Grand Admiral.
++ He died before she could reconcile with him; for her loyalty, the orcs let her forces go home to Theramore in peace.
 
-## tanaris-caverns-of-time
-Among the rocks above the eastern sea, a cave leads down
-to the lair of the dragons who watch over time itself,
-and their master who sees what was and what will be.
-Find the way down.
-? The Caverns of Time, in the east of Tanaris.
-= The Caverns of Time, lair of the bronze dragonflight.
-+ Their master is Nozdormu, the Timeless One, whom the Titans charged with guarding time itself.
+## tanaris-zalashji
+East of the goblins' town, a naga keeps a den in the rocks,
+and wants nothing at all from you: no war, no treasure, no blood.
+Be friendly, for once.
+? Zalashji's Den, east of Gadgetzan.
+= Zalashji, a naga at home in his den: friendly to all, and wanting nothing from anyone.
++ Horde and Alliance alike may walk up to him unharmed, as to few naga anywhere.
 
-## tanaris-lost-rigger-cove
-On the eastern coast, a pirate is wanted by the cartel for his crimes,
-and the notice allows that, should he be indisposed at his hearing,
-his head may attend in his place. Find his cove.
-? Lost Rigger Cove, on Tanaris's east coast.
-= Lost Rigger Cove, the Southsea pirates' den.
-+ 'Don't worry about the small print. It's harmless, and... I don't think there's a magnifying glass small enough to read it anyway.' Security Chief Bilgewhizzle.
-
-## tanaris-uldum
-Far in the south of the desert, sealed gates of the makers stand in a valley,
-and a watcher of stone wakes only for those who carry the right discs
-from another of their vaults. Find the pedestal before the gates.
-? The Valley of the Watchers, in the far south of Tanaris.
-= The gates of Uldum, and the pedestal before them.
-+ 'Salutations. I am a guardian of entry.' Without the Plates of Uldum, the gates stay shut.
-
-## tanaris-lands-end
-On the beach at the southern end of the world, someone
-once pulled a gnome from the wreck of his flying machine,
-and has never stopped thinking of him. He thinks it could never work out.
-Find the beach.
-? Land's End Beach, at the southern tip of Tanaris.
-= Land's End Beach, where Meridith the Mermaiden waits.
-+ Narain Soothfancy, in Steamwheedle Port, receives her love letter: 'She's a fish! A FISH I tell you! And I'm a gnome. It could never work out.'
+## tanaris-winkey
+Off the quiet beach south of the pirates' cove, a little island holds one gnome, alone,
+sunning herself as if the whole sea were her garden.
+She has one request for whoever swims out to her. Be nice.
+? An islet off Southbreak Shore, south of Lost Rigger Cove.
+= Winkey, a gnome alone on her islet off Southbreak Shore: 'Hey there, cutie! Mind rubbing some lotion on my exposed areas?'
++ Far away in the Burning Steppes, a dwarf at Morgan's Vigil grabs at the air and shouts at someone called Winky who isn't there. Whether he means her, nobody can say.
 
 ## quarry
-The Water Company of Gadgetzan has posted a high bounty
-on the leader of the desert's outlaws: his people murder its workers,
-steal its water, and squat on its wells.
-He walks the field of springs south-east of the town.
-= Caliph Scorpidsting, leader of the Wastewander. Chief Engineer Bilgewhizzle, in Gadgetzan, pays for his head.
-+ Bilgewhizzle hopes his end will push the squatters off Gadgetzan's water wells at last.
+The ogres of the southern desert hold three camps among old troll ruins,
+and one of them goes from camp to camp with a great axe, turning up in one at a time.
+Lost, they call him; he seems to know where he is going.
+= Omgorn the Lost, a Dunemaul ogre, in the Dunemaul Compound, the Eastmoon Ruins or the Southmoon Ruins.
++ Half a day at the least before he turns up again; a whole day at the most.
