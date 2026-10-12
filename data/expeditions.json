@@ -80,6 +80,7 @@
   "darnassus-betrayer": {"zone": 1457, "of": "object:175759", "hint": [69.2, 73.6, 8], "name": "The Betrayer Ascendant", "spots": [[66.45, 76.64]], "r": 10},
   "darnassus-tyrande": {"zone": 1457, "of": "creature:7999", "hint": [41.1, 81.8, 4], "name": "Tyrande Whisperwind", "npc": 7999, "spots": [[39.1, 81.59]], "r": 10},
   "darnassus-world-tree": {"zone": 1457, "of": "object:175730", "hint": [59.8, 5.7, 8], "name": "The World Tree and the Emerald Dream", "spots": [[56.22, 3.98]], "r": 10},
+  "deadwind-pass-deadmans-crossing": {"zone": 1430, "of": "area:Deadman's Crossing object:177186", "hint": [37.0, 36.0, 5], "name": "Deadman's Crossing", "areas": [2697]},
   "deadwind-pass-karazhan": {"zone": 1430, "of": "area:Karazhan", "hint": [44.0, 66.0, 13], "name": "Karazhan", "areas": [2562]},
   "desolace-dalinda": {"zone": 1443, "of": "creature:5644", "hint": [57.4, 26.4, 5], "name": "Dalinda Malem", "npc": 5644, "spots": [[54.86, 26.13]], "r": 10},
   "desolace-kodo-graveyard": {"zone": 1443, "of": "area:Kodo Graveyard", "hint": [49.0, 59.0, 11], "name": "Kodo Graveyard", "areas": [596]},
