@@ -32,18 +32,19 @@ riddles:
 # no quarry: a capital has riddles alone
 ---
 ## ironforge-toothgnasher
-In the hall where the explorers keep their finds,
-a scale model stands of a ram out of dwarven folklore,
-too big and too tireless for any scholar to explain.
-Get beneath it, and be as impressed as the dwarves who told of it.
+The dwarves still tell of a ram of Khaz Modan,
+too big for any scholar to account for and tireless past all reason.
+In their city his likeness stands, bones and all, built to scale.
+Get beneath him, and be as impressed as the tellers were.
 ? The Hall of Explorers.
 = Toothgnasher's skeleton, a scale replica.
 + 'The legendary ram was a wonder of Khaz Modan and the subject of many tales of dwarven folklore.'
 
 ## ironforge-tyrannistrasz
-In the hall where the explorers display their finds, seek an enormous red dragon's skull.
-Its label remembers the Dragonqueen's elder consort
-and a battle fought beyond the pass to the north.
+After Grim Batol fell, the Wetlands gave up the remains of something vast,
+and the dwarves brought them home for their explorers to show.
+The tale goes that, alive, it flew at a queen's side,
+the eldest of her consorts. Learn whose it was.
 ? The Hall of Explorers.
 = The Skull of Tyrannistrasz.
 + Its remains were found in the Wetlands shortly after the Battle of Grim Batol, where the Dragonmaw had held Alexstrasza captive.

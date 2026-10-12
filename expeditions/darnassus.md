@@ -48,7 +48,7 @@ Her teacher fears that they will. Wish her well.
 + Faldron, her teacher: 'With her strength and agility, I fear it won't be long before she is called to fight. We must teach her quickly.'
 
 ## darnassus-world-tree
-In the tree city, seek the bargain paid in centuries of sleep.
+Among this city's histories, one tells of a bargain paid in centuries of sleep.
 Its keepers would not die of age while the world went on without them.
 The price and the promise share a page.
 ? In the north of Darnassus.

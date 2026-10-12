@@ -32,7 +32,7 @@ and of the moon, who freed him for his love. Find the tale.
 + Their child was Cenarius, who 'would walk the starry path between the waking world and the kingdom of the heavens'.
 
 ## thunder-bluff-nibbles
-On the rise of the chieftain's lodge, a tauren sells prairie dogs to keep as friends,
+By the chieftain's lodge, a tauren sells prairie dogs to keep as friends,
 and keeps one of his own beside his stall, with a name.
 Make its acquaintance.
 ? Thunder Bluff, by the prairie dog seller's stall near Cairne's lodge.
