@@ -1672,14 +1672,14 @@ check(
   ns.huntRecord(771).retro and ns.huntSeal(ns.huntRecord(771)) == "before" and #printed == before,
   "a quarry slain before the hunts were kept: stamped quietly, no seal"
 )
--- A keeper who walks: Kum'isha, found by targeting her near (never too far).
-at(1419, 0.10, 0.10)
-state.target, state.near = 7363, false
+-- A keeper who walks: Zixil, found by targeting him near (never too far).
+at(1424, 0.10, 0.10)
+state.target, state.near = 3537, false
 ns.expeditionAttempt()
-check(not solvedRiddle("blasted-lands-kumisha"), "a walking keeper targeted from afar: not yet")
+check(not solvedRiddle("hillsbrad-foothills-zixil"), "a walking keeper targeted from afar: not yet")
 state.near = true
 ns.expeditionAttempt()
-check(solvedRiddle("blasted-lands-kumisha"), "… targeted near her, wherever her path has taken her")
+check(solvedRiddle("hillsbrad-foothills-zixil"), "… targeted near him, wherever his road has taken him")
 state.target = nil
 -- The night: Westfall's coffin tree answers only after dark, when its ghoul rises.
 state.hour = 12

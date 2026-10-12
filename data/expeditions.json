@@ -68,7 +68,6 @@
   "azshara-valormok": {"zone": 1447, "of": "creature:8576", "hint": [23.8, 49.5, 5], "name": "Ag'tor Bloodfist", "npc": 8576, "spots": [[22.26, 51.48]], "r": 10},
   "badlands-apocryphans-rest": {"zone": 1418, "of": "area:Apocryphan's Rest", "hint": [16.0, 60.0, 8], "name": "Apocryphan's Rest", "areas": [337]},
   "blasted-lands-dark-portal": {"zone": 1419, "of": "area:The Dark Portal", "hint": [57.0, 54.0, 10], "name": "The Dark Portal", "areas": [72]},
-  "blasted-lands-kumisha": {"zone": 1419, "of": "creature:7363", "hint": [52.0, 38.6, 6], "name": "Kum'isha the Collector", "npc": 7363},
   "blasted-lands-nethergarde": {"zone": 1419, "of": "object:21582", "hint": [62.7, 26.0, 8], "name": "Beyond the Dark Portal", "spots": [[65.18, 22.86]], "r": 10},
   "blasted-lands-tainted-scar": {"zone": 1419, "of": "area:The Tainted Scar", "hint": [40.0, 60.0, 16], "name": "The Tainted Scar", "areas": [73]},
   "burning-steppes-altar-of-storms": {"zone": 1428, "of": "area:Altar of Storms", "hint": [17.0, 30.0, 10], "name": "Altar of Storms", "areas": [255]},

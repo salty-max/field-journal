@@ -12,18 +12,12 @@ riddles:
     hint_area: { x: 57.0, y: 54.0, r: 10 }
     danger: "Guarded (demons and ogres)"
     sources: "object 21582's text (Beyond the Dark Portal); the Codex's the-dark-portal page"
-  - id: blasted-lands-kumisha
-    tier: off
-    creature: 7363   # Kum'isha the Collector, dump 52.0, 35.6; Wowhead 51.8, 35.6
-    hint_area: { x: 52.0, y: 38.6, r: 6 }
-    danger: "Guarded"
-    sources: "quest 2521; the Codex's nethergarde-keep page"
   - id: blasted-lands-tainted-scar
     tier: hidden
     area: The Tainted Scar   # placed: the client's overlay: 37.9, 62.5, half-size 11.5 by 18.3
     hint_area: { x: 40.0, y: 60.0, r: 16 }
     danger: "Perilous (Lord Kazzak and his felguard)"
-    sources: "the Codex's lord-kazzak page"
+    sources: "the Codex's lord-kazzak page; the Lord Kazzak (tactics) pages of Warcraft Wiki and Wowpedia (Capture Soul, his supreme fury)"
   - id: blasted-lands-nethergarde
     tier: town
     faction: alliance   # its town's: for that faction alone
@@ -45,23 +39,14 @@ and nobody knows whether they came home. Stand before it.
 = The Dark Portal, still and dark.
 + Khadgar, Turalyon, Alleria, Kurdran and Danath chose to stay on the dying world: 'whether or not they escaped the death throes of Draenor remains to be seen.'
 
-## blasted-lands-kumisha
-In the waste below the keep, one of a people from beyond the gate
-waits for a crystal so rare that others of that people have died searching for it,
-and calls every stranger small-minded.
-Find the collector.
-? Between Nethergarde and the Dark Portal, by the road.
-= Kum'isha the Collector, a draenei.
-+ If a flawless sphere of draenethyst is ever brought: 'Perhaps now a rift can be opened, returning us to our homeland.'
-
 ## blasted-lands-tainted-scar
 In the south-west of the waste, a great demon who stayed behind
 holds a scar in the land with his host,
-and every champion he kills makes him stronger.
+and every life lost near him gives him back his own.
 Find his ground, and do not linger.
 ? The Tainted Scar, in the Blasted Lands' south-west.
 = The Tainted Scar, Lord Kazzak's ground.
-+ A failed attack on him leaves the next party facing a stronger enemy.
++ Each death near him heals him for seventy thousand; and if he still stands three minutes after the first blow, his fury leaves no one standing.
 
 ## blasted-lands-nethergarde
 In the keep built to watch the gate, a history tells
