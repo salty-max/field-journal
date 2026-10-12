@@ -193,7 +193,7 @@ end
 local function newPage(parent, name, labelWidth, pairs)
   local p = extend(scrollArea(parent, WIDTH, name), Page)
   p.labelWidth, p.pairs, p.headings = labelWidth, pairs or {}, {}
-  p.cards, p.paragraphs, p.tiles, p.items = {}, {}, {}, {}
+  p.cards, p.paragraphs, p.tiles, p.itemPool, p.chipPool = {}, {}, {}, {}, {}
   p:SetPoint("TOPLEFT", parent, "TOPLEFT", 26, -22)
   p:SetPoint("BOTTOMRIGHT", parent, "BOTTOMRIGHT", -22, 14)
   p.portrait = roundPortrait(p.child, 64)
@@ -219,7 +219,15 @@ end
 -- portrait (setPicture(portrait): icon(path), say) and its medal (a seal, or
 -- none), the blocks after it.
 function Page:start(title, sub, setPicture, seal)
-  for _, pool in ipairs({ self.pairs, self.headings, self.cards, self.paragraphs, self.tiles, self.items }) do
+  for _, pool in ipairs({
+    self.pairs,
+    self.headings,
+    self.cards,
+    self.paragraphs,
+    self.tiles,
+    self.itemPool,
+    self.chipPool,
+  }) do
     for _, x in ipairs(pool) do
       x:Hide()
     end
@@ -231,7 +239,7 @@ function Page:start(title, sub, setPicture, seal)
   self.portrait.tex:SetDesaturated(false)
   setPicture(self.portrait)
   setBadge(self.portrait.badge, seal)
-  self.y, self.hi, self.pi, self.ci, self.qi, self.ti, self.ii = HEADER_H + 2, 0, 0, 0, 0, 0, 0
+  self.y, self.hi, self.pi, self.ci, self.qi, self.ti, self.ii, self.chi = HEADER_H + 2, 0, 0, 0, 0, 0, 0, 0
 end
 
 -- A block at the page's next place (a frame or a font string), so tall.
@@ -394,15 +402,15 @@ local ITEM = 34
 function Page:items(list)
   local per = math.floor((WIDTH + 6) / (ITEM + 6))
   local rows = math.ceil(#list / per)
-  local box = self.items.box
+  local box = self.itemPool.box
   if not box then
     box = CreateFrame("Frame", nil, self.child)
-    self.items.box = box
+    self.itemPool.box = box
   end
   box:SetSize(WIDTH, rows * (ITEM + 6))
   for i, it in ipairs(list) do
     self.ii = self.ii + 1
-    local b = self.items[self.ii]
+    local b = self.itemPool[self.ii]
     if not b then
       b = CreateFrame("Button", nil, box)
       b:SetSize(ITEM, ITEM)
@@ -423,7 +431,7 @@ function Page:items(list)
         GameTooltip:Show()
       end)
       b:SetScript("OnLeave", function() GameTooltip:Hide() end)
-      self.items[self.ii] = b
+      self.itemPool[self.ii] = b
     end
     local col, row = (i - 1) % per, math.floor((i - 1) / per)
     b:ClearAllPoints()
@@ -435,6 +443,52 @@ function Page:items(list)
     b:Show()
   end
   self:place(box, rows * (ITEM + 6) + 10)
+end
+
+-- Names to pick, two to a row: { { text, click, picked, tip } } (picked: in
+-- the accent; tip: a line on hover).
+local CHIP_H = 20
+function Page:chips(list)
+  local rows = math.ceil(#list / 2)
+  local box = self.chipPool.box
+  if not box then
+    box = CreateFrame("Frame", nil, self.child)
+    self.chipPool.box = box
+  end
+  box:SetSize(WIDTH, rows * CHIP_H)
+  local w = math.floor((WIDTH - 10) / 2)
+  for i, ch in ipairs(list) do
+    self.chi = self.chi + 1
+    local b = self.chipPool[self.chi]
+    if not b then
+      b = CreateFrame("Button", nil, box)
+      b.text = label(b, BODY_FONT, 12, T.text)
+      b.text:SetPoint("LEFT", 6, 0)
+      b.text:SetPoint("RIGHT", -4, 0)
+      b.text:SetWordWrap(false)
+      K.highlight(b):Hide()
+      b:SetScript("OnClick", function(bb)
+        if bb.click then bb.click() end
+      end)
+      b:SetScript("OnEnter", function(bb)
+        if not bb.tip then return end
+        GameTooltip:SetOwner(bb, "ANCHOR_RIGHT")
+        GameTooltip:AddLine(bb.text:GetText(), T.accent[1], T.accent[2], T.accent[3])
+        GameTooltip:AddLine(bb.tip, 1, 1, 1, true)
+        GameTooltip:Show()
+      end)
+      b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+      self.chipPool[self.chi] = b
+    end
+    b:SetSize(w, CHIP_H)
+    b:ClearAllPoints()
+    b:SetPoint("TOPLEFT", box, "TOPLEFT", ((i - 1) % 2) * (w + 10), -math.floor((i - 1) / 2) * CHIP_H)
+    b.text:SetText(ch[1])
+    b.text:SetTextColor(unpack(ch[3] and T.accent or T.text))
+    b.click, b.tip = ch[2], ch[4]
+    b:Show()
+  end
+  self:place(box, rows * CHIP_H + 10)
 end
 
 -- The page's height, scrolled to the top (keep: where it was).

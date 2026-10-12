@@ -8,7 +8,7 @@ local D = ns.data
 local A = D.atlas or { zones = {}, continents = {} }
 local F = D.flora or { fish = {}, herbs = {}, fishOrder = {}, herbOrder = {} }
 local ui = ns.ui
-local T, SOFT = ui.T, ui.SOFT
+local T = ui.T
 
 local book, list, page
 local current -- a zone's uiMap, or nil for the travels
@@ -190,30 +190,26 @@ end
 
 -- ── the zone's page ──────────────────────────────────────────────────────────
 -- What grows and bites in a zone (the data's herbs and fish): the ones this
--- character has found named, the rest only counted (no spoilers).
-local function inThisZone(order, data, recs, uiMap, wanted)
+-- character has found, as their items, the rest only counted (no spoilers).
+local function foundHere(order, data, recs, uiMap, wanted)
   local found, rest = {}, 0
   for _, id in ipairs(order) do
     local d = data[id]
     if not wanted or wanted(d) then
       for _, z in ipairs(d.zones) do
         if z == uiMap then
-          if not recs[id] then
-            rest = rest + 1
+          if recs[id] then
+            table.insert(found, { id, d.kind == "record" and d.name or ui.itemName(id, d.name) })
           else
-            table.insert(found, d.kind == "record" and d.name or ui.itemName(id, d.name))
+            rest = rest + 1
           end
           break
         end
       end
     end
   end
-  table.sort(found)
-  if #found == 0 and rest == 0 then return nil end
-  if #found == 0 then return SOFT .. ("none found yet; %d to find|r"):format(rest) end
-  local text = table.concat(found, ", ")
-  if rest > 0 then text = text .. SOFT .. ("; %d more to find|r"):format(rest) end
-  return text
+  table.sort(found, function(a, b) return a[2] < b[2] end)
+  return found, rest
 end
 
 local function inZone(events, uiMap)
@@ -227,24 +223,70 @@ end
 local function eventLine(e) return ("%s, level %d%s"):format(day(e), e.level or 0, e.by and (" - " .. e.by) or "") end
 
 -- The page, laid out again: the map hidden too.
+local MAP_ICON, MAP2_ICON = "Interface\\Icons\\INV_Misc_Map_01", "Interface\\Icons\\INV_Misc_Map02"
 local function start(title, sub, picture)
   page.map:Hide()
   page:start(title, sub, ui.icon(picture))
+end
+
+-- A section of found items: their icons, and what is still to find.
+local function grows(title, found, rest, what)
+  if #found == 0 and rest == 0 then return end
+  page:section(title)
+  if #found > 0 then page:items(found) end
+  if rest > 0 then
+    page:paragraph(
+      #found == 0 and ("None found here yet: %d %s to find."):format(rest, what)
+        or ("%d more %s to find here."):format(rest, what),
+      T.soft
+    )
+  end
+end
+
+-- A death or a close call, as a card.
+local function eventCard(e, died)
+  page:card(
+    died and ("Died, at level %d"):format(e.level or 0) or ("A close call, at level %d"):format(e.level or 0),
+    day(e) .. (e.by and ("  -  " .. e.by) or ""),
+    function(p)
+      p.tex:SetTexture(died and SKULL or CLOSE)
+      p.tex:SetTexCoord(0, 1, 0, 1)
+    end
+  )
+end
+
+-- Flights from or to a zone (a taxi node is named "Place, Zone").
+local function routesOf(uiMap)
+  local name, routes, n = ns.zoneName(uiMap), {}, 0
+  for route, times in pairs(ns.atlas().routes or {}) do
+    if route:find(name, 1, true) then
+      table.insert(routes, { route, times })
+      n = n + times
+    end
+  end
+  table.sort(routes, function(a, b) return a[2] > b[2] end)
+  return routes, n
 end
 
 local function showZone(uiMap, placeKey)
   local zone, z = A.zones[uiMap], ns.atlas().zones[uiMap] or { places = {} }
   local done, total = ns.zoneProgress(uiMap)
   local explored = total > 0 and ("%d of %d places explored"):format(done, total) or nil
-  start(
-    ns.zoneName(uiMap),
-    table.concat({ A.continents[zone.continent] or "Elsewhere", explored }, "  -  "),
-    "Interface\\Icons\\INV_Misc_Map_01"
-  )
+  start(ns.zoneName(uiMap), table.concat({ A.continents[zone.continent] or "Elsewhere", explored }, "  -  "), MAP_ICON)
   page:text(zone.note) -- the surveyor's note
-  -- The map, with this character's deaths and close calls.
-  local marks = {}
   local deaths, calls = inZone(ns.atlas().deaths, uiMap), inZone(ns.atlas().closeCalls, uiMap)
+  local routes, flights = routesOf(uiMap)
+  -- the figures
+  local figures = {}
+  if total > 0 then table.insert(figures, { ("%d/%d"):format(done, total), "places explored" }) end
+  table.insert(figures, { tostring(z.visits or ((z.first or z.retro) and 1 or 0)), "visits" })
+  if flights > 0 then table.insert(figures, { tostring(flights), flights == 1 and "flight" or "flights" }) end
+  if #deaths + #calls > 0 then
+    table.insert(figures, { ("%d / %d"):format(#deaths, #calls), "deaths / close calls" })
+  end
+  page:stats(figures)
+  -- the map, with this character's deaths and close calls, and the place picked out
+  local marks = {}
   for _, e in ipairs(deaths) do
     if e.x then table.insert(marks, { x = e.x, y = e.y, icon = SKULL, title = "Died here", text = eventLine(e) }) end
   end
@@ -269,43 +311,66 @@ local function showZone(uiMap, placeKey)
     page:section(picked[1])
     page:row("Discovered", when(z.places[placeKey]))
   end
-  -- The record.
+  -- the places explored, in the order found: a click outlines one on the map
+  if total > 0 then
+    page:section("Places explored")
+    local chips = {}
+    for _, d in ipairs(discoveredPlaces(uiMap)) do
+      local key = ns.placeKey(d.place)
+      table.insert(chips, {
+        d.place[1],
+        function()
+          current, selectedPlace = uiMap, selectedPlace ~= key and key or nil
+          ns.refresh()
+        end,
+        key == placeKey,
+        "Discovered " .. when(d.rec) .. ". Click to outline it on the map.",
+      })
+    end
+    if #chips > 0 then page:chips(chips) end
+    if done < total then
+      page:paragraph(
+        done == 0 and ("Nothing explored yet: %d places to find."):format(total)
+          or ("%d still to find."):format(total - done),
+        T.soft
+      )
+    end
+  end
+  -- the record
   page:section("Travels here")
   page:row("First visit", when(z.first or (z.retro and { retro = true }) or nil))
   if z.last and z.last.at ~= (z.first and z.first.at) then page:row("Last seen", when(z.last)) end
-  if z.visits then page:row("Visits", tostring(z.visits)) end
-  if total > 0 then
-    local names = {}
-    for _, place in ipairs(zone.places) do
-      if z.places[ns.placeKey(place)] then table.insert(names, place[1]) end
-    end
-    page:row("Explored", #names > 0 and table.concat(names, ", ") or (SOFT .. "nothing yet|r"))
-    if done < total then page:row("", SOFT .. ("%d still to find."):format(total - done) .. "|r") end
+  -- its expedition
+  local edone, etotal
+  if ns.expeditionOf then
+    edone, etotal = ns.expeditionOf(uiMap)
   end
+  if edone then
+    page:section("Its expedition")
+    page:card(
+      (("The %s Expedition"):format(ns.zoneName(uiMap)):gsub("^The The ", "The ")),
+      edone == etotal and "complete" or ("%d of %d done: its riddles and its quarry"):format(edone, etotal),
+      ui.icon("Interface\\Icons\\INV_Misc_Book_09"),
+      function() ns.openExpeditionZone(uiMap) end
+    )
+  end
+  -- what grows and bites here
   local c = ns.journal()
-  local herbs = inThisZone(F.herbOrder, F.herbs, c.plants or {}, uiMap)
-  local fish = inThisZone(F.fishOrder, F.fish, c.fish or {}, uiMap, function(d) return d.kind ~= "quest" end)
-  if herbs or fish then
-    page:section("What grows and bites here")
-    page:row("Herbs", herbs)
-    page:row("Fish", fish)
-  end
-  if #deaths > 0 or #calls > 0 then
+  local herbs, herbsLeft = foundHere(F.herbOrder, F.herbs, c.plants or {}, uiMap)
+  local fish, fishLeft = foundHere(F.fishOrder, F.fish, c.fish or {}, uiMap, function(d) return d.kind ~= "quest" end)
+  grows("What grows here", herbs, herbsLeft, herbsLeft == 1 and "herb" or "herbs")
+  grows("What bites here", fish, fishLeft, "fish")
+  -- close to the end
+  if #deaths + #calls > 0 then
     page:section("Close to the end")
     for _, e in ipairs(deaths) do
-      page:row("Died", eventLine(e))
+      eventCard(e, true)
     end
     for _, e in ipairs(calls) do
-      page:row("Close call", eventLine(e))
+      eventCard(e, false)
     end
   end
-  -- Flights from or to this zone (a taxi node is named "Place, Zone").
-  local name, routes = ns.zoneName(uiMap), {}
-  for route, n in pairs(ns.atlas().routes or {}) do
-    if route:find(name, 1, true) then table.insert(routes, { route, n }) end
-  end
   if #routes > 0 then
-    table.sort(routes, function(a, b) return a[2] > b[2] end)
     page:section("Flights")
     for _, r in ipairs(routes) do
       page:row(r[2] == 1 and "Once" or ("%d times"):format(r[2]), r[1])
@@ -314,38 +379,91 @@ local function showZone(uiMap, placeKey)
 end
 
 -- ── the travels' page ────────────────────────────────────────────────────────
+-- The places this character discovered last, the latest first: { uiMap, place, rec }.
+local function lately(max)
+  local out = {}
+  for uiMap, zone in pairs(A.zones) do
+    local z = ns.atlas().zones[uiMap]
+    for _, place in ipairs(zone.places) do
+      local rec = z and z.places[ns.placeKey(place)]
+      if rec and rec.at and not rec.retro then table.insert(out, { uiMap, place, rec }) end
+    end
+  end
+  table.sort(out, function(a, b) return a[3].at > b[3].at end)
+  for i = #out, max + 1, -1 do
+    out[i] = nil
+  end
+  return out
+end
+
 local function showTravels()
   local a = ns.atlas()
   local zones, places, explored = 0, 0, 0
-  for uiMap in pairs(A.zones) do
+  local byContinent = {}
+  for uiMap, zone in pairs(A.zones) do
     if entered(uiMap) then
       zones = zones + 1
       local done, total = ns.zoneProgress(uiMap)
       explored, places = explored + done, places + total
+      local c = byContinent[zone.continent or 0] or { zones = 0, done = 0, total = 0 }
+      c.zones, c.done, c.total = c.zones + 1, c.done + done, c.total + total
+      byContinent[zone.continent or 0] = c
     end
   end
-  start("Travels", ("%d zones entered, %d places explored"):format(zones, explored), "Interface\\Icons\\INV_Misc_Map02")
+  start("Travels", ("%d zones entered, %d places explored"):format(zones, explored), MAP2_ICON)
+  page:stats({
+    { tostring(zones), zones == 1 and "zone entered" or "zones entered" },
+    { tostring(explored), "places explored" },
+    { tostring(#(a.flights or {})), "flights" },
+    { tostring(#(a.deaths or {})), "deaths" },
+  })
+  local shownContinents = {}
+  for _, c in ipairs(continents()) do
+    if byContinent[c[1]] then table.insert(shownContinents, c) end
+  end
+  if #shownContinents > 0 then
+    page:section("The lands")
+    for _, c in ipairs(shownContinents) do
+      local n = byContinent[c[1]]
+      page:card(
+        c[2],
+        ("%d %s entered, %d of %d places explored"):format(n.zones, n.zones == 1 and "zone" or "zones", n.done, n.total),
+        ui.icon(MAP2_ICON)
+      )
+    end
+  end
+  local recent = lately(6)
+  if #recent > 0 then
+    page:section("Lately discovered")
+    for _, x in ipairs(recent) do
+      local uiMap, key = x[1], ns.placeKey(x[2])
+      page:card(x[2][1], ("%s  -  %s"):format(ns.zoneName(uiMap), when(x[3])), ui.icon(MAP_ICON), function()
+        current, selectedPlace = uiMap, key
+        opened()[uiMap] = true
+        ns.refresh()
+      end)
+    end
+  end
   page:section("The road so far")
-  page:row("Zones", tostring(zones))
-  page:row("Places", ("%d explored of %d in the zones entered"):format(explored, places))
   local top, topN = nil, 0
   for route, n in pairs(a.routes or {}) do
     if n > topN then
       top, topN = route, n
     end
   end
-  local often = top and (" (most often: %s, %d times)"):format(top, topN) or ""
-  page:row("Flights", ("%d%s"):format(#(a.flights or {}), often))
+  if top then page:row("Flown most", ("%s, %d times"):format(top, topN)) end
   if #(a.crossings or {}) > 0 then page:row("Crossings", ("%d between continents"):format(#a.crossings)) end
   local bind = a.binds and a.binds[#a.binds]
   if bind then page:row("Hearth", ("%s, since %s"):format(bind.place, day(bind))) end
-  page:row("Deaths", tostring(#(a.deaths or {})))
   page:row("Close calls", tostring(#(a.closeCalls or {})))
   if #(a.deaths or {}) > 0 then
     page:section("The last deaths")
-    for i = #a.deaths, math.max(1, #a.deaths - 9), -1 do
+    for i = #a.deaths, math.max(1, #a.deaths - 4), -1 do
       local e = a.deaths[i]
-      page:row(e.zone and ns.zoneName(e.zone) or "?", eventLine(e))
+      page:card(e.zone and ns.zoneName(e.zone) or "Somewhere", eventLine(e), function(p)
+        p.tex:SetTexture(SKULL)
+        p.tex:SetTexCoord(0, 1, 0, 1)
+      end)
     end
   end
 end

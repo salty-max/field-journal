@@ -40,7 +40,7 @@ Two tabs for what the land and the water give. **Fish**: every catch, with where
 
 ## The Atlas
 
-Another book in the same journal: every zone you have entered, by continent (all of them, or one at a time), and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), the zone's own map with the parts you have explored and the places you died or came close, and your record of it: first visit, places, deaths, close calls, flights. Your deaths and close calls also show on the game's world map (a setting).
+Another book in the same journal: every zone you have entered, by continent (all of them, or one at a time), and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), its figures, the zone's own map with the parts you have explored and the places you died or came close, the places you found (click one to outline it on the map), its expedition, the herbs and fish you found there, and your record of it: first visit, deaths, close calls, flights. The travels page sums up every land and the places you found lately. Your deaths and close calls also show on the game's world map (a setting).
 
 ## Expeditions
 
@@ -49,7 +49,7 @@ Riddles that send you to the corners of the world most travellers walk past: a g
 - A riddle is solved where it leads, on foot and outside combat, and never asks for a kill. Some ask only that you get there; some ask you to read what is written there; some ask something of you, as the story would, and the verse never says what: you guess, as someone who knew the story would.
 - Two hints for each, asked for: a plainer clue, then its place shaded on your world map. Solved from the verse alone, a riddle earns the gold seal and opens its margin, one more page of its story; the clue costs the gold, the map the silver.
 - And a hunt in each land with rare creatures: a rare no quest sends you after (Humar the Pridelord, Broken Tooth, Rak'shiri, King Mosh, Vultros...), 38 in all, each on a poster of its haunts and habits. Track it, and its haunts are shaded on your world map; bring it down without, and it earns the gold seal.
-- The Expeditions tab lists the zones you have entered and your faction's own capitals: each zone's riddles and quarry on its map, each riddle's verse, its danger, its hints, and once solved its answer, its seal and the naturalist's note; and each quarry's poster, the creature itself turning in its frame.
+- The Expeditions tab, the book's first, lists the zones you have entered and your faction's own capitals: each zone's riddles and quarry on its map, each riddle's verse, its danger, its hints, and once solved what it led to (often its keeper's face), its seal as a medal on it and the naturalist's note; and each quarry's poster, its shape in the frame until you bring it down, then the creature itself, turning.
 - Pin a riddle or a quarry to your screen: a small card you drag where you like and close when you are done, with its verse and the hints you took.
 - An alert for each riddle solved and each quarry brought down, beside the milestone's when one comes with it.
 - `/journal where` tells the map you are on and your position on it.

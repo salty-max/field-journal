@@ -1192,10 +1192,21 @@ check(
   FieldJournalAtlasPage.note.shown and FieldJournalAtlasPage.note.text:find("^Snow, stone and dwarves"),
   "… the surveyor's note"
 )
+local placeChips = {}
+for _, b in ipairs(FieldJournalAtlasPage.chipPool) do
+  if b.shown then placeChips[b.text.text] = b end
+end
 check(
-  atlasRecord.Explored:find(dun[1][1], 1, true) and atlasRecord.Explored:find(dun[2][1], 1, true),
-  "… the places explored, by name"
+  placeChips[dun[1][1]] and placeChips[dun[2][1]] and not placeChips[dun[3][1]],
+  "… the places explored, by name, none other"
 )
+local figures = {}
+for _, t in ipairs(FieldJournalAtlasPage.tiles) do
+  if t.shown then figures[t.label.text] = t.value.text end
+end
+check(figures["places explored"] == ("2/%d"):format(#dun), "… and its figures: the places explored, the visits")
+placeChips[dun[1][1]].scripts.OnClick(placeChips[dun[1][1]])
+check(FieldJournalAtlasPage.map.pick.shown, "… a place's name clicked: its area outlined on the map")
 check(FieldJournalAtlasPage.sub.text:find(("2 of %d places explored"):format(#dun), 1, true), "… and how many remain")
 check(
   FieldJournalFrame.filter.shown
@@ -1530,19 +1541,33 @@ for _, m in ipairs(ns.milestones) do
 end
 check(anyContinent, "every fish of a continent's waters: shown once one is caught there")
 linkHandlers.fieldjournal("fieldjournal:z1429")
-local function atlasPair(label)
-  for _, p in ipairs(ns.atlasPairs) do
-    if p.shown and p.label.text == label then return p.value.text end
-  end
+local found, foundText = {}, {}
+for _, b in ipairs(FieldJournalAtlasPage.itemPool) do
+  if b.shown then found[b.name] = true end
+end
+for _, p in ipairs(FieldJournalAtlasPage.paragraphs) do
+  if p.shown then table.insert(foundText, p.text) end
+end
+foundText = table.concat(foundText, "\n")
+check(
+  found.Peacebloom
+    and foundText:find("more herbs to find here", 1, true)
+    and found["Raw Brilliant Smallfish"]
+    and not found["Raw Longjaw Mud Snapper"],
+  "a zone's Atlas page: the herbs and fish found there as their icons, the rest counted"
+)
+local expeditionCard
+for _, c in ipairs(FieldJournalAtlasPage.cards) do
+  if c.shown and c.name.text == "The Elwynn Forest Expedition" then expeditionCard = c end
 end
 check(
-  atlasPair("Herbs")
-    and atlasPair("Herbs"):find("Peacebloom", 1, true)
-    and atlasPair("Herbs"):find("more to find", 1, true)
-    and atlasPair("Fish")
-    and atlasPair("Fish"):find("Raw Brilliant Smallfish", 1, true)
-    and not atlasPair("Fish"):find("Raw Longjaw", 1, true),
-  "a zone's Atlas page: the herbs and fish found there named, the rest counted"
+  expeditionCard and expeditionCard.facts.text:find("done"),
+  "… its expedition, as a card, and how much of it is done"
+)
+expeditionCard.scripts.OnClick(expeditionCard)
+check(
+  FieldJournalFrame.selectedTab == ns.TAB.expeditions and FieldJournalExpeditionsPage.title.text == "Elwynn Forest",
+  "… a click opens the expedition's own page"
 )
 FieldJournalFrame:Hide()
 

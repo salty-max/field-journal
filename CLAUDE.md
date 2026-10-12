@@ -111,21 +111,29 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   each of its events finds it), `Achievements.lua`
   (milestones: tallies, every family of a type, feats, every rare of a zone,
   the Atlas's, the flora's and the expeditions'; the game's achievement toast, fanfare and a
-  chat line; no spoilers before a type or zone is met). The book: `Kit.lua`
+  chat line; no spoilers before a type or zone is met; an expeditions' one
+  that changed riddles leave undone withdrawn at the login, to be earned
+  again). The book: `Kit.lua`
   (a copy of the kit shared with Hearthtale and the Codex, ~/code/addon-kit:
   the books' look, window, dialog and tabs; never edited here: `bun run
   kit:sync` after changing the kit, `bun run kit:check` to verify),
   `Book.lua` (the journal's theme on the kit, the window, its tabs
-  registered by their files with `ns.addTab`, links in chat, and the kit
+  registered by their files with `ns.addTab` (the Expeditions first, the
+  book opening on them), links in chat, and the kit
   every tab is made of, `ns.ui`; a tab's own select under the search box,
   registered with its tab, `filter = { default, options() }`, its choice
   `ns.filterOf(n)`: the Bestiary's order, the Atlas's continent; `newList` for the list on the left,
-  `newPage` for the page on the right),
+  `newPage` for the page on the right, its parts: rows, sections, cards,
+  paragraphs, a strip of figures, items' icons, names to pick, a medal on a
+  round picture),
   `BestiaryBook.lua` (still portraits from the data's display ids,
   `SetPortraitTextureFromCreatureDisplayID`), `FloraBook.lua` (Fish and
-  Plants), `AtlasBook.lua` (zones by continent, the zone's map art with its
-  explored overlays and marks, drawn by `ZoneMap.lua`, shared with the
-  Expeditions), `ExpeditionsBook.lua` (the riddles by zone; a zone's page in
+  Plants), `AtlasBook.lua` (zones by continent; a zone's page: the
+  surveyor's note, its figures, its map art with its explored overlays and
+  marks, drawn by `ZoneMap.lua`, shared with the Expeditions, the places
+  explored to pick out on it, its expedition, what grows and bites there as
+  items, deaths and close calls as cards; the travels: figures, the lands,
+  the places discovered lately), `ExpeditionsBook.lua` (the riddles by zone; a zone's page in
   words, cards and its map; a riddle's page, its verse set apart, its hints
   asked for through the game's confirmation, its seal, note and margin; a
   quarry's poster, the creature turning in its frame), `ExpeditionsPin.lua`

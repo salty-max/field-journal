@@ -940,6 +940,20 @@ function ns.openRiddle(id)
   ns.openTab(ns.TAB.expeditions)
 end
 
+-- A zone's expedition, for the Atlas: shown in the book, how much is done.
+function ns.expeditionOf(uiMap)
+  if not (X[uiMap] and ns.journal() and shown(uiMap)) then return nil end
+  return progress(uiMap)
+end
+
+-- Open the book at a zone's expedition page.
+function ns.openExpeditionZone(uiMap)
+  if not ns.expeditionOf(uiMap) then return end
+  current = uiMap
+  opened()[uiMap] = true
+  ns.openTab(ns.TAB.expeditions)
+end
+
 -- Open the book at a quarry's poster (fieldjournal:q<creature id>).
 function ns.openQuarry(id)
   local q = ns.quarryById[id]
