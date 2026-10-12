@@ -31,5 +31,5 @@ In the north of the waste, a cougar with a broken fang
 lies about in the sun, and seems to be asleep.
 He is not. His claws come faster than any cat's you have met.
 Kill him, and he may be back within the hour, or a whole day later.
-= Broken Tooth, a cougar of the Badlands, sunning himself in the north, from Hammertoe's Digsite up to the Maker's Terrace.
+= Broken Tooth, a cougar of the Badlands, sunning himself in the north, around Angor Fortress and Hammertoe's Digsite and up to the Maker's Terrace.
 + One blow every second: no other cat strikes so fast, and the hunters who tame him know it.
