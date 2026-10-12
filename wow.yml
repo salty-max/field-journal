@@ -29,6 +29,8 @@ globals:
     any: true
   C_MapExplorationInfo:
     any: true
+  C_Texture:
+    any: true
   C_Timer:
     any: true
   C_XMLUtil:
