@@ -103,7 +103,7 @@
   "loch-modan-horde-runners": {"zone": 1432, "of": "creature:2478 found:target", "hint": [60.0, 60.0, 9], "name": "Haren Swifthoof", "npc": 2478},
   "loch-modan-thelsamar": {"zone": 1432, "of": "object:175736", "hint": [33.4, 45.6, 8], "name": "Ironforge - the Awakening of the Dwarves", "spots": [[35.47, 49.0]], "r": 10},
   "loch-modan-valley-of-kings": {"zone": 1432, "of": "area:Valley of Kings", "hint": [22.0, 71.0, 14], "name": "Valley of Kings", "areas": [924]},
-  "moonglade-remulos": {"zone": 1450, "of": "creature:11832", "hint": [37.8, 43.7, 5], "name": "Keeper Remulos", "npc": 11832, "spots": [[36.18, 41.79]], "r": 10},
+  "moonglade-flight-masters": {"zone": 1450, "of": "creature:11800 found:target", "hint": [44.0, 46.0, 3], "name": "Silva Fil'naveth", "npc": 11800},
   "mulgore-rolling-plains": {"zone": 1412, "of": "area:The Rolling Plains", "hint": [60.5, 65.0, 7], "name": "The Rolling Plains", "areas": [821]},
   "mulgore-three-hammers": {"zone": 1412, "of": "object:175739", "hint": [29.5, 52.8, 8], "name": "War of the Three Hammers", "spots": [[31.56, 49.42]], "r": 10},
   "orgrimmar-mannoroth-armor": {"zone": 1454, "of": "object:175658", "hint": [43.6, 31.0, 8], "name": "The Armor of Mannoroth", "spots": [[45.21, 34.72]], "r": 10},
