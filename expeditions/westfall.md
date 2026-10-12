@@ -37,13 +37,12 @@ riddles:
     sources: "object 175740's text"
 quarry:
   id: 462   # Vultros
-  sources: "the WoWWiki archive's Vultros page (its fields, its swoop); the dump's spawns (one at a time, 21 hours to return)"
+  sources: "the WoWWiki archive's Vultros page (its fields, its swoop); the dump's spawns (one at a time)"
 ---
 ## westfall-aegwynn
-At a farm north of the hill where the militia stands,
-a book on the shelf tells of a fiery girl made Guardian,
-who followed demons into the frozen north
-and found them hunting dragons.
+On a farmhouse shelf north of the militia's hill,
+seek a young woman's victory over a fallen god.
+She believed she had ended the danger; the page remembers what followed her home.
 ? The Saldeans' farm, north of Sentinel Hill.
 = Aegwynn and the Dragon Hunt, on the Saldeans' shelf. A farmhouse is an odd place to keep the tale of the Guardian who struck down Sargeras's body.
 + She never knew she had done as he planned: his spirit passed into her and hid in her soul for many years.
@@ -67,10 +66,9 @@ Come back after dark, and do not come alone.
 + On the same nights, another of it rises at a second coffin tree in the Dagger Hills, and walks from there to the bridge into Duskwood.
 
 ## westfall-sentinel-hill
-On the hill where the farmers' militia keeps watch,
-a book takes up where the farm's left off:
-the Guardian, grown old, chose her own heir,
-and never knew what had hidden in him before he was born.
+In the militia's hilltop refuge, find a mother's chosen name for her son.
+It means 'keeper of secrets', though she did not know the secret he carried.
+His story waits in a book.
 ? Sentinel Hill.
 = The Last Guardian. Aegwynn's son was Medivh, 'keeper of secrets' in the high elven tongue.
 + He grew up at Azeroth's court with two friends, Llane and Anduin Lothar, and the three boys made mischief all over the kingdom.
@@ -78,6 +76,6 @@ and never knew what had hidden in him before he was born.
 ## quarry
 A carrion bird far too big for these fields comes down on one of them at a time,
 anywhere from the pumpkin farm in the north to the dust plains in the south.
-Its swoop leaves you reeling. When it falls, a whole day passes before another field has it.
-= Vultros, a carrion bird of level 26, far above anything else in Westfall, in one of its fields: the Dead Acre, the Dust Plains, Furlbrow's pumpkins, Stendel's Pond, or the fields by Sentinel Hill.
-+ Twenty-one hours at the least before it comes back, and never two of it at once.
+Its swoop leaves you reeling.
+= Vultros, a carrion bird of level 26, far stronger than Westfall's ordinary scavengers.
++ It has been seen by Stendel's Pond, Sentinel Hill and the Dead Acre as well as in the northern farms and southern dust. An empty field does not finish the search.

@@ -16,7 +16,7 @@ riddles:
     sources: "the dump's spawn, path and words; the client's display tables (a troll); the WoWWiki archive's Simone the Inconspicuous page (the succubus beneath, Precious, Fool's Plight)"
 quarry:
   id: 6584   # King Mosh
-  sources: "the WoWWiki archive's King Mosh page (the infamous devilsaur of the north-west); the dump's path and respawn (48 to 72 hours)"
+  sources: "the WoWWiki archive's King Mosh page (the infamous devilsaur of the north-west); https://www.wowhead.com/classic/npc=6584/king-mosh (period accounts of fear); the pinned dump's path and creature_ai_scripts (14100 Terrifying Roar)"
 ---
 ## ungoro-crater-simone
 By the hot springs in the crater's west, a troll woman walks with her wolf
@@ -27,8 +27,8 @@ Be pleasant to her, and only pleasant.
 + She is not what she seems: hunters on the trail of an ancient bow know her as Simone the Seductress, a succubus. Strike her as she is, and she answers with blows that fell a hero in one.
 
 ## quarry
-Between the river and the great lakes of the crater's north-west, the king of the devilsaurs walks,
-and the crater shakes for him.
-Bring him down, and two days at the least pass before another king walks there; three at the most.
+Between the river and the great lakes of the crater's north-west,
+the king of the devilsaurs walks.
+The crater shakes for him.
 = King Mosh, the infamous devilsaur of Un'Goro's north-west.
-+ Of all the crater's devilsaurs, he is the one they call king.
++ His roar sends even armed hunters running. In a crater full of teeth, the direction matters.

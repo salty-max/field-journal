@@ -49,11 +49,11 @@ Find his ground, and do not linger.
 + Each death near him heals him for seventy thousand; and if he still stands three minutes after the first blow, his fury leaves no one standing.
 
 ## blasted-lands-nethergarde
-In the keep built to watch the gate, a history tells
-of the last army that went through it,
-and of the heroes who closed it behind them.
+In the keep that watches the great gate, seek an account
+of a world broken by too many doorways.
+Those who followed the orcs there had to shut the way to their own.
 ? Nethergarde Keep.
-= Beyond the Dark Portal, in the keep Khadgar urged the kingdoms to build.
+= Beyond the Dark Portal, in Nethergarde Keep. Ner'zhul's portals tore Draenor apart; the Alliance Expedition closed the Dark Portal to keep that destruction from reaching Azeroth.
 + Ner'zhul escaped through one of his own portals with his most trusted servants, while Khadgar fought to bring his comrades home.
 
 ## quarry

@@ -29,12 +29,12 @@ riddles:
     sources: "the dump's spawn (no quest); the WoWWiki archive's Kzixx, Darkened Bank, Darkshire and Duskwood pages (the goblin by the road, the bridge, the Night Watch, the army at the front)"
   - id: duskwood-unseen
     tier: hidden
-    gestures: [PEER, SHIVER]
+    gestures: [PEER, LOOK, GAZE, STARE, SHIVER]
     name: The Unseen
     creature: 3094   # the Unseen: two, still, on two floors of one house, dump 19.2, 53.4 and 53.8; Wowhead's
     hint_area: { x: 20.0, y: 52.0, r: 2 }
-    danger: "Quiet: the crowd is far stronger than the wood (level 49 to 51), and does nothing unless struck"
-    sources: "the WoWWiki archive's Unseen page; the dump's and Wowhead's spawns of creature 3094 in Raven Hill"
+    danger: "Perilous (invisible undead, levels 49 to 51)"
+    sources: "https://www.wowhead.com/classic/npc=3094/unseen (Detect Invisibility; conflicting reports of Horde hostility); https://www.wowhead.com/classic/spell=2970/detect-invisibility; the dump's and Wowhead's spawns of creature 3094 in Raven Hill"
   - id: duskwood-darkshire
     tier: town
     faction: alliance   # its town's: for that faction alone
@@ -77,11 +77,11 @@ Honour the post, whoever keeps it.
 ## duskwood-unseen
 The village on the hill of ravens was left to its dead,
 and most of its houses stand empty, or seem to.
-In one of them, a household keeps both floors, and no eye sees it.
-It does not stir unless it is struck. Give it more attention than it seems to deserve.
+In one of them, a household keeps both floors, hidden from an unaided eye.
+Study the empty rooms, and leave their occupants undisturbed.
 ? Raven Hill, at the village's northern edge: a house of two floors, and no one in it.
-= The Unseen: wraiths no eye can see, of a strength far beyond Duskwood's. Two keep this house; others keep the rest of Raven Hill's.
-+ A warlock's Detect Invisibility shows them, and a mage made invisible sees them too. They never stir unless struck, which is why most who pass through the village never know they were there.
+= The Unseen: invisible wraiths, of a strength far beyond Duskwood's. Two keep this house; others keep the rest of Raven Hill's.
++ A warlock's Detect Invisibility reveals them. Their invisibility is not a rogue's stealth: an eye trained to find the latter may miss an entire household here.
 
 ## duskwood-darkshire
 In the town that was Grand Hamlet before the dark came, the Night Watch walks the streets.

@@ -35,12 +35,11 @@ Pay him the respect his years have earned.
 + Harroc works the garden outside; Rokar keeps to the house, and to whatever he was before he was a farmer.
 
 ## durotar-tiragarde
-In the keep the admiral's men took back on the red land's coast,
-a history of the orcs lies among their enemies:
-the arenas the warlocks built, the blood the chieftains drank,
-and the one chieftain who would not.
+In the captured keep on the red coast, look for a people gathered to drink from one cup.
+One chieftain in the account will not join them.
+His son's new land lies outside these walls.
 ? South of Razor Hill, Kul Tiras still holds a keep on Durotar's shore.
-= Rise of the Horde, at Tiragarde Keep. Durotan alone refused Mannoroth's blood; this land bears his name.
+= Rise of the Horde, at Tiragarde Keep. The book credits Durotan with refusing Mannoroth's blood; the land outside bears his name.
 + The keep was raised by Admiral Proudmoore's men, who crossed the sea to destroy the Horde in its new land; it is theirs still.
 
 ## quarry

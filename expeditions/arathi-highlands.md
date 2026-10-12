@@ -35,9 +35,9 @@ Go to its foot, and take in what is left.
 + 'Once a symbol of humanity's strength and defensive might,' an old survey of these lands calls it; 'now fallen to decay and war.'
 
 ## arathi-highlands-hammerfall
-In the Horde's camp in the highlands, a history tells how the elves of the north
-lost their homeland, took a new name for their dead,
-and were cast out by the Alliance they had fought for.
+In the Horde's highland camp, seek the elves who named themselves for their dead.
+Their kingdom was lost, but the name travelled with them.
+The story is kept on a page.
 ? Hammerfall.
 = Rise of the Blood Elves, in Hammerfall: Kael'thas's high elves, renamed blood elves, cast out by the Alliance and gone to Outland with Illidan.
 + Cut off from the Sunwell, they hungered for magic; looking for a cure is what led Kael'thas to Illidan and his naga.

@@ -30,7 +30,7 @@ riddles:
     sources: "the dump's spawns"
 quarry:
   id: 8215   # Grimungous
-  sources: "the WoWWiki archive's Grimungous page (an elite hill giant); the dump's path and respawn (32 to 48 hours)"
+  sources: "https://www.wowhead.com/classic/npc=8215/grimungous (period accounts of War Stomp); the pinned dump's path and creature_ai_scripts (11876 War Stomp, 5568 Trample)"
 ---
 ## the-hinterlands-plaguemist
 West of the elves' lodge, a ravine climbs out of the green hills,
@@ -59,7 +59,8 @@ Show them what their drums are for.
 + The village keeps its eye on the Vilebranch of Jintha'Alor, up the hill; the drums are the one sound it makes on purpose.
 
 ## quarry
-Among the troll ruins in the east of the hills, a hill giant walks alone, in no hurry.
-Kill him, and it may be two days before he walks again.
+Among the troll ruins in the east of the hills,
+a hill giant walks alone, in no hurry.
+Seek him on the ground below the trolls' great city.
 = Grimungous, an elite hill giant, walking the ruins of Shaol'watha.
-+ A day and a half at the least between one Grimungous and the next; two days at the most.
++ His feet do as much work as his fists: a stamp can stun the hunters close around him. A ring of spears is still within his reach.

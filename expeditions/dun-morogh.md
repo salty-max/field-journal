@@ -42,7 +42,7 @@ riddles:
     sources: "the WoWWiki archive's Gibblewilt and Leper gnome pages (Gnomeregan's fall); the dump's spawns"
 quarry:
   id: 1132   # Timber
-  sources: "the WoWWiki archive's Timber page (the island, his two wolves, the respawn, his drops, the pet); the dump's spawns"
+  sources: "the WoWWiki archive's Timber page (the island, his two wolves, his drops, the pet); the dump's spawns"
 ---
 ## dun-morogh-etched-note
 Below the great gates, where every traveller climbs,
@@ -95,4 +95,4 @@ a white wolf leads the pack, with two starving wolves at his heels.
 Bring him into a fight and he will bring others.
 Thin the island first.
 = Timber, a white wolf, and very likely the alpha of Iceflow Lake's pack. He alone carries the Silver-lined Bracers and the White Wolf Gloves.
-+ A hunter can tame him: a good first companion for anyone fond of wolves. He comes back within the hour.
++ A hunter can tame him: a good first companion for anyone fond of wolves, and a white coat to remember the snow by when the road leads down from Dun Morogh.

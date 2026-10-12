@@ -23,7 +23,7 @@ riddles:
     sources: "object 175726's text; the Codex's dragons-of-nightmare page"
 quarry:
   id: 12037   # Ursol'lok
-  sources: "the WoWWiki archive's Ursol'lok page (his roam about Satyrnaar, 10.5 to 16 hours); the dump's spawn and kind (a bear)"
+  sources: "the WoWWiki archive's Ursol'lok page (his roam about Satyrnaar); https://www.wowhead.com/classic/npc=12037/ursollok (period taming accounts); the pinned dump's spawn and kind (a bear)"
 ---
 ## ashenvale-grom
 In a canyon where demons still walk,
@@ -36,16 +36,16 @@ Leave him what a warrior is owed.
 + Grom was the first chieftain to drink Mannoroth's blood, and the one who killed the demon: 'the curse of our people began and ended with Grom.'
 
 ## ashenvale-astranaar
-In the sentinels' town by the lake, a history tells
-how the Titans chose five dragons to keep the world,
-and gave one of them the Dream to watch over in her sleep.
+One of the world's five keepers was given a duty she could fulfil only in sleep.
+In the sentinels' town beside the lake, find the page that names her charge.
+Her four kin received theirs on the same page.
 ? Astranaar.
-= Charge of the Dragonflights, in Astranaar.
+= Charge of the Dragonflights, in Astranaar: the Titans entrusted the world to five dragons, and gave Ysera the Emerald Dream to watch over.
 + Ysera fell into an eternal trance, bound to the waking Dream of Creation; her green dragons keep its doors, the great tree of Duskwood's Twilight Grove among them.
 
 ## quarry
-A great bear keeps to the east of the forest, around the satyrs' ruins,
-and goes where he likes among them.
-Kill him, and you will wait half a day for the next.
+A great bear keeps to the east of the forest,
+roaming around the satyrs' ruins.
+The name on him belongs to no satyr.
 = Ursol'lok, a bear of eastern Ashenvale, roaming around Satyrnaar.
-+ Ten hours and a half at the least between one Ursol'lok and the next; sixteen at the most.
++ Despite the company he keeps, he is a beast, not a demon. A hunter may tame him.

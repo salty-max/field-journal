@@ -53,8 +53,8 @@ anachronic to the original game or Forever. Every zone and capital rewritten:
   scripted lines (broadcast texts), the WoWWiki archive (its later
   expansions' lines set aside), Warcraft III, Lands of Conflict, the Warcraft
   RPG, Chronicle for the old past, the client's display tables (who a keeper
-  is), and the data's own oddities (a respawn of two days, a fang that drops
-  as a dagger, a night-only ghoul).
+  is), and the data's own oddities (a fang that drops as a dagger, a
+  night-only ghoul).
 - **The note delivers a discovery**: what the world says once you are there
   (Theresa, Gerard's mindslave; Winkey and the 'Winky' Oralius shouts at;
   Ralo'shan, slain a hundred times).
@@ -64,6 +64,14 @@ anachronic to the original game or Forever. Every zone and capital rewritten:
 - **Counts after it**: 117 riddles (59 for both sides, 31 the Alliance's, 27
   the Horde's: 90 for an Alliance reader, 86 for a Horde one) and the 38
   quarries, every one a rare no quest names.
+
+The follow-up prose pass keeps those counts. Book clues now single out a
+detail instead of reciting the whole history; quarry notes trade exact
+respawn promises for appearance, behaviour, routes and history. Ravenholdt
+and Alther's Mill no longer require a gesture that resembles rogue Stealth
+but does not recognise the ability. Everlook's idle Gogo discovery is
+replaced by Zap Farflinger's original engineering gossip. Corrections,
+sources and the remaining in-game question: `docs/expeditions-review.md`.
 
 ### How many
 

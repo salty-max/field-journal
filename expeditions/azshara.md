@@ -29,7 +29,7 @@ riddles:
     sources: "the dump's spawn and his words"
 quarry:
   id: 6118   # Varo'then's Ghost
-  sources: "the WoWWiki archive's Varo'then's Ghost page (Captain Varo'then, Queen Azshara's guard); the dump's path and respawn (5 to 8 hours)"
+  sources: "the WoWWiki archive's Varo'then's Ghost page (Captain Varo'then, Queen Azshara's guard); the dump's path; the Codex's ravencrest-monument page"
 ---
 ## azshara-ravencrest
 On the southern cliffs, the broken legs of a great statue still stand,
@@ -45,8 +45,8 @@ In the south of the elves' old country, dragonkin of the blue flight hold the sh
 far from the cold north where their kind belongs.
 Inside their ring, the lake itself is calm. Get through them, and refresh yourself at the water.
 ? Lake Mennar, in southern Azshara.
-= Lake Mennar: blue dragonkin hold its shores, scalebanes, mageweavers and magelords, one of the few homes the blue dragonflight keeps in the south.
-+ The other is in Winterspring, in the caves of Mazthoril.
+= Lake Mennar: blue dragonkin hold its shores, scalebanes, mageweavers and magelords, far from their flight's northern home.
++ Mazthoril's caves in Winterspring are another blue dragonflight refuge outside Northrend.
 
 ## azshara-valormok
 In the Horde's camp in the elven wilds, an orc remembers when he and his brother
@@ -57,8 +57,8 @@ Ask him what he makes of it now.
 + His brother, by the name, is Ag'tor Bloodfist, who has business enough for any traveller.
 
 ## quarry
-Among the ruins of a shrine in the south-west, a ghost walks in the armour of a queen's guard:
+Among the ruins of a shrine in the south-west,
+a ghost walks in the armour of a queen's guard:
 the captain who served the queen this land is named for, ten thousand years ago.
-He walks again five to eight hours after he falls.
 = Varo'then's Ghost: what is left of Captain Varo'then, who led Queen Azshara's guard in the War of the Ancients.
-+ He walks the ruins of the Shadowsong Shrine, by the sentinels' camp at Talrendis Point.
++ Farther east, Ravencrest's broken monument remembers a commander who opposed his queen. Azshara keeps the remains of both sides of that war.

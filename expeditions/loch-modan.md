@@ -51,9 +51,9 @@ Two of them are orcs. It is the third you want.
 + Gradok and Thragomm share one face: the same orc, twice over.
 
 ## loch-modan-thelsamar
-In the town on the lake road, a book in the inn tells
-how the earth's first children woke in a vault to the south
-with soft skin and mortal hearts, and named themselves anew.
+The lake-road inn keeps an account of stone becoming flesh.
+Seek the sleepers who woke beneath the earth and found themselves mortal.
+The vault lies south of this lake.
 ? Thelsamar's inn.
 = Ironforge - the Awakening of the Dwarves, in Thelsamar. The vault it names, Uldaman, lies south of the Loch, in the Badlands.
 + The dwarves named their land Khaz Modan for the Titan Khaz'goroth, and built a forge for him in the heart of the mountain; the city grew around it.

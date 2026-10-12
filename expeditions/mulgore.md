@@ -9,7 +9,7 @@ client: both
 riddles:
   - id: mulgore-rolling-plains
     tier: off
-    gestures: [PEER]
+    gestures: [PEER, LOOK, GAZE, STARE]
     area: The Rolling Plains   # placed: the client's overlay: 62.9, 67.7
     hint_area: { x: 60.5, y: 65.0, r: 7 }
     danger: "Quiet (prairie wolves; centaur outriders, now and then)"
@@ -23,7 +23,7 @@ riddles:
     sources: "object 175739's text; the WoWWiki archive's Bael'dun Digsite page (Lands of Mystery, 2005)"
 quarry:
   id: 5807   # The Rake
-  sources: "the WoWWiki archive's The Rake and The Golden Plains pages (his speed, the hunters' pet, the hour); the dump's spawns"
+  sources: "the WoWWiki archive's The Rake and The Golden Plains pages (his speed, the hunters' pet, the hunting grounds); the dump's spawns"
 ---
 ## mulgore-rolling-plains
 In the south-east of the plains, where the grass rolls down toward the dry country,
@@ -35,10 +35,9 @@ the only place they have ever got into the tauren's land. Keep an eye out for th
 + North, beyond Bloodhoof Village, the Golden Plains around the bluff are the most treasured of the tauren's hunting grounds.
 
 ## mulgore-three-hammers
-In the western cliffs, far from their own mountain,
-dwarves have cut a quarry into the tauren's land,
-and keep among their picks a history of their own:
-three hammers, a firelord woken, two kings in stone.
+In the dwarves' quarry in the western cliffs, seek a war remembered in stone.
+Its account begins with three claimants to a throne
+and ends with two kings beside a mountain road.
 ? The Bael'dun Digsite, in Mulgore's western cliffs.
 = War of the Three Hammers, at the Bael'dun Digsite: an outpost of the four hundred and fifty dwarves digging at Bael Modan. The tauren see the dig as an affront to the Earth Mother.
 + Brann Bronzebeard, it is told, visited the dig and went on to Thunder Bluff, to propose that tauren work beside the dwarves so that the land would be cared for.
@@ -47,6 +46,5 @@ three hammers, a firelord woken, two kings in stone.
 In the golden grass east of the bluff, a lion hunts alone,
 quicker with his claws than the other cats of the plains.
 The bluff's hunters would sooner tame him than skin him.
-He is back within the hour of any kill.
 = The Rake, a lion of the Golden Plains. He strikes faster than nearly any beast a hunter can tame, which made him one of the commonest companions of the land.
-+ The Golden Plains, the tauren's most treasured hunting grounds, are his alone: he has been met nowhere else.
++ He has been met nowhere outside the Golden Plains, the tauren's most treasured hunting grounds.

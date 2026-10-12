@@ -39,9 +39,9 @@ too big and too tireless for any scholar to explain. Find it.
 + 'The legendary ram was a wonder of Khaz Modan and the subject of many tales of dwarven folklore.'
 
 ## ironforge-tyrannistrasz
-In the same hall, the skull of a red dragon of enormous size,
-found in the marshes after the battle at the dragons' prison-fortress,
-is said to have belonged to the elder consort of the Dragonqueen. Find it.
+In the hall where the explorers display their finds, seek an enormous red dragon's skull.
+Its label remembers the Dragonqueen's elder consort
+and a battle fought far from this mountain.
 ? The Hall of Explorers.
 = The Skull of Tyrannistrasz.
 + Its remains were found in the Wetlands shortly after the Battle of Grim Batol, where the Dragonmaw had held Alexstrasza captive.

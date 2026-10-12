@@ -31,18 +31,17 @@ riddles:
 # no quarry: a capital has riddles alone
 ---
 ## stormwind-city-faol-plaque
-In the great cathedral of the city, a plaque remembers the archbishop
-who began his work in a northern city, reformed the brothers of the abbey after the war,
-and raised the funds to build this city again. Find his plaque.
+A city rebuilt remembers the man who helped pay for it.
+Seek his plaque in the cathedral he made possible.
+His work began in a northern city now lost to the living.
 ? The Cathedral of Light, in Cathedral Square.
-= Archbishop Alonsus Faol, 'benevolent patron of the Church of Light'.
+= Archbishop Alonsus Faol, 'benevolent patron of the Church of Light'. His work began in Stratholme; after the Second War he helped reform the Brotherhood of Northshire and raised funds to rebuild Stormwind.
 + 'This Cathedral stands not only as a bastion of the Holy Light, but as a lasting testament to one man's noble spirit and generosity.' His resting place is far to the north, beside the Scarlet Monastery.
 
 ## stormwind-city-khadgar-plaque
-Among the plaques for the heroes who went through the dark gate and stayed,
-one remembers the apprentice of a fallen Guardian,
-who led them all, and was never seen again.
-Find what his old master in the city of mages wrote for him.
+Among the memorials to those who went through the dark gate,
+one plaque presumes its hero dead, then wishes him well on his travels.
+Find the message left for a wanderer who might yet read it.
 ? Among the memorials to the Alliance Expedition, in the city.
 = Archmage Khadgar of the Kirin Tor: 'Presumed deceased.'
 + 'Never did one so selflessly delve into the dark heart of magic and warfare. We wish you well, bold wanderer. Wherever you are.' - Antonidas, Archmage of Dalaran.

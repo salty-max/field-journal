@@ -8,25 +8,26 @@ client: both
 riddles:
   - id: felwood-morlos-aran
     tier: off
-    gestures: [MOURN, SIGH, PONDER]
+    gestures: [PONDER, THINK, MOURN, SIGH]
     area: Morlos'Aran   # placed: the client's overlay: 57.6, 87.9, half-size 3.7 by 4.1
     hint_area: { x: 57.0, y: 87.0, r: 4 }
     danger: "Guarded (felpaw wolves, angerclaw bears and ironbeak owls, levels 47 and 48)"
     sources: "the WoWWiki archive's Morlos'Aran page (its sister ruins); the dump's spawns"
 quarry:
   id: 7137   # Immolatus
-  sources: "the WoWWiki archive's Immolatus page (an elite infernal); the dump's path and respawn (10.5 to 16 hours)"
+  sources: "https://wowwiki-archive.fandom.com/wiki/Immolatus (Knock Away, original level 56 rare elite); the pinned dump's path and creature_ai_scripts (10101 Knock Away)"
 ---
 ## felwood-morlos-aran
 At the southern edge of the poisoned wood, the stones of an elven town still stand,
 and its name ends as theirs did on the dark shore and in the forest to the south.
-Walk among them, and count the others you know.
+Give a thought to the towns whose names it echoes, and what has become of this one.
 ? Morlos'Aran, at Felwood's southern edge.
 = Morlos'Aran, one of the old night elf settlements whose names end alike: Ameth'Aran and Bashal'Aran in Darkshore, Ordil'Aran in Ashenvale, Tethris Aran in Desolace.
 + A druid of the Emerald Circle keeps watch by the ruins; the wood around him is still sick.
 
 ## quarry
-In the scarred vale where fire once fell on the forest, an infernal still burns,
-elite and alone, walking among the scars.
+In the scarred vale where fire once fell on the forest,
+an infernal still burns.
+Seek the named demon among the forest's wounds.
 = Immolatus, an elite infernal of Shatter Scar Vale.
-+ Ten hours and a half at the least between one Immolatus and the next; sixteen at the most.
++ A blow from him can throw a hunter backwards into the vale's other demons. The space behind you is part of this fight.

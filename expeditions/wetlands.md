@@ -8,11 +8,11 @@ client: both
 riddles:
   - id: wetlands-sundown-marsh
     tier: off
-    gestures: [HELLO, GREET, WAVE]
+    gestures: [HELLO, GREET, WAVE, HAIL, BOW]
     creature: 2679   # Wenna Silkbeard, dump 25.6, 25.8; Fradd Swiftgear (2682) beside her
     hint_area: { x: 24.0, y: 28.0, r: 6 }
     danger: "Guarded (crocolisks, bog beasts and raptors all round)"
-    sources: "the WoWWiki archive's Sundown Marsh page (the stone house, the windmill); the dump's spawns and wares (one piece at a time; Fradd's plans half a day to return); the client's display tables (a dwarf, a gnome)"
+    sources: "the WoWWiki archive's Sundown Marsh page (the stone house, the windmill); the dump's spawns and wares (one piece at a time); the client's display tables (a dwarf, a gnome); https://www.wowhead.com/classic/item=4381/minor-recombobulator (dispels Polymorph, restores health and mana)"
   - id: wetlands-terl
     tier: hidden
     creature: 2153   # Terl Arakor, dump 27.4, 41.2
@@ -30,7 +30,7 @@ riddles:
     sources: "object 175750's text"
 quarry:
   id: 1140   # Razormaw Matriarch
-  sources: "the WoWWiki archive's Razormaw Matriarch and Raptor Ridge pages (her brood, the cavern); the dump's path and respawn (32 to 48 hours)"
+  sources: "the WoWWiki archive's Razormaw Matriarch and Raptor Ridge pages (her brood, the cavern); the dump's path"
 ---
 ## wetlands-sundown-marsh
 Deep in the marsh, where the crocolisks own the water,
@@ -40,7 +40,7 @@ and two gnomish plans, one copy of each.
 Call at their door.
 ? Sundown Marsh, the Wetlands' north-west, west of Ironbeard's Tomb.
 = Wenna Silkbeard, a dwarf, and Fradd Swiftgear, a gnome, in their stone house in Sundown Marsh. Fradd's plans: a Lovingly Crafted Boomstick and a Minor Recombobulator.
-+ Once sold, Fradd's plans take half a day to come back; Wenna's armour, two and a half to three hours; her patterns, twenty minutes to an hour.
++ Fradd's smaller device restores some health and mana, but its particular talent is turning a sheep back into a traveller. An engineer need not wait for the mage's spell to wear off.
 
 ## wetlands-terl
 North of the old dig, out in the marsh where the raptors hunt,
@@ -51,17 +51,16 @@ Ask him what he is doing there. He has an answer, and he will shout it.
 + He stands with the Alliance: a Horde traveller gets no answer from him, only a fight.
 
 ## wetlands-menethil
-In the harbour town, a history tells of the mountain
-at the far end of the marsh: the orcs who held the Dragonqueen there,
-and how her dragons tore the fortress apart when she was free.
+The harbour keeps an account of a prison high above the marsh.
+Its captive could burn an army, yet her captors forced her to serve them.
+Find the page that tells how she was freed.
 ? Menethil Harbor.
-= The Battle of Grim Batol, in Menethil Harbor. The mountain it tells of stands at the Wetlands' eastern edge.
+= The Battle of Grim Batol, in Menethil Harbor. The Dragonmaw orcs held Alexstrasza captive in the mountain at the Wetlands' eastern edge; once free, she and the other great dragons destroyed their fortress.
 + Grim Batol was a Wildhammer stronghold first, 'some say cursed'; a small band led by the mage Rhonin destroyed the Demon Soul and freed Alexstrasza.
 
 ## quarry
-In the Wetlands' east, a ridge of raptors has a cavern,
-and in it the mother of them all watches over her brood.
-Kill her, and a day and a half will pass at the least before she is back;
-two days, at the most.
+In the Wetlands' east, a ridge of raptors has a cavern.
+Seek the matriarch among the Highland and Elder brood;
+their mother does not keep an empty house.
 = The Razormaw Matriarch, level 31, in the cavern of Raptor Ridge, with her Highland and Elder Razormaws.
 + She keeps to the cavern and the slope before it, never far from her brood.

@@ -29,7 +29,7 @@ riddles:
     sources: "Warcraft: The Roleplaying Game, p. 192 (the stairs beneath the waves, the legend, the divers); the client's AreaTable"
   - id: the-barrens-pooka
     tier: off
-    gestures: [WAVE, HELLO, GREET, BOW]
+    gestures: [WAVE, HELLO, GREET, BOW, SMILE]
     creature: 14909   # Pooka, dump 47.8, 8.8, at the Mor'shan Rampart; Mogg (14908), her son, playing outside
     hint_area: { x: 47.5, y: 10.0, r: 3 }
     danger: "Quiet for the Horde; the rampart's guards for the Alliance"
@@ -44,15 +44,14 @@ riddles:
     sources: "the wiki's Shrine of the Fallen Warrior; Koiter (creature 12034) places the hint"
 quarry:
   id: 5828   # Humar the Pridelord
-  sources: "the WoWWiki archive's Humar the Pridelord page (the ring of lions round his tree, his roar, his coat); the dump's spawn and respawn (8 to 12 hours)"
+  sources: "the WoWWiki archive's Humar the Pridelord page (the ring of lions round his tree, his roar, his black coat and tameability); the dump's spawn"
 ---
 ## the-barrens-ratchet-book
-In the goblins' port, where every side may trade,
-a history tells of the elves who would not give up their magic,
-were banished for the storm they called down,
-and sailed away to found a kingdom in the sun.
+The elves in this account answered a ban on magic with a storm.
+Find the page in the goblins' port that tells what became of them.
+Their punishment began a voyage.
 ? Ratchet, on the Barrens' coast.
-= Exile of the High Elves, in Ratchet. The goblins keep a history of elves; it is not for sale.
+= Exile of the High Elves, in Ratchet. Banished for their refusal to abandon arcane magic, the Highborne sailed east and founded Quel'Thalas. The goblins keep their history; it is not for sale.
 + Dath'Remar mocked the druids as cowards. They could not bring themselves to put so many of their kin to death, and exiled them instead.
 
 ## the-barrens-lizzarik
@@ -95,4 +94,4 @@ North-west of the goblins' port, beyond the hills, lions lie in a ring around a 
 and the one at the middle has a coat unlike theirs.
 He roars when he is hurt, and the ring comes running.
 = Humar the Pridelord, an elite lion, under his tree north-west of Ratchet, his pride around him.
-+ Eight hours at the least before he is back, and twelve at the most: hunters who want him for their own know the wait well.
++ A hunter can bring that black coat home as a companion. The rest of the pride stays under the tree.

@@ -22,7 +22,7 @@ riddles:
   - id: burning-steppes-flame-crest
     tier: town
     faction: horde   # its town's: for that faction alone
-    gestures: [PET, LISTEN]
+    gestures: [PET, PAT, SOOTHE, COMFORT, LISTEN]
     creature: 10262   # Opus, Kibler's parrot, dump 65.8, 21.7
     found: target   # in the town: only by finding him
     hint_area: { x: 66.0, y: 23.0, r: 3 }
@@ -30,7 +30,7 @@ riddles:
     sources: "the dump's spawn and his words (broadcast texts 5539, 5543-5545); the WoWWiki archive's Opus page"
 quarry:
   id: 10119   # Volchan
-  sources: "the WoWWiki archive's Volchan page (a molten giant, his round); the dump's path, respawn (24 to 48 hours) and loot (the Plans: Volcanic Hammer, his alone)"
+  sources: "the WoWWiki archive's Volchan page (a molten giant, his round); the pinned dump's path, loot (the Plans: Volcanic Hammer) and creature_ai_scripts (13376 Fire Shield, 12470 Fire Nova)"
 ---
 ## burning-steppes-pillar-of-ash
 In the very middle of the burning plain, the orcs have raised their towers,
@@ -61,6 +61,5 @@ coughing all the while. Be kind to it, and hear it out.
 Something walks the east of the burning plain, round the ogres' rock,
 past the ruined city and down toward the dwarves' vigil, and back:
 a giant of molten stone, carrying a smith's plans for a hammer of the same fire.
-Nobody else has them. When he falls, a day at the least passes before he walks again.
 = Volchan, an elite molten giant, walking the east of the Burning Steppes: the only one who carries the Plans: Volcanic Hammer.
-+ Two days, at the most, between one Volchan and the next.
++ Fire guards his body and bursts outward when he fights. The hammer's plans are a much safer way to carry some of that heat home.

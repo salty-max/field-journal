@@ -28,14 +28,14 @@ riddles:
     sources: "the dump's spawn and her words; the client's display tables (a night elf); the WoWWiki archive's Ralo'shan page (her dialogue)"
   - id: silithus-glibb
     tier: hidden
-    gestures: [WAVE, HELLO, GREET, PET]
+    gestures: [WAVE, HELLO, GREET, PET, PAT, SOOTHE]
     creature: 15172   # Glibb, Brann Bronzebeard's Pet Monkey, dump 41.1, 88.6
     hint_area: { x: 41.0, y: 87.0, r: 4 }
     danger: "Perilous (the silithid near the wall)"
     sources: "the dump's spawn and faction (friendly to all); the WoWWiki archive's Glibb page"
 quarry:
   id: 14478   # Huricanian
-  sources: "the dump's path, kind (an elemental) and respawn (5 to 8 hours)"
+  sources: "the dump's path, kind (an elemental), and the Dust Stormers and Desert Rumblers of the Crystal Vale"
 ---
 ## silithus-scarab-wall
 At the southern end of the yellow desert stands a wall
@@ -64,15 +64,15 @@ and that she cannot leave. Ask her how she knows.
 
 ## silithus-glibb
 In the desert's south, a monkey waits in the sand,
-and the name he answers to belongs to the most famous explorer of the dwarves.
+the companion of the dwarves' most famous explorer.
 The explorer himself is nowhere to be seen. Be friendly to the monkey.
 ? Silithus's south, east of the Scarab Wall.
 = Glibb, Brann Bronzebeard's pet monkey, waiting in the desert without Brann.
 + Nobody in Silithus says where Brann has gone.
 
 ## quarry
-In the desert's north-west, a storm of an elemental walks the hollows of the Crystal Vale,
-an air spirit gone wild, among the others of its kind.
-It walks again five to eight hours after it falls.
+In the desert's north-west, a storm of an elemental
+walks the crystal hollows among the others of its kind.
+Seek the air spirit with a name of its own.
 = Huricanian, an elemental of the Crystal Vale.
 + The Crystal Vale is where the servants of air and earth gather in Silithus; Huricanian is the one with a name.

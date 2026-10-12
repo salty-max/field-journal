@@ -16,7 +16,7 @@ riddles:
     sources: "object 175658's text; object 21004's text"
   - id: orgrimmar-orphanage
     tier: hidden
-    gestures: [WAVE, HELLO, SMILE]
+    gestures: [WAVE, HELLO, GREET, SMILE, PAT, COMFORT]
     creature: 14498   # Tosamina, dump 70.6, 23.7, among the Horde Orphans (14499) in the Drag
     hint_area: { x: 70.5, y: 24.0, r: 3 }
     danger: "Quiet"

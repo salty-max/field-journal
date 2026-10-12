@@ -8,7 +8,6 @@ client: both
 riddles:
   - id: redridge-mountains-lockbox
     tier: near
-    gestures: [SNEAK]
     object: 121264   # dump 52.0, 44.7; Wowhead 52.0, 44.9
     hint_area: { x: 55.0, y: 42.1, r: 8 }
     danger: "Guarded (Blackrock orcs nearby)"
@@ -26,7 +25,7 @@ riddles:
     creature: 3096   # the Captured Servant of Azora, dump 74.5, 79.5, a ball and chain (object 175544) at his feet
     hint_area: { x: 72.0, y: 77.0, r: 6 }
     danger: "Perilous (the Blackrock camp around him, levels 19 to 23)"
-    sources: "the dump's spawns and his wares (three cloaks, one of each, two hours to restock); the client's display tables (a gnome); the WoWWiki archive's Render's Valley page"
+    sources: "the dump's spawns and his wares (three cloaks, one of each); the client's display tables (a gnome); the WoWWiki archive's Render's Valley page; https://www.wowhead.com/classic/item=4790/inferno-cloak (fire resistance)"
   - id: redridge-mountains-lakeshire
     tier: town
     faction: alliance   # its town's: for that faction alone
@@ -37,14 +36,14 @@ riddles:
     sources: "object 175745's text"
 quarry:
   id: 14273   # Boulderheart
-  sources: "the WoWWiki archive's Boulderheart page (the pass east of the falls, half a day to return); the dump's path and kind (Redridge's only giant)"
+  sources: "the WoWWiki archive's Boulderheart page (the pass east of the falls); the dump's path and kind (Redridge's only giant)"
 ---
 ## redridge-mountains-lockbox
 Above the lake road, a mill stands abandoned,
 and in it a locked box that no one lost:
 an old thief keeps it there, to see which of his pupils can reach it.
-Go as his pupils go.
-? Alther's Mill, just up off the road north-east of Lakeshire; thieves are not seen coming.
+Find the box he keeps for them.
+? Alther's Mill, just up off the road north-east of Lakeshire.
 = Lucius's lockbox. Lakeshire has trained thieves 'for years', and this is their examination.
 + 'Did I forget to mention the orcs? I hear they have been nosing around up by the mill.' Lucius, to the pupil who comes back.
 
@@ -65,19 +64,19 @@ for whoever can reach him: thread, dye, and cloaks fit for a tower.
 Be kind to him.
 ? Render's Valley, Redridge's south-east, in the Blackrock camp.
 = The Captured Servant of Azora, a gnome of the tower in Elwynn, chained in the Blackrock camp, and still selling tailoring supplies.
-+ His cloaks, Inferno, Spirit and Sylvan, he has one of each at a time; when one is sold, the next takes two hours to come.
++ He keeps only one of each cloak: Inferno, Spirit and Sylvan. The Inferno offers protection against fire, useful enough in a valley held by the Blackrock.
 
 ## redridge-mountains-lakeshire
-In the lake town, a history tells of the gate the orcs came through,
-the few years they spent testing the kingdom's edges,
-and the king who would not believe they could take his city.
+In the lake-town inn, find a king's fatal certainty: his walls would hold.
+His city fell, and his death came from a blade already inside it.
+The account waits on a page.
 ? Lakeshire, by the inn.
 = The Dark Portal and the Fall of Stormwind. Llane held his capital, sure the orcs could never take it; Garona killed him as it fell.
 + In the same book, an orc infant, Durotan's son, found by a human officer named Blackmoore and taken as a slave: 'That infant orc would one day rise to become the greatest leader his people would ever know.'
 
 ## quarry
-East of the falls below Stonewatch, a pass climbs into the mountains,
-and a hill giant walks it, up and back, alone.
-When he falls, he is long in coming back.
-= Boulderheart, a hill giant, in the pass east of Stonewatch Falls: the only giant in all of Redridge.
-+ Eight hours and a half at the least, twelve and a half at the most, before he walks the pass again.
+East of the falls below Stonewatch,
+a pass climbs into the mountains.
+A hill giant walks it, up and back, alone.
+= Boulderheart, a hill giant in the pass east of Stonewatch Falls.
++ He is the only true giant recorded in Redridge. His route stays in the high pass; search above the falls, not along the lake road.

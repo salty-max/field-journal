@@ -15,7 +15,7 @@ riddles:
     sources: "the dump's spawns (Daisy, Fobeed, Zuzubee); the WoWWiki archive's Daisy and Fobeed pages"
 quarry:
   id: 5933   # Achellios the Banished
-  sources: "the WoWWiki archive's Achellios the Banished page (his three hounds); the dump's path and respawn (5 to 8 hours)"
+  sources: "the WoWWiki archive's Achellios the Banished page (his three hounds); the dump's path"
 ---
 ## thousand-needles-raceway
 On the salt flats, gnomes and goblins race their machines,
@@ -27,7 +27,7 @@ Every race needs a crowd. Be one.
 
 ## quarry
 A centaur called the Banished circles the plateaus of the canyons' west,
-between the wyverns' heights and the screeching canyon, three hounds at his heels.
-He is back five to eight hours after he falls.
+between the wyverns' heights and the screeching canyon.
+Three hounds keep at his heels.
 = Achellios the Banished, a centaur, circling the plateaus between Highperch and the Screeching Canyon with three Galak Packhounds.
 + The Galak's hounds still follow him, whoever it was that banished him.

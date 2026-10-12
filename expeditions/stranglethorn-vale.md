@@ -15,7 +15,7 @@ riddles:
     sources: "object 175856's text"
   - id: stranglethorn-vale-brutus
     tier: off
-    gestures: [SALUTE, HAIL, WAVE, GREET, BOW]
+    gestures: [SALUTE, HAIL, WAVE, GREET, BOW, HELLO]
     creature: 2551   # Brutus, dump 32.9, 88.3, at the helm of the easternmost Bloodsail ship
     hint_area: { x: 33.0, y: 86.0, r: 5 }
     danger: "Perilous (the Bloodsail crews aboard, levels 40 to 45; deep water)"
@@ -36,14 +36,14 @@ riddles:
     sources: "the dump's spawn and his words"
 quarry:
   id: 14490   # Rippa
-  sources: "the WoWWiki archive's Rippa page (a frenzy with a name); the dump's paths (round the southern tip, into Booty Bay's harbour) and respawn (12 to 24 hours)"
+  sources: "the WoWWiki archive's Rippa page (a frenzy with a name); the dump's paths (round the southern tip, into Booty Bay's harbour)"
 ---
 ## stranglethorn-vale-booty-bay
-In the pirates' port at the jungle's tip, a history tells how the trolls of this jungle
-bargained with a god of blood and fed him souls, then turned on him,
-and drove the priests who kept faith with him north into the swamps.
+A god's appetite emptied a jungle kingdom.
+In the pirates' port, find the account of his worshippers' answer
+when they could no longer pay what he demanded.
 ? Booty Bay.
-= Wrath of Soulflayer, in Booty Bay: Hakkar, the blood god the Gurubashi served and then cast out.
+= Wrath of Soulflayer, in Booty Bay. The Gurubashi fed souls to Hakkar, then drove out the blood god and the priests who still served him. Those priests fled north to the swamps.
 + The Darkspear were among the tribes that went their own way after that war; and some spoke of a prophecy, that Hakkar would one day be reborn and consume the world whole.
 
 ## stranglethorn-vale-brutus
@@ -72,8 +72,8 @@ He would give a great deal for a decent meal from home. Ask him.
 + 'If you come back this way on the Zeppelin, could you bring me something to eat? ... I sure could use something that didn't die weeks before it stopped moving.'
 
 ## quarry
-In the warm shallows round the jungle's southern tip, the frenzies are many and small,
-and one of them is big enough to have a name.
-It swims the coast, and now and then into the pirates' harbour itself.
+In the warm shallows round the jungle's southern tip,
+the frenzies are many and small.
+Seek the one big enough to have a name.
 = Rippa, a frenzy of the shore around Booty Bay: a fish with a name, of all things.
-+ Kill it, and half a day to a whole day passes before it swims again.
++ Its round reaches into Booty Bay's harbour. The town's welcome to travellers does not extend to everything swimming beneath them.

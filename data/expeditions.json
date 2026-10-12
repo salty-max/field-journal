@@ -164,7 +164,7 @@
   "wetlands-menethil": {"zone": 1437, "of": "object:175750", "hint": [9.0, 64.4, 8], "name": "The Battle of Grim Batol", "spots": [[10.79, 60.8]], "r": 10},
   "wetlands-sundown-marsh": {"zone": 1437, "of": "creature:2679", "hint": [24.0, 28.0, 6], "name": "Wenna Silkbeard", "npc": 2679, "spots": [[25.61, 25.8]], "r": 10},
   "wetlands-terl": {"zone": 1437, "of": "creature:2153 found:target", "hint": [29.0, 39.0, 5], "name": "Terl Arakor", "npc": 2153},
-  "winterspring-gogo": {"zone": 1452, "of": "creature:11753 found:target", "hint": [61.0, 38.0, 3], "name": "Gogo", "npc": 11753}
+  "winterspring-farflinger": {"zone": 1452, "of": "creature:14742 found:target", "hint": [61.0, 38.0, 3], "name": "Zap Farflinger", "npc": 14742}
  },
  "quarries": {
   "1411": {"id": 5824, "name": "Captain Flat Tusk", "haunts": [[40.8, 51.2, 7.1], [44.3, 41.4, 7.2], [44.4, 31.4, 3], [50.5, 44.2, 3]]},

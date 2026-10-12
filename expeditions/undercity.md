@@ -31,11 +31,11 @@ riddles:
 # no quarry: a capital has riddles alone
 ---
 ## undercity-kelthuzad-book
-In the city under the ruins, a history tells how an archmage
-answered a voice from the north, founded a cult among the poor,
-and named what rose from the plague the Scourge.
+In the city beneath the ruins, seek a preacher whose master spoke from the frozen north.
+He promised the poor equality and a life that would never end.
+His congregation's story stands among the herbalists' books.
 ? In the Undercity, by the herbalists: the Alliestars' shop.
-= Kel'Thuzad and the Forming of the Scourge.
+= Kel'Thuzad and the Forming of the Scourge. The former archmage founded the Cult of the Damned to serve Ner'zhul, and named the undead rising from the plague the Scourge.
 + 'It was surprisingly easy for Kel'Thuzad to achieve his goal: namely, to transfer the citizens' faith in the Holy Light into belief in Ner'zhul's dark shadow.'
 
 ## undercity-theresa

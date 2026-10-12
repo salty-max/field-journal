@@ -22,7 +22,7 @@ riddles:
     sources: "the WoWWiki archive's Blackchar Cave page (the face on the minimap); Engadget, 'A face in Searing Gorge' (2007); the dump's Lunar Festival spawn"
 quarry:
   id: 8280   # Shleipnarr
-  sources: "the WoWWiki archive's Shleipnarr page (a felsteed); the dump's path and respawn (32 to 48 hours)"
+  sources: "https://www.wowhead.com/classic/npc=8280/shleipnarr (period accounts of the riderless felsteed, Mana Burn and Terrify); the pinned dump's path and creature_ai_scripts (13321 Mana Burn, 7399 Terrify)"
 ---
 ## searing-gorge-stonewrought-pass
 North of the valley of dust and fire, a tunnel runs under the mountains to the lake country,
@@ -43,8 +43,8 @@ something in the mountains is staring back.
 + The cave keeps its seal all year; only at the Lunar Festival does an elder of Ironforge come to stand at its mouth.
 
 ## quarry
-A demon's horse runs loose in the old dig south-east of the Cauldron,
-burning as it goes, with no rider on its back.
-It is seen once in two days, if that.
+A demon's horse runs loose in the old dig south-east of the Cauldron.
+Fire burns at its hooves,
+but there is no rider on its back.
 = Shleipnarr, a felsteed with no warlock to ride it, roaming the Grimesilt Dig Site.
-+ Slain, it takes a day and a half at the least to come back, and two days at the most.
++ It can burn away a caster's mana and send an opponent fleeing. There is no rider to unseat; the horse is the demon.

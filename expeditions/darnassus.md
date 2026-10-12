@@ -55,17 +55,17 @@ Her teacher fears that they will. Wish her well.
 + Faldron, her teacher: 'With her strength and agility, I fear it won't be long before she is called to fight. We must teach her quickly.'
 
 ## darnassus-world-tree
-A history in the tree city tells how three dragons blessed a tree
-grown from an acorn in a well of magic, so that its people would never grow old,
-and how its druids agreed to sleep for centuries in return.
+In the tree city, seek the bargain paid in centuries of sleep.
+Its keepers would not die of age while the world went on without them.
+The price and the promise share a page.
 ? In the north of Darnassus.
-= The World Tree and the Emerald Dream: Nordrassil, 'crown of the heavens'.
+= The World Tree and the Emerald Dream: Nordrassil, 'crown of the heavens'. Three dragons blessed the tree; the night elves received immortality, and their druids agreed to long years of sleep in Ysera's Dream.
 + 'Though the druids were grieved at the prospect of losing so many years of their lives to hibernation, they selflessly agreed to uphold their bargain with Ysera.'
 
 ## darnassus-betrayer
-In the tree city, a history tells of the high priestess's other admirer,
-freed after ten thousand years in his barrow,
-who took a demon's skull for its power and fled to the remains of the orcs' world.
+Power waited inside an orc warlock's skull.
+In the south of the tree city, find the account of the prisoner who took it.
+Ten thousand years behind bars had not cured his appetite.
 ? In the south of Darnassus.
-= The Betrayer Ascendant: Illidan.
+= The Betrayer Ascendant: Illidan, freed from his barrow prison by Tyrande, took the power of the Skull of Gul'dan and later fled to Outland.
 + Maiev Shadowsong, his jailor for ten thousand years, followed him to Outland, determined to bring him to justice.

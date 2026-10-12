@@ -31,7 +31,7 @@ riddles:
     sources: "the WoWWiki archive's Heroes' Vigil, Stone of Remembrance and Stone Cairn Lake pages; object 20923"
 quarry:
   id: 471   # Mother Fang
-  sources: "the WoWWiki archive's Mother Fang page (the inner mine, the respawn, the hunter's pet, the meat); the dump's spawn"
+  sources: "the WoWWiki archive's Mother Fang page (the inner mine, the hunter's pet, the meat); https://classic.warcraftdb.com/data/spell/12023 (Web, cast by Mother Fang); the pinned dump's spawn and creature_ai_scripts"
 ---
 ## elwynn-forest-crystal-lake
 A city guard tells of a fisherman of the lake east of the gold town
@@ -64,7 +64,7 @@ Cross the water, and give the stone what it was raised for.
 ## quarry
 East of the gold town, in the mine the kobolds dig,
 a mother of spiders hunts the inner galleries.
-Little sends anyone that deep, and she is never gone for long.
+Her hunting ground lies beyond the kobolds' workings.
 Go past the kobolds, and keep going.
 = Mother Fang, a spider of the Jasperlode Mine. A hunter can tame her: a fair first companion, if a demanding one, for she eats only meat.
-+ She comes back to the mine within an hour or two of falling, far sooner than most of the rare ones.
++ Her web can stop a retreat without ending the fight. Clear a way back through the mine before disturbing her.

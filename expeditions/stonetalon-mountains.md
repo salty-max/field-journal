@@ -16,7 +16,7 @@ riddles:
     sources: "the dump's spawn and his words (the one whose skill exceeds his own)"
 quarry:
   id: 4030   # Vengeful Ancient
-  sources: "the WoWWiki archive's Vengeful Ancient page (a treant roaming the Charred Vale); the dump's spawn and respawn (5 to 8 hours)"
+  sources: "the WoWWiki archive's Vengeful Ancient page (a treant roaming the Charred Vale); the dump's spawn and the flame spirits and burning destroyers of the vale"
 ---
 ## stonetalon-mountains-sun-rock
 In the Horde's retreat among the stone mountains, an enchanter teaches,
@@ -27,8 +27,8 @@ Those he has taught all he knows, he sends on to her. Ask him who she is.
 + Annora keeps to the halls of Uldaman, under the Badlands, among its troggs and its dead: a strange home for the best enchanter in the world.
 
 ## quarry
-In the vale the fire took, charred ancients of the forest still walk among the burnt trunks,
-and one of them is more than charred: he is vengeful.
-He is back five to eight hours after he falls.
+In the vale the fire took, some of the trees still walk.
+Among the charred ancients,
+seek the one whose name promises an answer to the burning.
 = The Vengeful Ancient, a treant of the Charred Vale, among its charred ancients.
 + The vale burns still: flame spirits and burning destroyers roam it, and the ancients walk among them.

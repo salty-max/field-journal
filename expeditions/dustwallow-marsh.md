@@ -16,7 +16,7 @@ riddles:
     sources: "the dump's spawn; the client's display tables (a night elf); the WoWWiki archive's Pained page (Jaina's guard, beside Archmage Tervosh)"
 quarry:
   id: 4339   # Brimgore
-  sources: "the WoWWiki archive's Brimgore page (an elite dragonkin); the dump's path and respawn (12 to 24 hours)"
+  sources: "https://www.wowhead.com/classic/npc=4339/brimgore (period accounts of Flame Breath); the WoWWiki archive's Brimgore page (a black drake); the pinned dump's path and creature_ai_scripts (8873 Flame Breath)"
 ---
 ## dustwallow-marsh-theramore
 In the human isle's tower, a night elf stands at the Lady's shoulder,
@@ -28,6 +28,7 @@ an elf should guard an archmage of the humans. Pay her a soldier's respect.
 
 ## quarry
 In the south of the marsh, where the black dragonflight breeds its young,
-an elite of the dragonkin walks the bog, and walks it alone.
-= Brimgore, an elite dragonkin of southern Dustwallow.
-+ Half a day at the least before he walks again; a whole day at the most.
+seek a drake among the whelps.
+Find him without bringing the whole brood after you.
+= Brimgore, an elite black drake of southern Dustwallow.
++ His flame sweeps the ground before his jaws. Companions standing together can all catch the same breath.

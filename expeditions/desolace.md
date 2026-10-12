@@ -8,26 +8,26 @@ client: both
 riddles:
   - id: desolace-tethris-aran
     tier: off
-    gestures: [PONDER, SIGH, MOURN]
+    gestures: [PONDER, THINK, SIGH, MOURN]
     area: Tethris Aran   # placed: the client's overlay: 54.4, 12.4, half-size 5.0 by 4.9
     hint_area: { x: 54.5, y: 13.0, r: 5 }
     danger: "Guarded (basilisks, scorpids and starving bonepaws, levels 30 to 32)"
     sources: "the WoWWiki archive's Tethris Aran and Sargeron pages; the dump's spawns"
   - id: desolace-shadowbreak
     tier: hidden
-    gestures: [PET, COMFORT, SOOTHE]
+    gestures: [PET, PAT, COMFORT, SOOTHE]
     creature: 13837   # the Captured Stallions, dump 79.5-79.9, 79.4-79.8, beside the Burning Blade Nightmares (13836)
     hint_area: { x: 80.0, y: 79.0, r: 4 }
     danger: "Perilous (the Burning Blade's summoners, invokers and ley hunters, levels 38 to 40)"
     sources: "the WoWWiki archive's Shadowbreak Ravine and Captured Stallion pages; the dump's spawns"
 quarry:
   id: 14227   # Hissperak
-  sources: "the dump's spawn, kind (a basilisk) and respawn (12 to 24 hours); Wowhead's sightings"
+  sources: "the dump's spawns and kind (a basilisk); Wowhead's sightings by the Kodo Graveyard and toward the Valley of Spears"
 ---
 ## desolace-tethris-aran
 North of the Burning Blade's fortress, the stones of an elven town lie scattered in the dust.
 No elf has lived there since the world broke;
-the beasts of the waste have it now. Linger among the stones a while.
+the beasts of the waste have it now. Give a thought to those who built these walls.
 ? Tethris Aran, in the north of Desolace.
 = Tethris Aran: the ruins of a night elf town in the north of Desolace; only beasts live there now.
 + Further east, the satyrs hold another such ruin, and have named it Sargeron, for their master.
@@ -41,8 +41,8 @@ Some of the horses in it are still horses. Be kind to them.
 + Where the stallions came from, nobody knows; what the cult means to make of them, the nightmares beside them suggest.
 
 ## quarry
-North of the graveyard where the kodos go to die, a basilisk hunts the dust,
-from the graveyard's edge west toward the valley of spears.
-Kill it, and half a day to a day passes before it hunts again.
-= Hissperak, a basilisk of Desolace, from the Kodo Graveyard's northern edge to the Valley of Spears.
-+ Twelve hours at the least between one Hissperak and the next; a day at the most.
+North of the graveyard where the kodos go to die,
+a basilisk hunts the dust.
+Seek it beyond the bones, where the dead herds give way to open waste.
+= Hissperak, a basilisk seen north of the Kodo Graveyard.
++ It has also been met west toward the Valley of Spears. A search confined to the bones can miss it altogether.

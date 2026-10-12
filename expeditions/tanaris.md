@@ -15,26 +15,26 @@ riddles:
     sources: "object 175763's text"
   - id: tanaris-zalashji
     tier: off
-    gestures: [WAVE, HELLO, GREET, BOW]
+    gestures: [WAVE, HELLO, GREET, BOW, HAIL, SMILE]
     creature: 8617   # Zalashji, dump 67.7, 32.2, at his den
     hint_area: { x: 67.0, y: 33.0, r: 3 }
     danger: "Guarded (Wastewander bandits and steeljaw snappers nearby)"
     sources: "the WoWWiki archive's Zalashji page (friendly, no purpose anyone knows); the dump's spawn and faction (friendly to all)"
   - id: tanaris-winkey
     tier: hidden
-    gestures: [WAVE, HELLO, GREET, WINK]
+    gestures: [WAVE, HELLO, GREET, WINK, SMILE, BOW]
     creature: 7770   # Winkey, dump 65.7, 64.2, alone on an islet
     hint_area: { x: 64.0, y: 63.0, r: 4 }
     danger: "Guarded (surf gliders and coast striders, level 48, in the shallows)"
     sources: "the WoWWiki archive's Winkey and Southbreak Shore pages; the dump's spawn and words; quest 3823's text (Oralius and his 'Winky')"
 quarry:
   id: 8201   # Omgorn the Lost
-  sources: "the WoWWiki archive's Omgorn the Lost page (one of three camps, a great axe); the dump's spawns and respawn (12 to 24 hours)"
+  sources: "the WoWWiki archive's Omgorn the Lost page (one of three camps, a great axe); the pinned dump's spawns and creature_ai_scripts (16856 Mortal Strike)"
 ---
 ## tanaris-gadgetzan
-In the goblins' town in the desert, a history tells how the orcs came to this continent
-and named their land for a murdered father,
-and how a daughter fought her own father to keep a peace.
+In the desert's goblin town, find a daughter who chose the peace her father had come to break.
+Their quarrel crossed an ocean before it ended.
+The town keeps the account among its books.
 ? Gadgetzan.
 = Old Hatreds - The Colonization of Kalimdor, in Gadgetzan: Durotar named for Thrall's father; Jaina Proudmoore against her father, the Grand Admiral.
 + He died before she could reconcile with him; for her loyalty, the orcs let her forces go home to Theramore in peace.
@@ -56,8 +56,8 @@ She has one request for whoever swims out to her. Be nice.
 + Far away in the Burning Steppes, a dwarf at Morgan's Vigil grabs at the air and shouts at someone called Winky who isn't there. Whether he means her, nobody can say.
 
 ## quarry
-The ogres of the southern desert hold three camps among old troll ruins,
-and one of them goes from camp to camp with a great axe, turning up in one at a time.
-Lost, they call him; he seems to know where he is going.
+The ogres of the southern desert hold three camps among old troll ruins.
+An ogre with a great axe may be found at any one of them.
+Lost, they call him; he has company enough wherever he turns up.
 = Omgorn the Lost, a Dunemaul ogre, in the Dunemaul Compound, the Eastmoon Ruins or the Southmoon Ruins.
-+ Half a day at the least before he turns up again; a whole day at the most.
++ His axe leaves wounds a healer cannot easily close. The name invites a joke; the blade does not.

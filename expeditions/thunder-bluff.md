@@ -23,7 +23,7 @@ riddles:
     sources: "object 177208's text"
   - id: thunder-bluff-nibbles
     tier: hidden
-    gestures: [PET]
+    gestures: [PET, PAT, SOOTHE, HELLO, GREET, WAVE]
     creature: 12383   # Nibbles, Prairie Dog, dump 62.1, 57.8, beside Halpa (8401)
     hint_area: { x: 61.5, y: 57.5, r: 3 }
     danger: "Quiet"

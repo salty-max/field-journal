@@ -24,7 +24,7 @@ riddles:
     sources: "object 175732's text"
 quarry:
   id: 5349   # Arash-ethis
-  sources: "the WoWWiki archive's Arash-ethis page (its circle round the earth elementals); Wowhead's sightings (the Twin Colossals); the dump's path and respawn (24 to 36 hours)"
+  sources: "the WoWWiki archive's Arash-ethis page (its circle round the earth elementals); Wowhead's sightings (the Twin Colossals); the pinned dump's path and creature_ai_scripts (15117 Chain Lightning); period reports on https://www.wowhead.com/tbc/npc=5349/arash-ethis"
 ---
 ## feralas-the-maul
 Among the ruins of the old elven city in the forest, the ogres have a pit,
@@ -36,16 +36,16 @@ Drop in, and give him a show.
 + Skarr the Unbreakable, the Razza or Mushgog may come to the ring; when Mushgog comes, herbs spring up in the pit, and some say a black lotus among them.
 
 ## feralas-feathermoon
-On the isle off the forest's coast, in the sentinels' stronghold, a history tells
-why the night elf women keep the forests' watch:
-their men went to sleep in a dream, and left them to guard the world alone.
+In the sentinels' island stronghold, seek a promise between lovers
+who might not see each other for centuries.
+The watch these women kept began with that parting.
 ? Feathermoon Stronghold, on Sardor Isle.
 = The Sentinels and the Long Vigil, at Feathermoon: Tyrande's warrior women, sworn to Kalimdor's defence while the druids slept in the Emerald Dream.
 + Malfurion swore they would never be apart, so long as they held true to their love; the centuries passed, and Tyrande feared the Legion's return.
 
 ## quarry
-Under the two great stone pillars in the north, earth elementals stand in the hills,
-and a wind serpent circles them, round and round, as if it were their keeper.
-It is seen once in a day or two, if that.
+Under the two great stone pillars in the north,
+earth elementals stand in the hills.
+A wind serpent circles them, round and round, as if it were their keeper.
 = Arash-ethis, a wind serpent, circling the earth elementals of the Twin Colossals.
-+ A day at the least between one Arash-ethis and the next; a day and a half at the most.
++ Its lightning can leap from one companion to another. The circling serpent has a longer reach than its fangs suggest.

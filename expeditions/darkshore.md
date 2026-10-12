@@ -16,7 +16,7 @@ riddles:
     sources: "the WoWWiki archive's Yalda page (translucent, no purpose anyone knows); the dump's spawn"
 quarry:
   id: 2191   # Licillin
-  sources: "the WoWWiki archive's Licillin page (a grell who casts shadow bolts); the dump's spawn and respawn (2 to 3 hours)"
+  sources: "the WoWWiki archive's Licillin page (a grell spellcaster); the pinned dump's spawn and creature_ai_scripts (11980 Curse of Weakness; spell lists differ on the damaging spell, so no element claimed)"
 ---
 ## darkshore-auberdine
 In the elves' town on the dark shore, by a house just east of the inn,
@@ -28,8 +28,8 @@ Find her.
 + She is not hiding, and she is no spirit healer; she simply stands there, and the town goes on around her.
 
 ## quarry
-Among the grells of the ruined towers of Bashal'Aran, one has learned what the others never did:
-he throws shadow at whoever comes near.
-He is back two or three hours after he falls.
-= Licillin, a grell of Bashal'Aran, the only one there who casts shadow bolts.
-+ Of all the grells of those ruins, he alone is a warlock.
+Among the grells of the ruined towers, seek one with a name of his own.
+He has spells for an intruder as well as teeth,
+and makes his home where the elves left theirs.
+= Licillin, a grell spellcaster of Bashal'Aran.
++ His curse weakens the arm raised against him. The little demon has found a way to make a much larger opponent's blows count for less.

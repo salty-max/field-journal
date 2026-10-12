@@ -16,7 +16,7 @@ riddles:
     sources: "the dump's spawn and her words"
 quarry:
   id: 1851   # The Husk
-  sources: "the WoWWiki archive's The Husk and The Weeping Cave pages; the dump's spawn and respawn (16 to 32 hours)"
+  sources: "the WoWWiki archive's The Husk and The Weeping Cave pages; the pinned dump's spawn and creature_ai_scripts (17230 Infected Wound)"
 ---
 ## western-plaguelands-chillwind
 In the Alliance's camp at the plague's southern edge, a traveller rests before Hearthglen,
@@ -27,8 +27,8 @@ and killed him before his work ever left the town. Ask her about it.
 + At the Bulwark, the Horde's camp, a traveller tells the same tale, and adds that the wizard finished a remarkable weapon first.
 
 ## quarry
-In a cave above the river at the plague's eastern edge, bog beasts and oozes keep the dark,
-and the greatest of them is hollow, a husk of something that was larger once.
-It is slow to come back: most of a day, and sometimes more.
+In a cave above the river at the plague's eastern edge,
+bog beasts and oozes keep the dark.
+Among them, seek a bog beast with a dead thing's name.
 = The Husk, a bog beast of level 62, at the Weeping Cave.
-+ Sixteen hours at the least between one Husk and the next; thirty-two at the most.
++ Its wounds can carry infection. The cave's sickness is not confined to the oozes.

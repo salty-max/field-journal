@@ -16,12 +16,12 @@ riddles:
     sources: "object 175752's text"
 quarry:
   id: 14445   # Lord Captain Wyrmak
-  sources: "the WoWWiki archive's Lord Captain Wyrmak and Sorrowmurk pages (the dragonspawn, the acid breath); the dump's path and respawn (5 to 8 hours)"
+  sources: "the WoWWiki archive's Lord Captain Wyrmak and Sorrowmurk pages (the dragonspawn, the acid breath); the dump's path"
 ---
 ## swamp-of-sorrows-stonard
-In the stone fortress above the mire, a history tells
-of the orphan a warden raised in his prison-stronghold
-and named for what he meant him to be.
+In the stone fortress above the mire, seek a child's name that meant a lifetime in chains.
+A warden chose it for the orphan he raised.
+The story did not end as he intended.
 ? Stonard.
 = The New Horde, in Stonard: Aedelas Blackmoore and the orphan he called Thrall.
 + Doomhammer fell freeing one of the camps; Thrall took up his warhammer and his black plate, and became warchief of the Horde.

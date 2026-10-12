@@ -12,7 +12,7 @@ riddles:
     found: target   # he never stops walking
     hint_area: { x: 54.0, y: 37.0, r: 6 }
     danger: "Contested (the road between the two towns)"
-    sources: "the dump's spawn, path, link (his robot) and wares (one of each at a time); the WoWWiki archive's Overwatch Mark I page"
+    sources: "the dump's spawn, path, link (his robot) and wares (one of each at a time); the WoWWiki archive's Overwatch Mark I page; https://www.wowhead.com/classic/item=7148/goblin-jumper-cables (chance to revive a player)"
   - id: hillsbrad-foothills-gryphons
     tier: off
     gestures: [SALUTE, BOW, HAIL]
@@ -55,7 +55,7 @@ belts, orbs, a pattern or two, one of each at a time.
 Catch him on the road.
 ? The road from Southshore to Tarren Mill; he walks it end to end.
 = Zixil, Merchant Supreme, a goblin who trades in both Southshore and Tarren Mill, with Overwatch Mark I, his robot, at his heels.
-+ The schematic he carries, for Goblin Jumper Cables, comes back an hour after it sells; his orbs, in two and a half to four.
++ His schematic teaches an engineer to make Goblin Jumper Cables, which may shock a fallen companion back to life. The word 'may' is worth remembering.
 
 ## hillsbrad-foothills-gryphons
 Where the road climbs out of the foothills toward the wild dwarves' country,
@@ -75,17 +75,17 @@ Someone made sure it would be here, for someone they lost.
 + A memorial the world's makers left for a friend of theirs. Rousch, the dwarf standing before it, was his own character in the game; he had brought him to somewhere in the forties.
 
 ## hillsbrad-foothills-southshore
-In the town on the southern shore, a history tells how the dead split in two:
-half of them followed a banshee against their master,
-and took the ruined capital for their own.
+A book among the living remembers a rebellion of the dead.
+Their new ruler took a ruined capital while their old one hurried north.
+Seek the account in the town on the southern shore.
 ? Southshore, by the inn.
 = Civil War in the Plaguelands, in Southshore: how Sylvanas and her Forsaken took the ruins of Lordaeron's capital while Arthas went north.
 + Up the road, the Forsaken hold Tarren Mill: the book's rebels are Southshore's neighbours.
 
 ## hillsbrad-foothills-tarren-mill
-In the Forsaken's mill town, at the foot of the snowy mountains,
-a history tells of the battle fought at their feet long ago:
-the first human magi and the elves against the troll armies.
+At the foot of the snowy mountains, the Forsaken keep a page about a hundred human pupils.
+Their elven teachers gave them only the magic they needed.
+Find what their first great lesson did to an army.
 ? Tarren Mill.
 = Arathor and the Troll Wars, in Tarren Mill: the battle was fought at the foot of the Alterac Mountains.
 + The elves taught a hundred humans the basics of magic, no more than was needed; the trolls never rose as one nation again.

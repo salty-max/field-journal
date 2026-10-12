@@ -8,21 +8,21 @@ client: both
 riddles:
   - id: eastern-plaguelands-mirador
     tier: off
-    gestures: [PET]
+    gestures: [PET, PAT, SOOTHE, COMFORT]
     creature: 11710   # Mirador, dump 7.4, 43.5, outside Tirion Fordring's cottage
     hint_area: { x: 9.0, y: 45.0, r: 4 }
     danger: "Quiet"
     sources: "the WoWWiki archive's Mirador page; Of Blood and Honor (2001: Tirion, Eitrigg, the exile); the dump's spawn"
   - id: eastern-plaguelands-adon
     tier: hidden
-    gestures: [BOW, SALUTE, GREET, WAVE]
+    gestures: [BOW, SALUTE, GREET, WAVE, HELLO, HAIL]
     creature: 11706   # Adon, dump 58.4, 16.9, at the road north to Quel'Thalas
     hint_area: { x: 57.0, y: 19.0, r: 4 }
     danger: "Perilous (the Scourge of the north road)"
     sources: "the WoWWiki archive's Adon and Quel'Lithien Lodge pages; the dump's spawn and faction (friendly to all)"
 quarry:
   id: 10821   # Hed'mush the Rotting
-  sources: "the WoWWiki archive's Hed'mush the Rotting page (an undead ogre, glowing green); the dump's spawns (three towers, one at a time) and respawn (32 to 48 hours)"
+  sources: "the WoWWiki archive's Hed'mush the Rotting page (an undead ogre, glowing green); the pinned dump's spawns (three towers, one at a time) and creature_ai_scripts (16577 Disease Cloud)"
 ---
 ## eastern-plaguelands-mirador
 Where the river runs between the two plaguelands, an old knight lives in exile in a cottage,
@@ -41,8 +41,8 @@ Nobody gets past him, and nobody is sent to him. Pay him your respects all the s
 + Close by, at Quel'Lithien Lodge, the last high elves of these lands keep a hunting lodge.
 
 ## quarry
-An ogre that died and did not stay dead walks the dead country, glowing green,
-by one of three old towers: the north pass, the eastern wall, or the crown guard in the south-west.
-Kill him, and you will wait two days, near enough, for the next.
+An ogre that died and did not stay dead walks the dead country, glowing green.
+Seek him by one of three old towers:
+the north pass, the eastern wall, or the crown guard in the south-west.
 = Hed'mush the Rotting, an undead ogre, by Northpass Tower, Eastwall Tower or Crown Guard Tower.
-+ Thirty-two hours at the least between one Hed'mush and the next; forty-eight at the most.
++ A cloud of disease gathers around him in a fight. The green glow is warning enough to give this particular corpse room.
