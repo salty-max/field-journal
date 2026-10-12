@@ -28,7 +28,7 @@ riddles:
     sources: "the WoWWiki archive's Adon and Quel'Lithien Lodge pages; the dump's spawn and faction (friendly to all)"
 quarry:
   id: 10821   # Hed'mush the Rotting
-  sources: "the WoWWiki archive's Hed'mush the Rotting page (an undead ogre, glowing green); the dump's spawns (four places, one at a time) and respawn (32 to 48 hours)"
+  sources: "the WoWWiki archive's Hed'mush the Rotting page (an undead ogre, glowing green); the dump's spawns (three towers, one at a time) and respawn (32 to 48 hours)"
 ---
 ## eastern-plaguelands-marris-stead
 In the south-west of the dead country, a ranger lord of the old kingdom,
@@ -57,7 +57,7 @@ Nobody gets past him, and nobody is sent to him. Pay him your respects all the s
 
 ## quarry
 An ogre that died and did not stay dead walks the dead country, glowing green,
-in one of four places: by the north road, by the eastern tower, by the lakes,
-or near the Marris Stead. Kill him, and you will wait two days, near enough, for the next.
-= Hed'mush the Rotting, an undead ogre of the Eastern Plaguelands.
+by one of three old towers: the north pass, the eastern wall, or the crown guard in the south-west.
+Kill him, and you will wait two days, near enough, for the next.
+= Hed'mush the Rotting, an undead ogre, by Northpass Tower, Eastwall Tower or Crown Guard Tower.
 + Thirty-two hours at the least between one Hed'mush and the next; forty-eight at the most.
