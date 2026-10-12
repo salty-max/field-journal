@@ -1462,17 +1462,35 @@ check(
   "… lists what was caught, in groups, with counts: nothing else (no spoilers)"
 )
 rowNamed("Catfish").scripts.OnClick(rowNamed("Catfish"))
+-- A page's figures (by their label) and names to pick.
+local function figureNamed(label)
+  for _, t in ipairs(fpage.tiles) do
+    if t.shown and t.label.text == label then return t.value.text end
+  end
+end
+local function chipNamed(text)
+  for _, b in ipairs(fpage.chipPool) do
+    if b.shown and b.text.text == text then return b end
+  end
+end
 check(
   fpage.title.text == "Catfish"
-    and pairNamed("Heaviest") == "32 pounds"
-    and pairNamed("Caught") == "2"
-    and pairNamed("Zones"):find("Westfall", 1, true)
+    and figureNamed("the heaviest") == "32 lb"
+    and figureNamed("caught") == "2"
+    and chipNamed("Westfall")
     and pairNamed("Where") == "Elwynn Forest (2)",
-  "a kind's page: where it bites (the data), the catches, the heaviest"
+  "a kind's page: its figures (the catches, the heaviest), where it bites (the data), where you caught it"
 )
+local westfall = chipNamed("Westfall")
+westfall.scripts.OnClick(westfall)
+check(
+  FieldJournalFrame.selectedTab == ns.TAB.atlas and FieldJournalAtlasPage.title.text == "Westfall",
+  "… a zone where it bites opens its Atlas page"
+)
+clickTab(ns.TAB.fish)
 rowNamed("Oily Blackmouth").scripts.OnClick(rowNamed("Oily Blackmouth"))
 check(
-  pairNamed("From schools") == "1" and pairNamed("By day, by night") == "0, 1" and fpage.sub.text == "A reagent",
+  figureNamed("from schools") == "1" and figureNamed("by day / by night") == "0 / 1" and fpage.sub.text == "A reagent",
   "… from a school, by night"
 )
 clickTab(ns.TAB.plants)
@@ -1488,8 +1506,8 @@ check(
 rowNamed("Peacebloom").scripts.OnClick(rowNamed("Peacebloom"))
 check(
   fpage.sub.text == "Herbalism 1"
-    and pairNamed("Gathered") == "2"
-    and pairNamed("Looted") == "1"
+    and figureNamed("gathered") == "2"
+    and figureNamed("looted") == "1"
     and pairNamed("First"):find("(gathered)", 1, true),
   "an herb's page: its rank, how it was taken"
 )

@@ -8,7 +8,7 @@
 local _, ns = ...
 local F = ns.data.flora
 local ui = ns.ui
-local T, SOFT = ui.T, ui.SOFT
+local T = ui.T
 
 local book, list, page
 local mode = "fish" -- the tab shown: "fish" or "plants"
@@ -132,14 +132,6 @@ local function refreshList()
 end
 
 -- ── the pages ────────────────────────────────────────────────────────────────
-local function zoneList(zones)
-  local names = {}
-  for _, z in ipairs(zones or {}) do
-    table.insert(names, ns.zoneName(z))
-  end
-  table.sort(names)
-  return #names > 0 and table.concat(names, ", ") or nil
-end
 local function listed(items) return items and #items > 0 and table.concat(items, ", ") or nil end
 
 -- Where the character found it most: "Elwynn Forest (12), Westfall (3)".
@@ -158,35 +150,51 @@ end
 
 local HOW = { gathered = "gathered", looted = "looted", other = "came to your bags" }
 
+-- The zones it bites or grows in, as names to pick: each opens its Atlas page.
+local function zoneChips(zones)
+  local out = {}
+  for _, z in ipairs(zones or {}) do
+    table.insert(out, { ns.zoneName(z), function() ns.openZone(z) end, false, "Open its page in the Atlas." })
+  end
+  table.sort(out, function(a, b) return a[1] < b[1] end)
+  if #out > 0 then page:chips(out) end
+end
+
+local function itemPicture(id) return ui.icon(ui.itemIcon(id) or ui.QUESTION) end
+
 local function showKind(id)
   local d, rec = info(id), records()[id]
   if mode == "fish" then
     local season = d.season and ("only in %s"):format(d.season) or nil
-    page:start(name(id), table.concat({ KIND[d.kind], season }, "  -  "), ui.icon(ui.itemIcon(id) or ui.QUESTION))
+    page:start(name(id), table.concat({ KIND[d.kind], season }, "  -  "), itemPicture(id))
     page:text(d.note)
+    local figures = { { tostring(rec.n or 0), "caught" } }
+    if rec.heaviest then table.insert(figures, { ("%d lb"):format(rec.heaviest), "the heaviest" }) end
+    table.insert(figures, { ("%d / %d"):format(rec.day or 0, rec.night or 0), "by day / by night" })
+    if (rec.school or 0) > 0 then table.insert(figures, { tostring(rec.school), "from schools" }) end
+    page:stats(figures)
     page:section("Where it bites")
-    page:row("Zones", zoneList(d.zones))
+    zoneChips(d.zones)
     page:row("Waters", listed(d.subzones))
     page:row("Dungeons", listed(d.dungeons))
     page:section("Your catches")
     page:row("First caught", when(rec.first))
-    page:row("Caught", tostring(rec.n or 0))
-    page:row("By day, by night", ("%d, %d"):format(rec.day or 0, rec.night or 0))
-    if (rec.school or 0) > 0 then page:row("From schools", tostring(rec.school)) end
-    if rec.heaviest then page:row("Heaviest", ("%d pounds"):format(rec.heaviest)) end
     page:row("Where", mostFound(rec.zones))
   else
     local inside = d.inside and "  -  found in other herbs" or ""
-    page:start(name(id), ("Herbalism %d%s"):format(d.skill, inside), ui.icon(ui.itemIcon(id) or ui.QUESTION))
+    page:start(name(id), ("Herbalism %d%s"):format(d.skill, inside), itemPicture(id))
     page:text(d.note)
+    page:stats({
+      { tostring(rec.n or 0), "taken" },
+      { tostring(rec.gathered or 0), "gathered" },
+      { tostring(rec.looted or 0), "looted" },
+    })
     page:section("Where it grows")
-    page:row("Zones", zoneList(d.zones))
+    zoneChips(d.zones)
     page:row("Dungeons", listed(d.dungeons))
     page:section("Your herbs")
     local first = when(rec.first)
     page:row("First", first and ("%s (%s)"):format(first, HOW[rec.first.how] or "?") or nil)
-    page:row("Gathered", tostring(rec.gathered or 0))
-    page:row("Looted", tostring(rec.looted or 0))
     page:row("Where", mostFound(rec.zones))
   end
 end
@@ -200,6 +208,24 @@ local function totals(recs)
   return kinds, total
 end
 
+-- The kinds found last, the latest first, as cards: a click opens one.
+local function lately(recs, max)
+  local ids = {}
+  for id, rec in pairs(recs) do
+    if rec.first and rec.first.at and info(id) then table.insert(ids, id) end
+  end
+  table.sort(ids, function(a, b) return recs[a].first.at > recs[b].first.at end)
+  if #ids == 0 then return end
+  page:section(mode == "fish" and "The last new catches" or "The last new herbs")
+  for i = 1, math.min(#ids, max) do
+    local id = ids[i]
+    page:card(name(id), when(recs[id].first), itemPicture(id), function()
+      current[mode] = id
+      ns.refresh()
+    end)
+  end
+end
+
 local function showOverview()
   local recs = records()
   local kinds, total = totals(recs)
@@ -210,23 +236,30 @@ local function showOverview()
       ui.icon("Interface\\Icons\\Trade_Fishing")
     )
     if kinds == 0 then
-      page:row(
-        "",
-        SOFT .. "Nothing caught yet. Every fish you land is written down here, with where and when it bit.|r"
+      page:paragraph(
+        "Nothing caught yet. Every fish you land is written down here, with where and when it bit.",
+        T.soft
       )
       return
     end
-    page:section("Your catches")
     local schools, night, heavy = 0, 0, nil
     for id, rec in pairs(recs) do
       schools, night = schools + (rec.school or 0), night + (rec.night or 0)
       if rec.heaviest and (not heavy or rec.heaviest > heavy[2]) then heavy = { id, rec.heaviest } end
     end
-    page:row("Kinds", tostring(kinds))
-    page:row("Caught", tostring(total))
-    page:row("From schools", tostring(schools))
-    page:row("By night", tostring(night))
-    if heavy then page:row("Heaviest", ("%s, %d pounds"):format(F.fish[heavy[1]].name, heavy[2])) end
+    page:stats({
+      { tostring(kinds), kinds == 1 and "kind" or "kinds" },
+      { tostring(total), "caught" },
+      { tostring(schools), "from schools" },
+      { tostring(night), "by night" },
+    })
+    if heavy then
+      page:section("The heaviest")
+      page:card(name(heavy[1]), ("%d pounds"):format(heavy[2]), itemPicture(heavy[1]), function()
+        current[mode] = heavy[1]
+        ns.refresh()
+      end)
+    end
   else
     page:start(
       "The herbs so far",
@@ -234,20 +267,24 @@ local function showOverview()
       ui.icon("Interface\\Icons\\INV_Misc_Herb_07")
     )
     if kinds == 0 then
-      local none =
-        "No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given."
-      page:row("", SOFT .. none .. "|r")
+      page:paragraph(
+        "No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given.",
+        T.soft
+      )
       return
     end
-    page:section("Your herbs")
     local gathered, looted = 0, 0
     for _, rec in pairs(recs) do
       gathered, looted = gathered + (rec.gathered or 0), looted + (rec.looted or 0)
     end
-    page:row("Kinds", tostring(kinds))
-    page:row("Gathered", tostring(gathered))
-    page:row("Looted", tostring(looted))
+    page:stats({
+      { tostring(kinds), kinds == 1 and "herb" or "herbs" },
+      { tostring(total), "taken" },
+      { tostring(gathered), "gathered" },
+      { tostring(looted), "looted" },
+    })
   end
+  lately(recs, 5)
 end
 
 local function refresh()
