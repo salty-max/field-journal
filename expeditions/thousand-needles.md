@@ -9,76 +9,25 @@ riddles:
   - id: thousand-needles-raceway
     tier: near
     gestures: [CHEER, APPLAUD]
-    area: Mirage Raceway   # placed: Pozzik (creature 4630), dump 80.2, 75.9; Trackmaster Zherin, 81.6, 78.0
-    anchor: { creature: 4630 }   # what places its hint: the area has no overlay of its own
-    hint_area: { x: 79.0, y: 77.5, r: 7 }
+    creature: 4507   # Daisy, Race Starter Girl, dump 79.5, 76.9; Fobeed (4620) and Zuzubee (4707) announce
+    hint_area: { x: 79.0, y: 77.5, r: 5 }
     danger: "Quiet"
-    sources: "quests 1186, 1190, 1120"
-  - id: thousand-needles-lonebrow
-    tier: off
-    object: 19861   # dump 30.7, 24.3; Wowhead 30.7, 24.4
-    hint_area: { x: 32.4, y: 20.7, r: 8 }
-    danger: "Guarded (quilboar)"
-    sources: "quests 1100, 1101; the journal (item 5790)"
-  - id: thousand-needles-weathered-nook
-    tier: hidden
-    area: The Weathered Nook   # placed: Dorn Plainstalker, dump 53.9, 41.5; Wowhead 53.8, 41.4
-    anchor: { creature: 2986 }   # what places its hint: the area has no overlay of its own
-    hint_area: { x: 54.7, y: 38.1, r: 7 }
-    danger: "Quiet"
-    sources: "quests 1149-1152; Dorn Plainstalker (creature 2986) places the hint"
-  - id: thousand-needles-freewind
-    tier: town
-    faction: horde   # its town's: for that faction alone
-    gestures: [COMFORT, SOOTHE]
-    creature: 10645   # Thalia Amberhide, dump 46.0, 51.6; Wowhead 46.0, 51.6
-    hint_area: { x: 47.5, y: 53.6, r: 5 }
-    danger: "Quiet"
-    sources: "quest 4904"
+    sources: "the dump's spawns (Daisy, Fobeed, Zuzubee); the WoWWiki archive's Daisy and Fobeed pages"
 quarry:
-  id: 10896
-  sources: "quest 5147 (Freewind Post's poster)"
+  id: 5933   # Achellios the Banished
+  sources: "the WoWWiki archive's Achellios the Banished page (his three hounds); the dump's path and respawn (5 to 8 hours)"
 ---
 ## thousand-needles-raceway
 On the salt flats, gnomes and goblins race their machines,
-each crew in its own pit, each spying on the other,
-and the racers keep needing new pilots.
-Find the track, and be the crowd they race for.
+an ogre calls the races, and a barmaid sends them off with a flag.
+Every race needs a crowd. Be one.
 ? The Mirage Raceway, on the Shimmering Flats.
-= The Mirage Raceway. The Brassbolts race for the gnomes, Pozzik's crew for the goblins.
-+ Pozzik's pilot, Razzeric, is the eighteenth; Kravel Koalbeard pays travellers to bring one pit crew or the other a Fool's Stout before the race.
-
-## thousand-needles-lonebrow
-Near the boar men's bramble, at the needles' northern edge,
-a dwarf of the Explorers' League lies dead beside his journal.
-He went looking for the bones of a fallen god,
-and the boar men took him instead. Find his journal.
-? In Thousand Needles' north-west, near the Great Lift and the thorns of the Kraul.
-= Henrig Lonebrow's journal. Its last pages were written in a cell in Razorfen Kraul, beside a dying night elf druid.
-+ The druid, Heralath, told him the great boar skull marks where Agamaggan fell fighting the Burning Legion ten thousand years ago, and that thorns grow where his blood sank into the earth.
-
-## thousand-needles-weathered-nook
-On the canyon's northern wall a cave hides above the road,
-reached by a path most travellers never see.
-A tauren there tests whoever finds him,
-and his first test is a step off the planks. Find his nook.
-? North-east of Freewind Post, high on the canyon's northern wall.
-= The Weathered Nook, where Dorn Plainstalker tests faith, endurance, strength and lore.
-+ 'It does not matter what you believe sometimes. It is just important that you believe in something.' Dorn, after the leap.
-
-## thousand-needles-freewind
-On the high mesas of the needles' outpost, a tauren waits
-for the one she loves, carried off by a Grimtotem she refused,
-whose brother died trying to stop him.
-Find her, and ease her waiting.
-? Freewind Post.
-= Thalia Amberhide. Lakota Windsong is held at the Darkcloud Pinnacle.
-+ 'Deep in my bones I knew that she would find her way back to me.'
+= Daisy, the race starter girl of the Mirage Raceway, with Fobeed, the ogre, and Zuzubee calling the races.
++ The racers come and go; the flag, the ogre's voice and the salt stay.
 
 ## quarry
-A tauren called the outcast is wanted for murder and kidnapping.
-He was last seen on the cliffs near the Darkcloud Pinnacle,
-and Freewind Post has posted a handsome reward
-for proof of the deed, shown to the one who watches its cliffs.
-= Arnak Grimtotem. Cliffwatcher Longhorn, at Freewind Post, takes his hoof as proof; news of his deeds boiled the watcher's blood.
-+ Longhorn had begun to think he would never be brought to justice.
+A centaur called the Banished circles the plateaus of the canyons' west,
+between the wyverns' heights and the screeching canyon, three hounds at his heels.
+He is back five to eight hours after he falls.
+= Achellios the Banished, a centaur, circling the plateaus between Highperch and the Screeching Canyon with three Galak Packhounds.
++ The Galak's hounds still follow him, whoever it was that banished him.
