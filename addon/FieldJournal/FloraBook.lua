@@ -182,7 +182,7 @@ local function showKind(id)
     page:text(d.note)
     local figures = { { tostring(rec.n or 0), "caught" } }
     if rec.heaviest then table.insert(figures, { ("%d lb"):format(rec.heaviest), "the heaviest" }) end
-    table.insert(figures, { ("%d / %d"):format(rec.day or 0, rec.night or 0), "by day / by night" })
+    table.insert(figures, { ("%d / %d"):format(rec.day or 0, rec.night or 0), "day / night" })
     if (rec.school or 0) > 0 then table.insert(figures, { tostring(rec.school), "from schools" }) end
     page:stats(figures)
     page:section("Where it bites")

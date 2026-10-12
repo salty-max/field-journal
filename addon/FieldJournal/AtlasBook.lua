@@ -278,12 +278,10 @@ local function showZone(uiMap, placeKey)
   local routes, flights = routesOf(uiMap)
   -- the figures
   local figures = {}
-  if total > 0 then table.insert(figures, { ("%d/%d"):format(done, total), "places explored" }) end
+  if total > 0 then table.insert(figures, { ("%d/%d"):format(done, total), "places found" }) end
   table.insert(figures, { tostring(z.visits or ((z.first or z.retro) and 1 or 0)), "visits" })
   if flights > 0 then table.insert(figures, { tostring(flights), flights == 1 and "flight" or "flights" }) end
-  if #deaths + #calls > 0 then
-    table.insert(figures, { ("%d / %d"):format(#deaths, #calls), "deaths / close calls" })
-  end
+  if #deaths + #calls > 0 then table.insert(figures, { ("%d / %d"):format(#deaths, #calls), "deaths / calls" }) end
   page:stats(figures)
   -- the map, with this character's deaths and close calls, and the place picked out
   local marks = {}
@@ -413,7 +411,7 @@ local function showTravels()
   start("Travels", ("%d zones entered, %d places explored"):format(zones, explored), MAP2_ICON)
   page:stats({
     { tostring(zones), zones == 1 and "zone entered" or "zones entered" },
-    { tostring(explored), "places explored" },
+    { tostring(explored), "places found" },
     { tostring(#(a.flights or {})), "flights" },
     { tostring(#(a.deaths or {})), "deaths" },
   })
