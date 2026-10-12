@@ -14,12 +14,13 @@ riddles:
     hint_area: { x: 52.5, y: 49.6, r: 8 }
     danger: "Quiet"
     sources: "object 175754's text"
-  - id: undercity-bethor
+  - id: undercity-theresa
     tier: off
-    creature: 1498   # Bethor Iceshard, dump 84.1, 17.4; Wowhead 84.2, 17.4
-    hint_area: { x: 83.9, y: 19.4, r: 4 }
+    gestures: [PITY, SHUDDER, SIGH]
+    creature: 5697   # Theresa, Gerard's Mindslave, dump 52.7, 34.7; Gerard Abernathy (5696) beside her
+    hint_area: { x: 52.0, y: 35.5, r: 3 }
     danger: "Quiet"
-    sources: "quests 405, 366"
+    sources: "the dump's spawns and the scene's words (broadcast texts 1994-2014); the WoWWiki archive's Theresa and Gerard Abernathy pages"
   - id: undercity-terenas
     tier: hidden
     reading: Here Lies King Terenas Menethil II
@@ -33,17 +34,17 @@ riddles:
 In the city under the ruins, a history tells how an archmage
 answered a voice from the north, founded a cult among the poor,
 and named what rose from the plague the Scourge.
-? The Magic Quarter's shelves, in the Undercity.
+? In the Undercity, by the herbalists: the Alliestars' shop.
 = Kel'Thuzad and the Forming of the Scourge.
 + 'It was surprisingly easy for Kel'Thuzad to achieve his goal: namely, to transfer the citizens' faith in the Holy Light into belief in Ner'zhul's dark shadow.'
 
-## undercity-bethor
-In the quarter of the mages, one who studied with a friend in the city of wizards
-has learned that his friend is free of the Lich King too,
-and wants him back. Find him.
-? The Magic Quarter.
-= Bethor Iceshard.
-+ He, Gunther Arcanus and Thule Ravenclaw studied together within the Kirin Tor; he enchanted Gunther's book so that Gunther would know him free.
+## undercity-theresa
+In the quarter of the city's soldiers, three of the Forsaken stand around a living woman,
+and one of them is very proud of her. He sends her across the bridge on errands,
+and she always comes back. Let your face say what you think of it.
+? The War Quarter, in the Undercity.
+= Theresa, Gerard Abernathy's mindslave: 'Theresa, take this to Father Lankester.' 'Yes My Lord.'
++ 'I managed to discover that certain parts of the brain when removed or stimulated will make a subject much more docile.' Even his companions ask him how he did it.
 
 ## undercity-terenas
 Above the city, in what is left of the palace garden, the last true king

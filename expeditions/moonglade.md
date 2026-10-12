@@ -21,4 +21,4 @@ and fly travellers to the capitals of their peoples for nothing.
 Ask the elf for a flight, and hear what she tells most of those who ask.
 ? Nighthaven, by the lake, where the flying beasts wait.
 = Silva Fil'naveth and Bunthen Plainswind, flight masters of Nighthaven: 'You're not a druid!'
-+ They fly druids alone, one way, to Rut'theran and to Thunder Bluff; each sends the other side's druids to the other, courtesy of the Cenarion Circle.
++ They fly druids alone, one way: she to Rut'theran, he to Thunder Bluff, and each sends you to the other for the other road.
