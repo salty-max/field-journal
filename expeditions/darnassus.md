@@ -7,13 +7,21 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: darnassus-tyrande
+  - id: darnassus-ainethil
     tier: near
-    gestures: [BOW, KNEEL]
-    creature: 7999   # Tyrande Whisperwind, dump 39.1, 81.6; Wowhead 39.0, 81.6
-    hint_area: { x: 41.1, y: 81.8, r: 4 }
+    creature: 4160   # Ainethil, Artisan Alchemist, dump 54.9, 24.0
+    found: target   # in the city: only by speaking to her
+    hint_area: { x: 55.0, y: 25.0, r: 3 }
     danger: "Quiet"
-    sources: "the Codex's tyrande-whisperwind page"
+    sources: "the dump's spawn and her words; object 175730's text (the first World Tree's blessings)"
+  - id: darnassus-darianna
+    tier: off
+    gestures: [ENCOURAGE, CHEER, GOODLUCK, SMILE]
+    creature: 11083   # Darianna, Journeyman Leatherworker, dump 64.4, 20.9; Faldron (11081) her teacher, beside her
+    found: target   # in the city: only by speaking to her
+    hint_area: { x: 64.5, y: 21.5, r: 3 }
+    danger: "Quiet"
+    sources: "the dump's spawns and their words"
   - id: darnassus-world-tree
     tier: off
     reading: The World Tree and the Emerald Dream
@@ -30,14 +38,21 @@ riddles:
     sources: "object 175759's text; the Codex's tyrande-whisperwind page"
 # no quarry: a capital has riddles alone
 ---
-## darnassus-tyrande
-In the temple of the moon in the tree city, the high priestess
-who fought the Legion ten thousand years ago and woke the sleeping druids
-leads her people while their arch druid is missing.
-Come before her as she is owed.
-? The Temple of the Moon, in the Temple Gardens.
-= Tyrande Whisperwind, High Priestess of Elune.
-+ Malfurion is missing, and the druids do not know his fate; Fandral Staghelm heads them meanwhile.
+## darnassus-ainethil
+In the tree city, an alchemist brews the same potion from the same plants, again and again,
+and every time it heals a little less. She has drawn the only conclusion she can.
+Ask her what it is.
+? Darnassus, by the alchemists.
+= Ainethil, Artisan Alchemist: 'There can be only one conclusion: the plants are changing. I cannot say why or into what.'
++ The histories in this city tell how three dragons blessed the first World Tree, so that its people would never age nor sicken; of the tree they live in now, they say nothing of the kind.
+
+## darnassus-darianna
+On the craftsmen's terrace, a young leatherworker can hardly keep still at her lessons,
+and hopes the Sentinels will call her to the front.
+Her teacher fears that they will. Wish her well.
+? The Craftsmen's Terrace, in Darnassus, among the leatherworkers.
+= Darianna, Journeyman Leatherworker: 'Maybe if I'm really lucky, the Sentinels will ask me to join their forces on the front!'
++ Faldron, her teacher: 'With her strength and agility, I fear it won't be long before she is called to fight. We must teach her quickly.'
 
 ## darnassus-world-tree
 A history in the tree city tells how three dragons blessed a tree
