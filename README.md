@@ -47,7 +47,7 @@ bun run check      # tests, lint, both up to date, the simulation on both games
 bun run package    # dist/FieldJournal-<version>.zip: one package for every game
 python3 scripts/expeditions.py   # after changing a riddle's spot or a quarry: data/expeditions.json
 scripts/release.sh [--version X.Y.Z] [--hold] NOTES.md   # tag and push; Actions publish it
-bun run kit:sync   # after changing the shared kit (~/code/addon-kit)
+bun run kit:sync   # after changing the shared kit (~/code/wow-addons/addon-kit)
 ```
 
 Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned);

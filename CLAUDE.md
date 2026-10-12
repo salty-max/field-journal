@@ -4,7 +4,7 @@ A World of Warcraft addon: an Explorers' League field journal that fills in as
 a character travels. Book one, the **Bestiary**: every creature met, slain and
 looted, sorted into families with a League naturalist's note per family. Book
 two, the **Atlas**, comes later. Plan and decisions: PLAN.md. Sister project:
-Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
+Lorekeeper's Codex (~/code/wow-addons/lorekeepers-codex), same engineering and voice.
 
 ## Layout
 
@@ -114,7 +114,7 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   chat line; no spoilers before a type or zone is met; an expeditions' one
   that changed riddles leave undone withdrawn at the login, to be earned
   again). The book: `Kit.lua`
-  (a copy of the kit shared with Hearthtale and the Codex, ~/code/addon-kit:
+  (a copy of the kit shared with Hearthtale and the Codex, ~/code/wow-addons/addon-kit:
   the books' look, window, dialog and tabs; never edited here: `bun run
   kit:sync` after changing the kit, `bun run kit:check` to verify),
   `Book.lua` (the journal's theme on the kit, the window, its tabs
