@@ -13,29 +13,31 @@ riddles:
     hint_area: { x: 55.0, y: 42.1, r: 8 }
     danger: "Guarded (Blackrock orcs nearby)"
     sources: "quest 2282"
-  - id: redridge-mountains-lion-statue
+  - id: redridge-mountains-lake-thresher
     tier: off
-    object: 31   # dump 84.5, 46.8; Wowhead 84.3, 46.9
-    hint_area: { x: 88.4, y: 45.8, r: 8 }
-    danger: "Guarded (Morganth's gnolls)"
-    sources: "quests 94, 249"
-  - id: redridge-mountains-keeshan
+    creature: 14357   # the Lake Thresher: dump 48.1, 55.3 (a round in the deep water) and 42.4, 64.4
+    found: target   # it keeps swimming
+    hint_area: { x: 46.0, y: 59.0, r: 7 }
+    danger: "Deadly (an elite thresher, level 25, in deep water)"
+    sources: "the dump's spawns, path and loot (the Threshadon Fang, a dagger, half the time); the WoWWiki archive's Lake Everstill page"
+  - id: redridge-mountains-captive
     tier: hidden
-    creature: 349   # Corporal Keeshan, dump 28.4, 12.6; Wowhead 28.4, 12.6
-    hint_area: { x: 31.4, y: 12.6, r: 6 }
-    danger: "Perilous (Blackrock orcs)"
-    sources: "object 1726's text; quest 219"
+    gestures: [COMFORT, SOOTHE, ENCOURAGE]
+    creature: 3096   # the Captured Servant of Azora, dump 74.5, 79.5, a ball and chain (object 175544) at his feet
+    hint_area: { x: 72.0, y: 77.0, r: 6 }
+    danger: "Perilous (the Blackrock camp around him, levels 19 to 23)"
+    sources: "the dump's spawns and his wares (three cloaks, one of each, two hours to restock); the client's display tables (a gnome); the WoWWiki archive's Render's Valley page"
   - id: redridge-mountains-lakeshire
     tier: town
     faction: alliance   # its town's: for that faction alone
-    reading: "Missing: Corporal Keeshan"
-    object: 1726   # dump 26.5, 46.4; Wowhead 26.4, 46.6
-    hint_area: { x: 22.5, y: 45.8, r: 8 }
+    reading: The Dark Portal and the Fall of Stormwind
+    object: 175745   # dump 26.8, 45.8, by the inn
+    hint_area: { x: 25.0, y: 47.0, r: 5 }
     danger: "Quiet"
-    sources: "object 1726's text"
+    sources: "object 175745's text"
 quarry:
-  id: 334
-  sources: "quests 169 (Lakeshire's poster), 386"
+  id: 14273   # Boulderheart
+  sources: "the WoWWiki archive's Boulderheart page (the pass east of the falls, half a day to return); the dump's path and kind (Redridge's only giant)"
 ---
 ## redridge-mountains-lockbox
 Above the lake road, a mill stands abandoned,
@@ -46,36 +48,36 @@ Go as his pupils go.
 = Lucius's lockbox. Lakeshire has trained thieves 'for years', and this is their examination.
 + 'Did I forget to mention the orcs? I hear they have been nosing around up by the mill.' Lucius, to the pupil who comes back.
 
-## redridge-mountains-lion-statue
-Near a warlock's lonely tower, an old stone lion stands among the gnolls,
-with a hollow at its base where a gem or a glyph might sit.
-A rival mage once set his eye there.
-Find the lion.
-? In Redridge's north-east, near the Tower of Ilgalar.
-= The old lion statue. Theocritus of the Tower of Azora watched Morganth through a glyph set at its base.
-+ What he learned: Morganth sought the Scythe of Elune, and may have found it.
+## redridge-mountains-lake-thresher
+The murlocs keep the shallows of the lake, and the town keeps its shore.
+Out in the deep water, south-east of the docks,
+something long-necked and heavy swims its rounds.
+Find it, and then get out of the water.
+? Lake Everstill, out in the deep water between Lakeshire and the eastern shore.
+= The Lake Thresher, an elite threshadon, keeping Lake Everstill's deep water to itself.
++ Half the time, one of its fangs comes away whole: a dagger, of a kind.
 
-## redridge-mountains-keeshan
-A corporal dragged from the battle at the keep
-is held in a cave of the black-rock orcs, north of the lake town,
-just west of the pass to the burning lands.
-Find where they keep him.
-? The Blackrock camp north of Lakeshire, west of the pass to the Burning Steppes.
-= Corporal Keeshan's cave. The notice in Lakeshire was right.
-+ Most of his regiment was killed. He took a blow to the head, and woke a prisoner here.
+## redridge-mountains-captive
+In the far south-east, the black-rock orcs keep a camp in a valley,
+and by its fire sits a gnome with a ball and chain at his feet.
+He served a mage's tower once, and he still has wares,
+for whoever can reach him: thread, dye, and cloaks fit for a tower.
+Be kind to him.
+? Render's Valley, Redridge's south-east, in the Blackrock camp.
+= The Captured Servant of Azora, a gnome of the tower in Elwynn, chained in the Blackrock camp, and still selling tailoring supplies.
++ His cloaks, Inferno, Spirit and Sylvan, he has one of each at a time; when one is sold, the next takes two hours to come.
 
 ## redridge-mountains-lakeshire
-In the lake town, by order of the magistrate,
-a notice asks after a corporal dragged away from a battle,
-and says where he is believed to be held.
+In the lake town, a history tells of the gate the orcs came through,
+the few years they spent testing the kingdom's edges,
+and the king who would not believe they could take his city.
 ? Lakeshire, by the inn.
-= Missing: Corporal Keeshan. Marshal Marris pays for his recovery.
-+ By mandate of Magistrate Solomon; and the notice is right about where, as whoever goes looking finds.
+= The Dark Portal and the Fall of Stormwind. Llane held his capital, sure the orcs could never take it; Garona killed him as it fell.
++ In the same book, an orc infant, Durotan's son, found by a human officer named Blackmoore and taken as a slave: 'That infant orc would one day rise to become the greatest leader his people would ever know.'
 
 ## quarry
-The orcs who took the keep east of the lake
-answer to one leader, who sends them against the lakeside town.
-He is holed up inside the walls he conquered,
-plotting the clan's next blow. The town has posted his name.
-= Gath'Ilzogg, who led the Blackrock against Stonewatch Keep. Magistrate Solomon, in Lakeshire, pays for his head.
-+ His executioner, Targorr the Dread, sits in the Stormwind Stockade, sentenced to die: his methods were ruthless even by the orcs' own measure.
+East of the falls below Stonewatch, a pass climbs into the mountains,
+and a hill giant walks it, up and back, alone.
+When he falls, he is long in coming back.
+= Boulderheart, a hill giant, in the pass east of Stonewatch Falls: the only giant in all of Redridge.
++ Eight hours and a half at the least, twelve and a half at the most, before he walks the pass again.
