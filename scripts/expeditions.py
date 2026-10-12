@@ -340,7 +340,9 @@ def main():
                 # one found by targeting may be met anywhere it walks: its path counts
                 walks = lambda d: [q for q in (on(uimap, int(d["map"]), x, y) for x, y in path(d)) if q] if r.get("found") == "target" else []
                 found = [(on(uimap, *s[:3]), s[3]) for s in creatures[r["creature"]]]
-                found = [(p, d) for p, d in found if p and agreed("npc", r["creature"], uimap, [p] + walks(d))]
+                # one found by targeting is placed only to the hint's measure: the haunts' tolerance
+                tol = AGREE_HAUNT if r.get("found") == "target" else AGREE
+                found = [(p, d) for p, d in found if p and agreed("npc", r["creature"], uimap, [p] + walks(d), tol)]
                 spawns = [(p, d) for p, d in found if held(p) or any(held(q) for q in walks(d))]
                 if not spawns:
                     errors.append(f"{where}: creature {r['creature']}: no spawn inside the hint circle (nor a path through it, found by targeting) that the dump and Wowhead agree on")

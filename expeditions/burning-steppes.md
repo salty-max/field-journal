@@ -6,50 +6,40 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: burning-steppes-thaurissan
+  - id: burning-steppes-pillar-of-ash
     tier: near
-    area: Ruins of Thaurissan   # placed: the client's overlay: 65.1, 34.4, half-size 10.2 by 12.7
-    hint_area: { x: 63.0, y: 33.0, r: 12 }
-    danger: "Perilous (the Blackrock and their beasts)"
-    sources: "the Codex's ruins-of-thaurissan page; object 175739's text; quest 4296"
+    gestures: [SALUTE, KNEEL, BOW, MOURN]
+    area: The Pillar of Ash   # placed: the client's overlay: 50.1, 56.5, half-size 8.7 by 7.9
+    hint_area: { x: 50.0, y: 56.0, r: 8 }
+    danger: "Perilous (Blackrock soldiers, sorcerers and slayers, levels 54 to 56)"
+    sources: "object 21581's text (Aftermath of the Second War: Lothar's fall in the center of the Steppes); the WoWWiki archive's The Pillar of Ash page (the statue)"
   - id: burning-steppes-altar-of-storms
     tier: off
     area: Altar of Storms   # placed: the client's overlay: 15.7, 32.2, half-size 5.7 by 9.7
     hint_area: { x: 17.0, y: 30.0, r: 10 }
     danger: "Perilous (Blackrock warlocks)"
     sources: "the Codex's altar-of-storms page"
-  - id: burning-steppes-cyrus
-    tier: hidden
-    creature: 9459   # Cyrus Therepentous, dump 95.1, 31.6; Wowhead 95.0, 31.4
-    hint_area: { x: 97.4, y: 30.7, r: 5 }
-    danger: "Perilous (black dragonkin)"
-    sources: "quests 4022, 4023"
-  - id: burning-steppes-morgans-vigil
-    tier: town
-    faction: alliance   # its town's: for that faction alone
-    creature: 9560   # Marshal Maxwell, dump 84.7, 69.0; Wowhead 84.6, 68.8
-    hint_area: { x: 83.8, y: 66.7, r: 5 }
-    danger: "Quiet"
-    sources: "quests 4183-4224; the Codex's morgans-vigil page"
   - id: burning-steppes-flame-crest
     tier: town
     faction: horde   # its town's: for that faction alone
-    creature: 9536   # Maxwort Uberglint, dump 65.2, 23.9; Wowhead 65.2, 23.8
-    hint_area: { x: 67.7, y: 23.9, r: 5 }
+    gestures: [PET, LISTEN]
+    creature: 10262   # Opus, Kibler's parrot, dump 65.8, 21.7
+    found: target   # in the town: only by finding him
+    hint_area: { x: 66.0, y: 23.0, r: 3 }
     danger: "Quiet"
-    sources: "quest 4296"
+    sources: "the dump's spawn and his words (broadcast texts 5539, 5543-5545); the WoWWiki archive's Opus page"
 quarry:
-  id: 8977
-  sources: "quest 3822 (Sha'ni Proudtusk, Thal'trak)"
+  id: 10119   # Volchan
+  sources: "the WoWWiki archive's Volchan page (a molten giant, his round); the dump's path, respawn (24 to 48 hours) and loot (the Plans: Volcanic Hammer, his alone)"
 ---
-## burning-steppes-thaurissan
-On a plain of ash that was once green mountains, a city of dark iron lies broken.
-Its sorcerer-king and seven of his greatest went down
-to call on what slept beneath the world, to turn a war,
-and fire answered. Walk the ruins.
-? The Ruins of Thaurissan, in the east of the Burning Steppes.
-= The Ruins of Thaurissan, the Dark Iron capital the Firelord destroyed.
-+ A fortune hunter at Flame Crest is after the Tablet of the Seven, sure that knowledge and power bring wealth.
+## burning-steppes-pillar-of-ash
+In the very middle of the burning plain, the orcs have raised their towers,
+and among them stands the statue of a man, which they have not torn down.
+The histories say a hero of the Alliance fell in the center of these Steppes,
+in single combat with the Horde's warchief. Pay your respects.
+? The Pillar of Ash, in the middle of the Burning Steppes.
+= The Pillar of Ash: among the Blackrock towers, the statue of a human hero, in the center of the Steppes, where Doomhammer fought Lothar and Lothar fell.
++ Doomhammer won the duel, says Aftermath of the Second War, but the death did not break the Alliance as he had hoped: Turalyon rallied it, and the Horde was beaten.
 
 ## burning-steppes-altar-of-storms
 In the shadow of the black mountain, an altar of the old Horde's warlocks still stands,
@@ -59,37 +49,18 @@ Warlocks still gather there. Find the altar.
 = The Altar of Storms. Mor'zul Bloodbringer camps beside it.
 + In the Second War, rites worked at such altars turned ogres into ogre magi.
 
-## burning-steppes-cyrus
-At the far end of the path the black drakes fly,
-someone waits who speaks for the Flight,
-and has already decided that you are unworthy.
-Find the Flight's voice anyway.
-? The Terror Wing Path, at the Burning Steppes' north-east edge.
-= Cyrus Therepentous, who speaks for the black dragonflight.
-+ 'You have proven that you are not entirely useless, mortal.' The warmest words on offer.
-
-## burning-steppes-morgans-vigil
-In a burned village between the dark horde and the lake town,
-soldiers have proof that dragons drive the orcs,
-and the city they serve keeps asking for more proof.
-Find their marshal.
-? Morgan's Vigil.
-= Marshal Maxwell, at Morgan's Vigil.
-+ 'What? You thought you were the first? How many soldiers must we lose before Stormwind acts?'
-
 ## burning-steppes-flame-crest
-At the camp on the crest above the ruins, a fortune hunter
-follows the legend of seven dwarves of great power,
-sure that wherever there is knowledge, wealth follows.
-Find him.
-? Flame Crest.
-= Maxwort Uberglint, after the Tablet of the Seven.
-+ 'If we can learn more of the Seven, then maybe we can get rich together.'
+In the Horde's camp on the burning plain, a goblin keeps exotic pets,
+and one of them keeps everybody's secrets: it repeats whatever it has heard,
+coughing all the while. Be kind to it, and hear it out.
+? Flame Crest, by Kibler.
+= Opus, Kibler's parrot, at Flame Crest: 'SQUAWK!! *cough* *cough* I need to quit smoking!'
++ He knows more than he should: 'Kibler is being investigated by G.E.T.A.' And: 'They all go to the Spire but none ever come back... just like Bijou.'
 
 ## quarry
-A soldier from Kargath came with her platoon to these burning lands,
-and the ogres of the great rock took them all.
-Their leader kept her alive for a ritual, chained at his altar,
-and wears her wedding nose-ring on his finger. Search his caves.
-= Krom'Grul, of Dreadmaul Rock. The spirit of Sha'ni Proudtusk, chained at his altar, asks for her ring to go back to Thal'trak in Kargath.
-+ They were going to move to the Hinterlands; it was to be her last mission. Thal'trak does not want the ring: not without her.
+Something walks the east of the burning plain, round the ogres' rock,
+past the ruined city and down toward the dwarves' vigil, and back:
+a giant of molten stone, carrying a smith's plans for a hammer of the same fire.
+Nobody else has them. When he falls, a day at the least passes before he walks again.
+= Volchan, an elite molten giant, walking the east of the Burning Steppes: the only one who carries the Plans: Volcanic Hammer.
++ Two days, at the most, between one Volchan and the next.
