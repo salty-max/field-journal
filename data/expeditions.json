@@ -48,10 +48,7 @@
   "1458": {"w": 959.4, "h": 640.1, "areas": []}
  },
  "riddles": {
-  "alterac-mountains-ansirem": {"zone": 1416, "of": "creature:2543", "hint": [20.4, 76.0, 6], "name": "Archmage Ansirem Runeweaver", "npc": 2543, "spots": [[18.84, 78.49]], "r": 10},
-  "alterac-mountains-elysa": {"zone": 1416, "of": "creature:2317", "hint": [36.3, 14.1, 6], "name": "Elysa", "npc": 2317, "spots": [[39.3, 14.31]], "r": 10},
-  "alterac-mountains-goldir": {"zone": 1416, "of": "creature:2316", "hint": [63.0, 43.5, 6], "name": "Gol'dir", "npc": 2316, "spots": [[59.96, 43.74]], "r": 10},
-  "alterac-mountains-ravenholdt": {"zone": 1416, "of": "area:Ravenholdt Manor creature:6768", "hint": [82.8, 77.5, 7], "name": "Ravenholdt Manor", "areas": [3486]},
+  "alterac-mountains-simone": {"zone": 1416, "of": "creature:7324", "hint": [82.8, 77.5, 7], "name": "Simone Cantrell", "npc": 7324, "spots": [[83.79, 79.79]], "r": 10},
   "arathi-highlands-goshek-watchers": {"zone": 1417, "of": "creature:2712", "hint": [58.8, 51.1, 6], "name": "Quae", "npc": 2712, "spots": [[60.18, 53.85]], "r": 10},
   "arathi-highlands-hammerfall": {"zone": 1417, "of": "creature:2792", "hint": [70.3, 32.8, 5], "name": "Gor'mul", "npc": 2792, "spots": [[72.64, 33.93]], "r": 20},
   "arathi-highlands-inner-binding": {"zone": 1417, "of": "object:2702", "hint": [39.7, 55.4, 8], "name": "Stone of Inner Binding", "spots": [[36.23, 57.38]], "r": 10},
@@ -244,7 +241,7 @@
   "1411": {"id": 5824, "name": "Captain Flat Tusk", "haunts": [[40.8, 51.2, 7.1], [44.3, 41.4, 7.2], [44.4, 31.4, 3], [50.5, 44.2, 3]]},
   "1412": {"id": 5807, "name": "The Rake", "haunts": [[51.7, 17.9, 6.6]]},
   "1413": {"id": 3474, "name": "Lakota'mani", "haunts": [[47.1, 51.4, 5.1]]},
-  "1416": {"id": 2306, "name": "Baron Vardus", "haunts": [[47.5, 17.7, 3], [54.0, 22.3, 4.8]]},
+  "1416": {"id": 14222, "name": "Araga", "haunts": [[30.7, 84.8, 4.1], [30.5, 72.3, 3.9]]},
   "1417": {"id": 2783, "name": "Marez Cowl", "haunts": [[29.2, 62.4, 3]]},
   "1418": {"id": 2745, "name": "Ambassador Infernus", "haunts": [[41.6, 28.3, 3]]},
   "1419": {"id": 8297, "name": "Magronos the Unyielding", "haunts": [[47.4, 42.0, 7.2], [54.2, 43.2, 3]]},
