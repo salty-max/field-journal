@@ -8,21 +8,21 @@ client: both
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
   - id: ironforge-toothgnasher
-    tier: near
+    tier: off
     reading: Toothgnasher's Skeleton
     object: 175683   # dump 74.3, 21.1; Wowhead's page alike
     hint_area: { x: 78.3, y: 21.6, r: 8 }
     danger: "Quiet"
     sources: "object 175683's text"
   - id: ironforge-tyrannistrasz
-    tier: off
+    tier: hidden
     reading: The Skull of Tyrannistrasz
     object: 175679   # dump 77.4, 27.6; Wowhead's page alike
     hint_area: { x: 81.3, y: 28.5, r: 8 }
     danger: "Quiet"
     sources: "objects 175679 and 175750's texts"
   - id: ironforge-great-forge
-    tier: hidden
+    tier: near
     creature: 11145   # Myolor Sunderfury, dump 51.7, 41.4, by the Great Forge
     found: target   # in the city: only by speaking to him
     hint_area: { x: 51.5, y: 42.0, r: 3 }
