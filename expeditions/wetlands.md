@@ -6,31 +6,20 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: wetlands-rustlocke
-    tier: near
-    gestures: [SALUTE, MOURN, KNEEL]
-    object: 2652   # dump 51.3, 8.0; Wowhead 51.2, 8.0
-    hint_area: { x: 47.7, y: 6.2, r: 8 }
-    danger: "Guarded (Dark Iron dwarves)"
-    sources: "quests 631, 632"
-  - id: wetlands-ironbeard
+  - id: wetlands-sundown-marsh
     tier: off
-    area: Ironbeard's Tomb   # placed: the client's overlay: 44.7, 31.1, half-size 6.2 by 8.6
-    hint_area: { x: 46.0, y: 29.0, r: 10 }
-    danger: "Guarded (oozes)"
-    sources: "quest 470"
-  - id: wetlands-whelgar
-    tier: off
-    area: Whelgar's Excavation Site   # placed: the client's overlay: 35.9, 49.0, half-size 5.0 by 4.9
-    hint_area: { x: 37.0, y: 50.5, r: 8 }
-    danger: "Guarded (Mottled raptors)"
-    sources: "quests 294, 296, 299"
-  - id: wetlands-intrepid
+    gestures: [HELLO, GREET, WAVE]
+    creature: 2679   # Wenna Silkbeard, dump 25.6, 25.8; Fradd Swiftgear (2682) beside her
+    hint_area: { x: 24.0, y: 28.0, r: 6 }
+    danger: "Guarded (crocolisks, bog beasts and raptors all round)"
+    sources: "the WoWWiki archive's Sundown Marsh page (the stone house, the windmill); the dump's spawns and wares (one piece at a time; Fradd's plans half a day to return); the client's display tables (a dwarf, a gnome)"
+  - id: wetlands-terl
     tier: hidden
-    object: 112948   # dump 14.4, 24.0; Wowhead 14.3, 24.0
-    hint_area: { x: 17.6, y: 21.6, r: 8 }
-    danger: "Perilous (drowned sailors; the deep)"
-    sources: "quests 290, 292"
+    creature: 2153   # Terl Arakor, dump 27.4, 41.2
+    found: target
+    hint_area: { x: 29.0, y: 39.0, r: 5 }
+    danger: "Guarded (Mottled raptors); for the Horde, Terl himself"
+    sources: "the dump's spawn, his words and his faction (the Alliance's, hostile to the Horde)"
   - id: wetlands-menethil
     tier: town
     faction: alliance   # its town's: for that faction alone
@@ -40,44 +29,26 @@ riddles:
     danger: "Quiet"
     sources: "object 175750's text"
 quarry:
-  id: 2091
-  sources: "quests 465, 474 (Captain Stoutfist)"
+  id: 1140   # Razormaw Matriarch
+  sources: "the WoWWiki archive's Razormaw Matriarch and Raptor Ridge pages (her brood, the cavern); the dump's path and respawn (32 to 48 hours)"
 ---
-## wetlands-rustlocke
-On the great bridge to the north, a small dwarf lies where he was ambushed,
-sent to scout the eastern span after the explosion.
-His name is on his helmet; a parchment lies by his fist.
-He died at his post.
-? Where the Thandol Span crosses toward Arathi, the dwarves lost a scout.
-= Ebenezer Rustlocke, 'Ol' Rustlocke'. The parchment by his fist was grave news.
-+ Longbraid sent him days before; with Dun Modr under siege, no one could go looking.
+## wetlands-sundown-marsh
+Deep in the marsh, where the crocolisks own the water,
+a dwarf and a gnome keep a stone house with a windmill,
+and sell what they come by: fine belts and leggings, one of each at a time,
+and two gnomish plans, one copy of each.
+Call at their door.
+? Sundown Marsh, the Wetlands' north-west, west of Ironbeard's Tomb.
+= Wenna Silkbeard, a dwarf, and Fradd Swiftgear, a gnome, in their stone house in Sundown Marsh. Fradd's plans: a Lovingly Crafted Boomstick and a Minor Recombobulator.
++ Once sold, Fradd's plans take half a day to come back; Wenna's armour, two and a half to three hours; her patterns, twenty minutes to an hour.
 
-## wetlands-ironbeard
-North of the marsh, near the dwarves' besieged fort,
-an old tomb has filled with oozes.
-A woman of the harbour came here every week, until one swallowed her bag.
-Find the tomb she visits.
-? North-east of Menethil Harbor, near Dun Modr, west of the road.
-= Ironbeard's Tomb. Sida of Menethil Harbor visits it every week, and never says for whom.
-+ She threw her bag at an ooze to get away; it sucked the bag right up, and she cannot tell which ooze it was.
-
-## wetlands-whelgar
-East of the harbour, dwarves dug up old bones and a tablet in the Titans' script,
-and the bones brought the raptors.
-Three of them are still trapped on the bluff above the dig,
-the oldest with a tablet that speaks of old gods beneath the land.
-? Whelgar's Excavation Site, east of Menethil Harbor.
-= Whelgar's Excavation Site. Prospector Whelgar, Merrin and Ormer hold the bluff; the raptors took the rest.
-+ The Goaz Stone, made whole, begins: 'Old Gods... Chained Beneath the Land.' 'This is the beginning of something epic,' says Whelgar.
-
-## wetlands-intrepid
-Off the western coast a ship of the Third Fleet lies on the sea floor,
-its captain still walking its deck.
-In its strongbox, a cursed eye the crew should never have carried.
-Find the strongbox.
-? The wrecks off the coast, north of Menethil Harbor.
-= The Intrepid's strongbox, and the Cursed Eye of Paleth it held.
-+ Glorin Steelbrow never knew the Third Fleet carried such an Eye: 'It's no wonder Fitzsimmons was so spooked.'
+## wetlands-terl
+North of the old dig, out in the marsh where the raptors hunt,
+a man stands alone, and he is not going anywhere.
+Ask him what he is doing there. He has an answer, and he will shout it.
+? Black Channel Marsh's north edge, north of Whelgar's Excavation Site.
+= Terl Arakor, alone in the marsh: 'This is MY WAGON! MINE!'
++ He stands with the Alliance: a Horde traveller gets no answer from him, only a fight.
 
 ## wetlands-menethil
 In the harbour town, a history tells of the mountain
@@ -88,9 +59,9 @@ and how her dragons tore the fortress apart when she was free.
 + Grim Batol was a Wildhammer stronghold first, 'some say cursed'; a small band led by the mage Rhonin destroyed the Demon Soul and freed Alexstrasza.
 
 ## quarry
-The Dragonmaw have built catapults in their camp in the heart of the wetlands,
-and their chieftain means to lay siege to the harbour.
-With fighting in the pass to the south, no help can come.
-Burn his engines first; then cut the beast down at the neck.
-= Chieftain Nek'rosh, of the Dragonmaw. Captain Stoutfist, at Menethil Harbor, takes his head.
-+ With him dead and the catapults burned, Stoutfist says, the clan may never recover, and the harbour is safe.
+In the Wetlands' east, a ridge of raptors has a cavern,
+and in it the mother of them all watches over her brood.
+Kill her, and a day and a half will pass at the least before she is back;
+two days, at the most.
+= The Razormaw Matriarch, level 31, in the cavern of Raptor Ridge, with her Highland and Elder Razormaws.
++ She keeps to the cavern and the slope before it, never far from her brood.
