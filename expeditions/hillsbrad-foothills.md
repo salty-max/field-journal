@@ -6,33 +6,35 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: hillsbrad-foothills-durnholde
+  - id: hillsbrad-foothills-zixil
     tier: near
-    area: Durnholde Keep   # placed: the client's overlay: 76.8, 40.8, half-size 6.5 by 7.9
-    hint_area: { x: 75.0, y: 43.0, r: 10 }
-    danger: "Guarded (the Syndicate)"
-    sources: "the Codex's durnholde-keep page; Warcraft: Lord of the Clans (2000)"
-  - id: hillsbrad-foothills-shindigger
+    creature: 3537   # Zixil, Merchant Supreme: from Tarren Mill (dump 62.0, 20.5) to Southshore and back; Overwatch Mark I (3538) linked to him
+    found: target   # he never stops walking
+    hint_area: { x: 54.0, y: 37.0, r: 6 }
+    danger: "Contested (the road between the two towns)"
+    sources: "the dump's spawn, path, link (his robot) and wares (one of each at a time); the WoWWiki archive's Overwatch Mark I page"
+  - id: hillsbrad-foothills-gryphons
     tier: off
-    gestures: [CHUG, DRINK, TOAST]
-    object: 1727   # dump 72.4, 79.8 (six kegs); Wowhead 71.4-72.7, 80.0-81.0
-    hint_area: { x: 68.7, y: 81.4, r: 8 }
-    danger: "Guarded (the dwarves of Dun Garok; perilous for the Horde)"
-    sources: "quests 517, 541"
+    gestures: [SALUTE, BOW, HAIL]
+    creature: 2473   # Granistad, dump 84.3, 32.8; Kurdros (2474) beside him
+    hint_area: { x: 82.0, y: 34.5, r: 5 }
+    danger: "Deadly to the Horde (two gryphons of Ironforge, level 40); quiet for the Alliance"
+    sources: "the WoWWiki archive's Granistad page (the passage to the Hinterlands); the dump's spawns and faction (Ironforge's)"
   - id: hillsbrad-foothills-loving-memory
     tier: hidden
     gestures: [KNEEL, MOURN, PRAY, BOW]
     object: 181062   # dump 67.8, 84.1; Wowhead 67.9, 84.0
     hint_area: { x: 71.5, y: 82.7, r: 8 }
     danger: "Quiet"
-    sources: "object 181062's text; the wiki's Dun Garok"
+    sources: "object 181062's text; the wiki's Dun Garok; the WoWWiki archive's In Loving Memory page (a friend of the developers; Rousch, his character)"
   - id: hillsbrad-foothills-southshore
     tier: town
     faction: alliance   # its town's: for that faction alone
-    creature: 2711   # Phin Odelic, dump 50.3, 59.0; Wowhead 50.2, 58.8
-    hint_area: { x: 47.8, y: 59.0, r: 5 }
+    reading: Civil War in the Plaguelands
+    object: 175761   # dump 51.3, 58.5, by the inn
+    hint_area: { x: 50.0, y: 57.0, r: 4 }
     danger: "Quiet"
-    sources: "quests 659, 657, 661"
+    sources: "object 175761's text"
   - id: hillsbrad-foothills-tarren-mill
     tier: town
     faction: horde   # its town's: for that faction alone
@@ -45,41 +47,40 @@ quarry:
   id: 14277
   sources: "the dump: her spawn on the Eastern Strand among the Daggerspine (faction 74), Scargil's among the Torn Fin"
 ---
-## hillsbrad-foothills-durnholde
-A lord raised an orphan of his foes to fight,
-a champion in chains, a weapon held tight.
-A girl of the household helped the young slave go free;
-he came back with his people, and the lord ceased to be.
-The walls are a thieves' den now. Walk them, and see.
-? East of the foothills' road, where the internment camps were ruled.
-= Durnholde, where Blackmoore kept the boy he called Thrall. The Syndicate holds it now, a poorer use of a fortress.
-+ Taretha Foxton's pendant went to a manor by Lordamere Lake, and Thrall's agents brought it home.
+## hillsbrad-foothills-zixil
+On the road between two towns that hate each other,
+a goblin walks from one to the other and back, all day,
+with a robot at his heels, and sells in both:
+belts, orbs, a pattern or two, one of each at a time.
+Catch him on the road.
+? The road from Southshore to Tarren Mill; he walks it end to end.
+= Zixil, Merchant Supreme, a goblin who trades in both Southshore and Tarren Mill, with Overwatch Mark I, his robot, at his heels.
++ The schematic he carries, for Goblin Jumper Cables, comes back an hour after it sells; his orbs, in two and a half to four.
 
-## hillsbrad-foothills-shindigger
-In the south-eastern hills, dwarves keep a barracks
-to help the humans in their war, and a stout in kegs
-that a Forsaken apothecary wants for a test of his plague.
-The kegs deserve a better use than his.
-? Dun Garok, along Thoradin's Wall in Hillsbrad's south-east; the stout is good.
-= Shindigger Stout, at Dun Garok.
-+ Apothecary Lydon of Tarren Mill thinks a plague is wasted on a frog or a dog.
+## hillsbrad-foothills-gryphons
+Where the road climbs out of the foothills toward the wild dwarves' country,
+two gryphons keep the pass, and each of them has a name.
+They answer to Ironforge, and they are no friends of the Horde.
+Show them a soldier's respect.
+? Hillsbrad's north-east corner, where the way climbs toward the Hinterlands.
+= Granistad and Kurdros, gryphons of Ironforge, keeping the pass from Hillsbrad up to the Hinterlands.
++ They are of level forty, on a road most travellers climb at twenty-five: for the Horde, not guards so much as a wall.
 
 ## hillsbrad-foothills-loving-memory
-South of the dwarves' keep, a small stone
+South of the dwarves' keep, a great stone
 keeps a name and two years, and nothing more.
 Someone made sure it would be here, for someone they lost.
 ? Below Dun Garok, toward the sea.
 = 'Anthony Ray Stark. 1961 - 2005.'
-+ A memorial the world's makers left for a friend of one of them.
++ A memorial the world's makers left for a friend of theirs. Rousch, the dwarf standing before it, was his own character in the game; he had brought him to somewhere in the forties.
 
 ## hillsbrad-foothills-southshore
-In the town on the southern shore, a man who gathered friends after the plague
-sends them into the hills to learn what the dead are brewing:
-a cousin's dog grew to monstrous size and had to be put down.
-Find him.
-? Southshore.
-= Phin Odelic. His companions Quae and Kinelory watch a farm in Arathi for him.
-+ 'He's done so much for us since the plague. We never thought we'd find friends or family again.'
+In the town on the southern shore, a history tells how the dead split in two:
+half of them followed a banshee against their master,
+and took the ruined capital for their own.
+? Southshore, by the inn.
+= Civil War in the Plaguelands, in Southshore: how Sylvanas and her Forsaken took the ruins of Lordaeron's capital while Arthas went north.
++ Up the road, the Forsaken hold Tarren Mill: the book's rebels are Southshore's neighbours.
 
 ## hillsbrad-foothills-tarren-mill
 In the Forsaken's mill town, at the foot of the snowy mountains,

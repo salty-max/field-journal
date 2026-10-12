@@ -14,7 +14,8 @@ A riddle names its spot by what the game's data pins down:
                    yards from its spawn: the dump's wandering radius or its
                    path), and, one of a kind, by targeting it near (anywhere
                    it walks); `found: target` for one found only by talking
-                   to it (in a town, where passing by would solve it)
+                   to it (in a town, where passing by would solve it), or
+                   one that walks: its path crossing the hint circle will do
   trigger: <id>    a quest's exploration trigger (the client's AreaTrigger)
   area: <name>     a sub-area of the zone (the client's AreaTable, under the
                    zone's own area): every id of that name
@@ -336,11 +337,13 @@ def main():
                 # dump's and Wowhead's alike
                 ha = r.get("hint_area") or {}
                 held = lambda p: ha and (p[0] - ha["x"]) ** 2 + ((p[1] - ha["y"]) * ASPECT) ** 2 <= ha["r"] ** 2
+                # one found by targeting may be met anywhere it walks: its path counts
+                walks = lambda d: [q for q in (on(uimap, int(d["map"]), x, y) for x, y in path(d)) if q] if r.get("found") == "target" else []
                 found = [(on(uimap, *s[:3]), s[3]) for s in creatures[r["creature"]]]
-                found = [(p, d) for p, d in found if p and agreed("npc", r["creature"], uimap, [p])]
-                spawns = [(p, d) for p, d in found if held(p)]
+                found = [(p, d) for p, d in found if p and agreed("npc", r["creature"], uimap, [p] + walks(d))]
+                spawns = [(p, d) for p, d in found if held(p) or any(held(q) for q in walks(d))]
                 if not spawns:
-                    errors.append(f"{where}: creature {r['creature']}: no spawn inside the hint circle that the dump and Wowhead agree on")
+                    errors.append(f"{where}: creature {r['creature']}: no spawn inside the hint circle (nor a path through it, found by targeting) that the dump and Wowhead agree on")
                     continue
                 # found by targeting it near: one of a kind, or one only so found
                 if len(found) == 1 or r.get("found") == "target":
@@ -348,7 +351,7 @@ def main():
                 still = [(p, wanders(d)) for p, d in spawns if wanders(d) <= NEAR]
                 if r.get("found") != "target" and still:
                     out.update(spots=[p for p, _ in still], r=NEAR + math.ceil(max(far for _, far in still)))
-                points = [p for p, _ in spawns]
+                points = [q for p, d in spawns for q in ([p] if held(p) else [q for q in walks(d) if held(q)])]
             elif "trigger" in r:
                 t = triggers.get(r["trigger"])
                 p = t and on(uimap, int(t["ContinentID"]), float(t["Pos_0"]), float(t["Pos_1"]))
