@@ -2,19 +2,23 @@
 -- entered that hold riddles or a quarry for this character (and their
 -- faction's own capitals and starting zones), each with how much of it is
 -- done, its riddles and its quarry under it once opened (a solved riddle by
--- its answer's name, the others by their verse's first line); on the right, a
--- riddle's page: its verse, how dangerous its place is, whether it asks
--- something there, the two hints, each asked for, and once solved its seal,
--- the naturalist's note and the margin, which only the gold seal opens; or a
--- quarry's poster: its portrait, its verse, its danger, the tracking (its
--- haunts on the world map, at the cost of the gold seal), and once brought
--- down its seal, note and margin. Records: Expeditions.lua.
+-- its answer's name, the others by their verse's first line). On the right:
+-- the overview (the record, what is under way: the quarry tracked and the
+-- riddle pinned, and what was done lately, as cards); a zone's page (its
+-- riddles in words, a card for each and for its quarry, its map: where each
+-- was read, the places asked for, the haunts tracked); a riddle's page (its
+-- verse set apart, how dangerous its place is, what it asks there, the two
+-- hints, each asked for, pinning it to the screen, and once solved its seal,
+-- the note and the margin, which only the gold seal opens); or a quarry's
+-- poster (the creature turning in its frame, its verse, its danger, the
+-- tracking at the cost of the gold seal, and once brought down its seal, note
+-- and margin). Records: Expeditions.lua; the card pinned: ExpeditionsPin.lua.
 local _, ns = ...
 local D = ns.data
 local X = D.expeditions or {}
 local A = D.atlas or { zones = {}, continents = {} }
 local ui = ns.ui
-local T, SOFT = ui.T, ui.SOFT
+local T = ui.T
 
 local book, list, page
 local current -- a riddle's id, "quarry:<id>", a zone's uiMap, or nil for the overview
@@ -26,9 +30,9 @@ local NOTE = "Interface\\Icons\\INV_Misc_Note_02"
 local MAP = "Interface\\Icons\\INV_Misc_Map_01"
 local BOOK = "Interface\\Icons\\INV_Misc_Book_09"
 local SEALS = {
-  gold = { "Interface\\Icons\\INV_Misc_Coin_01", "Gold", "from the verse alone", { 1, 0.82, 0 } },
-  silver = { "Interface\\Icons\\INV_Misc_Coin_03", "Silver", "with the clue", { 0.78, 0.8, 0.84 } },
-  plain = { "Interface\\Icons\\INV_Misc_Coin_05", "Plain", "with the map", { 0.8, 0.55, 0.35 } },
+  gold = { ns.SEAL_ICON.gold, "Gold", "from the verse alone", { 1, 0.82, 0 } },
+  silver = { ns.SEAL_ICON.silver, "Silver", "with the clue", { 0.78, 0.8, 0.84 } },
+  plain = { ns.SEAL_ICON.plain, "Plain", "with the map", { 0.8, 0.55, 0.35 } },
 }
 -- a quarry's: never tracked, tracked, or brought down before the journal kept the hunts
 local HUNT_SEALS = {
@@ -236,8 +240,19 @@ local function refreshList()
   list:finish()
 end
 
--- ── the pages ────────────────────────────────────────────────────────────────
-local function when(rec) return ("%s, you were level %d"):format(ui.day(rec), rec.level or 0) end
+-- ── the page's parts ─────────────────────────────────────────────────────────
+local WIDTH = ui.WIDTH
+local CARD_H = 52
+local TROPHY = "Interface\\Icons\\INV_Misc_Head_Dragon_01"
+
+local NUMBERS = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve" }
+local function words(n) return NUMBERS[n] or tostring(n) end
+
+-- A list in words: "a, b and c".
+local function join(items)
+  if #items <= 1 then return items[1] or "" end
+  return table.concat(items, ", ", 1, #items - 1) .. " and " .. items[#items]
+end
 
 -- A hint asked for, or a quarry tracked, as the game asks before something
 -- that can't be undone.
@@ -263,21 +278,131 @@ StaticPopupDialogs.FIELDJOURNAL_HINT = {
 }
 local function ask(text, data) StaticPopup_Show("FIELDJOURNAL_HINT", text, nil, data) end
 
-local function button(i)
-  local b = page.buttons[i]
-  if b then return b end
-  b = CreateFrame("Button", nil, page.child, "UIPanelButtonTemplate")
-  b:SetSize(200, 24)
-  page.buttons[i] = b
-  return b
+-- The buttons under a riddle or a poster, side by side ({ text, click }).
+local BUTTON_W = 190
+local function actions(buttons)
+  local row = page.actions
+  for i, a in ipairs(buttons) do
+    local b = page.buttons[i]
+    if not b then
+      b = CreateFrame("Button", nil, row, "UIPanelButtonTemplate")
+      b:SetSize(BUTTON_W, 24)
+      page.buttons[i] = b
+    end
+    b:SetText(a[1])
+    b:SetScript("OnClick", a[2])
+    b:ClearAllPoints()
+    b:SetPoint("LEFT", row, "LEFT", (i - 1) * (BUTTON_W + 12), 0)
+    b:Show()
+  end
+  page:place(row, 40)
 end
 
--- (picture: an icon's path, or a portrait's setter)
-local function start(name, sub, picture)
-  for _, b in ipairs(page.buttons) do
-    b:Hide()
+-- A text set apart in a panel of its own: the verse (its lines centred), the
+-- margin.
+local function framed(key, size, centred)
+  local f = page.parts[key]
+  if not f then
+    f = CreateFrame("Frame", nil, page.child)
+    f:SetWidth(WIDTH)
+    f.art = ui.panel(f)
+    f.art:SetAllPoints()
+    f.text = ui.label(f.art, ui.BODY_FONT, size, T.text)
+    f.text:SetPoint("TOPLEFT", 20, -16)
+    f.text:SetPoint("TOPRIGHT", -20, -16)
+    f.text:SetSpacing(5)
+    if centred then f.text:SetJustifyH("CENTER") end
+    page.parts[key] = f
   end
-  page:start(name, sub, type(picture) == "function" and picture or ui.icon(picture))
+  return f
+end
+local function setApart(key, text, size, centred)
+  local f = framed(key, size, centred)
+  f.text:SetText(text)
+  local h = f.text:GetStringHeight() + 34
+  f:SetHeight(h)
+  page:place(f, h + 14)
+end
+
+-- A plain paragraph under a section (the note, a zone's or the overview's
+-- words): the page's own note is its head's, so these are pooled.
+local function paragraph(text, color)
+  page.pi2 = (page.pi2 or 0) + 1
+  local p = page.paragraphs[page.pi2]
+  if not p then
+    p = ui.label(page.child, ui.BODY_FONT, 13, T.text)
+    p:SetWidth(WIDTH)
+    p:SetSpacing(4)
+    page.paragraphs[page.pi2] = p
+  end
+  p:SetTextColor(unpack(color or T.text))
+  p:SetText(text)
+  page:place(p, p:GetStringHeight() + 16)
+end
+
+-- The seal earned: its coin, its name in its colour, how and when.
+local function sealBlock(seal, how, rec)
+  local s = page.parts.seal
+  if not s then
+    s = CreateFrame("Frame", nil, page.child)
+    s:SetSize(WIDTH, 54)
+    s.coin = ui.roundPortrait(s, 44)
+    s.coin:SetPoint("LEFT", 2, 0)
+    s.name = ui.label(s, ui.TITLE_FONT, 18, T.gold)
+    s.name:SetPoint("TOPLEFT", s.coin, "TOPRIGHT", 14, -3)
+    s.detail = ui.label(s, ui.BODY_FONT, 12, T.soft)
+    s.detail:SetPoint("TOPLEFT", s.name, "BOTTOMLEFT", 0, -6)
+    s.detail:SetWidth(WIDTH - 64)
+    page.parts.seal = s
+  end
+  if seal[1] then
+    ui.icon(seal[1])(s.coin)
+    s.coin:Show()
+  else
+    s.coin:Hide()
+  end
+  s.name:SetText(seal[1] and ("The %s seal"):format(seal[2]:lower()) or "No seal")
+  s.name:SetTextColor(unpack(seal[4]))
+  s.detail:SetText(rec.retro and how or ("%s, on %s, at level %d."):format(how, ui.day(rec), rec.level or 0))
+  page:place(s, 66)
+end
+
+-- A riddle or the quarry on a zone's page (or the overview's): its picture,
+-- its name, a line; a click opens it.
+local function card(i)
+  local c = page.cards[i]
+  if c then return c end
+  c = CreateFrame("Button", nil, page.child)
+  c:SetSize(WIDTH, CARD_H)
+  c.portrait = ui.roundPortrait(c, 40)
+  c.portrait:SetPoint("LEFT", 4, 0)
+  c.name = ui.label(c, ui.TITLE_FONT, 15, T.text)
+  c.name:SetPoint("TOPLEFT", c.portrait, "TOPRIGHT", 12, -2)
+  c.name:SetPoint("RIGHT", -4, 0)
+  c.name:SetWordWrap(false)
+  c.facts = ui.label(c, ui.BODY_FONT, 11, T.soft)
+  c.facts:SetPoint("TOPLEFT", c.name, "BOTTOMLEFT", 0, -5)
+  c.facts:SetPoint("RIGHT", -4, 0)
+  c.facts:SetWordWrap(false)
+  c.line = ui.rule(c)
+  c.line:SetPoint("BOTTOMLEFT", 0, 0)
+  c.line:SetPoint("BOTTOMRIGHT", 0, 0)
+  c:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+  c:SetScript("OnClick", function(self)
+    current = self.target
+    ns.refresh()
+  end)
+  page.cards[i] = c
+  return c
+end
+local function placeCard(target, name, facts, picture)
+  page.ci = page.ci + 1
+  local c = card(page.ci)
+  c.target = target
+  c.name:SetText(name)
+  c.facts:SetText(facts)
+  picture(c.portrait)
+  page:place(c, CARD_H + 4)
 end
 
 -- A creature's still portrait, by its display id (a note without one).
@@ -292,6 +417,118 @@ local function portrait(model)
   end
 end
 
+-- The quarry on its poster: the creature itself, turning slowly in its frame.
+local function modelBlock(display)
+  local m = page.parts.model
+  if not m then
+    m = CreateFrame("Frame", nil, page.child)
+    m:SetSize(WIDTH, 210)
+    m.art = ui.panel(m)
+    m.art:SetAllPoints()
+    local ok, model = pcall(CreateFrame, "PlayerModel", nil, m.art)
+    if ok and model and model.SetDisplayInfo then
+      model:SetPoint("TOPLEFT", 8, -8)
+      model:SetPoint("BOTTOMRIGHT", -8, 8)
+      model.facing = 0.4
+      model:SetScript("OnUpdate", function(self, elapsed)
+        self.facing = (self.facing + elapsed * 0.35) % (2 * math.pi)
+        if self.SetFacing then self:SetFacing(self.facing) end
+      end)
+      m.creature = model
+    end
+    page.parts.model = m
+  end
+  if not (m.creature and display) then return end
+  m.creature:ClearModel()
+  m.creature:SetDisplayInfo(display)
+  if m.creature.SetCamDistanceScale then m.creature:SetCamDistanceScale(1.25) end
+  page:place(m, 210 + 14)
+end
+
+-- The zone's map on a page, with what this character knows of it (marks:
+-- where riddles were read and the quarry fell; circles: the places asked for,
+-- the haunts tracked).
+local function mapBlock(uiMap, marks, circles, caption)
+  local height = page.map:draw(uiMap, marks, circles)
+  if not height then return end
+  page:section("The map")
+  if caption then paragraph(caption, T.soft) end
+  page:place(page.map, height + 16)
+end
+
+local function sealOf(r)
+  local rec = ns.riddleRecord(r.id)
+  return rec and rec.at and SEALS[ns.riddleSeal(rec)]
+end
+
+-- What a riddle's map shows: its place once asked for (unsolved), where it
+-- was read once solved.
+local function riddleMarks(r, marks, circles)
+  local rec = ns.riddleRecord(r.id) or {}
+  if rec.at then
+    if rec.x then
+      local seal = SEALS[ns.riddleSeal(rec)]
+      table.insert(
+        marks,
+        { x = rec.x, y = rec.y, icon = seal[1], title = ns.riddleName(r), text = "Read here, " .. ui.day(rec) }
+      )
+    end
+  elseif (rec.hints or 0) >= 2 then
+    table.insert(
+      circles,
+      { x = r.circle[1], y = r.circle[2], r = r.circle[3], title = "A riddle's place", text = r.verse[1] }
+    )
+  end
+end
+
+local function quarryMarks(q, marks, circles)
+  local rec = ns.huntRecord(q.id) or {}
+  if rec.at then
+    if rec.x then
+      table.insert(
+        marks,
+        { x = rec.x, y = rec.y, icon = TROPHY, title = q.name, text = "Brought down here, " .. ui.day(rec) }
+      )
+    end
+  else
+    local target = ns.huntTarget()
+    if target and target.id == q.id then
+      for _, h in ipairs(q.haunts) do
+        table.insert(
+          circles,
+          { x = h[1], y = h[2], r = h[3], title = q.name, text = "Its haunts: the quarry you track." }
+        )
+      end
+    end
+  end
+end
+
+-- (picture: an icon's path, or a portrait's setter)
+local function start(name, sub, picture)
+  for _, pool in ipairs({ page.buttons, page.cards, page.paragraphs }) do
+    for _, x in ipairs(pool) do
+      x:Hide()
+    end
+  end
+  for _, part in pairs(page.parts) do
+    part:Hide()
+  end
+  page.map:Hide()
+  page.ci, page.pi2 = 0, 0
+  page:start(name, sub, type(picture) == "function" and picture or ui.icon(picture))
+end
+
+local function pinButton(key)
+  local pinned = ns.pinned() == key
+  return {
+    pinned and "Unpin from the screen" or "Pin to the screen",
+    function() ns.pin(not pinned and key or nil) end,
+  }
+end
+
+-- ── the pages ────────────────────────────────────────────────────────────────
+local RIDDLE_HOW = { gold = "Read from the verse alone", silver = "Read with the clue", plain = "Read with the map" }
+
 local function showRiddle(r)
   local rec = ns.riddleRecord(r.id) or {}
   local solved = rec.at ~= nil
@@ -299,13 +536,15 @@ local function showRiddle(r)
   -- (unsolved, its title is its tier already)
   local sub = solved and table.concat({ ns.zoneName(r.zone), TIERS[r.tier] }, "  -  ") or ns.zoneName(r.zone)
   start(title(r), sub, seal and seal[1] or NOTE)
-  page:text({ table.concat(r.verse, "\n") })
+  setApart("verse", table.concat(r.verse, "\n"), 14, true)
   page:section("The riddle")
   page:row("Danger", r.danger)
   if r.asks == "gesture" then
     page:row("It asks", "something of you there")
   elseif r.asks == "reading" then
     page:row("It asks", "a reading there")
+  else
+    page:row("It asks", "only that you find it")
   end
   if r.night then page:row("When", "by night") end
   local hints = rec.hints or 0
@@ -313,22 +552,38 @@ local function showRiddle(r)
   if hints >= 2 then
     page:row("The map", solved and "its place was shaded on your world map" or "its place is shaded on your world map")
   end
-  if not solved and hints < 2 then
-    local b = button(1)
-    b:SetText(hints == 0 and "Ask for a clue" or "Ask for the map")
-    b:SetScript("OnClick", function() ask(hints == 0 and ASK.clue or ASK.map, { id = r.id, n = hints + 1 }) end)
-    page:place(b, 34)
+  if not solved then
+    local buttons = {}
+    if hints < 2 then
+      table.insert(buttons, {
+        hints == 0 and "Ask for a clue" or "Ask for the map",
+        function() ask(hints == 0 and ASK.clue or ASK.map, { id = r.id, n = hints + 1 }) end,
+      })
+    end
+    table.insert(buttons, pinButton(r.id))
+    actions(buttons)
   end
   if solved then
     page:section("Solved")
-    page:row("Solved", when(rec))
-    page:row("Seal", ("%s, %s"):format(seal[2], seal[3]))
-    page:row("Note", ns.riddleNote(r))
+    sealBlock(seal, RIDDLE_HOW[ns.riddleSeal(rec)], rec)
+    page:section("The note")
+    paragraph(ns.riddleNote(r))
+    page:section("In the margin")
     if hints == 0 then
-      page:row("Margin", ns.riddleMargin(r))
+      setApart("margin", ns.riddleMargin(r), 13)
     else
-      page:row("Margin", SOFT .. "only a gold seal opens it|r")
+      paragraph("Only a gold seal opens the margin, and this riddle was read with a hint.", T.soft)
     end
+  end
+  local marks, circles = {}, {}
+  riddleMarks(r, marks, circles)
+  if #marks + #circles > 0 then
+    mapBlock(
+      r.zone,
+      marks,
+      circles,
+      solved and "Where you read it." or "Its place, shaded wider than the spot itself, and never centred on it."
+    )
   end
 end
 
@@ -337,63 +592,177 @@ local function danger(q)
   return rank and ("%s, level %s"):format(rank:gsub("^%l", string.upper), q.level) or ("Level %s"):format(q.level)
 end
 
+local HUNT_HOW = {
+  gold = "Brought down without tracking it",
+  plain = "Brought down after tracking it",
+  before = "Brought down before the journal kept the hunts.",
+}
+
 local function showQuarry(q)
   local rec = ns.huntRecord(q.id) or {}
   local down = rec.at ~= nil
-  local seal = down and HUNT_SEALS[ns.huntSeal(rec)]
-  start(q.name, ("%s  -  the quarry"):format(ns.zoneName(q.zone)), portrait(q.model))
-  page:text({ table.concat(q.verse, "\n") })
+  local display = ns.quarryDisplay(q)
+  start(q.name, ("%s  -  the quarry"):format(ns.zoneName(q.zone)), portrait(display))
+  modelBlock(display)
+  setApart("verse", table.concat(q.verse, "\n"), 14, true)
   page:section("The hunt")
   page:row("Danger", danger(q))
-  local target = ns.huntTarget()
   if not down then
+    local target = ns.huntTarget()
     local tracked = target and target.id == q.id
     page:row("Its haunts", tracked and "shaded on your world map" or "untracked")
-    local b = button(1)
+    local track
     if tracked then
-      b:SetText("Stop tracking")
-      b:SetScript("OnClick", function() ns.setHuntTarget(nil) end)
+      track = { "Stop tracking", function() ns.setHuntTarget(nil) end }
     else
-      b:SetText("Track it")
-      b:SetScript("OnClick", function()
-        if rec.tracked then
-          ns.setHuntTarget(q.id)
-        else
-          ask(ASK.track, { quarry = q.id })
-        end
-      end)
+      track = {
+        "Track it",
+        function()
+          if rec.tracked then
+            ns.setHuntTarget(q.id)
+          else
+            ask(ASK.track, { quarry = q.id })
+          end
+        end,
+      }
     end
-    page:place(b, 34)
+    actions({ track, pinButton("quarry:" .. q.id) })
   else
     page:section("Brought down")
-    page:row("Brought down", rec.retro and "before the journal kept the hunts" or when(rec))
-    page:row("Seal", ("%s, %s"):format(seal[2], seal[3]))
-    page:row("Note", ns.quarryNote(q))
-    if ns.huntSeal(rec) == "gold" then
-      page:row("Margin", ns.quarryMargin(q))
+    local seal = ns.huntSeal(rec)
+    sealBlock(HUNT_SEALS[seal], HUNT_HOW[seal], rec)
+    page:section("The note")
+    paragraph(ns.quarryNote(q))
+    page:section("In the margin")
+    if seal == "gold" then
+      setApart("margin", ns.quarryMargin(q), 13)
     else
-      page:row("Margin", SOFT .. "only a gold seal opens it|r")
+      paragraph("Only a gold seal opens the margin: a quarry never tracked.", T.soft)
     end
   end
+  local marks, circles = {}, {}
+  quarryMarks(q, marks, circles)
+  if #marks + #circles > 0 then
+    mapBlock(q.zone, marks, circles, down and "Where you brought it down." or "Its haunts, as its sightings tell them.")
+  end
+end
+
+-- A zone's riddles in words: "two near the road, one off it and one hidden".
+local TIER_WORDS = { near = "near the road", off = "off the road", hidden = "hidden", town = "in its town" }
+local TIER_ORDER = { "near", "off", "hidden", "town" }
+local function tierWords(riddles)
+  local n = {}
+  for _, r in ipairs(riddles) do
+    n[r.tier] = (n[r.tier] or 0) + 1
+  end
+  local parts = {}
+  for _, t in ipairs(TIER_ORDER) do
+    if n[t] then table.insert(parts, ("%s %s"):format(words(n[t]), TIER_WORDS[t])) end
+  end
+  return join(parts)
+end
+
+-- The seals of riddles read, in words: "two with the gold seal, one with the silver".
+local function sealWords(riddles)
+  local n = {}
+  for _, r in ipairs(riddles) do
+    local rec = ns.riddleRecord(r.id)
+    if rec and rec.at then
+      local s = ns.riddleSeal(rec)
+      n[s] = (n[s] or 0) + 1
+    end
+  end
+  local parts = {}
+  for _, s in ipairs({ "gold", "silver", "plain" }) do
+    if n[s] then table.insert(parts, ("%s with the %s seal"):format(words(n[s]), s)) end
+  end
+  return join(parts)
+end
+
+local function zoneWords(uiMap)
+  local riddles, q = ns.riddlesOf(uiMap), quarryOf(uiMap)
+  local name = ns.zoneName(uiMap)
+  local first
+  if #riddles > 0 then
+    first = ("%s keeps %s for you, %s"):format(
+      name,
+      #riddles == 1 and "one riddle" or (words(#riddles) .. " riddles"),
+      tierWords(riddles)
+    )
+    first = first .. (q and ", and a quarry its people tell of." or ".")
+  else
+    first = ("%s keeps no riddle for you, only a quarry its people tell of."):format(name)
+  end
+  local read = 0
+  for _, r in ipairs(riddles) do
+    if ns.riddleSolved(r.id) then read = read + 1 end
+  end
+  local second
+  local done, total = progress(uiMap)
+  local m = ns.earnedMilestone("expedition-" .. uiMap)
+  if done == total and total > 0 then
+    second = m and m.at and ("Every one of them done: the expedition was complete on %s."):format(ui.day(m))
+      or "Every one of them done: the expedition is complete."
+  elseif read > 0 then
+    second = ("%s read so far, %s."):format(
+      read == 1 and "One" or words(read):gsub("^%l", string.upper),
+      sealWords(riddles)
+    )
+  elseif #riddles > 0 then
+    second = "None read yet."
+  end
+  return { second and (first .. " " .. second) or first }
 end
 
 local function showZone(uiMap)
   local done, total = progress(uiMap)
-  start(ns.zoneName(uiMap), ("%d of %d done"):format(done, total), MAP)
+  local continent = A.zones[uiMap] and A.continents[A.zones[uiMap].continent] or "Elsewhere"
+  start(ns.zoneName(uiMap), ("%s  -  %d of %d done"):format(continent, done, total), MAP)
+  page:text(zoneWords(uiMap))
+  local marks, circles = {}, {}
   local riddles = ns.riddlesOf(uiMap)
   if #riddles > 0 then
     page:section("Its riddles")
     for _, r in ipairs(riddles) do
-      local rec = ns.riddleRecord(r.id)
-      local value = rec and rec.at and ns.riddleName(r) or (SOFT .. r.verse[1] .. "|r")
-      page:row(TIERS[r.tier], value)
+      local rec = ns.riddleRecord(r.id) or {}
+      local seal = sealOf(r)
+      if seal then
+        placeCard(
+          r.id,
+          ns.riddleName(r),
+          ("%s  -  the %s seal, %s"):format(TIERS[r.tier], seal[2]:lower(), ui.day(rec)),
+          ui.icon(seal[1])
+        )
+      else
+        local hints = rec.hints or 0
+        local tail = hints >= 2 and "  -  its place shaded" or hints == 1 and "  -  the clue taken" or ""
+        placeCard(r.id, TIERS[r.tier] .. tail, r.verse[1], ui.icon(NOTE))
+      end
+      riddleMarks(r, marks, circles)
     end
   end
   local q = quarryOf(uiMap)
   if q then
     page:section("Its quarry")
-    page:row(q.name, ns.quarryDown(q.id) and "brought down" or (SOFT .. danger(q) .. "|r"))
+    local rec = ns.huntRecord(q.id) or {}
+    local state
+    if rec.at then
+      local seal = HUNT_SEALS[ns.huntSeal(rec)]
+      state = rec.retro and "brought down before the journal kept the hunts"
+        or ("brought down %s, the %s seal"):format(ui.day(rec), seal[2]:lower())
+    else
+      local target = ns.huntTarget()
+      state = (target and target.id == q.id) and "tracked" or "still at large"
+    end
+    placeCard("quarry:" .. q.id, q.name, ("%s  -  %s"):format(danger(q), state), portrait(ns.quarryDisplay(q)))
+    quarryMarks(q, marks, circles)
   end
+  mapBlock(
+    uiMap,
+    marks,
+    circles,
+    "Where you read each riddle and brought the quarry down; the places you asked the map for, and the haunts of the quarry you track."
+  )
 end
 
 local function counts()
@@ -417,6 +786,25 @@ local function counts()
   return n
 end
 
+-- The last riddles read and quarries brought down, the latest first.
+local function lately(max)
+  local out = {}
+  for uiMap in pairs(X) do
+    for _, r in ipairs(ns.riddlesOf(uiMap)) do
+      local rec = ns.riddleRecord(r.id)
+      if rec and rec.at then table.insert(out, { at = rec.at, riddle = r, rec = rec }) end
+    end
+    local q = quarryOf(uiMap)
+    local rec = q and ns.huntRecord(q.id)
+    if rec and rec.at and not rec.retro then table.insert(out, { at = rec.at, quarry = q, rec = rec }) end
+  end
+  table.sort(out, function(a, b) return a.at > b.at end)
+  for i = #out, max + 1, -1 do
+    out[i] = nil
+  end
+  return out
+end
+
 local function showOverview()
   local n = counts()
   start(
@@ -429,21 +817,63 @@ local function showOverview()
       .. "a book left on a shelf. Each riddle here leads to one, in a land you have entered. It is solved where it "
       .. "leads, and some ask something of you there, as the story would.",
     "A riddle read from its verse alone earns the gold seal, and opens its margin; the clue costs the gold, the "
-      .. "map the silver. Each land with rare creatures has its quarry too, a foe its people tell of (where none is, "
-      .. "one of its rarest): found from its poster alone, it earns the gold; tracked, its haunts are shaded on "
-      .. "your map.",
+      .. "map the silver. Each land with rare creatures has its quarry too, a foe its people tell of: found from "
+      .. "its poster alone, it earns the gold; tracked, its haunts are shaded on your map.",
   })
   page:section("The record")
   page:row("Riddles", ("%d of %d solved"):format(n.riddles, n.of))
   page:row("Seals", ("%d gold, %d silver, %d plain"):format(n.gold, n.silver, n.plain))
   page:row("Quarries", ("%d of %d brought down"):format(n.quarries, n.hunts))
   local target = ns.huntTarget()
-  if target then page:row("Tracking", ("%s, in %s"):format(target.name, ns.zoneName(target.zone))) end
+  local pinned = ns.pinned()
+  if target or pinned then page:section("Under way") end
+  if target then
+    placeCard(
+      "quarry:" .. target.id,
+      target.name,
+      ("tracked, in %s  -  %s"):format(ns.zoneName(target.zone), danger(target)),
+      portrait(ns.quarryDisplay(target))
+    )
+  end
+  local pr = pinned and ns.riddleById[pinned]
+  if pr and not ns.riddleSolved(pr.id) then
+    placeCard(pr.id, TIERS[pr.tier], ("pinned, in %s  -  %s"):format(ns.zoneName(pr.zone), pr.verse[1]), ui.icon(NOTE))
+  end
+  local recent = lately(5)
+  if #recent > 0 then
+    page:section("Lately")
+    for _, x in ipairs(recent) do
+      if x.riddle then
+        local seal = SEALS[ns.riddleSeal(x.rec)]
+        placeCard(
+          x.riddle.id,
+          ns.riddleName(x.riddle),
+          ("%s  -  the %s seal, %s"):format(ns.zoneName(x.riddle.zone), seal[2]:lower(), ui.day(x.rec)),
+          ui.icon(seal[1])
+        )
+      else
+        local seal = HUNT_SEALS[ns.huntSeal(x.rec)]
+        placeCard(
+          "quarry:" .. x.quarry.id,
+          x.quarry.name,
+          ("%s  -  brought down, the %s seal, %s"):format(ns.zoneName(x.quarry.zone), seal[2]:lower(), ui.day(x.rec)),
+          portrait(ns.quarryDisplay(x.quarry))
+        )
+      end
+    end
+  end
 end
 
 local function refresh()
   local n = counts()
-  book.count:SetText(("%d riddles solved, %d quarries"):format(n.riddles, n.quarries))
+  book.count:SetText(
+    ("%d %s solved, %d %s"):format(
+      n.riddles,
+      n.riddles == 1 and "riddle" or "riddles",
+      n.quarries,
+      n.quarries == 1 and "quarry" or "quarries"
+    )
+  )
   refreshList()
   local r = type(current) == "string" and ns.riddleById[current]
   local qid = type(current) == "string" and tonumber(current:match("^quarry:(%d+)$"))
@@ -467,7 +897,10 @@ local function build(b)
   book = b
   list = ui.newList(book.left, style, rows, true)
   page = ui.newPage(book.sheet, "FieldJournalExpeditionsPage", 90, pairsPool)
-  page.buttons = {}
+  page.buttons, page.cards, page.paragraphs, page.parts = {}, {}, {}, {}
+  page.actions = CreateFrame("Frame", nil, page.child)
+  page.actions:SetSize(WIDTH, 26)
+  page.map = ui.newMap(page.child)
 end
 
 ns.addTab(ns.TAB.expeditions, {

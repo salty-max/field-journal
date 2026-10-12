@@ -25,9 +25,11 @@ Toasts.lua
 Achievements.lua
 Kit.lua
 Book.lua
+ZoneMap.lua
 BestiaryBook.lua
 AtlasBook.lua
 ExpeditionsBook.lua
+ExpeditionsPin.lua
 FloraBook.lua
 MilestonesBook.lua
 WorldMapPins.lua

@@ -1751,20 +1751,33 @@ local function pageRows()
   end
   return out
 end
-local rows = pageRows()
+local parts = FieldJournalExpeditionsPage.parts
+local function paragraphs()
+  local out = {}
+  for _, p in ipairs(FieldJournalExpeditionsPage.paragraphs) do
+    if p.shown then table.insert(out, p.text) end
+  end
+  return table.concat(out, "\n")
+end
 check(
   FieldJournalFrame.selectedTab == ns.TAB.expeditions
     and FieldJournalExpeditionsPage.title.text == "Exile of the High Elves"
-    and rows.Seal == "Gold, from the verse alone"
-    and rows.Margin
-    and rows.Margin
-    and not rows.Margin:find("only a gold seal"),
-  "a riddle's link opens its page: its answer, the gold seal, the margin"
+    and parts.verse.shown
+    and parts.seal.shown
+    and parts.seal.name.text == "The gold seal"
+    and parts.seal.detail.text:find("^Read from the verse alone, on ")
+    and parts.margin.shown
+    and parts.margin.text.text == ns.riddleMargin(ns.riddleById["the-barrens-ratchet-book"])
+    and paragraphs():find(ns.riddleNote(ns.riddleById["the-barrens-ratchet-book"]), 1, true),
+  "a riddle's link opens its page: its verse, its answer, the gold seal, the note and the margin"
 )
 ns.openRiddle("duskwood-callahan")
-rows = pageRows()
+local rows = pageRows()
 check(
-  rows.Seal == "Silver, with the clue" and rows.Margin:find("only a gold seal") and rows["The clue"],
+  parts.seal.name.text == "The silver seal"
+    and not parts.margin.shown
+    and paragraphs():find("Only a gold seal opens the margin", 1, true)
+    and rows["The clue"],
   "… a silver seal's page: the clue it took, the margin closed"
 )
 ns.openRiddle("elwynn-forest-ridgepoint")
@@ -1789,6 +1802,48 @@ ask.scripts.OnClick(ask)
 check(
   state.popup and state.popup:find("gold seal") and ns.riddleRecord(vigil.id).hints == 1,
   "… asked for after the game's confirmation"
+)
+-- Pinned to the screen: a card of its own, dragged anywhere, closed by its cross.
+local pinIt = FieldJournalExpeditionsPage.buttons[2]
+check(pinIt.shown and pinIt.text == "Pin to the screen", "an unsolved riddle's page offers to pin it to the screen")
+pinIt.scripts.OnClick(pinIt)
+local pinCard = FieldJournalPinnedCard
+check(
+  ns.pinned() == vigil.id
+    and pinCard.shown
+    and pinCard.verse.text == table.concat(vigil.verse, "\n")
+    and pinCard.extra.text:find("^The clue: "),
+  "… pinned: its card shows the verse and the clue taken"
+)
+pinCard.scripts.OnDragStop(pinCard)
+check(ns.expeditions().pinAt ~= nil, "… dragged, it stays where it was left")
+check(FieldJournalExpeditionsPage.buttons[2].text == "Unpin from the screen", "… and the page offers to unpin it")
+pinCard.close.scripts.OnClick(pinCard.close)
+check(not pinCard.shown and ns.pinned() == nil, "… closed by its cross, unpinned")
+-- A zone's page: its riddles in words, a card for each riddle and its
+-- quarry, a click on one opens it; its map, where each riddle was read.
+for _, r in ipairs(ns.expeditionRows) do
+  if r.shown and r.zone == 1431 then r.scripts.OnClick(r) end
+end
+local cards = {}
+for _, c in ipairs(FieldJournalExpeditionsPage.cards) do
+  if c.shown then cards[c.name.text] = c end
+end
+check(
+  FieldJournalExpeditionsPage.title.text == "Duskwood"
+    and FieldJournalExpeditionsPage.note.text:find("^Duskwood keeps %a+ riddles for you")
+    and cards["Watcher Callahan"]
+    and cards["Commander Felstrom"],
+  "a zone's page: its riddles in words, a card for each riddle and its quarry"
+)
+local map = FieldJournalExpeditionsPage.map
+check(map.shown and map.pins[1] and map.pins[1].shown, "… its map, where each riddle was read")
+cards["Commander Felstrom"].scripts.OnClick(cards["Commander Felstrom"])
+check(
+  FieldJournalExpeditionsPage.title.text == "Commander Felstrom"
+    and FieldJournalExpeditionsPage.parts.model.shown
+    and FieldJournalExpeditionsPage.parts.seal.name.text == "No seal",
+  "… a card opens its page: the quarry's poster, the creature turning in its frame, its seal"
 )
 FieldJournalFrame:Hide()
 SlashCmdList.FIELDJOURNAL("where")

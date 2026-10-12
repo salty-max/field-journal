@@ -18,13 +18,19 @@
 -- shaded on the world map.
 --
 --   FieldJournalChar.expeditions = {
---     riddles[id] = { at, level, hints }   solved (at); hints: 0, 1 (the
---                                          clue), 2 (the map), taken even
---                                          before it is solved
---     hunts[creature id] = { at, level, tracked, retro }   brought down (at;
---                                          retro: before the journal kept
---                                          the hunts), ever the target
+--     riddles[id] = { at, level, hints, x, y }   solved (at; x, y: where,
+--                                          percents of its zone's map);
+--                                          hints: 0, 1 (the clue), 2 (the
+--                                          map), taken even before it is
+--                                          solved
+--     hunts[creature id] = { at, level, tracked, retro, x, y }   brought
+--                                          down (at; retro: before the
+--                                          journal kept the hunts; x, y:
+--                                          where I stood), ever the target
 --     target                               the quarry tracked now
+--     pinned, pinAt                        the riddle ("<id>") or quarry
+--                                          ("quarry:<id>") pinned to the
+--                                          screen, and where its card stands
 --   }
 -- The seal: gold without a hint (and only gold opens the margin), silver
 -- with the clue, plain with the map; a quarry's gold if never tracked, plain
@@ -230,10 +236,13 @@ local function night()
 end
 
 -- ── solving ──────────────────────────────────────────────────────────────────
-local function solve(r)
+local function percent(v) return v and math.floor(v * 1000 + 0.5) / 10 end
+
+local function solve(r, x, y)
   local e = ns.expeditions()
   local rec = e.riddles[r.id] or {}
   rec.at, rec.level = time(), UnitLevel("player")
+  rec.x, rec.y = percent(x), percent(y)
   e.riddles[r.id] = rec
   if ns.option("chat") then
     print(
@@ -273,7 +282,7 @@ local function attempt(asks, token)
           if id then table.insert(here.creatures, id) end
         end
       end
-      if (asks ~= "gesture" or r.bySet[print_(r.id, token)]) and there(r, here) then solve(r) end
+      if (asks ~= "gesture" or r.bySet[print_(r.id, token)]) and there(r, here) then solve(r, x, y) end
     end
   end
 end
@@ -368,6 +377,10 @@ function ns.quarrySlain(id)
   local e = ns.expeditions()
   local rec = e.hunts[id] or {}
   rec.at, rec.level = time(), UnitLevel("player")
+  local uiMap, x, y = where()
+  if uiMap == q.zone then
+    rec.x, rec.y = percent(x), percent(y)
+  end
   e.hunts[id] = rec
   if e.target == id then e.target = nil end
   if ns.option("chat") then
@@ -401,6 +414,8 @@ function ns.expeditionsLogin()
       e.hunts[id] = rec
     end
   end
+  -- (the card pinned last time, back where it was left)
+  if ns.refreshPin then ns.refreshPin() end
 end
 
 -- ── /journal where: the map and the position, to confirm a spot ──────────────

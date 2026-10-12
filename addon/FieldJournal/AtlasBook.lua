@@ -13,9 +13,8 @@ local T, SOFT = ui.T, ui.SOFT
 local book, list, page
 local current -- a zone's uiMap, or nil for the travels
 local selectedPlace -- a place's key, picked out on its zone's page
-local pins, rows, pairsPool = {}, {}, {}
+local rows, pairsPool = {}, {}
 ns.atlasRows, ns.atlasPairs = rows, pairsPool -- for the tests
-local MAP_W = ui.WIDTH
 local SKULL = "Interface\\TargetingFrame\\UI-TargetingFrame-Skull"
 local CLOSE = "Interface\\GossipFrame\\AvailableQuestIcon"
 
@@ -189,114 +188,6 @@ local function refreshList()
   list:finish()
 end
 
--- ── the zone's map ───────────────────────────────────────────────────────────
--- The world map's own art, the overlays of the places this character has
--- explored on top (as the world map draws them), scaled to the page; deaths
--- and close calls marked (marks: x and y are percents of the zone's map).
-local function tile(map, n, file, x, y, w, h, coords)
-  local t = map.tiles[n]
-  if not t then
-    t = map.canvas:CreateTexture(nil, "ARTWORK")
-    map.tiles[n] = t
-  end
-  t:SetDrawLayer(coords and "ARTWORK" or "BACKGROUND")
-  t:ClearAllPoints()
-  t:SetPoint("TOPLEFT", map.canvas, "TOPLEFT", x, -y)
-  t:SetSize(w, h)
-  t:SetTexture(file)
-  t:SetTexCoord(unpack(coords or { 0, 1, 0, 1 }))
-  t:Show()
-end
-
--- The side of the texture file holding a part of an overlay: the power of
--- two that fits it.
-local function fileSize(px)
-  local s = 16
-  while s < px do
-    s = s * 2
-  end
-  return s
-end
-
-local function pin(i, map)
-  local p = pins[i]
-  if p then return p end
-  p = CreateFrame("Button", nil, map)
-  p:SetSize(14, 14)
-  p.icon = p:CreateTexture(nil, "OVERLAY")
-  p.icon:SetAllPoints()
-  p:SetScript("OnEnter", function(self)
-    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    GameTooltip:AddLine(self.title, 1, 0.82, 0)
-    GameTooltip:AddLine(self.text, 1, 1, 1, true)
-    GameTooltip:Show()
-  end)
-  p:SetScript("OnLeave", function() GameTooltip:Hide() end)
-  pins[i] = p
-  return p
-end
-
-local function drawMap(uiMap, marks)
-  local map = page.map
-  local layers = C_Map.GetMapArtLayers(uiMap)
-  local layer = layers and layers[1]
-  if not layer or ns.secret(layer) then return false end
-  local w, h = layer.layerWidth, layer.layerHeight
-  local TW, TH = layer.tileWidth, layer.tileHeight
-  local scale = MAP_W / w
-  map:SetSize(MAP_W, h * scale)
-  map.canvas:SetSize(w, h)
-  map.canvas:SetScale(scale)
-  for _, t in ipairs(map.tiles) do
-    t:Hide()
-  end
-  local n = 0
-  -- the art
-  local files = C_Map.GetMapArtLayerTextures(uiMap, 1) or {}
-  local cols = math.ceil(w / TW)
-  for r = 1, math.ceil(h / TH) do
-    for c = 1, cols do
-      local file = files[(r - 1) * cols + c]
-      if file then
-        n = n + 1
-        tile(map, n, file, TW * (c - 1), TH * (r - 1), TW, TH)
-      end
-    end
-  end
-  -- the places explored
-  for _, info in ipairs(C_MapExplorationInfo.GetExploredMapTextures(uiMap) or {}) do
-    if not info.isShownByMouseOver then
-      local wide, tall = math.ceil(info.textureWidth / TW), math.ceil(info.textureHeight / TH)
-      for j = 1, tall do
-        local ph = j < tall and TH or (info.textureHeight % TH == 0 and TH or info.textureHeight % TH)
-        local fh = j < tall and TH or fileSize(ph)
-        for k = 1, wide do
-          local pw = k < wide and TW or (info.textureWidth % TW == 0 and TW or info.textureWidth % TW)
-          local fw = k < wide and TW or fileSize(pw)
-          local file = info.fileDataIDs[(j - 1) * wide + k]
-          if file then
-            n = n + 1
-            local x, y = info.offsetX + TW * (k - 1), info.offsetY + TH * (j - 1)
-            tile(map, n, file, x, y, pw, ph, { 0, pw / fw, 0, ph / fh })
-          end
-        end
-      end
-    end
-  end
-  -- the marks
-  for i, m in ipairs(marks) do
-    local p = pin(i, map)
-    p:SetFrameLevel(map:GetFrameLevel() + 5)
-    p:ClearAllPoints()
-    p:SetPoint("CENTER", map, "TOPLEFT", m.x / 100 * MAP_W, -m.y / 100 * h * scale)
-    p.icon:SetTexture(m.icon)
-    p.title, p.text = m.title, m.text
-    p:Show()
-  end
-  page:place(map, h * scale + 16)
-  return true
-end
-
 -- ── the zone's page ──────────────────────────────────────────────────────────
 -- What grows and bites in a zone (the data's herbs and fish): the ones this
 -- character has found named, the rest only counted (no spoilers).
@@ -335,11 +226,8 @@ end
 
 local function eventLine(e) return ("%s, level %d%s"):format(day(e), e.level or 0, e.by and (" - " .. e.by) or "") end
 
--- The page, laid out again: the map and its marks hidden too.
+-- The page, laid out again: the map hidden too.
 local function start(title, sub, picture)
-  for _, p in ipairs(pins) do
-    p:Hide()
-  end
   page.map:Hide()
   page:start(title, sub, ui.icon(picture))
 end
@@ -368,7 +256,9 @@ local function showZone(uiMap, placeKey)
     if ns.placeKey(place) == placeKey then picked = place end
   end
   page.map.pick:Hide()
-  if drawMap(uiMap, marks) and picked then
+  local height = page.map:draw(uiMap, marks)
+  if height then page:place(page.map, height + 16) end
+  if height and picked then
     -- the picked place: its area outlined on the map
     page.map.pick:ClearAllPoints()
     page.map.pick:SetPoint("TOPLEFT", page.map.canvas, "TOPLEFT", picked[2], -picked[3])
@@ -480,20 +370,12 @@ local function build(b)
   book = b
   list = ui.newList(book.left, style, rows, true)
   page = ui.newPage(book.sheet, "FieldJournalAtlasPage", 100, pairsPool)
-  local map = CreateFrame("Frame", nil, page.child)
-  map:SetClipsChildren(true)
-  map.canvas = CreateFrame("Frame", nil, map)
-  map.canvas:SetPoint("TOPLEFT")
-  map.tiles = {}
+  local map = ui.newMap(page.child)
+  -- (a place picked out: its area outlined)
   map.pick = CreateFrame("Frame", nil, map.canvas, "BackdropTemplate")
   map.pick:SetBackdrop({ edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 24 })
   map.pick:SetBackdropBorderColor(1, 0.82, 0)
   map.pick:Hide()
-  map.border = CreateFrame("Frame", nil, map, "BackdropTemplate")
-  map.border:SetAllPoints()
-  map.border:SetBackdrop({ edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", edgeSize = 12 })
-  map.border:SetBackdropBorderColor(unpack(ui.T.ring))
-  map.border:SetFrameLevel(map:GetFrameLevel() + 8)
   page.map = map
 end
 
