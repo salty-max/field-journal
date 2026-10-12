@@ -346,10 +346,12 @@ local function both(test)
   local d2, t2 = quarries(test)
   return d1 + d2, t1 + t2
 end
+-- (the riddles the book holds now: a record of one since rewritten counts no more)
 local function goldSeals()
   local n = 0
-  for _, rec in pairs(ns.expeditions() and ns.expeditions().riddles or {}) do
-    if rec.at and (rec.hints or 0) == 0 then n = n + 1 end
+  for id, r in pairs(ns.riddleById or {}) do
+    local rec = ns.riddleOpen(r) and ns.riddleRecord(id)
+    if rec and rec.at and (rec.hints or 0) == 0 then n = n + 1 end
   end
   return n
 end
@@ -698,11 +700,25 @@ local function fanfare()
   if not (ok and willPlay) then ns.playSound() end
 end
 
--- quiet: record without a word (reached before the addon looked).
+-- The expeditions' milestones follow the riddles as the book holds them: one
+-- that a rewritten riddle or a new one leaves undone is withdrawn (at the
+-- login, quietly), to be earned again, with its alert.
+local function withdraw(c)
+  for _, m in ipairs(list) do
+    if m.group == "expeditions" and c.achievements[m.id] then
+      local done, need = m.progress()
+      if need == 0 or done < need then c.achievements[m.id] = nil end
+    end
+  end
+end
+
+-- quiet: record without a word (reached before the addon looked), and
+-- withdraw what the expeditions no longer grant (the login).
 function ns.checkMilestones(quiet)
   local c = char()
   if not c then return end
   c.achievements = c.achievements or {}
+  if quiet then withdraw(c) end
   local earned = false
   for _, m in ipairs(list) do
     if not c.achievements[m.id] then
