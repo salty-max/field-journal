@@ -493,6 +493,8 @@ AlertFrame = {
       AddAlert = function(_, ...)
         local f = ui()
         f.Icon, f.Unlocked, f.Name, f.Shield, f.Title = ui(), ui(), ui(), ui(), ui()
+        -- (a toast that fails to set up: one without its title)
+        if state.brokenToast then rawset(f, "Title", false) end
         f.Icon.Texture = ui()
         setUp(f, ...)
         table.insert(toasted, f)
@@ -1694,6 +1696,25 @@ check(
     and firstToast,
   "… a toast for the riddle, and the milestone's beside it, not in its place"
 )
+-- The game's toast failing to set up (here: its picture): the journal's own
+-- card instead, the error said once in chat.
+state.brokenToast = true
+local saidBefore = #printed
+ns.toast("riddle", "the-barrens-ratchet-book")
+state.brokenToast = nil
+check(
+  FieldJournalBanner
+    and FieldJournalBanner.shown
+    and FieldJournalBanner.name.text == "Exile of the High Elves"
+    and #printed == saidBefore + 1
+    and printed[#printed]:find("its own card instead", 1, true),
+  "… and where the game's toast fails, the journal's own card, the error said once"
+)
+FieldJournalBanner.close.scripts.OnClick(FieldJournalBanner.close)
+check(not FieldJournalBanner.shown, "… closed by its cross")
+local toastsBefore = #toasted
+SlashCmdList.FIELDJOURNAL("toast")
+check(#toasted == toastsBefore + 1 and said("the game's toast"), "/journal toast shows a riddle's alert, and which")
 -- A gesture: the Night Watch's lonely post, after asking for the clue (the silver seal).
 ns.takeHint("duskwood-callahan", 1)
 check(state.popup == nil and ns.riddleRecord("duskwood-callahan").hints == 1, "a clue taken is kept, unsolved")
