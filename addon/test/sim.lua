@@ -1681,14 +1681,14 @@ state.near = true
 ns.expeditionAttempt()
 check(solvedRiddle("blasted-lands-kumisha"), "… targeted near her, wherever her path has taken her")
 state.target = nil
--- The night: Pyrewood Village answers only after dark.
+-- The night: Westfall's coffin tree answers only after dark, when its ghoul rises.
 state.hour = 12
-at(1421, 0.45, 0.73, "Pyrewood Village")
+at(1436, 0.417, 0.293)
 ns.expeditionAttempt()
-check(not solvedRiddle("silverpine-forest-pyrewood"), "a night's riddle by day: nothing")
+check(not solvedRiddle("westfall-coffin-tree"), "a night's riddle by day: nothing")
 state.hour = 22
 ns.expeditionAttempt()
-check(solvedRiddle("silverpine-forest-pyrewood"), "… by night, solved")
+check(solvedRiddle("westfall-coffin-tree"), "… by night, solved")
 state.hour = 12
 -- The map: a riddle's place shaded on the world map once asked for.
 state.popup = nil
@@ -1751,7 +1751,7 @@ check(
 )
 FieldJournalFrame:Hide()
 SlashCmdList.FIELDJOURNAL("where")
-check(said("(map 1421): 45.00, 73.00, in Pyrewood Village."), "/journal where tells the map and the position")
+check(said("(map 1436): 41.70, 29.30."), "/journal where tells the map and the position")
 
 SlashCmdList.FIELDJOURNAL("reset yes")
 check(
