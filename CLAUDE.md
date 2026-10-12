@@ -1,10 +1,13 @@
 # Explorer's Field Journal
 
 A World of Warcraft addon: an Explorers' League field journal that fills in as
-a character travels. Book one, the **Bestiary**: every creature met, slain and
-looted, sorted into families with a League naturalist's note per family. Book
-two, the **Atlas**, comes later. Plan and decisions: PLAN.md. Sister project:
-Lorekeeper's Codex (~/code/wow-addons/lorekeepers-codex), same engineering and voice.
+a character travels. The **Expeditions** first (the book opens on them): each
+zone's riddles, solved on the spot, and its quarry, a rare to track down. The
+**Bestiary**: every creature met, slain and looted, sorted into families with
+a League naturalist's note per family. The **Atlas**: the zones explored, a
+dwarf surveyor's note each. **Fish** and **Plants**, and the **Milestones**.
+Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
+(~/code/wow-addons/lorekeepers-codex), same engineering and voice.
 
 ## Layout
 
@@ -171,9 +174,11 @@ Lorekeeper's Codex (~/code/wow-addons/lorekeepers-codex), same engineering and v
   colleague): observant, dry, fond of the creatures it describes. Two to four
   short paragraphs per family: what they are, where and how they live, what a
   traveller should know. The player's own numbers follow the note on the page.
-- Lore scope as the Codex: up to Vanilla, from sources published before Wrath
-  of the Lich King; Forever-only families may use Forever's own texts. Original
-  wording. Plain ASCII (the build rejects others).
+- Lore scope as the Codex (loosened on 12 October 2026): the past up to the
+  vanilla era from any source (the games, novels, comics, RPG books,
+  Chronicle), nothing anachronic to vanilla or Forever; Forever-only families
+  may use Forever's own texts. Original wording. Plain ASCII (the build
+  rejects others).
 - Classic and Forever are separate accounts of the world. In family notes,
   Atlas notes and herb/fish notes, prefix a paragraph with `[classic]` or
   `[forever]` when the accounts differ. Unmarked paragraphs belong to both.
