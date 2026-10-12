@@ -6,103 +6,43 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: desolace-kodo-graveyard
-    tier: near
-    gestures: [BOW, KNEEL]
-    area: Kodo Graveyard   # placed: the client's overlay: 50.6, 58.0, half-size 7.2 by 9.4
-    hint_area: { x: 49.0, y: 59.0, r: 11 }
-    danger: "Quiet"
-    sources: "the Codex's kodo-graveyard page; quest 5561"
-  - id: desolace-rackmore
+  - id: desolace-tethris-aran
     tier: off
-    object: 177787   # dump 36.1, 30.4; Wowhead 36.1, 30.4
-    hint_area: { x: 33.6, y: 27.2, r: 8 }
-    danger: "Guarded (the coast's creatures)"
-    sources: "quest 6161"
-  - id: desolace-mannoroc-coven
-    tier: off
-    area: Mannoroc Coven   # placed: the client's overlay: 53.4, 79.3, half-size 8.0 by 9.0
-    hint_area: { x: 52.0, y: 77.0, r: 11 }
-    danger: "Perilous (demons)"
-    sources: "the Codex's mannoroc-coven page; quest 5581"
-  - id: desolace-dalinda
+    gestures: [PONDER, SIGH, MOURN]
+    area: Tethris Aran   # placed: the client's overlay: 54.4, 12.4, half-size 5.0 by 4.9
+    hint_area: { x: 54.5, y: 13.0, r: 5 }
+    danger: "Guarded (basilisks, scorpids and starving bonepaws, levels 30 to 32)"
+    sources: "the WoWWiki archive's Tethris Aran and Sargeron pages; the dump's spawns"
+  - id: desolace-shadowbreak
     tier: hidden
-    creature: 5644   # Dalinda Malem, dump 54.9, 26.1; Wowhead 54.8, 26.2 (she walks only when escorted)
-    hint_area: { x: 57.4, y: 26.4, r: 5 }
-    danger: "Perilous (the Burning Blade)"
-    sources: "quests 1437, 1438"
-  - id: desolace-nijels-point
-    tier: town
-    faction: alliance   # its town's: for that faction alone
-    creature: 5642   # Vahlarriel Demonslayer, dump 66.4, 11.8; Wowhead 66.4, 11.8
-    hint_area: { x: 68.7, y: 12.7, r: 5 }
-    danger: "Quiet"
-    sources: "quests 1437, 1465"
-  - id: desolace-shadowprey
-    tier: town
-    faction: horde   # its town's: for that faction alone
-    creature: 11624   # Taiga Wisemane, dump 25.8, 68.2; Wowhead 25.8, 68.2
-    hint_area: { x: 28.2, y: 67.6, r: 5 }
-    danger: "Quiet"
-    sources: "quest 5581; the Codex's shadowprey-village page"
+    gestures: [PET, COMFORT, SOOTHE]
+    creature: 13837   # the Captured Stallions, dump 79.5-79.9, 79.4-79.8, beside the Burning Blade Nightmares (13836)
+    hint_area: { x: 80.0, y: 79.0, r: 4 }
+    danger: "Perilous (the Burning Blade's summoners, invokers and ley hunters, levels 38 to 40)"
+    sources: "the WoWWiki archive's Shadowbreak Ravine and Captured Stallion pages; the dump's spawns"
 quarry:
-  id: 5600
-  sources: "quest 1365 (Felgur Twocuts)"
+  id: 14227   # Hissperak
+  sources: "the dump's spawn, kind (a basilisk) and respawn (12 to 24 hours); Wowhead's sightings"
 ---
-## desolace-kodo-graveyard
-In the middle of the grey country, the great beasts of the plains
-come from far away to lie down among the bones of those before them,
-and nobody knows why. Walk among them as their people do.
-? The Kodo Graveyard, in the middle of Desolace.
-= The Kodo Graveyard.
-+ Old kodos still lumber in from the plains to lie down there; a goblin of the Gizelton caravan has found a way to jolt the dying ones back to work.
+## desolace-tethris-aran
+North of the Burning Blade's fortress, the stones of an elven town lie scattered in the dust.
+No elf has lived there since the world broke;
+the beasts of the waste have it now. Stand among the stones a while.
+? Tethris Aran, in the north of Desolace.
+= Tethris Aran: the ruins of a night elf town in the north of Desolace; only beasts live there now.
++ Further east, the satyrs hold another such ruin, and have named it Sargeron, for their master.
 
-## desolace-rackmore
-On the north-western shore, a captain's log lies among the wrecks.
-His ship was bound for the moon-elves' island when the sea's creatures took it,
-and before they could take his treasure, he hid it on an isle.
-Find the log.
-? Ethel Rethor, on Desolace's north-west coast.
-= Rackmore's log.
-+ His chest on Ranazjar Isle wants two keys, a silver and a gold, both lost.
-
-## desolace-mannoroc-coven
-In the south of the grey country, demons walk openly in a scorched valley
-among broken altars and green fire,
-and they did not come there by chance. Find where they were let in.
-? The Mannoroc Coven, in the south of Desolace.
-= The Mannoroc Coven.
-+ The Burning Blade let them in; at Shadowprey Village, Taiga Wisemane sends hunters to banish their portals.
-
-## desolace-dalinda
-In a fortress of demon-worshipping orcs in the north,
-a daughter of a merchant house waits to be given to their masters.
-She came against her people's wishes, after a brother hungry for magic.
-Find her.
-? Thunder Axe Fortress, in the north of Desolace.
-= Dalinda Malem, of House Malem of Darnassus.
-+ 'Tyranis has recently begun craving knowledge of all things arcane, even against the wishes of our people.' Vahlarriel's superiors cared more that Dalinda be found than her brother.
-
-## desolace-nijels-point
-At the Alliance's camp under the northern mountains, an agent from the tree city
-has come to find two missing children of a merchant house,
-and hopes not to be here long. Find him.
-? Nijel's Point.
-= Vahlarriel Demonslayer, searching for Tyranis and Dalinda Malem.
-+ Their wagon was found attacked by spells and weapons, with no blood and no bodies, and footprints leading south toward a fort.
-
-## desolace-shadowprey
-In the village on stilts by the western sea, a shaman keeps
-a gruesome hand that can close the doors the demons come through.
-Find him.
-? Shadowprey Village.
-= Taiga Wisemane, keeper of the Hand of Iruxos.
-+ 'Your effort has helped greatly in fighting the demon threat, and all of Azeroth is safer because of it.'
+## desolace-shadowbreak
+In a ravine hidden in the south-eastern mountains, among mushrooms as tall as trees,
+the Burning Blade work a summoning circle hung with chains, and keep a stable.
+Some of the horses in it are still horses. Be kind to them.
+? Shadowbreak Ravine, hidden in Desolace's south-eastern mountains.
+= Shadowbreak Ravine: the Burning Blade's hidden camp, its chained circle, its demon nightmares, and two captured stallions in the stable beside them.
++ Where the stallions came from, nobody knows; what the cult means to make of them, the nightmares beside them suggest.
 
 ## quarry
-The centaur clans of these dry plains fight and die against one another,
-and it is just as well, the Horde says: united, they would be a fierce foe.
-The surest way to keep them apart is to strike at their khans,
-and the Kolkar's holds their village in the north-east.
-= Khan Dez'hepah, of the Kolkar. Felgur Twocuts wants his head: the centaur, Felgur says, understand strength best.
-+ His death disrupts the Kolkar, and gives the other clans pause.
+North of the graveyard where the kodos go to die, a basilisk hunts the dust,
+from the graveyard's edge west toward the valley of spears.
+Kill it, and half a day to a day passes before it hunts again.
+= Hissperak, a basilisk of Desolace, from the Kodo Graveyard's northern edge to the Valley of Spears.
++ Twelve hours at the least between one Hissperak and the next; a day at the most.
