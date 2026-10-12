@@ -1,7 +1,8 @@
--- The banners (the kit's: a card in the book's look, which the game's alert
--- stack places with its own), each deed its own, so a deed that earns two
--- shows both, never one in place of the other: a milestone earned, the
--- journal's book; a riddle read aright, what it led to (its keeper's face, a
+-- A milestone earned: the game's own achievement alert (the kit's: the
+-- journal's book, "Field Journal milestone", its name; the banner where the
+-- client has none). The rest, banners (the kit's: a card in the book's look,
+-- which the game's alert stack places with its own), each deed its own, so a
+-- deed that earns two shows both, never one in place of the other: a riddle read aright, what it led to (its keeper's face, a
 -- book, a place) with the seal earned as a medal on it; a quarry brought
 -- down, its face and its seal. A click opens the book there, a right-click or
 -- the cross dismisses it. Turned off by the alerts setting; /journal toast
@@ -11,7 +12,7 @@ local PREFIX = ns.PREFIX
 
 local BOOK = "Interface\\AddOns\\FieldJournal\\Media\\Logo"
 local SECONDS = 8
-local banners
+local banners, achievements
 
 -- What a banner of this kind shows.
 local function about(kind, id)
@@ -48,11 +49,17 @@ end
 
 local function show(kind, id)
   banners = banners or ns.kit.banners({ name = "FieldJournalBanner", art = BOOK, seconds = SECONDS })
+  achievements = achievements
+    or ns.kit.achievements({ banners = banners, art = BOOK, say = function(m) print(PREFIX .. m) end })
   -- (what can't be told still shows: the journal's book and its name)
   local ok, b = pcall(about, kind, id)
   if not ok then b = { picture = BOOK, kicker = "Explorer's Field Journal", title = "" } end
   b.kind, b.id = kind, id
-  banners:show(b)
+  if kind == "milestone" then
+    achievements:show(b)
+  else
+    banners:show(b)
+  end
   return banners
 end
 
