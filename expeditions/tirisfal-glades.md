@@ -50,6 +50,13 @@ riddles:
     hint_area: { x: 80.5, y: 38.5, r: 8 }
     danger: "Perilous (the Scarlet Crusade)"
     sources: "the game's Faol's Rest; Warcraft II: Tides of Darkness's manual (Faol and the Knights of the Silver Hand); object 177199"
+  - id: tirisfal-glades-bulwark
+    tier: off
+    creature: 11608   # Bardu Sharpeye, dump 26.8, 58.9 on the Plaguelands' map; Wowhead 83.2, 71.6 here
+    found: target   # in the camp: only by speaking to him
+    hint_area: { x: 83.0, y: 71.0, r: 3 }
+    danger: "Quiet"
+    sources: "the dump's spawn and his words"
 quarry:
   id: 10357   # Ressan the Needler
   sources: "the WoWWiki archive's Ressan the Needler and Nightmare Vale pages (its colours, the vale's past); the dump's spawn"
@@ -107,6 +114,15 @@ Do there what he taught a kingdom to do, if the Crusade lets you.
 ? South-west of the Scarlet Monastery, where its fallen come back.
 = Faol's Rest, in sight of the zealots who claim his Light.
 + Stormwind remembers him too: a plaque in its cathedral calls him the 'benevolent patron of the Church of Light', who began his work in Stratholme and raised the funds to rebuild Stormwind after the Second War.
+
+## tirisfal-glades-bulwark
+In the Horde's camp at the Glades' eastern edge, where the plaguelands begin,
+a traveller makes ready for Hearthglen. He has heard of a great wizard there
+who made bows and guns for the Crusade, and of a weapon he finished before they killed him.
+Ask him about it.
+? The Bulwark, at Tirisfal's eastern edge.
+= Bardu Sharpeye, at the Bulwark: a wizard made the Crusade a remarkable weapon, he has heard, and the Crusade killed him for it.
++ At Chillwind, the Alliance's camp, a traveller tells the same story: 'Maybe they killed him to keep it a secret... or maybe they distrust the arcane that much.'
 
 ## quarry
 In the withered vale of the south-west, where darkhounds and great bats
