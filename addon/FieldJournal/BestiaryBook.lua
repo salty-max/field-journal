@@ -261,7 +261,7 @@ local function showCreature(id)
   local lv = levels(id, rec)
   local figures = { { tostring(rec.slain or 0), "slain" } }
   if lv then table.insert(figures, { (lv:gsub("^levels? ", "")), lv:find("^levels") and "levels" or "level" }) end
-  if rec.first and rec.first.level then table.insert(figures, { tostring(rec.first.level), "your level when met" }) end
+  if rec.first and rec.first.level then table.insert(figures, { tostring(rec.first.level), "met at level" }) end
   table.insert(figures, { tostring(#items), #items == 1 and "spoil" or "spoils" })
   page:stats(figures)
   page:model((D.models and D.models[id]) or rec.display)

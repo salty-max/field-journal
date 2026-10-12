@@ -1556,6 +1556,25 @@ fishing = false
 check(rowNamed("Winter Squid"), "a new catch shows in the open tab at once")
 rowNamed("Winter Squid").scripts.OnClick(rowNamed("Winter Squid"))
 check(fpage.sub.text == "A fish of the waters  -  only in winter", "… a seasonal one says its season")
+-- A character who never fished: the Fish tab is empty, never its herbs.
+do
+  local caught = FieldJournalChar.fish
+  FieldJournalChar.fish = nil
+  clickTab(ns.TAB.plants)
+  clickTab(ns.TAB.fish)
+  check(
+    fpage.title.text == "The catch so far"
+      and FieldJournalFrame.count.text == "0 kinds of fish, 0 caught"
+      and not rowNamed("Peacebloom")
+      and not rowNamed("Stranglekelp"),
+    "a character with herbs and no fish: the Fish tab shows no herb"
+  )
+  FieldJournalChar.fish = { [6291] = caught[6291] }
+  clickTab(ns.TAB.plants)
+  clickTab(ns.TAB.fish)
+  check(FieldJournalFrame.count.text == "1 kind of fish, 1 caught", "… one kind is one kind")
+  FieldJournalChar.fish = caught
+end
 clickTab(ns.TAB.bestiary)
 check(not fpage.shown and FieldJournalPage.shown, "the Bestiary tab hides them again")
 FieldJournalFrame:Hide()

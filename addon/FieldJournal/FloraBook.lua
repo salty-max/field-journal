@@ -47,11 +47,23 @@ local function rankOf(skill)
   return name
 end
 
+-- (each tab its own records and data, never the other's: a character who
+-- never fished has no fish table, and "fish and c.fish or c.plants" would
+-- show its herbs as catches)
 local function records()
   local c = ns.journal()
-  return (mode == "fish" and c.fish or c.plants) or {}
+  if mode == "fish" then return c.fish or {} end
+  return c.plants or {}
 end
-local function info(id) return mode == "fish" and F.fish[id] or F.herbs[id] end
+local function info(id)
+  if mode == "fish" then return F.fish[id] end
+  return F.herbs[id]
+end
+-- "1 kind of fish, 1 caught", "3 herbs, 5 taken"
+local function counted(kinds, total)
+  if mode == "fish" then return ("%d %s of fish, %d caught"):format(kinds, kinds == 1 and "kind" or "kinds", total) end
+  return ("%d %s, %d taken"):format(kinds, kinds == 1 and "herb" or "herbs", total)
+end
 -- A kind's name: the game's (a weighed catch: the data's, as the game has none).
 local function name(id)
   local d = info(id)
@@ -230,11 +242,7 @@ local function showOverview()
   local recs = records()
   local kinds, total = totals(recs)
   if mode == "fish" then
-    page:start(
-      "The catch so far",
-      ("%d kinds of fish, %d caught"):format(kinds, total),
-      ui.icon("Interface\\Icons\\Trade_Fishing")
-    )
+    page:start("The catch so far", counted(kinds, total), ui.icon("Interface\\Icons\\Trade_Fishing"))
     if kinds == 0 then
       page:paragraph(
         "Nothing caught yet. Every fish you land is written down here, with where and when it bit.",
@@ -261,11 +269,7 @@ local function showOverview()
       end)
     end
   else
-    page:start(
-      "The herbs so far",
-      ("%d herbs, %d taken"):format(kinds, total),
-      ui.icon("Interface\\Icons\\INV_Misc_Herb_07")
-    )
+    page:start("The herbs so far", counted(kinds, total), ui.icon("Interface\\Icons\\INV_Misc_Herb_07"))
     if kinds == 0 then
       page:paragraph(
         "No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given.",
@@ -290,10 +294,7 @@ end
 local function refresh()
   local recs = records()
   local kinds, total = totals(recs)
-  book.count:SetText(
-    mode == "fish" and ("%d kinds of fish, %d caught"):format(kinds, total)
-      or ("%d herbs, %d taken"):format(kinds, total)
-  )
+  book.count:SetText(counted(kinds, total))
   refreshList()
   if current[mode] and recs[current[mode]] then
     showKind(current[mode])
