@@ -153,8 +153,7 @@
   "undercity-bethor": {"zone": 1458, "of": "creature:1498", "hint": [83.9, 19.4, 4], "name": "Bethor Iceshard", "npc": 1498, "spots": [[84.07, 17.45]], "r": 10},
   "undercity-kelthuzad-book": {"zone": 1458, "of": "object:175754", "hint": [52.5, 49.6, 8], "name": "Kel'Thuzad and the Forming of the Scourge", "spots": [[56.21, 50.97]], "r": 10},
   "undercity-terenas": {"zone": 1458, "of": "object:175659", "hint": [68.6, 40.9, 8], "name": "Here Lies King Terenas Menethil II", "spots": [[65.98, 43.85]], "r": 10},
-  "ungoro-crater-linkens-raft": {"zone": 1449, "of": "object:161505", "hint": [62.3, 64.7, 8], "name": "A Wrecked Raft", "spots": [[63.02, 68.6]], "r": 10},
-  "ungoro-crater-ringo": {"zone": 1449, "of": "creature:9999", "hint": [53.7, 48.0, 5], "name": "Ringo", "npc": 9999, "spots": [[51.9, 49.85]], "r": 10},
+  "ungoro-crater-simone": {"zone": 1449, "of": "creature:14527 found:target", "hint": [35.0, 45.0, 5], "name": "Simone the Inconspicuous", "npc": 14527},
   "western-plaguelands-chillwind": {"zone": 1422, "of": "creature:11609 found:target", "hint": [43.5, 83.0, 3], "name": "Alexia Ironknife", "npc": 11609},
   "westfall-aegwynn": {"zone": 1436, "of": "object:175738", "hint": [60.1, 31.9, 8], "name": "Aegwynn and the Dragon Hunt", "spots": [[56.46, 30.16]], "r": 10},
   "westfall-coffin-tree": {"zone": 1436, "of": "creature:572", "hint": [42.5, 31.0, 4], "name": "Leprithus", "spots": [[41.67, 29.33]], "r": 12},
@@ -204,7 +203,7 @@
   "1446": {"id": 8201, "name": "Omgorn the Lost", "haunts": [[39.9, 54.4, 7.0], [45.1, 64.2, 8.2]]},
   "1447": {"id": 6118, "name": "Varo'then's Ghost", "haunts": [[15.6, 71.4, 8.0]]},
   "1448": {"id": 7137, "name": "Immolatus", "haunts": [[42.6, 40.4, 10.1], [41.6, 55.0, 3], [48.9, 36.6, 3]]},
-  "1449": {"id": 9622, "name": "U'cha", "haunts": [[68.4, 13.3, 3]]},
+  "1449": {"id": 6584, "name": "King Mosh", "haunts": [[32.1, 34.2, 8.9], [31.4, 45.7, 7.1], [37.2, 29.0, 9.3], [38.5, 44.4, 8.1]]},
   "1451": {"id": 15541, "name": "Twilight Marauder Morna", "haunts": [[57.7, 18.5, 9.1], [63.0, 30.3, 7.6], [59.0, 42.8, 10.1], [53.3, 55.6, 7.0], [44.2, 63.2, 7.0], [39.8, 76.6, 5.8]]},
   "1452": {"id": 10806, "name": "Ursius", "haunts": [[62.1, 29.7, 7.9], [63.2, 23.0, 6.2], [65.8, 37.8, 3]]}
  },

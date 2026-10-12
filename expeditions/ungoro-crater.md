@@ -6,42 +6,29 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: ungoro-crater-ringo
+  - id: ungoro-crater-simone
     tier: off
-    creature: 9999   # Ringo, dump 51.9, 49.8; Wowhead 52.0, 50.0 (he walks only when escorted)
-    hint_area: { x: 53.7, y: 48.0, r: 5 }
-    danger: "Perilous (fire elementals)"
-    sources: "quest 4492; the Codex's fire-plume-ridge page"
-  - id: ungoro-crater-linkens-raft
-    tier: hidden
-    object: 161505   # dump 63.0, 68.6; Wowhead 63.1, 68.4
-    hint_area: { x: 62.3, y: 64.7, r: 8 }
-    danger: "Guarded"
-    sources: "quest 3844"
+    gestures: [WAVE, HELLO, GREET, SMILE]
+    creature: 14527   # Simone the Inconspicuous, with Precious (14528): from Golakka Hot Springs (dump 34.3, 40.8) south and back
+    found: target   # she keeps walking
+    hint_area: { x: 35.0, y: 45.0, r: 5 }
+    danger: "Deadly if provoked (she answers a blow with blows that fell a hero); otherwise quiet"
+    sources: "the dump's spawn, path and words; the client's display tables (a troll); the WoWWiki archive's Simone the Inconspicuous page (the succubus beneath, Precious, Fool's Plight)"
 quarry:
-  id: 9622
-  sources: "quest 4301 (Torwa Pathfinder)"
+  id: 6584   # King Mosh
+  sources: "the WoWWiki archive's King Mosh page (the infamous devilsaur of the north-west); the dump's path and respawn (48 to 72 hours)"
 ---
-## ungoro-crater-ringo
-On the burning ridge in the middle of the crater,
-an explorer who went to look at the volcano never came back
-to his friend at the refuge, who sent a canteen after him. Find him.
-? Fire Plume Ridge, in the middle of Un'Goro.
-= Ringo, lost on Fire Plume Ridge.
-+ 'Oh... I'm so glad someone found me...' Spraggle Frock, at Marshal's Refuge, had been worrying.
-
-## ungoro-crater-linkens-raft
-In the eastern marshes, a raft lies wrecked by a pond too small to sail,
-and the trees say the water does not always stand where it stands now.
-Whoever it belonged to forgot a great deal. Find the raft.
-? A pond in the Marshlands, in the east of Un'Goro.
-= A wrecked raft; at the bottom of the pond, a water-logged pack.
-+ It is Linken's, who lost his memory in the crater; 'It's a secret to everybody.'
+## ungoro-crater-simone
+By the hot springs in the crater's west, a troll woman walks with her wolf
+and finds everything lovely: the steam, the ferns, the beasts that would eat her.
+Be pleasant to her, and only pleasant.
+? Golakka Hot Springs, in western Un'Goro; she walks south from there and back.
+= Simone the Inconspicuous, with Precious, her wolf: 'What a wonderful day to be alive! Look at the beauty that surrounds you, friend.'
++ She is not what she seems: hunters on the trail of an ancient bow know her as Simone the Seductress, a succubus. Strike her as she is, and she answers with blows that fell a hero in one.
 
 ## quarry
-Among the gorillas of the crater's north, in their cave,
-lives a huge ape, greater than the rest.
-A hunter at the crater's mouth calls him one of the Earth Mother's greatest sons,
-and wonders whether you would survive him.
-= U'cha. Torwa Pathfinder, at the entrance of Un'Goro Crater, takes his pelt, and will defend your right to call yourself a great hunter.
-+ Torwa had never seen a greater ape: besting his strength, Torwa says, speaks well of your own.
+Between the river and the great lakes of the crater's north-west, the king of the devilsaurs walks,
+and the crater shakes for him.
+Bring him down, and two days at the least pass before another king walks there; three at the most.
+= King Mosh, the infamous devilsaur of Un'Goro's north-west.
++ Of all the crater's devilsaurs, he is the one they call king.
