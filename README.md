@@ -42,19 +42,31 @@ Warcraft: Forever, in one package: each game loads its own part.
 ## Develop
 
 ```bash
-bun run build      # content + data → Data_Classic.lua, Data_Forever.lua
-bun run check      # both up to date + simulation on both games
+bun run build      # content, atlas, notes, expeditions + data → Data_Classic.lua, Data_Forever.lua
+bun run check      # tests, lint, both up to date, the simulation on both games
 bun run package    # dist/FieldJournal-<version>.zip: one package for every game
+python3 scripts/expeditions.py   # after changing a riddle's spot or a quarry: data/expeditions.json
+scripts/release.sh [--version X.Y.Z] [--hold] NOTES.md   # tag and push; Actions publish it
+bun run kit:sync   # after changing the shared kit (~/code/addon-kit)
 ```
 
 Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned);
 rares by zone: `scripts/rare_zones.py` (the WoWWiki archive's list, spawn points
 otherwise); Forever's own rares: `scripts/forever_rares.py`
 ([AllTheThings](https://github.com/ATTWoWAddon/AllTheThings)' Forever database, MIT, pinned).
-Expeditions: `scripts/expeditions.py` (the CMaNGOS dump and Wowhead agreeing;
-on Forever's own Zephras Isle, the [QuestieDB](https://github.com/Questie/QuestieDB)
-traces of the beta, pinned, and Wowhead's Forever database agreeing).
-Families: `content/<type>/<family>.md` (rules + the naturalist's note).
+Fish and herbs: `scripts/flora.py`; zones and their places: `scripts/zones.py`.
+Families: `content/<type>/<family>.md` (rules + the naturalist's note); zones'
+surveyor's notes: `atlas/`; fish and herbs' notes: `notes/`.
+
+Expeditions: `expeditions/<zone>.md` (the riddles, their verses, hints, notes
+and margins, and the zone's quarry). `scripts/expeditions.py` places each
+riddle from the CMaNGOS dump and Wowhead agreeing (on Forever's own Zephras
+Isle, the [QuestieDB](https://github.com/Questie/QuestieDB) traces of the beta,
+pinned, and Wowhead's Forever database agreeing), and refuses a riddle that
+asks for a kill, a deed asked twice in a zone, or one on the road of
+Forever's new quests (AllTheThings and QuestieDB, pinned).
+`scripts/expeditions.ts` (for the build) checks the verses and writes the
+answers as fingerprints only. The rules and decisions: PLAN.md, "Expeditions".
 
 ## License
 
