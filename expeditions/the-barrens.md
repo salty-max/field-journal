@@ -62,7 +62,7 @@ and an ogre walks behind him, far too strong for these plains.
 Catch the peddler on the road.
 ? The road from Ratchet to the Crossroads; he walks it end to end.
 = Lizzarik, a goblin weapon dealer of Ratchet, walking the road to the Crossroads and back with Jorb, his ogre bodyguard.
-+ Jorb is of level thirty-seven, on a road walked at fifteen: nobody robs Lizzarik twice.
++ Jorb is of level thirty-seven, on a road most travellers walk at fifteen.
 
 ## the-barrens-tidus-stair
 South of the goblins' port, great steps of ancient stone come up out of the sea,
