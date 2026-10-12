@@ -26,14 +26,44 @@ is stamped with a seal and a picture of the moment.
 | Question | Decision |
 |---|---|
 | Where | The Field Journal, both halves: the riddles (first planned in the Codex, moved here: they are about exploring the land, the journal's purpose) and the hunts. No sixth addon. |
-| What the riddles target | The overlooked: props, graves, statues, plaques, books, peculiarities few players pay attention to; never a capital's front gate or a quest hub's obvious centre. Each holds a small story, true to the original game's lore. Only what the data pins down (below): a place nobody can locate for sure is no riddle. |
+| What the riddles target | The overlooked: props, graves, statues, plaques, books, peculiarities few players pay attention to; never a capital's front gate or a quest hub's obvious centre, and never what a quest already leads to (12 October, below). Each holds a small story, true to the original game's lore. Only what the data pins down (below): a place nobody can locate for sure is no riddle. |
 | Quality | Each riddle and poster thought through, one by one: fair, lore-true, worth the walk. |
 | How many | By the land's size, from the game's data (below): a zone's riddles by the places its map reveals, three in each capital, one in each faction town of a contested zone for that faction alone; one quarry in every zone that has rares. |
-| What the reader does | Varied, as the story calls for and never named: one of the client's emotes (kneel at a grave, mourn a fallen comrade, salute a hero, bow to kings, pray at a shrine, raise a toast at a brewery, sniff a suspicious barrel, peer across the water, sleep under the Dream's tree), a reading, the night; or simply being there. No gesture accepted by two riddles of a zone. |
+| What the reader does | Varied, as the story calls for and never named: one of the client's emotes (kneel at a grave, mourn a fallen comrade, salute a hero, bow to kings, pray at a shrine, raise a toast at a brewery, sniff a suspicious barrel, peer across the water, sleep under the Dream's tree), a reading, the night; or simply being there. A riddle accepts every gesture that means the same there, whatever its neighbours accept (12 October). |
 | Hints | Rewarded when not used: seals and a margin only the unaided read. |
 | The hunt's map | One quarry at a time is the target; only its haunts are shaded on the world map. |
 | Achievements | Mandatory. |
 | Pictures | Taken at the moment a riddle is solved (after its gesture, once the character is in it) and when a quarry is brought down; the postcards' technique, moved into the kit (`K.snapshot`) and shared with Hearthtale's postcards. |
+
+### Reworked (12 October 2026, the user's)
+
+A review of the 202 (by another model) found factual slips, too many riddles
+solved by arriving, and too many famous leaders; the user added: riddles and
+quarries are never tied to quests, or they are too obvious; don't rely on
+quest texts alone; search the web; cross-media lore is welcome when it is not
+anachronic to the original game or Forever. Every zone and capital rewritten:
+
+- **No quest leads there.** A riddle's subject is never a quest's target,
+  giver, ender, starting object, named destination or story (a keeper may
+  stand beside a quest's giver); a quarry is never a quest's target: a rare.
+  Class quests aside (a rogue's lockbox, a warlock's altar). Checked by name
+  as well as by id, a quest naming a place only in part ("the Cauldron",
+  "Mathystra") counting.
+- **Sources** beyond the quests: the dump's props, inscriptions, gossip and
+  scripted lines (broadcast texts), the WoWWiki archive (its later
+  expansions' lines set aside), Warcraft III, Lands of Conflict, the Warcraft
+  RPG, Chronicle for the old past, the client's display tables (who a keeper
+  is), and the data's own oddities (a respawn of two days, a fang that drops
+  as a dagger, a night-only ghoul).
+- **The note delivers a discovery**: what the world says once you are there
+  (Theresa, Gerard's mindslave; Winkey and the 'Winky' Oralius shouts at;
+  Ralo'shan, slain a hundred times).
+- **Fewer when the land has nothing untied to show**: a zone keeps one riddle
+  or none, a faction town loses its riddle. A keeper who walks is found by
+  targeting, placed by the path that crosses the hint circle.
+- **Counts after it**: 117 riddles (59 for both sides, 31 the Alliance's, 27
+  the Horde's: 90 for an Alliance reader, 86 for a Horde one) and the 38
+  quarries, every one a rare no quest names.
 
 ### How many
 
@@ -437,6 +467,7 @@ hunter / would know the hide, and wish its spirit peace.").
    or capital, named as the atlas's): all 202 riddles, each with its sources
    and where the data pins it (no estimate left), and Duskwood's quarry. The
    other quarries come with the hunts' pass.
+   Reworked the same night (above): 117 riddles and 38 quarries, none a quest's.
 
 ## Decisions (5 October 2026)
 

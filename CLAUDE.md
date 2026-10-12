@@ -42,8 +42,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   zone or capital, `riddles`: id, tier, `faction` for a town's, `gestures`
   (emote tokens) or `reading`, `night`, the spot: `object`, `creature`,
   `trigger` or `area` (with an `anchor` where the area has no map overlay),
+  `found: target` for a keeper met by speaking to it or one that walks,
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
-  rares, never a capital), then `## <id>` sections: the verse, `? ` the
+  rares, never a capital; never what a quest leads to, class quests aside:
+  PLAN.md, Reworked), then `## <id>` sections: the verse, `? ` the
   first hint, `= ` the note, `+ ` the margin; `## quarry`: its poster (verse,
   note, margin, no hint); plain ASCII.
   `scripts/expeditions.py` resolves the spots from the game's data into
