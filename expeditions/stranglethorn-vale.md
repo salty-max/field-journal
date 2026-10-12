@@ -6,12 +6,6 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: stranglethorn-vale-green-hills
-    tier: near
-    creature: 716   # Barnil Stonepot, dump 35.7, 10.5; Wowhead 35.6, 10.4
-    hint_area: { x: 37.0, y: 8.4, r: 5 }
-    danger: "Quiet"
-    sources: "quest 338; the Codex's nesingwarys-expedition page"
   - id: stranglethorn-vale-arena
     tier: near
     gestures: [CHEER, APPLAUD]
@@ -19,24 +13,20 @@ riddles:
     hint_area: { x: 30.0, y: 46.0, r: 7 }
     danger: "Perilous when the chest is down"
     sources: "the Codex's gurubashi-arena page"
-  - id: stranglethorn-vale-smotts-lifeboat
+  - id: stranglethorn-vale-booty-bay
+    tier: near
+    reading: Wrath of Soulflayer
+    object: 175856   # dump 27.8, 77.3, in Booty Bay
+    hint_area: { x: 27.0, y: 76.0, r: 4 }
+    danger: "Quiet"
+    sources: "object 175856's text"
+  - id: stranglethorn-vale-brutus
     tier: off
-    object: 2289   # dump 32.5, 82.0; Wowhead 32.4, 81.9
-    hint_area: { x: 36.5, y: 81.8, r: 8 }
-    danger: "Perilous (the giants)"
-    sources: "quests 615, 618, 619"
-  - id: stranglethorn-vale-kurzen
-    tier: off
-    area: Kurzen's Compound   # placed: the client's overlay: 45.4, 9.4
-    hint_area: { x: 44.0, y: 11.0, r: 8 }
-    danger: "Perilous (Kurzen's men)"
-    sources: "quest 202; the Codex's kurzen-rebellion page"
-  - id: stranglethorn-vale-poobah
-    tier: hidden
-    creature: 2634   # Princess Poobah, dump 38.5, 80.6; Wowhead 38.4, 80.6
-    hint_area: { x: 36.7, y: 82.3, r: 5 }
-    danger: "Perilous (King Mukla's gorillas)"
-    sources: "quests 594, 630"
+    gestures: [HAIL, SALUTE, WAVE]
+    creature: 2551   # Brutus, dump 32.9, 88.3, at the helm of the easternmost Bloodsail ship
+    hint_area: { x: 33.0, y: 86.0, r: 5 }
+    danger: "Perilous (the Bloodsail crews aboard, levels 40 to 45; deep water)"
+    sources: "the WoWWiki archive's Brutus and Ironpatch pages (the golem at Stillwater's helm; an orc of the Bloodsail); the dump's spawns"
   - id: stranglethorn-vale-emperors-tomb
     tier: hidden
     object: 54   # dump 24.7, 8.9; Wowhead 24.7, 9.0
@@ -53,23 +43,15 @@ riddles:
   - id: stranglethorn-vale-gromgol
     tier: town
     faction: horde   # its town's: for that faction alone
-    creature: 2497   # Nimboya, dump 32.2, 27.7; Wowhead 32.2, 27.8
-    hint_area: { x: 34.7, y: 27.2, r: 5 }
+    creature: 3149   # Nez'raz, Zeppelin Master, dump 31.4, 29.9, atop the tower
+    found: target   # in the town: only by speaking to him
+    hint_area: { x: 32.0, y: 28.0, r: 3 }
     danger: "Quiet"
-    sources: "quests 581, 592; the Codex's gromgol-base-camp page"
+    sources: "the dump's spawn and his words"
 quarry:
-  id: 731
-  sources: "quest 208 (Hemet Nesingwary)"
+  id: 14490   # Rippa
+  sources: "the WoWWiki archive's Rippa page (a frenzy with a name); the dump's paths (round the southern tip, into Booty Bay's harbour) and respawn (12 to 24 hours)"
 ---
-## stranglethorn-vale-green-hills
-At a famous hunter's camp in the north of the jungle,
-a dwarf was trusted to proofread his master's novel,
-and a gust of wind scattered the pages all over the jungle.
-Find the camp, and the dwarf who is still sorry.
-? Nesingwary's Expedition, in the north of Stranglethorn.
-= Barnil Stonepot, proofreader of The Green Hills of Stranglethorn.
-+ 'It shouldn't be long now until we see Master Nesingwary's book in libraries throughout the world!'
-
 ## stranglethorn-vale-arena
 In the middle of the jungle, a great stone ring the trolls built for blood sports
 still fills with fighters: goblins and pirates run it now,
@@ -79,32 +61,22 @@ Be a crowd for them.
 = The Gurubashi Arena.
 + Short John Mithril keeps the contests; the fighting outlived the Gurubashi.
 
-## stranglethorn-vale-smotts-lifeboat
-On the wild shore, a captain's old lifeboat lies on the sand.
-Giants smashed the ship, and one of them went straight for the galley:
-he was hungry for wine and barbecued wings, not for the crew.
-Find the boat he can be lured to.
-? The Wild Shore, south-east of Booty Bay.
-= Captain Smotts' lifeboat. Negolash still remembers the galley.
-+ The captain lost a second ship, Smotts' Revenge, and a second crew to the same giants, and got the cutlass back only from Negolash.
+## stranglethorn-vale-booty-bay
+In the pirates' port at the jungle's tip, a history tells how the trolls of this jungle
+bargained with a god of blood and fed him souls, then turned on him,
+and drove the priests who kept faith with him north into the swamps.
+? Booty Bay.
+= Wrath of Soulflayer, in Booty Bay: Hakkar, the blood god the Gurubashi served and then cast out.
++ The Darkspear were among the tribes that went their own way after that war; and some spoke of a prophecy, that Hakkar would one day be reborn and consume the world whole.
 
-## stranglethorn-vale-kurzen
-In the north of the jungle, a colonel came with a soldier's good name
-and changed in the trees, until his men were loyal to him alone
-and hunted with a cruelty their old comrades could not stomach.
-Find his compound.
-? Kurzen's Compound, in the north-east of Stranglethorn.
-= Kurzen's Compound. The rebels who would not follow him hold a camp to the north.
-+ 'None had the cruel intellect of Kurzen,' says Lieutenant Doren, whose rebels he hunted.
-
-## stranglethorn-vale-poobah
-A message in a bottle washed ashore, in fairly good handwriting:
-a princess held captive on an island in the southern sea,
-who sees the wild shore to the north-west on the clearest days.
-Find its author.
-? Jaguero Isle, off Stranglethorn's south coast.
-= Princess Poobah, held in chains by King Mukla.
-+ 'If it was within my power, I would offer you a place among my tribe.' King Mukla commands the beasts of the island.
+## stranglethorn-vale-brutus
+Off the jungle's southern tip, the pirates of the Bloodsail ride at anchor,
+and at the wheel of the easternmost ship stands no pirate at all,
+but a thing of iron that does not sleep.
+Give the helmsman a sailor's greeting.
+? Out at sea, south-east of Booty Bay, aboard the Bloodsail fleet.
+= Brutus, a golem, at the helm of the easternmost ship of the Bloodsail fleet, Captain Stillwater's.
++ On the next ship west, an orc called Ironpatch sails with the Bloodsail too: the Buccaneers take their crews where they find them.
 
 ## stranglethorn-vale-emperors-tomb
 In the north-western ruins of the troll empire that ruled the south
@@ -123,18 +95,16 @@ and carved a prayer on it for the power to beat the blood god once more.
 + The Zandalar seldom intervene in other peoples' affairs; Hakkar's return brought them to Yojamba.
 
 ## stranglethorn-vale-gromgol
-In the Horde's stockade on the northern coast, a troll sent back from the city
-searches for his chief's youngest son, given to the old empire by custom
-and lost when the tribe left with the young warchief.
-Find him.
-? Grom'gol Base Camp.
-= Nimboya, of the Darkspear.
-+ Yenniku is held by Zanzil the Outcast at the Ruins of Aboraz; freed, his tale will be etched in stone 'so that it will live forever'.
+At the top of the Horde's tower in the jungle, a goblin sees the airships off to Orgrimmar,
+and has been left at the wrong end of the route.
+He would give a great deal for a decent meal from home. Ask him.
+? Grom'gol Base Camp, at the top of the zeppelin tower.
+= Nez'raz, Zeppelin Master at Grom'gol: his brother talked him into the trade route, and left him the jungle end of it.
++ 'If you come back this way on the Zeppelin, could you bring me something to eat? ... I sure could use something that didn't die weeks before it stopped moving.'
 
 ## quarry
-A hunter who has followed game from Lordaeron's battlefields
-to the deepest jungle keeps a camp in the north of the vale
-for one prize above all: a great white tiger, a king among cats.
-It waits in the jungle's heart, among the old troll ruins.
-= King Bangalash, the great white tiger. Hemet Nesingwary wants his head, and the hunting party will count you among them.
-+ He is the reason Nesingwary came to Stranglethorn; Sin'Dall, Bag'thera and Tethis were only on the way to him.
+In the warm shallows round the jungle's southern tip, the frenzies are many and small,
+and one of them is big enough to have a name.
+It swims the coast, and now and then into the pirates' harbour itself.
+= Rippa, a frenzy of the shore around Booty Bay: a fish with a name, of all things.
++ Kill it, and half a day to a whole day passes before it swims again.
