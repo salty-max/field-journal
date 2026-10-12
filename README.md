@@ -1,74 +1,94 @@
 # Explorer's Field Journal: Expeditions, Bestiary & Atlas
 
-A World of Warcraft addon: **an Explorers' League field journal that fills in
-as you travel, with riddles in its margins.** The first book is the
-**Expeditions**: riddles that lead you to the world's overlooked corners (a
-grave beside a path, a statue nobody explains, a book left on a shelf) and,
-in each land with rare creatures, a quarry to hunt. Then the **Bestiary**:
-every creature you meet, slay and loot, sorted into families, each with a
-League naturalist's note; **Fish** and **Plants** (every catch and every herb,
-each with a note), the **Atlas** (places, roads, flights, deaths) and the
-**Milestones**.
+Explorer's Field Journal gives you riddles to solve, rare creatures to hunt
+and a record of what you find along the way. Follow a clue to a forgotten
+grave, track down a rare you've never fought, or fill in your bestiary while
+levelling. Notes from an Explorers' League naturalist accompany your finds.
 
-For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of
-Warcraft: Forever, in one package: each game loads its own part.
+For Classic Era, Hardcore, Season of Discovery, TBC Anniversary and World of
+Warcraft: Forever. One download covers all of them.
 
-## In game
+## What's in the journal
 
-- 106 riddles in the zones, capitals and faction towns (Zephras Isle adds four
-  on Forever), each solved where it leads: by being there, by a gesture the
-  verse hints at, or by reading what is written there; never a kill, never
-  where a quest already sends you. Two hints, each asked for, and a seal
-  (gold without one). 38 quarries, rares no quest names, each on a poster;
-  tracked, its haunts are shaded on the world map. A riddle or a quarry can
-  be pinned to the screen.
-- Slay a creature of the wild and it joins the journal, with its level and
-  where you first saw it, and a chat line links to its entry (no sound, no
-  banner). Your kills and your pet's count however they were dealt: a DoT,
-  an area spell, a creature you never targeted.
-- Slain counts, loot taken from each kind of creature, and trophies for rares
-  and bosses (with a sound). On Forever, creatures inside dungeons and raids
-  are hidden from every addon: they can't be recorded there.
-- `/journal` (or `/fj`, or the book by the minimap) opens the book at the
-  Expeditions. Its Bestiary: creature types and the families you've met, a
-  page per family with the naturalist's note and a card per creature, a page
-  per creature: the creature turning in its frame, its levels, where you met
-  it, how many you've slain and what it dropped. Search, folding, trophies.
-  No spoilers: only what you've slain.
-- Tooltips say "not yet recorded" or how many you've slain.
-- Settings: Options → AddOns → Explorer's Field Journal (`/journal settings`).
-  `/journal reset` starts a character's journal over.
+- **Expeditions.** 106 riddles and 38 rare hunts across the original world.
+  Forever adds four riddles and a hunt on Zephras Isle. Riddles lead to
+  overlooked places and are solved by reaching a spot, reading something or
+  working out a gesture from the verse. They never require a kill.
+- **Bestiary.** Around 3,500 creatures in 96 families, each with a
+  naturalist's note. Creature pages keep your first sighting, observed levels,
+  kill counts, loot and drop rates. Rares and bosses become trophies.
+- **Fish and Plants.** Your catches and herbs, with notes on all 39 fish and
+  30 herbs, and records of where you found them.
+- **Atlas.** The zones you've visited, with maps, explored places, surveyor's
+  notes, flights, deaths and close calls.
+- **Milestones.** Achievements for exploring, completing expeditions,
+  collecting trophies, fishing and gathering.
 
-## Develop
+Each riddle has two optional hints: a clearer clue, then a location marked
+on the world map. Solve it without hints for a gold seal and an extra piece
+of the story. Rare hunts have posters describing the creature and its
+haunts. Track a hunt to mark those haunts on your map, or complete it without
+tracking for a gold seal. You can pin a riddle or a poster to your screen.
+
+Creatures join the Bestiary when you first kill them. Kills by you, your pet
+or your group count, including damage over time and area spells. A tagged
+creature finished by another player also counts when your quest credits
+the kill. A chat link announces each new creature, without a banner or sound.
+Rares and bosses have a trophy sound.
+
+Search by family or creature name, sort your records and browse trophies.
+Tooltips show whether you've recorded a creature and how many you've killed.
+Each character has its own journal. Undiscovered creatures stay hidden,
+with no count showing how many remain.
+
+Forever hides creatures inside dungeons and raids from addons, so the
+journal cannot record them there.
+
+## Opening the journal
+
+Type `/journal` or `/fj`, or click the minimap button. The book opens on
+Expeditions. Settings are under **Options > AddOns > Explorer's Field
+Journal**, or `/journal settings`.
+
+- `/journal welcome` reopens the welcome page.
+- `/journal where` shows your current map and position.
+- `/journal minimap` shows or hides the minimap button.
+- `/journal export` and `/journal import CODE` transfer settings.
+- `/journal reset` clears this character's journal after confirmation.
+
+The full store description is in [addon/CURSEFORGE.md](addon/CURSEFORGE.md).
+[PLAN.md](PLAN.md) records the design decisions and expedition rules.
+
+## Development
 
 ```bash
-bun run build      # content, atlas, notes, expeditions + data → Data_Classic.lua, Data_Forever.lua
-bun run check      # tests, lint, both up to date, the simulation on both games
-bun run package    # dist/FieldJournal-<version>.zip: one package for every game
-python3 scripts/expeditions.py   # after changing a riddle's spot or a quarry: data/expeditions.json
-scripts/release.sh [--version X.Y.Z] [--hold] NOTES.md   # tag and push; Actions publish it
-bun run kit:sync   # after changing the shared kit (~/code/wow-addons/addon-kit)
+bun run build      # Build Data_Classic.lua and Data_Forever.lua
+bun run check      # Run tests, Lua checks, data checks and both game simulations
+bun run package    # Create dist/FieldJournal-<version>.zip
+python3 scripts/expeditions.py   # Update locations after changing a riddle or hunt
+bun run kit:sync   # Copy the shared kit from ../addon-kit
+scripts/release.sh [--version X.Y.Z] [--hold] NOTES.md   # Tag and publish a release
 ```
 
-Creature data: `scripts/creatures.py` (the CMaNGOS Classic database, pinned);
-rares by zone: `scripts/rare_zones.py` (the WoWWiki archive's list, spawn points
-otherwise); Forever's own rares: `scripts/forever_rares.py`
-([AllTheThings](https://github.com/ATTWoWAddon/AllTheThings)' Forever database, MIT, pinned).
-Fish and herbs: `scripts/flora.py`; zones and their places: `scripts/zones.py`.
-Families: `content/<type>/<family>.md` (rules + the naturalist's note); zones'
-surveyor's notes: `atlas/`; fish and herbs' notes: `notes/`.
+Family notes and matching rules live in `content/<type>/<family>.md`.
+Surveyor's notes are in `atlas/`, fish and herb notes in `notes/`, and riddles,
+hints, notes and hunt posters in `expeditions/<zone>.md`.
 
-Expeditions: `expeditions/<zone>.md` (the riddles, their verses, hints, notes
-and margins, and the zone's quarry). `scripts/expeditions.py` places each
-riddle from the CMaNGOS dump and Wowhead agreeing (on Forever's own Zephras
-Isle, the [QuestieDB](https://github.com/Questie/QuestieDB) traces of the beta,
-pinned, and Wowhead's Forever database agreeing), and refuses a riddle that
-asks for a kill, a deed asked twice in a zone, or one on the road of
-Forever's new quests (AllTheThings and QuestieDB, pinned).
-`scripts/expeditions.ts` (for the build) checks the verses and writes the
-answers as fingerprints only. The rules and decisions: PLAN.md, "Expeditions".
+Creature data comes from the pinned CMaNGOS Classic database through
+`scripts/creatures.py`. `scripts/rare_zones.py` assigns rares to zones using
+the WoWWiki archive and spawn points. Forever rares come from
+[AllTheThings](https://github.com/ATTWoWAddon/AllTheThings) through
+`scripts/forever_rares.py`. Fish and herbs use `scripts/flora.py`, and zones
+use `scripts/zones.py`.
+
+`scripts/expeditions.py` checks locations against the CMaNGOS data and
+Wowhead. On Zephras Isle, it uses pinned
+[QuestieDB](https://github.com/Questie/QuestieDB) beta records and Wowhead's
+Forever data. It rejects riddles that require a kill, repeat a deed in the
+same zone or overlap Forever's new quests. `scripts/expeditions.ts` checks
+the verse during the build and stores answers as fingerprints.
 
 ## License
 
-[MIT](LICENSE): code and text. World of Warcraft is a trademark of Blizzard
-Entertainment, Inc. Not affiliated with Blizzard Entertainment.
+[MIT](LICENSE) for code and text. World of Warcraft is a trademark of
+Blizzard Entertainment, Inc. Not affiliated with Blizzard Entertainment.

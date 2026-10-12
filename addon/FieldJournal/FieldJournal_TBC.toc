@@ -1,6 +1,6 @@
 ## Interface: 20506
 ## Title: Explorer's Field Journal
-## Notes: Riddles that lead you to the world's overlooked corners, rare quarries to hunt, and a bestiary, an atlas and your fish and herbs, filled in as you travel.
+## Notes: Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish and herbs you find.
 ## Category: Achievements
 ## Author: salty-max
 ## Version: 0.7.5

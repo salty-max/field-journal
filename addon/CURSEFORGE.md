@@ -7,85 +7,95 @@ Explorer's Field Journal). -->
 
 <!-- Summary (the project's summary on CurseForge and Wago, the TOCs' Notes,
 and the siblings' pages):
-Riddles that lead you to the world's overlooked corners, rare quarries to hunt, and a bestiary, an atlas and your fish and herbs, filled in as you travel. -->
+Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish and herbs you find. -->
 
 <!-- GitHub (the repository's description):
-World of Warcraft addon for Classic Era, TBC Anniversary and Forever: riddles that lead you to the world's overlooked corners, rare quarries to hunt, and a bestiary, an atlas and your fish and herbs, filled in as you travel. -->
+Exploration riddles and rare hunts for WoW, with a bestiary, an atlas and a record of the fish and herbs you find. -->
 
-**Riddles that lead you to the corners of the world most travellers walk past, rare quarries to hunt, and a journal that fills in as you travel: every creature you slay, every land you cross, every fish and herb you take.** A naturalist of the Explorers' League has left you a field journal, and a set of riddles in its margins: a grave beside a path, a statue nobody explains, a book left on a shelf. Find them, and the journal tells you what you found.
+Explorer's Field Journal gives you riddles to solve, rare creatures to hunt and a record of what you find along the way. Follow a clue to a forgotten grave, track down a rare you've never fought, or fill in your bestiary while levelling. The journal keeps your discoveries, with notes from an Explorers' League naturalist.
 
-For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever. A companion to [Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex), in the same League's hand, and a sibling of [Hearthtale](https://www.curseforge.com/wow/addons/hearthtale): the three share one look, each in its own colours, and each stands alone.
-
-## What's inside
-
-- **106 riddles and 38 quarries**: the land's overlooked corners, from Dun Morogh to Silithus, each solved where it leads and sealed in gold if you need no hint; and in each land with rare creatures, a quarry to hunt from its poster. Forever adds Zephras Isle's own.
-- **Some 3,500 creatures in 96 families**: wolves, raptors and the great cats; kobolds, murlocs and the Defias; the dragonflights, the elementals, the Scourge, the Burning Legion, and every rare and boss of the original world, each family with a naturalist's note true to the lore of the original game.
-- **Your own record of each creature**: when and where you first met it, the levels it is found at, how many you have slain, what you took from it and how often it dropped, and the day you took its trophy.
-- **An Atlas** of every zone you enter, its places, roads, flights, deaths and close calls; **Fish and Plants**, every catch and every herb; and **Milestones** for all of it.
+For Classic Era (including Hardcore and Season of Discovery), TBC Anniversary and World of Warcraft: Forever.
 
 ## Expeditions
 
-Riddles that send you to the corners of the world most travellers walk past: a grave beside a path, a statue nobody explains, a book left on a shelf, a keeper few stop to talk to. Never where a quest already sends you: the zones, the capitals and the faction towns each keep what they have to show, 106 in all, every one true to the original game's lore and placed from the game's own data. On Forever, Zephras Isle adds four of its own and its quarry.
+There are **106 riddles and 38 rare hunts** across the original world. Forever adds four riddles and a hunt on Zephras Isle.
 
-- A riddle is solved where it leads, on foot and outside combat, and never asks for a kill. Some ask only that you get there; some ask you to read what is written there; some ask something of you, as the story would, and the verse never says what: you guess, as someone who knew the story would.
-- Two hints for each, asked for: a plainer clue, then its place shaded on your world map. Solved from the verse alone, a riddle earns the gold seal and opens its margin, one more page of its story; the clue costs the gold, the map the silver.
-- And a hunt in each land with rare creatures: a rare no quest sends you after (Humar the Pridelord, Broken Tooth, Rak'shiri, King Mosh, Vultros...), 38 in all, each on a poster of its haunts and habits. Track it, and its haunts are shaded on your world map; bring it down without, and it earns the gold seal.
-- The Expeditions tab, the book's first, lists the zones you have entered and your faction's own capitals: each zone's riddles and quarry on its map, each riddle's verse, its danger, its hints, and once solved what it led to (often its keeper's face), its seal as a medal on it and the naturalist's note; and each quarry's poster, its shape in the frame until you bring it down, then the creature itself, turning.
-- Pin a riddle or a quarry to your screen: a small card you drag where you like and close when you are done, with its verse and the hints you took.
-- An alert for each riddle solved and each quarry brought down, beside the milestone's when one comes with it.
-- `/journal where` tells the map you are on and your position on it.
+The riddles lead to overlooked statues, books on shelves, graves beside the road and people few players stop to speak to. Some are solved by reaching the right spot. Others ask you to read something or work out a gesture from the verse. Riddles are solved on foot and outside combat, and never require a kill.
+
+Each has two optional hints. The first makes the clue clearer. The second shades the location on your world map. Solve it without hints to earn a gold seal and unlock an extra piece of the story. The first hint costs the gold seal, and the map hint costs the silver.
+
+Rare hunts have posters describing creatures such as Humar the Pridelord, Broken Tooth, Rak'shiri, King Mosh and Vultros. You can track a hunt to mark the creature's haunts on the map, or find and defeat it without tracking to earn a gold seal.
+
+The **Expeditions** tab opens first. It shows the zones you've visited and your faction's capitals, with maps, riddles and hunt posters. Solved riddles reveal a note about what you found. Pin a riddle or a poster to your screen if you want to keep it beside you while exploring. Solving a riddle or completing a hunt brings an alert.
 
 ## The Bestiary
 
-- A creature joins your journal the first time you slay it, with where you first saw it and its levels. Only creatures you can fight are kept: no town folk, no critters.
-- Each new creature is announced by a line in chat, with a link to its page. No banner, no sound: the journal stays out of your way.
-- Kills count when you, your pet or your group land them, however they were dealt: a DoT, an area spell, a creature you never targeted. A creature you tagged that another player finished counts too, when a quest of yours counts it. Rares and bosses become trophies, with a sound.
-- On World of Warcraft: Forever, creatures inside dungeons and raids are hidden from every addon by the game: they can't be recorded there.
-- Each character keeps its own journal.
-- Tooltips say when a creature is not yet in your journal, or how many you have slain.
-- A spoil's drop rate counts the kills whose corpse you looted or found empty (a corpse left where it fell counts for nothing, nor a second look at one, skinning say); in a group, only the corpses you looted. It counts from version 0.7.5 on.
-- `/journal` (or `/fj`), or the book by the minimap, opens the book; its Bestiary tab has the creature types on the left, their families and the creatures in each; on the right, a family's note and a card for each creature met, or a creature's page: its figures, the creature itself turning in its frame, your record of it and what it gave you, with how often it dropped.
-- Search by family or creature name; types and families fold; sort a family's creatures by name, the most slain, the last slain or the order you met them.
-- A Trophies page for the rares and bosses you have brought down.
-- No spoilers: only what you have slain is listed, and nothing says how much remains.
+The Bestiary covers **around 3,500 creatures in 96 families**, from wolves and murlocs to the dragonflights, the Scourge and the Burning Legion. Each family has a naturalist's note about its creatures and their place in the world.
+
+A creature joins the book when you first kill it. Its page keeps your first sighting, the levels you've seen, your kill count, its loot and your observed drop rates. Rares and bosses become trophies, with a sound when you defeat them.
+
+Kills by you, your pet and your group count, including damage over time and area spells. A creature you tagged and another player finished also counts when one of your quests credits the kill. Friendly townsfolk and critters are left out.
+
+New creatures get a chat link to their page, without a banner or sound. Tooltips show whether you've recorded a creature and how many you've killed. Each character keeps its own journal, and undiscovered creatures are hidden with no total showing how many remain.
+
+Browse by creature type and family, search by name, or sort a family's creatures by name, kill count, most recent kill or first discovery. Creature pages include a rotating model and your loot history. The **Trophies** page gathers the rares and bosses you've defeated.
+
+Drop rates use corpses you looted or found empty, starting with version 0.7.5. Unlooted corpses and repeat visits, including skinning, do not count. In groups, the calculation only uses corpses you looted.
 
 ## Fish and Plants
 
-Two tabs for what the land and the water give. **Fish**: every catch, with where and when it bit, by day or by night, from a school or open water, and for the weighed catches (the 32 Pound Catfish...) the heaviest you landed. **Plants**: every herb that reaches your bags, gathered from its node, looted, bought or given. Each of the 30 herbs and 39 fish has a naturalist's note (where it grows or bites, what it is used for), and its page gives your figures and says where it is found once you have found it (each zone opens its Atlas page). Each zone's Atlas page shows what grows and bites there.
+The **Fish** tab records your catches, where and when you caught them, whether you fished from a school or open water, and your heaviest catch for fish that come in different weights.
+
+The **Plants** tab records herbs that reach your bags, whether gathered, looted, bought or given to you. All 30 herbs and 39 fish have naturalist's notes about where to find them and what they're used for.
+
+Each page shows your records and the zones where you've found that fish or herb. Click a zone to open its Atlas page.
 
 ## The Atlas
 
-Another book in the same journal: every zone you have entered, by continent (all of them, or one at a time), and how many of its places you have explored (filled in from the map you had already uncovered). Each zone has its page: a note by the League's surveyor (roads, water, dangers), its figures, the zone's own map with the parts you have explored and the places you died or came close, the places you found (click one to outline it on the map), its expedition, the herbs and fish you found there, and your record of it: first visit, deaths, close calls, flights. The travels page sums up every land and the places you found lately. Your deaths and close calls also show on the game's world map (a setting).
+The Atlas keeps a page for every zone you enter. Each has a surveyor's note about the terrain, roads and dangers, a map showing your explored areas, and a record of your first visit, flights, deaths and close calls.
+
+It picks up areas you've already uncovered on the game map. Click a discovered place to highlight it, look up the zone's expedition, or see the herbs and fish you've found there. Browse by continent or open the travels page for an overview of your recent discoveries.
+
+Deaths and close calls can also be marked on the game's world map. You can turn those markers off in the settings.
 
 ## Milestones
 
-The last tab: tallies (kinds recorded, families, creatures slain, trophies), every family of a type, feats (Hogger's End, You No Take Candle, The Emerald Nightmare, The Firelord Falls...), the rares of each zone, for the Atlas: every place of a zone explored, every zone of a continent, flights, crossings and close calls survived; and for fishing and herbs: kinds and counts, Nat Pagle's four rare fish, a school of each kind, both seasons, Nightfin by night and Sunscale by day, the Black Lotus, every fish of a continent's waters, every herb of a zone; and for the expeditions: the first riddle and the first quarry, each zone's riddles and quarry, the roads, the byways and the hidden places of a continent, the gold seals, the quarries brought down untracked, every riddle that asks a gesture or a reading. Earned like the game's achievements, with its alert, its fanfare and a line in chat, and each remembers the day and the level you earned it.
+The **Milestones** tab rewards progress throughout the journal. These include creature and trophy counts, completing families, defeating a zone's rares, exploring every part of a zone, and fishing and gathering goals.
 
-## Every game, one download
+There are feats for Hogger, the Emerald Nightmare and the Firelord, for Nat Pagle's rare fish and Black Lotus, and for solving expeditions with gold seals or completing hunts without tracking. Each milestone records the date and level you earned it, with an alert, a fanfare and a chat message.
 
-The same file for Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Warcraft: Forever: each game loads its own part.
+## Compatibility
 
-On World of Warcraft: Forever, the Atlas holds Zephras Isle, and each zone's milestones count Forever's new rares. Forever closes the combat log to addons, so kills come from the game's own kill event.
+One download covers Classic Era, Hardcore, Season of Discovery, TBC Anniversary and World of Warcraft: Forever.
 
-## Settings
+Forever adds Zephras Isle to the Atlas, and its new rares count towards zone milestones. The game hides creatures inside Forever dungeons and raids from addons, so the journal cannot record them there.
 
-The first time each character logs in with the journal, a welcome page introduces it and offers its choices (`/journal welcome` shows it again). After that: Options → AddOns → Explorer's Field Journal (or `/journal settings`, or right-click the minimap button): chat announcements, the trophy sound, alerts (a milestone earned, a riddle solved, a quarry brought down), deaths and close calls on the world map, tooltip hints, the minimap button.
+## Settings and commands
 
-Settings are each character's own, as in most interface addons. A character can take another's: choose one of your characters of the same game from a list (on the welcome page or the Options page), or bring them from anywhere with a code: `/journal export` on one character, `/journal import CODE` on the other.
+Type `/journal` or `/fj`, or click the minimap button to open the journal. A welcome page appears once per character. Use `/journal welcome` to see it again.
 
-Other commands: `/journal reset` starts a character's journal over (it asks first); `/journal minimap` shows or hides the button; `/journal toast` shows a riddle's banner, as it would come.
+Settings are under **Options > AddOns > Explorer's Field Journal**, through `/journal settings` or by right-clicking the minimap button. Choose chat announcements, trophy sounds, alerts, map markers, tooltip hints and whether to show the minimap button.
 
-## Siblings
+Settings are saved per character. Copy them from another character of the same game on the welcome or settings page, or transfer them with `/journal export` and `/journal import CODE`.
 
-The same look, each in its own colours, and each stands alone:
+- `/journal where` shows your current map and position.
+- `/journal reset` clears this character's journal after confirmation.
+- `/journal minimap` shows or hides the minimap button.
+- `/journal toast` previews a riddle alert.
 
-- **[Hearthtale](https://www.curseforge.com/wow/addons/hearthtale)** ([Wago](https://addons.wago.io/addons/E6gzPnN1)). Your character's own journal, written as you play: a diary entry in their voice at each rest, and an epitaph if a Hardcore life ends.
-- **[Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex)** ([Wago](https://addons.wago.io/addons/j6jAL0NR)). The lore of Azeroth, written for you as you explore: each zone, figure of legend, people and quest you meet adds a page to your codex.
+## Other addons
+
+These share the Field Journal's book style and work independently:
+
+- **[Hearthtale](https://www.curseforge.com/wow/addons/hearthtale)** ([Wago](https://addons.wago.io/addons/E6gzPnN1)) writes a diary for your character as you play, with an epitaph when a Hardcore life ends.
+- **[Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex)** ([Wago](https://addons.wago.io/addons/j6jAL0NR)) unlocks lore pages as you explore Azeroth and meet its people.
 
 ## Support
 
-Explorer's Field Journal is free, and will stay free. If a riddle has taken you somewhere you would have walked past, you can say thanks with a coffee on [Ko-fi](https://ko-fi.com/salty_max): it helps the journal keep growing. Thank you for exploring.
+Explorer's Field Journal is free and will stay free. If you've enjoyed the riddles or found a new favourite spot, you can support work on the journal with a coffee on [Ko-fi](https://ko-fi.com/salty_max). Thank you.
 
 ## Source
 
-MIT licensed: [github.com/salty-max/field-journal](https://github.com/salty-max/field-journal). Creature data from the CMaNGOS project's Classic database; Forever's own rares from AllTheThings' Forever database. The expeditions' places from the same database and the game client's own tables, each checked against Wowhead's; Zephras Isle's from QuestieDB's traces of the Forever beta. Not affiliated with Blizzard Entertainment.
+MIT licensed: [github.com/salty-max/field-journal](https://github.com/salty-max/field-journal).
+
+Creature data comes from the CMaNGOS Classic database, with Forever rares from AllTheThings. Expedition locations use that database and the game client's tables, checked against Wowhead. Zephras Isle locations use QuestieDB's Forever beta records. Not affiliated with Blizzard Entertainment.
