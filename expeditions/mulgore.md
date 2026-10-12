@@ -35,8 +35,8 @@ the only place they have ever got into the tauren's land. Keep an eye out for th
 + North, beyond Bloodhoof Village, the Golden Plains around the bluff are the most treasured of the tauren's hunting grounds.
 
 ## mulgore-three-hammers
-In the dwarves' quarry in the western cliffs, seek a war remembered in stone.
-Its account begins with three claimants to a throne
+In the dwarves' quarry in the western cliffs, seek their own account of a war.
+It begins with three claimants to a throne
 and ends with two kings beside a mountain road.
 ? The Bael'dun Digsite, in Mulgore's western cliffs.
 = War of the Three Hammers, at the Bael'dun Digsite: an outpost of the four hundred and fifty dwarves digging at Bael Modan. The tauren see the dig as an affront to the Earth Mother.

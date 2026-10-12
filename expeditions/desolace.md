@@ -27,7 +27,7 @@ quarry:
 ## desolace-tethris-aran
 North of the Burning Blade's fortress, the stones of an elven town lie scattered in the dust.
 No elf has lived there since the world broke;
-the beasts of the waste have it now. Give a thought to those who built these walls.
+the beasts of the waste have it now. Spare a moment for those who built these walls.
 ? Tethris Aran, in the north of Desolace.
 = Tethris Aran: the ruins of a night elf town in the north of Desolace; only beasts live there now.
 + Further east, the satyrs hold another such ruin, and have named it Sargeron, for their master.

@@ -41,7 +41,7 @@ too big and too tireless for any scholar to explain. Find it.
 ## ironforge-tyrannistrasz
 In the hall where the explorers display their finds, seek an enormous red dragon's skull.
 Its label remembers the Dragonqueen's elder consort
-and a battle fought far from this mountain.
+and a battle fought beyond the pass to the north.
 ? The Hall of Explorers.
 = The Skull of Tyrannistrasz.
 + Its remains were found in the Wetlands shortly after the Battle of Grim Batol, where the Dragonmaw had held Alexstrasza captive.

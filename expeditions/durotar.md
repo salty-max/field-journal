@@ -35,7 +35,7 @@ Pay him the respect his years have earned.
 + Harroc works the garden outside; Rokar keeps to the house, and to whatever he was before he was a farmer.
 
 ## durotar-tiragarde
-In the captured keep on the red coast, look for a people gathered to drink from one cup.
+In the retaken keep on the red coast, find the chieftains gathered to drink from one cup.
 One chieftain in the account will not join them.
 His son's new land lies outside these walls.
 ? South of Razor Hill, Kul Tiras still holds a keep on Durotar's shore.
