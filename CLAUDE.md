@@ -145,7 +145,8 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   quarry's poster, the creature turning in its frame), `ExpeditionsPin.lua`
   (a riddle or quarry pinned to the screen: a card to drag, closed by its
   cross), `Toasts.lua` (the kit's banners, among the game's alerts: a
-  milestone's, a riddle's (its seal a medal), a quarry's, each its own),
+  milestone's, a riddle's (its seal its ring: gold, silver, copper; iron
+  till solved), a quarry's, each its own),
   `MilestonesBook.lua` (the kit's board: figures on top, each group's
   picture and count, a medal on each one earned). Every page is made of the
   same parts (the kit's, shared by the family's books).

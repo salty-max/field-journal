@@ -225,6 +225,13 @@ local function ui()
       if k == "GetText" then
         return function(self) return rawget(self, "text") or "" end
       end
+      -- (a texture's tint and greying: a ring's colour)
+      if k == "SetVertexColor" then
+        return function(self, r, g, b) self.vertex = { r, g, b } end
+      end
+      if k == "SetDesaturated" then
+        return function(self, v) self.desaturated = v end
+      end
       if k == "GetStringHeight" then
         return function() return 14 end
       end
@@ -1980,9 +1987,13 @@ check(
   "a riddle's link opens its page: its verse, its answer, the gold seal, the note and the margin"
 )
 local header = FieldJournalExpeditionsPage.portrait
+local gold = ns.kit.RINGS.gold[1]
 check(
-  rawget(header.tex, "display") == nil and header.badge.shown and header.badge.tex.texture == ns.SEAL_ICON.gold,
-  "… its picture what it led to (a book read), the gold seal a medal on it, not in its place"
+  rawget(header.tex, "display") == nil
+    and not header.badge.shown
+    and header.ring.vertex[2] == gold[2]
+    and not header.ring.desaturated,
+  "… its picture what it led to (a book read), the gold seal its ring, no medal"
 )
 ns.openRiddle("duskwood-callahan")
 check(

@@ -35,6 +35,15 @@ local SEALS = {
   plain = { ns.SEAL_ICON.plain, "Plain", "with the map", { 0.8, 0.55, 0.35 } },
 }
 -- a quarry's: never tracked, tracked, or brought down before the journal kept the hunts
+-- A riddle's or a quarry's ring, by its seal, in place of a medal (the kit's
+-- tier rings): gold, silver, copper for the plain seal; iron while not done;
+-- the plain bronze for a quarry brought down before the journal kept hunts.
+local TIER_RING = { Gold = "gold", Silver = "silver", Plain = "copper" }
+local function ringOf(seal, done)
+  local R = ns.kit.RINGS
+  if not done then return R.iron end
+  return seal and R[TIER_RING[seal[2]]] or nil
+end
 local HUNT_SEALS = {
   gold = { SEALS.gold[1], "Gold", "never tracked", SEALS.gold[4] },
   plain = { SEALS.plain[1], "Plain", "tracked", SEALS.plain[4] },
@@ -355,12 +364,12 @@ local function sealBlock(seal, how, rec)
 end
 
 -- A riddle or the quarry as a card (a zone's page, the overview's): a click
--- opens it.
-local function placeCard(target, name, facts, picture, seal)
+-- opens it; its ring its seal's (done), iron till then.
+local function placeCard(target, name, facts, picture, seal, done)
   page:card(name, facts, picture, function()
     current = target
     ns.refresh()
-  end, seal)
+  end, nil, ringOf(seal, done))
 end
 
 -- A creature's still portrait, by its display id (a note without one).
@@ -390,7 +399,7 @@ end
 
 -- A riddle's picture: unsolved, its note; solved, what it led to: its
 -- keeper's face, the book read, a keeper the data has no face for, a place
--- found or a stone (the seal is the medal on it, never the picture).
+-- found or a stone (the seal is the ring round it, never the picture).
 local SPYGLASS, TABLET = "Interface\\Icons\\INV_Misc_Spyglass_02", "Interface\\Icons\\INV_Misc_StoneTablet_05"
 local function riddlePicture(r)
   if not ns.riddleSolved(r.id) then return ui.icon(NOTE) end
@@ -458,8 +467,8 @@ local function quarryMarks(q, marks, circles)
   end
 end
 
--- (picture: an icon's path, or a portrait's setter; seal: the medal on it)
-local function start(name, sub, picture, seal)
+-- (picture: an icon's path, or a portrait's setter; ring: its ring, ringOf's)
+local function start(name, sub, picture, ring)
   for _, b in ipairs(page.buttons) do
     b:Hide()
   end
@@ -467,7 +476,7 @@ local function start(name, sub, picture, seal)
     part:Hide()
   end
   page.map:Hide()
-  page:start(name, sub, type(picture) == "function" and picture or ui.icon(picture), seal)
+  page:start(name, sub, type(picture) == "function" and picture or ui.icon(picture), nil, ring)
 end
 
 local function pinButton(key)
@@ -491,7 +500,7 @@ local function showRiddle(r)
   local seal = solved and SEALS[ns.riddleSeal(rec)]
   -- (unsolved, its title is its tier already)
   local sub = solved and table.concat({ ns.zoneName(r.zone), TIERS[r.tier] }, "  -  ") or ns.zoneName(r.zone)
-  start(title(r), sub, riddlePicture(r), seal or nil)
+  start(title(r), sub, riddlePicture(r), ringOf(seal, solved))
   setApart("verse", table.concat(r.verse, "\n"), 14, true)
   page:section("The riddle")
   page:row("Danger", r.danger)
@@ -561,12 +570,7 @@ local function showQuarry(q)
   local down = rec.at ~= nil
   local display = ns.quarryDisplay(q)
   local hseal = down and HUNT_SEALS[ns.huntSeal(rec)]
-  start(
-    q.name,
-    ("%s  -  the quarry"):format(ns.zoneName(q.zone)),
-    quarryPicture(q),
-    hseal and hseal[1] and hseal or nil
-  )
+  start(q.name, ("%s  -  the quarry"):format(ns.zoneName(q.zone)), quarryPicture(q), ringOf(hseal, down))
   page:model(display, not down)
   setApart("verse", table.concat(q.verse, "\n"), 14, true)
   page:section("The hunt")
@@ -696,7 +700,8 @@ local function showZone(uiMap)
           ns.riddleName(r),
           ("%s  -  the %s seal, %s"):format(TIERS[r.tier], seal[2]:lower(), ui.day(rec)),
           riddlePicture(r),
-          seal
+          seal,
+          true
         )
       else
         local hints = rec.hints or 0
@@ -720,13 +725,7 @@ local function showZone(uiMap)
       state = (target and target.id == q.id) and "tracked" or "still at large"
     end
     local hseal = rec.at and HUNT_SEALS[ns.huntSeal(rec)]
-    placeCard(
-      "quarry:" .. q.id,
-      q.name,
-      ("%s  -  %s"):format(danger(q), state),
-      quarryPicture(q),
-      hseal and hseal[1] and hseal or nil
-    )
+    placeCard("quarry:" .. q.id, q.name, ("%s  -  %s"):format(danger(q), state), quarryPicture(q), hseal, rec.at ~= nil)
     quarryMarks(q, marks, circles)
   end
   mapBlock(
@@ -822,7 +821,8 @@ local function showOverview()
           ns.riddleName(x.riddle),
           ("%s  -  the %s seal, %s"):format(ns.zoneName(x.riddle.zone), seal[2]:lower(), ui.day(x.rec)),
           riddlePicture(x.riddle),
-          seal
+          seal,
+          true
         )
       else
         local seal = HUNT_SEALS[ns.huntSeal(x.rec)]
@@ -831,7 +831,8 @@ local function showOverview()
           x.quarry.name,
           ("%s  -  brought down, the %s seal, %s"):format(ns.zoneName(x.quarry.zone), seal[2]:lower(), ui.day(x.rec)),
           portrait(ns.quarryDisplay(x.quarry)),
-          seal[1] and seal or nil
+          seal,
+          true
         )
       end
     end
