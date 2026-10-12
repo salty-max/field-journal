@@ -68,7 +68,7 @@ Catch the peddler on the road.
 South of the goblins' port, great steps of ancient stone come up out of the sea,
 or go down into it: the waves cover all but the highest of them.
 Two tauren fish from them, as if nothing were strange about it.
-Stand on the stair.
+Set foot on the stair.
 ? South-east of Ratchet, on the coast.
 = The Tidus Stair: a giant's stairway of ancient stone, from the beach down beneath the waves.
 + Some say it goes down to a kaldorei city the sea took when the Well of Eternity was destroyed; those who have dived as deep as they could found only more stairs.

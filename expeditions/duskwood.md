@@ -78,7 +78,7 @@ Honour the post, whoever keeps it.
 The village on the hill of ravens was left to its dead,
 and most of its houses stand empty, or seem to.
 In one of them, a household keeps both floors, and no eye sees it.
-It does not stir unless it is struck. Look harder than you need to.
+It does not stir unless it is struck. Give it more attention than it seems to deserve.
 ? Raven Hill, at the village's northern edge: a house of two floors, and no one in it.
 = The Unseen: wraiths no eye can see, of a strength far beyond Duskwood's. Two keep this house; others keep the rest of Raven Hill's.
 + A warlock's Detect Invisibility shows them, and a mage made invisible sees them too. They never stir unless struck, which is why most who pass through the village never know they were there.

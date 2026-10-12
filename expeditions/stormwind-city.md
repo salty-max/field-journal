@@ -51,6 +51,6 @@ Find what his old master in the city of mages wrote for him.
 Somewhere in the city, a grateful student set up a memorial
 to a healer, teacher and friend who believed it was a healer's duty
 to cleanse the sick and weary of every last ailment. Find it.
-? Look among the city's healers.
+? Seek among the city's healers.
 = 'In memory of my dear mentor, Horatio M. Montgomery, M.D. Healer, Teacher, Friend.'
 + 'The world is full of the sick and weary. It is our job, as healers, NAY, as men and women of medicine, to cleanse them ALL of the itis.' - H.M.M., M.D., PhD, JD, Grandmaster Farmer, Dancer Extraordinaire, Friend to the Animals.

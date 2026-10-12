@@ -44,7 +44,7 @@ Walk up into it, and you will know it by the taste.
 ## the-hinterlands-seradane
 In the Hinterlands' north-east, green dragons keep a door
 that opens on nothing anyone awake has ever seen.
-There are four such doors in this world. Stand before this one long enough,
+There are four such doors in this world. Linger before this one long enough,
 and you might go through it the only way the living can.
 ? Seradane, in the Hinterlands' north-east.
 = Seradane: one of the four doors into the Emerald Dream, kept by the green drakes Dreamtracker and Rothos. Its sisters stand in Duskwood, Ashenvale and Feralas.

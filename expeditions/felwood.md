@@ -20,7 +20,7 @@ quarry:
 ## felwood-morlos-aran
 At the southern edge of the poisoned wood, the stones of an elven town still stand,
 and its name ends as theirs did on the dark shore and in the forest to the south.
-Stand among them, and count the others you know.
+Walk among them, and count the others you know.
 ? Morlos'Aran, at Felwood's southern edge.
 = Morlos'Aran, one of the old night elf settlements whose names end alike: Ameth'Aran and Bashal'Aran in Darkshore, Ordil'Aran in Ashenvale, Tethris Aran in Desolace.
 + A druid of the Emerald Circle keeps watch by the ruins; the wood around him is still sick.

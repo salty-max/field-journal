@@ -36,7 +36,7 @@ and so was the great dam on the lake beyond. Get inside.
 ## searing-gorge-blackchar
 In the gorge's south-west, a cave is sealed shut under the mountains,
 and there is nothing at its mouth but black rock.
-Stand there and study your map, not the rock:
+Go there and study your map, not the rock:
 something in the mountains is staring back.
 ? Blackchar Cave, at the Searing Gorge's south-western edge; what you want is on your minimap.
 = Blackchar Cave, sealed; and in the mountains above it, on the minimap, what can only be a face.
