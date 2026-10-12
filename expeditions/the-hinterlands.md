@@ -6,108 +6,60 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: the-hinterlands-rhapsody
-    tier: near
-    gestures: [HICCUP]
-    creature: 5634   # Rhapsody Shindigger, dump 26.9, 48.6; Wowhead 26.8, 48.6
-    hint_area: { x: 28.5, y: 46.7, r: 5 }
-    danger: "Quiet"
-    sources: "quest 1469"
-  - id: the-hinterlands-oox
+  - id: the-hinterlands-plaguemist
     tier: off
-    creature: 7806   # OOX-09/HL, dump 49.4, 37.7; Wowhead 49.4, 37.6 (it walks only when escorted)
-    hint_area: { x: 50.3, y: 35.4, r: 5 }
-    danger: "Guarded (forest trolls)"
-    sources: "quest 485"
-  - id: the-hinterlands-atalai-exile
-    tier: off
-    creature: 5598   # the Atal'ai Exile, dump 33.8, 75.2; Wowhead 33.6, 75.2
-    hint_area: { x: 32.7, y: 77.4, r: 5 }
-    danger: "Perilous (the Witherbark)"
-    sources: "quest 1429; the Codex's shadra page"
-  - id: the-hinterlands-cortello
+    gestures: [COUGH, SNIFF, SNEEZE]
+    area: Plaguemist Ravine   # placed: the client's overlay: 22.7, 38.2, half-size 3.7 by 11.2
+    hint_area: { x: 23.0, y: 36.0, r: 6 }
+    danger: "Quiet: nothing lives in it"
+    sources: "the WoWWiki archive's Plaguemist Ravine page (the way north to Caer Darrow, the mist, no one in it)"
+  - id: the-hinterlands-seradane
     tier: hidden
-    object: 2556   # dump 80.8, 46.8; Wowhead 80.8, 46.8
-    hint_area: { x: 81.2, y: 42.8, r: 8 }
-    danger: "Guarded (the deep)"
-    sources: "quests 624, 625, 626"
-  - id: the-hinterlands-aerie-peak
-    tier: town
-    faction: alliance   # its town's: for that faction alone
-    gestures: [BOW, SALUTE]
-    creature: 5635   # Falstad Wildhammer, dump 11.8, 46.8; Wowhead 11.8, 46.8
-    hint_area: { x: 9.8, y: 45.3, r: 5 }
-    danger: "Quiet"
-    sources: "the Codex's falstad-wildhammer and wildhammer-clan pages; object 175739's text"
+    gestures: [SLEEP, LAYDOWN]
+    area: Seradane   # placed: the client's overlay: 64.1, 25.4, half-size 8.2 by 12.0
+    hint_area: { x: 63.0, y: 26.0, r: 9 }
+    danger: "Deadly (Dreamtracker, Rothos and the green dragonkin, levels 60 to 62)"
+    sources: "the WoWWiki archive's Seradane, Dreamtracker and Rothos pages (the portal, its guardians, the dragon's skull)"
   - id: the-hinterlands-revantusk
     tier: town
     faction: horde   # its town's: for that faction alone
-    gestures: [COMFORT, SOOTHE]
-    creature: 14736   # Primal Torntusk, dump 78.2, 81.2; Wowhead 78.2, 81.2
-    hint_area: { x: 79.3, y: 78.9, r: 5 }
+    gestures: [DANCE]
+    creature: 14734   # the Revantusk Drummers, dump 79.4, 79.0, three at their drums
+    hint_area: { x: 79.0, y: 80.0, r: 3 }
     danger: "Quiet"
-    sources: "quest 7845; the Codex's revantusk-village page"
+    sources: "the dump's spawns"
 quarry:
-  id: 7977
-  sources: "quests 7816 (Katoom the Angler), 2941 (Daryn Lightwind)"
+  id: 8215   # Grimungous
+  sources: "the WoWWiki archive's Grimungous page (an elite hill giant); the dump's path and respawn (32 to 48 hours)"
 ---
-## the-hinterlands-rhapsody
-At the high elves' lodge in the western hills, a dwarf rider
-drank a whole keg of stout before a flight, fell off his gryphon into a sunken temple's pool,
-and swam out of a nest of trolls with a souvenir.
-He has not quite recovered, and it shows when he talks. Answer him the same way.
-? Quel'Danil Lodge, in the west of the Hinterlands; the stout has not quite worn off.
-= Rhapsody Shindigger, who knew where the sunken temple was all along.
-+ 'Didn't see no temple till I got a little too tipsy and fell off my mount. Hiccup!' Brohann Caskbelly, in Stormwind, would have saved some leg work by asking him.
+## the-hinterlands-plaguemist
+West of the elves' lodge, a ravine climbs out of the green hills,
+and a mist hangs in it that does not belong to them:
+the air of the dead country comes down it from the north.
+Walk up into it, and you will know it by the taste.
+? Plaguemist Ravine, north-west of Quel'Danil Lodge.
+= Plaguemist Ravine: a way out of the Hinterlands, north toward Caer Darrow and the Western Plaguelands, with the plague's mist in it.
++ Nothing lives in it and nothing waits there. It is only a road, and the mist.
 
-## the-hinterlands-oox
-At the head of the river in the troll ruins, a gnome's homing robot
-crashed, shaped like an egg and a chicken, and lies waiting
-for someone to bring it a beacon and watch over its long walk home.
-Find where it fell.
-? Agol'watha, near Skulk Rock, at the head of the river.
-= Homing Robot OOX-09/HL, Oglethorpe Obnoticus's.
-+ 'You place the egg... distress beacon... inside the chicken... homing robot.'
-
-## the-hinterlands-atalai-exile
-Among the spider-worshipping trolls of the southern hills lives a priest
-of the sunken temple's tribe, sentenced to a fate worse than death:
-to live far from his people, with these. Find him.
-? Shadra'Alor, in the south of the Hinterlands.
-= The Atal'ai Exile.
-+ His sentence was written in blood on dried flesh. He still wonders whether Hakkar has returned to the temple.
-
-## the-hinterlands-cortello
-Someone named Cortello left a riddle in three parts across two continents,
-from a bridge in the swamp to a cave in the marsh,
-and the last part sends the solver to the coast of these hills,
-to the foot of the great falls, under the water. Find what it calls.
-? On the Hinterlands' east coast, at the base of the great falls.
-= Cortello's Treasure, the end of Cortello's Riddle.
-+ 'Along the coast of the Hinterlands, at the base of the great falls / Underneath the water there does your treasure call!'
-
-## the-hinterlands-aerie-peak
-In the town of gryphon roosts on the western crag,
-the high thane of the third hammer rules his own people,
-who left their cursed fortress long ago for the open sky.
-Honour him as a thane is honoured.
-? Aerie Peak.
-= High Thane Falstad Wildhammer.
-+ The Wildhammer left Grim Batol when the Dark Iron queen Modgud's death left a darkness in its stone, and went north.
+## the-hinterlands-seradane
+In the Hinterlands' north-east, green dragons keep a door
+that opens on nothing anyone awake has ever seen.
+There are four such doors in this world. Stand before this one long enough,
+and you might go through it the only way the living can.
+? Seradane, in the Hinterlands' north-east.
+= Seradane: one of the four doors into the Emerald Dream, kept by the green drakes Dreamtracker and Rothos. Its sisters stand in Duskwood, Ashenvale and Feralas.
++ On the hill north of it lies the skull of a dragon nobody has named, inside a ring of stones like the Arathi Highlands' circles of binding.
 
 ## the-hinterlands-revantusk
-In the troll village on the eastern coast, a tribe's matriarch
-had her mate taken in a midnight raid by a larger tribe,
-to be given to the blood god on the top of their temple.
-Find her.
-? Revantusk Village.
-= Primal Torntusk. Her mate, Elder Torntusk, is held atop Jintha'Alor for the Vile Priestess Hexx.
-+ 'You must save him! Our village could not stand a loss this great.'
+In the trolls' village on the eastern cliffs, three drummers keep the beat,
+and do not stop for anybody.
+Show them what their drums are for.
+? Revantusk Village, among its huts.
+= The Revantusk Drummers, three of them, keeping the village's beat.
++ The village keeps its eye on the Vilebranch of Jintha'Alor, up the hill; the drums are the one sound it makes on purpose.
 
 ## quarry
-On the coast below the cliffs, among the saltwater snapjaws,
-one turtle leads the rest: a giant, and a thief.
-She snapped an angler's best lure right off the line, and has it still.
-A historian would like a picture of her too.
-= Gammerita. Katoom the Angler, at Revantusk Village, wants the lure back from her stomach.
-+ Daryn Lightwind, a historian who studies the snapjaws, sends her interns with an invention that captures a picture: a snapshot, she calls it.
+Among the troll ruins in the east of the hills, a hill giant walks alone, in no hurry.
+Kill him, and it may be two days before he walks again.
+= Grimungous, an elite hill giant, walking the ruins of Shaol'watha.
++ A day and a half at the least between one Grimungous and the next; two days at the most.
