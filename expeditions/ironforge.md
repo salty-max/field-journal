@@ -21,12 +21,13 @@ riddles:
     hint_area: { x: 81.3, y: 28.5, r: 8 }
     danger: "Quiet"
     sources: "objects 175679 and 175750's texts"
-  - id: ironforge-mekkatorque
+  - id: ironforge-great-forge
     tier: hidden
-    creature: 7937   # High Tinker Mekkatorque, dump 68.8, 49.0; Wowhead 69.0, 49.0
-    hint_area: { x: 70.1, y: 50.5, r: 4 }
+    creature: 11145   # Myolor Sunderfury, dump 51.7, 41.4, by the Great Forge
+    found: target   # in the city: only by speaking to him
+    hint_area: { x: 51.5, y: 42.0, r: 3 }
     danger: "Quiet"
-    sources: "the Codex's high-tinker-mekkatorque page"
+    sources: "the dump's spawn and his words"
 # no quarry: a capital has riddles alone
 ---
 ## ironforge-toothgnasher
@@ -45,10 +46,10 @@ is said to have belonged to the elder consort of the Dragonqueen. Find it.
 = The Skull of Tyrannistrasz.
 + Its remains were found in the Wetlands shortly after the Battle of Grim Batol, where the Dragonmaw had held Alexstrasza captive.
 
-## ironforge-mekkatorque
-In a quarter of the dwarves' city lent to a people without a home,
-their leader works on, a long way from the city they lost
-to their own weapon against the troggs, and to a friend who betrayed it. Find him.
-? Tinker Town.
-= High Tinker Gelbin Mekkatorque, leader of the gnomes.
-+ 'A home borrowed from friends cannot settle the loss of Gnomeregan.' He once trusted Sicco Thermaplugg; now he asks adventurers to go down and kill him.
+## ironforge-great-forge
+At the heart of the dwarves' city, by the great forge that gives it its name,
+the forge's keeper waits for smiths good enough to hear what he has to say:
+that a smith must choose one way, and never the other. Ask him.
+? The Great Forge, at the heart of Ironforge.
+= Myolor Sunderfury, keeper of the Great Forge: 'The way of the weaponsmith or the art of the armorsmith.'
++ 'Be warned, when you have chosen to dedicate yourself to a path, there is no going back. The discipline each path requires leaves no room for hybrids.'

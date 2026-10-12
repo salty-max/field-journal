@@ -97,7 +97,7 @@
   "hillsbrad-foothills-southshore": {"zone": 1424, "of": "object:175761", "hint": [50.0, 57.0, 4], "name": "Civil War in the Plaguelands", "spots": [[51.32, 58.45]], "r": 10},
   "hillsbrad-foothills-tarren-mill": {"zone": 1424, "of": "object:175734", "hint": [59.7, 17.7, 8], "name": "Arathor and the Troll Wars", "spots": [[62.6, 20.44]], "r": 10},
   "hillsbrad-foothills-zixil": {"zone": 1424, "of": "creature:3537 found:target", "hint": [54.0, 37.0, 6], "name": "Zixil", "npc": 3537},
-  "ironforge-mekkatorque": {"zone": 1455, "of": "creature:7937", "hint": [70.1, 50.5, 4], "name": "High Tinker Mekkatorque", "npc": 7937, "spots": [[68.75, 48.97]], "r": 10},
+  "ironforge-great-forge": {"zone": 1455, "of": "creature:11145 found:target", "hint": [51.5, 42.0, 3], "name": "Myolor Sunderfury", "npc": 11145},
   "ironforge-toothgnasher": {"zone": 1455, "of": "object:175683", "hint": [78.3, 21.6, 8], "name": "Toothgnasher's Skeleton", "spots": [[74.3, 21.14]], "r": 10},
   "ironforge-tyrannistrasz": {"zone": 1455, "of": "object:175679", "hint": [81.3, 28.5, 8], "name": "The Skull of Tyrannistrasz", "spots": [[77.45, 27.57]], "r": 10},
   "loch-modan-horde-runners": {"zone": 1432, "of": "creature:2478 found:target", "hint": [60.0, 60.0, 9], "name": "Haren Swifthoof", "npc": 2478},
