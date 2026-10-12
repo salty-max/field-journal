@@ -82,6 +82,10 @@ The same look, each in its own colours, and each stands alone:
 - **[Hearthtale](https://www.curseforge.com/wow/addons/hearthtale)** ([Wago](https://addons.wago.io/addons/E6gzPnN1)). Your character's own journal, written as you play: a diary entry in their voice at each rest, and an epitaph if a Hardcore life ends.
 - **[Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex)** ([Wago](https://addons.wago.io/addons/j6jAL0NR)). The lore of Azeroth, written for you as you explore: each zone, figure of legend, people and quest you meet adds a page to your codex.
 
+## Support
+
+Explorer's Field Journal is free, and will stay free. If a riddle has taken you somewhere you would have walked past, you can say thanks with a coffee on [Ko-fi](https://ko-fi.com/salty_max): it helps the journal keep growing. Thank you for exploring.
+
 ## Source
 
 MIT licensed: [github.com/salty-max/field-journal](https://github.com/salty-max/field-journal). Creature data from the CMaNGOS project's Classic database; Forever's own rares from AllTheThings' Forever database. The expeditions' places from the same database and the game client's own tables, each checked against Wowhead's; Zephras Isle's from QuestieDB's traces of the Forever beta. Not affiliated with Blizzard Entertainment.
