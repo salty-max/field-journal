@@ -62,7 +62,7 @@ Deaths and close calls can also be marked on the game's world map. You can turn 
 
 The **Milestones** tab rewards progress throughout the journal. These include creature and trophy counts, completing families, defeating a zone's rares, exploring every part of a zone, and fishing and gathering goals.
 
-There are feats for Hogger, the Emerald Nightmare and the Firelord, for Nat Pagle's rare fish and Black Lotus, and for solving expeditions with gold seals or completing hunts without tracking. Each milestone records the date and level you earned it, with an alert, a fanfare and a chat message.
+There are feats for Hogger, the Emerald Nightmare and the Firelord, for Nat Pagle's rare fish and Black Lotus, and for solving expeditions with gold seals or completing hunts without tracking. Each milestone records the date and level you earned it, and shows in the game's achievement alert with a fanfare and a chat message.
 
 ## Compatibility
 
