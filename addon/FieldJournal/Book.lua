@@ -51,6 +51,11 @@ local function itemIcon(id)
   return GetItemIcon and GetItemIcon(id)
 end
 
+local function itemQuality(id)
+  if C_Item and C_Item.GetItemQualityByID then return C_Item.GetItemQualityByID(id) end
+  if GetItemInfo then return select(3, GetItemInfo(id)) end
+end
+
 local function day(stamp) return date("%d %b %Y", stamp and stamp.at or 0) end
 
 -- The search box's words, trimmed and lower case ("": no search).
@@ -233,6 +238,7 @@ function Page:start(title, sub, setPicture, seal)
     end
   end
   self.note:Hide()
+  if rawget(self, "modelFrame") then self.modelFrame:Hide() end
   self.title:SetText(title)
   self.sub:SetText(sub or "")
   self.portrait.tex:SetVertexColor(1, 1, 1)
@@ -396,8 +402,54 @@ function Page:stats(figures)
   self:place(strip, TILE_H + 14)
 end
 
--- A row of items' icons (wrapping): { { item id, name, faded } }, each with the
--- game's tooltip; faded: one still to find (its icon only, darkened).
+-- A creature in a frame of its own, turning slowly (its display id); shape:
+-- only its shape (the fog of the model's own light), or no frame where the
+-- client can't draw a shape.
+local MODEL_H = 210
+function Page:model(display, shape)
+  local m = rawget(self, "modelFrame")
+  if not m then
+    m = CreateFrame("Frame", nil, self.child)
+    m:SetSize(WIDTH, MODEL_H)
+    m.art = panel(m)
+    m.art:SetAllPoints()
+    local ok, model = pcall(CreateFrame, "PlayerModel", nil, m.art)
+    if ok and model and model.SetDisplayInfo then
+      model:SetPoint("TOPLEFT", 8, -8)
+      model:SetPoint("BOTTOMRIGHT", -8, 8)
+      model.facing = 0.4
+      model:SetScript("OnUpdate", function(mm, elapsed)
+        mm.facing = (mm.facing + elapsed * 0.35) % (2 * math.pi)
+        if mm.SetFacing then mm:SetFacing(mm.facing) end
+      end)
+      m.creature = model
+    end
+    self.modelFrame = m
+  end
+  local c = m.creature
+  if not (c and display and display > 0) or (shape and not c.SetFogColor) then
+    m:Hide()
+    return
+  end
+  c:ClearModel()
+  c:SetDisplayInfo(display)
+  if c.SetCamDistanceScale then c:SetCamDistanceScale(1.25) end
+  if shape then
+    c:SetFogColor(0.16, 0.14, 0.11)
+    c:SetFogNear(0)
+    c:SetFogFar(0.1)
+  elseif c.ClearFog then
+    c:ClearFog()
+  elseif c.SetFogFar then
+    c:SetFogFar(10000)
+  end
+  self:place(m, MODEL_H + 14)
+end
+
+-- A row of items' icons (wrapping): { { item id, name, faded, count, extra } },
+-- each with the game's tooltip, its quality's border, how many (count > 1)
+-- and extra(tooltip) for lines of its own; faded: one still to find (its icon
+-- only, darkened).
 local ITEM = 34
 function Page:items(list)
   local per = math.floor((WIDTH + 6) / (ITEM + 6))
@@ -419,14 +471,17 @@ function Page:items(list)
       b.border = b:CreateTexture(nil, "OVERLAY")
       b.border:SetTexture("Interface\\Common\\WhiteIconFrame")
       b.border:SetAllPoints()
+      b.count = b:CreateFontString(nil, "OVERLAY", "NumberFontNormal")
+      b.count:SetPoint("BOTTOMRIGHT", -2, 2)
       b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
       b:SetScript("OnEnter", function(bb)
         GameTooltip:SetOwner(bb, "ANCHOR_RIGHT")
         if bb.faded then
           GameTooltip:AddLine(bb.name or "?", T.soft[1], T.soft[2], T.soft[3])
           GameTooltip:AddLine("Still to find here.", 1, 1, 1)
-        elseif GameTooltip.SetItemByID then
-          GameTooltip:SetItemByID(bb.itemId)
+        else
+          if GameTooltip.SetItemByID then GameTooltip:SetItemByID(bb.itemId) end
+          if bb.extra then bb.extra(GameTooltip) end
         end
         GameTooltip:Show()
       end)
@@ -436,7 +491,15 @@ function Page:items(list)
     local col, row = (i - 1) % per, math.floor((i - 1) / per)
     b:ClearAllPoints()
     b:SetPoint("TOPLEFT", box, "TOPLEFT", col * (ITEM + 6), -row * (ITEM + 6))
-    b.itemId, b.name, b.faded = it[1], it[2], it[3]
+    b.itemId, b.name, b.faded, b.extra = it[1], it[2], it[3], it[5]
+    b.count:SetText((it[4] or 0) > 1 and it[4] or "")
+    local quality = not it[3] and itemQuality(it[1])
+    local color = quality and ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality]
+    if color then
+      b.border:SetVertexColor(color.r, color.g, color.b)
+    else
+      b.border:SetVertexColor(0.6, 0.6, 0.6)
+    end
     b.icon:SetTexture(itemIcon(it[1]) or QUESTION)
     b.icon:SetDesaturated(it[3] and true or false)
     b.icon:SetVertexColor(it[3] and 0.35 or 1, it[3] and 0.35 or 1, it[3] and 0.35 or 1)

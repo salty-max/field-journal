@@ -1130,6 +1130,16 @@ check(
     and record["Slain"] == tostring(rec(1131).slain),
   "… and its record: when and where it was met, its kills"
 )
+local creatureFigures = {}
+for _, t in ipairs(FieldJournalPage.tiles) do
+  if t.shown then creatureFigures[t.label.text] = t.value.text end
+end
+check(
+  creatureFigures.slain == tostring(rec(1131).slain)
+    and FieldJournalPage.modelFrame.shown
+    and FieldJournalPage.modelFrame.creature.display == D.models[1131],
+  "… its figures, and the creature itself turning in its frame"
+)
 check(
   ns.pageLoot[1] and ns.pageLoot[1].shown and ns.pageLoot[2].shown and not ns.pageLoot[3],
   "… and what it gave, an icon per item"
@@ -1712,7 +1722,7 @@ check(
   FieldJournalExpeditionsPage.title.text == "Commander Felstrom" and rowsOf()["Its haunts"] == "untracked",
   "a quarry's link opens its poster, untracked"
 )
-local poster = FieldJournalExpeditionsPage.parts.model
+local poster = FieldJournalExpeditionsPage.modelFrame
 check(
   poster and poster.shown and poster.creature.fogFar == 0.1 and not FieldJournalExpeditionsPage.portrait.badge.shown,
   "… still at large: only its shape in the frame, its portrait in shadow"
@@ -1944,8 +1954,8 @@ check(map.shown and map.pins[1] and map.pins[1].shown, "… its map, where each 
 cards["Commander Felstrom"].scripts.OnClick(cards["Commander Felstrom"])
 check(
   FieldJournalExpeditionsPage.title.text == "Commander Felstrom"
-    and FieldJournalExpeditionsPage.parts.model.shown
-    and rawget(FieldJournalExpeditionsPage.parts.model.creature, "fogFar") == nil
+    and FieldJournalExpeditionsPage.modelFrame.shown
+    and rawget(FieldJournalExpeditionsPage.modelFrame.creature, "fogFar") == nil
     and FieldJournalExpeditionsPage.parts.seal.name.text == "No seal",
   "… a card opens its page: the quarry's poster, brought down, the creature itself turning in its frame"
 )

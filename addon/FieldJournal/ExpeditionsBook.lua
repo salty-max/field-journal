@@ -396,46 +396,6 @@ local function riddlePicture(r)
   return ui.icon((r.area or r.npc) and SPYGLASS or TABLET)
 end
 
--- The quarry on its poster: the creature itself, turning slowly in its frame;
--- still at large, only its shape (the fog of the model's own light), or no
--- frame where the client can't draw a shape.
-local function modelBlock(display, shape)
-  local m = page.parts.model
-  if not m then
-    m = CreateFrame("Frame", nil, page.child)
-    m:SetSize(WIDTH, 210)
-    m.art = ui.panel(m)
-    m.art:SetAllPoints()
-    local ok, model = pcall(CreateFrame, "PlayerModel", nil, m.art)
-    if ok and model and model.SetDisplayInfo then
-      model:SetPoint("TOPLEFT", 8, -8)
-      model:SetPoint("BOTTOMRIGHT", -8, 8)
-      model.facing = 0.4
-      model:SetScript("OnUpdate", function(self, elapsed)
-        self.facing = (self.facing + elapsed * 0.35) % (2 * math.pi)
-        if self.SetFacing then self:SetFacing(self.facing) end
-      end)
-      m.creature = model
-    end
-    page.parts.model = m
-  end
-  local c = m.creature
-  if not (c and display) or (shape and not c.SetFogColor) then return end
-  c:ClearModel()
-  c:SetDisplayInfo(display)
-  if c.SetCamDistanceScale then c:SetCamDistanceScale(1.25) end
-  if shape then
-    c:SetFogColor(0.16, 0.14, 0.11)
-    c:SetFogNear(0)
-    c:SetFogFar(0.1)
-  elseif c.ClearFog then
-    c:ClearFog()
-  elseif c.SetFogFar then
-    c:SetFogFar(10000)
-  end
-  page:place(m, 210 + 14)
-end
-
 -- The zone's map on a page, with what this character knows of it (marks:
 -- where riddles were read and the quarry fell; circles: the places asked for,
 -- the haunts tracked).
@@ -601,7 +561,7 @@ local function showQuarry(q)
     quarryPicture(q),
     hseal and hseal[1] and hseal or nil
   )
-  modelBlock(display, not down)
+  page:model(display, not down)
   setApart("verse", table.concat(q.verse, "\n"), 14, true)
   page:section("The hunt")
   page:row("Danger", danger(q))

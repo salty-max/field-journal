@@ -133,95 +133,42 @@ local function sortedIds(ids)
 end
 
 -- ── the page's parts ─────────────────────────────────────────────────────────
--- A creature on a family's or the trophies' page: portrait, name, a line.
-local ENTRY_H = 52
-local entries, lootButtons, rows, pairsPool = {}, {}, {}, {}
-ns.pageEntries, ns.pageLoot, ns.listRows, ns.pagePairs = entries, lootButtons, rows, pairsPool -- for the tests
+local rows, pairsPool = {}, {}
+ns.listRows, ns.pagePairs = rows, pairsPool -- for the tests (the cards and the loot: the page's, at its build)
 
-local function entry(i)
-  local e = entries[i]
-  if e then return e end
-  e = CreateFrame("Button", nil, page.child)
-  e:SetSize(ui.WIDTH, ENTRY_H)
-  e.portrait = ui.roundPortrait(e, 40)
-  e.portrait:SetPoint("LEFT", 4, 0)
-  e.name = ui.label(e, ui.TITLE_FONT, 15, T.text)
-  e.name:SetPoint("TOPLEFT", e.portrait, "TOPRIGHT", 12, -2)
-  e.name:SetPoint("RIGHT", -4, 0)
-  e.name:SetWordWrap(false)
-  e.facts = ui.label(e, ui.BODY_FONT, 11, T.soft)
-  e.facts:SetPoint("TOPLEFT", e.name, "BOTTOMLEFT", 0, -5)
-  e.facts:SetPoint("RIGHT", -4, 0)
-  e.facts:SetWordWrap(false)
-  e.line = ui.rule(e)
-  e.line:SetPoint("BOTTOMLEFT", 0, 0)
-  e.line:SetPoint("BOTTOMRIGHT", 0, 0)
-  e:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
-  e:SetScript("OnClick", function(self) ns.openCreature(self.id) end)
-  entries[i] = e
-  return e
-end
-
--- An item taken from the creature: its icon, quality border, count, tooltip.
-local function lootButton(i)
-  local b = lootButtons[i]
-  if b then return b end
-  b = CreateFrame("Button", nil, page.child)
-  b:SetSize(34, 34)
-  b.icon = b:CreateTexture(nil, "ARTWORK")
-  b.icon:SetAllPoints()
-  b.border = b:CreateTexture(nil, "OVERLAY")
-  b.border:SetTexture("Interface\\Common\\WhiteIconFrame")
-  b.border:SetAllPoints()
-  b.count = b:CreateFontString(nil, "OVERLAY", "NumberFontNormal")
-  b.count:SetPoint("BOTTOMRIGHT", -2, 2)
-  b:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
-  b:SetScript("OnEnter", function(self)
-    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    if GameTooltip.SetItemByID then GameTooltip:SetItemByID(self.itemId) end
-    -- (how often it came from my kills of this creature)
-    local drop = ns.dropRate(self.rec, self.itemId)
-    if drop then
-      GameTooltip:AddLine(" ")
-      GameTooltip:AddLine("Drop rate: " .. drop.rate, T.accent[1], T.accent[2], T.accent[3])
-      GameTooltip:AddLine(drop.detail, T.soft[1], T.soft[2], T.soft[3], true)
-      if drop.before then
-        GameTooltip:AddLine("It dropped for you before the count began.", T.soft[1], T.soft[2], T.soft[3], true)
-      end
-    end
-    GameTooltip:Show()
-  end)
-  b:SetScript("OnLeave", function() GameTooltip:Hide() end)
-  lootButtons[i] = b
-  return b
-end
-
-local function itemQuality(itemId)
-  if C_Item and C_Item.GetItemQualityByID then return C_Item.GetItemQualityByID(itemId) end
-  if GetItemInfo then return select(3, GetItemInfo(itemId)) end
-end
-
--- The page, laid out again: the Bestiary's own parts hidden too.
+-- The page, laid out again (the family's link under the title off).
 local function start(title, sub, setPicture)
-  for _, pool in ipairs({ entries, lootButtons }) do
-    for _, x in ipairs(pool) do
-      x:Hide()
-    end
-  end
   page.familyLink.key = false
   page:start(title, sub, setPicture)
 end
 
+-- A creature on a family's page or the trophies': its portrait, its name, a
+-- line of its record; a click opens its page.
 local function layEntries(ids, line)
   local creatures = ns.journal().creatures
-  for i, id in ipairs(ids) do
+  for _, id in ipairs(ids) do
     local rec = creatures[id]
-    local e = entry(i)
-    e.name:SetText((rec.name or ("Creature " .. id)) .. rankTag(id, rec))
-    e.facts:SetText(line(id, rec))
-    setPortrait(e.portrait, id, rec)
-    e.id = id
-    page:place(e, ENTRY_H + 4)
+    local c = page:card(
+      (rec.name or ("Creature " .. id)) .. rankTag(id, rec),
+      line(id, rec),
+      function(p) setPortrait(p, id, rec) end,
+      function() ns.openCreature(id) end
+    )
+    c.id = id
+  end
+end
+
+-- How often an item came from my kills of a creature, under its tooltip.
+local function dropLines(rec, itemId)
+  return function(tip)
+    local drop = ns.dropRate(rec, itemId)
+    if not drop then return end
+    tip:AddLine(" ")
+    tip:AddLine("Drop rate: " .. drop.rate, T.accent[1], T.accent[2], T.accent[3])
+    tip:AddLine(drop.detail, T.soft[1], T.soft[2], T.soft[3], true)
+    if drop.before then
+      tip:AddLine("It dropped for you before the count began.", T.soft[1], T.soft[2], T.soft[3], true)
+    end
   end
 end
 
@@ -256,13 +203,35 @@ local function showFamily(key)
       or (SOFT .. "The naturalist has not yet written of these. What follows is your own record.|r")
   end
   page:text({ intro })
+  local slainAll, trophies, bosses = 0, 0, 0
+  for _, id in ipairs(ids) do
+    local rec = creatures[id]
+    slainAll = slainAll + (rec.slain or 0)
+    if rec.trophy then
+      trophies = trophies + 1
+      if rec.trophy.rank == "b" then bosses = bosses + 1 end
+    end
+  end
+  if key == TROPHIES then
+    page:stats({
+      { tostring(#ids), "brought down" },
+      { tostring(#ids - bosses), #ids - bosses == 1 and "rare" or "rares" },
+      { tostring(bosses), bosses == 1 and "boss" or "bosses" },
+    })
+  else
+    page:stats({
+      { tostring(#ids), #ids == 1 and "kind met" or "kinds met" },
+      { tostring(slainAll), "slain" },
+      { tostring(trophies), trophies == 1 and "trophy" or "trophies" },
+    })
+  end
   page:section(key == TROPHIES and "The trophy shelf" or "Slain in the wild")
   if key == TROPHIES then
     layEntries(ids, function(id, rec)
       local slain = ("slain %s at level %d"):format(day(rec.trophy), rec.trophy.level or 0)
       return joined({ ns.familyTitle(ns.familyKey(id, rec)), slain })
     end)
-    if #ids == 0 then page:row("", SOFT .. "None yet.|r") end
+    if #ids == 0 then page:paragraph("None yet.", T.soft) end
   else
     layEntries(ids, function(id, rec)
       local slain = (rec.slain or 0) > 0 and ("%d slain"):format(rec.slain) or "none slain"
@@ -282,6 +251,20 @@ local function showCreature(id)
     function(p) setPortrait(p, id, rec) end
   )
   page.familyLink.key = current
+
+  -- its figures, and the creature itself, turning in its frame
+  local items = {}
+  for itemId, count in pairs(rec.loot or {}) do
+    table.insert(items, { itemId, nil, false, count, dropLines(rec, itemId) })
+  end
+  table.sort(items, function(a, b) return a[4] > b[4] end)
+  local lv = levels(id, rec)
+  local figures = { { tostring(rec.slain or 0), "slain" } }
+  if lv then table.insert(figures, { (lv:gsub("^levels? ", "")), lv:find("^levels") and "levels" or "level" }) end
+  if rec.first and rec.first.level then table.insert(figures, { tostring(rec.first.level), "your level when met" }) end
+  table.insert(figures, { tostring(#items), #items == 1 and "spoil" or "spoils" })
+  page:stats(figures)
+  page:model((D.models and D.models[id]) or rec.display)
 
   local first, last = rec.first or {}, rec.last
   page:section("Encounters")
@@ -307,41 +290,20 @@ local function showCreature(id)
   page.y = page.y + 10
 
   page:section("Spoils")
-  local items = {}
-  for itemId, count in pairs(rec.loot or {}) do
-    table.insert(items, { itemId, count })
-  end
-  table.sort(items, function(a, b) return a[2] > b[2] end)
   if #items == 0 then
-    page:row("", SOFT .. "Nothing taken from it yet.|r")
+    page:paragraph("Nothing taken from it yet.", T.soft)
     return
   end
-  local perRow = math.floor((ui.WIDTH + 6) / 40)
-  for i, item in ipairs(items) do
-    local b = lootButton(i)
-    b.itemId, b.rec = item[1], rec
-    b.icon:SetTexture(ui.itemIcon(item[1]) or QUESTION)
-    local quality = itemQuality(item[1])
-    local color = quality and ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality]
-    if color then
-      b.border:SetVertexColor(color.r, color.g, color.b)
-    else
-      b.border:SetVertexColor(0.6, 0.6, 0.6)
-    end
-    b.count:SetText(item[2] > 1 and item[2] or "")
-    b:ClearAllPoints()
-    b:SetPoint("TOPLEFT", page.child, "TOPLEFT", ((i - 1) % perRow) * 40, -(page.y + math.floor((i - 1) / perRow) * 40))
-    b:Show()
-  end
-  page.y = page.y + math.ceil(#items / perRow) * 40
+  page:items(items)
 end
 
 -- Before anything is recorded.
 local function showEmpty()
   start("The Bestiary", nil, ui.icon("Interface\\Icons\\INV_Misc_Book_11"))
-  page:text({
-    SOFT .. "Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here.|r",
-  })
+  page:paragraph(
+    "Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here.",
+    T.soft
+  )
 end
 
 local function showPage()
@@ -534,6 +496,7 @@ ns.addTab(ns.TAB.bestiary, {
     book = b
     list = ui.newList(book.left, style, rows, true)
     page = ui.newPage(book.sheet, "FieldJournalPage", 92, pairsPool)
+    ns.pageEntries, ns.pageLoot = page.cards, page.itemPool -- for the tests
     -- On a creature's page, its family (the line under the title): a click
     -- opens the family's page.
     page.familyLink = CreateFrame("Button", nil, page.child)
