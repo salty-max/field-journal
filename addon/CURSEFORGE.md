@@ -29,7 +29,7 @@ For Classic Era (Hardcore, Season of Discovery), TBC Anniversary and World of Wa
 
 ## The book
 
-- `/journal` (or `/fj`), or the book by the minimap, opens it: the creature types on the left, their families and the creatures in each; on the right, a family's note or a creature's page, with the game's own portrait of it.
+- `/journal` (or `/fj`), or the book by the minimap, opens it: the creature types on the left, their families and the creatures in each; on the right, a family's note and a card for each creature met, or a creature's page: its figures, the creature itself turning in its frame, your record of it and what it gave you, with how often it dropped.
 - Search by family or creature name; types and families fold; sort a family's creatures by name, the most slain, the last slain or the order you met them.
 - A Trophies page for the rares and bosses you have brought down.
 - No spoilers: only what you have slain is listed, and nothing says how much remains.

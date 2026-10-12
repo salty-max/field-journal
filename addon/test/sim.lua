@@ -1315,8 +1315,9 @@ check(
   FieldJournalFrame.shown
     and FieldJournalFrame.selectedTab == ns.TAB.milestones
     and row
-    and row.status.text:find("^Level"),
-  "a milestone's link opens the Milestones tab, the milestone earned with its level"
+    and row.status.text:find("^Level")
+    and row.medal.shown,
+  "a milestone's link opens the Milestones tab, the milestone earned with its level and its medal"
 )
 check(FieldJournalFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
 clickTab(ns.TAB.bestiary)

@@ -127,8 +127,10 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   paragraphs, a strip of figures, items' icons, names to pick, a medal on a
   round picture),
   `BestiaryBook.lua` (still portraits from the data's display ids,
-  `SetPortraitTextureFromCreatureDisplayID`), `FloraBook.lua` (Fish and
-  Plants), `AtlasBook.lua` (zones by continent; a zone's page: the
+  `SetPortraitTextureFromCreatureDisplayID`; a family's page: figures and a
+  card per creature; a creature's: figures, the creature turning in its
+  frame, its record, its spoils), `FloraBook.lua` (Fish and Plants: figures,
+  the zones as names that open the Atlas, the last finds as cards), `AtlasBook.lua` (zones by continent; a zone's page: the
   surveyor's note, its figures, its map art with its explored overlays and
   marks, drawn by `ZoneMap.lua`, shared with the Expeditions, the places
   explored to pick out on it, its expedition, what grows and bites there as
@@ -140,7 +142,9 @@ Lorekeeper's Codex (~/code/lorekeepers-codex), same engineering and voice.
   (a riddle or quarry pinned to the screen: a card to drag, closed by its
   cross), `Toasts.lua` (the game's toasts: a milestone's, a riddle's, a
   quarry's, each queued on its own),
-  `MilestonesBook.lua`. `Expeditions.lua` (the riddles' records and their
+  `MilestonesBook.lua` (figures on top, each group's picture and count, a
+  medal on each one earned). Every page is made of the same parts (`Book.lua`).
+  `Expeditions.lua` (the riddles' records and their
   solving: each second where the reader stands, a gesture by hooking
   `C_ChatInfo.PerformEmote` (the chat's, the menu's; `DoEmote` where there is
   none), a reading at `ITEM_TEXT_BEGIN`, a keeper targeted near
