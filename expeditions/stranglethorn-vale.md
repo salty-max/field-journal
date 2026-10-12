@@ -22,7 +22,7 @@ riddles:
     sources: "object 175856's text"
   - id: stranglethorn-vale-brutus
     tier: off
-    gestures: [HAIL, SALUTE, WAVE]
+    gestures: [SALUTE, HAIL, WAVE, GREET, BOW]
     creature: 2551   # Brutus, dump 32.9, 88.3, at the helm of the easternmost Bloodsail ship
     hint_area: { x: 33.0, y: 86.0, r: 5 }
     danger: "Perilous (the Bloodsail crews aboard, levels 40 to 45; deep water)"
@@ -73,7 +73,7 @@ and drove the priests who kept faith with him north into the swamps.
 Off the jungle's southern tip, the pirates of the Bloodsail ride at anchor,
 and at the wheel of the easternmost ship stands no pirate at all,
 but a thing of iron that does not sleep.
-Give the helmsman a sailor's greeting.
+Show the helmsman a sailor's courtesy.
 ? Out at sea, south-east of Booty Bay, aboard the Bloodsail fleet.
 = Brutus, a golem, at the helm of the easternmost ship of the Bloodsail fleet, Captain Stillwater's.
 + On the next ship west, an orc called Ironpatch sails with the Bloodsail too: the Buccaneers take their crews where they find them.
