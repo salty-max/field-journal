@@ -683,51 +683,6 @@ function ns.milestoneCount()
   return n, shown
 end
 
--- The game's achievement toast, with the journal's book.
-local toasts
-
--- The achievement toast's points shield runs AchievementShield_OnLoad, from
--- the game's achievement window, loaded on demand. Classic Era has no such
--- window, and Forever's (its own game type) doesn't define it: any achievement
--- toast then warns, ours and the game's own alike, the first one before ours
--- had a chance to help. So at load, where the game hasn't defined it, a
--- stand-in does what it does (the shield's two methods); the game's own
--- replaces it whenever its window loads.
-if not AchievementShield_OnLoad then
-  -- selene: allow(unused_variable)
-  function AchievementShield_OnLoad(self)
-    self.Desaturate = AchievementShield_Desaturate or function() end
-    self.Saturate = AchievementShield_Saturate or function() end
-  end
-end
-
-local function toast(id)
-  if toasts == nil then
-    toasts = false
-    if
-      AlertFrame
-      and AlertFrame.AddQueuedAlertFrameSubSystem
-      and C_XMLUtil
-      and C_XMLUtil.GetTemplateInfo
-      and C_XMLUtil.GetTemplateInfo("AchievementAlertFrameTemplate")
-    then
-      toasts = AlertFrame:AddQueuedAlertFrameSubSystem("AchievementAlertFrameTemplate", function(frame, mid)
-        local m = ns.milestoneById[mid]
-        frame.milestone = mid
-        frame.Icon.Texture:SetTexture("Interface\\AddOns\\FieldJournal\\Media\\Logo")
-        frame.Unlocked:SetText("Field Journal milestone")
-        frame.Name:SetText(m.title)
-        frame.Shield:Hide() -- no points
-        frame:SetScript("OnClick", function(self, button, down)
-          if AlertFrame_OnClick and AlertFrame_OnClick(self, button, down) then return end -- right-click: dismissed
-          ns.openMilestones(self.milestone)
-        end)
-      end, 2, 6)
-    end
-  end
-  if toasts then toasts:AddAlert(id) end
-end
-
 -- The fanfare of the game's achievements; the trophy sound where the client
 -- has none.
 local FANFARE = 12891
@@ -755,7 +710,7 @@ function ns.checkMilestones(quiet)
             )
           end
           fanfare()
-          if ns.option("milestoneToast") then toast(m.id) end
+          ns.toast("milestone", m.id)
         end
       end
     end

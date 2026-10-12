@@ -140,8 +140,8 @@ function ns.createSettingsPanel()
 
   checkbox(
     "milestoneToast",
-    "Milestone alerts",
-    "The game's achievement alert when you earn a milestone (the fanfare and the chat line stay)."
+    "Alerts",
+    "The game's alerts when you earn a milestone, solve a riddle or bring down a quarry (the sounds and the chat lines stay)."
   )
   checkbox(
     "worldMapPins",

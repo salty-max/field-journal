@@ -21,6 +21,7 @@ Creatures.lua
 Atlas.lua
 Flora.lua
 Expeditions.lua
+Toasts.lua
 Achievements.lua
 Kit.lua
 Book.lua

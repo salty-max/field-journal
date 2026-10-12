@@ -125,6 +125,13 @@ function ns.riddleSolved(id)
   return rec ~= nil and rec.at ~= nil
 end
 
+-- The seals' coins (the book's, the toasts', the pinned cards').
+ns.SEAL_ICON = {
+  gold = "Interface\\Icons\\INV_Misc_Coin_01",
+  silver = "Interface\\Icons\\INV_Misc_Coin_03",
+  plain = "Interface\\Icons\\INV_Misc_Coin_05",
+}
+
 -- gold, silver or plain: by the hints taken.
 function ns.riddleSeal(rec)
   local hints = rec and rec.hints or 0
@@ -240,15 +247,17 @@ local function solve(r)
     )
   end
   ns.playSound()
+  ns.toast("riddle", r.id)
   ns.checkMilestones()
   if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
   ns.onRecord()
 end
 
 -- The riddles of the reader's zone a deed may solve (asks: what it is, or
--- nil for being there; token: the gesture's), solved if it is theirs.
+-- nil for being there; token: the gesture's), solved if it is theirs: never
+-- in combat, nor flown over on a taxi, nor passed by as a ghost.
 local function attempt(asks, token)
-  if UnitAffectingCombat("player") then return end
+  if UnitAffectingCombat("player") or UnitOnTaxi("player") or UnitIsDeadOrGhost("player") then return end
   local uiMap, x, y = where()
   if not uiMap then return end
   local here = { x = x, y = y, creatures = {} }
@@ -298,6 +307,13 @@ for uiMap, z in pairs(X) do
     z.quarry.zone = uiMap
     quarryById[z.quarry.id] = z.quarry
   end
+end
+
+-- Its portrait's display id: a creature of Forever's own carries it, the
+-- data knows the others', the Bestiary the rest once met.
+function ns.quarryDisplay(q)
+  local rec = ns.journal() and ns.journal().creatures[q.id]
+  return q.model or (D.models and D.models[q.id]) or (rec and rec.display)
 end
 
 function ns.quarryNote(q) return unveil(q.note, "quarry-" .. q.id) end
@@ -368,6 +384,7 @@ function ns.quarrySlain(id)
   -- (a rare's trophy has its own sound)
   local c = ns.journal().creatures[id]
   if not (c and c.trophy and c.trophy.at == rec.at) then ns.playSound() end
+  ns.toast("quarry", id)
   if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
 end
 

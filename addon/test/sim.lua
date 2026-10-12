@@ -424,7 +424,7 @@ state.health = 100
 function UnitHealth() return state.health end
 function UnitHealthMax() return 100 end
 function UnitIsDeadOrGhost() return state.health <= 0 end
-function UnitOnTaxi() return false end
+function UnitOnTaxi() return state.taxi == true end
 function hooksecurefunc(t, name, fn)
   if type(t) ~= "table" then
     t, name, fn = _G, t, name
@@ -474,7 +474,7 @@ AlertFrame = {
     return {
       AddAlert = function(_, ...)
         local f = ui()
-        f.Icon, f.Unlocked, f.Name, f.Shield = ui(), ui(), ui(), ui()
+        f.Icon, f.Unlocked, f.Name, f.Shield, f.Title = ui(), ui(), ui(), ui(), ui()
         f.Icon.Texture = ui()
         setUp(f, ...)
         table.insert(toasted, f)
@@ -737,8 +737,14 @@ check(
 )
 local shield = {}
 AchievementShield_OnLoad(shield)
+local function toastOf(kind, id)
+  for _, f in ipairs(toasted) do
+    if f.journalKind == kind and f.journalId == id then return f end
+  end
+end
+local trophyToast = toastOf("milestone", "trophies-1")
 check(
-  toasted[1] and toasted[1].Name.text == "First Trophy" and shield.Saturate and shield.Desaturate,
+  trophyToast and trophyToast.Name.text == "First Trophy" and shield.Saturate and shield.Desaturate,
   "… and the game's achievement toast, its shield's OnLoad stood in at load (the game's own toasts need it too)"
 )
 
@@ -1587,6 +1593,14 @@ check(
   "the book read where it stands: solved, with a gold seal and a line in chat"
 )
 check(ns.earnedMilestone("riddle-first"), "… the first riddle's milestone")
+local riddleToast, firstToast = toastOf("riddle", "the-barrens-ratchet-book"), toastOf("milestone", "riddle-first")
+check(
+  riddleToast
+    and riddleToast.Title.text == "A riddle read aright"
+    and riddleToast.Name.text == "Exile of the High Elves"
+    and firstToast,
+  "… a toast for the riddle, and the milestone's beside it, not in its place"
+)
 -- A gesture: the Night Watch's lonely post, after asking for the clue (the silver seal).
 ns.takeHint("duskwood-callahan", 1)
 check(state.popup == nil and ns.riddleRecord("duskwood-callahan").hints == 1, "a clue taken is kept, unsolved")
@@ -1604,6 +1618,10 @@ at(1431, 0.46, 0.40, "Twilight Grove")
 DoEmote("SLEEP")
 check(solvedRiddle("duskwood-twilight-grove"), "a sub-area's riddle: its gesture made in it")
 at(1431, 0.8636, 0.4757)
+state.taxi = true
+ns.expeditionAttempt()
+check(not solvedRiddle("duskwood-naraxis"), "a place flown over on a taxi: nothing")
+state.taxi = false
 ns.expeditionAttempt()
 check(solvedRiddle("duskwood-naraxis"), "a keeper's lair, by being there (whether she is home or not)")
 at(1431, 0.1921, 0.5376)
@@ -1658,6 +1676,11 @@ check(
       "a quarry brought down: |cffffd100|Hfieldjournal:q771|h[Commander Felstrom]|h|r, Duskwood, with a plain seal"
     ),
   "a quarry brought down as the Bestiary tells the kill: tracked once, a plain seal"
+)
+local quarryToast = toastOf("quarry", 771)
+check(
+  quarryToast and quarryToast.Title.text == "A quarry brought down" and quarryToast.Name.text == "Commander Felstrom",
+  "… and its toast"
 )
 check(
   ns.earnedMilestone("expedition-1431") and said("[The Duskwood Expedition]") and ns.earnedMilestone("quarry-first"),
