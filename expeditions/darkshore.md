@@ -6,77 +6,30 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
-  - id: darkshore-masters-glaive
-    tier: near
-    gestures: [AWE, GAZE]
-    area: The Master's Glaive   # placed: the client's overlay: 41.4, 88.7, half-size 4.5 by 5.6
-    hint_area: { x: 43.0, y: 86.0, r: 9 }
-    danger: "Guarded (the Twilight's Hammer)"
-    sources: "the Codex's masters-glaive page"
-  - id: darkshore-ameth-aran
-    tier: off
-    object: 17189   # dump 42.7, 63.1; Wowhead 42.7, 63.1
-    hint_area: { x: 43.3, y: 67.1, r: 8 }
-    danger: "Guarded (the Highborne's spirits)"
-    sources: "quest 953"
-  - id: darkshore-beached-creature
-    tier: hidden
-    object: 175226   # dump 36.0, 70.9; Wowhead 36.1, 70.9
-    hint_area: { x: 36.8, y: 67.0, r: 8 }
-    danger: "Guarded (murlocs)"
-    sources: "quest 4728"
   - id: darkshore-auberdine
     tier: town
     faction: alliance   # its town's: for that faction alone
-    creature: 3644   # Cerellean Whiteclaw, dump 35.7, 43.7; Wowhead 35.8, 43.6
-    hint_area: { x: 35.7, y: 46.2, r: 5 }
+    creature: 6887   # Yalda, dump 37.4, 45.2, by a house east of the inn
+    found: target   # in the town: only by finding her
+    hint_area: { x: 37.5, y: 44.5, r: 3 }
     danger: "Quiet"
-    sources: "quest 963"
+    sources: "the WoWWiki archive's Yalda page (translucent, no purpose anyone knows); the dump's spawn"
 quarry:
-  id: 6788
-  sources: "quest 2139 (Tharnariun Treetender)"
+  id: 2191   # Licillin
+  sources: "the WoWWiki archive's Licillin page (a grell who casts shadow bolts); the dump's spawn and respawn (2 to 3 hours)"
 ---
-## darkshore-masters-glaive
-In the south of the dark shore a blade stands driven in the earth,
-too great for any hand that walks the world now.
-The Ancient of Lore says it marks where an old lord of the earth fell,
-and the cult that worships such lords has come to it.
-Stand beneath it, and feel how small you are.
-? South of the road to Ashenvale, the glaive is hard to miss and easy not to look at.
-= The Master's Glaive. Onu keeps its story; the Twilight's Hammer has come for its secret.
-+ The cultists gather at the Glaive and in the caves around it with books of names that should not be spoken.
-
-## darkshore-ameth-aran
-In ruins where the queen's servants once worked their magic freely,
-two great tablets tell the place's story and its fall.
-The spirits of those who lived there do not like them read.
-Find the tablet of the fall.
-? The ruins of Ameth'Aran, south of Auberdine.
-= The Fall of Ameth'Aran. Sentinel Tysha Moonblade began reading the tablets and fled the spirits.
-+ The kaldorei keep few records of the time of the War of the Ancients, near the Well's destruction; these tablets are some of them.
-
-## darkshore-beached-creature
-On the southern strand a giant of the sea lies gutted on the sand.
-Someone came to study it and left their tools behind:
-a wheelbarrow, picks, and the murlocs at the meat.
-Find the creature on the beach.
-? Darkshore's long western beaches, south of Auberdine, keep more than one dead giant.
-= One of Darkshore's beached sea creatures. The tools were the Explorers' League's, until the murlocs chased them off.
-+ Gwennyth Bly'Leggonde of the Temple of the Moon studies the beached giants from Auberdine, and pays for their bones.
-
 ## darkshore-auberdine
-At the edge of the harbour town, a kaldorei sits apart.
-Ten thousand years ago the city of his love was destroyed,
-and he has found her spirit in its ruins.
-He cannot bring himself to free her. Find him.
-? Auberdine, at the town's edge.
-= Cerellean Whiteclaw. Anaya Dawnrunner died at Ameth'Aran.
-+ 'Perhaps it would have been better... if I had done it myself. But even after these thousands of years, I could not bear to raise my hand against my beloved.'
+In the elves' town on the dark shore, by a house just east of the inn,
+a woman stands whom you can see straight through.
+She has no wares and no errands, and nobody in the town remarks on her.
+Find her.
+? Auberdine, east of the inn.
+= Yalda, at Auberdine: you can see through her, and nobody in the town has a word to say about it.
++ She is not hiding, and she is no spirit healer; she simply stands there, and the town goes on around her.
 
 ## quarry
-In Auberdine, a night elf grieves for the forest's sick beasts
-and has asked travellers to put them out of their pain.
-His last request is for the mother of the bears' den,
-in a cave to the north-east, near Bashal'Aran.
-= The Den Mother. Tharnariun Treetender, in Auberdine, asks for her death, and hopes it is the last he will have to ask for.
-+ He fears for his people as much as for the forest: many, he says, will hide in their homes, or leave for the fortified lands of the Alliance.
+Among the grells of the ruined towers of Bashal'Aran, one has learned what the others never did:
+he throws shadow at whoever comes near.
+He is back two or three hours after he falls.
+= Licillin, a grell of Bashal'Aran, the only one there who casts shadow bolts.
++ Of all the grells of those ruins, he alone is a warlock.
