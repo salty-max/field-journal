@@ -30,7 +30,7 @@ et la plupart de ses maisons sont vides, ou semblent l'être.
 Dans l'une d'elles, une maisonnée occupe les deux étages, cachée à l'oeil nu.
 Étudiez les pièces vides, et ne dérangez pas leurs occupants.
 ? Colline-aux-Corbeaux, à la lisière nord du village : une maison à deux étages, et personne dedans.
-= Les Invisibles : des âmes en peine invisibles, d'une force bien au-delà de celle du bois de la Pénombre. Deux occupent cette maison. D'autres, le reste de celles de Colline-aux-Corbeaux.
+= Les Invisibles : des âmes en peine invisibles, d'une force bien au-delà de celle du bois de la Pénombre. Deux occupent cette maison. D'autres occupent le reste de celles de Colline-aux-Corbeaux.
 + La Détection de l'invisibilité d'un démoniste les révèle. Leur invisibilité n'est pas le camouflage d'un voleur : un oeil exercé à trouver l'un peut manquer toute une maisonnée ici.
 ! Périlleux (morts-vivants invisibles, niveaux 49 à 51)
 @ Les Invisibles

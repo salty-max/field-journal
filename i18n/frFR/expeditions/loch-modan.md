@@ -8,7 +8,7 @@ Vivants, ils n'eurent ni même salle ni même bannière.
 Leurs fils les ont dressés ensemble au bord de la route,
 face au sud, où le troisième attisait ses feux sous la voûte.
 ? Au sud-ouest du pays du lac, deux grandes figures gardent un col. On doit quelque chose à des rois.
-= Bronzebeard et Wildhammer, côte à côte, dressés par leurs fils. Leurs peuples se sont séparés plus tard. Les statues, non.
+= Bronzebeard et Wildhammer, côte à côte, dressés par leurs fils. Leurs peuples se sont séparés plus tard. Les statues, elles, sont restées ensemble.
 + Toute la guerre est dans une histoire naine, La guerre des trois clans : l'invocation de Thaurissan réveilla Ragnaros, et les statues "servaient d'avertissement à quiconque voudrait attaquer les royaumes des nains et rappelaient le prix que les Sombrefer avaient payé pour leurs crimes."
 ! Calme
 @ Vallée des rois

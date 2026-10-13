@@ -1,5 +1,5 @@
 ---
-source: dfef5119a2f7
+source: a477a70cfbc2
 zone: 1427
 ---
 ## searing-gorge-stonewrought-pass
@@ -19,7 +19,7 @@ et il n'y a rien à son entrée que de la roche noire.
 Allez-y et étudiez votre carte, pas la roche :
 quelque chose dans les montagnes vous regarde aussi.
 ? La caverne de Noircharbon, à la lisière sud-ouest de la gorge des Vents brûlants. Ce que vous cherchez est sur votre minicarte.
-= La caverne de Noircharbon, scellée. Et dans les montagnes au-dessus, sur la minicarte, ce qui ne peut être qu'un visage.
+= La caverne de Noircharbon, scellée. Et dans les montagnes au-dessus, sur la minicarte, se dessine ce qui ne peut être qu'un visage.
 + La caverne garde son sceau toute l'année. C'est seulement à la fête lunaire qu'un ancien de Forgefer vient se tenir à son entrée.
 ! Périlleux (araignées de lave et élémentaires de feu, niveaux 46 à 48)
 @ Caverne de Noircharbon
