@@ -33,6 +33,7 @@ ExpeditionsPin.lua
 FloraBook.lua
 MilestonesBook.lua
 WorldMapPins.lua
+MinimapCircles.lua
 Minimap.lua
 Settings.lua
 Welcome.lua

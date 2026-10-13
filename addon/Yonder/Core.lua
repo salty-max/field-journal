@@ -60,7 +60,9 @@ local function run(fn, ...)
 end
 
 frame:SetScript("OnEvent", function(_, event, ...)
-  if event == "PLAYER_LOGIN" then ns.login() end
+  -- (a step of the login gone wrong is reported, and the login's listeners,
+  -- the world map's layer and the riddles' clock, still start)
+  if event == "PLAYER_LOGIN" then run(ns.login) end
   if not char then return end
   for _, fn in ipairs(listeners[event] or {}) do
     run(fn, ...)

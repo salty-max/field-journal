@@ -182,7 +182,11 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   the game's clock; outside combat,
   never from a taxi or as a ghost;
   `/yonder where`). `WorldMapPins.lua`
-  (deaths on the game's world map), `Hints.lua` (tooltip line),
+  (deaths, close calls and the hints' circles on the game's world map; an
+  error of its own said once in chat and kept for /yonder where, which
+  Forever's map would swallow), `MinimapCircles.lua` (the hints' circles on
+  the minimap: `ns.hintCircles`, the zone's yards from the data, the
+  minimap's span from the game or its zoom, turning with it), `Hints.lua` (tooltip line),
   `Settings.lua` (each character's settings, the kit's profiles: a profile
   "Name - Realm" in YonderSettings, copied from another character of
   this game or from a code `YD1:...` (an old `FJ1:` taken too), `/yonder export` and `/yonder import

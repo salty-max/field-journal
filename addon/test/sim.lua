@@ -277,6 +277,16 @@ local function ui()
 end
 UIParent, UISpecialFrames, SlashCmdList = ui(), {}, {}
 Minimap, GameTooltip = ui(), ui()
+-- The minimap: its zoom (0, the widest, by default), a mask for what is drawn
+-- on it; whether the reader is indoors, where they face, the setting that
+-- turns the minimap with them; Forever's span (the game's own, in yards).
+Minimap.GetZoom = function() return state.zoom or 0 end
+Minimap.CreateMaskTexture = function() return ui() end
+function IsIndoors() return state.indoors == true end
+function GetPlayerFacing() return state.facing or 0 end
+local cvars = { rotateMinimap = "0" }
+function GetCVar(k) return cvars[k] end
+if FOREVER then C_Minimap = { GetViewRadius = function() return 200 end } end
 -- The tooltip: keep hooks, lines and the unit it shows.
 local tipHooks, tipLines, tipUnit = {}, {}, nil
 GameTooltip.HookScript = function(self, name, fn) tipHooks[name] = fn end
@@ -2023,6 +2033,95 @@ check(
   circle and circle.shown and circle.text == ns.riddleById["elwynn-forest-cats"].verse[1],
   "the map's hint: a circle on the zone's world map, the riddle's first line on it"
 )
+-- … what the world map drew, for /yonder where; an error of its own said
+-- once in chat (Forever's map would swallow it) and kept for /yonder where.
+check(
+  ns.mapLayer.map == 1429 and ns.mapLayer.circles >= 1 and not ns.mapLayer.err,
+  "… the world map's layer keeps what it drew last: the map and its circles"
+)
+do
+  local hint = ns.hintCircles
+  ns.hintCircles = function() error("a broken circle") end
+  ns.refreshWorldMapPins()
+  ns.refreshWorldMapPins()
+  ns.hintCircles = hint
+  local n = 0
+  for _, p in ipairs(printed) do
+    if p:find("failed to draw", 1, true) then n = n + 1 end
+  end
+  check(
+    n == 1 and ns.mapLayer.err and ns.mapLayer.err:find("a broken circle", 1, true),
+    "… a layer's error said once in chat and kept, never swallowed"
+  )
+  ns.mapLayer.err = nil
+  ns.refreshWorldMapPins()
+end
+-- … and on the minimap: around the reader standing at its centre, following
+-- them, turning with a turning minimap, out of sight far away; the minimap's
+-- span its zoom's (Classic) or the game's own (Forever).
+do
+  local mini = ns.minimapLayer
+  local made = {}
+  mini.frame.CreateTexture = function()
+    local t = ui()
+    t.SetPoint = function(self, _, _, _, x, y)
+      self.x, self.y = x, y
+    end
+    t.SetSize = function(self, w) self.size = w end
+    t.AddMaskTexture = function(self, m) self.mask = m end
+    table.insert(made, t)
+    return t
+  end
+  local cats = ns.riddleById["elwynn-forest-cats"]
+  local i
+  for k, c in ipairs(ns.hintCircles(1429)) do
+    if c.text == cats.verse[1] then i = k end
+  end
+  local zw = ns.zoneYards(1429)
+  local scale = 70 / (FOREVER and 200 or (466 + 2 / 3) / 2) -- (the minimap 140 wide)
+  local function frame()
+    mini.frame.scripts.OnUpdate(mini.frame, 1)
+    return made[i]
+  end
+  local near = function(a, b) return a and math.abs(a - b) < 1e-6 end
+  local back = { state.map, state.x, state.y, state.sub }
+  at(1429, cats.circle[1] / 100, cats.circle[2] / 100)
+  local t = frame()
+  check(
+    i
+      and t
+      and t.shown
+      and t.mask
+      and near(t.x, 0)
+      and near(t.y, 0)
+      and near(t.size, 2 * cats.circle[3] / 100 * zw * scale),
+    "the map's hint on the minimap: its circle around the reader at its centre, the minimap's span "
+      .. (FOREVER and "the game's" or "its zoom's")
+  )
+  at(1429, cats.circle[1] / 100 - 50 / zw, cats.circle[2] / 100)
+  t = frame()
+  check(near(t.x, 50 * scale) and near(t.y, 0), "… 50 yards west of it, the circle 50 yards east on the minimap")
+  cvars.rotateMinimap, state.facing = "1", math.pi / 2
+  t = frame()
+  check(
+    near(t.x, 0) and near(t.y, -50 * scale),
+    "… facing west on a turning minimap: the circle behind, under the reader"
+  )
+  if FOREVER then
+    state.facing = 1.25
+    secrets[1.25] = true
+    check(not frame().shown, "… Forever hiding where the reader faces: no circle on a turning minimap")
+    secrets[1.25] = nil
+  end
+  cvars.rotateMinimap, state.facing = "0", nil
+  at(1429, 0.02, 0.02)
+  check(not frame().shown and mini.seen < mini.circles, "… far from it: out of sight, still the zone's")
+  at(1426, 0.5, 0.5)
+  frame()
+  check(mini.circles == #ns.hintCircles(1426) and not made[i].shown, "… in another zone: that zone's circles only")
+  at(unpack(back))
+  frame()
+end
 -- The book: the Expeditions tab, a riddle's page, the seals and the margin.
 linkHandlers.yonder("yonder:xthe-barrens-ratchet-book")
 local function pageRows()
@@ -2145,6 +2244,10 @@ check(
 YonderFrame:Hide()
 SlashCmdList.YONDER("where")
 check(said("(map 1434): 24.70, 8.93."), "/yonder where tells the map and the position")
+check(
+  said("  hint circles: ") and said(" when last drawn; minimap: "),
+  "… and the maps' circles: this zone's, the world map's last drawing, the minimap's"
+)
 
 SlashCmdList.YONDER("reset yes")
 check(next(YonderChar.creatures) == nil and YonderChar.guid == PLAYER, "/yonder reset yes starts the journal over")

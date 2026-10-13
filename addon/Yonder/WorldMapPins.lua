@@ -2,9 +2,11 @@
 -- and came close (a yellow mark), on the zone's map, with a tooltip; the
 -- place of each riddle whose map was asked for, still unsolved (a shaded
 -- circle, wider than the spot and never centred on it), and the haunts of the
--- quarry tracked. A data provider, as
+-- quarry tracked (ns.hintCircles, the minimap's too). A data provider, as
 -- the game's own map layers; the setting worldMapPins turns the marks off
--- (never a hint asked for).
+-- (never a hint asked for). Forever's map runs its layers in a protected loop
+-- that swallows an error without a word: the layer catches its own, says it
+-- once in chat, and keeps what it drew last for /yonder where (ns.mapLayer).
 local _, ns = ...
 
 local SKULL = "Interface\\TargetingFrame\\UI-TargetingFrame-Skull"
@@ -13,6 +15,7 @@ local SIZE = 22 -- in the map canvas's units (the map art is about 1000 wide)
 local CIRCLE = "Interface\\AddOns\\Yonder\\Media\\Circle"
 
 local provider
+ns.mapLayer = { refreshes = 0 }
 
 local function pin(i)
   local p = provider.pins[i]
@@ -74,43 +77,26 @@ local function create()
       c:Hide()
     end
   end
-  function provider:RefreshAllData()
-    self:RemoveAllData()
+  local function draw(self)
+    local layer = ns.mapLayer
     local atlas = ns.atlas and ns.atlas()
     local map = self:GetMap()
     local mapID = map:GetMapID()
     local canvas = map:GetCanvas()
+    layer.refreshes, layer.map, layer.circles, layer.marks = layer.refreshes + 1, mapID, 0, 0
     if not (atlas and mapID and canvas) then return end
     local w, h = canvas:GetWidth(), canvas:GetHeight()
-    -- the riddles' circles (x, y, r: percent of the map's width)
-    local k = 0
-    for _, r in ipairs(ns.riddlesOf(mapID)) do
-      local rec = ns.riddleRecord(r.id)
-      if rec and (rec.hints or 0) >= 2 and not rec.at then
-        k = k + 1
-        local c = circle(k)
-        local size = 2 * r.circle[3] / 100 * w
-        c:SetSize(size, size)
-        c:SetFrameLevel(canvas:GetFrameLevel() + 1990)
-        c:ClearAllPoints()
-        c:SetPoint("CENTER", canvas, "TOPLEFT", r.circle[1] / 100 * w, -r.circle[2] / 100 * h)
-        c.title, c.text = "A riddle's place", r.verse[1]
-        c:Show()
-      end
-    end
-    local q = ns.huntTarget()
-    if q and q.zone == mapID then
-      for _, haunt in ipairs(q.haunts) do
-        k = k + 1
-        local c = circle(k)
-        local size = 2 * haunt[3] / 100 * w
-        c:SetSize(size, size)
-        c:SetFrameLevel(canvas:GetFrameLevel() + 1990)
-        c:ClearAllPoints()
-        c:SetPoint("CENTER", canvas, "TOPLEFT", haunt[1] / 100 * w, -haunt[2] / 100 * h)
-        c.title, c.text = q.name, "Its haunts: the quarry you track."
-        c:Show()
-      end
+    -- the riddles' and the quarry's circles (x, y, r: percent of the map's width)
+    for k, s in ipairs(ns.hintCircles(mapID)) do
+      local c = circle(k)
+      local size = 2 * s.r / 100 * w
+      c:SetSize(size, size)
+      c:SetFrameLevel(canvas:GetFrameLevel() + 1990)
+      c:ClearAllPoints()
+      c:SetPoint("CENTER", canvas, "TOPLEFT", s.x / 100 * w, -s.y / 100 * h)
+      c.title, c.text = s.title, s.text
+      c:Show()
+      layer.circles = k
     end
     if not ns.option("worldMapPins") then return end
     local n = 0
@@ -130,6 +116,16 @@ local function create()
     end
     place(atlas.closeCalls, CLOSE, "A close call")
     place(atlas.deaths, SKULL, "Died here")
+    layer.marks = n
+  end
+  function provider:RefreshAllData()
+    self:RemoveAllData()
+    local ok, err = pcall(draw, self)
+    if not ok then
+      local first = ns.mapLayer.err == nil
+      ns.mapLayer.err = tostring(err)
+      if first then print(ns.PREFIX .. "the world map's circles and marks failed to draw: " .. ns.mapLayer.err) end
+    end
   end
   WorldMapFrame:AddDataProvider(provider)
   ns.worldMapPinsAttached = true

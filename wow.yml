@@ -23,11 +23,15 @@ globals:
     any: true
   C_CreatureInfo:
     any: true
+  C_CVar:
+    any: true
   C_Item:
     any: true
   C_Map:
     any: true
   C_MapExplorationInfo:
+    any: true
+  C_Minimap:
     any: true
   C_Texture:
     any: true
@@ -67,6 +71,8 @@ globals:
     any: true
   GetCursorPosition:
     any: true
+  GetCVar:
+    any: true
   GetGameTime:
     any: true
   geterrorhandler:
@@ -83,7 +89,11 @@ globals:
     any: true
   GetLootSourceInfo:
     any: true
+  GetMinimapShape:
+    any: true
   GetNumLootItems:
+    any: true
+  GetPlayerFacing:
     any: true
   GetRealmName:
     any: true
@@ -92,6 +102,8 @@ globals:
   GetSubZoneText:
     any: true
   InCombatLockdown:
+    any: true
+  IsIndoors:
     any: true
   IsInGroup:
     any: true

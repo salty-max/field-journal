@@ -153,7 +153,7 @@ function ns.takeHint(id, n)
   local rec = e.riddles[id] or {}
   rec.hints = math.max(rec.hints or 0, n)
   e.riddles[id] = rec
-  if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
+  if ns.refreshHints then ns.refreshHints() end
   ns.onRecord()
 end
 
@@ -181,6 +181,13 @@ local function where()
   end
   if not x or secret(x) or secret(y) then return uiMap end
   return uiMap, x, y
+end
+ns.where = where -- (the minimap's circles)
+
+-- A zone's map in yards across and down (scripts/expeditions.py).
+function ns.zoneYards(uiMap)
+  local z = X[uiMap]
+  if z and z.w and z.h then return z.w, z.h end
 end
 
 -- The zone's sub-areas the reader stands in (the game names the sub-area in
@@ -268,7 +275,7 @@ local function solve(r, x, y)
   ns.playSound()
   ns.toast("riddle", r.id)
   ns.checkMilestones()
-  if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
+  if ns.refreshHints then ns.refreshHints() end
   ns.onRecord()
 end
 
@@ -386,6 +393,28 @@ function ns.huntTarget()
   return e and e.target and quarryById[e.target]
 end
 
+-- What a zone's maps shade, the game's world map and the minimap alike (the
+-- book's map draws its own): the place of each riddle whose map was asked
+-- for, still unsolved, and the haunts of the quarry tracked. x, y, r: percent
+-- of the map's width.
+function ns.hintCircles(uiMap)
+  local out = {}
+  for _, r in ipairs(ns.riddlesOf(uiMap)) do
+    local rec = ns.riddleRecord(r.id)
+    if rec and (rec.hints or 0) >= 2 and not rec.at then
+      local c = r.circle
+      table.insert(out, { x = c[1], y = c[2], r = c[3], title = "A riddle's place", text = r.verse[1] })
+    end
+  end
+  local q = ns.huntTarget()
+  if q and q.zone == uiMap then
+    for _, h in ipairs(q.haunts) do
+      table.insert(out, { x = h[1], y = h[2], r = h[3], title = q.name, text = "Its haunts: the quarry you track." })
+    end
+  end
+  return out
+end
+
 -- The quarry tracked (nil: none): ever tracked, it can't earn the gold seal.
 function ns.setHuntTarget(id)
   local e = ns.expeditions()
@@ -396,7 +425,7 @@ function ns.setHuntTarget(id)
     e.hunts[id] = rec
   end
   e.target = id
-  if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
+  if ns.refreshHints then ns.refreshHints() end
   ns.onRecord()
 end
 
@@ -426,7 +455,7 @@ function ns.quarrySlain(id)
   local c = ns.journal().creatures[id]
   if not (c and c.trophy and c.trophy.at == rec.at) then ns.playSound() end
   ns.toast("quarry", id)
-  if ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
+  if ns.refreshHints then ns.refreshHints() end
 end
 
 -- Quarries brought down before the journal kept the hunts: stamped quietly,
@@ -467,4 +496,22 @@ function ns.whereReport()
     end
     print(("  riddles here: %d, %d solved."):format(open, solved))
   end
+  -- the maps' circles: what this zone shades, what each map drew (and the
+  -- world map's error, which its game would keep quiet)
+  local here = uiMap and #ns.hintCircles(uiMap) or 0
+  local world, mini = ns.mapLayer or {}, ns.minimapLayer or {}
+  local drawn = "not attached"
+  if ns.worldMapPinsAttached then
+    drawn = world.map
+        and ("%d on %s (map %d) when last drawn"):format(world.circles or 0, ns.zoneName(world.map), world.map)
+      or "not drawn yet (open the map)"
+  end
+  print(
+    ("  hint circles: %d here; world map: %s; minimap: %s."):format(
+      here,
+      drawn,
+      mini.attached and ("%d in sight"):format(mini.seen or 0) or "not attached"
+    )
+  )
+  if world.err then print("  world map error: " .. world.err) end
 end
