@@ -180,7 +180,7 @@ local function oldSelf()
   if disable then pcall(disable, "FieldJournal") end
   print(
     PREFIX
-      .. "Explorer's Field Journal, Yonder's old name, was still running beside it: it is turned off from your next /reload, and your journal is Yonder's. Its FieldJournal folder in Interface\\AddOns can go."
+      .. L["Explorer's Field Journal, Yonder's old name, was still running beside it: it is turned off from your next /reload, and your journal is Yonder's. Its FieldJournal folder among your addons can go."]
   )
 end
 

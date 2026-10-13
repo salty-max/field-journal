@@ -228,7 +228,8 @@ local function enter()
     end
     lastZone = zone
     if new then
-      print(PREFIX .. ("|cffffd100|Hyonder:z%d|h[%s]|h|r added to the atlas."):format(zone, ns.zoneName(zone)))
+      local link = ("|cffffd100|Hyonder:z%d|h[%s]|h|r"):format(zone, ns.zoneName(zone))
+      print(PREFIX .. L["%s added to the atlas."]:format(link))
     end
   end
   z.last = now
