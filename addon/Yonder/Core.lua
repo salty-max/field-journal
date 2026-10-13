@@ -251,7 +251,7 @@ end
 
 -- ── /yonder ─────────────────────────────────────────────────────────────────
 local USAGE =
-  L["/yonder opens the book; /yonder settings; /yonder minimap shows or hides the button; /yonder welcome shows the welcome page again; /yonder export gives this character's settings as a code, /yonder import CODE takes them; /yonder reset starts this character's journal over; /yonder where tells the map and your position on it; /yonder probe describes the next loot window, as the game shows it; /yonder toast shows a riddle's banner, as it would come."]
+  L["/yonder opens the book, /yonder settings its settings. /yonder minimap shows or hides the button. /yonder welcome shows the welcome page again. /yonder export gives this character's settings as a code, and /yonder import CODE takes them. /yonder reset starts this character's journal over. /yonder where tells the map and your position on it. /yonder probe describes the next loot window, as the game shows it. /yonder toast shows a riddle's banner, as it would come."]
 
 SLASH_YONDER1 = "/yonder"
 SlashCmdList.YONDER = function(msg)

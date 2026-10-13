@@ -23,7 +23,7 @@ an ogre calls the races, and a barmaid sends them off with a flag.
 Every race needs a crowd. Be one.
 ? The Mirage Raceway, on the Shimmering Flats.
 = Daisy, the race starter girl of the Mirage Raceway, with Fobeed, the ogre, and Zuzubee calling the races.
-+ The racers come and go; the flag, the ogre's voice and the salt stay.
++ The racers come and go. The flag, the ogre's voice and the salt stay.
 
 ## quarry
 A centaur called the Banished circles the plateaus of the canyons' west,

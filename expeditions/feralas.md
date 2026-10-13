@@ -12,7 +12,7 @@ riddles:
     area: The Maul   # placed: Griniblix the Spectator above it (creature 14395), dump 62.0, 30.1
     anchor: { creature: 14395 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 61.0, y: 32.0, r: 4 }
-    danger: "Perilous (the Gordok ogres; and the pit lets anyone fight anyone)"
+    danger: "Perilous (the Gordok ogres, and a pit where anyone may fight anyone)"
     sources: "the WoWWiki archive's Griniblix the Spectator and The Maul pages; the client's AreaTable; the dump's spawn and his words"
   - id: feralas-feathermoon
     tier: town
@@ -33,7 +33,7 @@ Above it, a goblin watches every fight and yells for all of them.
 Drop in, and give him a show.
 ? Dire Maul's broken commons: the pit called the Maul, under Griniblix's perch.
 = The Maul, the ogres' fighting pit in Dire Maul, and Griniblix the Spectator above it: 'Woohoo! They are into it now!'
-+ Skarr the Unbreakable, the Razza or Mushgog may come to the ring; when Mushgog comes, herbs spring up in the pit, and some say a black lotus among them.
++ Skarr the Unbreakable, the Razza or Mushgog may come to the ring. When Mushgog comes, herbs spring up in the pit, and some say a black lotus among them.
 
 ## feralas-feathermoon
 In the sentinels' island stronghold, seek a promise between lovers
@@ -41,7 +41,7 @@ who might not see each other for centuries.
 The watch these women kept began with that parting.
 ? Feathermoon Stronghold, on Sardor Isle.
 = The Sentinels and the Long Vigil, at Feathermoon: Tyrande's warrior women, sworn to Kalimdor's defence while the druids slept in the Emerald Dream.
-+ Malfurion swore they would never be apart, so long as they held true to their love; the centuries passed, and Tyrande feared the Legion's return.
++ Malfurion swore they would never be apart, so long as they held true to their love. The centuries passed, and Tyrande feared the Legion's return.
 
 ## quarry
 Under the two great stone pillars in the north,

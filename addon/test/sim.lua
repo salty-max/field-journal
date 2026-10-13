@@ -2282,7 +2282,7 @@ YonderFrame:Hide()
 SlashCmdList.YONDER("where")
 check(said("(map 1434): 24.70, 8.93."), "/yonder where tells the map and the position")
 check(
-  said("  hint circles: ") and said(" when last drawn; minimap: "),
+  said("  hint circles: ") and said(" when last drawn, minimap: "),
   "… and the maps' circles: this zone's, the world map's last drawing, the minimap's"
 )
 

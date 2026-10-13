@@ -62,4 +62,4 @@ Something walks the east of the burning plain, round the ogres' rock,
 past the ruined city and down toward the dwarves' vigil, and back:
 a giant of molten stone, carrying a smith's plans for a hammer of the same fire.
 = Volchan, an elite molten giant, walking the east of the Burning Steppes: the only one who carries the Plans: Volcanic Hammer.
-+ The other molten giants stand deep under Blackrock Mountain, in the Molten Core among Ragnaros's servants; Volchan walks under the open sky.
++ The other molten giants stand deep under Blackrock Mountain, in the Molten Core among Ragnaros's servants. Volchan walks under the open sky.

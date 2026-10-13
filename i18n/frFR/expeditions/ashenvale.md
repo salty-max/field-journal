@@ -1,5 +1,5 @@
 ---
-source: 6021e373a01c
+source: 89dec6a2160b
 zone: 1440
 ---
 ## ashenvale-grom
@@ -20,7 +20,7 @@ Dans la ville des sentinelles au bord du lac, trouvez la page qui nomme sa charg
 Ses quatre parents reçurent la leur sur la même page.
 ? Astranaar.
 = Le fardeau des Vols draconiques, à Astranaar : les Titans confièrent le monde à cinq dragons, et donnèrent à Ysera le Rêve d'émeraude à surveiller.
-+ Ysera tomba en une transe éternelle, liée au Rêve de la Création ; ses dragons verts en gardent les portes, dont le grand arbre du Bosquet du crépuscule, dans le bois de la Pénombre.
++ Ysera tomba en une transe éternelle, liée au Rêve de la Création. Ses dragons verts en gardent les portes, dont le grand arbre du Bosquet du crépuscule, dans le bois de la Pénombre.
 ! Calme
 @ Le fardeau des Vols draconiques
 

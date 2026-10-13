@@ -32,15 +32,15 @@ His name was not made by farming.
 Pay him the respect his years have earned.
 ? North-east of Razor Hill, east of Razorwind Canyon: a farmhouse, an old orc, and his farmhand in the garden.
 = Rokar Bladeshadow, an aged orc farmer, and Harroc, his farmhand: 'What's a young one like you out visiting an old farmer like me?'
-+ Harroc works the garden outside; Rokar keeps to the house, and to whatever he was before he was a farmer.
++ Harroc works the garden outside. Rokar keeps to the house, and to whatever he was before he was a farmer.
 
 ## durotar-tiragarde
 In the retaken keep on the red coast, find the chieftains gathered to drink from one cup.
 One chieftain in the account will not join them.
 His son's new land lies outside these walls.
 ? South of Razor Hill, Kul Tiras still holds a keep on Durotar's shore.
-= Rise of the Horde, at Tiragarde Keep. The book credits Durotan with refusing Mannoroth's blood; the land outside bears his name.
-+ The keep was raised by Admiral Proudmoore's men, who crossed the sea to destroy the Horde in its new land; it is theirs still.
+= Rise of the Horde, at Tiragarde Keep. The book credits Durotan with refusing Mannoroth's blood. The land outside bears his name.
++ The keep was raised by Admiral Proudmoore's men, who crossed the sea to destroy the Horde in its new land. It is theirs still.
 
 ## quarry
 West of the road, the Razormane quilboar have taken grounds of their own,

@@ -11,7 +11,7 @@ riddles:
     area: Stonewrought Pass   # placed: the gate at its southern end (object 150137), dump 78.7, 17.2
     anchor: { object: 150137 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 76.0, y: 19.0, r: 5 }
-    danger: "Guarded (glassweb spiders, level 43); and the gate is locked"
+    danger: "Guarded (glassweb spiders, level 43), and the gate is locked"
     sources: "quest 3801's text (Franclorn Forgewright and the stonewrought method); the WoWWiki archive's Stonewrought Pass and Franclorn Forgewright pages"
   - id: searing-gorge-blackchar
     tier: hidden
@@ -38,9 +38,9 @@ In the gorge's south-west, a cave is sealed shut under the mountains,
 and there is nothing at its mouth but black rock.
 Go there and study your map, not the rock:
 something in the mountains is staring back.
-? Blackchar Cave, at the Searing Gorge's south-western edge; what you want is on your minimap.
-= Blackchar Cave, sealed; and in the mountains above it, on the minimap, what can only be a face.
-+ The cave keeps its seal all year; only at the Lunar Festival does an elder of Ironforge come to stand at its mouth.
+? Blackchar Cave, at the Searing Gorge's south-western edge. What you want is on your minimap.
+= Blackchar Cave, sealed. And in the mountains above it, on the minimap, what can only be a face.
++ The cave keeps its seal all year. Only at the Lunar Festival does an elder of Ironforge come to stand at its mouth.
 
 ## quarry
 A demon's horse runs loose in the old dig south-east of the Cauldron.

@@ -18,7 +18,7 @@ riddles:
     gestures: [MOURN, SIGH]
     area: The Dead Acre   # placed: the client's overlay: 62.4, 61.4
     hint_area: { x: 60.0, y: 58.5, r: 6 }
-    danger: "Guarded (harvest reapers to level 18; the Foe Reaper 4000, at times)"
+    danger: "Guarded (harvest reapers to level 18, and at times the Foe Reaper 4000)"
     sources: "the WoWWiki archive's The Dead Acre and Foe Reaper 4000 pages"
 quarry:
   id: 462   # Vultros
@@ -27,7 +27,7 @@ quarry:
 ## westfall-aegwynn
 On a farmhouse shelf north of the militia's hill,
 seek a young woman's victory over a fallen god.
-She believed she had ended the danger; the page remembers what followed her home.
+She believed she had ended the danger. The page remembers what followed her home.
 ? The Saldeans' farm, north of Sentinel Hill.
 = Aegwynn and the Dragon Hunt, on the Saldeans' shelf. A farmhouse is an odd place to keep the tale of the Guardian who struck down Sargeras's body.
 + She never knew she had done as he planned: his spirit passed into her and hid in her soul for many years.

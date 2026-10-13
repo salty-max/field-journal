@@ -56,7 +56,7 @@ and do not stop for anybody.
 Show them what their drums are for.
 ? Revantusk Village, among its huts.
 = The Revantusk Drummers, three of them, keeping the village's beat.
-+ The village keeps its eye on the Vilebranch of Jintha'Alor, up the hill; the drums are the one sound it makes on purpose.
++ The village keeps its eye on the Vilebranch of Jintha'Alor, up the hill. The drums are the one sound it makes on purpose.
 
 ## quarry
 Among the troll ruins in the east of the hills,

@@ -1,5 +1,5 @@
 ---
-source: d3f31d53fc99
+source: cf3da0aeb602
 zone: 1446
 ---
 ## tanaris-gadgetzan
@@ -7,8 +7,8 @@ Dans la ville gobeline du désert, trouvez une fille qui choisit la paix que son
 Leur querelle traversa un océan avant de prendre fin.
 La ville en garde le récit parmi ses livres.
 ? Gadgetzan.
-= Anciennes haines - La colonisation de Kalimdor, à Gadgetzan : Durotar, nommé d'après le père de Thrall ; Jaina Proudmoore contre son père, le grand amiral.
-+ Il mourut avant qu'elle ne puisse se réconcilier avec lui ; "en remerciement de sa loyauté, les orcs permirent à Jaina et à ses forces de revenir en toute sécurité à Theramore."
+= Anciennes haines - La colonisation de Kalimdor, à Gadgetzan : Durotar, nommé d'après le père de Thrall, et Jaina Proudmoore contre son père, le grand amiral.
++ Il mourut avant qu'elle ne puisse se réconcilier avec lui. "En remerciement de sa loyauté, les orcs permirent à Jaina et à ses forces de revenir en toute sécurité à Theramore."
 ! Calme
 @ Anciennes haines - La colonisation de Kalimdor
 
@@ -35,7 +35,7 @@ Elle a une seule requête pour qui nage jusqu'à elle. Soyez $ggentil:gentille;.
 ## quarry
 Les ogres du désert du sud tiennent trois camps parmi de vieilles ruines trolles.
 On peut trouver dans n'importe lequel un ogre à la grande hache.
-L'Egaré, l'appellent-ils ; il a bien assez de compagnie partout où il se montre.
+L'Egaré, l'appellent-ils. Il a bien assez de compagnie partout où il se montre.
 = Omgorn l'Egaré, un ogre Cognedune, à la base des Cognedunes, aux ruines d'Estelune ou aux ruines de Sudelune.
 + Sa hache laisse des blessures qui résistent aux soins.
 @ Omgorn l'Egaré

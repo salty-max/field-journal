@@ -8,4 +8,4 @@ match:
 ---
 Two heads on one winged body make a chimaera unmistakable, even before its breath strikes. The night elves have fought beside these creatures, whose strength and corrosive attack are formidable against stone as well as flesh.
 
-Winterspring has a pale, shaggy kind suited to the snow. Off Feralas, the Isle of Dread shelters the enormous chimaeroks. On a map it is a small island; a chimaerok gives a traveller ample reason to consider how much of it remains between beast and shore.
+Winterspring has a pale, shaggy kind suited to the snow. Off Feralas, the Isle of Dread shelters the enormous chimaeroks. On a map it is a small island. A chimaerok gives a traveller ample reason to consider how much of it remains between beast and shore.

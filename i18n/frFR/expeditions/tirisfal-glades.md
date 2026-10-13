@@ -1,5 +1,5 @@
 ---
-source: e978996b75d6
+source: b4b967485f53
 zone: 1420
 ---
 ## tirisfal-glades-zapetta
@@ -21,7 +21,7 @@ Seuls les morts et les affamés y viennent aujourd'hui. Souvenez-vous de ce qu'i
 ? À l'ouest de Brill, à l'écart de la route du Glas : un étang gris, presque oublié.
 = L'Etang immobile, jadis le coin de pique-nique des clairières. Des sombredogues chassent sur ses rives aujourd'hui.
 + Le lac Etincelant, à l'est de Brill, était pour les plus grands : bien plus vaste, et bien plus profond.
-! Calme (sombredogues ; Bayne, un rare, rôde tout près)
+! Calme (des sombredogues, et Bayne, un rare, qui rôde tout près)
 @ Etang immobile
 
 ## tirisfal-glades-whispering-gardens
@@ -31,7 +31,7 @@ Ceux qui tombèrent là ne se sont pas tus :
 au crépuscule, on les entend encore, si l'on sait se tenir tranquille.
 ? Au sud du Monastère écarlate, sur sa colline, au nord-est de Tirisfal.
 = Les Jardins des murmures, où ceux qui allaient fonder la Croisade écarlate combattirent le Fléau. Leurs morts murmurent encore.
-+ La Croisade garde son monastère à deux pas ; pour ses fanatiques, tout Réprouvé est le Fléau.
++ La Croisade garde son monastère à deux pas. Pour ses fanatiques, tout Réprouvé est le Fléau.
 ! Périlleux (les élites de la Croisade écarlate, niveaux 29 à 31)
 @ Jardins des murmures
 
@@ -74,5 +74,5 @@ ont mangé ce que la peste avait laissé en vie, une chauve-souris est blanche,
 aux ailes roses, et les chasseurs qui la voient la veulent pour eux.
 Elle se tient dans un petit coin du val.
 = Ressan le Harceleur, une chauve-souris blanche aux ailes roses, de la Vallée des cauchemars.
-+ La Vallée des cauchemars était verte, jadis, et pleine d'animaux de la forêt ; les sombredogues et les chauves-souris vampiriques les ont mangés.
++ La Vallée des cauchemars était verte, jadis, et pleine d'animaux de la forêt. Les sombredogues et les chauves-souris vampiriques les ont mangés.
 @ Ressan le Harceleur

@@ -11,7 +11,7 @@ riddles:
     gestures: [HELLO, HAIL, GREET]
     creature: 3534   # Wallace the Blind, dump 46.5, 86.5, among the refugees under the Greymane Wall
     hint_area: { x: 45.0, y: 84.0, r: 5 }
-    danger: "Guarded for the Horde (the refugees, levels 18 to 20, are Lordaeron's own); quiet for the Alliance"
+    danger: "Guarded for the Horde (the refugees, levels 18 to 20, are Lordaeron's own), quiet for the Alliance"
     sources: "the dump's spawns and factions (Wallace friendly to all, the refugees to the Alliance alone); the WoWWiki archive's Greymane Wall and Wallace the Blind pages; Warcraft II: Beyond the Dark Portal's manual (the wall)"
 quarry:
   id: 1948   # Snarlmane

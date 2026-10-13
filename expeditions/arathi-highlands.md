@@ -28,11 +28,11 @@ quarry:
 ## arathi-highlands-thoradins-wall
 On the highlands' north-western edge, a wall of the first kingdom of men
 runs along the border, over the hills, as far as it can see.
-It was raised against the trolls, long ago; now it gapes, broken through.
+It was raised against the trolls, long ago. Now it gapes, broken through.
 Go to its foot, and take in what is left.
 ? Arathi's north-western edge, where the highlands meet the foothills.
-= Thoradin's Wall, raised by King Thoradin of Arathor, the first kingdom of men, against the Amani trolls; broken now, and gaping wide.
-+ 'Once a symbol of humanity's strength and defensive might,' an old survey of these lands calls it; 'now fallen to decay and war.'
+= Thoradin's Wall, raised by King Thoradin of Arathor, the first kingdom of men, against the Amani trolls, broken now and gaping wide.
++ 'Once a symbol of humanity's strength and defensive might,' an old survey of these lands calls it, 'now fallen to decay and war.'
 
 ## arathi-highlands-hammerfall
 In the Horde's highland camp, seek the elves who named themselves for their dead.
@@ -40,7 +40,7 @@ Their kingdom was lost, but the name travelled with them.
 The story is kept on a page.
 ? Hammerfall.
 = Rise of the Blood Elves, in Hammerfall: Kael'thas's high elves, renamed blood elves, cast out by the Alliance and gone to Outland with Illidan.
-+ Cut off from the Sunwell, they hungered for magic; looking for a cure is what led Kael'thas to Illidan and his naga.
++ Cut off from the Sunwell, they hungered for magic. Looking for a cure is what led Kael'thas to Illidan and his naga.
 
 ## quarry
 On the farm at Northfold, among the Syndicate's cutthroats,

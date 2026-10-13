@@ -41,7 +41,7 @@ In the sentinels' town beside the lake, find the page that names her charge.
 Her four kin received theirs on the same page.
 ? Astranaar.
 = Charge of the Dragonflights, in Astranaar: the Titans entrusted the world to five dragons, and gave Ysera the Emerald Dream to watch over.
-+ Ysera fell into an eternal trance, bound to the waking Dream of Creation; her green dragons keep its doors, the great tree of Duskwood's Twilight Grove among them.
++ Ysera fell into an eternal trance, bound to the waking Dream of Creation. Her green dragons keep its doors, the great tree of Duskwood's Twilight Grove among them.
 
 ## quarry
 A great bear keeps to the east of the forest,

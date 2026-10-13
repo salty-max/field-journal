@@ -1,5 +1,5 @@
 ---
-source: 6dcda4995a9c
+source: 38dcf02358ca
 zone: 1424
 ---
 ## hillsbrad-foothills-zixil
@@ -8,7 +8,7 @@ un gobelin va de l'une à l'autre et revient, toute la journée,
 un robot sur les talons, et vend dans les deux :
 ceintures, orbes, un patron ou deux, un seul de chaque à la fois.
 Attrapez-le sur la route.
-? La route d'Austrivage à Moulin-de-Tarren ; il la parcourt d'un bout à l'autre.
+? La route d'Austrivage à Moulin-de-Tarren. Il la parcourt d'un bout à l'autre.
 = Zixil, marchand suprême, un gobelin qui commerce à la fois à Austrivage et à Moulin-de-Tarren, avec Vigilant modèle 1, son robot, sur les talons.
 + Son schéma apprend à un ingénieur à fabriquer le Défibrillateur gobelin, qui peut ramener à la vie un compagnon tombé par une décharge. Le mot "peut" mérite qu'on s'en souvienne.
 ! Disputé (la route entre les deux villes)
@@ -22,7 +22,7 @@ Rendez-leur les honneurs d'un soldat.
 ? Le coin nord-est de Hautebrande, là où le chemin monte vers les Hinterlands.
 = Granistad et Kurdros, griffons de Forgefer, qui gardent le col de Hautebrande vers les Hinterlands.
 + Ils sont de niveau quarante, sur une route que la plupart des voyageurs gravissent au niveau vingt-cinq : pour la Horde, moins des gardes qu'un mur.
-! Mortel pour la Horde (deux griffons de Forgefer, niveau 40) ; calme pour l'Alliance
+! Mortel pour la Horde (deux griffons de Forgefer, niveau 40), calme pour l'Alliance
 @ Granistad
 
 ## hillsbrad-foothills-loving-memory
@@ -31,7 +31,7 @@ garde un nom et deux années, et rien de plus.
 Quelqu'un a veillé à ce qu'elle soit là, pour quelqu'un qu'il a perdu.
 ? Sous Dun Garok, vers la mer.
 = "Anthony Ray Stark. 1961 - 2005."
-+ Un mémorial que les créateurs du monde ont laissé pour l'un de leurs amis. Rousch, le nain qui se tient devant, était son propre personnage dans le jeu ; il l'avait mené jusque vers le niveau quarante et quelques.
++ Un mémorial que les créateurs du monde ont laissé pour l'un de leurs amis. Rousch, le nain qui se tient devant, était son propre personnage dans le jeu. Il l'avait mené jusque vers le niveau quarante et quelques.
 ! Calme
 @ Souvenir affectueux
 
@@ -51,7 +51,7 @@ Leurs maîtres elfes ne leur donnèrent que la magie dont ils avaient besoin.
 Trouvez ce que leur première grande leçon fit à une armée.
 ? Moulin-de-Tarren.
 = Arathor et les Guerres trolls, à Moulin-de-Tarren : la bataille se livra au pied des montagnes d'Alterac.
-+ Les elfes enseignèrent à cent humains les rudiments de la magie, pas plus que nécessaire ; les trolls ne se relevèrent plus jamais comme une seule nation.
++ Les elfes enseignèrent à cent humains les rudiments de la magie, pas plus que nécessaire. Les trolls ne se relevèrent plus jamais comme une seule nation.
 ! Calme
 @ Arathor et les Guerres trolls
 

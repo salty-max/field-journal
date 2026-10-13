@@ -37,7 +37,7 @@ A city rebuilt remembers the man who helped pay for it.
 Seek his plaque in the cathedral he made possible.
 His work began in a northern city now lost to the living.
 ? The Cathedral of Light, in Cathedral Square.
-= Archbishop Alonsus Faol, 'benevolent patron of the Church of Light'. His work began in Stratholme; after the Second War he helped reform the Brotherhood of Northshire and raised funds to rebuild Stormwind.
+= Archbishop Alonsus Faol, 'benevolent patron of the Church of Light'. His work began in Stratholme. After the Second War he helped reform the Brotherhood of Northshire and raised funds to rebuild Stormwind.
 + 'This Cathedral stands not only as a bastion of the Holy Light, but as a lasting testament to one man's noble spirit and generosity.' His resting place is far to the north, beside the Scarlet Monastery.
 
 ## stormwind-city-khadgar-plaque

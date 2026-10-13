@@ -1,8 +1,8 @@
 ---
-source: acb1f9a844a5
+source: f678d762531b
 zone: 1455
 ---
-La porte de Forgefer s'ouvre sur la neige et donne sur une cité disposée autour de la Grande forge. L'anneau principal relie les Communs, le Haut-Siège, Brikabrok et le hall des Explorateurs ; savoir dans quel sens en faire le tour épargne bien des pas.
+La porte de Forgefer s'ouvre sur la neige et donne sur une cité disposée autour de la Grande forge. L'anneau principal relie les Communs, le Haut-Siège, Brikabrok et le hall des Explorateurs. Savoir dans quel sens en faire le tour épargne bien des pas.
 
 Le tram des profondeurs part de Brikabrok pour Hurlevent, et les griffons s'envolent à côté de la Grande forge. Le hall de la Ligue offre une destination plus calme, même si ses collections suscitent parfois autant de disputes que l'hôtel des ventes.
 

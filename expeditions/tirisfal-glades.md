@@ -20,7 +20,7 @@ riddles:
     gestures: [SIGH, MOURN, CRY]
     area: Stillwater Pond   # placed: the client's overlay: 48.0, 51.3
     hint_area: { x: 50.0, y: 53.5, r: 6 }
-    danger: "Quiet (darkhounds; Bayne, a rare one, roams near)"
+    danger: "Quiet (darkhounds about, and Bayne, a rare one, roaming near)"
     sources: "the WoWWiki archive's Stillwater Pond page"
   - id: tirisfal-glades-whispering-gardens
     tier: hidden
@@ -80,7 +80,7 @@ Those who fell there have not gone quiet:
 at twilight they can still be heard, if you will be still.
 ? South of the Scarlet Monastery, on its hill, in north-eastern Tirisfal.
 = The Whispering Gardens, where those who would found the Scarlet Crusade fought the Scourge. Their dead whisper still.
-+ The Crusade keeps its monastery a stone's throw away; to its zealots, every Forsaken is Scourge.
++ The Crusade keeps its monastery a stone's throw away. To its zealots, every Forsaken is Scourge.
 
 ## tirisfal-glades-terrace
 North of the red crusaders' monastery, the plague never came:
@@ -115,4 +115,4 @@ have eaten what the plague left alive, one bat is white,
 with wings of pink, and the hunters who see it want it for their own.
 It keeps to one small corner of the vale.
 = Ressan the Needler, a white bat with pink wings, of Nightmare Vale.
-+ Nightmare Vale was green once, and full of forest animals; the darkhounds and the vampire bats ate them.
++ Nightmare Vale was green once, and full of forest animals. The darkhounds and the vampire bats ate them.

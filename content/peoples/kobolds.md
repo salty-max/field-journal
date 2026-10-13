@@ -9,4 +9,4 @@ match:
 ---
 A light in an abandoned mine often belongs to a kobold. Their candles mark the tunnels of Elwynn and Westfall, where narrow passages allow a small digger to make a large nuisance of itself.
 
-The familiar protest, "You no take candle!", is quite clear on the subject most urgently at hand. Beyond that, the candle tells a practical story: somebody intends to work and live in the dark. To the miner coming back for his claim, the tunnel is occupied; to the kobold, the miner is an intruder.
+The familiar protest, "You no take candle!", is quite clear on the subject most urgently at hand. Beyond that, the candle tells a practical story: somebody intends to work and live in the dark. To the miner coming back for his claim, the tunnel is occupied. To the kobold, the miner is an intruder.

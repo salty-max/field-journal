@@ -1,5 +1,5 @@
 ---
-source: aca34b3dc508
+source: 837f973339a0
 zone: 1421
 ---
 ## silverpine-forest-wallace
@@ -10,7 +10,7 @@ il ne voit pas de quel camp vous êtes. Inutile de faire signe.
 ? Sous le mur de Grisetête, au bout sud des Pins argentés, parmi les réfugiés.
 = Wallace l'aveugle, fabricant d'armes pour la Horde comme pour l'Alliance, sous le mur de Grisetête : Gilnéas garde sa porte fermée aux réfugiés massés à ses pieds.
 + Gilnéas éleva le mur après la Deuxième Guerre, quand Genn Greymane quitta l'Alliance à cause du coût des camps d'internement des orcs.
-! Gardé pour la Horde (les réfugiés, niveaux 18 à 20, sont les gens de Lordaeron) ; calme pour l'Alliance
+! Gardé pour la Horde (les réfugiés, niveaux 18 à 20, sont les gens de Lordaeron), calme pour l'Alliance
 @ Wallace l'aveugle
 
 ## quarry

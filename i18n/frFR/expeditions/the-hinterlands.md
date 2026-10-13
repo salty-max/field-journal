@@ -1,5 +1,5 @@
 ---
-source: 9ab426885657
+source: 0d71c6f368a0
 zone: 1425
 ---
 ## the-hinterlands-plaguemist
@@ -30,7 +30,7 @@ et ne s'arrêtent pour personne.
 Montrez-leur à quoi servent leurs tambours.
 ? Le village des Revantusk, parmi ses huttes.
 = Les tambours Revantusk, au nombre de trois, qui battent la mesure du village.
-+ Le village garde un oeil sur les Vilebranch de Jintha'Alor, en haut de la colline ; les tambours sont le seul bruit qu'il fait exprès.
++ Le village garde un oeil sur les Vilebranch de Jintha'Alor, en haut de la colline. Les tambours sont le seul bruit qu'il fait exprès.
 ! Calme
 @ Tambour Revantusk
 

@@ -1,5 +1,5 @@
 ---
-source: 26c8e00ee5b0
+source: ae2cfe8fe7c9
 zone: 1453
 ---
 ## stormwind-city-faol-plaque
@@ -7,7 +7,7 @@ Une cité rebâtie se souvient de l'homme qui aida à la payer.
 Cherchez sa plaque dans la cathédrale qu'il a rendue possible.
 Son oeuvre commença dans une cité du nord aujourd'hui perdue pour les vivants.
 ? La cathédrale de la Lumière, place de la Cathédrale.
-= L'archevêque Alonsus Faol, "bienveillant protecteur de l'Eglise de la Lumière". Son oeuvre commença à Stratholme ; après la Deuxième Guerre, il aida à réformer la Fraternité de Comté-du-Nord et leva des fonds pour rebâtir Hurlevent.
+= L'archevêque Alonsus Faol, "bienveillant protecteur de l'Eglise de la Lumière". Son oeuvre commença à Stratholme. Après la Deuxième Guerre, il aida à réformer la Fraternité de Comté-du-Nord et leva des fonds pour rebâtir Hurlevent.
 + "Cette cathédrale n'est pas seulement un bastion de la Sainte Lumière, mais aussi un mémorial de son esprit noble et de sa générosité." Il repose loin au nord, à côté du Monastère écarlate.
 ! Calme
 @ Archevêque Alonsus Faol

@@ -12,4 +12,4 @@ Ogres came through the Dark Portal with the Horde, then scattered into clans acr
 
 Their size is the first thing noticed, but ogre magi make poor subjects for the usual jokes about ogre intelligence. Two heads can carry a formidable command of magic.
 
-The Stonemaul of Dustwallow have joined the Horde. Elsewhere, a clan's loyalties have to be learned separately; a familiar outline is no introduction.
+The Stonemaul of Dustwallow have joined the Horde. Elsewhere, a clan's loyalties have to be learned separately. A familiar outline is no introduction.

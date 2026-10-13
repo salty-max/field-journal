@@ -23,7 +23,7 @@ and its name ends as theirs did on the dark shore and in the forest to the south
 Remember the towns whose names it echoes, and what has become of this one.
 ? Morlos'Aran, at Felwood's southern edge.
 = Morlos'Aran, one of the old night elf settlements whose names end alike: Ameth'Aran and Bashal'Aran in Darkshore, Ordil'Aran in Ashenvale, Tethris Aran in Desolace.
-+ A druid of the Emerald Circle keeps watch by the ruins; the wood around him is still sick.
++ A druid of the Emerald Circle keeps watch by the ruins. The wood around him is still sick.
 
 ## quarry
 In the scarred vale where fire once fell on the forest,

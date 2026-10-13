@@ -1,5 +1,5 @@
 ---
-source: eb9408fe9069
+source: e5ddceb55ff5
 zone: 1435
 ---
 ## swamp-of-sorrows-stonard
@@ -8,7 +8,7 @@ Un geôlier le choisit pour l'orphelin qu'il éleva.
 L'histoire ne finit pas comme il l'avait prévu.
 ? Pierrêche.
 = La nouvelle Horde, à Pierrêche : Aedelas Blackmoore et l'orphelin qu'il appela Thrall.
-+ Doomhammer tomba en libérant l'une des réserves ; Thrall ramassa son marteau de guerre, endossa son armure noire, et devint chef de la Horde.
++ Doomhammer tomba en libérant l'une des réserves. Thrall ramassa son marteau de guerre, endossa son armure noire, et devint chef de la Horde.
 ! Calme
 @ La nouvelle Horde
 

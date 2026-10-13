@@ -1,16 +1,16 @@
 ---
-source: 3cb24bbe02e0
+source: 721322997d0c
 zone: 1431
 ---
 ## duskwood-twilight-grove
 Au coeur du bois sombre, un grand arbre se tient à l'écart :
 une porte que les druides rêveurs franchissent vers le Rêve d'émeraude.
-Des dragons verts furent chargés de la garder ; le Cauchemar a pris les gardiens.
+Des dragons verts furent chargés de la garder. Le Cauchemar a pris les gardiens.
 La porte s'ouvre à ceux qui suivent la voie des druides.
 ? La route à travers la forêt contourne quelque chose de plus ancien que la ville.
 = Le Bosquet du crépuscule, dans le cratère d'un volcan mort depuis longtemps. Son arbre est l'une des quatre portes du Rêve d'émeraude que garde le vol draconique vert, et ses gardiens sont revenus du Rêve changés.
 + Le crépuscule, ici, n'est pas l'obscurité du bois de la Pénombre : les druides endormis entretiennent au-dessus du cratère une pénombre bien à eux, toute différente du reste de la forêt.
-! Calme ; périlleux quand un dragon du Cauchemar s'y trouve
+! Calme, mais périlleux quand un dragon du Cauchemar s'y trouve
 @ Bosquet du crépuscule
 
 ## duskwood-callahan
@@ -30,7 +30,7 @@ et la plupart de ses maisons sont vides, ou semblent l'être.
 Dans l'une d'elles, une maisonnée occupe les deux étages, cachée à l'oeil nu.
 Étudiez les pièces vides, et ne dérangez pas leurs occupants.
 ? Colline-aux-Corbeaux, à la lisière nord du village : une maison à deux étages, et personne dedans.
-= Les Invisibles : des âmes en peine invisibles, d'une force bien au-delà de celle du bois de la Pénombre. Deux occupent cette maison ; d'autres, le reste de celles de Colline-aux-Corbeaux.
+= Les Invisibles : des âmes en peine invisibles, d'une force bien au-delà de celle du bois de la Pénombre. Deux occupent cette maison. D'autres, le reste de celles de Colline-aux-Corbeaux.
 + La Détection de l'invisibilité d'un démoniste les révèle. Leur invisibilité n'est pas le camouflage d'un voleur : un oeil exercé à trouver l'un peut manquer toute une maisonnée ici.
 ! Périlleux (morts-vivants invisibles, niveaux 49 à 51)
 @ Les Invisibles
@@ -42,7 +42,7 @@ et se demande s'il l'a jamais remarquée.
 Trouvez-la parmi eux : elle vous le dira elle-même.
 ? La place de Sombre-Comté : parlez aux veilleurs qui s'y trouvent, un par un.
 = La gardienne Brownell. Celui qu'elle admire est le gardien Backus, qui tient la route à l'ouest du manoir Mantebrume.
-+ Sombre-Comté s'appelait jadis Grand Hameau, un pittoresque village des bois ; le nom a changé quand l'obscurité est tombée sur la forêt.
++ Sombre-Comté s'appelait jadis Grand Hameau, un pittoresque village des bois. Le nom a changé quand l'obscurité est tombée sur la forêt.
 ! Calme
 @ Gardienne Brownell
 
@@ -52,5 +52,5 @@ Abattez-le et il se relève, entier, sous vos yeux :
 le sort est le sien, et il le lance en tombant.
 Achevez-le avant qu'il ne l'achève.
 = Le commandant Gangretrombe, des catacombes du Bois-de-l'Aube, sous le cimetière de Colline-aux-Corbeaux. Le seigneur Malathrom, une goule qui appelle deux immondes serviteurs, Paresse et Limace, tient les mêmes ténèbres.
-+ Chaque copie qui se relève combat aussi longtemps que la précédente ; ne parvenez pas à arrêter le sort, et la chasse n'a pas de fin.
++ Chaque copie qui se relève combat aussi longtemps que la précédente. Ne parvenez pas à arrêter le sort, et la chasse n'a pas de fin.
 @ Commandant Gangretrombe

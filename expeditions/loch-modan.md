@@ -19,7 +19,7 @@ riddles:
     creature: 2478   # Haren Swifthoof, who runs with Gradok (2477) and Thragomm (7170): dump 55.5, 67.1, a path up the east shore and back
     found: target   # they never stop running
     hint_area: { x: 60.0, y: 60.0, r: 9 }
-    danger: "Deadly to the Alliance (three elites, levels 19 to 21); to the Horde, friends"
+    danger: "Deadly to the Alliance (three elites, levels 19 to 21), friends to the Horde"
     sources: "the dump's spawns and their path; the client's display tables (two orcs of one face, a tauren); the WoWWiki archive's Gradok page"
   - id: loch-modan-thelsamar
     tier: town
@@ -35,11 +35,11 @@ quarry:
 ---
 ## loch-modan-valley-of-kings
 Of three great hammers, two were set in stone.
-In life they shared no hall and shared no throne;
-their sons set them together by the road,
+In life they shared no hall and shared no throne.
+Their sons set them together by the road,
 facing the south, where once the third one's fires glowed.
-? In the lake country's south-west, two great figures guard a pass; kings are owed something.
-= Bronzebeard and Wildhammer, side by side, raised by their sons. Their peoples parted ways later; the statues did not.
+? In the lake country's south-west, two great figures guard a pass. Kings are owed something.
+= Bronzebeard and Wildhammer, side by side, raised by their sons. Their peoples parted ways later. The statues did not.
 + The whole war is in a dwarven history, War of the Three Hammers: Thaurissan's summoning woke Ragnaros, and the statues were meant as a warning to all who would attack the dwarven kingdoms, and a reminder of what the Dark Irons paid.
 
 ## loch-modan-horde-runners
@@ -57,7 +57,7 @@ Seek the sleepers who woke beneath the earth and found themselves mortal.
 The vault lies south of this lake.
 ? Thelsamar's inn.
 = Ironforge - the Awakening of the Dwarves, in Thelsamar. The vault it names, Uldaman, lies south of the Loch, in the Badlands.
-+ The dwarves named their land Khaz Modan for the Titan Khaz'goroth, and built a forge for him in the heart of the mountain; the city grew around it.
++ The dwarves named their land Khaz Modan for the Titan Khaz'goroth, and built a forge for him in the heart of the mountain. The city grew around it.
 
 ## quarry
 The mountaineers' scouts say the troggs follow a chieftain named Grawmug,

@@ -45,7 +45,7 @@ and a dragon of time sealed it. A gong hangs before it.
 Find the wall, and leave the gong alone.
 ? The Scarab Wall, at the southern edge of Silithus.
 = The Scarab Wall, and Ahn'Qiraj behind it.
-+ A thousand years ago the qiraji and their silithid swarms came out of Ahn'Qiraj and fell on Kalimdor; the bronze dragon Anachronos made the Scepter of the Shifting Sands to seal them in.
++ A thousand years ago the qiraji and their silithid swarms came out of Ahn'Qiraj and fell on Kalimdor. The bronze dragon Anachronos made the Scepter of the Shifting Sands to seal them in.
 
 ## silithus-carnes
 Outside a hive in the yellow desert, a sergeant stands guard among dwarves,
@@ -59,7 +59,7 @@ Hear him out, and be kind.
 On a rise in the desert's north-east stands a woman who says she was here
 when the insects first marched out, a thousand years ago,
 and that she cannot leave. Ask her how she knows.
-? Silithus's north-east; she stands alone.
+? Silithus's north-east. She stands alone.
 = Ralo'shan the Eternal Watcher, a night elf: 'I have been slain a hundred times. I always wake here, alive.'
 + 'Some say I am cursed and others... They say that I am blessed: a herald to harken in a new age.'
 
@@ -76,4 +76,4 @@ In the desert's north-west, a storm of an elemental
 walks the crystal hollows among the others of its kind.
 Seek the air spirit with a name of its own.
 = Huricanian, an elemental of the Crystal Vale.
-+ The Crystal Vale is where the servants of air and earth gather in Silithus; Huricanian is the one with a name.
++ The Crystal Vale is where the servants of air and earth gather in Silithus. Huricanian is the one with a name.

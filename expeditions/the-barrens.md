@@ -25,7 +25,7 @@ riddles:
     area: The Tidus Stair   # placed: Mahren Skyseer, who fishes on it (creature 3388), dump 65.8, 43.9
     anchor: { creature: 3388 }   # what places its hint: the area has no overlay of its own
     hint_area: { x: 65.0, y: 45.0, r: 4 }
-    danger: "Quiet on the stairs; deep water below"
+    danger: "Quiet on the stairs, deep water below"
     sources: "Warcraft: The Roleplaying Game, p. 192 (the stairs beneath the waves, the legend, the divers); the client's AreaTable"
   - id: the-barrens-pooka
     tier: off
@@ -33,7 +33,7 @@ riddles:
     gestures: [WAVE, HELLO, GREET, SMILE]
     creature: 14909   # Pooka, dump 47.8, 8.8, at the Mor'shan Rampart; Mogg (14908), her son, playing outside
     hint_area: { x: 47.5, y: 10.0, r: 3 }
-    danger: "Quiet for the Horde; the rampart's guards for the Alliance"
+    danger: "Quiet for the Horde, the rampart's guards for the Alliance"
     sources: "the WoWWiki archive's Pooka page (her son Mogg); the dump's spawns"
   - id: the-barrens-fallen-warrior
     tier: hidden
@@ -52,7 +52,7 @@ The elves in this account answered a ban on magic with a storm.
 Find the page in the goblins' port that tells what became of them.
 Their punishment began a voyage.
 ? Ratchet, on the Barrens' coast.
-= Exile of the High Elves, in Ratchet. Banished for their refusal to abandon arcane magic, the Highborne sailed east and founded Quel'Thalas. The goblins keep their history; it is not for sale.
+= Exile of the High Elves, in Ratchet. Banished for their refusal to abandon arcane magic, the Highborne sailed east and founded Quel'Thalas. The goblins keep their history. It is not for sale.
 + Dath'Remar mocked the druids as cowards. They could not bring themselves to put so many of their kin to death, and exiled them instead.
 
 ## the-barrens-lizzarik
@@ -60,7 +60,7 @@ On the road between the goblins' port and the orcs' crossroads,
 a goblin peddler walks back and forth with weapons and potions to sell,
 and an ogre walks behind him, far too strong for these plains.
 Catch the peddler on the road.
-? The road from Ratchet to the Crossroads; he walks it end to end.
+? The road from Ratchet to the Crossroads. He walks it end to end.
 = Lizzarik, a goblin weapon dealer of Ratchet, walking the road to the Crossroads and back with Jorb, his ogre bodyguard.
 + Jorb is of level thirty-seven, on a road most travellers walk at fifteen.
 
@@ -71,7 +71,7 @@ Two tauren fish from them, as if nothing were strange about it.
 Set foot on the stair.
 ? South-east of Ratchet, on the coast.
 = The Tidus Stair: a giant's stairway of ancient stone, from the beach down beneath the waves.
-+ Some say it goes down to a kaldorei city the sea took when the Well of Eternity was destroyed; those who have dived as deep as they could found only more stairs.
++ Some say it goes down to a kaldorei city the sea took when the Well of Eternity was destroyed. Those who have dived as deep as they could found only more stairs.
 
 ## the-barrens-pooka
 At the rampart on the northern road, where the Horde watches the elves' forest,
@@ -88,7 +88,7 @@ and a spirit healer waits before it, as if for him.
 Few find it. Honour him as one warrior honours another.
 ? West of the Crossroads, follow a ridge up a small hill.
 = The Shrine of the Fallen Warrior, and its own spirit healer, Koiter.
-+ It remembers Michel Koiter, who worked on this world and died before it was finished; the spirit healer bears his name, and the orc of the shrine was his own character.
++ It remembers Michel Koiter, who worked on this world and died before it was finished. The spirit healer bears his name, and the orc of the shrine was his own character.
 
 ## quarry
 North-west of the goblins' port, beyond the hills, lions lie in a ring around a tree,

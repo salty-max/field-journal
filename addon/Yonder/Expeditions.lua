@@ -513,7 +513,7 @@ function ns.whereReport()
       or L["not drawn yet (open the map)"]
   end
   print(
-    L["  hint circles: %d here; world map: %s; minimap: %s."]:format(
+    L["  hint circles: %d here, world map: %s, minimap: %s."]:format(
       here,
       drawn,
       mini.attached and (L["%d in sight"]):format(mini.seen or 0) or L["not attached"]

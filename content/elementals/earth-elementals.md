@@ -8,4 +8,4 @@ match:
 ---
 Earth elementals bring the hillside with them: heavy shapes of rock moving through the Badlands, obsidian bodies in the scorched lands around Blackrock. The distinction between a boulder and an inhabitant can be a brief one.
 
-Uldaman also contains stone keepers, constructs guarding a made place rather than wild spirits roaming open ground. To the League that difference is considerable. A rock elemental may be a feature of the landscape; a stone guardian is evidence that somebody had something to protect.
+Uldaman also contains stone keepers, constructs guarding a made place rather than wild spirits roaming open ground. To the League that difference is considerable. A rock elemental may be a feature of the landscape. A stone guardian is evidence that somebody had something to protect.

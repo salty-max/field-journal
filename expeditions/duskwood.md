@@ -12,7 +12,7 @@ riddles:
     gestures: [SLEEP, LAYDOWN]
     area: Twilight Grove   # placed: the client's overlay: 47.7, 40.4, half-size 10.7 by 18.7
     hint_area: { x: 46.0, y: 43.0, r: 14 }
-    danger: "Quiet; perilous when a dragon of the Nightmare is there"
+    danger: "Quiet, but perilous when a dragon of the Nightmare is there"
     sources: "the WoWWiki archive's Duskwood page (the crater, the twilight of its own); the Codex's dragons-of-nightmare page"
   - id: duskwood-callahan
     tier: off
@@ -45,7 +45,7 @@ quarry:
 ## duskwood-twilight-grove
 In the heart of the dark wood a great tree stands apart:
 a door the dreaming druids walk through to the Emerald Dream.
-Green dragons were set to keep it; the Nightmare took the keepers.
+Green dragons were set to keep it. The Nightmare took the keepers.
 The door opens for those who go the druids' way.
 ? The road through the forest bends around something older than the town.
 = The Twilight Grove, in the crater of a volcano long dead. Its tree is one of four doors the green dragonflight keeps into the Emerald Dream, and its keepers came back from the Dream changed.
@@ -66,7 +66,7 @@ and most of its houses stand empty, or seem to.
 In one of them, a household keeps both floors, hidden from an unaided eye.
 Study the empty rooms, and leave their occupants undisturbed.
 ? Raven Hill, at the village's northern edge: a house of two floors, and no one in it.
-= The Unseen: invisible wraiths, of a strength far beyond Duskwood's. Two keep this house; others keep the rest of Raven Hill's.
+= The Unseen: invisible wraiths, of a strength far beyond Duskwood's. Two keep this house. Others keep the rest of Raven Hill's.
 + A warlock's Detect Invisibility reveals them. Their invisibility is not a rogue's stealth: an eye trained to find the latter may miss an entire household here.
 
 ## duskwood-darkshire
@@ -76,7 +76,7 @@ and wonders whether he has ever noticed her.
 Find her among them: she will tell you herself.
 ? Darkshire's square: speak to the watchers there, one by one.
 = Watcher Brownell. The one she admires is Watcher Backus, who keeps the road west of Manor Mistmantle.
-+ Darkshire was Grand Hamlet once, a quaint woodland village; the name changed as the darkness came over the forest.
++ Darkshire was Grand Hamlet once, a quaint woodland village. The name changed as the darkness came over the forest.
 
 ## quarry
 Beneath the cemetery on the hill of ravens, a dead commander keeps his post.
@@ -84,4 +84,4 @@ Strike him down and he stands again, whole, while you watch:
 the spell is his own, and he casts it as he falls.
 Finish him before he finishes it.
 = Commander Felstrom, of the Dawning Wood Catacombs under Raven Hill Cemetery. Lord Malathrom, a ghoul who calls up two foul servants, Sloth and Sludge, keeps the same dark.
-+ Each copy that rises fights as long as the last; fail to stop the spell, and the hunt has no end.
++ Each copy that rises fights as long as the last. Fail to stop the spell, and the hunt has no end.

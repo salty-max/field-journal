@@ -65,7 +65,7 @@ a gunsmith keeps a camp, and beside it a range.
 Two riflemen settle their differences there, and a mortar team practises
 on dummies a spotter has to run out to. Mind your ears.
 ? Hegnar Rumbleshot's camp, by the road from Coldridge Pass to Kharanos.
-= Rumbleshot's practice range. Every so often the five dwarves of the camp head out to it: Riflemen Middlecamp and Wheeler, who shoot at an orc target and a row of bottles; then the mortar team, Angus and Shorty, firing at three target dummies in turn, while Spotter Klemmy runs back and forth.
+= Rumbleshot's practice range. Every so often the five dwarves of the camp head out to it. First come Riflemen Middlecamp and Wheeler, who shoot at an orc target and a row of bottles. Then the mortar team, Angus and Shorty, fire at three target dummies in turn, while Spotter Klemmy runs back and forth.
 + Middlecamp misses the orc target twice and the bottles twice, while Wheeler hits the target without trying, and the middle target dead centre. Then Wheeler only hits the side of the bottles' box, and it is Middlecamp who shoots the orc dummy, turns to the paper target and shoots from the hip at the bottles.
 
 ## dun-morogh-fluffy

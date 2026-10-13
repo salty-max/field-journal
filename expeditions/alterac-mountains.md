@@ -24,7 +24,7 @@ And yet someone there works in plain sight, with a title to prove it:
 Find the one who keeps the grounds of this most secret house, and let them hear how fine the work is.
 ? Ravenholdt Manor, up a mountain path north-west of Durnholde Keep.
 = Simone Cantrell, a night elf, Landscape Architect to Ravenholdt Manor, hall of the Assassin's League.
-+ Near the master stands Winstone Wolfe, whom the manor calls The Wolf; and a housecat, Salome, has the run of the place.
++ Near the master stands Winstone Wolfe, whom the manor calls The Wolf. And a housecat, Salome, has the run of the place.
 
 ## quarry
 Mountain lions own the southern hills of Alterac.

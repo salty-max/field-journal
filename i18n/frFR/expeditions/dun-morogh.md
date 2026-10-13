@@ -1,5 +1,5 @@
 ---
-source: fe1bfe6b3aa2
+source: 81c0e2ffd0e1
 zone: 1426
 ---
 ## dun-morogh-etched-note
@@ -30,7 +30,7 @@ un armurier tient un camp, et à côté un champ de tir.
 Deux fusiliers y règlent leurs différends, et une équipe de mortier s'exerce
 sur des mannequins qu'un éclaireur doit aller installer en courant. Gare à vos oreilles.
 ? Le camp de Hegnar Rumbleshot, sur la route de la passe des Frigères à Kharanos.
-= Le champ de tir de Rumbleshot. De temps à autre, les cinq nains du camp s'y rendent : les fusiliers Middlecamp et Wheeler, qui tirent sur une cible orc et une rangée de bouteilles ; puis l'équipe de mortier, Angus et Shorty, qui fait feu tour à tour sur trois mannequins, pendant que l'éclaireur Klemmy court dans tous les sens.
+= Le champ de tir de Rumbleshot. De temps à autre, les cinq nains du camp s'y rendent. D'abord les fusiliers Middlecamp et Wheeler, qui tirent sur une cible orc et une rangée de bouteilles. Puis l'équipe de mortier, Angus et Shorty, fait feu tour à tour sur trois mannequins, pendant que l'éclaireur Klemmy court dans tous les sens.
 + Middlecamp manque deux fois la cible orc et deux fois les bouteilles, tandis que Wheeler touche la cible sans même essayer, et la cible du milieu en plein centre. Puis Wheeler ne touche que le flanc de la caisse des bouteilles, et c'est Middlecamp qui abat le mannequin orc, se tourne vers la cible en papier et tire de la hanche sur les bouteilles.
 ! Calme
 @ Champ de tir de Rumbleshot

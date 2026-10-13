@@ -26,7 +26,7 @@ The Elixir of Lion's Strength and the Elixir of Minor Fortitude both begin with 
 
 Mageroyal is a useful find along the roads beyond the first settlements. Swiftthistle is sometimes gathered with it, giving a single stop a second reward.
 
-Alchemists use Mageroyal in mana draughts and the Elixir of Wisdom. The name sets a high expectation; the work it does for a young spellcaster is quite sufficient.
+Alchemists use Mageroyal in mana draughts and the Elixir of Wisdom. The name sets a high expectation. The work it does for a young spellcaster is quite sufficient.
 
 ## 2450 Briarthorn
 
@@ -170,7 +170,7 @@ It goes into Major Healing Potions, and with Plaguebloom makes the Elixir of the
 
 Plaguebloom is gathered in the two Plaguelands, where finding useful growth amid the ruined fields is a small relief.
 
-Purification Potions and Mageblood Potions both use it; Mountain Silversage accompanies it in the Elixir of the Mongoose. Something gathered in that blighted country can still serve the living.
+Purification Potions and Mageblood Potions both use it. Mountain Silversage accompanies it in the Elixir of the Mongoose. Something gathered in that blighted country can still serve the living.
 
 ## 13467 Icecap
 
@@ -182,4 +182,4 @@ Major Mana Potions and Purification Potions use it, along with the Flask of Dist
 
 Black Lotus is a rare find in a small number of dangerous lands. A gatherer who spots it has good reason to remember the place.
 
-The great flasks call for it, including those of the Titans and Supreme Power. Many bundles can be replenished on an ordinary round; this one tends to determine when the most ambitious work can begin.
+The great flasks call for it, including those of the Titans and Supreme Power. Many bundles can be replenished on an ordinary round. This one tends to determine when the most ambitious work can begin.

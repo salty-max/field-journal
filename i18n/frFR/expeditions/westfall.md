@@ -1,11 +1,11 @@
 ---
-source: 7d50e25abe40
+source: ca371f607697
 zone: 1436
 ---
 ## westfall-aegwynn
 Sur une étagère de ferme au nord de la colline de la milice,
 cherchez la victoire d'une jeune femme sur un dieu déchu.
-Elle crut avoir mis fin au danger ; la page se souvient de ce qui la suivit chez elle.
+Elle crut avoir mis fin au danger. La page se souvient de ce qui la suivit chez elle.
 ? La ferme des Saldean, au nord de la colline des Sentinelles.
 = Aegwynn et la chasse au dragon, sur l'étagère des Saldean. Une ferme est un drôle d'endroit pour garder le récit de la Gardienne qui abattit le corps de Sargeras.
 + "Aegwynn ne sut jamais qu'elle avait exactement suivi le plan de Sargeras" : son esprit passa en elle et resta caché dans son âme pendant des années.
@@ -20,7 +20,7 @@ sont les plus forts qui restent à l'ouest. Pleurez la ferme, et ne vous arrête
 ? Au sud-est de la Marche de l'Ouest, près du pont vers le bois de la Pénombre : une ferme qui n'est plus que cendres.
 = L'acre mort : l'une des nombreuses fermes de la Marche de l'Ouest, brûlée par les Défias quand ils prirent le pays.
 + Le Découpeur 4000, un golem des moissons pire que tous les autres, arpente parfois ces champs, et d'autres de la Marche de l'Ouest.
-! Gardé (moissonneurs jusqu'au niveau 18 ; le Découpeur 4000, parfois)
+! Gardé (moissonneurs jusqu'au niveau 18, et parfois le Découpeur 4000)
 @ L'acre mort
 
 ## quarry

@@ -41,7 +41,7 @@ In a lake shaped like a ring, an island holds a ring of stones
 and a stone raised so that heroes would be remembered.
 Renegade wizards hold the island now, gone over to the bandits.
 Cross the water, and give the stone what it was raised for.
-? The ring-shaped lake north of the road to Eastvale has an island in its middle; heroes are honoured there.
+? The ring-shaped lake north of the road to Eastvale has an island in its middle. Heroes are honoured there.
 = Heroes' Vigil, and its Stone of Remembrance: a cairn for the dead of the First War, when the orcs sacked Goldshire and the lands around it. The lake takes its name from the cairn.
 + The lake was a place of pilgrimage once. The Defias' renegade wizards have made it a dangerous one.
 

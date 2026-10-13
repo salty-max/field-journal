@@ -28,7 +28,7 @@ riddles:
     creature: 272045   # Brother Zendraas: traces 57.8, 52.0 / 58.5, 50.3 / 58.8, 49.6; Wowhead 57.8, 52.0: the Shrine of Akir
     found: target   # among the cult's own: only by speaking to him
     hint_area: { x: 58.0, y: 51.0, r: 4 }
-    danger: "Guarded (the cult's own shrine; its zealots are levels 10 and 11)"
+    danger: "Guarded (the cult's own shrine, its zealots of levels 10 and 11)"
     sources: "warcraft.wiki.gg's Brother Zendraas page (his gossip: Falaath Village, the grey robes, a tailor, the windstones); Wowhead Forever's npc=272045 (friendly to both, a vendor; no quest)"
   - id: zephras-isle-thendal-tree
     tier: hidden
@@ -79,7 +79,7 @@ two children have climbed higher than the grown-ups bother to.
 They are watching something the rest of the isle says is gone.
 See it with them.
 ? Thendal Village, in the isle's north-west: up the tree.
-= Haal and Meeri, two children of Thendal Village, watching a spirit from the top of the tree. The wind spirits left Zephras long ago; Yala Windwatcher says only their mindless echoes remain.
+= Haal and Meeri, two children of Thendal Village, watching a spirit from the top of the tree. The wind spirits left Zephras long ago. Yala Windwatcher says only their mindless echoes remain.
 + In the same branches, a white crystal keeps a recording, On the Shal'nan: the masked leader of the rebels who fled Eldre'Thalas, who ruled his people for more than a century and then gave his power up to a council.
 
 ## quarry

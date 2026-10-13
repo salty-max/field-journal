@@ -11,4 +11,4 @@ Furbolg villages belong to the old forests of Kalimdor. Totems, shelters and sha
 
 The Gnarlpine, Blackwood, Deadwood and Winterfall have all suffered terrible changes. The Timbermaw have resisted that fate and still guard their tunnels between Felwood, Moonglade and Winterspring. Their distrust of strangers has ample cause.
 
-[forever] Azshara's Blackmaw Hold belongs to another tribe. Corruption has taken root there too; the Timbermaw of Felwood should not bear the blame for what lies behind its stone gate.
+[forever] Azshara's Blackmaw Hold belongs to another tribe. Corruption has taken root there too. The Timbermaw of Felwood should not bear the blame for what lies behind its stone gate.

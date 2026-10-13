@@ -1,15 +1,15 @@
 ---
-source: 659909163748
+source: 72342053957c
 zone: 1417
 ---
 ## arathi-highlands-thoradins-wall
 Au bord nord-ouest des hautes-terres, un mur du premier royaume des hommes
 longe la frontière, par-dessus les collines, aussi loin que porte la vue.
-On l'éleva contre les trolls, il y a longtemps ; aujourd'hui il bée, percé de part en part.
+On l'éleva contre les trolls, il y a longtemps. Aujourd'hui il bée, percé de part en part.
 Allez à son pied, et contemplez ce qu'il en reste.
 ? Le bord nord-ouest d'Arathi, là où les hautes-terres rejoignent les contreforts.
-= Le mur de Thoradin, élevé par le roi Thoradin d'Arathor, le premier royaume des hommes, contre les trolls amani ; brisé désormais, et grand ouvert.
-+ "Jadis symbole de la force et de la puissance défensive de l'humanité", dit de lui un vieux relevé de ces terres ; "aujourd'hui livré à la ruine et à la guerre."
+= Le mur de Thoradin, élevé par le roi Thoradin d'Arathor, le premier royaume des hommes, contre les trolls amani, brisé désormais et grand ouvert.
++ "Jadis symbole de la force et de la puissance défensive de l'humanité", dit de lui un vieux relevé de ces terres, "aujourd'hui livré à la ruine et à la guerre."
 ! Gardé (arpenteurs des hautes-terres, vandales et rampants)
 @ Mur de Thoradin
 
@@ -19,7 +19,7 @@ Leur royaume est perdu, mais le nom a voyagé avec eux.
 L'histoire est gardée sur une page.
 ? Trépas-d'Orgrim.
 = La montée des elfes de sang, à Trépas-d'Orgrim : les hauts-elfes de Kael'thas, devenus elfes de sang, chassés par l'Alliance et partis en Outreterre avec Illidan.
-+ Coupés du Puits de soleil, ils eurent faim de magie ; c'est en cherchant un remède que Kael'thas en vint à Illidan et à ses nagas.
++ Coupés du Puits de soleil, ils eurent faim de magie. C'est en cherchant un remède que Kael'thas en vint à Illidan et à ses nagas.
 ! Calme
 @ La montée des elfes de sang
 

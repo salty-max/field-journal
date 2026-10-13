@@ -33,7 +33,7 @@ quarry:
 ---
 ## blasted-lands-dark-portal
 At the bottom of the red waste stands the gate the orcs first came through.
-It was shattered, and opened again; the last heroes who went through it
+It was shattered, and opened again. The last heroes who went through it
 destroyed it from the far side so that this world would live,
 and nobody knows whether they came home. Honour them as soldiers honour their own.
 ? The Dark Portal, in the south of the Blasted Lands.
@@ -47,14 +47,14 @@ and every life lost near him gives him back his own.
 Find his ground, and do not linger.
 ? The Tainted Scar, in the Blasted Lands' south-west.
 = The Tainted Scar, Lord Kazzak's ground.
-+ Each death near him heals him for seventy thousand; and if he still stands three minutes after the first blow, his fury leaves no one standing.
++ Each death near him heals him for seventy thousand. And if he still stands three minutes after the first blow, his fury leaves no one standing.
 
 ## blasted-lands-nethergarde
 In the keep that watches the great gate, seek an account
 of a world broken by too many doorways.
 Those who followed the orcs there had to shut the way to their own.
 ? Nethergarde Keep.
-= Beyond the Dark Portal, in Nethergarde Keep. Ner'zhul's portals tore Draenor apart; the Alliance Expedition closed the Dark Portal to keep that destruction from reaching Azeroth.
+= Beyond the Dark Portal, in Nethergarde Keep. Ner'zhul's portals tore Draenor apart. The Alliance Expedition closed the Dark Portal to keep that destruction from reaching Azeroth.
 + Ner'zhul escaped through one of his own portals with his most trusted servants, while Khadgar fought to bring his comrades home.
 
 ## quarry

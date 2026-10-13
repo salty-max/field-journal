@@ -1,5 +1,5 @@
 ---
-source: 6fbb8af69b86
+source: dfef5119a2f7
 zone: 1427
 ---
 ## searing-gorge-stonewrought-pass
@@ -10,7 +10,7 @@ tout comme le grand barrage du lac au-delà. Entrez.
 ? Le bout nord de la vallée des Escarbilles, au nord-est de la gorge des Vents brûlants.
 = Le passage de Formepierre : bâti comme le barrage de Formepierre, au Loch Modan, selon la méthode de Franclorn Forgewright, un architecte Sombrefer.
 + Son fantôme, au fond du mont Rochenoire, le dit lui-même : "Vous êtes sans doute $gpassé:passée; par l'une de mes créations, ou vous vous êtes $gtenu:tenue; dessus."
-! Gardé (araignées verrières, niveau 43) ; et la grille est fermée à clé
+! Gardé (araignées verrières, niveau 43), et la grille est fermée à clé
 @ Passage de Formepierre
 
 ## searing-gorge-blackchar
@@ -18,9 +18,9 @@ Au sud-ouest de la gorge, une caverne est scellée sous les montagnes,
 et il n'y a rien à son entrée que de la roche noire.
 Allez-y et étudiez votre carte, pas la roche :
 quelque chose dans les montagnes vous regarde aussi.
-? La caverne de Noircharbon, à la lisière sud-ouest de la gorge des Vents brûlants ; ce que vous cherchez est sur votre minicarte.
-= La caverne de Noircharbon, scellée ; et dans les montagnes au-dessus, sur la minicarte, ce qui ne peut être qu'un visage.
-+ La caverne garde son sceau toute l'année ; c'est seulement à la fête lunaire qu'un ancien de Forgefer vient se tenir à son entrée.
+? La caverne de Noircharbon, à la lisière sud-ouest de la gorge des Vents brûlants. Ce que vous cherchez est sur votre minicarte.
+= La caverne de Noircharbon, scellée. Et dans les montagnes au-dessus, sur la minicarte, ce qui ne peut être qu'un visage.
++ La caverne garde son sceau toute l'année. C'est seulement à la fête lunaire qu'un ancien de Forgefer vient se tenir à son entrée.
 ! Périlleux (araignées de lave et élémentaires de feu, niveaux 46 à 48)
 @ Caverne de Noircharbon
 

@@ -20,7 +20,7 @@ riddles:
     creature: 2153   # Terl Arakor, dump 27.4, 41.2
     found: target
     hint_area: { x: 29.0, y: 39.0, r: 5 }
-    danger: "Guarded (Mottled raptors); for the Horde, Terl himself"
+    danger: "Guarded (mottled raptors), and for the Horde, Terl himself"
     sources: "the dump's spawn, his words and his faction (the Alliance's, hostile to the Horde)"
   - id: wetlands-menethil
     tier: town
@@ -57,12 +57,12 @@ The harbour keeps an account of a prison high above the marsh.
 Its captive could burn an army, yet her captors forced her to serve them.
 Find the page that tells how she was freed.
 ? Menethil Harbor.
-= The Battle of Grim Batol, in Menethil Harbor. The Dragonmaw orcs held Alexstrasza captive in the mountain at the Wetlands' eastern edge; once free, she and the other great dragons destroyed their fortress.
-+ Grim Batol was a Wildhammer stronghold first, 'some say cursed'; a small band led by the mage Rhonin destroyed the Demon Soul and freed Alexstrasza.
+= The Battle of Grim Batol, in Menethil Harbor. The Dragonmaw orcs held Alexstrasza captive in the mountain at the Wetlands' eastern edge. Once free, she and the other great dragons destroyed their fortress.
++ Grim Batol was a Wildhammer stronghold first, 'some say cursed'. A small band led by the mage Rhonin destroyed the Demon Soul and freed Alexstrasza.
 
 ## quarry
 In the Wetlands' east, a ridge of raptors has a cavern.
-Seek the matriarch among the Highland and Elder brood;
-their mother does not keep an empty house.
+Seek the matriarch among the Highland and Elder brood.
+Their mother does not keep an empty house.
 = The Razormaw Matriarch, level 31, in the cavern of Raptor Ridge, with her Highland and Elder Razormaws.
 + She never strays far from her brood: the cavern, and the slope before it.

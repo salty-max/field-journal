@@ -18,12 +18,12 @@ sources:
   - 13755 da8505f2c44e
   - 13888 b186b1de8147
   - 13893 c4a37097484c
-  - 13889 845a31045b19
+  - 13889 01cfce2674bd
   - 6358 59483561ffc5
   - 6359 a80773c02cf2
   - 13422 0d644b4bd0d0
   - 13757 35f0d89bcb27
-  - 13890 5ab6bf7ac953
+  - 13890 fc959aea2be2
   - 6522 274f90dc44f8
   - 1467 8b5c166a3c84
   - 6717 1ceadda0a968
@@ -152,7 +152,7 @@ Le Steak de barracuda donne un repas copieux qui ajoute de l'endurance. Les géa
 
 Le Saumon Blanchécaille se pêche dans des eaux difficiles, dont celles du Berceau-de-l'Hiver et des terres qui entourent les grandes places fortes de la peste.
 
-Le Pain de saumon fait un beau repas de la prise ordinaire ; les spécimens plus lourds sont pesés à part.
+Le Pain de saumon fait un beau repas de la prise ordinaire. Les spécimens plus lourds sont pesés à part.
 
 ## 6358 Bouche-noire huileux
 
@@ -182,7 +182,7 @@ Elle n'a aucune place familière dans les préparations du cuisinier ou de l'alc
 
 Le Poisson cuirassé est un trophée moins familier, tiré des eaux qui donnent aussi le Saumon Blanchécaille.
 
-Le cuisinier n'a pas de préparation habituelle pour lui. Sa place dans la pêche vaut tout de même d'être consignée ; une nasse contient plus que les ingrédients d'une liste de courses.
+Le cuisinier n'a pas de préparation habituelle pour lui. Sa place dans la pêche vaut tout de même d'être consignée. Une nasse contient plus que les ingrédients d'une liste de courses.
 
 ## 6522 Poisson déviant
 

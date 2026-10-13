@@ -1,5 +1,5 @@
 ---
-source: 9310141558bb
+source: 0455436e5bcc
 zone: 1428
 ---
 ## burning-steppes-pillar-of-ash
@@ -38,5 +38,5 @@ Quelque chose arpente l'est de la plaine brûlante, autour du rocher des ogres,
 passe la cité en ruine et descend vers la veille des nains, puis revient :
 un géant de pierre en fusion, qui porte les plans d'un forgeron pour un marteau du même feu.
 = Volchan, un géant de magma élite qui arpente l'est des steppes Ardentes : le seul à porter les Plans : Marteau volcanique.
-+ Les autres géants de magma se tiennent au fond du mont Rochenoire, dans le Cœur du Magma, parmi les serviteurs de Ragnaros ; Volchan, lui, marche à ciel ouvert.
++ Les autres géants de magma se tiennent au fond du mont Rochenoire, dans le Cœur du Magma, parmi les serviteurs de Ragnaros. Volchan, lui, marche à ciel ouvert.
 @ Volchan

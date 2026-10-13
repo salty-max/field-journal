@@ -36,8 +36,8 @@ In the desert's goblin town, find a daughter who chose the peace her father had 
 Their quarrel crossed an ocean before it ended.
 The town keeps the account among its books.
 ? Gadgetzan.
-= Old Hatreds - The Colonization of Kalimdor, in Gadgetzan: Durotar named for Thrall's father; Jaina Proudmoore against her father, the Grand Admiral.
-+ He died before she could reconcile with him; for her loyalty, the orcs let her forces go home to Theramore in peace.
+= Old Hatreds - The Colonization of Kalimdor, in Gadgetzan: Durotar named for Thrall's father, and Jaina Proudmoore against her father, the Grand Admiral.
++ He died before she could reconcile with him. For her loyalty, the orcs let her forces go home to Theramore in peace.
 
 ## tanaris-zalashji
 East of the goblins' town, a naga keeps a den in the rocks,
@@ -58,6 +58,6 @@ She has one request for whoever swims out to her. Be nice.
 ## quarry
 The ogres of the southern desert hold three camps among old troll ruins.
 An ogre with a great axe may be found at any one of them.
-Lost, they call him; he has company enough wherever he turns up.
+Lost, they call him. He has company enough wherever he turns up.
 = Omgorn the Lost, a Dunemaul ogre, in the Dunemaul Compound, the Eastmoon Ruins or the Southmoon Ruins.
 + His axe leaves wounds that resist healing.

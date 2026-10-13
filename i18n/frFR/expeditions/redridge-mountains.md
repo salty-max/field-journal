@@ -1,5 +1,5 @@
 ---
-source: 8d5ea64d1a54
+source: e25b95127338
 zone: 1433
 ---
 ## redridge-mountains-docks
@@ -30,7 +30,7 @@ Dans l'auberge de la ville du lac, trouvez la certitude fatale d'un roi : ses mu
 Sa cité tomba, et sa mort vint d'une lame déjà dans ses murs.
 Le récit attend sur une page.
 ? Comté-du-Lac, près de l'auberge.
-= La Porte des ténèbres et la chute de Stormwind. Llane tint sa capitale, certain que les orcs ne pourraient jamais la prendre ; Garona le tua quand elle tomba.
+= La Porte des ténèbres et la chute de Stormwind. Llane tint sa capitale, certain que les orcs ne pourraient jamais la prendre. Garona le tua quand elle tomba.
 + Dans le même livre, un nourrisson orc, le fils de Durotan, trouvé par un officier humain nommé Blackmoore et réduit en esclavage : "Ce petit orc allait un jour devenir le plus grand chef que son peuple ait jamais connu."
 ! Calme
 @ La Porte des ténèbres et la chute de Stormwind

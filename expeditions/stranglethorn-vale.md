@@ -37,7 +37,7 @@ In the pirates' port, find the account of his worshippers' answer
 when they could no longer pay what he demanded.
 ? Booty Bay.
 = Wrath of Soulflayer, in Booty Bay. The Gurubashi fed souls to Hakkar, then drove out the blood god and the priests who still served him. Those priests fled north to the swamps.
-+ The Darkspear were among the tribes that went their own way after that war; and some spoke of a prophecy, that Hakkar would one day be reborn and consume the world whole.
++ The Darkspear were among the tribes that went their own way after that war. And some spoke of a prophecy, that Hakkar would one day be reborn and consume the world whole.
 
 ## stranglethorn-vale-emperors-tomb
 In the north-western ruins of the troll empire that ruled the south
@@ -45,7 +45,7 @@ before there were kingdoms of men, a tomb is all that is left
 of one of its emperors. Find it.
 ? The Ruins of Zul'Kunda, in Stranglethorn's north-west.
 = The Emperor's Tomb, at Zul'Kunda.
-+ The Gurubashi empire once stretched across the south; its descendants hold its ruins now, and Hakkar is back in Zul'Gurub.
++ The Gurubashi empire once stretched across the south. Its descendants hold its ruins now, and Hakkar is back in Zul'Gurub.
 
 ## stranglethorn-vale-gromgol
 At the top of the Horde's tower in the jungle, a goblin sees the airships off to Orgrimmar,

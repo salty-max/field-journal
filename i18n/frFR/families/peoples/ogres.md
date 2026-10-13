@@ -1,5 +1,5 @@
 ---
-source: ab83827f2bb2
+source: 6f76f3eec0c1
 id: ogres
 title: Ogres
 ---
@@ -7,4 +7,4 @@ Les ogres sont passés par la Porte des ténèbres avec la Horde, puis se sont d
 
 Leur taille est la première chose qu'on remarque, mais les ogres-mages font de piètres sujets pour les plaisanteries habituelles sur l'intelligence des ogres. Deux têtes peuvent porter une redoutable maîtrise de la magie.
 
-Les Cognepierre d'Âprefange ont rejoint la Horde. Ailleurs, il faut apprendre clan par clan où vont leurs loyautés ; une silhouette familière ne tient pas lieu de présentation.
+Les Cognepierre d'Âprefange ont rejoint la Horde. Ailleurs, il faut apprendre clan par clan où vont leurs loyautés. Une silhouette familière ne tient pas lieu de présentation.

@@ -1,5 +1,5 @@
 ---
-source: bda93dc2c952
+source: f0099c0d172b
 zone: 2521
 ---
 ## zephras-isle-swimmers
@@ -32,7 +32,7 @@ Laissez-le le lire sur votre visage.
 ? Le sanctuaire d'Akir, au coeur de l'île.
 = Frère Zendraas, de Falaath. Quand le culte s'est installé, il s'est rasé la tête, a enfilé les robes grises et a dit les mots qu'on voulait entendre. Aujourd'hui il fait profil bas, et survit.
 + Il est tailleur, et il a dessiné l'essentiel de ce que porte le culte. Apportez-lui des pierres de vent en trop et il vous échangera son stock de leurs robes.
-! Gardé (le propre sanctuaire du culte ; ses fanatiques sont de niveaux 10 et 11)
+! Gardé (le propre sanctuaire du culte, ses fanatiques de niveaux 10 et 11)
 @ Frère Zendraas
 
 ## zephras-isle-thendal-tree
@@ -41,7 +41,7 @@ deux enfants sont montés plus haut que les grands ne prennent la peine de le fa
 Ils regardent quelque chose dont le reste de l'île dit qu'il a disparu.
 Voyez-le avec eux.
 ? Thendal, au nord-ouest de l'île : en haut de l'arbre.
-= Haal et Meeri, deux enfants de Thendal, qui regardent un esprit du haut de l'arbre. Les esprits du vent ont quitté Zéphras il y a longtemps ; Yala Veillevent dit qu'il ne reste que leurs échos sans esprit.
+= Haal et Meeri, deux enfants de Thendal, qui regardent un esprit du haut de l'arbre. Les esprits du vent ont quitté Zéphras il y a longtemps. Yala Veillevent dit qu'il ne reste que leurs échos sans esprit.
 + Dans les mêmes branches, un cristal blanc garde un enregistrement, Sur le Shal'nan : le chef masqué des rebelles qui fuirent Eldre'Thalas, qui gouverna son peuple plus d'un siècle puis remit son pouvoir à un conseil.
 ! Calme
 @ Haal et Meeri

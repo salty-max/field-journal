@@ -1,5 +1,5 @@
 ---
-source: b6c0ce6402c7
+source: 509ba3a9bea1
 id: furbolgs
 title: Furbolgs
 ---
@@ -7,4 +7,4 @@ Les villages furbolgs appartiennent aux vieilles forêts de Kalimdor. Totems, ab
 
 Les Pin-tordu, les Noirbois, les Mort-bois et les Tombe-hiver ont tous subi de terribles changements. Les Grumegueules ont résisté à ce sort et gardent toujours leurs tunnels entre Gangrebois, Reflet-de-Lune et le Berceau-de-l'Hiver. Leur méfiance envers les étrangers a d'amples raisons.
 
-[forever] Le repaire des Noiregueules, en Azshara, appartient à une autre tribu. La corruption y a pris racine elle aussi ; les Grumegueules de Gangrebois ne doivent pas porter le blâme de ce qui se trouve derrière sa porte de pierre.
+[forever] Le repaire des Noiregueules, en Azshara, appartient à une autre tribu. La corruption y a pris racine elle aussi. Les Grumegueules de Gangrebois ne doivent pas porter le blâme de ce qui se trouve derrière sa porte de pierre.

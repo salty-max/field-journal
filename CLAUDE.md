@@ -208,6 +208,9 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   colleague): observant, dry, fond of the creatures it describes. Two to four
   short paragraphs per family: what they are, where and how they live, what a
   traveller should know. The player's own numbers follow the note on the page.
+- No semicolons in prose, English or French (the user's rule, 14 October
+  2026): two sentences, or a comma, or a rewrite for a list. The gender
+  tokens' own `;` stay. Research notes (`sources:`) may keep theirs.
 - Lore scope as the Codex (loosened on 12 October 2026): the past up to the
   vanilla era from any source (the games, novels, comics, RPG books,
   Chronicle), nothing anachronic to vanilla or Forever; Forever-only families

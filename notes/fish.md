@@ -118,7 +118,7 @@ Mightfish Steak gives a hearty meal with added stamina. The separately weighed g
 
 Whitescale Salmon is caught in difficult waters, including Winterspring and the lands around the plague's great strongholds.
 
-Baked Salmon makes a fine meal from the ordinary catch; the heavier specimens are weighed separately.
+Baked Salmon makes a fine meal from the ordinary catch. The heavier specimens are weighed separately.
 
 ## 6358 Oily Blackmouth
 
@@ -148,7 +148,7 @@ It has no familiar place among the cook's or alchemist's preparations. A field j
 
 Plated Armorfish is a less familiar prize from waters that also yield Whitescale Salmon.
 
-The cook has no usual preparation for it. Its place in the catch is worth recording all the same; a creel contains more than the ingredients on a shopping list.
+The cook has no usual preparation for it. Its place in the catch is worth recording all the same. A creel contains more than the ingredients on a shopping list.
 
 ## 6522 Deviate Fish
 

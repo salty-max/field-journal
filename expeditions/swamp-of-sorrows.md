@@ -24,7 +24,7 @@ A warden chose it for the orphan he raised.
 The story did not end as he intended.
 ? Stonard.
 = The New Horde, in Stonard: Aedelas Blackmoore and the orphan he called Thrall.
-+ Doomhammer fell freeing one of the camps; Thrall took up his warhammer and his black plate, and became warchief of the Horde.
++ Doomhammer fell freeing one of the camps. Thrall took up his warhammer and his black plate, and became warchief of the Horde.
 
 ## quarry
 East of the sunken temple, dragonspawn hold the Sorrowmurk,

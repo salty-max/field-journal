@@ -357,7 +357,7 @@ function ns.atlasReport()
   local w, h = artSize(zone)
   print(
     PREFIX
-      .. (L["%s (map %d), at %s, %s; map art %dx%d."]):format(ns.zoneName(zone), zone, tostring(x), tostring(y), w, h)
+      .. (L["%s (map %d), at %s, %s, map art %dx%d."]):format(ns.zoneName(zone), zone, tostring(x), tostring(y), w, h)
   )
   local z = ns.atlas().zones[zone]
   for _, place in ipairs(A.zones[zone].places) do
@@ -377,7 +377,7 @@ function ns.atlasReport()
     if e.x then placed = placed + 1 end
   end
   print(
-    L["  deaths recorded: %d (%d with a position), close calls: %d; world map pins: %s."]:format(
+    L["  deaths recorded: %d (%d with a position), close calls: %d, world map pins: %s."]:format(
       #a.deaths,
       placed,
       #a.closeCalls,

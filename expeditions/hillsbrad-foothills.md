@@ -19,7 +19,7 @@ riddles:
     gestures: [SALUTE, HAIL]
     creature: 2473   # Granistad, dump 84.3, 32.8; Kurdros (2474) beside him
     hint_area: { x: 82.0, y: 34.5, r: 5 }
-    danger: "Deadly to the Horde (two gryphons of Ironforge, level 40); quiet for the Alliance"
+    danger: "Deadly to the Horde (two gryphons of Ironforge, level 40), quiet for the Alliance"
     sources: "the WoWWiki archive's Granistad page (the passage to the Hinterlands); the dump's spawns and faction (Ironforge's)"
   - id: hillsbrad-foothills-loving-memory
     tier: hidden
@@ -54,7 +54,7 @@ a goblin walks from one to the other and back, all day,
 with a robot at his heels, and sells in both:
 belts, orbs, a pattern or two, one of each at a time.
 Catch him on the road.
-? The road from Southshore to Tarren Mill; he walks it end to end.
+? The road from Southshore to Tarren Mill. He walks it end to end.
 = Zixil, Merchant Supreme, a goblin who trades in both Southshore and Tarren Mill, with Overwatch Mark I, his robot, at his heels.
 + His schematic teaches an engineer to make Goblin Jumper Cables, which may shock a fallen companion back to life. The word 'may' is worth remembering.
 
@@ -73,7 +73,7 @@ keeps a name and two years, and nothing more.
 Someone made sure it would be here, for someone they lost.
 ? Below Dun Garok, toward the sea.
 = 'Anthony Ray Stark. 1961 - 2005.'
-+ A memorial the world's makers left for a friend of theirs. Rousch, the dwarf standing before it, was his own character in the game; he had brought him to somewhere in the forties.
++ A memorial the world's makers left for a friend of theirs. Rousch, the dwarf standing before it, was his own character in the game. He had brought him to somewhere in the forties.
 
 ## hillsbrad-foothills-southshore
 A book among the living remembers a rebellion of the dead.
@@ -89,7 +89,7 @@ Their elven teachers gave them only the magic they needed.
 Find what their first great lesson did to an army.
 ? Tarren Mill.
 = Arathor and the Troll Wars, in Tarren Mill: the battle was fought at the foot of the Alterac Mountains.
-+ The elves taught a hundred humans the basics of magic, no more than was needed; the trolls never rose as one nation again.
++ The elves taught a hundred humans the basics of magic, no more than was needed. The trolls never rose as one nation again.
 
 ## quarry
 Naga have come ashore on the eastern strand of Hillsbrad,

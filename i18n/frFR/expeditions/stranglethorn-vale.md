@@ -1,5 +1,5 @@
 ---
-source: 6b033331e7bd
+source: ea528e952260
 zone: 1434
 ---
 ## stranglethorn-vale-booty-bay
@@ -8,7 +8,7 @@ Dans le port des pirates, trouvez le récit de la réponse de ses fidèles
 quand ils ne purent plus payer ce qu'il exigeait.
 ? Baie-du-Butin.
 = La colère du fléau des âmes, à Baie-du-Butin. Les Gurubashi nourrirent Hakkar d'âmes, puis chassèrent le dieu du sang et les prêtres qui le servaient encore. Ces prêtres s'enfuirent au nord, dans les marais.
-+ Les Darkspear furent parmi les tribus qui suivirent leur propre chemin après cette guerre ; et "certains évoquaient une prophétie selon laquelle Hakkar renaîtrait en ce monde un jour et le consumerait intégralement."
++ Les Darkspear furent parmi les tribus qui suivirent leur propre chemin après cette guerre. Et "certains évoquaient une prophétie selon laquelle Hakkar renaîtrait en ce monde un jour et le consumerait intégralement."
 ! Calme
 @ La colère du fléau des âmes
 
@@ -18,7 +18,7 @@ avant qu'il y ait des royaumes humains, une tombe est tout ce qui reste
 de l'un de ses empereurs. Trouvez-la.
 ? Les ruines de Zul'Kunda, au nord-ouest de Strangleronce.
 = La tombe de l'empereur, à Zul'Kunda.
-+ L'empire gurubashi s'étendait jadis sur tout le sud ; ses descendants en tiennent aujourd'hui les ruines, et Hakkar est de retour à Zul'Gurub.
++ L'empire gurubashi s'étendait jadis sur tout le sud. Ses descendants en tiennent aujourd'hui les ruines, et Hakkar est de retour à Zul'Gurub.
 ! Périlleux (les Bloodscalp)
 @ La tombe de l'empereur
 

@@ -25,7 +25,7 @@ She has no wares and no errands, and nobody in the town remarks on her.
 Find her.
 ? Auberdine, east of the inn.
 = Yalda, at Auberdine: you can see through her, and nobody in the town has a word to say about it.
-+ She is not hiding, and she is no spirit healer; she simply stands there, and the town goes on around her.
++ She is not hiding, and she is no spirit healer. She simply stands there, and the town goes on around her.
 
 ## quarry
 Among the grells of the ruined towers, seek one with a name of his own.

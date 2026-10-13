@@ -3,7 +3,7 @@ sources:
   - 2447 34f0ab34227c
   - 765 4d3954478461
   - 2449 51b9cb90c011
-  - 785 7861f7cb62d1
+  - 785 cc1e799ba4ca
   - 2450 ca0769f2fa7e
   - 2452 ecb06502a14a
   - 2453 c405e4d849b0
@@ -27,9 +27,9 @@ sources:
   - 13464 b6d58fec97be
   - 13463 551a175581dd
   - 13465 9a0a3f4ec4c5
-  - 13466 623993c3ddb3
+  - 13466 5496a36d25b1
   - 13467 1dc5cc5c1fd9
-  - 13468 ee998181f724
+  - 13468 a46eeb0af1ed
 ---
 ## 2447 Pacifique
 
@@ -53,7 +53,7 @@ L'Élixir de Force mineure et l'Elixir de Robustesse mineure commencent tous deu
 
 Le Mage royal est une trouvaille utile le long des routes au-delà des premiers villages. On cueille parfois du Chardonnier avec lui, ce qui donne à une seule halte une seconde récompense.
 
-Les alchimistes emploient le Mage royal dans les breuvages de mana et l'Elixir de Sagesse. Le nom place la barre haut ; le service qu'il rend à un jeune lanceur de sorts suffit amplement.
+Les alchimistes emploient le Mage royal dans les breuvages de mana et l'Elixir de Sagesse. Le nom place la barre haut. Le service qu'il rend à un jeune lanceur de sorts suffit amplement.
 
 ## 2450 Eglantine
 
@@ -197,7 +197,7 @@ Elle entre dans la Potion de soins majeure, et fait avec la Fleur de peste l'Eli
 
 La Fleur de peste se cueille dans les deux Maleterres, où trouver une pousse utile au milieu des champs ruinés est un petit soulagement.
 
-La Potion de purification et l'Elixir magesang l'emploient tous deux ; la Sauge-argent des montagnes l'accompagne dans l'Elixir de la Mangouste. Une plante cueillie dans ce pays dévasté peut encore servir les vivants.
+La Potion de purification et l'Elixir magesang l'emploient tous deux. La Sauge-argent des montagnes l'accompagne dans l'Elixir de la Mangouste. Une plante cueillie dans ce pays dévasté peut encore servir les vivants.
 
 ## 13467 Calot de glace
 
@@ -209,4 +209,4 @@ La Potion de mana majeure et la Potion de purification l'emploient, tout comme l
 
 Le Lotus noir est une trouvaille rare dans un petit nombre de terres dangereuses. Le cueilleur qui en repère un a toutes les raisons de se souvenir de l'endroit.
 
-Les grands flacons le réclament, dont ceux des Titans et du pouvoir suprême. Bien des bouquets se renouvellent au fil d'une tournée ordinaire ; celui-ci décide plutôt du moment où le travail le plus ambitieux peut commencer.
+Les grands flacons le réclament, dont ceux des Titans et du pouvoir suprême. Bien des bouquets se renouvellent au fil d'une tournée ordinaire. Celui-ci décide plutôt du moment où le travail le plus ambitieux peut commencer.

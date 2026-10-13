@@ -1,7 +1,7 @@
 ---
 zone: 1447
 ---
-The road enters from Ashenvale above a coast of broken temples and red-gold trees. Talrendis Point and Valormok offer small footholds near the western approach; farther east, the hills fall steeply toward the Bay of Storms.
+The road enters from Ashenvale above a coast of broken temples and red-gold trees. Talrendis Point and Valormok offer small footholds near the western approach. Farther east, the hills fall steeply toward the Bay of Storms.
 
 Naga occupy much of the shore, while satyr camps and elven expeditions hold ground among the ruins. Azuregos ranges the south. A direct line on the map can conceal both a cliff and the long way around it.
 

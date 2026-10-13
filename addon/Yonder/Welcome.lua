@@ -61,7 +61,7 @@ local W = K.welcome({
       },
       {
         text = L["The book by the minimap"],
-        hint = L["Click it to open the journal; drag it around the minimap."],
+        hint = L["Click it to open the journal, or drag it around the minimap."],
         get = function() return not ns.option("minimapHidden") end,
         set = function(v) ns.setOption("minimapHidden", not v) end,
       },

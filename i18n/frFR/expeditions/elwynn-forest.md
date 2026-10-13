@@ -1,5 +1,5 @@
 ---
-source: 7fd6167505f6
+source: afb7eeebb77e
 zone: 1429
 ---
 ## elwynn-forest-cats
@@ -18,7 +18,7 @@ Dans un lac en forme d'anneau, une île porte un cercle de pierres
 et une pierre dressée pour qu'on se souvienne des héros.
 Des sorciers renégats tiennent l'île aujourd'hui, passés aux bandits.
 Traversez l'eau, et donnez à la pierre ce pour quoi on l'a dressée.
-? Le lac en forme d'anneau au nord de la route du Val d'est a une île en son milieu ; on y honore des héros.
+? Le lac en forme d'anneau au nord de la route du Val d'est a une île en son milieu. On y honore des héros.
 = La Veillée des héros, et sa pierre du Souvenir : un cairn pour les morts de la Première Guerre, quand les orcs mirent à sac Comté-de-l'Or et les terres alentour. Le lac tient son nom du cairn.
 + Le lac fut jadis un lieu de pèlerinage. Les sorciers-voleurs défias en ont fait un lieu dangereux.
 ! Gardé (les sorciers-voleurs défias)

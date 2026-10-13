@@ -1,5 +1,5 @@
 ---
-source: aba0d451d74e
+source: 5bdb3869d896
 zone: 1441
 ---
 ## thousand-needles-raceway
@@ -8,7 +8,7 @@ un ogre annonce les courses, et une serveuse les lance d'un drapeau.
 Toute course a besoin d'un public. Soyez-en.
 ? La piste des Mirages, dans les Salines.
 = Daisy, la fille au départ de la course de la piste des Mirages, avec Fobeed, l'ogre, et Zuzubee qui annoncent les courses.
-+ Les coureurs vont et viennent ; le drapeau, la voix de l'ogre et le sel restent.
++ Les coureurs vont et viennent. Le drapeau, la voix de l'ogre et le sel restent.
 ! Calme
 @ Daisy
 

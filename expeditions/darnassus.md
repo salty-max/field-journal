@@ -37,7 +37,7 @@ and every time it heals a little less. She has drawn the only conclusion she can
 Ask her what it is.
 ? Darnassus, by the alchemists.
 = Ainethil, Artisan Alchemist: 'There can be only one conclusion: the plants are changing. I cannot say why or into what.'
-+ The histories in this city tell how three dragons blessed the first World Tree, so that its people would never age nor sicken; of the tree they live in now, they say nothing of the kind.
++ The histories in this city tell how three dragons blessed the first World Tree, so that its people would never age nor sicken. Of the tree they live in now, they say nothing of the kind.
 
 ## darnassus-darianna
 On the craftsmen's terrace, a young leatherworker can hardly keep still at her lessons,
@@ -52,6 +52,6 @@ Among this city's histories, one tells of a bargain paid in centuries of sleep.
 Its keepers would not die of age while the world went on without them.
 The price and the promise share a page.
 ? In the north of Darnassus.
-= The World Tree and the Emerald Dream: Nordrassil, 'crown of the heavens'. Three dragons blessed the tree; the night elves received immortality, and their druids agreed to long years of sleep in Ysera's Dream.
+= The World Tree and the Emerald Dream: Nordrassil, 'crown of the heavens'. Three dragons blessed the tree. The night elves received immortality, and their druids agreed to long years of sleep in Ysera's Dream.
 + 'Though the druids were grieved at the prospect of losing so many years of their lives to hibernation, they selflessly agreed to uphold their bargain with Ysera.'
 

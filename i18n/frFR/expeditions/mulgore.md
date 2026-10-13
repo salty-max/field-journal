@@ -1,5 +1,5 @@
 ---
-source: 94a8587348f6
+source: d7985b3e3f51
 zone: 1412
 ---
 ## mulgore-rolling-plains
@@ -10,7 +10,7 @@ le seul endroit où ils soient jamais entrés sur la terre des taurens. Ouvrez l
 ? Au sud-est de Sabot-de-Sang, vers les Tarides : l'herbe qui ondule jusqu'à la frontière.
 = Les plaines vallonnées : la seule partie de Mulgore où les estafettes des centaures ont pénétré.
 + Au nord, au-delà de Sabot-de-Sang, les plaines dorées autour de la falaise sont les terrains de chasse les plus chers aux taurens.
-! Calme (loups des prairies ; estafettes centaures, de temps à autre)
+! Calme (loups des prairies, et estafettes centaures de temps à autre)
 @ Les plaines vallonnées
 
 ## mulgore-three-hammers

@@ -9,6 +9,6 @@ match:
 ---
 A forest can move without a breeze. Treants and ancients give the night elves' woods their great walking shapes, while lashers and creepers occupy ground much nearer a traveller's boots.
 
-Some defend a living woodland; others have been changed by corruption. The timberlings of Teldrassil and the growth within Dire Maul deserve different accounts, even when both make a path difficult to cross.
+Some defend a living woodland. Others have been changed by corruption. The timberlings of Teldrassil and the growth within Dire Maul deserve different accounts, even when both make a path difficult to cross.
 
 The swamp has its own forms of moving vegetation and mud. Roots, branches and a familiar green colour are only the beginning of identifying what has risen out of it.
