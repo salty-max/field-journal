@@ -93,7 +93,7 @@ You don't need to do anything. At each character's first login with Yonder, its 
 
 The download includes a small **FieldJournal** folder that hands the old journal over. It does nothing else, and a later update removes it. It works on Classic Era and TBC Anniversary. Forever beta journals start fresh, since beta characters don't carry over to launch.
 
-If you install by hand, copy both folders, **Yonder** and **FieldJournal**, into `Interface/AddOns`. The new FieldJournal folder replaces the old addon.
+If you install by hand, delete the old **FieldJournal** folder from `Interface/AddOns` first, then copy both folders, **Yonder** and **FieldJournal**. Copying over the old folder keeps the old addon's files. If it still runs beside Yonder, Yonder turns it off and says so in chat.
 
 ## Other addons
 
