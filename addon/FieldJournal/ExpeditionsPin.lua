@@ -77,7 +77,6 @@ local function build()
   card.body = body
   card.picture = ui.roundPortrait(body, 32)
   card.picture:SetPoint("TOPLEFT", PAD, -PAD)
-  card.badge = ui.badge(card.picture, 15)
   card.title = ui.label(body, ui.TITLE_FONT, 15, T.gold)
   card.title:SetPoint("TOPLEFT", card.picture, "TOPRIGHT", 10, -1)
   card.title:SetPoint("RIGHT", -28, 0)
@@ -128,18 +127,20 @@ local function seal(name, color)
 end
 local SEAL_COLORS = { gold = { 1, 0.82, 0 }, silver = { 0.78, 0.8, 0.84 }, plain = { 0.8, 0.55, 0.35 } }
 
+-- (its seal its ring, as on the riddle's page: ExpeditionsBook's ns.sealRing)
+local function ring(spec) ns.kit.ringColour(card.picture, spec and spec[1], spec and spec[2]) end
+
 local function fill(r, q)
   card.riddle, card.quarry = r and r.id, q and q.id
   card.picture.tex:SetVertexColor(1, 1, 1)
   card.picture.tex:SetDesaturated(false)
-  ui.setBadge(card.badge, nil)
   local extra = {}
   if r then
     local rec = ns.riddleRecord(r.id) or {}
     ns.riddlePicture(r)(card.picture)
+    ring(ns.sealRing(rec.at and ns.SEALS[ns.riddleSeal(rec)], rec.at ~= nil))
     if rec.at then
       local s = ns.riddleSeal(rec)
-      ui.setBadge(card.badge, ns.SEALS[s])
       card.title:SetText(ns.riddleName(r))
       table.insert(extra, ("Read, with the %s."):format(seal(s .. " seal", SEAL_COLORS[s])))
     else
@@ -152,8 +153,7 @@ local function fill(r, q)
   else
     local rec = ns.huntRecord(q.id) or {}
     ns.quarryPicture(q)(card.picture)
-    local hs = rec.at and ns.HUNT_SEALS[ns.huntSeal(rec)]
-    if hs and hs[1] then ui.setBadge(card.badge, hs) end
+    ring(ns.sealRing(rec.at and ns.HUNT_SEALS[ns.huntSeal(rec)], rec.at ~= nil))
     card.title:SetText(q.name)
     card.sub:SetText(ns.zoneName(q.zone) .. "  -  the quarry")
     card.verse:SetText(table.concat(q.verse, "\n"))

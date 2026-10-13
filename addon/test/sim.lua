@@ -2045,8 +2045,10 @@ check(
   ns.pinned() == vigil.id
     and pinCard.shown
     and pinCard.verse.text == table.concat(vigil.verse, "\n")
-    and pinCard.extra.text:find("^The clue: "),
-  "… pinned: its card shows the verse and the clue taken"
+    and pinCard.extra.text:find("^The clue: ")
+    and pinCard.picture.ring.desaturated
+    and pinCard.picture.ring.vertex[1] == ns.kit.RINGS.iron[1][1],
+  "… pinned: its card shows the verse and the clue taken, its ring iron till solved"
 )
 pinCard.scripts.OnDragStop(pinCard)
 check(ns.expeditions().pinAt ~= nil, "… dragged, it stays where it was left")

@@ -235,7 +235,5 @@ ns.ui = {
   itemIcon = K.itemIcon,
   newList = K.list,
   newPage = newPage,
-  badge = K.badge,
-  setBadge = K.setBadge,
   window = window,
 }

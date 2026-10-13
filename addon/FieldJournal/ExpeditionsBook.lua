@@ -38,12 +38,14 @@ local SEALS = {
 -- A riddle's or a quarry's ring, by its seal, in place of a medal (the kit's
 -- tier rings): gold, silver, copper for the plain seal; iron while not done;
 -- the plain bronze for a quarry brought down before the journal kept hunts.
+-- (the pinned card's too: ExpeditionsPin.lua)
 local TIER_RING = { Gold = "gold", Silver = "silver", Plain = "copper" }
-local function ringOf(seal, done)
+function ns.sealRing(seal, done)
   local R = ns.kit.RINGS
   if not done then return R.iron end
   return seal and R[TIER_RING[seal[2]]] or nil
 end
+local ringOf = ns.sealRing
 local HUNT_SEALS = {
   gold = { SEALS.gold[1], "Gold", "never tracked", SEALS.gold[4] },
   plain = { SEALS.plain[1], "Plain", "tracked", SEALS.plain[4] },
