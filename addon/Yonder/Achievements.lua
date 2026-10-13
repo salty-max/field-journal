@@ -10,6 +10,7 @@
 -- No spoilers: a type's or a zone's milestone stays out of the list until one
 -- of its families or rares has been met.
 local _, ns = ...
+local L = ns.kit.L
 local D = ns.data
 local PREFIX = ns.PREFIX
 
@@ -118,46 +119,57 @@ local function tiers(prefix, text, counted, steps)
     add("tally", prefix .. need, title, text:format(need), function() return counted(), need end)
   end
 end
-tiers("met-", "Record %d kinds of creature.", recordedCount, {
-  { 10, "First Sketches" },
-  { 50, "A Notebook Half Full" },
-  { 100, "A Hundred Kinds" },
-  { 250, "Naturalist" },
-  { 500, "Five Hundred Kinds" },
-  { 1000, "A Thousand Kinds" },
+tiers("met-", L["Record %d kinds of creature."], recordedCount, {
+  { 10, L["First Sketches"] },
+  { 50, L["A Notebook Half Full"] },
+  { 100, L["A Hundred Kinds"] },
+  { 250, L["Naturalist"] },
+  { 500, L["Five Hundred Kinds"] },
+  { 1000, L["A Thousand Kinds"] },
 })
-tiers("families-", "Slay creatures of %d families.", familiesMet, {
-  { 10, "Branches of the Tree" },
-  { 25, "Twenty-Five Families" },
-  { 50, "Half a Hundred Families" },
-  { 75, "The Great Tree of Life" },
+tiers("families-", L["Slay creatures of %d families."], familiesMet, {
+  { 10, L["Branches of the Tree"] },
+  { 25, L["Twenty-Five Families"] },
+  { 50, L["Half a Hundred Families"] },
+  { 75, L["The Great Tree of Life"] },
 })
-tiers("slain-", "Slay %d creatures.", slainCount, {
-  { 100, "Blooded" },
-  { 500, "Hunter" },
-  { 1000, "A Thousand Kills" },
-  { 5000, "Scourge of the Wild" },
-  { 10000, "Ten Thousand Kills" },
+tiers("slain-", L["Slay %d creatures."], slainCount, {
+  { 100, L["Blooded"] },
+  { 500, L["Hunter"] },
+  { 1000, L["A Thousand Kills"] },
+  { 5000, L["Scourge of the Wild"] },
+  { 10000, L["Ten Thousand Kills"] },
 })
-tiers("trophies-", "Take %d trophies (rares and bosses slain).", trophyCount, {
-  { 1, "First Trophy" },
-  { 10, "A Wall of Trophies" },
-  { 25, "Big Game Hunter" },
-  { 50, "Master of the Hunt" },
-  { 100, "Legend of the Hunt" },
+tiers("trophies-", L["Take %d trophies (rares and bosses slain)."], trophyCount, {
+  { 1, L["First Trophy"] },
+  { 10, L["A Wall of Trophies"] },
+  { 25, L["Big Game Hunter"] },
+  { 50, L["Master of the Hunt"] },
+  { 100, L["Legend of the Hunt"] },
 })
 
 -- One per creature type: every family of it met.
 local SECTION_TITLES = {
-  beasts = "Every Beast in the Book",
-  dragonkin = "Scales and Wings",
-  demons = "Know Thy Enemy",
-  elementals = "Earth, Fire, Air and Water",
-  undead = "Grave Matters",
-  giants = "In the Giants' Shadow",
-  machines = "Gears and Grinding",
-  peoples = "Peoples of the World",
-  oddities = "Curiosities",
+  beasts = L["Every Beast in the Book"],
+  dragonkin = L["Scales and Wings"],
+  demons = L["Know Thy Enemy"],
+  elementals = L["Earth, Fire, Air and Water"],
+  undead = L["Grave Matters"],
+  giants = L["In the Giants' Shadow"],
+  machines = L["Gears and Grinding"],
+  peoples = L["Peoples of the World"],
+  oddities = L["Curiosities"],
+}
+local SECTION_TEXTS = {
+  beasts = L["Slay a creature of every family of beasts."],
+  dragonkin = L["Slay a creature of every family of dragonkin."],
+  demons = L["Slay a creature of every family of demons."],
+  elementals = L["Slay a creature of every family of elementals."],
+  undead = L["Slay a creature of every family of the undead."],
+  giants = L["Slay a creature of every family of giants."],
+  machines = L["Slay a creature of every family of machines."],
+  peoples = L["Slay a creature of every family of humanoids."],
+  oddities = L["Slay a creature of every family of oddities."],
 }
 for _, s in ipairs(D.sections) do
   local ids = sectionFamilies(s.id)
@@ -166,7 +178,7 @@ for _, s in ipairs(D.sections) do
       "type",
       "type-" .. s.id,
       SECTION_TITLES[s.id] or s.title,
-      ("Slay a creature of every family of %s."):format(s.title == "Humanoids" and "humanoids" or s.title:lower()),
+      SECTION_TEXTS[s.id] or L["Slay a creature of every family of this kind."],
       function() return familiesMetIn(ids), #ids end,
       { visible = function() return familiesMetIn(ids) > 0 end }
     )
@@ -180,44 +192,50 @@ local DRAGONFLIGHTS =
 add(
   "feat",
   "hogger",
-  "Hogger's End",
-  "Slay Hogger, the terror of Elwynn.",
+  L["Hogger's End"],
+  L["Slay Hogger, the terror of Elwynn."],
   function() return slain(448) and 1 or 0, 1 end
 )
-add("feat", "kobolds-50", "You No Take Candle", "Slay 50 kobolds.", function() return slainIn("kobolds"), 50 end)
-add("feat", "murlocs-100", "Mrrgllglrgl!", "Slay 100 murlocs.", function() return slainIn("murlocs"), 100 end)
-add("feat", "rare-elites-10", "Elite Company", "Slay 10 rare elites.", function() return trophyCount("R"), 10 end)
-add("feat", "every-type", "A Little of Everything", "Slay a creature of every type in the book.", function()
+add("feat", "kobolds-50", L["You No Take Candle"], L["Slay 50 kobolds."], function() return slainIn("kobolds"), 50 end)
+add("feat", "murlocs-100", L["Mrrgllglrgl!"], L["Slay 100 murlocs."], function() return slainIn("murlocs"), 100 end)
+add("feat", "rare-elites-10", L["Elite Company"], L["Slay 10 rare elites."], function() return trophyCount("R"), 10 end)
+add("feat", "every-type", L["A Little of Everything"], L["Slay a creature of every type in the book."], function()
   local n = 0
   for _, s in ipairs(D.sections) do
     if familiesMetIn(sectionFamilies(s.id)) > 0 then n = n + 1 end
   end
   return n, #D.sections
 end)
-add("feat", "dragonflights", "Every Colour of Dragon", "Slay a dragon of each of the five dragonflights.", function()
-  local families = char() and char().families or {}
-  local n = 0
-  for _, f in ipairs(DRAGONFLIGHTS) do
-    if families[f] then n = n + 1 end
+add(
+  "feat",
+  "dragonflights",
+  L["Every Colour of Dragon"],
+  L["Slay a dragon of each of the five dragonflights."],
+  function()
+    local families = char() and char().families or {}
+    local n = 0
+    for _, f in ipairs(DRAGONFLIGHTS) do
+      if families[f] then n = n + 1 end
+    end
+    return n, #DRAGONFLIGHTS
   end
-  return n, #DRAGONFLIGHTS
-end)
+)
 add(
   "feat",
   "nightmare",
-  "The Emerald Nightmare",
-  "Slay the four dragons of the Nightmare: Ysondre, Lethon, Emeriss and Taerar.",
+  L["The Emerald Nightmare"],
+  L["Slay the four dragons of the Nightmare: Ysondre, Lethon, Emeriss and Taerar."],
   function() return count(NIGHTMARE, recorded), #NIGHTMARE end
 )
 add(
   "feat",
   "world-terror",
-  "Terror of the Wild",
-  "Slay Azuregos or Lord Kazzak.",
+  L["Terror of the Wild"],
+  L["Slay Azuregos or Lord Kazzak."],
   function() return (slain(6109) or slain(12397)) and 1 or 0, 1 end
 )
-add("feat", "onyxia", "Into the Lair", "Slay Onyxia.", function() return slain(10184) and 1 or 0, 1 end)
-add("feat", "ragnaros", "The Firelord Falls", "Slay Ragnaros.", function() return slain(11502) and 1 or 0, 1 end)
+add("feat", "onyxia", L["Into the Lair"], L["Slay Onyxia."], function() return slain(10184) and 1 or 0, 1 end)
+add("feat", "ragnaros", L["The Firelord Falls"], L["Slay Ragnaros."], function() return slain(11502) and 1 or 0, 1 end)
 
 -- One per zone: every rare of it slain (shown once one of them is).
 local function zoneName(uiMap, zone)
@@ -235,8 +253,8 @@ for _, z in ipairs(zones) do
   add(
     "zone",
     "zone-" .. uiMap,
-    ("The Rares of %s"):format(name),
-    ("Slay every rare creature of %s."):format(name),
+    L["The Rares of %s"]:format(name),
+    L["Slay every rare creature of %s."]:format(name),
     function() return count(zone, slain), #zone end,
     { visible = function() return count(zone, recorded) > 0 end }
   )
@@ -261,8 +279,8 @@ for _, z in ipairs(explorable) do
   add(
     "explore",
     "explore-" .. uiMap,
-    ("Explore %s"):format(name),
-    ("Explore every place of %s."):format(name),
+    L["Explore %s"]:format(name),
+    L["Explore every place of %s."]:format(name),
     function() return ns.zoneProgress(uiMap) end,
     { visible = function() return enteredZone(uiMap) end }
   )
@@ -280,23 +298,23 @@ for _, c in ipairs(continents) do
   add(
     "travel",
     "continent-" .. c[1],
-    ("Wanderer of %s"):format(c[2]),
-    ("Set foot in every zone and city of %s."):format(c[2]),
+    L["Wanderer of %s"]:format(c[2]),
+    L["Set foot in every zone and city of %s."]:format(c[2]),
     function() return count(inContinent, enteredZone), #inContinent end
   )
 end
 local function flights() return #(atlas() and atlas().flights or {}) end
-for _, t in ipairs({ { 10, "Wings for Hire" }, { 50, "Frequent Flyer" }, { 100, "Master of the Skies" } }) do
-  add("travel", "flights-" .. t[1], t[2], ("Take %d flights."):format(t[1]), function() return flights(), t[1] end)
+for _, t in ipairs({ { 10, L["Wings for Hire"] }, { 50, L["Frequent Flyer"] }, { 100, L["Master of the Skies"] } }) do
+  add("travel", "flights-" .. t[1], t[2], L["Take %d flights."]:format(t[1]), function() return flights(), t[1] end)
 end
 add(
   "travel",
   "crossing",
-  "Across the Sea",
-  "Cross from one continent to the other.",
+  L["Across the Sea"],
+  L["Cross from one continent to the other."],
   function() return math.min(#(atlas() and atlas().crossings or {}), 1), 1 end
 )
-add("travel", "binds-5", "Many Hearths", "Make your home in five different inns.", function()
+add("travel", "binds-5", L["Many Hearths"], L["Make your home in five different inns."], function()
   local places, n = {}, 0
   for _, b in ipairs(atlas() and atlas().binds or {}) do
     if not places[b.place] then
@@ -308,8 +326,8 @@ end)
 add(
   "feat",
   "close-calls-10",
-  "Living Dangerously",
-  "Survive ten close calls (a tenth of your health or less).",
+  L["Living Dangerously"],
+  L["Survive ten close calls (a tenth of your health or less)."],
   function() return #(atlas() and atlas().closeCalls or {}), 10 end
 )
 
@@ -368,15 +386,15 @@ end
 add(
   "expeditions",
   "riddle-first",
-  "A Riddle Read Aright",
-  "Solve a riddle of the expeditions.",
+  L["A Riddle Read Aright"],
+  L["Solve a riddle of the expeditions."],
   function() return math.min((riddles()), 1), 1 end
 )
 add(
   "expeditions",
   "quarry-first",
-  "First Quarry",
-  "Bring down a quarry of the expeditions.",
+  L["First Quarry"],
+  L["Bring down a quarry of the expeditions."],
   function() return math.min((quarries()), 1), 1 end
 )
 local expeditionZones = {}
@@ -391,8 +409,9 @@ for _, uiMap in ipairs(expeditionZones) do
   add(
     "expeditions",
     "expedition-" .. uiMap,
-    name:find("^The ") and (name .. " Expedition") or ("The %s Expedition"):format(name),
-    (X[uiMap].quarry and "Solve every riddle of %s and bring down its quarry." or "Solve every riddle of %s."):format(
+    -- ("The Barrens Expedition", "The Durotar Expedition")
+    (name:find("^The ") and L["%s Expedition"] or L["The %s Expedition"]):format(name),
+    (X[uiMap].quarry and L["Solve every riddle of %s and bring down its quarry."] or L["Solve every riddle of %s."]):format(
       name
     ),
     function() return both(here) end,
@@ -400,9 +419,9 @@ for _, uiMap in ipairs(expeditionZones) do
   )
 end
 local TIER_MILESTONES = {
-  { "near", "The Roads of %s", "Solve every riddle near the road in %s." },
-  { "off", "Off the Roads of %s", "Solve every riddle off the road in %s." },
-  { "hidden", "Nothing Hidden in %s", "Solve every hidden riddle of %s." },
+  { "near", L["The Roads of %s"], L["Solve every riddle near the road in %s."] },
+  { "off", L["Off the Roads of %s"], L["Solve every riddle off the road in %s."] },
+  { "hidden", L["Nothing Hidden in %s"], L["Solve every hidden riddle of %s."] },
 }
 for _, c in ipairs(continents) do
   local here = onContinent(c[1])
@@ -414,39 +433,41 @@ for _, c in ipairs(continents) do
   add(
     "expeditions",
     "expeditions-" .. c[1],
-    ("The Expeditions of %s"):format(c[2]),
-    ("Complete every expedition of %s: its riddles, its towns' and capitals' with them, and its quarries."):format(c[2]),
+    L["The Expeditions of %s"]:format(c[2]),
+    L["Complete every expedition of %s: its riddles, its towns' and capitals' with them, and its quarries."]:format(
+      c[2]
+    ),
     function() return both(here) end,
     { visible = function() return select(2, both(here)) > 0 end }
   )
 end
-add("expeditions", "gold-10", "By Your Own Light", "Earn ten gold seals.", function() return goldSeals(), 10 end)
-add("expeditions", "gold-50", "Clear Sight", "Earn fifty gold seals.", function() return goldSeals(), 50 end)
+add("expeditions", "gold-10", L["By Your Own Light"], L["Earn ten gold seals."], function() return goldSeals(), 10 end)
+add("expeditions", "gold-50", L["Clear Sight"], L["Earn fifty gold seals."], function() return goldSeals(), 50 end)
 add(
   "expeditions",
   "gold-all",
-  "Nothing Asked",
-  "Earn the gold seal of every riddle.",
+  L["Nothing Asked"],
+  L["Earn the gold seal of every riddle."],
   function() return goldSeals(), select(2, riddles()) end
 )
 add(
   "expeditions",
   "untracked-5",
-  "Without a Map",
-  "Bring down five quarries without tracking them.",
+  L["Without a Map"],
+  L["Bring down five quarries without tracking them."],
   function() return untracked(), 5 end
 )
 add(
   "expeditions",
   "untracked-all",
-  "No Trail Given",
-  "Bring down every quarry without tracking it.",
+  L["No Trail Given"],
+  L["Bring down every quarry without tracking it."],
   function() return untracked(), select(2, quarries()) end
 )
-add("expeditions", "gestures", "Respects Paid", "Solve every riddle that asks something of you there.", function()
+add("expeditions", "gestures", L["Respects Paid"], L["Solve every riddle that asks something of you there."], function()
   return riddles(function(r) return r.asks == "gesture" end)
 end)
-add("expeditions", "readings", "Well Read", "Solve every riddle that asks for a reading.", function()
+add("expeditions", "readings", L["Well Read"], L["Solve every riddle that asks for a reading."], function()
   return riddles(function(r) return r.asks == "reading" end)
 end)
 -- (shown only while a riddle asks the night: none does now)
@@ -454,8 +475,8 @@ local function byNight(r) return r.night end
 add(
   "expeditions",
   "night",
-  "After Dark",
-  "Solve every riddle that only the night answers.",
+  L["After Dark"],
+  L["Solve every riddle that only the night answers."],
   function() return riddles(byNight) end,
   { visible = function() return select(2, riddles(byNight)) > 0 end }
 )
@@ -495,29 +516,35 @@ local function kindsOf(recs)
   return n
 end
 
-add("fishing", "fish-first", "First Catch", "Catch a fish.", function() return math.min(sum(fishRecs(), "n"), 1), 1 end)
-for _, t in ipairs({ { 10, "A Full Creel" }, { 20, "Twenty Kinds of Fish" } }) do
+add(
+  "fishing",
+  "fish-first",
+  L["First Catch"],
+  L["Catch a fish."],
+  function() return math.min(sum(fishRecs(), "n"), 1), 1 end
+)
+for _, t in ipairs({ { 10, L["A Full Creel"] }, { 20, L["Twenty Kinds of Fish"] } }) do
   add(
     "fishing",
     "fish-kinds-" .. t[1],
     t[2],
-    ("Catch %d kinds of fish."):format(t[1]),
+    L["Catch %d kinds of fish."]:format(t[1]),
     function() return count(species, caught), t[1] end
   )
 end
 add(
   "fishing",
   "fish-all",
-  "Every Fish in the Sea",
-  "Catch every kind of fish of the waters, every reagent and the Deviate Fish.",
+  L["Every Fish in the Sea"],
+  L["Catch every kind of fish of the waters, every reagent and the Deviate Fish."],
   function() return count(species, caught), #species end
 )
-for _, t in ipairs({ { 100, "A Hundred Fish" }, { 1000, "Master Angler" } }) do
+for _, t in ipairs({ { 100, L["A Hundred Fish"] }, { 1000, L["Master Angler"] } }) do
   add(
     "fishing",
     "fish-n-" .. t[1],
     t[2],
-    ("Catch %d fish."):format(t[1]),
+    L["Catch %d fish."]:format(t[1]),
     function() return sum(fishRecs(), "n"), t[1] end
   )
 end
@@ -525,16 +552,16 @@ local PAGLE = { 16967, 16970, 16968, 16969 } -- Feralas Ahi, Misty Reed Mahi Mah
 add(
   "fishing",
   "pagle",
-  "Nat Pagle's Catch",
-  "Catch the four rare fish Nat Pagle asks for.",
+  L["Nat Pagle's Catch"],
+  L["Catch the four rare fish Nat Pagle asks for."],
   function() return count(PAGLE, caught), #PAGLE end
 )
 local SCHOOLED = { 6358, 6359, 13422, 6522 } -- Oily Blackmouth, Firefin Snapper, Stonescale Eel, Deviate Fish
 add(
   "fishing",
   "schools",
-  "Schools of Every Kind",
-  "Catch from a school of Oily Blackmouth, Firefin Snapper, Stonescale Eel and Deviate Fish.",
+  L["Schools of Every Kind"],
+  L["Catch from a school of Oily Blackmouth, Firefin Snapper, Stonescale Eel and Deviate Fish."],
   function()
     return count(SCHOOLED, function(id)
       local r = fishRecs()[id]
@@ -546,27 +573,33 @@ add(
 add(
   "fishing",
   "seasons",
-  "Every Season",
-  "Catch a Winter Squid and a Raw Summer Bass.",
+  L["Every Season"],
+  L["Catch a Winter Squid and a Raw Summer Bass."],
   function() return count({ 13755, 13756 }, caught), 2 end
 )
 add(
   "fishing",
   "night-day",
-  "By Moon and by Sun",
-  "Catch a Raw Nightfin Snapper by night and a Raw Sunscale Salmon by day.",
+  L["By Moon and by Sun"],
+  L["Catch a Raw Nightfin Snapper by night and a Raw Sunscale Salmon by day."],
   function()
     local night, day = fishRecs()[13759], fishRecs()[13760]
     return ((night and (night.night or 0) > 0) and 1 or 0) + ((day and (day.day or 0) > 0) and 1 or 0), 2
   end
 )
-add("fishing", "heavy", "The One That Didn't Get Away", "Land a weighed catch of a hundred pounds or more.", function()
-  local most = 0
-  for _, rec in pairs(fishRecs()) do
-    most = math.max(most, rec.heaviest or 0)
+add(
+  "fishing",
+  "heavy",
+  L["The One That Didn't Get Away"],
+  L["Land a weighed catch of a hundred pounds or more."],
+  function()
+    local most = 0
+    for _, rec in pairs(fishRecs()) do
+      most = math.max(most, rec.heaviest or 0)
+    end
+    return math.min(most, 100), 100
   end
-  return math.min(most, 100), 100
-end)
+)
 -- Every fish of a continent's waters (those of its zones).
 for _, c in ipairs(continents) do
   local ids, there = {}, {}
@@ -585,8 +618,8 @@ for _, c in ipairs(continents) do
     add(
       "fishing",
       "fish-continent-" .. c[1],
-      ("The Waters of %s"):format(c[2]),
-      ("Catch every kind of fish of the waters of %s."):format(c[2]),
+      L["The Waters of %s"]:format(c[2]),
+      L["Catch every kind of fish of the waters of %s."]:format(c[2]),
       function() return count(ids, caught), #ids end,
       { visible = function() return count(ids, caught) > 0 end }
     )
@@ -596,48 +629,54 @@ end
 add(
   "herbs",
   "herb-first",
-  "First Herb",
-  "Gather or find an herb.",
+  L["First Herb"],
+  L["Gather or find an herb."],
   function() return math.min(kindsOf(plantRecs()), 1), 1 end
 )
-for _, t in ipairs({ { 10, "An Herbalist's Satchel" }, { 20, "Twenty Herbs" } }) do
+for _, t in ipairs({ { 10, L["An Herbalist's Satchel"] }, { 20, L["Twenty Herbs"] } }) do
   add(
     "herbs",
     "herb-kinds-" .. t[1],
     t[2],
-    ("Find %d kinds of herb."):format(t[1]),
+    L["Find %d kinds of herb."]:format(t[1]),
     function() return count(F.herbOrder, have), t[1] end
   )
 end
 add(
   "herbs",
   "herb-all",
-  "The Complete Herbarium",
-  "Find every herb of the world.",
+  L["The Complete Herbarium"],
+  L["Find every herb of the world."],
   function() return count(F.herbOrder, have), #F.herbOrder end
 )
-for _, t in ipairs({ { 100, "Green Thumb" }, { 1000, "Master Herbalist" } }) do
+for _, t in ipairs({ { 100, L["Green Thumb"] }, { 1000, L["Master Herbalist"] } }) do
   add(
     "herbs",
     "herb-gathered-" .. t[1],
     t[2],
-    ("Gather %d herbs."):format(t[1]),
+    L["Gather %d herbs."]:format(t[1]),
     function() return sum(plantRecs(), "gathered"), t[1] end
   )
 end
-add("herbs", "black-lotus", "The Black Lotus", "Find a Black Lotus.", function() return have(13468) and 1 or 0, 1 end)
+add(
+  "herbs",
+  "black-lotus",
+  L["The Black Lotus"],
+  L["Find a Black Lotus."],
+  function() return have(13468) and 1 or 0, 1 end
+)
 add(
   "herbs",
   "lotuses",
-  "Every Lotus",
-  "Find a Purple Lotus and a Black Lotus.",
+  L["Every Lotus"],
+  L["Find a Purple Lotus and a Black Lotus."],
   function() return count({ 8831, 13468 }, have), 2 end
 )
 add(
   "herbs",
   "plague-flora",
-  "What Grows in the Plague",
-  "Find Plaguebloom and Arthas' Tears.",
+  L["What Grows in the Plague"],
+  L["Find Plaguebloom and Arthas' Tears."],
   function() return count({ 13466, 8836 }, have), 2 end
 )
 -- Every herb of a zone (shown once one is found there).
@@ -659,8 +698,8 @@ for _, z in ipairs(hz) do
   add(
     "herbs",
     "herbs-" .. uiMap,
-    ("The Herbs of %s"):format(name),
-    ("Find every herb that grows in %s."):format(name),
+    L["The Herbs of %s"]:format(name),
+    L["Find every herb that grows in %s."]:format(name),
     function() return count(ids, have), #ids end,
     {
       visible = function()
@@ -727,7 +766,8 @@ function ns.checkMilestones(quiet)
         c.achievements[m.id] = { at = time(), level = UnitLevel("player"), retro = quiet or nil }
         earned = true
         if not quiet then
-          print(PREFIX .. ("you have earned the milestone |cffffd100|Hyonder:m%s|h[%s]|h|r!"):format(m.id, m.title))
+          local link = ("|cffffd100|Hyonder:m%s|h[%s]|h|r"):format(m.id, m.title)
+          print(PREFIX .. L["you have earned the milestone %s!"]:format(link))
           fanfare()
           ns.toast("milestone", m.id)
         end
