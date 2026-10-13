@@ -2422,4 +2422,54 @@ do
   )
 end
 
+-- The French the package ships (Text_frFR.lua, from i18n/frFR): it loads, and
+-- every riddle and quarry reads as French, whole (veiled and unveiled byte by
+-- byte, accents kept), its gender tokens resolved; Classic's names on Classic.
+do
+  assert(loadfile(DIR .. "Text_frFR.lua"))("Yonder", ns)
+  local function utf8(s)
+    local i, n = 1, #s
+    while i <= n do
+      local c = s:byte(i)
+      local len = c < 0x80 and 1 or c >= 0xF0 and 4 or c >= 0xE0 and 3 or c >= 0xC2 and c < 0xE0 and 2 or nil
+      if not len or (c < 0x20 and c ~= 10) then return false end
+      for j = i + 1, i + len - 1 do
+        local b = s:byte(j)
+        if not b or b < 0x80 or b > 0xBF then return false end
+      end
+      i = i + len
+    end
+    return true
+  end
+  local bad = {}
+  local function read(s, what)
+    if s and (not utf8(s) or s:find("%$[gG]")) then table.insert(bad, what) end
+  end
+  for _, e in pairs(D.expeditions) do
+    for _, r in ipairs(e.riddles or {}) do
+      read(ns.riddleName(r), r.id .. " name")
+      read(ns.riddleNote(r), r.id .. " note")
+      read(ns.riddleMargin(r), r.id .. " margin")
+      for _, line in ipairs(r.verse or {}) do
+        read(line, r.id .. " verse")
+      end
+    end
+    if e.quarry then
+      read(ns.quarryNote(e.quarry), e.quarry.name .. " note")
+      read(ns.quarryMargin(e.quarry), e.quarry.name .. " margin")
+    end
+  end
+  local etched
+  for _, r in ipairs(D.expeditions[1426].riddles) do
+    if r.id == "dun-morogh-etched-note" then etched = r end
+  end
+  check(#bad == 0, "the shipped French: every riddle and quarry reads whole (" .. table.concat(bad, ", ") .. ")")
+  check(
+    ns.riddleName(etched) == "Note gravée"
+      and ns.riddleNote(etched):find(FOREVER and "Forgefer compte" or "Ironforge compte", 1, true)
+      and ns.kit.L["Expeditions"] ~= "Expeditions",
+    "… its words, a riddle's answer and note, Classic's own names on Classic"
+  )
+end
+
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")
