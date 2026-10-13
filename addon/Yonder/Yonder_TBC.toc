@@ -16,6 +16,11 @@
 # Anniversary, _Camelot: Forever), the same but for the interface and the game's
 # data (scripts/package.ts checks).
 Data_Classic.lua
+# the kit, then the reader's language (Locale.lua; the client loads its own
+# Text_<locale>.lua), before any file reads a word
+Kit.lua
+Locale.lua
+Text_[TextLocale].lua
 Core.lua
 Creatures.lua
 Atlas.lua
@@ -23,7 +28,6 @@ Flora.lua
 Expeditions.lua
 Toasts.lua
 Achievements.lua
-Kit.lua
 Book.lua
 ZoneMap.lua
 BestiaryBook.lua

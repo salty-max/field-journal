@@ -187,6 +187,7 @@ end
 -- This character's journal, or a new one (a journal saved by another
 -- character of the same name is not theirs).
 function ns.login()
+  ns.localNames()
   local took = adopt()
   oldSelf()
   local guid = UnitGUID("player")

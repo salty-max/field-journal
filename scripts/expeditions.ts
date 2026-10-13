@@ -40,18 +40,20 @@ export function fnv(s: string) {
 const print = (...parts: (string | number)[]) => fnv([SALT, ...parts].join("|"));
 
 /** What is read once a riddle is solved (its answer's name, the note, the
- * margin), veiled: each character turned within plain ASCII by a stream
+ * margin), veiled: each byte of plain ASCII turned within it by a stream
  * (MINSTD) seeded from the riddle's id, so the data never spells an answer
- * out. Expeditions.lua unveils it. */
+ * out; a translation's other bytes (UTF-8's letters) pass as they are, the
+ * stream turning all the same. Expeditions.lua unveils it. */
 export function veil(text: string, id: string, back = false) {
   let state = (fnv(`${SALT}|veil|${id}`) % 2147483646) + 1;
-  let out = "";
-  for (const ch of text) {
+  const bytes = Buffer.from(text, "utf8");
+  for (let i = 0; i < bytes.length; i++) {
     state = (state * 48271) % 2147483647;
-    const c = ch.charCodeAt(0) - 32;
-    out += String.fromCharCode(32 + ((((c + (back ? -1 : 1) * (state % 95)) % 95) + 95) % 95));
+    const c = bytes[i] - 32;
+    if (c < 0 || c >= 95) continue;
+    bytes[i] = 32 + ((((c + (back ? -1 : 1) * (state % 95)) % 95) + 95) % 95);
   }
-  return out;
+  return bytes.toString("utf8");
 }
 
 type Spot = { zone: number; of: string; hint: number[]; name: string; spots?: number[][]; r?: number; npc?: number; areas?: number[]; face?: number };

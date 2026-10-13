@@ -60,13 +60,15 @@ end
 local function print_(...) return fnv(table.concat({ SALT, ... }, "|")) end
 ns.expeditionPrint = print_ -- for the tests
 
--- A veiled text, read (MINSTD's stream from the riddle's id, as the build's).
+-- A veiled text, read (MINSTD's stream from the riddle's id, as the build's:
+-- plain ASCII turned back, a translation's other bytes as they are).
 local function unveil(text, id)
   local state = fnv(SALT .. "|veil|" .. id) % 2147483646 + 1
   local out = {}
   for i = 1, #text do
     state = (state * 48271) % 2147483647
-    out[i] = string.char(32 + (text:byte(i) - 32 - state % 95) % 95)
+    local b = text:byte(i)
+    out[i] = (b >= 32 and b < 127) and string.char(32 + (b - 32 - state % 95) % 95) or string.char(b)
   end
   return table.concat(out)
 end
@@ -88,11 +90,11 @@ for uiMap, z in pairs(X) do
   end
 end
 
-function ns.riddleName(r) return unveil(r.name, r.id) end
+function ns.riddleName(r) return ns.localize(unveil(r.name, r.id)) end
 -- its keeper's face (a display id), if it leads to a creature the data knows
 function ns.riddleFace(r) return r.face and tonumber(unveil(r.face, r.id)) end
-function ns.riddleNote(r) return unveil(r.note, r.id) end
-function ns.riddleMargin(r) return unveil(r.margin, r.id) end
+function ns.riddleNote(r) return ns.localize(unveil(r.note, r.id)) end
+function ns.riddleMargin(r) return ns.localize(unveil(r.margin, r.id)) end
 
 local function faction()
   local f = UnitFactionGroup("player")
@@ -362,8 +364,8 @@ function ns.quarryDisplay(q)
   return q.model or (D.models and D.models[q.id]) or (rec and rec.display)
 end
 
-function ns.quarryNote(q) return unveil(q.note, "quarry-" .. q.id) end
-function ns.quarryMargin(q) return unveil(q.margin, "quarry-" .. q.id) end
+function ns.quarryNote(q) return ns.localize(unveil(q.note, "quarry-" .. q.id)) end
+function ns.quarryMargin(q) return ns.localize(unveil(q.margin, "quarry-" .. q.id)) end
 
 -- A quarry this character may hunt: its zone's faction.
 function ns.quarryOpen(q)

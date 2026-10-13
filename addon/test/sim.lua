@@ -553,7 +553,8 @@ local ns = {}
 assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("Yonder", ns)
 -- The files in the order of the game's own TOC (its data file loaded above).
 for line in io.lines(DIR .. (FOREVER and "Yonder_Camelot.toc" or "Yonder_Vanilla.toc")) do
-  local f = line:match("^([%w_]+%.lua)%s*$")
+  -- (the language file as the game picks it, [TextLocale]: English here)
+  local f = line:gsub("%[TextLocale%]", "enUS"):match("^([%w_]+%.lua)%s*$")
   if f and not f:match("^Data_") then assert(loadfile(DIR .. f))("Yonder", ns) end
 end
 local D = ns.data

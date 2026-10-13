@@ -211,6 +211,8 @@ globals:
     any: true
   UnitLevel:
     any: true
+  UnitSex:
+    any: true
   UnitName:
     any: true
   UnitOnTaxi:
