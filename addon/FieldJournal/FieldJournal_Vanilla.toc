@@ -3,7 +3,7 @@
 ## Notes: Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish and herbs you find.
 ## Category: Achievements
 ## Author: salty-max
-## Version: 0.7.5
+## Version: 0.8.0
 ## SavedVariablesPerCharacter: FieldJournalChar
 ## SavedVariables: FieldJournalSettings
 ## IconTexture: Interface\AddOns\FieldJournal\Media\Logo
