@@ -165,19 +165,23 @@ local function adopt()
   return took
 end
 
--- The old name still installed beside it (a manual install keeps its
--- folder): two journals would record at once. Told by its title, never
--- another addon's FieldJournal.
+-- The old name still running beside it (a manual install keeps the old
+-- folder's files, its Forever TOC among them): two journals at once, two
+-- buttons. Told by its title (never another addon's FieldJournal, Field
+-- Journal: Forever's, nor the handover), turned off for every character of
+-- this game, from the next reload; its journal is Yonder's already (adopt).
 local function oldSelf()
-  local get = (C_AddOns and C_AddOns.GetAddOnMetadata) or GetAddOnMetadata
+  local api = C_AddOns or {}
+  local get, loaded = api.GetAddOnMetadata or GetAddOnMetadata, api.IsAddOnLoaded or IsAddOnLoaded
   local ok, title = pcall(get or error, "FieldJournal", "Title")
-  if ok and title == "Explorer's Field Journal" then
-    print(
-      PREFIX
-        .. "Explorer's Field Journal, Yonder's old name, is still installed: replace its FieldJournal folder in "
-        .. "Interface\\AddOns with the one in Yonder's download, which brings your journal along."
-    )
-  end
+  if not (ok and title == "Explorer's Field Journal" and loaded and loaded("FieldJournal")) then return end
+  local disable = api.DisableAddOn or DisableAddOn
+  if disable then pcall(disable, "FieldJournal") end
+  print(
+    PREFIX
+      .. "Explorer's Field Journal, Yonder's old name, was still running beside it: it is turned off from your "
+      .. "next /reload, and your journal is Yonder's. Its FieldJournal folder in Interface\\AddOns can go."
+  )
 end
 
 -- This character's journal, or a new one (a journal saved by another

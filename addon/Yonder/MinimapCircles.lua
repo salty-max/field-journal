@@ -17,8 +17,7 @@ local SPAN = {
   indoor = { 300, 240, 180, 120, 80, 50 },
   outdoor = { 466 + 2 / 3, 400, 333 + 1 / 3, 266 + 2 / 3, 200, 133 + 1 / 3 },
 }
-local STEP = 1 / 30 -- seconds between two placings while the zone has circles
-local LOOK = 1 -- seconds between two looks at the zone's circles
+local LOOK = 1 -- seconds between two looks at the zone's circles (placed every frame while it has some)
 
 local secret = ns.secret
 local getCVar = (C_CVar and C_CVar.GetCVar) or GetCVar
@@ -46,6 +45,12 @@ local function texture(i)
   t:SetTexture(CIRCLE)
   t:SetVertexColor(0.95, 0.8, 0.35, 0.45)
   t:AddMaskTexture(mask)
+  -- (never snapped to whole pixels: the minimap's ground glides under the
+  -- reader, a snapped circle would jiggle on it)
+  if t.SetSnapToPixelGrid then
+    t:SetSnapToPixelGrid(false)
+    t:SetTexelSnappingBias(0)
+  end
   textures[i] = t
   return t
 end
@@ -120,7 +125,7 @@ local function create()
   face()
   layer:SetScript("OnUpdate", function(_, elapsed)
     since = since + elapsed
-    if not now and since < (#spots > 0 and STEP or LOOK) then return end
+    if not now and #spots == 0 and since < LOOK then return end
     place(since)
     since, now = 0, false
   end)

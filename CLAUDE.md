@@ -10,8 +10,10 @@ links). The handover, `addon/FieldJournal` (shipped beside `addon/Yonder`:
 `.pkgmeta`, `scripts/package.ts`), keeps the old name so the game loads the
 old saved files (`FieldJournalChar`, `FieldJournalSettings`) once more; at
 login `adopt` (Core.lua) takes them under the new names and says so in chat
-(a player's copied `FieldJournal.lua` works the same), and `oldSelf` warns
-while the old addon itself (told by its title) is still installed. The
+(a player's copied `FieldJournal.lua` works the same), and `oldSelf` turns
+the old addon itself off when it runs beside Yonder (told by its title; a
+manual install over the old folder keeps its Forever TOC, and two journals
+then record at once), for every character of the game, and says so. The
 handover has Classic Era and TBC TOCs only and one file, `YonderHandover.lua`:
 on Forever, Field Journal: Forever owns a `FieldJournal` folder
 (`FieldJournal.toc`), which no Camelot TOC of ours may shadow, and Forever's

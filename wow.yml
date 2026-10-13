@@ -53,6 +53,8 @@ globals:
     any: true
   CreateVector2D:
     any: true
+  DisableAddOn:
+    any: true
   Enum:
     any: true
   FieldJournalChar:
@@ -102,6 +104,8 @@ globals:
   GetSubZoneText:
     any: true
   InCombatLockdown:
+    any: true
+  IsAddOnLoaded:
     any: true
   IsIndoors:
     any: true

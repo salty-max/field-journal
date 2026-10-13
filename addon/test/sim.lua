@@ -990,18 +990,26 @@ do
   fire("PLAYER_LOGIN")
   check(not said("now called Yonder"), "… once")
   FieldJournalDB = nil
-  -- the old addon itself still installed: said once a login
-  local titles = { FieldJournal = "Explorer's Field Journal" }
-  C_AddOns = { GetAddOnMetadata = function(name, key) return key == "Title" and titles[name] or nil end }
+  -- the old addon itself still running beside it: turned off, for every
+  -- character, and said
+  local titles, running, off = { FieldJournal = "Explorer's Field Journal" }, { FieldJournal = true }, {}
+  C_AddOns = {
+    GetAddOnMetadata = function(name, key) return key == "Title" and titles[name] or nil end,
+    IsAddOnLoaded = function(name) return running[name] == true end,
+    DisableAddOn = function(name, character) off[name] = character or "all" end,
+  }
   printed = {}
   fire("PLAYER_LOGIN")
   check(
-    printed[1] and printed[1]:find("still installed", 1, true),
-    "the old name still installed beside it: a word to remove its folder"
+    off.FieldJournal == "all" and said("still running beside it: it is turned off"),
+    "the old name still running beside it: turned off for every character, and said"
   )
-  titles.FieldJournal, printed = "Field Journal", {}
+  titles.FieldJournal, printed, off = "Field Journal", {}, {}
   fire("PLAYER_LOGIN")
-  check(not said("still installed"), "… never for another addon of that folder")
+  check(not said("still running") and not off.FieldJournal, "… never another addon of that folder")
+  titles.FieldJournal, running.FieldJournal, printed = "Explorer's Field Journal", nil, {}
+  fire("PLAYER_LOGIN")
+  check(not said("still running") and not off.FieldJournal, "… nor the old one installed but not running")
   C_AddOns = nil
   YonderChar, YonderSettings = saved, settings
   fire("PLAYER_LOGIN")
@@ -2089,6 +2097,7 @@ do
     end
     t.SetSize = function(self, w) self.size = w end
     t.AddMaskTexture = function(self, m) self.mask = m end
+    t.SetSnapToPixelGrid = function(self, v) self.snap = v end
     table.insert(made, t)
     return t
   end
@@ -2121,6 +2130,13 @@ do
   at(1429, cats.circle[1] / 100 - 50 / zw, cats.circle[2] / 100)
   t = frame()
   check(near(t.x, 50 * scale) and near(t.y, 0), "… 50 yards west of it, the circle 50 yards east on the minimap")
+  at(1429, cats.circle[1] / 100 - 51 / zw, cats.circle[2] / 100)
+  mini.frame.scripts.OnUpdate(mini.frame, 0.004)
+  check(
+    near(t.x, 51 * scale) and t.snap == false,
+    "… placed again at every frame, never snapped to whole pixels: no jiggle as the reader moves"
+  )
+  at(1429, cats.circle[1] / 100 - 50 / zw, cats.circle[2] / 100)
   cvars.rotateMinimap, state.facing = "1", math.pi / 2
   t = frame()
   check(
