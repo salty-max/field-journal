@@ -37,7 +37,7 @@ Posez le pied sur l'escalier.
 ## the-barrens-pooka
 Au rempart de la route du nord, où la Horde surveille la forêt des elfes,
 une mère tient sa maison au milieu du camp de guerre,
-et son petit garçon joue devant sa porte. Soyez amical.
+et son petit garçon joue devant sa porte. Soyez $gamical:amicale;.
 ? Le Rempart de Mor'shan, à la lisière nord des Tarides.
 = Pooka et son fils Mogg, au Rempart de Mor'shan : une famille, dans un camp de guerre.
 + Du père du garçon, le rempart ne dit rien.

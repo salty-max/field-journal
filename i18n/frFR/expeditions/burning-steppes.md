@@ -26,7 +26,7 @@ Des démonistes s'y rassemblent toujours. Trouvez l'autel.
 ## burning-steppes-flame-crest
 Dans le camp de la Horde sur la plaine brûlante, un gobelin garde des animaux exotiques,
 et l'un d'eux garde les secrets de tout le monde : il répète tout ce qu'il a entendu,
-en toussant sans arrêt. Soyez gentil avec lui, et écoutez-le jusqu'au bout.
+en toussant sans arrêt. Soyez $ggentil:gentille; avec lui, et écoutez-le jusqu'au bout.
 ? La Corniche des flammes, près de Kibler.
 = Opus, le perroquet de Kibler, à la Corniche des flammes : "GROA !! *tousse* *tousse* Faut que j'arrête de fumer."
 + Il en sait plus qu'il ne devrait : "Le G.E.T.A. mène une enquête sur Kibler." Et : "Ils vont tous au Pic, mais ils ne reviennent jamais... Tout comme Bijou."

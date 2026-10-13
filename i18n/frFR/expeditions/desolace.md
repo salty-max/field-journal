@@ -15,7 +15,7 @@ les bêtes de l'étendue l'ont désormais. Accordez un moment à ceux qui ont b�
 ## desolace-shadowbreak
 Dans un ravin caché dans les montagnes du sud-est, parmi des champignons aussi hauts que des arbres,
 la Lame ardente entretient un cercle d'invocation tendu de chaînes, et tient une écurie.
-Certains des chevaux qui s'y trouvent sont encore des chevaux. Soyez bon avec eux.
+Certains des chevaux qui s'y trouvent sont encore des chevaux. Soyez $gbon:bonne; avec eux.
 ? Le ravin de Brèche-de-l'Ombre, caché dans les montagnes du sud-est de Désolace.
 = Le ravin de Brèche-de-l'Ombre : le camp caché de la Lame ardente, son cercle enchaîné, ses destriers démoniaques, et deux étalons capturés dans l'écurie à côté.
 + D'où viennent les étalons, personne ne le sait ; ce que le culte compte en faire, les destriers démoniaques à côté d'eux le laissent deviner.

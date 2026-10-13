@@ -29,5 +29,5 @@ se tient une femme qui porte l'un de leurs masques. Elle n'est pas des leurs.
 Approchez-vous et elle pourrait vous prendre l'esprit un moment.
 Son nom est tout ce qu'on sait d'elle.
 = Singer, au manoir de Nordclos, masquée comme le Syndicat qui l'entoure, et pourtant pas des leurs.
-+ Son emprise sur un esprit atteint tout humanoïde jusqu'au niveau vingt-cinq : venez plus aguerri, et elle n'a plus aucun pouvoir sur vous.
++ Son emprise sur un esprit atteint tout humanoïde jusqu'au niveau vingt-cinq : venez plus $gaguerri:aguerrie;, et elle n'a plus aucun pouvoir sur vous.
 @ Singer

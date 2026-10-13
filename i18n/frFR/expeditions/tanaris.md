@@ -15,7 +15,7 @@ La ville en garde le récit parmi ses livres.
 ## tanaris-zalashji
 À l'est de la ville des gobelins, un naga tient une tanière dans les rochers,
 et ne veut rien de vous : ni guerre, ni trésor, ni sang.
-Soyez amical, pour une fois.
+Soyez $gamical:amicale;, pour une fois.
 ? La tanière de Zalashji, à l'est de Gadgetzan.
 = Zalashji, un naga chez lui dans sa tanière : amical avec tous, et qui ne veut rien de personne.
 + Horde et Alliance peuvent s'approcher de lui sans dommage, comme de bien peu de nagas où que ce soit.
@@ -25,7 +25,7 @@ Soyez amical, pour une fois.
 ## tanaris-winkey
 Au large de la plage tranquille au sud de la crique des pirates, un îlot porte une gnome, seule,
 qui se dore au soleil comme si toute la mer était son jardin.
-Elle a une seule requête pour qui nage jusqu'à elle. Soyez gentil.
+Elle a une seule requête pour qui nage jusqu'à elle. Soyez $ggentil:gentille;.
 ? Un îlot au large du rivage de Brisesud, au sud de la crique des Gréements.
 = Winkey, une gnome seule sur son îlot au large du rivage de Brisesud : "Salut, $gmon mignon:ma mignonne; ! Ça t'embêterait de me passer de la crème sur les parties exposées ?"
 + Loin d'ici, dans les steppes Ardentes, un nain de la Veille de Morgan attrape le vide et crie après une certaine Winky qui n'est pas là. S'il parle d'elle, personne ne saurait le dire.

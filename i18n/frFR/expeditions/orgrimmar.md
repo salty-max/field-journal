@@ -15,7 +15,7 @@ vaincue par le geste d'un seul orc brave. Trouvez-les.
 ## orgrimmar-orphanage
 Dans la Herse, parmi les boutiques et les cris, la cité tient un orphelinat,
 et ses enfants courent partout sous l'oeil d'une orc sévère qui les fait marcher droit.
-Soyez gentil avec les petits.
+Soyez $ggentil:gentille; avec les petits.
 ? La Herse, à l'est d'Orgrimmar.
 = L'orphelinat d'Orgrimmar : les orphelins de la cité, la directrice de l'orphelinat Battlewail, et Tosamina, qui a la main lourde avec les enfants.
 + Une fois par an, pendant la Semaine des enfants, la directrice cherche des voyageurs pour emmener un orphelin voir le monde.

@@ -18,7 +18,7 @@ Tout au sud-est, les orcs Rochenoire tiennent un camp dans une vallée,
 et près de leur feu est assis un gnome, un boulet aux pieds.
 Il a servi jadis la tour d'un mage, et il a encore des marchandises,
 pour qui peut l'atteindre : du fil, de la teinture, et des capes dignes d'une tour.
-Soyez gentil avec lui.
+Soyez $ggentil:gentille; avec lui.
 ? La vallée des Etripeurs, au sud-est des Carmines, dans le camp Rochenoire.
 = Le Serviteur d'Azora capturé, un gnome de la tour d'Elwynn, enchaîné dans le camp Rochenoire, et qui vend toujours des fournitures de couture.
 + Il ne garde qu'un exemplaire de chaque cape : la Cape d'Inferno, la Cape spirituelle et la Cape sylvestre. La Cape d'Inferno protège du feu, ce qui est bien utile dans une vallée tenue par les Rochenoire.

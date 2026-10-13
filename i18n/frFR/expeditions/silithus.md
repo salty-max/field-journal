@@ -16,7 +16,7 @@ Trouvez le mur, et laissez le gong tranquille.
 ## silithus-carnes
 Devant une ruche du désert jaune, un sergent monte la garde parmi des nains,
 et il a deux mots à dire sur la promotion qui l'a mis là.
-Écoutez-le jusqu'au bout, et soyez gentil.
+Écoutez-le jusqu'au bout, et soyez $ggentil:gentille;.
 ? Devant la Ruche'Zora, à l'ouest de Silithus.
 = Le sergent Carnes : "Vous avez fait un boulot splendide pendant la collecte des ressources", qu'ils ont dit. "Voilà une promotion", qu'ils ont dit.
 + "En réalité, ça voulait dire : Carnes, mon brave Carnes, vous allez être cantonné en Silithus, devant un nid à cafards, en compagnie d'une bande de nains moites. Merci pour cette promotion, capitaine !"
@@ -36,7 +36,7 @@ et qu'elle ne peut pas partir. Demandez-lui comment elle le sait.
 ## silithus-glibb
 Au sud du désert, un singe attend dans le sable,
 le compagnon du plus célèbre explorateur des nains.
-L'explorateur lui-même est introuvable. Soyez amical avec le singe.
+L'explorateur lui-même est introuvable. Soyez $gamical:amicale; avec le singe.
 ? Au sud de Silithus, à l'est du mur du Scarabée.
 = Glibb, le singe de compagnie de Brann Bronzebeard, qui attend dans le désert sans Brann.
 + Personne en Silithus ne dit où Brann est parti.

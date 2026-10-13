@@ -6,4 +6,4 @@ De la neige, de la pierre et des nains, dans cet ordre. Les vallées courent d'e
 
 Kharanos a la distillerie Thunderbrew et le meilleur feu du pays. À l'ouest, le terrain appartient aux trolls Frostmane, et plus à l'ouest encore Gnomeregan se dresse derrière ses murs, empoisonnée ; les gnomes ne rentrent pas chez eux, et vous ne devriez pas y entrer sans une bonne raison et de meilleurs amis.
 
-Emportez un manteau de rechange et restez sur la route par tempête de neige. Les congères sont profondes, et les troggs des Frigères se moquent bien que vous soyez perdu.
+Emportez un manteau de rechange et restez sur la route par tempête de neige. Les congères sont profondes, et les troggs des Frigères se moquent bien que vous soyez $gperdu:perdue;.
