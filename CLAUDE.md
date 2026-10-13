@@ -109,7 +109,9 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
 - `addon/Yonder/`: `Core.lua` (the journal's schema; the events every
   file listens to: `ns.on`, and `ns.onUnit` for a unit event heard for one
   unit only, each listener protected: its error reported, the others still
-  run; the login and its migrations; `/yonder`), `Creatures.lua` (the
+  run; the login and its migrations; the login's line in chat, `ns.loginLine`:
+  riddles solved, quarries, creatures, never what remains, and how to open the
+  journal, whatever the chat setting, as the Codex's; `/yonder`), `Creatures.lua` (the
   Bestiary's records: a creature met (target, mouseover) is a sighting
   (`seen`), it joins the book on its first kill, its family with it (the
   families met kept by their id, never their place in Data.lua's list, and

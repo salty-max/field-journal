@@ -207,6 +207,40 @@ function ns.login()
   ns.expeditionsLogin()
   -- Milestones a journal already deserves: recorded quietly.
   ns.checkMilestones(true)
+  ns.loginLine()
+end
+
+-- At each login and /reload, a line in chat: what the journal holds (never
+-- what remains: no spoilers), and how to open it, the only reminder of it (as
+-- the Codex's, whatever the chat setting).
+local function counted(n, one, many) return n > 0 and ("%d %s"):format(n, n == 1 and one or many) or nil end
+function ns.loginLine()
+  local e = ns.expeditions() or {}
+  local riddles, hunts = 0, 0
+  for _, rec in pairs(e.riddles or {}) do
+    if rec.at then riddles = riddles + 1 end
+  end
+  for _, rec in pairs(e.hunts or {}) do
+    if rec.at then hunts = hunts + 1 end
+  end
+  local creatures = ns.counts()
+  local held = {}
+  for _, part in ipairs({
+    { riddles, "riddle solved", "riddles solved" },
+    { hunts, "quarry brought down", "quarries brought down" },
+    { creatures, "creature in the Bestiary", "creatures in the Bestiary" },
+  }) do
+    local text = counted(unpack(part))
+    if text then table.insert(held, text) end -- (none of a kind: left out)
+  end
+  local open = ns.option("minimapHidden") and "Type /yonder" or "Type /yonder or click the button by the minimap"
+  print(
+    PREFIX
+      .. ("%s. %s to open the journal."):format(
+        #held > 0 and table.concat(held, ", ") or "the journal is empty for now",
+        open
+      )
+  )
 end
 
 -- ── /yonder ─────────────────────────────────────────────────────────────────

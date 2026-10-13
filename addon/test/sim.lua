@@ -577,6 +577,17 @@ YonderChar = { guid = "Player-6113-0DEAD000", creatures = { [1131] = { name = "W
 fire("PLAYER_LOGIN")
 check(YonderChar.guid == PLAYER and not rec(1131), "a new character named like a deleted one starts a fresh journal")
 check(
+  said("the journal is empty for now. Type /yonder or click the button by the minimap to open the journal."),
+  "a line in chat at login: an empty journal, how to open it"
+)
+ns.setOption("minimapHidden", true)
+ns.loginLine()
+check(
+  printed[#printed] == "|cffc9a227Yonder:|r the journal is empty for now. Type /yonder to open the journal.",
+  "… which leaves out the minimap's button when it's hidden"
+)
+ns.setOption("minimapHidden", false)
+check(
   ns.partyKill == FOREVER and FOREVER == not registered("COMBAT_LOG_EVENT_UNFILTERED"),
   FOREVER and "Forever: kills come from PARTY_KILL (no combat log)"
     or "Classic (a client without PARTY_KILL): kills come from the combat log"
@@ -950,9 +961,14 @@ do
     "a journal kept under the old name (the handover's, or its files copied) is taken at login; another addon's left alone"
   )
   check(printed[1] and printed[1]:find("now called Yonder", 1, true), "… and the chat says so, and why")
+  check(
+    printed[2]
+      == "|cffc9a227Yonder:|r 1 creature in the Bestiary. Type /yonder or click the button by the minimap to open the journal.",
+    "… then the login's line: what the journal holds, how to open it"
+  )
   printed = {}
   fire("PLAYER_LOGIN")
-  check(not printed[1], "… once")
+  check(not said("now called Yonder"), "… once")
   FieldJournalDB = nil
   -- the old addon itself still installed: said once a login
   local titles = { FieldJournal = "Explorer's Field Journal" }
@@ -965,7 +981,7 @@ do
   )
   titles.FieldJournal, printed = "Field Journal", {}
   fire("PLAYER_LOGIN")
-  check(not printed[1], "… never for another addon of that folder")
+  check(not said("still installed"), "… never for another addon of that folder")
   C_AddOns = nil
   YonderChar, YonderSettings = saved, settings
   fire("PLAYER_LOGIN")

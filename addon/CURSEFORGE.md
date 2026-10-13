@@ -74,7 +74,7 @@ Forever adds Zephras Isle to the Atlas, and its new rares count towards zone mil
 
 ## Settings and commands
 
-Type `/yonder` or click the minimap button to open the journal. A welcome page appears once per character. Use `/yonder welcome` to see it again.
+Type `/yonder` or click the minimap button to open the journal. Each login says in chat what your journal holds. A welcome page appears once per character. Use `/yonder welcome` to see it again.
 
 Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose chat announcements, trophy sounds, alerts, map markers, tooltip hints and whether to show the minimap button.
 
