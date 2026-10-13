@@ -199,6 +199,20 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   the choices, the sound in a select; the packages carry `Media/`),
   `Minimap.lua`. A game function is checked before use only
   where the clients differ; the test game has every one the addon calls.
+- Languages: every word the addon shows goes through `L["..."]` (the kit's
+  `K.L`; plurals through `ns.kit.plural`); link and colour codes stay outside
+  the words. The TOCs load `Locale.lua` (`ns.translate`) and
+  `Text_[TextLocale].lua` after the data: `scripts/locales.ts` (in `build` and
+  `check`) writes them from `i18n/<locale>/` (words, sections, families,
+  atlas, herbs/fish notes, expeditions with their riddles veiled as the
+  English, places, `creatures.json`: every creature's name by id, each game's,
+  `python3 scripts/creature_names.py <locale>` from Wowhead's tooltips;
+  `glossary.json` and `classic.json`: `../addon-kit/glossary.py`). Each
+  translation records its English source's hash (`--stamp`). The names the
+  journal recorded in the client's language of the day (a creature's, a
+  place's) read in the client's language now: `ns.creatureName` (the
+  translation's, else the last met), `ns.placeText` (the data's `areaNames`,
+  every area's English name by id, and `C_Map.GetAreaInfo`).
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).
 

@@ -93,9 +93,13 @@ def zones(game):
 def main():
     for game in GAMES:
         z, continents = zones(game)
+        # every area's English name by its id: where a journal recorded a
+        # place by name (in the client's language of the day), the Atlas
+        # finds its id, and the client's own name for it (Locale.lua)
+        names = {int(r["ID"]): r["AreaName_lang"] for r in table(game, "AreaTable") if r["AreaName_lang"]}
         path = os.path.join(ROOT, "data", f"zones-{game}.json")
         with open(path, "w") as f:
-            json.dump({"continents": continents, "zones": z}, f, indent=1)
+            json.dump({"continents": continents, "zones": z, "areaNames": {str(k): names[k] for k in sorted(names)}}, f, indent=1)
             f.write("\n")
         print(f"{game}: {len(z)} zones, {sum(len(x['places']) for x in z)} places -> data/zones-{game}.json")
 

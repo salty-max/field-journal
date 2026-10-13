@@ -148,6 +148,14 @@ local function addPlace(rec, h)
   if #rec.places < MAX_PLACES then table.insert(rec.places, place) end
 end
 
+-- A creature's name as this client writes it: a translation's (its game's
+-- names, by id) for the creatures of the data, else the one the game gave
+-- when it was last met (Forever's new ones).
+function ns.creatureName(id, rec)
+  local t = ns.creatureNames and ns.creatureNames[id]
+  return t or (rec and rec.name) or L["Creature %d"]:format(id)
+end
+
 -- ── meeting ──────────────────────────────────────────────────────────────────
 -- Can this character fight it now? A hidden answer (Forever) counts as yes.
 local function attackable(unit)
@@ -184,6 +192,10 @@ local function meet(unit)
       char.seen[id] = rec
     end
   end
+  -- (the name in this client's language: a journal kept in another reads in
+  -- this one once the creature is met again)
+  local seenAs = UnitName(unit)
+  if seenAs and not secret(seenAs) and seenAs ~= "" then rec.name = seenAs end
   local h = here()
   rec.last = h
   local level = UnitLevel(unit)
@@ -244,15 +256,8 @@ local function join(id, unit)
   local newFamily = key and not char.families[key]
   if newFamily then char.families[key] = { at = time(), level = UnitLevel("player") } end
   if key then
-    print(
-      PREFIX
-        .. ("|cffffd100|Hyonder:c%d|h[%s]|h|r recorded (%s%s)."):format(
-          id,
-          rec.name or "?",
-          ns.familyTitle(key),
-          newFamily and L[", a new family"] or ""
-        )
-    )
+    local link = ("|cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, ns.creatureName(id, rec))
+    print(PREFIX .. L["%s recorded (%s%s)."]:format(link, ns.familyTitle(key), newFamily and L[", a new family"] or ""))
   end
   return rec
 end
@@ -333,7 +338,7 @@ local function slay(id, unit, guid)
   local rank = ns.rank(id, unit)
   if rank and not rec.trophy then
     rec.trophy = { at = stamp.at, level = stamp.level, rank = rank }
-    print(PREFIX .. L["a trophy: %s"]:format(("|cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, rec.name or "?")))
+    print(PREFIX .. L["a trophy: %s"]:format(("|cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, ns.creatureName(id, rec))))
     ns.playSound()
   end
   if ns.quarrySlain then ns.quarrySlain(id) end

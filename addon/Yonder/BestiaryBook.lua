@@ -116,7 +116,7 @@ local function joined(parts, sep)
   return table.concat(out, sep or "  -  ")
 end
 
-local function placeShort(p) return p and (p:match(": (.+)$") or p) end
+local function placeShort(p) return p and ns.areaName(p:match(": (.+)$") or p) end
 local function day(stamp) return ui.day(stamp) end
 
 -- The creatures of a family in the order the select asks: by name, the most
@@ -130,7 +130,7 @@ local SORTS = {
 local function sortedIds(ids)
   local creatures = ns.journal().creatures
   local by = ns.filterOf(ns.TAB.bestiary) or "name"
-  local function name(id) return creatures[id].name or "" end
+  local function name(id) return ns.creatureName(id, creatures[id]) end
   local function key(id)
     local rec = creatures[id]
     if by == "slain" then return -(rec.slain or 0) end
@@ -163,7 +163,7 @@ local function layEntries(ids, line)
   for _, id in ipairs(ids) do
     local rec = creatures[id]
     local c = page:card(
-      (rec.name or L["Creature %d"]:format(id)) .. rankTag(id, rec),
+      ns.creatureName(id, rec) .. rankTag(id, rec),
       line(id, rec),
       function(p) setPortrait(p, id, rec) end,
       function() ns.openCreature(id) end,
@@ -262,7 +262,7 @@ local function showCreature(id)
   local rec = ns.journal().creatures[id]
   local rank = rankOf(id, rec)
   start(
-    rec.name or L["Creature %d"]:format(id),
+    ns.creatureName(id, rec),
     joined({ T.link .. ns.familyTitle(current) .. "|r", levels(id, rec), RANK[rank] }),
     function(p) setPortrait(p, id, rec) end,
     ringOf(id, rec)
@@ -293,7 +293,11 @@ local function showCreature(id)
   if last and last.at ~= first.at then
     page:row(L["Last seen"], joined({ day(last), last.level and (L["you were level %d"]):format(last.level) }, ", "))
   end
-  page:row(L["Where"], rec.places and table.concat(rec.places, "\n"))
+  local places = {}
+  for i, p in ipairs(rec.places or {}) do
+    places[i] = ns.placeText(p)
+  end
+  page:row(L["Where"], table.concat(places, "\n"))
   page.y = page.y + 10
 
   page:section(L["The hunt"])
@@ -436,7 +440,7 @@ local function refreshList()
     for _, id in ipairs(shownIds) do
       local rec = creatures[id]
       local mark = rankOf(id, rec) and (" " .. SOFT .. "*|r") or ""
-      local c = list:add("creature", (rec.name or L["Creature %d"]:format(id)) .. mark)
+      local c = list:add("creature", ns.creatureName(id, rec) .. mark)
       c.id = id
       c:SetScript("OnClick", function()
         choose(key, id)
@@ -516,7 +520,7 @@ ns.addTab(ns.TAB.bestiary, {
   build = function(b)
     book = b
     list = ui.newList(book.left, style, rows, true)
-    page = ui.newPage(book.sheet, "YonderPage", 92, pairsPool)
+    page = ui.newPage(book.sheet, "YonderPage", 100, pairsPool)
     ns.pageEntries, ns.pageLoot = page.cards, page.itemPool -- for the tests
     -- On a creature's page, its family (the line under the title): a click
     -- opens the family's page.

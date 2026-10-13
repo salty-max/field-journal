@@ -503,7 +503,7 @@ end
 local function build(b)
   book = b
   list = ui.newList(book.left, style, rows, true)
-  page = ui.newPage(book.sheet, "YonderAtlasPage", 100, pairsPool)
+  page = ui.newPage(book.sheet, "YonderAtlasPage", 112, pairsPool)
   local map = ui.newMap(page.child)
   -- (a place picked out: its area outlined)
   map.pick = CreateFrame("Frame", nil, map.canvas, "BackdropTemplate")

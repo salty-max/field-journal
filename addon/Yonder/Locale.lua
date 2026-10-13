@@ -61,6 +61,17 @@ function ns.translate(t)
     return s
   end
   ns.localize = words
+  -- the creatures' names, this game's (Classic's own where they differ)
+  local names = {}
+  for id, n in pairs(t.creatures or {}) do
+    names[id] = n
+  end
+  if D.client == "classic" then
+    for id, n in pairs(t.creaturesClassic or {}) do
+      names[id] = n
+    end
+  end
+  ns.creatureNames = names
   local L = K.L
   for english, word in pairs(t.words or {}) do
     L[english] = words(word)

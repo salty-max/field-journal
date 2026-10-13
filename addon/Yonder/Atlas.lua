@@ -257,6 +257,32 @@ function ns.zoneName(uiMap)
   return (info and info.name) or (A.zones[uiMap] and A.zones[uiMap].name) or "?"
 end
 
+-- An area a journal recorded by its name, in the client's language of the
+-- day: the client's own name for it (the data's areas by their English names,
+-- so an English journal reads French on a French client); a name it doesn't
+-- know stays as recorded.
+local areaByEnglish
+function ns.areaName(name)
+  if not name or name == "" then return name end
+  if not areaByEnglish then
+    areaByEnglish = {}
+    for id, n in pairs(A.areaNames or {}) do
+      if not areaByEnglish[n] or id < areaByEnglish[n] then areaByEnglish[n] = id end
+    end
+  end
+  local id = areaByEnglish[name]
+  local own = id and C_Map.GetAreaInfo and C_Map.GetAreaInfo(id)
+  return (own and own ~= "") and own or name
+end
+-- A place recorded as "Zone: Subzone": each part in the client's language,
+-- joined as the language joins them.
+function ns.placeText(p)
+  if not p then return p end
+  local zone, sub = p:match("^(.-): (.+)$")
+  if not zone then return ns.areaName(p) end
+  return L["%s: %s"]:format(ns.areaName(zone), ns.areaName(sub))
+end
+
 -- How many of a zone's places this character has explored, of how many.
 function ns.zoneProgress(uiMap)
   local zone, z = A.zones[uiMap], ns.atlas() and ns.atlas().zones[uiMap]

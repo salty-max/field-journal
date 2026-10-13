@@ -2470,6 +2470,21 @@ do
       and ns.kit.L["Expeditions"] ~= "Expeditions",
     "… its words, a riddle's answer and note, Classic's own names on Classic"
   )
+  -- a place a journal recorded in English, in the client's language (the
+  -- area's own name, as the client gives it), joined as French joins them
+  local area = C_Map.GetAreaInfo
+  C_Map.GetAreaInfo = function(id) return ({ [1] = "Dun Morogh", [211] = "Lac glacial" })[id] end
+  check(
+    ns.placeText("Dun Morogh: Iceflow Lake") == "Dun Morogh : Lac glacial"
+      and ns.placeText("Nowhere: Elsewhere") == "Nowhere : Elsewhere",
+    "… a place recorded in English reads in French; one it doesn't know stays as recorded"
+  )
+  C_Map.GetAreaInfo = area
+  -- a creature by this game's name for it, whatever its record kept
+  check(
+    ns.creatureName(1132, { name = "Timber" }) == "Grumeux",
+    "… a creature by its French name, though met in English"
+  )
 end
 
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")

@@ -20,7 +20,8 @@ ns.floraRows, ns.floraPairs = rows, pairsPool -- for the tests
 local function when(stamp)
   if not stamp or not stamp.at then return nil end
   local where = stamp.zone and ns.zoneName(stamp.zone)
-  if where and stamp.sub and stamp.sub ~= where then where = L["%s, %s"]:format(stamp.sub, where) end
+  local sub = stamp.sub and ns.areaName(stamp.sub)
+  if where and sub and sub ~= "" and sub ~= where then where = L["%s, %s"]:format(sub, where) end
   if where then return L["%s in %s, you were level %d"]:format(ui.day(stamp), where, stamp.level or 0) end
   return L["%s, you were level %d"]:format(ui.day(stamp), stamp.level or 0)
 end

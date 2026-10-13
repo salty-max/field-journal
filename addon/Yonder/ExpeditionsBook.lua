@@ -386,9 +386,14 @@ local function framed(key, size)
 end
 local function setApart(key, text, size)
   local f = framed(key, size)
+  -- (its height let go first: measured within the last text's height, a
+  -- longer verse than the last one came out cut short with "...")
+  f.text:SetHeight(0)
   f.text:SetText(text)
   local th = f.text:GetStringHeight()
-  f.text:SetHeight(th + 2) -- (as tall as its lines: never cut short with "...")
+  local lines = f.text.GetNumLines and f.text:GetNumLines()
+  if type(lines) == "number" then th = math.max(th, lines * (size + 5) - 5) end
+  f.text:SetHeight(th + 2) -- (as tall as its lines: never cut short)
   local h = th + 34
   f:SetHeight(h)
   page:place(f, h + 14)
