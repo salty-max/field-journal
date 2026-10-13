@@ -242,7 +242,7 @@ local function join(id, unit)
   local key = ns.familyKey(id, rec)
   local newFamily = key and not char.families[key]
   if newFamily then char.families[key] = { at = time(), level = UnitLevel("player") } end
-  if ns.option("chat") and key then
+  if key then
     print(
       PREFIX
         .. ("|cffffd100|Hyonder:c%d|h[%s]|h|r recorded (%s%s)."):format(
@@ -330,9 +330,7 @@ local function slay(id, unit, guid)
   local rank = ns.rank(id, unit)
   if rank and not rec.trophy then
     rec.trophy = { at = stamp.at, level = stamp.level, rank = rank }
-    if ns.option("chat") then
-      print(PREFIX .. ("a trophy: |cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, rec.name or "?"))
-    end
+    print(PREFIX .. ("a trophy: |cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, rec.name or "?"))
     ns.playSound()
   end
   if ns.quarrySlain then ns.quarrySlain(id) end

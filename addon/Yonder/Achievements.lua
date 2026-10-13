@@ -727,9 +727,7 @@ function ns.checkMilestones(quiet)
         c.achievements[m.id] = { at = time(), level = UnitLevel("player"), retro = quiet or nil }
         earned = true
         if not quiet then
-          if ns.option("chat") then
-            print(PREFIX .. ("you have earned the milestone |cffffd100|Hyonder:m%s|h[%s]|h|r!"):format(m.id, m.title))
-          end
+          print(PREFIX .. ("you have earned the milestone |cffffd100|Hyonder:m%s|h[%s]|h|r!"):format(m.id, m.title))
           fanfare()
           ns.toast("milestone", m.id)
         end

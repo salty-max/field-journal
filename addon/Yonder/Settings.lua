@@ -5,9 +5,12 @@
 -- Options (AddOns tab): /yonder settings, or a right-click on the minimap
 -- button; the welcome page (Welcome.lua) offers them too.
 --
---   YonderSettings.profiles["Name - Realm"] = { chat, sound,
+--   YonderSettings.profiles["Name - Realm"] = { banner, sound,
 --     minimapHidden, minimapAngle, tooltipHints, milestoneToast, worldMapPins,
 --     welcomed }
+--   (banner: a riddle's and a quarry's; milestoneToast: a milestone's, the
+--   game's achievement alert. The chat lines have no setting any more,
+--   always shown: a profile's old chat value is left unread)
 --   (the account-wide values of 0.6.0 and before, at the top of the table:
 --   the first profile of a character who kept a journal before takes them)
 local _, ns = ...
@@ -16,7 +19,7 @@ local K = ns.kit
 -- (minimapAngle: the button's place around the minimap, in degrees; 225 is
 -- lower left, clear of the game's buttons; welcomed: never copied)
 local DEFAULTS = {
-  chat = true,
+  banner = true,
   sound = 3175,
   minimapHidden = false,
   minimapAngle = 225,
@@ -25,7 +28,7 @@ local DEFAULTS = {
   worldMapPins = true,
   welcomed = false,
 }
-local SHARED = { "chat", "sound", "milestoneToast", "worldMapPins", "tooltipHints", "minimapHidden", "minimapAngle" }
+local SHARED = { "banner", "sound", "milestoneToast", "worldMapPins", "tooltipHints", "minimapHidden", "minimapAngle" }
 
 -- Sounds for a trophy: all from the original game's interface. -1 is the
 -- sting heard on discovering a new zone, which differs by race.
@@ -39,9 +42,9 @@ ns.SOUNDS = {
   { 0, "None" },
 }
 
--- The profiles: a code "YD1:c1:s3175:m1:w1:t1:h0:a225" (chat, the trophy's
--- sound, milestone alerts, the world map's marks, tooltip hints, the minimap
--- button hidden, its angle).
+-- The profiles: a code "YD1:b1:s3175:m1:w1:t1:h0:a225" (the banners, the
+-- trophy's sound, milestone alerts, the world map's marks, tooltip hints, the minimap
+-- button hidden, its angle; an older code's c, the chat lines, is left out).
 local P = K.profiles({
   saved = function()
     if type(YonderSettings) ~= "table" then YonderSettings = {} end
@@ -50,7 +53,7 @@ local P = K.profiles({
   defaults = DEFAULTS,
   shared = SHARED,
   letters = {
-    chat = "c",
+    banner = "b",
     sound = "s",
     milestoneToast = "m",
     worldMapPins = "w",
@@ -119,9 +122,9 @@ function ns.createSettingsPanel()
     Settings.CreateCheckbox(category, setting, tooltip)
   end
   checkbox(
-    "chat",
-    "Announce in chat",
-    "A line in chat for each new creature recorded, each trophy (a rare or a boss slain) and each milestone, with a link."
+    "banner",
+    "Banners for riddles and quarries",
+    "A banner among the game's alerts when you solve a riddle or bring down a quarry (the sounds and the chat lines stay)."
   )
 
   local sound = Settings.RegisterProxySetting(
@@ -146,8 +149,8 @@ function ns.createSettingsPanel()
 
   checkbox(
     "milestoneToast",
-    "Alerts",
-    "A banner among the game's alerts when you earn a milestone, solve a riddle or bring down a quarry (the sounds and the chat lines stay)."
+    "Alerts for milestones",
+    "The game's achievement alert when you earn a milestone (the fanfare and the chat line stay)."
   )
   checkbox(
     "worldMapPins",

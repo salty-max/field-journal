@@ -28,10 +28,10 @@ local W = K.welcome({
     end
     return {
       {
-        text = "Announce in chat",
-        hint = "A line for each new creature, trophy and milestone, with a link.",
-        get = function() return ns.option("chat") end,
-        set = function(v) ns.setOption("chat", v) end,
+        text = "Banners for riddles and quarries",
+        hint = "Among the game's alerts, when you solve a riddle or bring down a quarry.",
+        get = function() return ns.option("banner") end,
+        set = function(v) ns.setOption("banner", v) end,
       },
       {
         text = "Sound for a trophy",
@@ -44,8 +44,8 @@ local W = K.welcome({
         end,
       },
       {
-        text = "Alerts",
-        hint = "A banner for a milestone, a riddle solved, a quarry brought down.",
+        text = "Alerts for milestones",
+        hint = "The game's achievement alert, with its fanfare.",
         get = function() return ns.option("milestoneToast") end,
         set = function(v) ns.setOption("milestoneToast", v) end,
       },

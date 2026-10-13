@@ -226,7 +226,7 @@ local function enter()
       keep(ns.atlas().crossings, { from = lastZone, to = zone, at = now.at, level = now.level }, 200)
     end
     lastZone = zone
-    if new and ns.option("chat") then
+    if new then
       print(PREFIX .. ("|cffffd100|Hyonder:z%d|h[%s]|h|r added to the atlas."):format(zone, ns.zoneName(zone)))
     end
   end

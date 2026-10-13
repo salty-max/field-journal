@@ -1818,6 +1818,21 @@ check(
   #toasted == toastsBefore + 1 and said("among the game's own alerts"),
   "/yonder toast shows a riddle's banner, and where"
 )
+-- The riddles' and quarries' banners, the milestones' alerts: a switch each.
+local milestone = next(ns.milestoneById)
+ns.setOption("banner", false)
+toastsBefore = #toasted
+ns.toast("riddle", "the-barrens-ratchet-book")
+ns.toast("milestone", milestone)
+check(
+  #toasted == toastsBefore + 1 and toasted[#toasted].kicker == "Yonder milestone",
+  "the banners off: no riddle's, a milestone's alert still (a switch of its own)"
+)
+ns.setOption("milestoneToast", false)
+ns.toast("milestone", milestone)
+check(#toasted == toastsBefore + 1, "… which turns those off")
+ns.setOption("banner", true)
+ns.setOption("milestoneToast", true)
 -- A gesture: the Night Watch's lonely post, after asking for the clue (the silver seal).
 ns.takeHint("duskwood-callahan", 1)
 check(state.popup == nil and ns.riddleRecord("duskwood-callahan").hints == 1, "a clue taken is kept, unsolved")
@@ -2153,24 +2168,27 @@ check(ns.option("worldMapPins") == false and not W.rows[4].box:GetChecked(), "�
 W.frame:Hide()
 fire("PLAYER_ENTERING_WORLD", true, false)
 check(not W.frame.shown and ns.option("welcomed"), "… seen once")
-YonderSettings.profiles["Brann - Nightslayer"] = { chat = false, sound = 0, minimapAngle = 90 }
+YonderSettings.profiles["Brann - Nightslayer"] = { banner = false, sound = 0, minimapAngle = 90 }
 SlashCmdList.YONDER("welcome")
 local pick = W.picker.select
 check(pick.rows[1].text:GetText() == "Brann - Nightslayer", "… another character of this game, in its select")
 pick.rows[1].scripts.OnClick(pick.rows[1])
 W.picker.copy.scripts.OnClick(W.picker.copy)
 check(
-  ns.option("chat") == false
+  ns.option("banner") == false
     and ns.option("sound") == 0
     and ns.option("minimapAngle") == 90
     and ns.option("worldMapPins") == true,
   "… its choices copied (what it lacks: the defaults)"
 )
 local code = P:export()
-check(code == "YD1:c0:s0:m1:w1:t1:h0:a90", "… a code for them: " .. code)
+check(code == "YD1:b0:s0:m1:w1:t1:h0:a90", "… a code for them: " .. code)
 SlashCmdList.YONDER("import FJ1:c1:s3175")
-check(ns.option("chat") and ns.option("sound") == 3175 and ns.option("minimapAngle") == 90, "… /yonder import CODE")
-check(not P:import("LC1:c1") and ns.option("chat"), "… another addon's code refused")
+check(
+  ns.option("sound") == 3175 and ns.option("minimapAngle") == 90 and ns.option("banner") == false,
+  "… /yonder import CODE (an old FJ1 one too, its c, the chat lines, left out)"
+)
+check(not P:import("LC1:c1") and ns.option("sound") == 3175, "… another addon's code refused")
 local copyFrom = panel.settings.YONDER_COPYFROM
 check(
   copyFrom and copyFrom.options()[2].value == "Brann - Nightslayer",

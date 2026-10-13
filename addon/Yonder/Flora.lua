@@ -46,7 +46,6 @@ local function night()
 end
 
 local function announce(kind, id, name)
-  if not ns.option("chat") then return end
   print(
     ns.PREFIX
       .. ("a new %s: |cffffd100|Hyonder:%s%d|h[%s]|h|r"):format(kind == "f" and "catch" or "herb", kind, id, name)

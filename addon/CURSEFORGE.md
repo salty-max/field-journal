@@ -76,7 +76,7 @@ Forever adds Zephras Isle to the Atlas, and its new rares count towards zone mil
 
 Type `/yonder` or click the minimap button to open the journal. Each login says in chat what your journal holds. A welcome page appears once per character. Use `/yonder welcome` to see it again.
 
-Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose chat announcements, trophy sounds, alerts, map markers, tooltip hints and whether to show the minimap button.
+Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose the banners for riddles and quarries, the alerts for milestones (each its own switch), trophy sounds, map markers, tooltip hints and whether to show the minimap button. Chat lines always show.
 
 Settings are saved per character. Copy them from another character of the same game on the welcome or settings page, or transfer them with `/yonder export` and `/yonder import CODE`. Codes made by Explorer's Field Journal still work.
 

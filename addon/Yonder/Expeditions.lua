@@ -256,17 +256,15 @@ local function solve(r, x, y)
   rec.at, rec.level = time(), UnitLevel("player")
   rec.x, rec.y = percent(x), percent(y)
   e.riddles[r.id] = rec
-  if ns.option("chat") then
-    print(
-      PREFIX
-        .. ("a riddle read aright: |cffffd100|Hyonder:x%s|h[%s]|h|r, %s, with a %s seal."):format(
-          r.id,
-          ns.riddleName(r),
-          ns.zoneName(r.zone),
-          ns.riddleSeal(rec)
-        )
-    )
-  end
+  print(
+    PREFIX
+      .. ("a riddle read aright: |cffffd100|Hyonder:x%s|h[%s]|h|r, %s, with a %s seal."):format(
+        r.id,
+        ns.riddleName(r),
+        ns.zoneName(r.zone),
+        ns.riddleSeal(rec)
+      )
+  )
   ns.playSound()
   ns.toast("riddle", r.id)
   ns.checkMilestones()
@@ -415,17 +413,15 @@ function ns.quarrySlain(id)
   end
   e.hunts[id] = rec
   if e.target == id then e.target = nil end
-  if ns.option("chat") then
-    print(
-      PREFIX
-        .. ("a quarry brought down: |cffffd100|Hyonder:q%d|h[%s]|h|r, %s, with a %s seal."):format(
-          id,
-          q.name,
-          ns.zoneName(q.zone),
-          ns.huntSeal(rec)
-        )
-    )
-  end
+  print(
+    PREFIX
+      .. ("a quarry brought down: |cffffd100|Hyonder:q%d|h[%s]|h|r, %s, with a %s seal."):format(
+        id,
+        q.name,
+        ns.zoneName(q.zone),
+        ns.huntSeal(rec)
+      )
+  )
   -- (a rare's trophy has its own sound)
   local c = ns.journal().creatures[id]
   if not (c and c.trophy and c.trophy.at == rec.at) then ns.playSound() end

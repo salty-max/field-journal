@@ -5,8 +5,9 @@
 -- deed that earns two shows both, never one in place of the other: a riddle read aright, what it led to (its keeper's face, a
 -- book, a place) with the seal earned as a medal on it; a quarry brought
 -- down, its face and its seal. A click opens the book there, a right-click or
--- the cross dismisses it. Turned off by the alerts setting; /yonder toast
--- shows one.
+-- the cross dismisses it. Turned off in the settings, a milestone's
+-- (milestoneToast) and the riddles' and quarries' (banner) apart; /yonder
+-- toast shows one.
 local _, ns = ...
 local PREFIX = ns.PREFIX
 
@@ -65,7 +66,7 @@ end
 
 -- A banner: ("milestone", its id), ("riddle", its id), ("quarry", its creature id).
 function ns.toast(kind, id)
-  if not ns.option("milestoneToast") then return end
+  if not ns.option(kind == "milestone" and "milestoneToast" or "banner") then return end
   show(kind, id)
 end
 

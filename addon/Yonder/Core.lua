@@ -212,7 +212,7 @@ end
 
 -- At each login and /reload, a line in chat: what the journal holds (never
 -- what remains: no spoilers), and how to open it, the only reminder of it (as
--- the Codex's, whatever the chat setting).
+-- the Codex's).
 local function counted(n, one, many) return n > 0 and ("%d %s"):format(n, n == 1 and one or many) or nil end
 function ns.loginLine()
   local e = ns.expeditions() or {}
