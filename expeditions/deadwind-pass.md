@@ -25,7 +25,7 @@ riddles:
 ## deadwind-pass-deadmans-crossing
 Where the road from the dark wood meets the way down to a dead tower,
 a tree holds two hanged men, and a signpost speaks plainly to travellers.
-Take its advice, or don't. But show it you have read it.
+Take its advice, or don't. But show it what its warning does to you.
 ? Deadman's Crossing, where the road enters Deadwind Pass from Duskwood.
 = Deadman's Crossing: a hangman's tree with its pair of corpses, and a signpost that says 'Turn Back!'
 + Its other arm is grimmer: 'Abandon hope, all ye who enter here.' And yet the road itself is safe enough, for those who keep to it.

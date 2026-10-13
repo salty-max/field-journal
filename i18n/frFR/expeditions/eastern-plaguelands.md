@@ -23,7 +23,7 @@ Personne ne passe devant lui, et personne n'est envoyé à lui. Rendez-lui tout 
 @ Adon
 
 ## quarry
-Un ogre qui est mort et n'est pas resté mort arpente le pays mort, d'une lueur verte.
+Un ogre qui est mort et n'est pas resté mort arpente le pays mort, baigné d'une lueur verte.
 Cherchez-le près de l'une de trois vieilles tours :
 le col du nord, le mur de l'est, ou la garde de la couronne au sud-ouest.
 = Hed'mush le Pourrissant, un ogre mort-vivant, près de la tour du Col du nord, de la tour du Mur d'est ou de la tour de garde de la couronne.

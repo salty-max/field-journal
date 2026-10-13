@@ -7,7 +7,7 @@ Dans le camp de l'Alliance à la lisière sud de la peste, une voyageuse se repo
 et répète ce qu'elle a entendu : la Croisade avait jadis un mage qui faisait des arcs et des fusils,
 et l'a tué avant que son travail ne quitte jamais la ville. Demandez-lui ce qu'elle en sait.
 ? Le camp du Noroît.
-= Alexia Ironknife, qui se repose au Noroît avant Âtreval : le propre fabricant d'armes de la Croisade, a-t-elle entendu dire, a été tué par la Croisade.
+= Alexia Ironknife, qui se repose au Noroît avant Âtreval : le fabricant d'armes de la Croisade elle-même, a-t-elle entendu dire, a été tué par la Croisade.
 + À la Barricade, le camp de la Horde, un voyageur raconte la même histoire, et ajoute que le mage avait d'abord achevé une arme remarquable.
 ! Calme
 @ Alexia Ironknife

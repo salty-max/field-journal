@@ -30,7 +30,7 @@ d'un monde brisé par trop de portes.
 Ceux qui y suivirent les orcs durent fermer le chemin vers le leur.
 ? Rempart-du-Néant.
 = Au-delà de la Porte des ténèbres, à Rempart-du-Néant. Les portails de Ner'zhul déchirèrent Draenor. L'expédition de l'Alliance ferma la Porte des ténèbres pour que cette destruction n'atteigne pas Azeroth.
-+ Ner'zhul s'échappa par l'un de ses propres portails avec ses serviteurs les plus précieux, tandis que Khadgar luttait pour ramener ses compagnons chez eux.
++ Ner'zhul s'échappa par l'un de ses propres portails avec ses serviteurs les plus fidèles, tandis que Khadgar luttait pour ramener ses compagnons chez eux.
 ! Calme
 @ Au-delà de la Porte des ténèbres
 

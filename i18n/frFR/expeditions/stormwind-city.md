@@ -3,7 +3,7 @@ source: ae2cfe8fe7c9
 zone: 1453
 ---
 ## stormwind-city-faol-plaque
-Une cité rebâtie se souvient de l'homme qui aida à la payer.
+Une cité rebâtie se souvient de l'homme qui aida à financer sa reconstruction.
 Cherchez sa plaque dans la cathédrale qu'il a rendue possible.
 Son oeuvre commença dans une cité du nord aujourd'hui perdue pour les vivants.
 ? La cathédrale de la Lumière, place de la Cathédrale.
@@ -14,8 +14,8 @@ Son oeuvre commença dans une cité du nord aujourd'hui perdue pour les vivants.
 
 ## stormwind-city-khadgar-plaque
 Parmi les monuments à ceux qui franchirent la porte sombre,
-une plaque présume son héros mort, puis lui souhaite bon voyage.
-Ajoutez votre voeu à celui qui y est gravé, pour un voyageur qui pourrait encore revenir.
+une plaque présume son héros mort, puis lui dit qu'on reste avec lui, où qu'il soit.
+Joignez votre salut aux mots gravés là, pour un guerrier qui pourrait encore revenir.
 ? Parmi les monuments à l'expédition de l'Alliance, dans la cité.
 = Archimage Khadgar du Kirin Tor : "Présumé mort."
 + "Nul ne s'est avec plus d'altruisme plongé dans l'étude de la magie et du combat. Nous sommes avec toi, audacieux guerrier, où que tu sois." - Antonidas, archimage de Dalaran.
@@ -25,7 +25,7 @@ Ajoutez votre voeu à celui qui y est gravé, pour un voyageur qui pourrait enco
 ## stormwind-city-horatio
 Quelque part dans la cité, un élève reconnaissant a dressé un mémorial
 à un guérisseur, professeur et ami qui croyait qu'il était du devoir d'un guérisseur
-de débarrasser les malades et les déprimés de leur moindre mal.
+de débarrasser les malades et les épuisés de leur moindre mal.
 Sa plaque dit l'un de ses talents extraordinaire. Honorez-le par celui-ci.
 ? Cherchez parmi les guérisseurs de la cité.
 = "A la mémoire de mon cher mentor, Horatio M. Montgomery, guérisseur, professeur, ami."

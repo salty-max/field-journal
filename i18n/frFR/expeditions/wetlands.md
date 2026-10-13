@@ -7,7 +7,7 @@ Au fond du marais, là où les crocilisques règnent sur l'eau,
 une naine et un gnome tiennent une maison de pierre avec un moulin à vent,
 et vendent ce qui leur tombe sous la main : de belles ceintures et jambières, une de chaque à la fois,
 et deux plans gnomes, un exemplaire de chaque.
-Frappez à leur porte.
+Allez les saluer à leur porte.
 ? Le marais du couchant, au nord-ouest des Paluns, à l'ouest de la tombe d'Ironbeard.
 = Wenna Silkbeard, une naine, et Fradd Swiftgear, un gnome, dans leur maison de pierre du marais du couchant. Les plans de Fradd : l'Espingole amoureusement construite et le Recombobulateur mineur.
 + Le plus petit appareil de Fradd rend un peu de vie et de mana, mais son talent particulier est de changer un mouton en voyageur. Un ingénieur n'a pas besoin d'attendre que le sort du mage se dissipe.
@@ -30,7 +30,7 @@ Sa captive pouvait brûler une armée, et pourtant ses geôliers la forcèrent �
 Trouvez la page qui raconte comment elle fut libérée.
 ? Port de Menethil.
 = La bataille de Grim Batol, à Port de Menethil. Les orcs Dragonmaw tenaient Alexstrasza captive dans la montagne à la lisière est des Paluns. Une fois libre, elle et les autres grands dragons détruisirent leur forteresse.
-+ Grim Batol fut d'abord une place forte des Marteau-hardi, que certains disent maudite. "Un petit groupe de combattants, mené par le mage humain Rhonin, parvint à détruire l'Âme du démon", libérant Alexstrasza.
++ Grim Batol fut d'abord une place forte des Wildhammer, que certains disent maudite. "Un petit groupe de combattants, mené par le mage humain Rhonin, parvint à détruire l'Âme du démon", libérant Alexstrasza.
 ! Calme
 @ La bataille de Grim Batol
 

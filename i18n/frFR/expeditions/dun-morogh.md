@@ -28,7 +28,7 @@ Trouvez-le, et laissez-le vous raconter ça.
 Sur la route qui sort de la vallée où débutent les jeunes nains,
 un armurier tient un camp, et à côté un champ de tir.
 Deux fusiliers y règlent leurs différends, et une équipe de mortier s'exerce
-sur des mannequins qu'un éclaireur doit aller installer en courant. Gare à vos oreilles.
+sur des mannequins qu'un éclaireur doit rejoindre en courant. Gare à vos oreilles.
 ? Le camp de Hegnar Rumbleshot, sur la route de la passe des Frigères à Kharanos.
 = Le champ de tir de Rumbleshot. De temps à autre, les cinq nains du camp s'y rendent. D'abord les fusiliers Middlecamp et Wheeler, qui tirent sur une cible orc et une rangée de bouteilles. Puis l'équipe de mortier, Angus et Shorty, fait feu tour à tour sur trois mannequins, pendant que l'éclaireur Klemmy court dans tous les sens.
 + Middlecamp manque deux fois la cible orc et deux fois les bouteilles, tandis que Wheeler touche la cible sans même essayer, et la cible du milieu en plein centre. Puis Wheeler ne touche que le flanc de la caisse des bouteilles, et c'est Middlecamp qui abat le mannequin orc, se tourne vers la cible en papier et tire de la hanche sur les bouteilles.
@@ -39,7 +39,7 @@ sur des mannequins qu'un éclaireur doit aller installer en courant. Gare à vos
 À la ferme sur la route de l'est, où une famille élève des béliers,
 la plus jeune a passé la journée à poursuivre quelqu'un de petit et blanc
 qui ne veut rien savoir de ce qu'elle a en tête.
-Réglez l'affaire, avant qu'il ne s'enfuie encore.
+Calmez le jeu, avant qu'il ne s'enfuie encore.
 ? La ferme des Amberstill, sur la route du Loch Modan : la fillette, et ce qu'elle poursuit.
 = Tout-doux, un lapin, et Yarlyn Amberstill, qui lui court après autour de l'enclos des béliers en criant : "Allons Tout-doux ! Je veux juste te donner un bain !"
 + Ses autres offres, en nain : "Des carottes tous les jours pendant un an si tu arrêtes !" Et, quand ça ne marche pas : "Ne me pousse pas à aller chercher mon papi pour t'attraper ! Il aime attraper les lapins avec son fusil !"
@@ -50,7 +50,7 @@ Réglez l'affaire, avant qu'il ne s'enfuie encore.
 Sur l'île au milieu du lac gelé, au nord-ouest,
 un loup blanc mène la meute, deux loups affamés sur les talons.
 Engagez-le dans un combat et il en amènera d'autres.
-Éclaircissez l'île d'abord.
+Éclaircissez d'abord les rangs de la meute.
 = Grumeux, un loup blanc, et très probablement le chef de la meute du lac glacial. Il est le seul à porter les Brassards bordés d'argent et les Gants du loup blanc.
 + Il est de niveau dix, quand un chasseur apprend à dresser : un nain ou un gnome peut en faire son premier compagnon.
 @ Grumeux

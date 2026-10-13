@@ -4,7 +4,7 @@ zone: 1441
 ---
 ## thousand-needles-raceway
 Sur les étendues de sel, gnomes et gobelins font courir leurs machines,
-un ogre annonce les courses, et une serveuse les lance d'un drapeau.
+un ogre annonce les courses, et une serveuse donne le départ d'un geste du drapeau.
 Toute course a besoin d'un public. Soyez-en.
 ? La piste des Mirages, dans les Salines.
 = Daisy, la fille au départ de la course de la piste des Mirages, avec Fobeed, l'ogre, et Zuzubee qui annoncent les courses.

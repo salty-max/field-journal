@@ -5,7 +5,7 @@ zone: 1448
 ## felwood-morlos-aran
 À la lisière sud du bois empoisonné, les pierres d'une ville elfe tiennent encore debout,
 et son nom finit comme ceux du rivage sombre et de la forêt du sud.
-Souvenez-vous des villes dont il fait écho, et de ce qu'il est advenu de celle-ci.
+Souvenez-vous des villes auxquelles son nom fait écho, et de ce qu'il est advenu de celle-ci.
 ? Morlos'Aran, à la lisière sud de Gangrebois.
 = Morlos'Aran, l'un des anciens villages elfes de la nuit dont les noms finissent pareil : Ameth'Aran et Bashal'Aran à Sombrivage, Ordil'Aran en Ashenvale, Tethris Aran en Désolace.
 + Un druide du Cercle d'émeraude veille près des ruines. Le bois autour de lui est toujours malade.

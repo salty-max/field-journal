@@ -42,7 +42,7 @@ sources:
 ---
 ## 6291 Goujon brillant cru
 
-Le Goujon brillant remplit la première nasse d'un apprenti dans des eaux familières, parfois à portée de vue d'une rue de la cité.
+Le Goujon brillant remplit le premier panier de pêche d'un apprenti dans des eaux familières, parfois à portée de vue d'une rue de la cité.
 
 Il donne un repas simple et utile. Une prise modeste est une compagnie bien suffisante pour un après-midi tranquille, surtout quand le cuisinier apprend lui aussi.
 
@@ -98,7 +98,7 @@ Le poisson cuisiné fournit un souper sans façon.
 
 Le Jaune-queue tacheté partage une grande part des lieux de pêche côtiers de la Morue rochécaille.
 
-Il a sa propre place dans le répertoire du cuisinier, même quand les deux arrivent dans la même nasse. La mer n'a pas besoin de fournir une prise rare pour fournir un peu de variété.
+Il a sa propre place dans le répertoire du cuisinier, même quand les deux arrivent dans le même panier de pêche. La mer n'a pas besoin de fournir une prise rare pour fournir un peu de variété.
 
 ## 13754 Barracuda luisant cru
 
@@ -108,7 +108,7 @@ Le Barracuda luisant cuit rend de la santé et ajoute de l'endurance. Un poisson
 
 ## 13759 Lutjan nagenuit cru
 
-Le Lutjan nagenuit fait de l'heure un critère dans le choix d'un coin de pêche. Il mord la nuit et aux lisières du jour, les petites heures étant particulièrement favorables.
+Le Lutjan nagenuit fait de l'heure un critère dans le choix d'un coin de pêche. Il mord la nuit et aux lisières du jour, les premières heures après minuit étant particulièrement favorables.
 
 La Soupe de lutjan nagenuit aide un lanceur de sorts à retrouver son mana. Un pêcheur patient peut donner à ses compagnons une bonne raison de se féliciter du temps passé au bord de l'eau sombre.
 
@@ -168,7 +168,7 @@ L'Huile de feu sert à la fois la Potion de protection contre le Feu et l'Élixi
 
 ## 13422 Anguille pierre-écaille
 
-Les Anguilles pierre-écaille sont une prise précieuse au large d'Azshara et de Tanaris, surtout là où un essaim se rassemble.
+Les Anguilles pierre-écaille sont une prise précieuse au large d'Azshara et de Tanaris, surtout là où un banc se rassemble.
 
 L'Huile de pierre-écaille entre dans la Potion de Bouclier de pierre supérieure et dans de puissants flacons. Un tranquille moment de pêche peut finir en provisions destinées à un combat très bruyant.
 
@@ -182,7 +182,7 @@ Elle n'a aucune place familière dans les préparations du cuisinier ou de l'alc
 
 Le Poisson cuirassé est un trophée moins familier, tiré des eaux qui donnent aussi le Saumon Blanchécaille.
 
-Le cuisinier n'a pas de préparation habituelle pour lui. Sa place dans la pêche vaut tout de même d'être consignée. Une nasse contient plus que les ingrédients d'une liste de courses.
+Le cuisinier n'a pas de préparation habituelle pour lui. Sa place dans la pêche vaut tout de même d'être consignée. Un panier de pêche contient plus que les ingrédients d'une liste de courses.
 
 ## 6522 Poisson déviant
 

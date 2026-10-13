@@ -26,7 +26,7 @@ et finit par deux rois au bord d'une route de montagne.
 ## quarry
 Dans l'herbe dorée à l'est de la falaise, un lion chasse seul,
 plus rapide des griffes que les autres félins des plaines.
-Les chasseurs de la falaise préféreraient l'apprivoiser que l'écorcher.
+Les chasseurs de la falaise préféreraient l'apprivoiser plutôt que l'écorcher.
 = Le Rake, un lion des plaines dorées. Il frappe plus vite que presque toutes les bêtes qu'un chasseur peut dresser, ce qui en a fait l'un des compagnons les plus courants du pays.
 + On ne l'a jamais rencontré hors des plaines dorées, les terrains de chasse les plus chers aux taurens.
 @ Le Rake

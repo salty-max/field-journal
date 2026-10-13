@@ -25,7 +25,7 @@ Soyez $gamical:amicale;, pour une fois.
 ## tanaris-winkey
 Au large de la plage tranquille au sud de la crique des pirates, un îlot porte une gnome, seule,
 qui se dore au soleil comme si toute la mer était son jardin.
-Elle a une seule requête pour qui nage jusqu'à elle. Soyez $ggentil:gentille;.
+Elle a une seule requête pour qui nage jusqu'à elle. Montrez-vous sensible à son charme.
 ? Un îlot au large du rivage de Brisesud, au sud de la crique des Gréements.
 = Winkey, une gnome seule sur son îlot au large du rivage de Brisesud : "Salut, $gmon mignon:ma mignonne; ! Ça t'embêterait de me passer de la crème sur les parties exposées ?"
 + Loin d'ici, dans les steppes Ardentes, un nain de la Veille de Morgan attrape le vide et crie après une certaine Winky qui n'est pas là. S'il parle d'elle, personne ne saurait le dire.

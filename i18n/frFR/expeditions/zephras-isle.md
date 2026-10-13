@@ -25,14 +25,14 @@ Offrez-leur un public.
 @ Les saute-poussière chanteurs
 
 ## zephras-isle-zendraas
-Dans le propre sanctuaire du culte, parmi les robes grises et les crânes rasés,
+Dans le sanctuaire même du culte, parmi les robes grises et les crânes rasés,
 l'un des fidèles ne lèvera pas la main contre vous.
 Il sait ce que le reste de l'île pense de cette robe.
 Laissez-le le lire sur votre visage.
 ? Le sanctuaire d'Akir, au coeur de l'île.
 = Frère Zendraas, de Falaath. Quand le culte s'est installé, il s'est rasé la tête, a enfilé les robes grises et a dit les mots qu'on voulait entendre. Aujourd'hui il fait profil bas, et survit.
 + Il est tailleur, et il a dessiné l'essentiel de ce que porte le culte. Apportez-lui des pierres de vent en trop et il vous échangera son stock de leurs robes.
-! Gardé (le propre sanctuaire du culte, ses fanatiques de niveaux 10 et 11)
+! Gardé (le sanctuaire même du culte, ses fanatiques de niveaux 10 et 11)
 @ Frère Zendraas
 
 ## zephras-isle-thendal-tree
@@ -49,7 +49,7 @@ Voyez-le avec eux.
 ## quarry
 Au bord du lac, au milieu de l'île, marche un draconien,
 bien plus fort que son niveau : qui le rencontre là ne devrait pas le rencontrer seul.
-Il n'a pas de nom, seulement ce qu'on l'appelle.
+On ne le connaît que par son surnom.
 = L'Introuvable, un draconien élite de niveau six, au bord du lac Chantevent.
 + De toutes les créatures de l'île de Zéphras, c'est le seul draconien.
 @ L'Introuvable

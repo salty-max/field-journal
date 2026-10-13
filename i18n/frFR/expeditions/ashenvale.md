@@ -15,9 +15,9 @@ Rendez-lui ce que l'on doit à un guerrier.
 @ Monument à Grom Hellscream
 
 ## ashenvale-astranaar
-L'une des cinq gardiennes du monde reçut un devoir qu'elle ne pouvait remplir qu'en dormant.
+L'une des cinq figures qui veillent sur le monde reçut un devoir qu'elle ne pouvait remplir qu'en dormant.
 Dans la ville des sentinelles au bord du lac, trouvez la page qui nomme sa charge.
-Ses quatre parents reçurent la leur sur la même page.
+Les quatre autres reçurent leur charge sur la même page.
 ? Astranaar.
 = Le fardeau des Vols draconiques, à Astranaar : les Titans confièrent le monde à cinq dragons, et donnèrent à Ysera le Rêve d'émeraude à surveiller.
 + Ysera tomba en une transe éternelle, liée au Rêve de la Création. Ses dragons verts en gardent les portes, dont le grand arbre du Bosquet du crépuscule, dans le bois de la Pénombre.

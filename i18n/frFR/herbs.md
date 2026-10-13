@@ -95,7 +95,7 @@ L'Huile des ténèbres et la Potion de protection contre l'Ombre la réclament. 
 
 Le Sang-royal pousse sur une vaste étendue de pays, des collines boisées à l'intérieur sec de Kalimdor. Sa valeur ne tient pas à une recherche difficile.
 
-Les breuvages de soins et de mana supérieurs l'emploient tous deux, et les travailleurs du cuir en ont besoin pour les Gants d'herboriste. Une herbe de cueillette qui aide à faire des gants de cueillette tient une place plaisante dans le métier.
+Les breuvages de soins supérieurs et les potions de mana l'emploient tous deux, et les travailleurs du cuir en ont besoin pour les Gants d'herboriste. Une herbe de cueillette qui aide à faire des gants de cueillette tient une place plaisante dans le métier.
 
 ## 3357 Vietérule
 

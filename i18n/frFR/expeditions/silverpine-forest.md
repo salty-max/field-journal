@@ -19,5 +19,5 @@ Au fond de sa cave, l'un d'eux a encore un nom,
 et un gnoll de ce nom mena jadis une meute vivante dans les Clairières,
 jusqu'à ce que la Dame noire en ait plus besoin que lui.
 = Snarlmane, un gnoll mort des Poil-Putride, dans la cave du donjon de Fenris.
-+ Pendant la Troisième Guerre, Sylvanas plaça une banshee dans l'esprit d'un chef gnoll appelé Snarlmane, et dépensa sa meute contre le seigneur de l'effroi Varimathras. Si c'est bien lui, quelqu'un l'a relevé.
++ Pendant la Troisième Guerre, Sylvanas plaça une banshee dans l'esprit d'un chef gnoll appelé Snarlmane, et se servit de sa meute contre le seigneur de l'effroi Varimathras. Si c'est bien lui, quelqu'un l'a relevé.
 @ Snarlmane

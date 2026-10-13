@@ -37,7 +37,7 @@ Dans l'une d'elles, une maisonnée occupe les deux étages, cachée à l'oeil nu
 
 ## duskwood-darkshire
 Dans la ville qui s'appelait Grand Hameau avant que l'obscurité ne vienne, les Veilleurs arpentent les rues.
-Une jeune veilleuse a des yeux pour un autre, le plus courageux de tous, dit-elle,
+Une jeune veilleuse n'a d'yeux que pour un autre, le plus courageux de tous, dit-elle,
 et se demande s'il l'a jamais remarquée.
 Trouvez-la parmi eux : elle vous le dira elle-même.
 ? La place de Sombre-Comté : parlez aux veilleurs qui s'y trouvent, un par un.

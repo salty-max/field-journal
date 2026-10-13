@@ -5,7 +5,7 @@ zone: 1456
 ## thunder-bluff-white-stag
 Sur la cime des anciens, un conte parle d'un cerf blanc
 dont les bois s'emmêlèrent dans les étoiles alors qu'il fuyait les chasseurs,
-et de la lune, qui le libéra par amour pour lui. Trouvez le conte.
+et de la lune, qui le libéra en échange de son amour. Trouvez le conte.
 ? La cime des Anciens.
 = Le Cerf blanc et la Lune : Apa'ro, que les elfes de la nuit appellent Malorne.
 + Leur enfant fut Cenarius, qui "marcherait sur le chemin étoilé entre le monde éveillé et le royaume des cieux".
