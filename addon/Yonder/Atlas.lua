@@ -273,7 +273,9 @@ function ns.areaName(name)
   end
   local id = areaByEnglish[name]
   local own = id and C_Map.GetAreaInfo and C_Map.GetAreaInfo(id)
-  return (own and own ~= "") and own or name
+  if own and own ~= "" then return own end
+  -- (a place inside a building: a translation's own list)
+  return ns.subzoneNames and ns.subzoneNames[name] or name
 end
 -- A place recorded as "Zone: Subzone": each part in the client's language,
 -- joined as the language joins them.

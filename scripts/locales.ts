@@ -13,6 +13,8 @@
  *   i18n/<locale>/sections.json    { "<section id>": "title" }
  *   i18n/<locale>/places.json      { "English": "name" }: the fish's waters and
  *                                   the herbs' and fish's dungeons
+ *   i18n/<locale>/subzones.json    the places inside buildings, by their English
+ *                                   names (../addon-kit/subzones.py)
  *   i18n/<locale>/creatures.json   the creatures' names, by id: Forever's, and
  *                                   Classic's where they differ
  *                                   (scripts/creature_names.py)
@@ -197,6 +199,8 @@ function read(locale: string) {
   // (the creatures' names in this language, each game's, from Wowhead's
   // tooltips: scripts/creature_names.py; Classic's only where they differ)
   const creatures = json<{ forever?: Record<string, string>; classic?: Record<string, string> }>("creatures.json", {});
+  // (the places inside buildings, which have no area id: ../addon-kit/subzones.py)
+  const subzones = json<{ forever?: Record<string, string>; classic?: Record<string, string> }>("subzones.json", {});
   const classic = json<Record<string, string>>("classic.json", {});
   const stale = new Set<string>();
   const done = new Set<string>();
@@ -265,7 +269,7 @@ function read(locale: string) {
     }
     zones.set(Number(m.zone), zone);
   }
-  return { meta, words, sections, places, creatures, classic, families, atlas, flora, zones, stale, done };
+  return { meta, words, sections, places, creatures, subzones, classic, families, atlas, flora, zones, stale, done };
 }
 
 // ── Lua ─────────────────────────────────────────────────────────────────────
@@ -302,6 +306,11 @@ function luaFor(locale: string): string {
   for (const kind of ["herbs", "fish"]) {
     lines.push(`  ${kind} = {`);
     for (const [id, ps] of sorted(t.flora[kind])) lines.push(`    [${id}] = ${parasLua(ps)},`);
+    lines.push("  },");
+  }
+  for (const [key, list] of [["subzones", t.subzones.forever], ["subzonesClassic", t.subzones.classic]] as const) {
+    lines.push(`  ${key} = {`);
+    for (const [en, tr] of Object.entries(list ?? {}).sort(([a], [b]) => a.localeCompare(b))) lines.push(`    [${q(en)}] = ${q(tr)},`);
     lines.push("  },");
   }
   for (const [key, list] of [["creatures", t.creatures.forever], ["creaturesClassic", t.creatures.classic]] as const) {

@@ -72,6 +72,17 @@ function ns.translate(t)
     end
   end
   ns.creatureNames = names
+  -- the places inside buildings (no area id to ask the client), this game's
+  local inside = {}
+  for en, tr in pairs(t.subzones or {}) do
+    inside[en] = tr
+  end
+  if D.client == "classic" then
+    for en, tr in pairs(t.subzonesClassic or {}) do
+      inside[en] = tr
+    end
+  end
+  ns.subzoneNames = inside
   local L = K.L
   for english, word in pairs(t.words or {}) do
     L[english] = words(word)

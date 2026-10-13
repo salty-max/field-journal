@@ -2479,6 +2479,10 @@ do
       and ns.placeText("Nowhere: Elsewhere") == "Nowhere : Elsewhere",
     "… a place recorded in English reads in French; one it doesn't know stays as recorded"
   )
+  check(
+    ns.areaName("The Library") == "La Bibliothèque",
+    "… and a place inside a building (no area id) by the translation's list"
+  )
   C_Map.GetAreaInfo = area
   -- a creature by this game's name for it, whatever its record kept
   check(
