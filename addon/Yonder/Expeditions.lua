@@ -17,7 +17,7 @@
 -- as the Bestiary tells a kill; one at a time is the target, its haunts
 -- shaded on the world map.
 --
---   FieldJournalChar.expeditions = {
+--   YonderChar.expeditions = {
 --     riddles[id] = { at, level, hints, x, y }   solved (at; x, y: where,
 --                                          percents of its zone's map);
 --                                          hints: 0, 1 (the clue), 2 (the
@@ -259,7 +259,7 @@ local function solve(r, x, y)
   if ns.option("chat") then
     print(
       PREFIX
-        .. ("a riddle read aright: |cffffd100|Hfieldjournal:x%s|h[%s]|h|r, %s, with a %s seal."):format(
+        .. ("a riddle read aright: |cffffd100|Hyonder:x%s|h[%s]|h|r, %s, with a %s seal."):format(
           r.id,
           ns.riddleName(r),
           ns.zoneName(r.zone),
@@ -418,7 +418,7 @@ function ns.quarrySlain(id)
   if ns.option("chat") then
     print(
       PREFIX
-        .. ("a quarry brought down: |cffffd100|Hfieldjournal:q%d|h[%s]|h|r, %s, with a %s seal."):format(
+        .. ("a quarry brought down: |cffffd100|Hyonder:q%d|h[%s]|h|r, %s, with a %s seal."):format(
           id,
           q.name,
           ns.zoneName(q.zone),
@@ -450,7 +450,7 @@ function ns.expeditionsLogin()
   if ns.refreshPin then ns.refreshPin() end
 end
 
--- ── /journal where: the map and the position, to confirm a spot ──────────────
+-- ── /yonder where: the map and the position, to confirm a spot ──────────────
 function ns.whereReport()
   local best = C_Map.GetBestMapForUnit("player")
   local uiMap, x, y = where()

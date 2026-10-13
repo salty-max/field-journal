@@ -310,7 +310,7 @@ local tab = {
   build = function(b)
     book = b
     list = ui.newList(book.left, style, rows)
-    page = ui.newPage(book.sheet, "FieldJournalFloraPage", 110, pairsPool)
+    page = ui.newPage(book.sheet, "YonderFloraPage", 110, pairsPool)
   end,
   show = function(n)
     local here = n == ns.TAB.fish or n == ns.TAB.plants
@@ -323,7 +323,7 @@ local tab = {
 ns.addTab(ns.TAB.fish, tab)
 ns.addTab(ns.TAB.plants, tab)
 
--- Open the book at a fish's or an herb's page (fieldjournal:f<id>, h<id>: a
+-- Open the book at a fish's or an herb's page (yonder:f<id>, h<id>: a
 -- link in chat).
 local function open(which, id)
   if not ns.journal() then return end

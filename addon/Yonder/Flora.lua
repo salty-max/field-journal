@@ -1,5 +1,5 @@
 -- The Fish and Plants records: every fish this character catches and every
--- herb that reaches its bags (FieldJournalChar):
+-- herb that reaches its bags (YonderChar):
 --   fish[itemId] = {
 --     first = { at, level, zone, sub }   the first catch (zone: the Atlas's uiMap)
 --     n                                   catches
@@ -49,7 +49,7 @@ local function announce(kind, id, name)
   if not ns.option("chat") then return end
   print(
     ns.PREFIX
-      .. ("a new %s: |cffffd100|Hfieldjournal:%s%d|h[%s]|h|r"):format(kind == "f" and "catch" or "herb", kind, id, name)
+      .. ("a new %s: |cffffd100|Hyonder:%s%d|h[%s]|h|r"):format(kind == "f" and "catch" or "herb", kind, id, name)
   )
 end
 
@@ -148,7 +148,7 @@ end
 ns.on("LOOT_READY", readLoot)
 ns.on("LOOT_OPENED", readLoot)
 
--- /journal probe: the next loot window, as each of its events finds it (how
+-- /yonder probe: the next loot window, as each of its events finds it (how
 -- many slots, what and from what kind of source, a fishing catch or not).
 local probing = false
 function ns.lootProbe()

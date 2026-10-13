@@ -1,5 +1,5 @@
 -- The Atlas: where this character has been. Each character records its own:
---   FieldJournalChar.atlas = {
+--   YonderChar.atlas = {
 --     zones[uiMap] = { first, last = { at, level }, visits, retro,
 --                      places[areaId] = { at, level, retro } },
 --     deaths[], closeCalls[] = { at, level, zone, x, y, by },
@@ -227,7 +227,7 @@ local function enter()
     end
     lastZone = zone
     if new and ns.option("chat") then
-      print(PREFIX .. ("|cffffd100|Hfieldjournal:z%d|h[%s]|h|r added to the atlas."):format(zone, ns.zoneName(zone)))
+      print(PREFIX .. ("|cffffd100|Hyonder:z%d|h[%s]|h|r added to the atlas."):format(zone, ns.zoneName(zone)))
     end
   end
   z.last = now
@@ -346,7 +346,7 @@ ns.on("HEARTHSTONE_BOUND", function()
   ns.checkMilestones()
 end)
 
--- ── /journal atlas: what the game reports here (for testing) ─────────────────
+-- ── /yonder atlas: what the game reports here (for testing) ─────────────────
 function ns.atlasReport()
   local zone, x, y = here()
   if not zone then

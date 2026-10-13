@@ -1,20 +1,20 @@
 -- The welcome (the kit's, Kit.lua): once per character, a few seconds after
--- its first login (out of combat; /journal welcome shows it again), laid out
+-- its first login (out of combat; /yonder welcome shows it again), laid out
 -- as the journal's window: on the left the logo and what the journal is; on
 -- the right this character's choices (Settings.lua: chat lines, the trophy's
 -- sound, milestone alerts, deaths on the world map, tooltip hints, the
 -- minimap button), then another character's to take, chosen among this
--- game's or brought by a code (/journal export there). Closing it, however,
+-- game's or brought by a code (/yonder export there). Closing it, however,
 -- is enough to have seen it.
 local _, ns = ...
 local K = ns.kit
 
 local W = K.welcome({
-  name = "FieldJournalWelcome",
-  title = "Welcome to Explorer's Field Journal",
-  art = "Interface\\AddOns\\FieldJournal\\Media\\Logo",
-  logo = "Interface\\AddOns\\FieldJournal\\Media\\Logo",
-  heading = "Field Journal",
+  name = "YonderWelcome",
+  title = "Welcome to Yonder",
+  art = "Interface\\AddOns\\Yonder\\Media\\Logo",
+  logo = "Interface\\AddOns\\Yonder\\Media\\Logo",
+  heading = "Yonder",
   tagline = "A bestiary, an atlas, fish and herbs, filled in as you travel.",
   intro = "A naturalist of the Explorers' League has left you a field journal. Slay a creature of the wild "
     .. "and it is written down, with where you met it and what you took from it; the rare ones become trophies.\n\n"
@@ -69,12 +69,12 @@ local W = K.welcome({
       },
     }
   end,
-  footnote = "Change them any time: /journal settings, or a right-click on the minimap button. /journal opens "
+  footnote = "Change them any time: /yonder settings, or a right-click on the minimap button. /yonder opens "
     .. "the book.",
   open = { text = "Open the journal", click = function() ns.toggle() end },
-  exportHint = "Copy it (Ctrl+C), then on another character: Use a code, or /journal import CODE.",
-  importHint = "Paste the code (/journal export on the other character), then press Enter.",
-  refused = "That isn't an Explorer's Field Journal settings code.",
+  exportHint = "Copy it (Ctrl+C), then on another character: Use a code, or /yonder import CODE.",
+  importHint = "Paste the code (/yonder export on the other character), then press Enter.",
+  refused = "That isn't a Yonder settings code.",
 })
 
 -- The welcome; "export": with this character's code ready to copy.

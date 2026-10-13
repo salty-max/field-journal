@@ -1,9 +1,9 @@
-# Explorer's Field Journal: Expeditions, Bestiary & Atlas
+# Yonder: Riddles, Rare Hunts & an Explorer's Journal
 
 <!-- Project description for curseforge.com and addons.wago.io (paste as the
-project's description). The project's title on CurseForge: "Explorer's Field
-Journal: Expeditions, Bestiary & Atlas" (the addon's own name stays
-Explorer's Field Journal). -->
+project's description). The project's title on CurseForge and Wago: "Yonder:
+Riddles, Rare Hunts & an Explorer's Journal" (the addon's own name: Yonder;
+Explorer's Field Journal until 0.8.0). -->
 
 <!-- Summary (the project's summary on CurseForge and Wago, the TOCs' Notes,
 and the siblings' pages):
@@ -12,9 +12,11 @@ Solve exploration riddles, hunt rare creatures and keep a journal of the creatur
 <!-- GitHub (the repository's description):
 Exploration riddles and rare hunts for WoW, with a bestiary, an atlas and a record of the fish and herbs you find. -->
 
-Explorer's Field Journal gives you riddles to solve, rare creatures to hunt and a record of what you find along the way. Follow a clue to a forgotten grave, track down a rare you've never fought, or fill in your bestiary while levelling. The journal keeps your discoveries, with notes from an Explorers' League naturalist.
+Yonder gives you riddles to solve, rare creatures to hunt and a record of what you find along the way. Follow a clue to a forgotten grave, track down a rare you've never fought, or fill in your bestiary while levelling. The journal keeps your discoveries, with notes from an Explorers' League naturalist.
 
 For Classic Era (including Hardcore and Season of Discovery), TBC Anniversary and World of Warcraft: Forever.
+
+Yonder was called **Explorer's Field Journal** until version 0.8.0. To keep your journal, see **Coming from Explorer's Field Journal** below.
 
 ## Expeditions
 
@@ -72,27 +74,40 @@ Forever adds Zephras Isle to the Atlas, and its new rares count towards zone mil
 
 ## Settings and commands
 
-Type `/journal` or `/fj`, or click the minimap button to open the journal. A welcome page appears once per character. Use `/journal welcome` to see it again.
+Type `/yonder` or click the minimap button to open the journal. A welcome page appears once per character. Use `/yonder welcome` to see it again.
 
-Settings are under **Options > AddOns > Explorer's Field Journal**, through `/journal settings` or by right-clicking the minimap button. Choose chat announcements, trophy sounds, alerts, map markers, tooltip hints and whether to show the minimap button.
+Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose chat announcements, trophy sounds, alerts, map markers, tooltip hints and whether to show the minimap button.
 
-Settings are saved per character. Copy them from another character of the same game on the welcome or settings page, or transfer them with `/journal export` and `/journal import CODE`.
+Settings are saved per character. Copy them from another character of the same game on the welcome or settings page, or transfer them with `/yonder export` and `/yonder import CODE`. Codes made by Explorer's Field Journal still work.
 
-- `/journal where` shows your current map and position.
-- `/journal reset` clears this character's journal after confirmation.
-- `/journal minimap` shows or hides the minimap button.
-- `/journal toast` previews a riddle alert.
+- `/yonder where` shows your current map and position.
+- `/yonder reset` clears this character's journal after confirmation.
+- `/yonder minimap` shows or hides the minimap button.
+- `/yonder toast` previews a riddle alert.
+
+## Coming from Explorer's Field Journal
+
+The addon was renamed because another addon, Field Journal: Forever, uses the same folder name. With both installed, one replaced the other. Yonder lives in its own folder, so the two can now sit side by side.
+
+Yonder starts a new journal. To keep the one you had, copy its saved files before your first login with Yonder. In your game's `WTF` folder, copy `SavedVariables/FieldJournal.lua` and name the copy `Yonder.lua`:
+
+- once for your account: `WTF/Account/<ACCOUNT>/SavedVariables/`
+- once for each character: `WTF/Account/<ACCOUNT>/<Realm>/<Character>/SavedVariables/`
+
+Yonder takes the old journal at its next login. Your riddles, seals, creatures, Atlas, fish, herbs, milestones and settings come with it.
+
+If you installed by hand, delete the old `FieldJournal` folder from `Interface/AddOns`. Yonder warns you at login while it's still there. The CurseForge app removes it for you.
 
 ## Other addons
 
-These share the Field Journal's book style and work independently:
+These share Yonder's book style and work independently:
 
 - **[Hearthtale](https://www.curseforge.com/wow/addons/hearthtale)** ([Wago](https://addons.wago.io/addons/E6gzPnN1)) writes a diary for your character as you play, with an epitaph when a Hardcore life ends.
 - **[Lorekeeper's Codex](https://www.curseforge.com/wow/addons/lorekeepers-codex)** ([Wago](https://addons.wago.io/addons/j6jAL0NR)) unlocks lore pages as you explore Azeroth and meet its people.
 
 ## Support
 
-Explorer's Field Journal is free and will stay free. If you've enjoyed the riddles or found a new favourite spot, you can support work on the journal with a coffee on [Ko-fi](https://ko-fi.com/salty_max). Thank you.
+Yonder is free and will stay free. If you've enjoyed the riddles or found a new favourite spot, you can support work on the journal with a coffee on [Ko-fi](https://ko-fi.com/salty_max). Thank you.
 
 ## Source
 

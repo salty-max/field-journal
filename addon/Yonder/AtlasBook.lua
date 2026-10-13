@@ -485,7 +485,7 @@ end
 local function build(b)
   book = b
   list = ui.newList(book.left, style, rows, true)
-  page = ui.newPage(book.sheet, "FieldJournalAtlasPage", 100, pairsPool)
+  page = ui.newPage(book.sheet, "YonderAtlasPage", 100, pairsPool)
   local map = ui.newMap(page.child)
   -- (a place picked out: its area outlined)
   map.pick = CreateFrame("Frame", nil, map.canvas, "BackdropTemplate")
@@ -514,7 +514,7 @@ ns.addTab(ns.TAB.atlas, {
   filter = { default = "all", options = lands },
 })
 
--- Open the book at a zone's page (fieldjournal:z<uiMap>: a link in chat).
+-- Open the book at a zone's page (yonder:z<uiMap>: a link in chat).
 function ns.openZone(uiMap)
   if not (A.zones[uiMap] and ns.journal()) then return end
   current, selectedPlace = uiMap, nil

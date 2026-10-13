@@ -26,10 +26,10 @@ test("invalid notes fail without replacing either book", () => {
     mkdirSync(join(fixture, "scripts"));
     for (const file of ["build.ts", "paragraphs.ts", "expeditions.ts"])
       cpSync(join(root, "scripts", file), join(fixture, "scripts", file));
-    mkdirSync(join(fixture, "addon/FieldJournal"), { recursive: true });
+    mkdirSync(join(fixture, "addon/Yonder"), { recursive: true });
     const build = () => Bun.spawnSync([process.execPath, "scripts/build.ts"], { cwd: fixture });
     expect(build().exitCode).toBe(0);
-    const outputs = ["Classic", "Forever"].map((client) => join(fixture, `addon/FieldJournal/Data_${client}.lua`));
+    const outputs = ["Classic", "Forever"].map((client) => join(fixture, `addon/Yonder/Data_${client}.lua`));
     const original = outputs.map((file) => readFileSync(file, "utf8"));
     const cases = [
       ["content/beasts/wolves.md", (s: string) => s.replace(/(---\n[\s\S]*?\n---\n)[\s\S]*/, "$1[forever] Only this world's note.\n"), "no paragraphs for classic"],

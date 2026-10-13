@@ -1,10 +1,10 @@
--- Explorer's Field Journal: this character's journal, the events every file
--- listens to (ns.on, ns.onUnit) and /journal. The records are kept by
+-- Yonder: this character's journal, the events every file
+-- listens to (ns.on, ns.onUnit) and /yonder. The records are kept by
 -- Creatures.lua (the Bestiary), Atlas.lua, Flora.lua (fish and herbs),
 -- Expeditions.lua (the riddles) and Achievements.lua (milestones); the book
 -- shows them (Book.lua).
 --
---   FieldJournalChar (SavedVariablesPerCharacter), whose journal: guid
+--   YonderChar (SavedVariablesPerCharacter), whose journal: guid
 --     creatures[id] = {
 --       name, type, family,      as the game named them (type and family for
 --                                creatures the data file doesn't know)
@@ -31,7 +31,7 @@
 --     collapsed, open, atlasOpen, expeditionsOpen   the book's folds (types,
 --                                families, zones)
 local _, ns = ...
-local PREFIX = "|cffc9a227Field Journal:|r "
+local PREFIX = "|cffc9a227Yonder:|r "
 ns.PREFIX = PREFIX
 
 -- Which game: World of Warcraft: Forever (the original world on the modern
@@ -110,7 +110,7 @@ function ns.belongsTo(saved, guid) return type(saved) == "table" and saved.guid 
 
 local function newJournal(guid)
   char = { guid = guid, creatures = {}, families = {}, killRule = true }
-  FieldJournalChar = char
+  YonderChar = char
 end
 
 -- From before a creature joined on its first kill (it joined on meeting):
@@ -146,13 +146,44 @@ local function syncFamilies(c)
   c.families = families
 end
 
+-- A journal kept under the addon's old name, Explorer's Field Journal (until
+-- 0.8.0): its saved files copied to Yonder's (in WTF, SavedVariables/
+-- FieldJournal.lua to Yonder.lua, the account's and the character's) bring
+-- it here, taken once and saved under the new names. (FieldJournalDB is
+-- another addon's, never touched.)
+local function adopt()
+  if YonderChar == nil and type(FieldJournalChar) == "table" and FieldJournalChar.guid then
+    YonderChar, FieldJournalChar = FieldJournalChar, nil
+  end
+  if YonderSettings == nil and type(FieldJournalSettings) == "table" then
+    YonderSettings, FieldJournalSettings = FieldJournalSettings, nil
+  end
+end
+
+-- The old name still installed beside it (a manual install keeps its
+-- folder): two journals would record at once. Told by its title, never
+-- another addon's FieldJournal.
+local function oldSelf()
+  local get = (C_AddOns and C_AddOns.GetAddOnMetadata) or GetAddOnMetadata
+  local ok, title = pcall(get or error, "FieldJournal", "Title")
+  if ok and title == "Explorer's Field Journal" then
+    print(
+      PREFIX
+        .. "Explorer's Field Journal, Yonder's old name, is still installed: remove its FieldJournal folder from "
+        .. "Interface\\AddOns. Its journal can come along: see Yonder's page on CurseForge."
+    )
+  end
+end
+
 -- This character's journal, or a new one (a journal saved by another
 -- character of the same name is not theirs).
 function ns.login()
+  adopt()
+  oldSelf()
   local guid = UnitGUID("player")
-  local before = ns.belongsTo(FieldJournalChar, guid)
+  local before = ns.belongsTo(YonderChar, guid)
   if before then
-    char = FieldJournalChar
+    char = YonderChar
     char.creatures = char.creatures or {}
     char.families = char.families or {}
     if not char.killRule then killRule(char) end
@@ -168,16 +199,15 @@ function ns.login()
   ns.checkMilestones(true)
 end
 
--- ── /journal ─────────────────────────────────────────────────────────────────
-local USAGE = "/journal opens the book; /journal settings; /journal minimap shows or hides the button; "
-  .. "/journal welcome shows the welcome page again; /journal export gives this character's settings as a code, "
-  .. "/journal import CODE takes them; /journal reset starts this character's journal over; /journal where "
-  .. "tells the map and your position on it; /journal probe describes the next loot window, as the game shows it; "
-  .. "/journal toast shows a riddle's banner, as it would come."
+-- ── /yonder ─────────────────────────────────────────────────────────────────
+local USAGE = "/yonder opens the book; /yonder settings; /yonder minimap shows or hides the button; "
+  .. "/yonder welcome shows the welcome page again; /yonder export gives this character's settings as a code, "
+  .. "/yonder import CODE takes them; /yonder reset starts this character's journal over; /yonder where "
+  .. "tells the map and your position on it; /yonder probe describes the next loot window, as the game shows it; "
+  .. "/yonder toast shows a riddle's banner, as it would come."
 
-SLASH_FIELDJOURNAL1 = "/journal"
-SLASH_FIELDJOURNAL2 = "/fj"
-SlashCmdList.FIELDJOURNAL = function(msg)
+SLASH_YONDER1 = "/yonder"
+SlashCmdList.YONDER = function(msg)
   local raw = strtrim(msg or "")
   msg = raw:lower()
   if msg == "" then
@@ -186,7 +216,7 @@ SlashCmdList.FIELDJOURNAL = function(msg)
     print(
       PREFIX
         .. "this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its "
-        .. "riddles, its milestones. Type /journal reset yes to do it."
+        .. "riddles, its milestones. Type /yonder reset yes to do it."
     )
   elseif msg == "reset yes" then
     newJournal(char.guid)
@@ -200,7 +230,7 @@ SlashCmdList.FIELDJOURNAL = function(msg)
     if ns.profiles:import(raw:match("^%a+%s+(.+)$")) then
       print(PREFIX .. "settings imported for this character.")
     else
-      print(PREFIX .. "that isn't an Explorer's Field Journal settings code (/journal export makes one).")
+      print(PREFIX .. "that isn't a Yonder settings code (/yonder export makes one).")
     end
   elseif msg == "atlas" then
     ns.atlasReport()

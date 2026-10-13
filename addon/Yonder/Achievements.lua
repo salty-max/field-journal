@@ -3,7 +3,7 @@
 -- feats, one per zone (every rare of it slain), the Atlas's, and the fish and
 -- herbs' (tallies, feats, every fish of a continent, every herb of a zone). Each character earns its
 -- own, and each remembers when and at what level:
---   FieldJournalChar.achievements[id] = { at, level, retro }
+--   YonderChar.achievements[id] = { at, level, retro }
 -- Earned as in the game's own achievements: a banner among its alerts
 -- (Toasts.lua), its fanfare and a chat line with a link. Those already deserved when the addon
 -- first looks (a journal from before milestones) are recorded quietly.
@@ -728,9 +728,7 @@ function ns.checkMilestones(quiet)
         earned = true
         if not quiet then
           if ns.option("chat") then
-            print(
-              PREFIX .. ("you have earned the milestone |cffffd100|Hfieldjournal:m%s|h[%s]|h|r!"):format(m.id, m.title)
-            )
+            print(PREFIX .. ("you have earned the milestone |cffffd100|Hyonder:m%s|h[%s]|h|r!"):format(m.id, m.title))
           end
           fanfare()
           ns.toast("milestone", m.id)

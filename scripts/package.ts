@@ -1,6 +1,6 @@
 /**
- * The addon's package: addon/FieldJournal as it is, one zip for every game,
- * each game loading its own TOC (FieldJournal_Vanilla.toc: Classic Era;
+ * The addon's package: addon/Yonder as it is, one zip for every game,
+ * each game loading its own TOC (Yonder_Vanilla.toc: Classic Era;
  * _TBC.toc: TBC Anniversary; _Camelot.toc: World of Warcraft: Forever). The
  * BigWigs packager makes the release's (.pkgmeta,
  * .github/workflows/release.yml); this one is for a test in the game before a
@@ -8,7 +8,7 @@
  * and each game's own files, every one of them there, every Lua file of the
  * folder loaded.
  *
- *   bun scripts/package.ts           dist/FieldJournal and dist/FieldJournal-<version>.zip
+ *   bun scripts/package.ts           dist/Yonder and dist/Yonder-<version>.zip
  *   bun scripts/package.ts --no-zip  the folder only (to copy into a game)
  *   bun scripts/package.ts --check   the TOCs only
  */
@@ -17,7 +17,7 @@ import { dirname, join } from "node:path";
 import { spawnSync } from "node:child_process";
 
 const ROOT = join(import.meta.dir, "..");
-const NAME = "FieldJournal";
+const NAME = "Yonder";
 const SRC = join(ROOT, "addon", NAME);
 const DIST = join(ROOT, "dist");
 // Each game's TOC, its interface and the files only it loads.

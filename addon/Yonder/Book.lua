@@ -5,11 +5,11 @@
 -- kit's look in the journal's theme, its list on the left and page on the
 -- right. Light text and gold titles on dark panels:
 -- Forever's Professions cards; on Classic, the game's insets, the quest log's
--- dark book behind the list. /journal opens it.
+-- dark book behind the list. /yonder opens it.
 local _, ns = ...
 
 -- ── look ─────────────────────────────────────────────────────────────────────
--- The kit's (Kit.lua), in the Field Journal's theme: a sage accent, the panels
+-- The kit's (Kit.lua), in the Yonder's theme: a sage accent, the panels
 -- a faint moss, like a naturalist's notes.
 local K = ns.kit
 K.theme({
@@ -62,7 +62,7 @@ end
 
 -- The standard game window (portrait: the journal's book; title bar), else a
 -- plain dialog where the client has no such template (Kit.lua).
-local TITLE = "Explorer's Field Journal"
+local TITLE = "Yonder"
 
 -- Rewrite what the open tab shows.
 function ns.refresh()
@@ -101,8 +101,8 @@ function ns.showTab(n)
 end
 
 local function build()
-  local window = K.gameWindow("FieldJournalFrame", TITLE, "Interface\\AddOns\\FieldJournal\\Media\\Logo")
-  book = window or K.dialog("FieldJournalFrame", TITLE)
+  local window = K.gameWindow("YonderFrame", TITLE, "Interface\\AddOns\\Yonder\\Media\\Logo")
+  book = window or K.dialog("YonderFrame", TITLE)
   K.movable(book, 780, 560)
 
   -- The count beside the portrait; the list's column below it, the page to
@@ -118,7 +118,7 @@ local function build()
   book.sheet = panel(book)
   book.sheet:SetPoint("TOPLEFT", book.left, "TOPRIGHT", 4, 32)
   book.sheet:SetPoint("BOTTOMRIGHT", -edge, edge)
-  book.search = CreateFrame("EditBox", "FieldJournalSearch", book, "SearchBoxTemplate")
+  book.search = CreateFrame("EditBox", "YonderSearch", book, "SearchBoxTemplate")
   book.search:SetHeight(20)
   book.search:SetPoint("TOPLEFT", book.left, "TOPLEFT", 18, -10)
   book.search:SetPoint("TOPRIGHT", book.left, "TOPRIGHT", -12, -10)
@@ -160,11 +160,11 @@ function ns.openTab(n)
 end
 
 -- ── links in chat ────────────────────────────────────────────────────────────
--- |Hfieldjournal:<what>|h: c<creature id>, m<milestone id>, z<uiMap>,
+-- |Hyonder:<what>|h: c<creature id>, m<milestone id>, z<uiMap>,
 -- f<fish>, h<herb>, x<riddle id>, q<quarry's creature id>, else a family (its id, "murlocs", first: an id may begin
 -- with one of those letters; an older link's index; or "?type/family").
 local function followLink(link)
-  local key = link:match("^fieldjournal:(.+)$")
+  local key = link:match("^yonder:(.+)$")
   if not key then return end
   if ns.familyById[key] then return ns.openFamily(key) end
   local kind, rest = key:sub(1, 1), key:sub(2)
@@ -188,7 +188,7 @@ local function followLink(link)
   end
 end
 if LinkUtil and LinkUtil.RegisterLinkHandler then
-  LinkUtil.RegisterLinkHandler("fieldjournal", function(link)
+  LinkUtil.RegisterLinkHandler("yonder", function(link)
     followLink(link)
     return LinkProcessorResponse and LinkProcessorResponse.Handled
   end)

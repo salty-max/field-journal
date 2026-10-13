@@ -8,7 +8,7 @@
 --     marks = { { x, y, icon, title, text } }, circles = { { x, y, r, title, text } }
 local _, ns = ...
 local ui = ns.ui
-local CIRCLE = "Interface\\AddOns\\FieldJournal\\Media\\Circle"
+local CIRCLE = "Interface\\AddOns\\Yonder\\Media\\Circle"
 local Map = {}
 
 local function tooltip(self)

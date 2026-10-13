@@ -61,7 +61,7 @@ ns.addTab(ns.TAB.milestones, {
     panel:SetPoint("BOTTOMRIGHT", book.sheet, "BOTTOMRIGHT")
     board = ns.kit.board({
       parent = panel,
-      name = "FieldJournalMilestones",
+      name = "YonderMilestones",
       groups = GROUPS,
       figures = FIGURES,
       items = items,

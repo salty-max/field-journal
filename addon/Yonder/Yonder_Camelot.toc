@@ -1,12 +1,12 @@
 ## Interface: 16001
-## Title: Explorer's Field Journal
+## Title: Yonder
 ## Notes: Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish and herbs you find.
 ## Category: Achievements
 ## Author: salty-max
 ## Version: 0.8.0
-## SavedVariablesPerCharacter: FieldJournalChar
-## SavedVariables: FieldJournalSettings
-## IconTexture: Interface\AddOns\FieldJournal\Media\Logo
+## SavedVariablesPerCharacter: YonderChar
+## SavedVariables: YonderSettings
+## IconTexture: Interface\AddOns\Yonder\Media\Logo
 ## X-Website: https://github.com/salty-max/field-journal
 ## X-License: MIT
 ## X-Curse-Project-ID: 1728396

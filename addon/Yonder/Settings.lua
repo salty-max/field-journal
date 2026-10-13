@@ -1,11 +1,11 @@
 -- The addon's settings, each character's own (its profile, "Name - Realm",
--- the kit's: Kit.lua), all kept in FieldJournalSettings so that one character
+-- the kit's: Kit.lua), all kept in YonderSettings so that one character
 -- can take another's: chosen among this game's characters, or brought by a
--- code (/journal export, /journal import CODE). Their page in the game's
--- Options (AddOns tab): /journal settings, or a right-click on the minimap
+-- code (/yonder export, /yonder import CODE). Their page in the game's
+-- Options (AddOns tab): /yonder settings, or a right-click on the minimap
 -- button; the welcome page (Welcome.lua) offers them too.
 --
---   FieldJournalSettings.profiles["Name - Realm"] = { chat, sound,
+--   YonderSettings.profiles["Name - Realm"] = { chat, sound,
 --     minimapHidden, minimapAngle, tooltipHints, milestoneToast, worldMapPins,
 --     welcomed }
 --   (the account-wide values of 0.6.0 and before, at the top of the table:
@@ -39,13 +39,13 @@ ns.SOUNDS = {
   { 0, "None" },
 }
 
--- The profiles: a code "FJ1:c1:s3175:m1:w1:t1:h0:a225" (chat, the trophy's
+-- The profiles: a code "YD1:c1:s3175:m1:w1:t1:h0:a225" (chat, the trophy's
 -- sound, milestone alerts, the world map's marks, tooltip hints, the minimap
 -- button hidden, its angle).
 local P = K.profiles({
   saved = function()
-    if type(FieldJournalSettings) ~= "table" then FieldJournalSettings = {} end
-    return FieldJournalSettings
+    if type(YonderSettings) ~= "table" then YonderSettings = {} end
+    return YonderSettings
   end,
   defaults = DEFAULTS,
   shared = SHARED,
@@ -58,12 +58,18 @@ local P = K.profiles({
     minimapHidden = "h",
     minimapAngle = "a",
   },
-  tag = "FJ1",
+  tag = "YD1",
   changed = function(key)
     if key == "minimapHidden" or key == "minimapAngle" then ns.updateMinimapButton() end
     if key == "worldMapPins" and ns.refreshWorldMapPins then ns.refreshWorldMapPins() end
   end,
 })
+-- (a code made before the rename, Explorer's Field Journal's FJ1, still taken)
+local import = P.import
+function P:import(code)
+  if type(code) == "string" then code = code:gsub("^%s*FJ1:", "YD1:") end
+  return import(self, code)
+end
 ns.profiles = P
 
 -- This character's profile at its login: its own, else a new one (the
@@ -97,13 +103,13 @@ local category
 
 function ns.createSettingsPanel()
   if category or not (Settings and Settings.RegisterVerticalLayoutCategory) then return end
-  category = Settings.RegisterVerticalLayoutCategory("Explorer's Field Journal")
+  category = Settings.RegisterVerticalLayoutCategory("Yonder")
 
   local function checkbox(key, name, tooltip, invert)
     invert = invert or false
     local setting = Settings.RegisterProxySetting(
       category,
-      "FIELDJOURNAL_" .. key:upper(),
+      "YONDER_" .. key:upper(),
       Settings.VarType.Boolean,
       name,
       not DEFAULTS[key] == invert,
@@ -120,7 +126,7 @@ function ns.createSettingsPanel()
 
   local sound = Settings.RegisterProxySetting(
     category,
-    "FIELDJOURNAL_SOUND",
+    "YONDER_SOUND",
     Settings.VarType.Number,
     "Sound for a trophy",
     DEFAULTS.sound,
@@ -164,9 +170,9 @@ function ns.createSettingsPanel()
   -- Another character's settings (of this game), for this one.
   K.copySetting(
     category,
-    "FIELDJOURNAL_COPYFROM",
+    "YONDER_COPYFROM",
     P,
-    "Another character's choices, for this one (of this game: Classic and Forever keep their own). From elsewhere: /journal export there, then /journal import CODE here.",
+    "Another character's choices, for this one (of this game: Classic and Forever keep their own). From elsewhere: /yonder export there, then /yonder import CODE here.",
     function(other) print(ns.PREFIX .. ("%s's settings copied."):format(other)) end
   )
 

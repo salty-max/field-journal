@@ -10,7 +10,7 @@ local _, ns = ...
 local SKULL = "Interface\\TargetingFrame\\UI-TargetingFrame-Skull"
 local CLOSE = "Interface\\GossipFrame\\AvailableQuestIcon"
 local SIZE = 22 -- in the map canvas's units (the map art is about 1000 wide)
-local CIRCLE = "Interface\\AddOns\\FieldJournal\\Media\\Circle"
+local CIRCLE = "Interface\\AddOns\\Yonder\\Media\\Circle"
 
 local provider
 
@@ -25,7 +25,7 @@ local function pin(i)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     GameTooltip:AddLine(self.title, 1, 0.82, 0)
     GameTooltip:AddLine(self.text, 1, 1, 1, true)
-    GameTooltip:AddLine("Explorer's Field Journal", 0.6, 0.6, 0.6)
+    GameTooltip:AddLine("Yonder", 0.6, 0.6, 0.6)
     GameTooltip:Show()
   end)
   p:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -51,7 +51,7 @@ local function circle(i)
     GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
     GameTooltip:AddLine(self.title, 1, 0.82, 0)
     GameTooltip:AddLine(self.text, 1, 1, 1, true)
-    GameTooltip:AddLine("Explorer's Field Journal", 0.6, 0.6, 0.6)
+    GameTooltip:AddLine("Yonder", 0.6, 0.6, 0.6)
     GameTooltip:Show()
   end)
   c:SetScript("OnLeave", function() GameTooltip:Hide() end)

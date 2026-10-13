@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TAG: ${{ inputs.tag || github.ref_name }}
-      # (BigWigsMods/packager, pinned: one zip, FieldJournal-vX.Y.Z.zip, its version in its
+      # (BigWigsMods/packager, pinned: one zip, Yonder-vX.Y.Z.zip, its version in its
       # name and its label, the tag: a label takes no spaces; Unix line endings, as
       # the folder has them)
       PACKAGER_ARGS: -u -n "{package-name}-{project-version}:{project-version}"
@@ -53,7 +53,7 @@ jobs:
         with:
           args: -d ${{ env.PACKAGER_ARGS }}
           pandoc: false
-      - run: diff -r addon/FieldJournal .release/FieldJournal
+      - run: diff -r addon/Yonder .release/Yonder
       - name: Published
         uses: BigWigsMods/packager@v2.6.1
         with:

@@ -1,12 +1,17 @@
-# Explorer's Field Journal: Expeditions, Bestiary & Atlas
+# Yonder: Riddles, Rare Hunts & an Explorer's Journal
 
-Explorer's Field Journal gives you riddles to solve, rare creatures to hunt
+Yonder gives you riddles to solve, rare creatures to hunt
 and a record of what you find along the way. Follow a clue to a forgotten
 grave, track down a rare you've never fought, or fill in your bestiary while
 levelling. Notes from an Explorers' League naturalist accompany your finds.
 
 For Classic Era, Hardcore, Season of Discovery, TBC Anniversary and World of
 Warcraft: Forever. One download covers all of them.
+
+Yonder was called Explorer's Field Journal until version 0.8.0: another
+addon used the same folder. To keep an old journal, copy
+`SavedVariables/FieldJournal.lua` to `Yonder.lua` in your `WTF` folder (the
+account's and each character's) before the first login with Yonder.
 
 ## What's in the journal
 
@@ -47,15 +52,14 @@ journal cannot record them there.
 
 ## Opening the journal
 
-Type `/journal` or `/fj`, or click the minimap button. The book opens on
-Expeditions. Settings are under **Options > AddOns > Explorer's Field
-Journal**, or `/journal settings`.
+Type `/yonder` or click the minimap button. The book opens on Expeditions.
+Settings are under **Options > AddOns > Yonder**, or `/yonder settings`.
 
-- `/journal welcome` reopens the welcome page.
-- `/journal where` shows your current map and position.
-- `/journal minimap` shows or hides the minimap button.
-- `/journal export` and `/journal import CODE` transfer settings.
-- `/journal reset` clears this character's journal after confirmation.
+- `/yonder welcome` reopens the welcome page.
+- `/yonder where` shows your current map and position.
+- `/yonder minimap` shows or hides the minimap button.
+- `/yonder export` and `/yonder import CODE` transfer settings.
+- `/yonder reset` clears this character's journal after confirmation.
 
 The full store description is in [addon/CURSEFORGE.md](addon/CURSEFORGE.md).
 [PLAN.md](PLAN.md) records the design decisions and expedition rules.
@@ -65,7 +69,7 @@ The full store description is in [addon/CURSEFORGE.md](addon/CURSEFORGE.md).
 ```bash
 bun run build      # Build Data_Classic.lua and Data_Forever.lua
 bun run check      # Run tests, Lua checks, data checks and both game simulations
-bun run package    # Create dist/FieldJournal-<version>.zip
+bun run package    # Create dist/Yonder-<version>.zip
 python3 scripts/expeditions.py   # Update locations after changing a riddle or hunt
 bun run kit:sync   # Copy the shared kit from ../addon-kit
 scripts/release.sh [--version X.Y.Z] [--hold] NOTES.md   # Tag and publish a release

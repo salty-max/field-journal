@@ -1,7 +1,7 @@
 {
-  "name": "field-journal",
+  "name": "yonder",
   "private": true,
-  "description": "A World of Warcraft addon: an Explorers' League field journal, a bestiary (then an atlas) that fills in as you travel",
+  "description": "Yonder, a World of Warcraft addon: riddles and rare hunts across Azeroth, and an explorer's journal of creatures, places, fish and herbs",
   "license": "MIT",
   "scripts": {
     "build": "bun scripts/build.ts",
@@ -9,9 +9,9 @@
     "package": "bun scripts/package.ts",
     "creatures": "python3 scripts/creatures.py",
     "flora": "python3 scripts/flora.py",
-    "lint:lua": "stylua --check addon && selene addon/FieldJournal",
+    "lint:lua": "stylua --check addon && selene addon/Yonder",
     "format:lua": "stylua addon",
-    "kit:sync": "bun ../addon-kit/sync.ts addon/FieldJournal",
-    "kit:check": "bun ../addon-kit/sync.ts --check addon/FieldJournal"
+    "kit:sync": "bun ../addon-kit/sync.ts addon/Yonder",
+    "kit:check": "bun ../addon-kit/sync.ts --check addon/Yonder"
   }
 }

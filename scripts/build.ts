@@ -1,6 +1,6 @@
 /**
  * content/<section>/<family>.md + data/creatures.json → the Bestiary's data,
- * one Lua file per game: addon/FieldJournal/Data_Classic.lua,
+ * one Lua file per game: addon/Yonder/Data_Classic.lua,
  * Data_Forever.lua (each game's TOC loads its own).
  *
  * A section (content/<section>/_section.md: title, type, order) holds the
@@ -248,8 +248,8 @@ const q = (s: string) => `"${s.replace(/\\/g, "\\\\").replace(/"/g, '\\"').repla
 // Ranks worth a mark: rare, rare elite, boss (elite and normal are the default).
 const RANK = { rare: "r", rareelite: "R", boss: "b" } as Record<string, string>;
 const GAMES = [
-  { client: "classic", out: join(ROOT, "addon/FieldJournal/Data_Classic.lua") },
-  { client: "forever", out: join(ROOT, "addon/FieldJournal/Data_Forever.lua") },
+  { client: "classic", out: join(ROOT, "addon/Yonder/Data_Classic.lua") },
+  { client: "forever", out: join(ROOT, "addon/Yonder/Data_Forever.lua") },
 ];
 
 // Rares by zone (data/rare-zones.json, from scripts/rare_zones.py), and the

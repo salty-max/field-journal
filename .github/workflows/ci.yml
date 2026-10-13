@@ -27,7 +27,7 @@ jobs:
           unzip -qo stylua.zip && unzip -qo selene.zip && chmod +x stylua selene
           echo "$HOME/bin" >> "$GITHUB_PATH"
       - name: Addon Lua formatted and linted
-        run: stylua --check addon && selene addon/FieldJournal
+        run: stylua --check addon && selene addon/Yonder
       - name: Paragraph markers
         run: bun test scripts/paragraphs.test.ts
       - name: Content builds, content files are up to date
@@ -45,4 +45,4 @@ jobs:
         with:
           args: -d -u
           pandoc: false
-      - run: diff -r addon/FieldJournal .release/FieldJournal
+      - run: diff -r addon/Yonder .release/Yonder

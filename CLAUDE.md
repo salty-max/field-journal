@@ -1,8 +1,18 @@
-# Explorer's Field Journal
+# Yonder
 
 A World of Warcraft addon: an Explorers' League field journal that fills in as
-a character travels. The **Expeditions** first (the book opens on them): each
-zone's riddles, solved on the spot, and its quarry, a rare to track down. The
+a character travels. Called Explorer's Field Journal (folder `FieldJournal`)
+until 0.8.0; renamed on 13 October 2026 because Field Journal: Forever (by
+Mangzane, on CurseForge since 29 September) ships the same folder, so the two
+replaced each other and shared a saved file. Yonder's globals are its own
+(`YonderChar`, `YonderSettings`, `Yonder*` frames, `/yonder`, `yonder:`
+links); at login `adopt` (Core.lua) takes an old journal whose saved files a
+player copied (`FieldJournal.lua` to `Yonder.lua`), and `oldSelf` warns while
+the old addon (told by its title) is still installed. No `FieldJournal` stub
+folder ships: it would overwrite the other addon. The repository and its local
+folder keep the name field-journal for now.
+
+The **Expeditions** first (the book opens on them): each zone's riddles, solved on the spot, and its quarry, a rare to track down. The
 **Bestiary**: every creature met, slain and looted, sorted into families with
 a League naturalist's note per family. The **Atlas**: the zones explored, a
 dwarf surveyor's note each. **Fish** and **Plants**, and the **Milestones**.
@@ -78,20 +88,20 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   family with `anytype: true`), fallback.
 - `scripts/build.ts`: sorts every creature into a family, reports overlaps
   (`--verbose`) and families without a note, writes
-  `addon/FieldJournal/Data_Classic.lua` and `Data_Forever.lua` (generated,
+  `addon/Yonder/Data_Classic.lua` and `Data_Forever.lua` (generated,
   committed; `--check` fails if stale).
-- `addon/FieldJournal` is one package for every game, installable as is: each game
-  loads its own TOC (`FieldJournal_Vanilla.toc`: Classic Era, 11509; `_TBC.toc`:
+- `addon/Yonder` is one package for every game, installable as is: each game
+  loads its own TOC (`Yonder_Vanilla.toc`: Classic Era, 11509; `_TBC.toc`:
   TBC Anniversary, 20506; `_Camelot.toc`: Forever, 16001), the same but for
   the interface and the game's data (`Data_Classic.lua` or
   `Data_Forever.lua`). `scripts/package.ts` (`bun run package`) checks they
-  agree and zips `dist/FieldJournal-<version>.zip` for a test in the game
+  agree and zips `dist/Yonder-<version>.zip` for a test in the game
   (`git describe`: the tag, or v0.7.3-2-g1234abc between two, -dirty if
-  changed); a release's is `FieldJournal-vX.Y.Z.zip`.
-- `addon/FieldJournal/`: `Core.lua` (the journal's schema; the events every
+  changed); a release's is `Yonder-vX.Y.Z.zip`.
+- `addon/Yonder/`: `Core.lua` (the journal's schema; the events every
   file listens to: `ns.on`, and `ns.onUnit` for a unit event heard for one
   unit only, each listener protected: its error reported, the others still
-  run; the login and its migrations; `/journal`), `Creatures.lua` (the
+  run; the login and its migrations; `/yonder`), `Creatures.lua` (the
   Bestiary's records: a creature met (target, mouseover) is a sighting
   (`seen`), it joins the book on its first kill, its family with it (the
   families met kept by their id, never their place in Data.lua's list, and
@@ -110,7 +120,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   chat line per new creature, a sound only for trophies), `Atlas.lua` (places
   explored from the fog lifted, `C_MapExplorationInfo`; deaths, close calls,
   flights, crossings, binds), `Flora.lua` (fish and herbs, read from the loot
-  window as the Bestiary's loot is; `/journal probe`: the next loot window as
+  window as the Bestiary's loot is; `/yonder probe`: the next loot window as
   each of its events finds it), `Achievements.lua`
   (milestones: tallies, every family of a type, feats, every rare of a zone,
   the Atlas's, the flora's and the expeditions'; a banner, the fanfare and a
@@ -161,14 +171,14 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   (`CheckInteractDistance`; never one only under the mouse), the night by
   the game's clock; outside combat,
   never from a taxi or as a ghost;
-  `/journal where`). `WorldMapPins.lua`
+  `/yonder where`). `WorldMapPins.lua`
   (deaths on the game's world map), `Hints.lua` (tooltip line),
   `Settings.lua` (each character's settings, the kit's profiles: a profile
-  "Name - Realm" in FieldJournalSettings, copied from another character of
-  this game or from a code `FJ1:...`, `/journal export` and `/journal import
+  "Name - Realm" in YonderSettings, copied from another character of
+  this game or from a code `YD1:...` (an old `FJ1:` taken too), `/yonder export` and `/yonder import
   CODE`; a character who kept a journal before starts from the account's old
   values; the Options page, its "Copy settings from"), `Welcome.lua` (the
-  kit's welcome page, once per character, `/journal welcome`: the logo,
+  kit's welcome page, once per character, `/yonder welcome`: the logo,
   `Media/Logo.tga` from `assets/logo.png` with magick, what the journal is,
   the choices, the sound in a select; the packages carry `Media/`),
   `Minimap.lua`. A game function is checked before use only

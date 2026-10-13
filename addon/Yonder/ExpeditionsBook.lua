@@ -271,7 +271,7 @@ local ASK = {
   map = "Shade its place on your world map? This riddle will no longer earn its silver seal.",
   track = "Track this quarry? Its haunts are shaded on your world map, and it will no longer earn its gold seal.",
 }
-StaticPopupDialogs.FIELDJOURNAL_HINT = {
+StaticPopupDialogs.YONDER_HINT = {
   text = "%s",
   button1 = YES,
   button2 = NO,
@@ -286,7 +286,7 @@ StaticPopupDialogs.FIELDJOURNAL_HINT = {
   whileDead = true,
   hideOnEscape = true,
 }
-local function ask(text, data) StaticPopup_Show("FIELDJOURNAL_HINT", text, nil, data) end
+local function ask(text, data) StaticPopup_Show("YONDER_HINT", text, nil, data) end
 
 -- The buttons under a riddle or a poster, side by side ({ text, click }).
 local BUTTON_W = 190
@@ -872,7 +872,7 @@ end
 local function build(b)
   book = b
   list = ui.newList(book.left, style, rows, true)
-  page = ui.newPage(book.sheet, "FieldJournalExpeditionsPage", 90, pairsPool)
+  page = ui.newPage(book.sheet, "YonderExpeditionsPage", 90, pairsPool)
   page.buttons, page.parts = {}, {}
   page.actions = CreateFrame("Frame", nil, page.child)
   page.actions:SetSize(WIDTH, 26)
@@ -899,7 +899,7 @@ ns.addTab(ns.TAB.expeditions, {
   },
 })
 
--- Open the book at a riddle (fieldjournal:x<id>: a link in chat).
+-- Open the book at a riddle (yonder:x<id>: a link in chat).
 function ns.openRiddle(id)
   local r = ns.riddleById[id]
   if not (r and ns.journal()) then return end
@@ -922,7 +922,7 @@ function ns.openExpeditionZone(uiMap)
   ns.openTab(ns.TAB.expeditions)
 end
 
--- Open the book at a quarry's poster (fieldjournal:q<creature id>).
+-- Open the book at a quarry's poster (yonder:q<creature id>).
 function ns.openQuarry(id)
   local q = ns.quarryById[id]
   if not (q and ns.journal()) then return end

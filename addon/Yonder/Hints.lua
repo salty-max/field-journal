@@ -24,16 +24,13 @@ local function addHint(tooltip)
     local ctype = not D.creatures[id] and UnitCreatureType(unit)
     local fileable = D.creatures[id] or (ctype and not ns.secret(ctype) and ns.knownType(ctype))
     if fileable and (ns.secret(canAttack) or canAttack) then
-      tooltip:AddLine("Field Journal: not yet recorded", unpack(NEW))
+      tooltip:AddLine("Yonder: not yet recorded", unpack(NEW))
     end
     return
   end
   local slain = rec.slain or 0
   local mark = rec.trophy and " (trophy)" or ""
-  tooltip:AddLine(
-    ("Field Journal: %s%s"):format(slain > 0 and ("%d slain"):format(slain) or "met", mark),
-    unpack(KNOWN)
-  )
+  tooltip:AddLine(("Yonder: %s%s"):format(slain > 0 and ("%d slain"):format(slain) or "met", mark), unpack(KNOWN))
 end
 
 if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall and Enum and Enum.TooltipDataType then

@@ -245,7 +245,7 @@ local function join(id, unit)
   if ns.option("chat") and key then
     print(
       PREFIX
-        .. ("|cffffd100|Hfieldjournal:c%d|h[%s]|h|r recorded (%s%s)."):format(
+        .. ("|cffffd100|Hyonder:c%d|h[%s]|h|r recorded (%s%s)."):format(
           id,
           rec.name or "?",
           ns.familyTitle(key),
@@ -331,7 +331,7 @@ local function slay(id, unit, guid)
   if rank and not rec.trophy then
     rec.trophy = { at = stamp.at, level = stamp.level, rank = rank }
     if ns.option("chat") then
-      print(PREFIX .. ("a trophy: |cffffd100|Hfieldjournal:c%d|h[%s]|h|r"):format(id, rec.name or "?"))
+      print(PREFIX .. ("a trophy: |cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, rec.name or "?"))
     end
     ns.playSound()
   end

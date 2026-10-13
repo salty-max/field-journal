@@ -1,4 +1,9 @@
-# Explorer's Field Journal
+# Yonder (Explorer's Field Journal until 0.8.0)
+
+> Renamed on 13 October 2026: Field Journal: Forever ships the same
+> `FieldJournal` folder. The plan below keeps its old names where it records
+> what was decided then (`FieldJournalChar` is `YonderChar` now, `/journal`
+> is `/yonder`).
 
 A World of Warcraft addon: an Explorers' League field journal that fills in as
 a character travels. Two books in one addon, each character keeping its own:
@@ -553,7 +558,7 @@ hunter / would know the hide, and wish its spirit peace.").
 | First | The Bestiary; the Atlas follows and reuses its position records. |
 | Entries | A page per family (wolves, kobolds, the Defias…), listing every creature met in it with its own record. |
 | Coverage | Beasts and monsters, humanoid peoples, rares and bosses (as trophies). Not critters or friendly NPCs. |
-| Name | Explorer's Field Journal (repository `salty-max/field-journal`). |
+| Name | Yonder since 13 October 2026 (Explorer's Field Journal before; repository `salty-max/field-journal`). |
 
 ## The Bestiary
 

@@ -504,7 +504,7 @@ ns.addTab(ns.TAB.bestiary, {
   build = function(b)
     book = b
     list = ui.newList(book.left, style, rows, true)
-    page = ui.newPage(book.sheet, "FieldJournalPage", 92, pairsPool)
+    page = ui.newPage(book.sheet, "YonderPage", 92, pairsPool)
     ns.pageEntries, ns.pageLoot = page.cards, page.itemPool -- for the tests
     -- On a creature's page, its family (the line under the title): a click
     -- opens the family's page.
@@ -533,7 +533,7 @@ function ns.openFamily(key)
   ns.openTab(ns.TAB.bestiary)
 end
 
--- Open the book at a creature's page (fieldjournal:c<creature id>).
+-- Open the book at a creature's page (yonder:c<creature id>).
 function ns.openCreature(id)
   local rec = ns.journal() and ns.journal().creatures[id]
   if not rec then return end

@@ -2,7 +2,7 @@
 --   luajit addon/test/sim.lua              (from the repo root): Classic
 --   FOREVER=1 luajit addon/test/sim.lua    the same on Forever's client: no
 --                                          combat log (kills from PARTY_KILL), secret values
-local DIR = "addon/FieldJournal/"
+local DIR = "addon/Yonder/"
 local FOREVER = os.getenv("FOREVER") == "1"
 function GetBuildInfo() return "1.15.8", "60000", "Oct 1 2026", FOREVER and 16001 or 11509 end
 -- Values the game hides from addons on Forever.
@@ -530,11 +530,11 @@ end
 
 -- ── load the addon ───────────────────────────────────────────────────────────
 local ns = {}
-assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("FieldJournal", ns)
+assert(loadfile(DIR .. (FOREVER and "Data_Forever.lua" or "Data_Classic.lua")))("Yonder", ns)
 -- The files in the order of the game's own TOC (its data file loaded above).
-for line in io.lines(DIR .. (FOREVER and "FieldJournal_Camelot.toc" or "FieldJournal_Vanilla.toc")) do
+for line in io.lines(DIR .. (FOREVER and "Yonder_Camelot.toc" or "Yonder_Vanilla.toc")) do
   local f = line:match("^([%w_]+%.lua)%s*$")
-  if f and not f:match("^Data_") then assert(loadfile(DIR .. f))("FieldJournal", ns) end
+  if f and not f:match("^Data_") then assert(loadfile(DIR .. f))("Yonder", ns) end
 end
 local D = ns.data
 -- The banners shown (what each said, its kind and id), and the kit's banners
@@ -554,7 +554,7 @@ do
 end
 -- A tab of the book clicked, by its name (ns.TAB).
 local function clickTab(n)
-  local tab = _G["FieldJournalFrameTab" .. n]
+  local tab = _G["YonderFrameTab" .. n]
   tab.scripts.OnClick(tab)
 end
 local function check(cond, msg)
@@ -566,19 +566,16 @@ local function said(text)
     if p:find(text, 1, true) then return p end
   end
 end
-local function rec(id) return FieldJournalChar.creatures[id] end
+local function rec(id) return YonderChar.creatures[id] end
 local function target(id)
   state.target = id
   fire("PLAYER_TARGET_CHANGED")
 end
 
 -- ── a session ────────────────────────────────────────────────────────────────
-FieldJournalChar = { guid = "Player-6113-0DEAD000", creatures = { [1131] = { name = "Winter Wolf" } }, families = {} }
+YonderChar = { guid = "Player-6113-0DEAD000", creatures = { [1131] = { name = "Winter Wolf" } }, families = {} }
 fire("PLAYER_LOGIN")
-check(
-  FieldJournalChar.guid == PLAYER and not rec(1131),
-  "a new character named like a deleted one starts a fresh journal"
-)
+check(YonderChar.guid == PLAYER and not rec(1131), "a new character named like a deleted one starts a fresh journal")
 check(
   ns.partyKill == FOREVER and FOREVER == not registered("COMBAT_LOG_EVENT_UNFILTERED"),
   FOREVER and "Forever: kills come from PARTY_KILL (no combat log)"
@@ -622,7 +619,7 @@ for _, kinds in ipairs({ D.flora.herbs, D.flora.fish }) do
 end
 check(true, "every compiled note is nonempty and free of editorial game markers")
 
-local function seen(id) return FieldJournalChar.seen and FieldJournalChar.seen[id] end
+local function seen(id) return YonderChar.seen and YonderChar.seen[id] end
 target(1131)
 check(
   seen(1131)
@@ -667,7 +664,7 @@ check(
 )
 check(rec(1131).first.zone == "Dun Morogh" and #rec(1131).places == 2, "… with what was seen of it before")
 check(
-  said("|cffffd100|Hfieldjournal:c1131|h[Winter Wolf]|h|r recorded (Wolves, a new family).") and sounds == 0,
+  said("|cffffd100|Hyonder:c1131|h[Winter Wolf]|h|r recorded (Wolves, a new family).") and sounds == 0,
   "… announced in chat with a link to its page (and its new family), without a sound"
 )
 printed = {}
@@ -772,12 +769,12 @@ target(1132)
 kill(1132)
 check(rec(1132).trophy and rec(1132).trophy.rank == "r", "slaying a rare (Timber) makes a trophy")
 check(
-  said("a trophy: |cffffd100|Hfieldjournal:c1132|h[Timber]|h|r") and played[3175],
+  said("a trophy: |cffffd100|Hyonder:c1132|h[Timber]|h|r") and played[3175],
   "… announced in chat, with the trophy sound"
 )
 check(
   ns.earnedMilestone("trophies-1")
-    and said("you have earned the milestone |cffffd100|Hfieldjournal:mtrophies-1|h[First Trophy]|h|r!")
+    and said("you have earned the milestone |cffffd100|Hyonder:mtrophies-1|h[First Trophy]|h|r!")
     and played[12891],
   "… and the first trophy earns a milestone, with the game's achievement fanfare and a chat line"
 )
@@ -789,7 +786,7 @@ end
 -- The banner card showing a title, if any.
 local function bannerShowing(title)
   for i = 1, 2 do
-    local f = _G["FieldJournalBanner" .. i]
+    local f = _G["YonderBanner" .. i]
     if f and f.shown and f.title.text == title then return f end
   end
 end
@@ -873,14 +870,14 @@ state.party = nil
 -- A journal from before (creatures joined on meeting): the ones never slain
 -- go back to what was seen, once.
 do
-  local saved = FieldJournalChar
-  FieldJournalChar = {
+  local saved = YonderChar
+  YonderChar = {
     guid = PLAYER,
     creatures = { [1131] = { name = "Winter Wolf", slain = 4 }, [1135] = { name = "Old Sighting" } },
     families = { [ns.familyKey(1131)] = { at = 1 }, ["only-met"] = { at = 2 } },
   }
   fire("PLAYER_LOGIN")
-  local j = FieldJournalChar
+  local j = YonderChar
   check(
     j.creatures[1131]
       and not j.creatures[1135]
@@ -890,7 +887,7 @@ do
       and j.killRule,
     "an older journal: creatures never slain become sightings, their families with them, once"
   )
-  FieldJournalChar = saved
+  YonderChar = saved
   fire("PLAYER_LOGIN")
 end
 
@@ -899,8 +896,8 @@ end
 -- by its id keeps its date, and one a creature has moved into (the Stagwings,
 -- hippogryphs once filed with the grazers) comes, dated by its first kill.
 do
-  local saved = FieldJournalChar
-  FieldJournalChar = {
+  local saved = YonderChar
+  YonderChar = {
     guid = PLAYER,
     killRule = true,
     creatures = {
@@ -910,7 +907,7 @@ do
     families = { wolves = { at = 50, level = 5 }, [3] = { at = 1 }, [17] = { at = 2 } },
   }
   fire("PLAYER_LOGIN")
-  local f = FieldJournalChar.families
+  local f = YonderChar.families
   check(
     ns.familyKey(1131) == "wolves"
       and ns.familyKey(5304) == "birds"
@@ -923,7 +920,49 @@ do
       and not f["stags-and-steeds"],
     "families kept by their id, rebuilt from the creatures at login: a moved creature brings its new family"
   )
-  FieldJournalChar = saved
+  YonderChar = saved
+  fire("PLAYER_LOGIN")
+end
+
+-- A journal kept under the addon's old name (Explorer's Field Journal): its
+-- saved files copied to Yonder's set the old globals; the login takes them,
+-- once, under the new names. Another addon's FieldJournalDB stays as it is.
+do
+  local saved, settings = YonderChar, YonderSettings
+  YonderChar, YonderSettings = nil, nil
+  FieldJournalChar = {
+    guid = PLAYER,
+    killRule = true,
+    creatures = { [1131] = { name = "Winter Wolf", slain = 2 } },
+    families = {},
+  }
+  FieldJournalSettings = { profiles = {} }
+  FieldJournalDB = { theirs = true }
+  fire("PLAYER_LOGIN")
+  check(
+    YonderChar
+      and YonderChar.creatures[1131].slain == 2
+      and FieldJournalChar == nil
+      and FieldJournalSettings == nil
+      and type(YonderSettings) == "table"
+      and FieldJournalDB.theirs,
+    "a journal kept under the old name (its saved files copied) is taken at login; another addon's is left alone"
+  )
+  FieldJournalDB = nil
+  -- the old addon itself still installed: said once a login
+  local titles = { FieldJournal = "Explorer's Field Journal" }
+  C_AddOns = { GetAddOnMetadata = function(name, key) return key == "Title" and titles[name] or nil end }
+  printed = {}
+  fire("PLAYER_LOGIN")
+  check(
+    printed[1] and printed[1]:find("still installed", 1, true),
+    "the old name still installed beside it: a word to remove its folder"
+  )
+  titles.FieldJournal, printed = "Field Journal", {}
+  fire("PLAYER_LOGIN")
+  check(not printed[1], "… never for another addon of that folder")
+  C_AddOns = nil
+  YonderChar, YonderSettings = saved, settings
   fire("PLAYER_LOGIN")
 end
 
@@ -958,7 +997,7 @@ state.explored[1450] = { texture(D.atlas.zones[1450].places[1]) }
 state.map, state.explored[1426], state.discovered[key(dun[1])] = 1426, { texture(dun[1]) }, true
 printed = {}
 fire("PLAYER_ENTERING_WORLD")
-local atlas = FieldJournalChar.atlas
+local atlas = YonderChar.atlas
 check(
   atlas.seeded and atlas.zones[1426].places[key(dun[1])].retro,
   "the places a character had already discovered fill its atlas quietly"
@@ -995,7 +1034,7 @@ check(done == 2 and total == #dun and total > 10, "a zone counts its places expl
 state.map = 1429
 fire("ZONE_CHANGED_NEW_AREA")
 check(
-  atlas.zones[1429] and said("|Hfieldjournal:z1429|h[Elwynn Forest]|h|r added to the atlas."),
+  atlas.zones[1429] and said("|Hyonder:z1429|h[Elwynn Forest]|h|r added to the atlas."),
   "a new zone is announced in chat, with a link"
 )
 state.map = 1411
@@ -1031,8 +1070,8 @@ check(
 )
 state.health, state.map, state.target = 100, 1426, nil
 -- An atlas recorded by 0.3.0, which trusted the overlays the map draws.
-local saved = FieldJournalChar.atlas
-FieldJournalChar.atlas = {
+local saved = YonderChar.atlas
+YonderChar.atlas = {
   zones = {
     [1450] = { retro = true, places = { [key(D.atlas.zones[1450].places[1])] = { retro = true } } },
     [1426] = {
@@ -1048,18 +1087,18 @@ FieldJournalChar.atlas = {
   crossings = {},
   binds = {},
 }
-FieldJournalChar.achievements["explore-1450"] = { at = clock, level = 3, retro = true }
+YonderChar.achievements["explore-1450"] = { at = clock, level = 3, retro = true }
 fire("PLAYER_ENTERING_WORLD")
-local migrated = FieldJournalChar.atlas
+local migrated = YonderChar.atlas
 check(
-  not migrated.zones[1450] and not FieldJournalChar.achievements["explore-1450"],
+  not migrated.zones[1450] and not YonderChar.achievements["explore-1450"],
   "an atlas from 0.3.0 loses the zones it never discovered, and their milestones"
 )
 check(
   migrated.zones[1426].places[key(dun[1])].retro and migrated.zones[1426].places[key(dun[2])].at,
   "… and keeps what is truly discovered"
 )
-FieldJournalChar.atlas = saved
+YonderChar.atlas = saved
 check(ns.earnedMilestone("crossing") and said("[Across the Sea]"), "crossing the sea earns a milestone")
 check(
   ns.milestoneVisible(ns.milestoneById["explore-1426"]) and not ns.milestoneVisible(ns.milestoneById["explore-1446"]),
@@ -1087,15 +1126,12 @@ end
 check(shownPins == 0, "… and only there")
 
 -- ── the book ─────────────────────────────────────────────────────────────────
-SlashCmdList.FIELDJOURNAL("")
-check(
-  FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.expeditions,
-  "/journal opens the book, at the Expeditions"
-)
+SlashCmdList.YONDER("")
+check(YonderFrame.shown and YonderFrame.selectedTab == ns.TAB.expeditions, "/yonder opens the book, at the Expeditions")
 clickTab(ns.TAB.bestiary)
 local creatures, families, slain = ns.counts()
 check(
-  FieldJournalFrame.count.text == ("%d creatures, %d families, %d slain"):format(creatures, families, slain),
+  YonderFrame.count.text == ("%d creatures, %d families, %d slain"):format(creatures, families, slain),
   "it counts what was recorded"
 )
 local function shown(text)
@@ -1124,7 +1160,7 @@ check(
 check(D.models[1131] and wolves[1131].portrait.display == D.models[1131], "… and its portrait, from its display id")
 check(shown("Winter Wolf") and shown("Starving Winter Wolf"), "an open family lists its creatures under it")
 -- The Bestiary's select, under the search box: its creatures' order.
-local filter = FieldJournalFrame.filter
+local filter = YonderFrame.filter
 check(filter.shown and filter.text:GetText() == "Sorted by name", "the Bestiary's select: by name at first")
 local function order()
   local out = {}
@@ -1133,23 +1169,23 @@ local function order()
   end
   return out
 end
-local slainBefore = FieldJournalChar.creatures[1133].slain
-FieldJournalChar.creatures[1133].slain = 99
+local slainBefore = YonderChar.creatures[1133].slain
+YonderChar.creatures[1133].slain = 99
 filter.scripts.OnClick(filter)
 filter.rows[2].scripts.OnClick(filter.rows[2])
 ns.openFamily(D.creatures[1131])
 check(order()[1] == 1133 and filter.text:GetText() == "The most slain first", "… the most slain first, chosen")
 filter.rows[1].scripts.OnClick(filter.rows[1])
-FieldJournalChar.creatures[1133].slain = slainBefore
+YonderChar.creatures[1133].slain = slainBefore
 shown("Winter Wolf").scripts.OnClick(shown("Winter Wolf"))
 local record = {}
 for _, p in ipairs(ns.pagePairs) do
   if p.shown then record[p.label.text] = p.value.text end
 end
 check(
-  FieldJournalPage.title.text == "Winter Wolf"
-    and FieldJournalPage.portrait.display == D.models[1131]
-    and FieldJournalPage.sub.text:find("Wolves", 1, true),
+  YonderPage.title.text == "Winter Wolf"
+    and YonderPage.portrait.display == D.models[1131]
+    and YonderPage.sub.text:find("Wolves", 1, true),
   "a creature has its own page: portrait, name, family"
 )
 check(
@@ -1159,13 +1195,13 @@ check(
   "… and its record: when and where it was met, its kills"
 )
 local creatureFigures = {}
-for _, t in ipairs(FieldJournalPage.tiles) do
+for _, t in ipairs(YonderPage.tiles) do
   if t.shown then creatureFigures[t.label.text] = t.value.text end
 end
 check(
   creatureFigures.slain == tostring(rec(1131).slain)
-    and FieldJournalPage.modelFrame.shown
-    and FieldJournalPage.modelFrame.creature.display == D.models[1131],
+    and YonderPage.modelFrame.shown
+    and YonderPage.modelFrame.creature.display == D.models[1131],
   "… its figures, and the creature itself turning in its frame"
 )
 check(
@@ -1174,36 +1210,36 @@ check(
 )
 check(not ns.pageEntries[1].shown, "… without the family's entries")
 shown("Wolves").scripts.OnClick(shown("Wolves"))
-check(FieldJournalPage.title.text == "Wolves" and shown("Winter Wolf"), "the family's row opens its page again")
+check(YonderPage.title.text == "Wolves" and shown("Winter Wolf"), "the family's row opens its page again")
 shown("Wolves").scripts.OnClick(shown("Wolves"))
 check(not shown("Winter Wolf"), "… and, once open, folds it")
 wolves[1132].scripts.OnClick(wolves[1132])
-check(FieldJournalPage.title.text:find("^Timber"), "an entry on a family's page opens the creature's")
-FieldJournalSearch:SetText("timber")
+check(YonderPage.title.text:find("^Timber"), "an entry on a family's page opens the creature's")
+YonderSearch:SetText("timber")
 ns.refresh()
 check(
   shown("Wolves") and not shown("Ice Trolls") and not shown("Winter Wolf"),
   "search finds a family by a creature's name, with just the creatures found"
 )
-FieldJournalSearch:SetText("")
+YonderSearch:SetText("")
 ns.refresh()
 shown("Beasts").scripts.OnClick(shown("Beasts"))
-check(not shown("Wolves") and FieldJournalChar.collapsed.beasts, "a click on a type folds it")
+check(not shown("Wolves") and YonderChar.collapsed.beasts, "a click on a type folds it")
 shown("Beasts").scripts.OnClick(shown("Beasts"))
 check(shown("Wolves"), "… and unfolds it")
-FieldJournalFrame:Hide()
-linkHandlers.fieldjournal("fieldjournal:c1132")
+YonderFrame:Hide()
+linkHandlers.yonder("yonder:c1132")
 check(
-  FieldJournalFrame.shown and FieldJournalPage.title.text:find("^Timber"),
+  YonderFrame.shown and YonderPage.title.text:find("^Timber"),
   "a link in chat opens the book at the creature's page"
 )
 check(
-  FieldJournalPage.portrait.ring.desaturated and FieldJournalPage.portrait.ring.vertex[1] == 1,
+  YonderPage.portrait.ring.desaturated and YonderPage.portrait.ring.vertex[1] == 1,
   "… Timber, a rare: its ring silver, as the target frame marks a rare"
 )
-linkHandlers.fieldjournal("fieldjournal:murlocs")
+linkHandlers.yonder("yonder:murlocs")
 check(
-  FieldJournalPage.title.text == "Murlocs",
+  YonderPage.title.text == "Murlocs",
   "… a family's link by its id, even one beginning like a creature's or a milestone's"
 )
 
@@ -1218,24 +1254,22 @@ C_Map.GetMapArtLayerTextures = function()
   end
   return t
 end
-FieldJournalFrame:Hide()
-linkHandlers.fieldjournal("fieldjournal:z1426")
+YonderFrame:Hide()
+linkHandlers.yonder("yonder:z1426")
 local atlasRecord = {}
 for _, p in ipairs(ns.atlasPairs) do
   if p.shown then atlasRecord[p.label.text] = p.value.text end
 end
 check(
-  FieldJournalFrame.selectedTab == ns.TAB.atlas
-    and FieldJournalAtlasPage.title.text == "Dun Morogh"
-    and FieldJournalAtlasPage.map.shown,
+  YonderFrame.selectedTab == ns.TAB.atlas and YonderAtlasPage.title.text == "Dun Morogh" and YonderAtlasPage.map.shown,
   "a zone's link opens the Atlas at its page, with its map"
 )
 check(
-  FieldJournalAtlasPage.note.shown and FieldJournalAtlasPage.note.text:find("^Snow, stone and dwarves"),
+  YonderAtlasPage.note.shown and YonderAtlasPage.note.text:find("^Snow, stone and dwarves"),
   "… the surveyor's note"
 )
 local placeChips = {}
-for _, b in ipairs(FieldJournalAtlasPage.chipPool) do
+for _, b in ipairs(YonderAtlasPage.chipPool) do
   if b.shown then placeChips[b.text.text] = b end
 end
 check(
@@ -1243,17 +1277,15 @@ check(
   "… the places explored, by name, none other"
 )
 local figures = {}
-for _, t in ipairs(FieldJournalAtlasPage.tiles) do
+for _, t in ipairs(YonderAtlasPage.tiles) do
   if t.shown then figures[t.label.text] = t.value.text end
 end
 check(figures["places found"] == ("2/%d"):format(#dun), "… and its figures: the places explored, the visits")
 placeChips[dun[1][1]].scripts.OnClick(placeChips[dun[1][1]])
-check(FieldJournalAtlasPage.map.pick.shown, "… a place's name clicked: its area outlined on the map")
-check(FieldJournalAtlasPage.sub.text:find(("2 of %d places explored"):format(#dun), 1, true), "… and how many remain")
+check(YonderAtlasPage.map.pick.shown, "… a place's name clicked: its area outlined on the map")
+check(YonderAtlasPage.sub.text:find(("2 of %d places explored"):format(#dun), 1, true), "… and how many remain")
 check(
-  FieldJournalFrame.filter.shown
-    and FieldJournalFrame.filter.text:GetText() == "Every land"
-    and #FieldJournalFrame.filter.options >= 2,
+  YonderFrame.filter.shown and YonderFrame.filter.text:GetText() == "Every land" and #YonderFrame.filter.options >= 2,
   "the Atlas's select: every land, or a continent entered"
 )
 local zoneRows = {}
@@ -1269,7 +1301,7 @@ check(
   "a zone's row carries a bar and a count of its places"
 )
 do
-  local f = FieldJournalFrame.filter
+  local f = YonderFrame.filter
   local ek
   for k, o in ipairs(f.options) do
     if o.text == "Eastern Kingdoms" then ek = k end
@@ -1292,7 +1324,7 @@ for _, p in ipairs(ns.atlasPairs) do
   if p.shown and p.label.text == "Discovered" then discoveredLine = p.value.text end
 end
 check(
-  FieldJournalAtlasPage.map.pick.shown and discoveredLine and discoveredLine:find("level 3", 1, true),
+  YonderAtlasPage.map.pick.shown and discoveredLine and discoveredLine:find("level 3", 1, true),
   "a click on a place picks it out on the zone's map, with the day and level it was found"
 )
 zoneRows["Dun Morogh"].scripts.OnClick(zoneRows["Dun Morogh"])
@@ -1301,8 +1333,8 @@ local placeShown = false
 for _, r in ipairs(ns.atlasRows) do
   if r.shown and r.kind == "place" and r.zone == 1426 then placeShown = true end
 end
-check(not placeShown and FieldJournalChar.atlasOpen[1426] == false, "the open zone's row folds it")
-FieldJournalSearch:SetText(dun[2][1]:sub(1, 5))
+check(not placeShown and YonderChar.atlasOpen[1426] == false, "the open zone's row folds it")
+YonderSearch:SetText(dun[2][1]:sub(1, 5))
 ns.refresh()
 zoneRows = {}
 for _, r in ipairs(ns.atlasRows) do
@@ -1312,14 +1344,14 @@ check(
   zoneRows["Dun Morogh"] and zoneRows[dun[2][1]] and not zoneRows.Durotar and not zoneRows.Travels,
   "search finds places by name, with their zone"
 )
-FieldJournalSearch:SetText("")
+YonderSearch:SetText("")
 ns.refresh()
 zoneRows = {}
 for _, r in ipairs(ns.atlasRows) do
   if r.shown then zoneRows[r.text.text] = r end
 end
 zoneRows.Travels.scripts.OnClick(zoneRows.Travels)
-check(FieldJournalAtlasPage.title.text == "Travels", "the travels page sums them up")
+check(YonderAtlasPage.title.text == "Travels", "the travels page sums them up")
 clickTab(ns.TAB.bestiary)
 
 -- Milestones.
@@ -1337,29 +1369,29 @@ check(
 )
 local done, need = ns.milestoneById["zone-1426"].progress()
 check(done == 1 and need >= 5, "a zone's milestone counts its rares slain")
-FieldJournalFrame:Hide()
-linkHandlers.fieldjournal("fieldjournal:mtrophies-1")
+YonderFrame:Hide()
+linkHandlers.yonder("yonder:mtrophies-1")
 local row
 for _, r in ipairs(ns.milestoneRows) do
   if r.shown and r.id == "trophies-1" then row = r end
 end
 check(
-  FieldJournalFrame.shown
-    and FieldJournalFrame.selectedTab == ns.TAB.milestones
+  YonderFrame.shown
+    and YonderFrame.selectedTab == ns.TAB.milestones
     and row
     and row.status.text:find("^Level")
     and row.picture.ring.vertex[2] == ns.kit.RINGS.gold[1][2]
     and not row.picture.ring.desaturated,
   "a milestone's link opens the Milestones tab, the milestone earned with its level, its ring gold"
 )
-check(FieldJournalFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
+check(YonderFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
 clickTab(ns.TAB.bestiary)
 check(
-  FieldJournalFrame.selectedTab == ns.TAB.bestiary and FieldJournalPage and shown("Wolves"),
+  YonderFrame.selectedTab == ns.TAB.bestiary and YonderPage and shown("Wolves"),
   "the Bestiary tab brings the book back"
 )
 -- A journal from before milestones: what it deserves is recorded quietly.
-FieldJournalChar.achievements = nil
+YonderChar.achievements = nil
 printed = {}
 ns.checkMilestones(true)
 check(ns.earnedMilestone("trophies-1").retro and #printed == 0, "milestones already deserved are recorded quietly")
@@ -1370,7 +1402,7 @@ local function hover(id)
   tipHooks.OnTooltipSetUnit(GameTooltip)
   return table.concat(tipLines, "|")
 end
-check(hover(1123) == "Field Journal: not yet recorded", "a creature not yet met says so on its tooltip")
+check(hover(1123) == "Yonder: not yet recorded", "a creature not yet met says so on its tooltip")
 check(hover(1124) == "", "… but not one that can't be fought (a foe still friendly)")
 check(hover(1132):find("1 slain (trophy)", 1, true), "… one met tells how many were slain")
 if FOREVER then
@@ -1380,7 +1412,7 @@ if FOREVER then
 end
 
 tipLines = {}
-FieldJournalMinimapButton.scripts.OnEnter(FieldJournalMinimapButton)
+YonderMinimapButton.scripts.OnEnter(YonderMinimapButton)
 check(table.concat(tipLines, "|"):find("creatures in", 1, true), "the minimap button's tooltip shows the counts")
 
 -- ── Fish and Plants ──────────────────────────────────────────────────────────
@@ -1406,8 +1438,8 @@ local function lootWindow(slots)
   fire("LOOT_OPENED", true) -- the game can report a window twice
   fire("LOOT_CLOSED")
 end
-local fish = function(id) return FieldJournalChar.fish and FieldJournalChar.fish[id] end
-local plant = function(id) return FieldJournalChar.plants and FieldJournalChar.plants[id] end
+local fish = function(id) return YonderChar.fish and YonderChar.fish[id] end
+local plant = function(id) return YonderChar.plants and YonderChar.plants[id] end
 state.map, state.sub = 1429, "Crystal Lake"
 fishing = true
 lootWindow({ { link(6291, "Raw Brilliant Smallfish"), { BOBBER, 1 } } })
@@ -1423,7 +1455,7 @@ check(
   "a catch in open water: where, when, by day, once per window"
 )
 check(
-  said("a new catch: |cffffd100|Hfieldjournal:f6291|h[Raw Brilliant Smallfish]|h|r"),
+  said("a new catch: |cffffd100|Hyonder:f6291|h[Raw Brilliant Smallfish]|h|r"),
   "… announced in chat, with a link"
 )
 state.hour = 19 -- night from 6 PM, the Nightfin's hours
@@ -1446,7 +1478,7 @@ check(
   bloom and bloom.gathered == 2 and bloom.n == 2 and bloom.first.how == "gathered" and bloom.zones[1429] == 2,
   "an herb from its node: gathered, the stack counted"
 )
-check(said("a new herb: |cffffd100|Hfieldjournal:h2447|h[Peacebloom]|h|r"), "… announced in chat")
+check(said("a new herb: |cffffd100|Hyonder:h2447|h[Peacebloom]|h|r"), "… announced in chat")
 lootWindow({ { link(2447, "Peacebloom"), { creature(1131), 1 } } })
 check(bloom.looted == 1 and bloom.n == 3, "the same herb from a corpse: looted")
 state.bags = { [1] = 2447, [2] = 3820 }
@@ -1475,14 +1507,14 @@ local function pairNamed(label)
     if p.shown and p.label.text == label then return p.value.text end
   end
 end
-FieldJournalFrame:Show()
+YonderFrame:Show()
 clickTab(ns.TAB.fish)
-fpage = FieldJournalFloraPage
+fpage = YonderFloraPage
 check(
-  FieldJournalFrame.selectedTab == ns.TAB.fish
+  YonderFrame.selectedTab == ns.TAB.fish
     and fpage.shown
     and fpage.title.text == "The catch so far"
-    and FieldJournalFrame.count.text == "3 kinds of fish, 4 caught",
+    and YonderFrame.count.text == "3 kinds of fish, 4 caught",
   "the Fish tab: the catch so far"
 )
 check(
@@ -1518,7 +1550,7 @@ check(
 local westfall = chipNamed("Westfall")
 westfall.scripts.OnClick(westfall)
 check(
-  FieldJournalFrame.selectedTab == ns.TAB.atlas and FieldJournalAtlasPage.title.text == "Westfall",
+  YonderFrame.selectedTab == ns.TAB.atlas and YonderAtlasPage.title.text == "Westfall",
   "… a zone where it bites opens its Atlas page"
 )
 clickTab(ns.TAB.fish)
@@ -1529,7 +1561,7 @@ check(
 )
 clickTab(ns.TAB.plants)
 check(
-  FieldJournalFrame.selectedTab == ns.TAB.plants
+  YonderFrame.selectedTab == ns.TAB.plants
     and fpage.title.text == "The herbs so far"
     and rowNamed("Apprentice")
     and rowNamed("Peacebloom").count.text == "3"
@@ -1549,19 +1581,14 @@ check(
   fpage.note.shown and fpage.note.text == table.concat(D.flora.herbs[2447].note, "\n\n"),
   "… and the naturalist's note"
 )
-FieldJournalFrame:Hide()
-linkHandlers.fieldjournal("fieldjournal:f6291")
+YonderFrame:Hide()
+linkHandlers.yonder("yonder:f6291")
 check(
-  FieldJournalFrame.shown
-    and FieldJournalFrame.selectedTab == ns.TAB.fish
-    and fpage.title.text == "Raw Brilliant Smallfish",
+  YonderFrame.shown and YonderFrame.selectedTab == ns.TAB.fish and fpage.title.text == "Raw Brilliant Smallfish",
   "a catch's link opens its page"
 )
-linkHandlers.fieldjournal("fieldjournal:h3820")
-check(
-  FieldJournalFrame.selectedTab == ns.TAB.plants and fpage.title.text == "Stranglekelp",
-  "an herb's link opens its page"
-)
+linkHandlers.yonder("yonder:h3820")
+check(YonderFrame.selectedTab == ns.TAB.plants and fpage.title.text == "Stranglekelp", "an herb's link opens its page")
 clickTab(ns.TAB.fish)
 fishing = true
 lootWindow({ { link(13755, "Winter Squid"), { BOBBER, 1 } } })
@@ -1571,26 +1598,26 @@ rowNamed("Winter Squid").scripts.OnClick(rowNamed("Winter Squid"))
 check(fpage.sub.text == "A fish of the waters  -  only in winter", "… a seasonal one says its season")
 -- A character who never fished: the Fish tab is empty, never its herbs.
 do
-  local caught = FieldJournalChar.fish
-  FieldJournalChar.fish = nil
+  local caught = YonderChar.fish
+  YonderChar.fish = nil
   clickTab(ns.TAB.plants)
   clickTab(ns.TAB.fish)
   check(
     fpage.title.text == "The catch so far"
-      and FieldJournalFrame.count.text == "0 kinds of fish, 0 caught"
+      and YonderFrame.count.text == "0 kinds of fish, 0 caught"
       and not rowNamed("Peacebloom")
       and not rowNamed("Stranglekelp"),
     "a character with herbs and no fish: the Fish tab shows no herb"
   )
-  FieldJournalChar.fish = { [6291] = caught[6291] }
+  YonderChar.fish = { [6291] = caught[6291] }
   clickTab(ns.TAB.plants)
   clickTab(ns.TAB.fish)
-  check(FieldJournalFrame.count.text == "1 kind of fish, 1 caught", "… one kind is one kind")
-  FieldJournalChar.fish = caught
+  check(YonderFrame.count.text == "1 kind of fish, 1 caught", "… one kind is one kind")
+  YonderChar.fish = caught
 end
 clickTab(ns.TAB.bestiary)
-check(not fpage.shown and FieldJournalPage.shown, "the Bestiary tab hides them again")
-FieldJournalFrame:Hide()
+check(not fpage.shown and YonderPage.shown, "the Bestiary tab hides them again")
+YonderFrame:Hide()
 
 -- Their milestones, and the Atlas's zone pages.
 check(
@@ -1621,12 +1648,12 @@ for _, m in ipairs(ns.milestones) do
   if m.id:find("^fish%-continent%-") and ns.milestoneVisible(m) then anyContinent = true end
 end
 check(anyContinent, "every fish of a continent's waters: shown once one is caught there")
-linkHandlers.fieldjournal("fieldjournal:z1429")
+linkHandlers.yonder("yonder:z1429")
 local found, foundText = {}, {}
-for _, b in ipairs(FieldJournalAtlasPage.itemPool) do
+for _, b in ipairs(YonderAtlasPage.itemPool) do
   if b.shown then found[b.name] = true end
 end
-for _, p in ipairs(FieldJournalAtlasPage.paragraphs) do
+for _, p in ipairs(YonderAtlasPage.paragraphs) do
   if p.shown then table.insert(foundText, p.text) end
 end
 foundText = table.concat(foundText, "\n")
@@ -1638,7 +1665,7 @@ check(
   "a zone's Atlas page: the herbs and fish found there as their icons, the rest counted"
 )
 local expeditionCard
-for _, c in ipairs(FieldJournalAtlasPage.cards) do
+for _, c in ipairs(YonderAtlasPage.cards) do
   if c.shown and c.name.text == "The Elwynn Forest Expedition" then expeditionCard = c end
 end
 check(
@@ -1647,10 +1674,10 @@ check(
 )
 expeditionCard.scripts.OnClick(expeditionCard)
 check(
-  FieldJournalFrame.selectedTab == ns.TAB.expeditions and FieldJournalExpeditionsPage.title.text == "Elwynn Forest",
+  YonderFrame.selectedTab == ns.TAB.expeditions and YonderExpeditionsPage.title.text == "Elwynn Forest",
   "… a click opens the expedition's own page"
 )
-FieldJournalFrame:Hide()
+YonderFrame:Hide()
 
 -- (auto loot or a fast-loot addon: the slots emptied before the window opens)
 fishing = true
@@ -1674,14 +1701,14 @@ ns.on("FJ_TEST_EVENT", function() heard = true end)
 fire("FJ_TEST_EVENT")
 errorHandler = function(e) error(e, 0) end
 check(heard and reported and reported:find("a listener's fault"), "a listener's error is reported, the next still runs")
--- (/journal probe: the next loot window, as each event finds it)
-SlashCmdList.FIELDJOURNAL("probe")
+-- (/yonder probe: the next loot window, as each event finds it)
+SlashCmdList.YONDER("probe")
 fishing = true
 lootWindow({ { link(6291, "Raw Brilliant Smallfish"), { BOBBER, 1 } } })
 fishing = false
 check(
   said("LOOT_READY: 1 slots, fishing: Raw Brilliant Smallfish (GameObject)") and said("LOOT_CLOSED"),
-  "/journal probe: the next loot window described, event by event"
+  "/yonder probe: the next loot window described, event by event"
 )
 
 -- ── the expeditions ──────────────────────────────────────────────────────────
@@ -1733,7 +1760,7 @@ check(
   book
     and book.at
     and said(
-      "a riddle read aright: |cffffd100|Hfieldjournal:xthe-barrens-ratchet-book|h[Exile of the High Elves]|h|r, The Barrens, with a gold seal"
+      "a riddle read aright: |cffffd100|Hyonder:xthe-barrens-ratchet-book|h[Exile of the High Elves]|h|r, The Barrens, with a gold seal"
     ),
   "the book read where it stands: solved, with a gold seal and a line in chat"
 )
@@ -1750,7 +1777,7 @@ check(
 -- Shown, among the game's alerts; a click opens the riddle, the cross closes it.
 banners:clear()
 ns.toast("riddle", "the-barrens-ratchet-book")
-local card = FieldJournalBanner1
+local card = YonderBanner1
 check(
   card.shown and card.joined and card.title.text == "Exile of the High Elves" and card.medal.shown,
   "… shown among the game's alerts"
@@ -1758,17 +1785,17 @@ check(
 card.close.scripts.OnClick(card.close)
 check(not card.shown, "… closed by its cross")
 ns.toast("riddle", "the-barrens-ratchet-book")
-FieldJournalFrame:Hide()
+YonderFrame:Hide()
 card.scripts.OnClick(card, "LeftButton")
 check(
-  not card.shown and FieldJournalFrame.shown and FieldJournalFrame.selectedTab == ns.TAB.expeditions,
+  not card.shown and YonderFrame.shown and YonderFrame.selectedTab == ns.TAB.expeditions,
   "… a click opens it in the journal"
 )
 local toastsBefore = #toasted
-SlashCmdList.FIELDJOURNAL("toast")
+SlashCmdList.YONDER("toast")
 check(
   #toasted == toastsBefore + 1 and said("among the game's own alerts"),
-  "/journal toast shows a riddle's banner, and where"
+  "/yonder toast shows a riddle's banner, and where"
 )
 -- A gesture: the Night Watch's lonely post, after asking for the clue (the silver seal).
 ns.takeHint("duskwood-callahan", 1)
@@ -1809,7 +1836,7 @@ check(
 )
 -- The hunt: Commander Felstrom's poster, tracked (its haunts on the map, the
 -- gold seal lost), untracked, brought down.
-linkHandlers.fieldjournal("fieldjournal:q771")
+linkHandlers.yonder("yonder:q771")
 local function rowsOf()
   local out = {}
   for _, x in ipairs(ns.expeditionPairs) do
@@ -1818,15 +1845,15 @@ local function rowsOf()
   return out
 end
 check(
-  FieldJournalExpeditionsPage.title.text == "Commander Felstrom" and rowsOf()["Its haunts"] == "untracked",
+  YonderExpeditionsPage.title.text == "Commander Felstrom" and rowsOf()["Its haunts"] == "untracked",
   "a quarry's link opens its poster, untracked"
 )
-local poster = FieldJournalExpeditionsPage.modelFrame
+local poster = YonderExpeditionsPage.modelFrame
 check(
-  poster and poster.shown and poster.creature.fogFar == 0.1 and not FieldJournalExpeditionsPage.portrait.badge.shown,
+  poster and poster.shown and poster.creature.fogFar == 0.1 and not YonderExpeditionsPage.portrait.badge.shown,
   "… still at large: only its shape in the frame, its portrait in shadow"
 )
-local track = FieldJournalExpeditionsPage.buttons[1]
+local track = YonderExpeditionsPage.buttons[1]
 track.scripts.OnClick(track)
 check(
   state.popup:find("gold seal") and ns.huntTarget() and ns.huntTarget().id == 771 and ns.huntRecord(771).tracked,
@@ -1843,9 +1870,7 @@ kill(771)
 check(
   ns.quarryDown(771)
     and ns.huntSeal(ns.huntRecord(771)) == "plain"
-    and said(
-      "a quarry brought down: |cffffd100|Hfieldjournal:q771|h[Commander Felstrom]|h|r, Duskwood, with a plain seal"
-    ),
+    and said("a quarry brought down: |cffffd100|Hyonder:q771|h[Commander Felstrom]|h|r, Duskwood, with a plain seal"),
   "a quarry brought down as the Bestiary tells the kill: tracked once, a plain seal"
 )
 local quarryToast = toastOf("quarry", 771)
@@ -1963,7 +1988,7 @@ check(
   "the map's hint: a circle on the zone's world map, the riddle's first line on it"
 )
 -- The book: the Expeditions tab, a riddle's page, the seals and the margin.
-linkHandlers.fieldjournal("fieldjournal:xthe-barrens-ratchet-book")
+linkHandlers.yonder("yonder:xthe-barrens-ratchet-book")
 local function pageRows()
   local out = {}
   for _, x in ipairs(ns.expeditionPairs) do
@@ -1971,17 +1996,17 @@ local function pageRows()
   end
   return out
 end
-local parts = FieldJournalExpeditionsPage.parts
+local parts = YonderExpeditionsPage.parts
 local function paragraphs()
   local out = {}
-  for _, p in ipairs(FieldJournalExpeditionsPage.paragraphs) do
+  for _, p in ipairs(YonderExpeditionsPage.paragraphs) do
     if p.shown then table.insert(out, p.text) end
   end
   return table.concat(out, "\n")
 end
 check(
-  FieldJournalFrame.selectedTab == ns.TAB.expeditions
-    and FieldJournalExpeditionsPage.title.text == "Exile of the High Elves"
+  YonderFrame.selectedTab == ns.TAB.expeditions
+    and YonderExpeditionsPage.title.text == "Exile of the High Elves"
     and parts.verse.shown
     and parts.seal.shown
     and parts.seal.name.text == "The gold seal"
@@ -1991,7 +2016,7 @@ check(
     and paragraphs():find(ns.riddleNote(ns.riddleById["the-barrens-ratchet-book"]), 1, true),
   "a riddle's link opens its page: its verse, its answer, the gold seal, the note and the margin"
 )
-local header = FieldJournalExpeditionsPage.portrait
+local header = YonderExpeditionsPage.portrait
 local gold = ns.kit.RINGS.gold[1]
 check(
   rawget(header.tex, "display") == nil
@@ -2017,7 +2042,7 @@ ns.openRiddle("elwynn-forest-cats")
 rows = pageRows()
 local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
 check(
-  FieldJournalExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-cats"].tier],
+  YonderExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-cats"].tier],
   "an unsolved riddle's page: its tier, never its answer"
 )
 check(rows["The map"] and rows["The map"]:find("is shaded"), "… the map asked for")
@@ -2029,7 +2054,7 @@ check(listed.Duskwood and listed["Watcher Callahan"], "the list: the zones enter
 -- Asking from the page: the game's confirmation, then the clue.
 local vigil = ns.riddleById["elwynn-forest-heroes-vigil"]
 ns.openRiddle(vigil.id)
-local ask = FieldJournalExpeditionsPage.buttons[1]
+local ask = YonderExpeditionsPage.buttons[1]
 check(ask and ask.shown, "an unsolved riddle's page offers its clue")
 ask.scripts.OnClick(ask)
 check(
@@ -2037,10 +2062,10 @@ check(
   "… asked for after the game's confirmation"
 )
 -- Pinned to the screen: a card of its own, dragged anywhere, closed by its cross.
-local pinIt = FieldJournalExpeditionsPage.buttons[2]
+local pinIt = YonderExpeditionsPage.buttons[2]
 check(pinIt.shown and pinIt.text == "Pin to the screen", "an unsolved riddle's page offers to pin it to the screen")
 pinIt.scripts.OnClick(pinIt)
-local pinCard = FieldJournalPinnedCard
+local pinCard = YonderPinnedCard
 check(
   ns.pinned() == vigil.id
     and pinCard.shown
@@ -2052,7 +2077,7 @@ check(
 )
 pinCard.scripts.OnDragStop(pinCard)
 check(ns.expeditions().pinAt ~= nil, "… dragged, it stays where it was left")
-check(FieldJournalExpeditionsPage.buttons[2].text == "Unpin from the screen", "… and the page offers to unpin it")
+check(YonderExpeditionsPage.buttons[2].text == "Unpin from the screen", "… and the page offers to unpin it")
 pinCard.close.scripts.OnClick(pinCard.close)
 check(not pinCard.shown and ns.pinned() == nil, "… closed by its cross, unpinned")
 -- A zone's page: its riddles in words, a card for each riddle and its
@@ -2061,40 +2086,37 @@ for _, r in ipairs(ns.expeditionRows) do
   if r.shown and r.zone == 1431 then r.scripts.OnClick(r) end
 end
 local cards = {}
-for _, c in ipairs(FieldJournalExpeditionsPage.cards) do
+for _, c in ipairs(YonderExpeditionsPage.cards) do
   if c.shown then cards[c.name.text] = c end
 end
 check(
-  FieldJournalExpeditionsPage.title.text == "Duskwood"
-    and FieldJournalExpeditionsPage.note.text:find("^Duskwood keeps %a+ riddles for you")
+  YonderExpeditionsPage.title.text == "Duskwood"
+    and YonderExpeditionsPage.note.text:find("^Duskwood keeps %a+ riddles for you")
     and cards["Watcher Callahan"]
     and cards["Commander Felstrom"],
   "a zone's page: its riddles in words, a card for each riddle and its quarry"
 )
-local map = FieldJournalExpeditionsPage.map
+local map = YonderExpeditionsPage.map
 check(map.shown and map.pins[1] and map.pins[1].shown, "… its map, where each riddle was read")
 cards["Commander Felstrom"].scripts.OnClick(cards["Commander Felstrom"])
 check(
-  FieldJournalExpeditionsPage.title.text == "Commander Felstrom"
-    and FieldJournalExpeditionsPage.modelFrame.shown
-    and rawget(FieldJournalExpeditionsPage.modelFrame.creature, "fogFar") == nil
-    and FieldJournalExpeditionsPage.parts.seal.name.text == "No seal",
+  YonderExpeditionsPage.title.text == "Commander Felstrom"
+    and YonderExpeditionsPage.modelFrame.shown
+    and rawget(YonderExpeditionsPage.modelFrame.creature, "fogFar") == nil
+    and YonderExpeditionsPage.parts.seal.name.text == "No seal",
   "… a card opens its page: the quarry's poster, brought down, the creature itself turning in its frame"
 )
-FieldJournalFrame:Hide()
-SlashCmdList.FIELDJOURNAL("where")
-check(said("(map 1434): 24.70, 8.93."), "/journal where tells the map and the position")
+YonderFrame:Hide()
+SlashCmdList.YONDER("where")
+check(said("(map 1434): 24.70, 8.93."), "/yonder where tells the map and the position")
 
-SlashCmdList.FIELDJOURNAL("reset yes")
-check(
-  next(FieldJournalChar.creatures) == nil and FieldJournalChar.guid == PLAYER,
-  "/journal reset yes starts the journal over"
-)
+SlashCmdList.YONDER("reset yes")
+check(next(YonderChar.creatures) == nil and YonderChar.guid == PLAYER, "/yonder reset yes starts the journal over")
 -- Settings are each character's own (the kit's profiles); the welcome page
 -- offers them once per character, and another character's to take.
 local P = ns.profiles
 check(
-  P:key() == "Thorin - Nightslayer" and FieldJournalSettings.profiles["Thorin - Nightslayer"],
+  P:key() == "Thorin - Nightslayer" and YonderSettings.profiles["Thorin - Nightslayer"],
   "settings: this character's own profile"
 )
 fire("PLAYER_ENTERING_WORLD", true, false)
@@ -2110,8 +2132,8 @@ check(ns.option("worldMapPins") == false and not W.rows[4].box:GetChecked(), "�
 W.frame:Hide()
 fire("PLAYER_ENTERING_WORLD", true, false)
 check(not W.frame.shown and ns.option("welcomed"), "… seen once")
-FieldJournalSettings.profiles["Brann - Nightslayer"] = { chat = false, sound = 0, minimapAngle = 90 }
-SlashCmdList.FIELDJOURNAL("welcome")
+YonderSettings.profiles["Brann - Nightslayer"] = { chat = false, sound = 0, minimapAngle = 90 }
+SlashCmdList.YONDER("welcome")
 local pick = W.picker.select
 check(pick.rows[1].text:GetText() == "Brann - Nightslayer", "… another character of this game, in its select")
 pick.rows[1].scripts.OnClick(pick.rows[1])
@@ -2124,11 +2146,11 @@ check(
   "… its choices copied (what it lacks: the defaults)"
 )
 local code = P:export()
-check(code == "FJ1:c0:s0:m1:w1:t1:h0:a90", "… a code for them: " .. code)
-SlashCmdList.FIELDJOURNAL("import FJ1:c1:s3175")
-check(ns.option("chat") and ns.option("sound") == 3175 and ns.option("minimapAngle") == 90, "… /journal import CODE")
+check(code == "YD1:c0:s0:m1:w1:t1:h0:a90", "… a code for them: " .. code)
+SlashCmdList.YONDER("import FJ1:c1:s3175")
+check(ns.option("chat") and ns.option("sound") == 3175 and ns.option("minimapAngle") == 90, "… /yonder import CODE")
 check(not P:import("LC1:c1") and ns.option("chat"), "… another addon's code refused")
-local copyFrom = panel.settings.FIELDJOURNAL_COPYFROM
+local copyFrom = panel.settings.YONDER_COPYFROM
 check(
   copyFrom and copyFrom.options()[2].value == "Brann - Nightslayer",
   "… the Options page offers the other characters too"

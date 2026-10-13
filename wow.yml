@@ -123,9 +123,7 @@ globals:
     any: true
   SetPortraitTexture:
     any: true
-  SLASH_FIELDJOURNAL1:
-    any: true
-  SLASH_FIELDJOURNAL2:
+  SLASH_YONDER1:
     any: true
   SOUNDKIT:
     any: true
@@ -234,4 +232,12 @@ globals:
   QUEST_MONSTERS_KILLED:
     any: true
   YES:
+    any: true
+  YonderChar:
+    any: true
+  YonderSettings:
+    any: true
+  C_AddOns:
+    any: true
+  GetAddOnMetadata:
     any: true
