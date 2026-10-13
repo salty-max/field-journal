@@ -185,7 +185,7 @@ local function showKind(id)
     local season = d.season and (d.season == "winter" and L["only in winter"] or L["only in summer"]) or nil
     page:start(name(id), table.concat({ KIND[d.kind], season }, "  -  "), itemPicture(id))
     page:text(d.note)
-    local figures = { { tostring(rec.n or 0), "caught" } }
+    local figures = { { tostring(rec.n or 0), L["caught"] } }
     if rec.heaviest then table.insert(figures, { L["%d lb"]:format(rec.heaviest), L["the heaviest"] }) end
     table.insert(figures, { L["%d / %d"]:format(rec.day or 0, rec.night or 0), L["day / night"] })
     if (rec.school or 0) > 0 then table.insert(figures, { tostring(rec.school), L["from schools"] }) end
@@ -202,9 +202,9 @@ local function showKind(id)
     page:start(name(id), L["Herbalism %d%s"]:format(d.skill, inside), itemPicture(id))
     page:text(d.note)
     page:stats({
-      { tostring(rec.n or 0), "taken" },
-      { tostring(rec.gathered or 0), "gathered" },
-      { tostring(rec.looted or 0), "looted" },
+      { tostring(rec.n or 0), L["taken"] },
+      { tostring(rec.gathered or 0), L["gathered"] },
+      { tostring(rec.looted or 0), L["looted"] },
     })
     page:section(L["Where it grows"])
     zoneChips(d.zones)
@@ -262,7 +262,7 @@ local function showOverview()
     end
     page:stats({
       { tostring(kinds), ns.kit.plural(kinds, "kind", "kinds") },
-      { tostring(total), "caught" },
+      { tostring(total), L["caught"] },
       { tostring(schools), L["from schools"] },
       { tostring(night), L["by night"] },
     })
@@ -288,9 +288,9 @@ local function showOverview()
     end
     page:stats({
       { tostring(kinds), ns.kit.plural(kinds, "herb", "herbs") },
-      { tostring(total), "taken" },
-      { tostring(gathered), "gathered" },
-      { tostring(looted), "looted" },
+      { tostring(total), L["taken"] },
+      { tostring(gathered), L["gathered"] },
+      { tostring(looted), L["looted"] },
     })
   end
   lately(recs, 5)

@@ -279,7 +279,7 @@ local function showZone(uiMap, placeKey)
   -- the figures
   local figures = {}
   if total > 0 then table.insert(figures, { ("%d/%d"):format(done, total), L["places found"] }) end
-  table.insert(figures, { tostring(z.visits or ((z.first or z.retro) and 1 or 0)), "visits" })
+  table.insert(figures, { tostring(z.visits or ((z.first or z.retro) and 1 or 0)), L["visits"] })
   if flights > 0 then table.insert(figures, { tostring(flights), ns.kit.plural(flights, "flight", "flights") }) end
   if #deaths + #calls > 0 then table.insert(figures, { L["%d / %d"]:format(#deaths, #calls), L["deaths / calls"] }) end
   page:stats(figures)
