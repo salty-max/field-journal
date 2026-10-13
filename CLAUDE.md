@@ -148,7 +148,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   milestone's, a riddle's (its seal its ring: gold, silver, copper; iron
   till solved), a quarry's, each its own),
   `MilestonesBook.lua` (the kit's board: figures on top, each group's
-  picture and count, a medal on each one earned). Every page is made of the
+  picture and count, its ring gold once earned, iron till then). Every page is made of the
   same parts (the kit's, shared by the family's books).
   `Expeditions.lua` (the riddles' records and their
   solving: each second where the reader stands, a gesture by hooking

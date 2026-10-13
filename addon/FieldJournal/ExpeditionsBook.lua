@@ -306,9 +306,9 @@ local function actions(buttons)
   page:place(row, 40)
 end
 
--- A text set apart in a panel of its own: the verse (its lines centred), the
--- margin.
-local function framed(key, size, centred)
+-- A text set apart in a panel of its own, its lines from the left: the
+-- verse, the margin.
+local function framed(key, size)
   local f = page.parts[key]
   if not f then
     f = CreateFrame("Frame", nil, page.child)
@@ -321,13 +321,12 @@ local function framed(key, size, centred)
     f.text:SetPoint("TOP", 0, -16)
     f.text:SetWidth(WIDTH - 40)
     f.text:SetSpacing(5)
-    if centred then f.text:SetJustifyH("CENTER") end
     page.parts[key] = f
   end
   return f
 end
-local function setApart(key, text, size, centred)
-  local f = framed(key, size, centred)
+local function setApart(key, text, size)
+  local f = framed(key, size)
   f.text:SetText(text)
   local th = f.text:GetStringHeight()
   f.text:SetHeight(th + 2) -- (as tall as its lines: never cut short with "...")
@@ -501,7 +500,7 @@ local function showRiddle(r)
   -- (unsolved, its title is its tier already)
   local sub = solved and table.concat({ ns.zoneName(r.zone), TIERS[r.tier] }, "  -  ") or ns.zoneName(r.zone)
   start(title(r), sub, riddlePicture(r), ringOf(seal, solved))
-  setApart("verse", table.concat(r.verse, "\n"), 14, true)
+  setApart("verse", table.concat(r.verse, "\n"), 14)
   page:section("The riddle")
   page:row("Danger", r.danger)
   if r.asks == "gesture" then
@@ -572,7 +571,7 @@ local function showQuarry(q)
   local hseal = down and HUNT_SEALS[ns.huntSeal(rec)]
   start(q.name, ("%s  -  the quarry"):format(ns.zoneName(q.zone)), quarryPicture(q), ringOf(hseal, down))
   page:model(display, not down)
-  setApart("verse", table.concat(q.verse, "\n"), 14, true)
+  setApart("verse", table.concat(q.verse, "\n"), 14)
   page:section("The hunt")
   page:row("Danger", danger(q))
   if not down then
