@@ -17,6 +17,15 @@ local CIRCLE = "Interface\\AddOns\\Yonder\\Media\\Circle"
 local provider
 ns.mapLayer = { refreshes = 0 }
 
+-- The levels the game's map gives its own layers: the circles as its quests'
+-- areas, above the art of the places explored (a level under it, and an
+-- explored place hid a circle, all but its unexplored edge); the marks as its
+-- points of interest. (Without the game's levels: above them all.)
+local function levelOf(map, canvas, kind, above)
+  local levels = map.GetPinFrameLevelsManager and map:GetPinFrameLevelsManager()
+  return levels and levels:GetValidFrameLevel(kind) or canvas:GetFrameLevel() + above
+end
+
 local function pin(i)
   local p = provider.pins[i]
   if p then return p end
@@ -87,11 +96,12 @@ local function create()
     if not (atlas and mapID and canvas) then return end
     local w, h = canvas:GetWidth(), canvas:GetHeight()
     -- the riddles' and the quarry's circles (x, y, r: percent of the map's width)
+    local under = levelOf(map, canvas, "PIN_FRAME_LEVEL_QUEST_BLOB", 2500)
     for k, s in ipairs(ns.hintCircles(mapID)) do
       local c = circle(k)
       local size = 2 * s.r / 100 * w
       c:SetSize(size, size)
-      c:SetFrameLevel(canvas:GetFrameLevel() + 1990)
+      c:SetFrameLevel(under)
       c:ClearAllPoints()
       c:SetPoint("CENTER", canvas, "TOPLEFT", s.x / 100 * w, -s.y / 100 * h)
       c.title, c.text = s.title, s.text
@@ -100,12 +110,13 @@ local function create()
     end
     if not ns.option("worldMapPins") then return end
     local n = 0
+    local over = levelOf(map, canvas, "PIN_FRAME_LEVEL_AREA_POI", 2510)
     local function place(list, icon, title)
       for _, e in ipairs(list or {}) do
         if e.zone == mapID and e.x and e.y then
           n = n + 1
           local p = pin(n)
-          p:SetFrameLevel(canvas:GetFrameLevel() + 2000)
+          p:SetFrameLevel(over)
           p:ClearAllPoints()
           p:SetPoint("CENTER", canvas, "TOPLEFT", e.x / 100 * w, -e.y / 100 * h)
           p.icon:SetTexture(icon)

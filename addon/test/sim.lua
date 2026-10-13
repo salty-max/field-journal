@@ -253,8 +253,11 @@ local function ui()
       if k == "GetVerticalScrollRange" then
         return function() return 0 end
       end
+      if k == "SetFrameLevel" then
+        return function(self, v) self.level = v end
+      end
       if k == "GetFrameLevel" then
-        return function() return 1 end
+        return function(self) return rawget(self, "level") or 1 end
       end
       if k == "GetVerticalScroll" then
         return function(self) return rawget(self, "vscroll") or 0 end
@@ -501,6 +504,13 @@ WorldMapFrame = {
 }
 local worldCanvas
 WorldMapFrame.GetCanvas = function() return worldCanvas end
+-- The levels it gives its layers (the game's: its places explored at 2001,
+-- its quests' areas at 2004, its points of interest at 2016).
+local mapLevels =
+  { PIN_FRAME_LEVEL_MAP_EXPLORATION = 2001, PIN_FRAME_LEVEL_QUEST_BLOB = 2004, PIN_FRAME_LEVEL_AREA_POI = 2016 }
+WorldMapFrame.GetPinFrameLevelsManager = function()
+  return { GetValidFrameLevel = function(_, kind) return mapLevels[kind] or 2000 end }
+end
 
 -- The game's alert container: a frame joins its stack, and it places those
 -- shown, each on top of the one under it (AlertFrameAutoAnchoredMixin's way).
@@ -1147,6 +1157,10 @@ end
 check(
   marks["Died here"] and marks["A close call"],
   "deaths and close calls are marked on the game's world map, on their zone"
+)
+check(
+  marks["Died here"].level == mapLevels.PIN_FRAME_LEVEL_AREA_POI,
+  "… at the level of the game's points of interest, above the places explored and the circles"
 )
 WorldMapFrame.mapID = 1426
 ns.refreshWorldMapPins()
@@ -2032,6 +2046,12 @@ local circle = mapProvider.circles and mapProvider.circles[1]
 check(
   circle and circle.shown and circle.text == ns.riddleById["elwynn-forest-cats"].verse[1],
   "the map's hint: a circle on the zone's world map, the riddle's first line on it"
+)
+-- … above the art of the places explored, at the level the game gives its
+-- quests' areas (a level under it, and an explored place hid the circle).
+check(
+  circle.level == mapLevels.PIN_FRAME_LEVEL_QUEST_BLOB and circle.level > mapLevels.PIN_FRAME_LEVEL_MAP_EXPLORATION,
+  "… above the places explored, at the level of the game's own quest areas"
 )
 -- … what the world map drew, for /yonder where; an error of its own said
 -- once in chat (Forever's map would swallow it) and kept for /yonder where.
