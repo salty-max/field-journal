@@ -449,6 +449,10 @@ ${expeditionsLua(expeditions, expeditionData, client, q, new Map(creatures.map((
   ranks = {
 ${chunks(sorted.filter((c) => RANK[c.rank]).map((c) => `[${c.id}]="${RANK[c.rank]}"`), 12).join("\n")}
   },
+  -- the elites, for their ring alone (no mark: an elite is no trophy)
+  elites = {
+${chunks(sorted.filter((c) => c.rank === "elite").map((c) => `[${c.id}]=true`), 12).join("\n")}
+  },
 }
 `;
   return { lua, families: kept.length, creatures: sorted.length };

@@ -67,6 +67,13 @@ local RANK = { r = "rare", R = "rare elite", b = "boss" }
 
 local function rankOf(id, rec) return rec.trophy and rec.trophy.rank or ns.rank(id) end
 
+-- A creature's ring by its rank, as the game's target frame marks one (the
+-- kit's): an elite gold, a rare silver, a boss rose, the rest the plain bronze.
+local RANK_WORD = { r = "rare", R = "rareelite", b = "boss" }
+local function ringOf(id, rec)
+  return ns.kit.rankRing(RANK_WORD[rankOf(id, rec)] or (D.elites and D.elites[id] and "elite"))
+end
+
 local function rankTag(id, rec)
   local rank = rankOf(id, rec)
   if rec.trophy then return ("  %s%s, trophy|r"):format(T.mark, RANK[rank] or "trophy") end
@@ -137,9 +144,9 @@ local rows, pairsPool = {}, {}
 ns.listRows, ns.pagePairs = rows, pairsPool -- for the tests (the cards and the loot: the page's, at its build)
 
 -- The page, laid out again (the family's link under the title off).
-local function start(title, sub, setPicture)
+local function start(title, sub, setPicture, ring)
   page.familyLink.key = false
-  page:start(title, sub, setPicture)
+  page:start(title, sub, setPicture, nil, ring)
 end
 
 -- A creature on a family's page or the trophies': its portrait, its name, a
@@ -152,7 +159,9 @@ local function layEntries(ids, line)
       (rec.name or ("Creature " .. id)) .. rankTag(id, rec),
       line(id, rec),
       function(p) setPortrait(p, id, rec) end,
-      function() ns.openCreature(id) end
+      function() ns.openCreature(id) end,
+      nil,
+      ringOf(id, rec)
     )
     c.id = id
   end
@@ -248,7 +257,8 @@ local function showCreature(id)
   start(
     rec.name or ("Creature " .. id),
     joined({ T.link .. ns.familyTitle(current) .. "|r", levels(id, rec), RANK[rank] }),
-    function(p) setPortrait(p, id, rec) end
+    function(p) setPortrait(p, id, rec) end,
+    ringOf(id, rec)
   )
   page.familyLink.key = current
 

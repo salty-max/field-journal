@@ -130,7 +130,9 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   `newPage` for the page on the right: the kit's `K.list` and `K.page`, its
   parts: rows, sections, cards, paragraphs, a strip of figures, items'
   icons, names to pick, a medal on a round picture),
-  `BestiaryBook.lua` (still portraits from the data's display ids,
+  `BestiaryBook.lua` (still portraits from the data's display ids, each in
+  its rank's ring, the kit's `K.rankRing`: elites, from the data's `elites`
+  (an elite is no trophy, never in `ranks`), gold; rares silver; bosses rose;
   `SetPortraitTextureFromCreatureDisplayID`; a family's page: figures and a
   card per creature; a creature's: figures, the creature turning in its
   frame, its record, its spoils), `FloraBook.lua` (Fish and Plants: figures,

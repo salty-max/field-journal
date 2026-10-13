@@ -1197,6 +1197,10 @@ check(
   FieldJournalFrame.shown and FieldJournalPage.title.text:find("^Timber"),
   "a link in chat opens the book at the creature's page"
 )
+check(
+  FieldJournalPage.portrait.ring.desaturated and FieldJournalPage.portrait.ring.vertex[1] == 1,
+  "… Timber, a rare: its ring silver, as the target frame marks a rare"
+)
 linkHandlers.fieldjournal("fieldjournal:murlocs")
 check(
   FieldJournalPage.title.text == "Murlocs",
