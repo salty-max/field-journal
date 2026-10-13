@@ -1,5 +1,15 @@
 {
- "by hand": {},
+ "by hand": {
+  "Black Tooth Grin": {
+   "use": "Black Tooth Grin"
+  },
+  "Brann Bronzebeard": {
+   "use": "Brann Bronzebeard"
+  },
+  "Dragonmaw Clan": {
+   "use": "Clan Dragonmaw"
+  }
+ },
  "factions": {
   "Alliance": {
    "classic": "Alliance",
@@ -36,10 +46,6 @@
    "forever": "Baie-du-Butin",
    "retail": "Baie-du-Butin",
    "use": "Baie-du-Butin"
-  },
-  "Brann Bronzebeard": {
-   "retail": "Brann Barbe-de-Bronze",
-   "use": "Brann Barbe-de-Bronze"
   },
   "Broken": {
    "retail": "Roués",
@@ -100,10 +106,6 @@
   "Dragonflight": {
    "retail": "Dragonflight",
    "use": "Dragonflight"
-  },
-  "Dragonmaw Clan": {
-   "retail": "Clan Gueule-de-dragon",
-   "use": "Clan Gueule-de-dragon"
   },
   "Earthen": {
    "retail": "Terrestres",
