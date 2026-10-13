@@ -412,12 +412,11 @@ end
 
 -- The zone's map on a page, with what this character knows of it (marks:
 -- where riddles were read and the quarry fell; circles: the places asked for,
--- the haunts tracked).
-local function mapBlock(uiMap, marks, circles, caption)
+-- the haunts tracked; each mark and circle says what it is on hover).
+local function mapBlock(uiMap, marks, circles)
   local height = page.map:draw(uiMap, marks, circles)
   if not height then return end
   page:section("The map")
-  if caption then page:paragraph(caption, T.soft) end
   page:place(page.map, height + 16)
 end
 
@@ -545,14 +544,7 @@ local function showRiddle(r)
   end
   local marks, circles = {}, {}
   riddleMarks(r, marks, circles)
-  if #marks + #circles > 0 then
-    mapBlock(
-      r.zone,
-      marks,
-      circles,
-      solved and "Where you read it." or "Its place, shaded wider than the spot itself, and never centred on it."
-    )
-  end
+  if #marks + #circles > 0 then mapBlock(r.zone, marks, circles) end
 end
 
 local function danger(q)
@@ -611,9 +603,7 @@ local function showQuarry(q)
   end
   local marks, circles = {}, {}
   quarryMarks(q, marks, circles)
-  if #marks + #circles > 0 then
-    mapBlock(q.zone, marks, circles, down and "Where you brought it down." or "Its haunts, as its sightings tell them.")
-  end
+  if #marks + #circles > 0 then mapBlock(q.zone, marks, circles) end
 end
 
 -- A zone's riddles in words: "two near the road, one off it and one hidden".
@@ -729,12 +719,7 @@ local function showZone(uiMap)
     placeCard("quarry:" .. q.id, q.name, ("%s  -  %s"):format(danger(q), state), quarryPicture(q), hseal, rec.at ~= nil)
     quarryMarks(q, marks, circles)
   end
-  mapBlock(
-    uiMap,
-    marks,
-    circles,
-    "Where you read each riddle and brought the quarry down; the places you asked the map for, and the haunts of the quarry you track."
-  )
+  mapBlock(uiMap, marks, circles)
 end
 
 local function counts()

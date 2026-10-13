@@ -1,9 +1,9 @@
 -- The welcome (the kit's, Kit.lua): once per character, a few seconds after
 -- its first login (out of combat; /yonder welcome shows it again), laid out
 -- as the journal's window: on the left the logo and what the journal is; on
--- the right this character's choices (Settings.lua: chat lines, the trophy's
--- sound, milestone alerts, deaths on the world map, tooltip hints, the
--- minimap button), then another character's to take, chosen among this
+-- the right this character's choices (Settings.lua: the riddles' and
+-- quarries' banners, the trophy's sound, milestone alerts, deaths on the world
+-- map, tooltip hints, the minimap button), then another character's to take, chosen among this
 -- game's or brought by a code (/yonder export there). Closing it, however,
 -- is enough to have seen it.
 local _, ns = ...
@@ -15,11 +15,12 @@ local W = K.welcome({
   art = "Interface\\AddOns\\Yonder\\Media\\Logo",
   logo = "Interface\\AddOns\\Yonder\\Media\\Logo",
   heading = "Yonder",
-  tagline = "A bestiary, an atlas, fish and herbs, filled in as you travel.",
-  intro = "A naturalist of the Explorers' League has left you a field journal. Slay a creature of the wild "
-    .. "and it is written down, with where you met it and what you took from it; the rare ones become trophies.\n\n"
-    .. "The Atlas keeps the lands you have explored, with your deaths and close calls on their maps; the fish "
-    .. "and the herbs have their own pages, and milestones mark the way.",
+  tagline = "Riddles, rare hunts and an explorer's journal.",
+  intro = "The zones you travel hide riddles: a verse that points to a place, and something to do once you "
+    .. "stand there. Solve one without a hint and it earns a gold seal. Most zones also have a quarry, a rare "
+    .. "creature whose poster tells you where it roams.\n\n"
+    .. "On the way, the journal fills in by itself: the creatures you slay and what they dropped, the lands you "
+    .. "explore with your deaths and close calls, the fish and herbs you find, and milestones along the road.",
   profiles = ns.profiles,
   choices = function()
     local sounds = {}
