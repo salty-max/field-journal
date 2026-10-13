@@ -8,7 +8,12 @@
  * and each game's own files, every one of them there, every Lua file of the
  * folder loaded.
  *
- *   bun scripts/package.ts           dist/Yonder and dist/Yonder-<version>.zip
+ * With it, the handover (addon/FieldJournal): the addon's old name, Explorer's
+ * Field Journal, so that the game loads its saved files once more for Yonder to
+ * take (Core.lua, adopt). Classic Era and TBC only: on Forever another addon,
+ * Field Journal: Forever, owns a FieldJournal folder (its FieldJournal.toc).
+ *
+ *   bun scripts/package.ts           dist/Yonder, dist/FieldJournal and dist/Yonder-<version>.zip
  *   bun scripts/package.ts --no-zip  the folder only (to copy into a game)
  *   bun scripts/package.ts --check   the TOCs only
  */
@@ -26,6 +31,14 @@ const GAMES = [
   { toc: `${NAME}_TBC.toc`, interface: "20506", own: ["Data_Classic.lua"] },
   { toc: `${NAME}_Camelot.toc`, interface: "16001", own: ["Data_Forever.lua"] },
 ];
+
+const HANDOVER = "FieldJournal";
+const HSRC = join(ROOT, "addon", HANDOVER);
+const HANDOVER_TOCS = [
+  { toc: `${HANDOVER}_Vanilla.toc`, interface: "11509" },
+  { toc: `${HANDOVER}_TBC.toc`, interface: "20506" },
+];
+const HANDOVER_FILES = [...HANDOVER_TOCS.map((t) => t.toc), "YonderHandover.lua"];
 
 const fail = (why: string) => {
   console.error(`✗ ${why}`);
@@ -50,6 +63,23 @@ for (const game of GAMES) {
   for (const f of game.own) if (!files.includes(f)) fail(`${game.toc} doesn't load ${f}, its own`);
   if (shared(game).join("\n") !== shared(GAMES[0]).join("\n")) fail(`${game.toc} and ${GAMES[0].toc} differ in more than the interface and their own files`);
 }
+// The handover: its two TOCs and its one file, nothing else (no Camelot TOC,
+// no FieldJournal.toc: Forever's is another addon's), the old saved
+// variables, Yonder's version.
+const versionOf = (toc: string) => toc.match(/^## Version: (.+)$/m)?.[1];
+const version = versionOf(readFileSync(join(SRC, GAMES[0].toc), "utf8"));
+const handover = existsSync(HSRC) ? readdirSync(HSRC).sort() : [];
+if (handover.join() !== [...HANDOVER_FILES].sort().join()) fail(`addon/${HANDOVER}: ${handover.join(", ")}, not ${HANDOVER_FILES.join(", ")}`);
+for (const h of HANDOVER_TOCS) {
+  const toc = readFileSync(join(HSRC, h.toc), "utf8");
+  if (!toc.startsWith(`## Interface: ${h.interface}\n`)) fail(`${HANDOVER}/${h.toc}: not "## Interface: ${h.interface}" first`);
+  if (versionOf(toc) !== version) fail(`${HANDOVER}/${h.toc}: version ${versionOf(toc)}, Yonder's is ${version}`);
+  for (const need of ["## SavedVariablesPerCharacter: FieldJournalChar", "## SavedVariables: FieldJournalSettings"])
+    if (!toc.includes(`${need}\n`)) fail(`${HANDOVER}/${h.toc}: no "${need}"`);
+  const files = toc.split("\n").filter((l) => l.trim() && !l.startsWith("#"));
+  if (files.join() !== "YonderHandover.lua") fail(`${HANDOVER}/${h.toc} loads ${files.join(", ")}, not YonderHandover.lua alone`);
+}
+
 // The folder's files: those in git (what a release ships: the packager leaves
 // the others out), and those not added yet, said so (a test before a commit).
 const ls = (...opts: string[]) =>
@@ -62,7 +92,7 @@ const files = [...ls(), ...added].filter((f) => existsSync(join(SRC, f)));
 for (const f of added) console.warn(`! ${f}: not in git yet (a release would leave it out)`);
 for (const f of files) if (f.endsWith(".lua") && !f.includes("/") && !loaded.has(f)) fail(`${f}: no TOC loads it`);
 if (process.argv.includes("--check")) {
-  console.log(`✓ ${GAMES.map((g) => g.toc).join(", ")}`);
+  console.log(`✓ ${GAMES.map((g) => g.toc).join(", ")}; ${HANDOVER}: ${HANDOVER_TOCS.map((h) => h.toc).join(", ")}`);
   process.exit(0);
 }
 
@@ -72,7 +102,11 @@ for (const f of files) {
   mkdirSync(dirname(join(dir, f)), { recursive: true });
   cpSync(join(SRC, f), join(dir, f));
 }
-let out = `dist/${NAME}`;
+const hdir = join(DIST, HANDOVER);
+rmSync(hdir, { recursive: true, force: true });
+mkdirSync(hdir, { recursive: true });
+for (const f of HANDOVER_FILES) cpSync(join(HSRC, f), join(hdir, f));
+let out = `dist/${NAME}, dist/${HANDOVER}`;
 if (!process.argv.includes("--no-zip")) {
   // (its version in its name, as the release's: the tag, or for a build
   // between two, git's account of it, v0.7.3-2-g7406ae1, -dirty if changed)
@@ -80,7 +114,7 @@ if (!process.argv.includes("--no-zip")) {
   const version = described.status === 0 ? described.stdout.trim() : "dev";
   const zipName = `${NAME}-${version}.zip`;
   for (const f of readdirSync(DIST)) if (f.startsWith(NAME) && f.endsWith(".zip")) rmSync(join(DIST, f));
-  const r = spawnSync("zip", ["-qr", join(DIST, zipName), NAME], { cwd: DIST, stdio: "inherit" });
+  const r = spawnSync("zip", ["-qr", join(DIST, zipName), NAME, HANDOVER], { cwd: DIST, stdio: "inherit" });
   if (r.status !== 0) fail("zip failed");
   out += `, dist/${zipName}`;
 }

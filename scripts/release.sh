@@ -32,7 +32,7 @@ git fetch -q origin --tags
 [ -z "$(git status --porcelain)" ] || die "the working tree isn't clean"
 [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" ] || die "main isn't in sync with origin/main"
 
-TOCS=(addon/Yonder/*.toc)
+TOCS=(addon/Yonder/*.toc addon/FieldJournal/*.toc) # (Yonder's first; the handover's follow its version)
 current=$(sed -n 's/^## Version: *//p' "${TOCS[0]}" | tr -d '\r')
 if [ -z "$VERSION" ]; then
   IFS=. read -r ma mi pa <<<"$current"

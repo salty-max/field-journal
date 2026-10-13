@@ -6,11 +6,19 @@ until 0.8.0; renamed on 13 October 2026 because Field Journal: Forever (by
 Mangzane, on CurseForge since 29 September) ships the same folder, so the two
 replaced each other and shared a saved file. Yonder's globals are its own
 (`YonderChar`, `YonderSettings`, `Yonder*` frames, `/yonder`, `yonder:`
-links); at login `adopt` (Core.lua) takes an old journal whose saved files a
-player copied (`FieldJournal.lua` to `Yonder.lua`), and `oldSelf` warns while
-the old addon (told by its title) is still installed. No `FieldJournal` stub
-folder ships: it would overwrite the other addon. The repository and its local
-folder keep the name field-journal for now.
+links). The handover, `addon/FieldJournal` (shipped beside `addon/Yonder`:
+`.pkgmeta`, `scripts/package.ts`), keeps the old name so the game loads the
+old saved files (`FieldJournalChar`, `FieldJournalSettings`) once more; at
+login `adopt` (Core.lua) takes them under the new names and says so in chat
+(a player's copied `FieldJournal.lua` works the same), and `oldSelf` warns
+while the old addon itself (told by its title) is still installed. The
+handover has Classic Era and TBC TOCs only and one file, `YonderHandover.lua`:
+on Forever, Field Journal: Forever owns a `FieldJournal` folder
+(`FieldJournal.toc`), which no Camelot TOC of ours may shadow, and Forever's
+beta journals don't outlive the beta; `package.ts --check` refuses anything
+more. Drop the handover in a later release (the user decides when), and with
+it `adopt`'s chat line. The repository and its local folder keep the name
+field-journal for now.
 
 The **Expeditions** first (the book opens on them): each zone's riddles, solved on the spot, and its quarry, a rare to track down. The
 **Bestiary**: every creature met, slain and looted, sorted into families with

@@ -1,0 +1,7 @@
+-- Yonder's handover from its old name. This folder keeps Explorer's Field
+-- Journal's name, so the game loads its saved files once more (FieldJournalChar,
+-- FieldJournalSettings); Yonder takes them at the login (Core.lua, adopt). It
+-- runs nothing itself. Classic Era and TBC only: Forever's beta journals don't
+-- outlive the beta, and on Forever another addon, Field Journal: Forever, owns a
+-- FieldJournal folder (its FieldJournal.toc): no Camelot TOC here to shadow it,
+-- no file of a name it might use. A later release drops this folder.

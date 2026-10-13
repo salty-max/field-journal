@@ -938,6 +938,7 @@ do
   }
   FieldJournalSettings = { profiles = {} }
   FieldJournalDB = { theirs = true }
+  printed = {}
   fire("PLAYER_LOGIN")
   check(
     YonderChar
@@ -946,8 +947,12 @@ do
       and FieldJournalSettings == nil
       and type(YonderSettings) == "table"
       and FieldJournalDB.theirs,
-    "a journal kept under the old name (its saved files copied) is taken at login; another addon's is left alone"
+    "a journal kept under the old name (the handover's, or its files copied) is taken at login; another addon's left alone"
   )
+  check(printed[1] and printed[1]:find("now called Yonder", 1, true), "… and the chat says so, and why")
+  printed = {}
+  fire("PLAYER_LOGIN")
+  check(not printed[1], "… once")
   FieldJournalDB = nil
   -- the old addon itself still installed: said once a login
   local titles = { FieldJournal = "Explorer's Field Journal" }

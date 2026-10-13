@@ -9,9 +9,9 @@ For Classic Era, Hardcore, Season of Discovery, TBC Anniversary and World of
 Warcraft: Forever. One download covers all of them.
 
 Yonder was called Explorer's Field Journal until version 0.8.0: another
-addon used the same folder. To keep an old journal, copy
-`SavedVariables/FieldJournal.lua` to `Yonder.lua` in your `WTF` folder (the
-account's and each character's) before the first login with Yonder.
+addon used the same folder. A character's old journal moves over on its own
+at its first login with Yonder, through the small FieldJournal folder in the
+download (Classic Era and TBC; a later update removes it).
 
 ## What's in the journal
 

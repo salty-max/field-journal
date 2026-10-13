@@ -147,17 +147,20 @@ local function syncFamilies(c)
 end
 
 -- A journal kept under the addon's old name, Explorer's Field Journal (until
--- 0.8.0): its saved files copied to Yonder's (in WTF, SavedVariables/
--- FieldJournal.lua to Yonder.lua, the account's and the character's) bring
--- it here, taken once and saved under the new names. (FieldJournalDB is
--- another addon's, never touched.)
+-- 0.8.0), taken once and saved under the new names: the handover folder
+-- (addon/FieldJournal, Classic Era and TBC) has the game load its saved files
+-- again, or a player copied them (in WTF, SavedVariables/FieldJournal.lua to
+-- Yonder.lua). (FieldJournalDB is another addon's, never touched.) Whether a
+-- journal was taken: said once the login knows it is this character's.
 local function adopt()
+  local took
   if YonderChar == nil and type(FieldJournalChar) == "table" and FieldJournalChar.guid then
-    YonderChar, FieldJournalChar = FieldJournalChar, nil
+    YonderChar, FieldJournalChar, took = FieldJournalChar, nil, true
   end
   if YonderSettings == nil and type(FieldJournalSettings) == "table" then
     YonderSettings, FieldJournalSettings = FieldJournalSettings, nil
   end
+  return took
 end
 
 -- The old name still installed beside it (a manual install keeps its
@@ -169,8 +172,8 @@ local function oldSelf()
   if ok and title == "Explorer's Field Journal" then
     print(
       PREFIX
-        .. "Explorer's Field Journal, Yonder's old name, is still installed: remove its FieldJournal folder from "
-        .. "Interface\\AddOns. Its journal can come along: see Yonder's page on CurseForge."
+        .. "Explorer's Field Journal, Yonder's old name, is still installed: replace its FieldJournal folder in "
+        .. "Interface\\AddOns with the one in Yonder's download, which brings your journal along."
     )
   end
 end
@@ -178,10 +181,17 @@ end
 -- This character's journal, or a new one (a journal saved by another
 -- character of the same name is not theirs).
 function ns.login()
-  adopt()
+  local took = adopt()
   oldSelf()
   local guid = UnitGUID("player")
   local before = ns.belongsTo(YonderChar, guid)
+  if took and before then
+    print(
+      PREFIX
+        .. "Explorer's Field Journal is now called Yonder (another addon uses its old folder name). Your journal "
+        .. "came along: everything you recorded is here. /yonder opens it."
+    )
+  end
   if before then
     char = YonderChar
     char.creatures = char.creatures or {}

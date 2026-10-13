@@ -16,7 +16,7 @@ Yonder gives you riddles to solve, rare creatures to hunt and a record of what y
 
 For Classic Era (including Hardcore and Season of Discovery), TBC Anniversary and World of Warcraft: Forever.
 
-Yonder was called **Explorer's Field Journal** until version 0.8.0. To keep your journal, see **Coming from Explorer's Field Journal** below.
+Yonder was called **Explorer's Field Journal** until version 0.8.0. Your journal comes along on its own: see **Coming from Explorer's Field Journal** below.
 
 ## Expeditions
 
@@ -89,14 +89,11 @@ Settings are saved per character. Copy them from another character of the same g
 
 The addon was renamed because another addon, Field Journal: Forever, uses the same folder name. With both installed, one replaced the other. Yonder lives in its own folder, so the two can now sit side by side.
 
-Yonder starts a new journal. To keep the one you had, copy its saved files before your first login with Yonder. In your game's `WTF` folder, copy `SavedVariables/FieldJournal.lua` and name the copy `Yonder.lua`:
+You don't need to do anything. At each character's first login with Yonder, its journal moves over: riddles, seals, creatures, Atlas, fish, herbs, milestones and settings. A line in chat confirms it.
 
-- once for your account: `WTF/Account/<ACCOUNT>/SavedVariables/`
-- once for each character: `WTF/Account/<ACCOUNT>/<Realm>/<Character>/SavedVariables/`
+The download includes a small **FieldJournal** folder that hands the old journal over. It does nothing else, and a later update removes it. It works on Classic Era and TBC Anniversary. Forever beta journals start fresh, since beta characters don't carry over to launch.
 
-Yonder takes the old journal at its next login. Your riddles, seals, creatures, Atlas, fish, herbs, milestones and settings come with it.
-
-If you installed by hand, delete the old `FieldJournal` folder from `Interface/AddOns`. Yonder warns you at login while it's still there. The CurseForge app removes it for you.
+If you install by hand, copy both folders, **Yonder** and **FieldJournal**, into `Interface/AddOns`. The new FieldJournal folder replaces the old addon.
 
 ## Other addons
 
