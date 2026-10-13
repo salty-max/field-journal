@@ -428,8 +428,8 @@ local function showTravels()
   page:stats({
     { tostring(zones), ns.kit.plural(zones, "zone entered", "zones entered") },
     { tostring(explored), L["places found"] },
-    { tostring(#(a.flights or {})), "flights" },
-    { tostring(#(a.deaths or {})), "deaths" },
+    { tostring(#(a.flights or {})), L["flights"] },
+    { tostring(#(a.deaths or {})), L["deaths"] },
   })
   local shownContinents = {}
   for _, c in ipairs(continents()) do
