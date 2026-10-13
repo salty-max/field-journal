@@ -20,7 +20,7 @@ OUT = os.path.join(ROOT, "data", "rare-zones-forever.json")
 ATT = "ATTWoWAddon/AllTheThings"
 ATT_COMMIT = "a21caf2a7ec636785505a7f4e7e4311d16ce28af"
 CMANGOS = os.path.join(ROOT, ".cache", "classicdb-28ef6259c782.sql.gz")  # scripts/creatures.py's
-UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max/field-journal)"}
+UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
 
 
 def fetch(url, path):

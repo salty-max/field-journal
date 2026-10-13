@@ -19,7 +19,7 @@ CACHE = os.path.join(ROOT, ".cache")
 OUT = os.path.join(ROOT, "data", "rare-zones.json")
 WIKI = "https://wowwiki-archive.fandom.com/api.php?action=parse&redirects=1&prop=wikitext&format=json&page=Rare_mobs_by_zone"
 WAGO = "https://wago.tools/db2/{}/csv?product=wow_classic_era"
-UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max/field-journal)"}
+UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
 
 
 def cached(name, url):

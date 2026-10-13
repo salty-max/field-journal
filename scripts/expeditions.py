@@ -81,7 +81,7 @@ WAGO = {"classic": "https://wago.tools/db2/{}/csv?product=wow_classic_era",
         "forever": "https://wago.tools/db2/{}/csv?product=wow_classic_beta&build=1.60.1.70291"}
 QUESTIEDB_COMMIT = "7e87203312ef7ba309b96361fed90e492e145cff"
 QUESTIEDB = f"https://raw.githubusercontent.com/Questie/QuestieDB/{QUESTIEDB_COMMIT}/src/corrections/Forever/traces/forever{{}}Traces.lua"
-UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max/field-journal)"}
+UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
 # How near the spot counts, in yards: an object or a creature stood beside
 # (a statue's base can be a few yards from its centre), a trigger by its own
 # radius (never less).

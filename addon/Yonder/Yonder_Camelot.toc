@@ -7,7 +7,7 @@
 ## SavedVariablesPerCharacter: YonderChar
 ## SavedVariables: YonderSettings
 ## IconTexture: Interface\AddOns\Yonder\Media\Logo
-## X-Website: https://github.com/salty-max/field-journal
+## X-Website: https://github.com/salty-max/yonder
 ## X-License: MIT
 ## X-Curse-Project-ID: 1728396
 ## X-Wago-ID: ZKbq5y61

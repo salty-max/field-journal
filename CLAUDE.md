@@ -17,8 +17,8 @@ on Forever, Field Journal: Forever owns a `FieldJournal` folder
 (`FieldJournal.toc`), which no Camelot TOC of ours may shadow, and Forever's
 beta journals don't outlive the beta; `package.ts --check` refuses anything
 more. Drop the handover in a later release (the user decides when), and with
-it `adopt`'s chat line. The repository and its local folder keep the name
-field-journal for now.
+it `adopt`'s chat line. The repository is salty-max/yonder and its local
+folder ~/code/wow-addons/yonder (both field-journal until 13 October 2026).
 
 The **Expeditions** first (the book opens on them): each zone's riddles, solved on the spot, and its quarry, a rare to track down. The
 **Bestiary**: every creature met, slain and looted, sorted into families with

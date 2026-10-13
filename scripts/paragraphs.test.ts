@@ -19,7 +19,7 @@ test("a misspelled game or an empty variant fails rather than leaking into both 
 
 test("invalid notes fail without replacing either book", () => {
   const root = join(import.meta.dir, "..");
-  const fixture = mkdtempSync(join(tmpdir(), "field-journal-notes-"));
+  const fixture = mkdtempSync(join(tmpdir(), "yonder-notes-"));
   try {
     for (const dir of ["content", "atlas", "notes", "data", "expeditions"])
       cpSync(join(root, dir), join(fixture, dir), { recursive: true });

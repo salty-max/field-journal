@@ -22,7 +22,7 @@ GAMES = {
     "forever": "product=wow_classic_beta&build=1.60.1.70291",
 }
 TABLES = ("UiMap", "UiMapXMapArt", "WorldMapOverlay", "AreaTable")
-UA = {"User-Agent": "ExplorersFieldJournal/0.1 (addon data; github.com/salty-max/field-journal)"}
+UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
 SUBDIR = {"classic": "era", "forever": "forever"}
 BATTLEGROUNDS = {1459, 1460, 1461}  # Alterac Valley, Warsong Gulch, Arathi Basin
 
