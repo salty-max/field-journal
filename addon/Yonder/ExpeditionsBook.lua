@@ -14,6 +14,7 @@
 -- tracking at the cost of the gold seal, and once brought down its seal, note
 -- and margin). Records: Expeditions.lua; the card pinned: ExpeditionsPin.lua.
 local _, ns = ...
+local L = ns.kit.L
 local D = ns.data
 local X = D.expeditions or {}
 local A = D.atlas or { zones = {}, continents = {} }
@@ -29,30 +30,71 @@ ns.expeditionRows, ns.expeditionPairs = rows, pairsPool -- for the tests
 local NOTE = "Interface\\Icons\\INV_Misc_Note_02"
 local MAP = "Interface\\Icons\\INV_Misc_Map_01"
 local BOOK = "Interface\\Icons\\INV_Misc_Book_09"
+-- (each: icon, name, how it was earned, colour, its ring, its name in a
+-- sentence and at a sentence's head, a language wording them its own way)
 local SEALS = {
-  gold = { ns.SEAL_ICON.gold, "Gold", "from the verse alone", { 1, 0.82, 0 } },
-  silver = { ns.SEAL_ICON.silver, "Silver", "with the clue", { 0.78, 0.8, 0.84 } },
-  plain = { ns.SEAL_ICON.plain, "Plain", "with the map", { 0.8, 0.55, 0.35 } },
+  gold = {
+    ns.SEAL_ICON.gold,
+    L["Gold"],
+    L["from the verse alone"],
+    { 1, 0.82, 0 },
+    "gold",
+    L["the gold seal"],
+    L["The gold seal"],
+  },
+  silver = {
+    ns.SEAL_ICON.silver,
+    L["Silver"],
+    L["with the clue"],
+    { 0.78, 0.8, 0.84 },
+    "silver",
+    L["the silver seal"],
+    L["The silver seal"],
+  },
+  plain = {
+    ns.SEAL_ICON.plain,
+    L["Plain"],
+    L["with the map"],
+    { 0.8, 0.55, 0.35 },
+    "copper",
+    L["the plain seal"],
+    L["The plain seal"],
+  },
 }
 -- a quarry's: never tracked, tracked, or brought down before the journal kept the hunts
 -- A riddle's or a quarry's ring, by its seal, in place of a medal (the kit's
 -- tier rings): gold, silver, copper for the plain seal; iron while not done;
 -- the plain bronze for a quarry brought down before the journal kept hunts.
 -- (the pinned card's too: ExpeditionsPin.lua)
-local TIER_RING = { Gold = "gold", Silver = "silver", Plain = "copper" }
 function ns.sealRing(seal, done)
   local R = ns.kit.RINGS
   if not done then return R.iron end
-  return seal and R[TIER_RING[seal[2]]] or nil
+  return seal and seal[5] and R[seal[5]] or nil
 end
 local ringOf = ns.sealRing
 local HUNT_SEALS = {
-  gold = { SEALS.gold[1], "Gold", "never tracked", SEALS.gold[4] },
-  plain = { SEALS.plain[1], "Plain", "tracked", SEALS.plain[4] },
-  before = { nil, "None", "brought down before the journal kept the hunts", T.soft },
+  gold = {
+    SEALS.gold[1],
+    L["Gold"],
+    L["never tracked"],
+    SEALS.gold[4],
+    "gold",
+    SEALS.gold[6],
+    SEALS.gold[7],
+  },
+  plain = {
+    SEALS.plain[1],
+    L["Plain"],
+    L["tracked"],
+    SEALS.plain[4],
+    "copper",
+    SEALS.plain[6],
+    SEALS.plain[7],
+  },
+  before = { nil, L["None"], L["brought down before the journal kept the hunts"], T.soft },
 }
-local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
-local RANKS = { elite = "an elite", rare = "a rare", rareelite = "a rare elite" }
+local TIERS = { near = L["Near the road"], off = L["Off the road"], hidden = L["Hidden"], town = L["In town"] }
+local RANKS = { elite = L["An elite"], rare = L["A rare"], rareelite = L["A rare elite"] }
 
 local function faction()
   local f = UnitFactionGroup("player")
@@ -153,7 +195,7 @@ local function continents()
   end
   table.sort(out, function(a, b) return a[2] < b[2] end)
   -- a zone of no continent (Forever's Zephras Isle), as the Atlas files it
-  table.insert(out, { 0, "Elsewhere" })
+  table.insert(out, { 0, L["Elsewhere"] })
   return out
 end
 
@@ -185,7 +227,7 @@ local function refreshList()
   local function found(words) return not searching or words:lower():find(q, 1, true) ~= nil end
   list:begin()
   if not searching then
-    local r = list:add("overview", "Expeditions")
+    local r = list:add("overview", L["Expeditions"])
     r:SetScript("OnClick", function()
       current = nil
       ns.refresh()
@@ -238,7 +280,7 @@ local function refreshList()
           if quarry then
             local down = ns.quarryDown(quarry.id)
             item(
-              "Quarry: " .. quarry.name,
+              L["Quarry: %s"]:format(quarry.name),
               "quarry:" .. quarry.id,
               down and HUNT_SEALS[ns.huntSeal(ns.huntRecord(quarry.id))]
             )
@@ -255,21 +297,36 @@ end
 local WIDTH = ui.WIDTH
 local TROPHY = "Interface\\Icons\\INV_Misc_Head_Dragon_01"
 
-local NUMBERS = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve" }
+-- (of riddles: a language with genders words them for a riddle)
+local NUMBERS = {
+  L["one"],
+  L["two"],
+  L["three"],
+  L["four"],
+  L["five"],
+  L["six"],
+  L["seven"],
+  L["eight"],
+  L["nine"],
+  L["ten"],
+  L["eleven"],
+  L["twelve"],
+}
+local function capital(s) return (s:gsub("^%l", string.upper)) end
 local function words(n) return NUMBERS[n] or tostring(n) end
 
 -- A list in words: "a, b and c".
 local function join(items)
   if #items <= 1 then return items[1] or "" end
-  return table.concat(items, ", ", 1, #items - 1) .. " and " .. items[#items]
+  return table.concat(items, ", ", 1, #items - 1) .. L[" and "] .. items[#items]
 end
 
 -- A hint asked for, or a quarry tracked, as the game asks before something
 -- that can't be undone.
 local ASK = {
-  clue = "Ask for a clue? This riddle will no longer earn its gold seal.",
-  map = "Shade its place on your world map? This riddle will no longer earn its silver seal.",
-  track = "Track this quarry? Its haunts are shaded on your world map, and it will no longer earn its gold seal.",
+  clue = L["Ask for a clue? This riddle will no longer earn its gold seal."],
+  map = L["Shade its place on your world map? This riddle will no longer earn its silver seal."],
+  track = L["Track this quarry? Its haunts are shaded on your world map, and it will no longer earn its gold seal."],
 }
 StaticPopupDialogs.YONDER_HINT = {
   text = "%s",
@@ -358,9 +415,9 @@ local function sealBlock(seal, how, rec)
   else
     s.coin:Hide()
   end
-  s.name:SetText(seal[1] and ("The %s seal"):format(seal[2]:lower()) or "No seal")
+  s.name:SetText(seal[1] and seal[7] or L["No seal"])
   s.name:SetTextColor(unpack(seal[4]))
-  s.detail:SetText(rec.retro and how or ("%s, on %s, at level %d."):format(how, ui.day(rec), rec.level or 0))
+  s.detail:SetText(rec.retro and how or (L["%s, on %s, at level %d."]):format(how, ui.day(rec), rec.level or 0))
   page:place(s, 66)
 end
 
@@ -416,7 +473,7 @@ end
 local function mapBlock(uiMap, marks, circles)
   local height = page.map:draw(uiMap, marks, circles)
   if not height then return end
-  page:section("The map")
+  page:section(L["The map"])
   page:place(page.map, height + 16)
 end
 
@@ -432,15 +489,18 @@ local function riddleMarks(r, marks, circles)
   if rec.at then
     if rec.x then
       local seal = SEALS[ns.riddleSeal(rec)]
-      table.insert(
-        marks,
-        { x = rec.x, y = rec.y, icon = seal[1], title = ns.riddleName(r), text = "Read here, " .. ui.day(rec) }
-      )
+      table.insert(marks, {
+        x = rec.x,
+        y = rec.y,
+        icon = seal[1],
+        title = ns.riddleName(r),
+        text = L["Read here, %s"]:format(ui.day(rec)),
+      })
     end
   elseif (rec.hints or 0) >= 2 then
     table.insert(
       circles,
-      { x = r.circle[1], y = r.circle[2], r = r.circle[3], title = "A riddle's place", text = r.verse[1] }
+      { x = r.circle[1], y = r.circle[2], r = r.circle[3], title = L["A riddle's place"], text = r.verse[1] }
     )
   end
 end
@@ -451,7 +511,7 @@ local function quarryMarks(q, marks, circles)
     if rec.x then
       table.insert(
         marks,
-        { x = rec.x, y = rec.y, icon = TROPHY, title = q.name, text = "Brought down here, " .. ui.day(rec) }
+        { x = rec.x, y = rec.y, icon = TROPHY, title = q.name, text = L["Brought down here, %s"]:format(ui.day(rec)) }
       )
     end
   else
@@ -460,7 +520,7 @@ local function quarryMarks(q, marks, circles)
       for _, h in ipairs(q.haunts) do
         table.insert(
           circles,
-          { x = h[1], y = h[2], r = h[3], title = q.name, text = "Its haunts: the quarry you track." }
+          { x = h[1], y = h[2], r = h[3], title = q.name, text = L["Its haunts: the quarry you track."] }
         )
       end
     end
@@ -482,7 +542,7 @@ end
 local function pinButton(key)
   local pinned = ns.pinned() == key
   return {
-    pinned and "Unpin from the screen" or "Pin to the screen",
+    pinned and L["Unpin from the screen"] or L["Pin to the screen"],
     function() ns.pin(not pinned and key or nil) end,
   }
 end
@@ -492,7 +552,8 @@ ns.riddlePicture, ns.quarryPicture = riddlePicture, quarryPicture
 ns.SEALS, ns.HUNT_SEALS = SEALS, HUNT_SEALS
 
 -- ── the pages ────────────────────────────────────────────────────────────────
-local RIDDLE_HOW = { gold = "Read from the verse alone", silver = "Read with the clue", plain = "Read with the map" }
+local RIDDLE_HOW =
+  { gold = L["Read from the verse alone"], silver = L["Read with the clue"], plain = L["Read with the map"] }
 
 local function showRiddle(r)
   local rec = ns.riddleRecord(r.id) or {}
@@ -502,28 +563,31 @@ local function showRiddle(r)
   local sub = solved and table.concat({ ns.zoneName(r.zone), TIERS[r.tier] }, "  -  ") or ns.zoneName(r.zone)
   start(title(r), sub, riddlePicture(r), ringOf(seal, solved))
   setApart("verse", table.concat(r.verse, "\n"), 14)
-  page:section("The riddle")
-  page:row("Danger", r.danger)
+  page:section(L["The riddle"])
+  page:row(L["Danger"], r.danger)
   if r.asks == "gesture" then
-    page:row("It asks", "something of you there")
+    page:row(L["It asks"], L["something of you there"])
   elseif r.asks == "reading" then
-    page:row("It asks", "a reading there")
+    page:row(L["It asks"], L["a reading there"])
   elseif r.npc then
-    page:row("It asks", "a word with someone there")
+    page:row(L["It asks"], L["a word with someone there"])
   else
-    page:row("It asks", "only that you find it")
+    page:row(L["It asks"], L["only that you find it"])
   end
-  if r.night then page:row("When", "by night") end
+  if r.night then page:row(L["When"], L["by night"]) end
   local hints = rec.hints or 0
-  if hints >= 1 then page:row("The clue", r.hint) end
+  if hints >= 1 then page:row(L["The clue"], r.hint) end
   if hints >= 2 then
-    page:row("The map", solved and "its place was shaded on your world map" or "its place is shaded on your world map")
+    page:row(
+      L["The map"],
+      solved and L["its place was shaded on your world map"] or L["its place is shaded on your world map"]
+    )
   end
   if not solved then
     local buttons = {}
     if hints < 2 then
       table.insert(buttons, {
-        hints == 0 and "Ask for a clue" or "Ask for the map",
+        hints == 0 and L["Ask for a clue"] or L["Ask for the map"],
         function() ask(hints == 0 and ASK.clue or ASK.map, { id = r.id, n = hints + 1 }) end,
       })
     end
@@ -531,15 +595,15 @@ local function showRiddle(r)
     actions(buttons)
   end
   if solved then
-    page:section("Solved")
+    page:section(L["Solved"])
     sealBlock(seal, RIDDLE_HOW[ns.riddleSeal(rec)], rec)
-    page:section("The note")
+    page:section(L["The note"])
     page:paragraph(ns.riddleNote(r))
-    page:section("In the margin")
+    page:section(L["In the margin"])
     if hints == 0 then
       setApart("margin", ns.riddleMargin(r), 13)
     else
-      page:paragraph("Only a gold seal opens the margin, and this riddle was read with a hint.", T.soft)
+      page:paragraph(L["Only a gold seal opens the margin, and this riddle was read with a hint."], T.soft)
     end
   end
   local marks, circles = {}, {}
@@ -549,13 +613,13 @@ end
 
 local function danger(q)
   local rank = RANKS[q.rank]
-  return rank and ("%s, level %s"):format(rank:gsub("^%l", string.upper), q.level) or ("Level %s"):format(q.level)
+  return rank and L["%s, level %s"]:format(rank, q.level) or L["Level %s"]:format(q.level)
 end
 
 local HUNT_HOW = {
-  gold = "Brought down without tracking it",
-  plain = "Brought down after tracking it",
-  before = "Brought down before the journal kept the hunts.",
+  gold = L["Brought down without tracking it"],
+  plain = L["Brought down after tracking it"],
+  before = L["Brought down before the journal kept the hunts."],
 }
 
 local function showQuarry(q)
@@ -563,21 +627,21 @@ local function showQuarry(q)
   local down = rec.at ~= nil
   local display = ns.quarryDisplay(q)
   local hseal = down and HUNT_SEALS[ns.huntSeal(rec)]
-  start(q.name, ("%s  -  the quarry"):format(ns.zoneName(q.zone)), quarryPicture(q), ringOf(hseal, down))
+  start(q.name, L["%s  -  the quarry"]:format(ns.zoneName(q.zone)), quarryPicture(q), ringOf(hseal, down))
   page:model(display, not down)
   setApart("verse", table.concat(q.verse, "\n"), 14)
-  page:section("The hunt")
-  page:row("Danger", danger(q))
+  page:section(L["The hunt"])
+  page:row(L["Danger"], danger(q))
   if not down then
     local target = ns.huntTarget()
     local tracked = target and target.id == q.id
-    page:row("Its haunts", tracked and "shaded on your world map" or "untracked")
+    page:row(L["Its haunts"], tracked and L["shaded on your world map"] or L["untracked"])
     local track
     if tracked then
-      track = { "Stop tracking", function() ns.setHuntTarget(nil) end }
+      track = { L["Stop tracking"], function() ns.setHuntTarget(nil) end }
     else
       track = {
-        "Track it",
+        L["Track it"],
         function()
           if rec.tracked then
             ns.setHuntTarget(q.id)
@@ -589,16 +653,16 @@ local function showQuarry(q)
     end
     actions({ track, pinButton("quarry:" .. q.id) })
   else
-    page:section("Brought down")
+    page:section(L["Brought down"])
     local seal = ns.huntSeal(rec)
     sealBlock(HUNT_SEALS[seal], HUNT_HOW[seal], rec)
-    page:section("The note")
+    page:section(L["The note"])
     page:paragraph(ns.quarryNote(q))
-    page:section("In the margin")
+    page:section(L["In the margin"])
     if seal == "gold" then
       setApart("margin", ns.quarryMargin(q), 13)
     else
-      page:paragraph("Only a gold seal opens the margin: a quarry never tracked.", T.soft)
+      page:paragraph(L["Only a gold seal opens the margin: a quarry never tracked."], T.soft)
     end
   end
   local marks, circles = {}, {}
@@ -607,7 +671,8 @@ local function showQuarry(q)
 end
 
 -- A zone's riddles in words: "two near the road, one off it and one hidden".
-local TIER_WORDS = { near = "near the road", off = "off the road", hidden = "hidden", town = "in its town" }
+local TIER_WORDS =
+  { near = L["%s near the road"], off = L["%s off the road"], hidden = L["%s hidden"], town = L["%s in its town"] }
 local TIER_ORDER = { "near", "off", "hidden", "town" }
 local function tierWords(riddles)
   local n = {}
@@ -616,12 +681,17 @@ local function tierWords(riddles)
   end
   local parts = {}
   for _, t in ipairs(TIER_ORDER) do
-    if n[t] then table.insert(parts, ("%s %s"):format(words(n[t]), TIER_WORDS[t])) end
+    if n[t] then table.insert(parts, TIER_WORDS[t]:format(words(n[t]))) end
   end
   return join(parts)
 end
 
 -- The seals of riddles read, in words: "two with the gold seal, one with the silver".
+local SEAL_WORDS = {
+  gold = L["%s with the gold seal"],
+  silver = L["%s with the silver seal"],
+  plain = L["%s with the plain seal"],
+}
 local function sealWords(riddles)
   local n = {}
   for _, r in ipairs(riddles) do
@@ -633,7 +703,7 @@ local function sealWords(riddles)
   end
   local parts = {}
   for _, s in ipairs({ "gold", "silver", "plain" }) do
-    if n[s] then table.insert(parts, ("%s with the %s seal"):format(words(n[s]), s)) end
+    if n[s] then table.insert(parts, SEAL_WORDS[s]:format(words(n[s]))) end
   end
   return join(parts)
 end
@@ -643,14 +713,13 @@ local function zoneWords(uiMap)
   local name = ns.zoneName(uiMap)
   local first
   if #riddles > 0 then
-    first = ("%s keeps %s for you, %s"):format(
+    first = (q and L["%s keeps %s for you, %s, and a quarry its people tell of."] or L["%s keeps %s for you, %s."]):format(
       name,
-      #riddles == 1 and "one riddle" or (words(#riddles) .. " riddles"),
+      #riddles == 1 and L["one riddle"] or L["%s riddles"]:format(words(#riddles)),
       tierWords(riddles)
     )
-    first = first .. (q and ", and a quarry its people tell of." or ".")
   else
-    first = ("%s keeps no riddle for you, only a quarry its people tell of."):format(name)
+    first = L["%s keeps no riddle for you, only a quarry its people tell of."]:format(name)
   end
   local read = 0
   for _, r in ipairs(riddles) do
@@ -660,28 +729,25 @@ local function zoneWords(uiMap)
   local done, total = progress(uiMap)
   local m = ns.earnedMilestone("expedition-" .. uiMap)
   if done == total and total > 0 then
-    second = m and m.at and ("Every one of them done: the expedition was complete on %s."):format(ui.day(m))
-      or "Every one of them done: the expedition is complete."
+    second = m and m.at and (L["Every one of them done: the expedition was complete on %s."]):format(ui.day(m))
+      or L["Every one of them done: the expedition is complete."]
   elseif read > 0 then
-    second = ("%s read so far, %s."):format(
-      read == 1 and "One" or words(read):gsub("^%l", string.upper),
-      sealWords(riddles)
-    )
+    second = L["%s read so far, %s."]:format(read == 1 and L["One"] or capital(words(read)), sealWords(riddles))
   elseif #riddles > 0 then
-    second = "None read yet."
+    second = L["None read yet."]
   end
   return { second and (first .. " " .. second) or first }
 end
 
 local function showZone(uiMap)
   local done, total = progress(uiMap)
-  local continent = A.zones[uiMap] and A.continents[A.zones[uiMap].continent] or "Elsewhere"
-  start(ns.zoneName(uiMap), ("%s  -  %d of %d done"):format(continent, done, total), MAP)
+  local continent = A.zones[uiMap] and A.continents[A.zones[uiMap].continent] or L["Elsewhere"]
+  start(ns.zoneName(uiMap), L["%s  -  %d of %d done"]:format(continent, done, total), MAP)
   page:text(zoneWords(uiMap))
   local marks, circles = {}, {}
   local riddles = ns.riddlesOf(uiMap)
   if #riddles > 0 then
-    page:section("Its riddles")
+    page:section(L["Its riddles"])
     for _, r in ipairs(riddles) do
       local rec = ns.riddleRecord(r.id) or {}
       local seal = sealOf(r)
@@ -689,14 +755,14 @@ local function showZone(uiMap)
         placeCard(
           r.id,
           ns.riddleName(r),
-          ("%s  -  the %s seal, %s"):format(TIERS[r.tier], seal[2]:lower(), ui.day(rec)),
+          L["%s  -  %s, %s"]:format(TIERS[r.tier], seal[6], ui.day(rec)),
           riddlePicture(r),
           seal,
           true
         )
       else
         local hints = rec.hints or 0
-        local tail = hints >= 2 and "  -  its place shaded" or hints == 1 and "  -  the clue taken" or ""
+        local tail = hints >= 2 and L["  -  its place shaded"] or hints == 1 and L["  -  the clue taken"] or ""
         placeCard(r.id, TIERS[r.tier] .. tail, r.verse[1], ui.icon(NOTE))
       end
       riddleMarks(r, marks, circles)
@@ -704,19 +770,26 @@ local function showZone(uiMap)
   end
   local q = quarryOf(uiMap)
   if q then
-    page:section("Its quarry")
+    page:section(L["Its quarry"])
     local rec = ns.huntRecord(q.id) or {}
     local state
     if rec.at then
       local seal = HUNT_SEALS[ns.huntSeal(rec)]
-      state = rec.retro and "brought down before the journal kept the hunts"
-        or ("brought down %s, the %s seal"):format(ui.day(rec), seal[2]:lower())
+      state = rec.retro and L["brought down before the journal kept the hunts"]
+        or L["brought down %s, %s"]:format(ui.day(rec), seal[6])
     else
       local target = ns.huntTarget()
-      state = (target and target.id == q.id) and "tracked" or "still at large"
+      state = (target and target.id == q.id) and L["tracked"] or L["still at large"]
     end
     local hseal = rec.at and HUNT_SEALS[ns.huntSeal(rec)]
-    placeCard("quarry:" .. q.id, q.name, ("%s  -  %s"):format(danger(q), state), quarryPicture(q), hseal, rec.at ~= nil)
+    placeCard(
+      "quarry:" .. q.id,
+      q.name,
+      L["%s  -  %s"]:format(danger(q), state),
+      quarryPicture(q),
+      hseal,
+      rec.at ~= nil
+    )
     quarryMarks(q, marks, circles)
   end
   mapBlock(uiMap, marks, circles)
@@ -765,47 +838,43 @@ end
 local function showOverview()
   local n = counts()
   start(
-    "Expeditions",
-    ("%d of %d riddles solved, %d of %d quarries"):format(n.riddles, n.of, n.quarries, n.hunts),
+    L["Expeditions"],
+    L["%d of %d riddles solved, %d of %d quarries"]:format(n.riddles, n.of, n.quarries, n.hunts),
     BOOK
   )
   page:text({
-    "Every land keeps a few things most travellers walk past: a grave beside a path, a statue nobody explains, "
-      .. "a book left on a shelf. Each riddle here leads to one, in a land you have entered. It is solved where it "
-      .. "leads, and some ask something of you there, as the story would.",
-    "A riddle read from its verse alone earns the gold seal, and opens its margin; the clue costs the gold, the "
-      .. "map the silver. Each land with rare creatures has its quarry too, a foe its people tell of: found from "
-      .. "its poster alone, it earns the gold; tracked, its haunts are shaded on your map.",
+    L["Every land keeps a few things most travellers walk past: a grave beside a path, a statue nobody explains, a book left on a shelf. Each riddle here leads to one, in a land you have entered. It is solved where it leads, and some ask something of you there, as the story would."],
+    L["A riddle read from its verse alone earns the gold seal, and opens its margin; the clue costs the gold, the map the silver. Each land with rare creatures has its quarry too, a foe its people tell of: found from its poster alone, it earns the gold; tracked, its haunts are shaded on your map."],
   })
-  page:section("The record")
-  page:row("Riddles", ("%d of %d solved"):format(n.riddles, n.of))
-  page:row("Seals", ("%d gold, %d silver, %d plain"):format(n.gold, n.silver, n.plain))
-  page:row("Quarries", ("%d of %d brought down"):format(n.quarries, n.hunts))
+  page:section(L["The record"])
+  page:row(L["Riddles"], L["%d of %d solved"]:format(n.riddles, n.of))
+  page:row(L["Seals"], L["%d gold, %d silver, %d plain"]:format(n.gold, n.silver, n.plain))
+  page:row(L["Quarries"], L["%d of %d brought down"]:format(n.quarries, n.hunts))
   local target = ns.huntTarget()
   local pinned = ns.pinned()
-  if target or pinned then page:section("Under way") end
+  if target or pinned then page:section(L["Under way"]) end
   if target then
     placeCard(
       "quarry:" .. target.id,
       target.name,
-      ("tracked, in %s  -  %s"):format(ns.zoneName(target.zone), danger(target)),
+      L["tracked, in %s  -  %s"]:format(ns.zoneName(target.zone), danger(target)),
       quarryPicture(target)
     )
   end
   local pr = pinned and ns.riddleById[pinned]
   if pr and not ns.riddleSolved(pr.id) then
-    placeCard(pr.id, TIERS[pr.tier], ("pinned, in %s  -  %s"):format(ns.zoneName(pr.zone), pr.verse[1]), ui.icon(NOTE))
+    placeCard(pr.id, TIERS[pr.tier], L["pinned, in %s  -  %s"]:format(ns.zoneName(pr.zone), pr.verse[1]), ui.icon(NOTE))
   end
   local recent = lately(5)
   if #recent > 0 then
-    page:section("Lately")
+    page:section(L["Lately"])
     for _, x in ipairs(recent) do
       if x.riddle then
         local seal = SEALS[ns.riddleSeal(x.rec)]
         placeCard(
           x.riddle.id,
           ns.riddleName(x.riddle),
-          ("%s  -  the %s seal, %s"):format(ns.zoneName(x.riddle.zone), seal[2]:lower(), ui.day(x.rec)),
+          L["%s  -  %s, %s"]:format(ns.zoneName(x.riddle.zone), seal[6], ui.day(x.rec)),
           riddlePicture(x.riddle),
           seal,
           true
@@ -815,7 +884,7 @@ local function showOverview()
         placeCard(
           "quarry:" .. x.quarry.id,
           x.quarry.name,
-          ("%s  -  brought down, the %s seal, %s"):format(ns.zoneName(x.quarry.zone), seal[2]:lower(), ui.day(x.rec)),
+          L["%s  -  brought down, %s, %s"]:format(ns.zoneName(x.quarry.zone), seal[6], ui.day(x.rec)),
           portrait(ns.quarryDisplay(x.quarry)),
           seal,
           true
@@ -828,11 +897,9 @@ end
 local function refresh()
   local n = counts()
   book.count:SetText(
-    ("%d %s solved, %d %s"):format(
-      n.riddles,
-      n.riddles == 1 and "riddle" or "riddles",
-      n.quarries,
-      n.quarries == 1 and "quarry" or "quarries"
+    L["%s, %s"]:format(
+      ns.kit.plural(n.riddles, "%d riddle solved", "%d riddles solved"):format(n.riddles),
+      ns.kit.plural(n.quarries, "%d quarry", "%d quarries"):format(n.quarries)
     )
   )
   refreshList()
@@ -875,10 +942,10 @@ ns.addTab(ns.TAB.expeditions, {
     default = "all",
     options = function()
       return {
-        { value = "all", text = "Everything" },
-        { value = "riddles", text = "Riddles" },
-        { value = "hunts", text = "Hunts" },
-        { value = "open", text = "Unfinished" },
+        { value = "all", text = L["Everything"] },
+        { value = "riddles", text = L["Riddles"] },
+        { value = "hunts", text = L["Hunts"] },
+        { value = "open", text = L["Unfinished"] },
       }
     end,
   },
