@@ -4,8 +4,9 @@
   "description": "Yonder, a World of Warcraft addon: riddles and rare hunts across Azeroth, and an explorer's journal of creatures, places, fish and herbs",
   "license": "MIT",
   "scripts": {
-    "build": "bun scripts/build.ts",
-    "check": "bun test scripts/ && bun run lint:lua && bun scripts/build.ts --check && luajit addon/test/sim.lua && FOREVER=1 luajit addon/test/sim.lua",
+    "locales": "bun scripts/locales.ts",
+    "build": "bun scripts/build.ts && bun scripts/locales.ts",
+    "check": "bun test scripts/ && bun run lint:lua && bun scripts/build.ts --check && bun scripts/locales.ts --check && luajit addon/test/sim.lua && FOREVER=1 luajit addon/test/sim.lua",
     "package": "bun scripts/package.ts",
     "creatures": "python3 scripts/creatures.py",
     "flora": "python3 scripts/flora.py",

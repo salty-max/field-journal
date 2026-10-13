@@ -66,16 +66,18 @@ ns.expeditionPrint = print_ -- for the tests
 -- A seal in the chat's line ("with a gold seal").
 local A_SEAL = { gold = L["a gold seal"], silver = L["a silver seal"], plain = L["a plain seal"] }
 
-local function unveil(text, id)
+local function turn(text, id, way)
   local state = fnv(SALT .. "|veil|" .. id) % 2147483646 + 1
   local out = {}
   for i = 1, #text do
     state = (state * 48271) % 2147483647
     local b = text:byte(i)
-    out[i] = (b >= 32 and b < 127) and string.char(32 + (b - 32 - state % 95) % 95) or string.char(b)
+    out[i] = (b >= 32 and b < 127) and string.char(32 + (b - 32 + way * (state % 95)) % 95) or string.char(b)
   end
   return table.concat(out)
 end
+local function unveil(text, id) return turn(text, id, -1) end
+ns.expeditionVeil = function(text, id) return turn(text, id, 1) end -- for the tests
 
 -- ── the riddles ──────────────────────────────────────────────────────────────
 local byId = {}

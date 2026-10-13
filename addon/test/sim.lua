@@ -2336,4 +2336,90 @@ check(
 )
 W.frame:Hide()
 
+-- A translation: its words and plural rule, the sections' and families'
+-- titles and notes (this game's paragraphs), the Atlas's, the fish's waters,
+-- a riddle's verse, clue, danger and what its solving reads (veiled as the
+-- English, whatever its letters), a quarry's name and poster; the reader's
+-- gender; on Classic, its own names for the places Forever renamed.
+do
+  local L, K = ns.kit.L, ns.kit
+  check(
+    L["Expeditions"] == "Expeditions" and K.plural(0, "%d riddle solved", "%d riddles solved") == "%d riddles solved",
+    "English by default"
+  )
+  local veil = ns.expeditionVeil -- (the build's veil, for the test's own texts)
+  local r = D.expeditions[1426].riddles[1]
+  UnitSex = function() return 3 end -- (a woman reads)
+  ns.translate({
+    locale = "frFR",
+    plural = "fr",
+    words = {
+      ["Expeditions"] = "Expéditions",
+      ["%d riddle solved"] = "%d énigme résolue",
+      ["%d riddles solved"] = "%d énigmes résolues",
+    },
+    sections = { beasts = "Bêtes" },
+    families = {
+      wolves = {
+        title = "Loups",
+        note = { { "Un hurlement." }, { client = "forever", "Pour Forever." }, { client = "classic", "Pour Classic." } },
+      },
+    },
+    atlas = { [1426] = { { "Les neiges autour de Forgefer." } } },
+    places = { ["Cliffspring Falls"] = "Chutes de Sourcefalaise" },
+    expeditions = {
+      [1426] = {
+        riddles = {
+          [r.id] = {
+            verse = { "Sous les grandes portes,", "une enclume a un maître." },
+            hint = "Au pied de la route de Forgefer.",
+            danger = "Calme",
+            name = veil("Note gravée", r.id),
+            note = veil("Votre note, $gcher voyageur:chère voyageuse;, à Forgefer.", r.id),
+            margin = veil("Une marge.", r.id),
+          },
+        },
+        quarry = {
+          name = "Grumeux",
+          verse = { "Un loup", "plus grand que les autres." },
+          note = veil("Sa note.", "quarry-1132"),
+        },
+      },
+    },
+    classic = { { "Forgefer", "Ironforge" } },
+  })
+  local wolves = ns.familyById.wolves
+  check(
+    L["Expeditions"] == "Expéditions" and K.plural(0, "%d riddle solved", "%d riddles solved") == "%d énigme résolue",
+    "a translation: its words, its plural rule (French: 0 is singular)"
+  )
+  check(D.sections[1].title == "Bêtes" and wolves.title == "Loups", "… the sections' and families' titles")
+  check(
+    #wolves.note == 2 and wolves.note[2] == (FOREVER and "Pour Forever." or "Pour Classic."),
+    "… a family's note, this game's paragraphs"
+  )
+  check(
+    D.atlas.zones[1426].note[1] == (FOREVER and "Les neiges autour de Forgefer." or "Les neiges autour de Ironforge."),
+    "… the Atlas's notes, Classic's own names swapped in on Classic"
+  )
+  check(D.flora.fish[6718].subzones[1] == "Chutes de Sourcefalaise", "… the fish's waters")
+  check(
+    r.verse[2] == "une enclume a un maître."
+      and r.hint == (FOREVER and "Au pied de la route de Forgefer." or "Au pied de la route de Ironforge.")
+      and r.danger == "Calme",
+    "… a riddle's verse, clue and danger"
+  )
+  check(
+    ns.riddleName(r) == "Note gravée"
+      and ns.riddleNote(r) == (FOREVER and "Votre note, chère voyageuse, à Forgefer." or "Votre note, chère voyageuse, à Ironforge.")
+      and ns.riddleMargin(r) == "Une marge.",
+    "… what its solving reads, veiled whatever its letters, the reader's gender"
+  )
+  local quarry = D.expeditions[1426].quarry
+  check(
+    quarry.name == "Grumeux" and quarry.verse[1] == "Un loup" and ns.quarryNote(quarry) == "Sa note.",
+    "… a quarry's name and poster"
+  )
+end
+
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")
