@@ -6,6 +6,7 @@
 -- (the game's data, shown once found: no spoilers), and the character's
 -- record. Records: Flora.lua.
 local _, ns = ...
+local L = ns.kit.L
 local F = ns.data.flora
 local ui = ns.ui
 local T = ui.T
@@ -19,26 +20,27 @@ ns.floraRows, ns.floraPairs = rows, pairsPool -- for the tests
 local function when(stamp)
   if not stamp or not stamp.at then return nil end
   local where = stamp.zone and ns.zoneName(stamp.zone)
-  if where and stamp.sub and stamp.sub ~= where then where = ("%s, %s"):format(stamp.sub, where) end
-  return ("%s%s, you were level %d"):format(ui.day(stamp), where and (" in " .. where) or "", stamp.level or 0)
+  if where and stamp.sub and stamp.sub ~= where then where = L["%s, %s"]:format(stamp.sub, where) end
+  if where then return L["%s in %s, you were level %d"]:format(ui.day(stamp), where, stamp.level or 0) end
+  return L["%s, you were level %d"]:format(ui.day(stamp), stamp.level or 0)
 end
 
 local FISH_GROUPS = {
-  { "food", "Fish of the waters" },
-  { "reagent", "Reagents" },
-  { "special", "Rare catches" },
-  { "quest", "Quest catches" },
-  { "record", "Weighed catches" },
+  { "food", L["Fish of the waters"] },
+  { "reagent", L["Reagents"] },
+  { "special", L["Rare catches"] },
+  { "quest", L["Quest catches"] },
+  { "record", L["Weighed catches"] },
 }
 local KIND = {
-  food = "A fish of the waters",
-  reagent = "A reagent",
-  special = "A rare catch",
-  quest = "A quest fish",
-  record = "Weighed catches",
+  food = L["A fish of the waters"],
+  reagent = L["A reagent"],
+  special = L["A rare catch"],
+  quest = L["A quest fish"],
+  record = L["Weighed catches"],
 }
 -- The Herbalism ranks, by the skill an herb needs.
-local RANKS = { { 1, "Apprentice" }, { 75, "Journeyman" }, { 150, "Expert" }, { 225, "Artisan" } }
+local RANKS = { { 1, L["Apprentice"] }, { 75, L["Journeyman"] }, { 150, L["Expert"] }, { 225, L["Artisan"] } }
 local function rankOf(skill)
   local name = RANKS[1][2]
   for _, r in ipairs(RANKS) do
@@ -61,8 +63,11 @@ local function info(id)
 end
 -- "1 kind of fish, 1 caught", "3 herbs, 5 taken"
 local function counted(kinds, total)
-  if mode == "fish" then return ("%d %s of fish, %d caught"):format(kinds, kinds == 1 and "kind" or "kinds", total) end
-  return ("%d %s, %d taken"):format(kinds, kinds == 1 and "herb" or "herbs", total)
+  local plural = ns.kit.plural
+  if mode == "fish" then
+    return plural(kinds, "%d kind of fish, %d caught", "%d kinds of fish, %d caught"):format(kinds, total)
+  end
+  return plural(kinds, "%d herb, %d taken", "%d herbs, %d taken"):format(kinds, total)
 end
 -- A kind's name: the game's (a weighed catch: the data's, as the game has none).
 local function name(id)
@@ -118,7 +123,7 @@ local function refreshList()
   local found = groups(q)
   list:begin()
   if q == "" then
-    local r = list:add("overview", mode == "fish" and "The catch so far" or "The herbs so far")
+    local r = list:add("overview", mode == "fish" and L["The catch so far"] or L["The herbs so far"])
     r:SetScript("OnClick", function()
       current[mode] = nil
       ns.refresh()
@@ -139,7 +144,7 @@ local function refreshList()
       if current[mode] == id then list:pick(r) end
     end
   end
-  if #found == 0 and q ~= "" then list:add("section", "Nothing found") end
+  if #found == 0 and q ~= "" then list:add("section", L["Nothing found"]) end
   list:finish()
 end
 
@@ -155,18 +160,18 @@ local function mostFound(zones)
   table.sort(counts, function(a, b) return a[2] > b[2] end)
   local out = {}
   for i = 1, math.min(#counts, 5) do
-    table.insert(out, ("%s (%d)"):format(ns.zoneName(counts[i][1]), counts[i][2]))
+    table.insert(out, L["%s (%d)"]:format(ns.zoneName(counts[i][1]), counts[i][2]))
   end
   return listed(out)
 end
 
-local HOW = { gathered = "gathered", looted = "looted", other = "came to your bags" }
+local HOW = { gathered = L["gathered"], looted = L["looted"], other = L["came to your bags"] }
 
 -- The zones it bites or grows in, as names to pick: each opens its Atlas page.
 local function zoneChips(zones)
   local out = {}
   for _, z in ipairs(zones or {}) do
-    table.insert(out, { ns.zoneName(z), function() ns.openZone(z) end, false, "Open its page in the Atlas." })
+    table.insert(out, { ns.zoneName(z), function() ns.openZone(z) end, false, L["Open its page in the Atlas."] })
   end
   table.sort(out, function(a, b) return a[1] < b[1] end)
   if #out > 0 then page:chips(out) end
@@ -177,37 +182,37 @@ local function itemPicture(id) return ui.icon(ui.itemIcon(id) or ui.QUESTION) en
 local function showKind(id)
   local d, rec = info(id), records()[id]
   if mode == "fish" then
-    local season = d.season and ("only in %s"):format(d.season) or nil
+    local season = d.season and (d.season == "winter" and L["only in winter"] or L["only in summer"]) or nil
     page:start(name(id), table.concat({ KIND[d.kind], season }, "  -  "), itemPicture(id))
     page:text(d.note)
     local figures = { { tostring(rec.n or 0), "caught" } }
-    if rec.heaviest then table.insert(figures, { ("%d lb"):format(rec.heaviest), "the heaviest" }) end
-    table.insert(figures, { ("%d / %d"):format(rec.day or 0, rec.night or 0), "day / night" })
-    if (rec.school or 0) > 0 then table.insert(figures, { tostring(rec.school), "from schools" }) end
+    if rec.heaviest then table.insert(figures, { L["%d lb"]:format(rec.heaviest), L["the heaviest"] }) end
+    table.insert(figures, { L["%d / %d"]:format(rec.day or 0, rec.night or 0), L["day / night"] })
+    if (rec.school or 0) > 0 then table.insert(figures, { tostring(rec.school), L["from schools"] }) end
     page:stats(figures)
-    page:section("Where it bites")
+    page:section(L["Where it bites"])
     zoneChips(d.zones)
-    page:row("Waters", listed(d.subzones))
-    page:row("Dungeons", listed(d.dungeons))
-    page:section("Your catches")
-    page:row("First caught", when(rec.first))
-    page:row("Where", mostFound(rec.zones))
+    page:row(L["Waters"], listed(d.subzones))
+    page:row(L["Dungeons"], listed(d.dungeons))
+    page:section(L["Your catches"])
+    page:row(L["First caught"], when(rec.first))
+    page:row(L["Where"], mostFound(rec.zones))
   else
-    local inside = d.inside and "  -  found in other herbs" or ""
-    page:start(name(id), ("Herbalism %d%s"):format(d.skill, inside), itemPicture(id))
+    local inside = d.inside and L["  -  found in other herbs"] or ""
+    page:start(name(id), L["Herbalism %d%s"]:format(d.skill, inside), itemPicture(id))
     page:text(d.note)
     page:stats({
       { tostring(rec.n or 0), "taken" },
       { tostring(rec.gathered or 0), "gathered" },
       { tostring(rec.looted or 0), "looted" },
     })
-    page:section("Where it grows")
+    page:section(L["Where it grows"])
     zoneChips(d.zones)
-    page:row("Dungeons", listed(d.dungeons))
-    page:section("Your herbs")
+    page:row(L["Dungeons"], listed(d.dungeons))
+    page:section(L["Your herbs"])
     local first = when(rec.first)
-    page:row("First", first and ("%s (%s)"):format(first, HOW[rec.first.how] or "?") or nil)
-    page:row("Where", mostFound(rec.zones))
+    page:row(L["First"], first and (L["%s (%s)"]):format(first, HOW[rec.first.how] or "?") or nil)
+    page:row(L["Where"], mostFound(rec.zones))
   end
 end
 
@@ -228,7 +233,7 @@ local function lately(recs, max)
   end
   table.sort(ids, function(a, b) return recs[a].first.at > recs[b].first.at end)
   if #ids == 0 then return end
-  page:section(mode == "fish" and "The last new catches" or "The last new herbs")
+  page:section(mode == "fish" and L["The last new catches"] or L["The last new herbs"])
   for i = 1, math.min(#ids, max) do
     local id = ids[i]
     page:card(name(id), when(recs[id].first), itemPicture(id), function()
@@ -242,10 +247,10 @@ local function showOverview()
   local recs = records()
   local kinds, total = totals(recs)
   if mode == "fish" then
-    page:start("The catch so far", counted(kinds, total), ui.icon("Interface\\Icons\\Trade_Fishing"))
+    page:start(L["The catch so far"], counted(kinds, total), ui.icon("Interface\\Icons\\Trade_Fishing"))
     if kinds == 0 then
       page:paragraph(
-        "Nothing caught yet. Every fish you land is written down here, with where and when it bit.",
+        L["Nothing caught yet. Every fish you land is written down here, with where and when it bit."],
         T.soft
       )
       return
@@ -256,23 +261,23 @@ local function showOverview()
       if rec.heaviest and (not heavy or rec.heaviest > heavy[2]) then heavy = { id, rec.heaviest } end
     end
     page:stats({
-      { tostring(kinds), kinds == 1 and "kind" or "kinds" },
+      { tostring(kinds), ns.kit.plural(kinds, "kind", "kinds") },
       { tostring(total), "caught" },
-      { tostring(schools), "from schools" },
-      { tostring(night), "by night" },
+      { tostring(schools), L["from schools"] },
+      { tostring(night), L["by night"] },
     })
     if heavy then
-      page:section("The heaviest")
-      page:card(name(heavy[1]), ("%d pounds"):format(heavy[2]), itemPicture(heavy[1]), function()
+      page:section(L["The heaviest"])
+      page:card(name(heavy[1]), L["%d pounds"]:format(heavy[2]), itemPicture(heavy[1]), function()
         current[mode] = heavy[1]
         ns.refresh()
       end)
     end
   else
-    page:start("The herbs so far", counted(kinds, total), ui.icon("Interface\\Icons\\INV_Misc_Herb_07"))
+    page:start(L["The herbs so far"], counted(kinds, total), ui.icon("Interface\\Icons\\INV_Misc_Herb_07"))
     if kinds == 0 then
       page:paragraph(
-        "No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given.",
+        L["No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given."],
         T.soft
       )
       return
@@ -282,7 +287,7 @@ local function showOverview()
       gathered, looted = gathered + (rec.gathered or 0), looted + (rec.looted or 0)
     end
     page:stats({
-      { tostring(kinds), kinds == 1 and "herb" or "herbs" },
+      { tostring(kinds), ns.kit.plural(kinds, "herb", "herbs") },
       { tostring(total), "taken" },
       { tostring(gathered), "gathered" },
       { tostring(looted), "looted" },

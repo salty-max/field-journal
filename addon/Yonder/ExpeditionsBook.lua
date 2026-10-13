@@ -715,7 +715,7 @@ local function zoneWords(uiMap)
   if #riddles > 0 then
     first = (q and L["%s keeps %s for you, %s, and a quarry its people tell of."] or L["%s keeps %s for you, %s."]):format(
       name,
-      #riddles == 1 and L["one riddle"] or L["%s riddles"]:format(words(#riddles)),
+      ns.kit.plural(#riddles, "one riddle", "%s riddles"):format(words(#riddles)),
       tierWords(riddles)
     )
   else

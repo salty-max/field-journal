@@ -5,6 +5,7 @@
 -- and this character's record of it, in sections), or the trophies' (the
 -- rares and bosses slain).
 local _, ns = ...
+local L = ns.kit.L
 local D = ns.data
 local ui = ns.ui
 local T, SOFT, QUESTION = ui.T, ui.SOFT, ui.QUESTION
@@ -63,7 +64,7 @@ local function setPortrait(p, id, rec)
 end
 
 -- ── what a record says ───────────────────────────────────────────────────────
-local RANK = { r = "rare", R = "rare elite", b = "boss" }
+local RANK = { r = L["rare"], R = L["rare elite"], b = L["boss"] }
 
 local function rankOf(id, rec) return rec.trophy and rec.trophy.rank or ns.rank(id) end
 
@@ -76,14 +77,16 @@ end
 
 local function rankTag(id, rec)
   local rank = rankOf(id, rec)
-  if rec.trophy then return ("  %s%s, trophy|r"):format(T.mark, RANK[rank] or "trophy") end
+  if rec.trophy then
+    return ("  %s%s|r"):format(T.mark, RANK[rank] and L["%s, trophy"]:format(RANK[rank]) or L["trophy"])
+  end
   if rank then return ("  %s%s|r"):format(T.rare, RANK[rank]) end
   return ""
 end
 
 -- A creature's levels in the world (the data's range, widened by any level
 -- seen), not just the one it had when met.
-local function levels(id, rec)
+local function levelRange(id, rec)
   local known = D.levels and D.levels[id]
   local low, high
   if type(known) == "number" then
@@ -95,8 +98,12 @@ local function levels(id, rec)
   if rec.low then
     low, high = math.min(low or rec.low, rec.low), math.max(high or rec.high, rec.high)
   end
+  return low, high
+end
+local function levels(id, rec)
+  local low, high = levelRange(id, rec)
   if not low then return nil end
-  return low == high and ("level %d"):format(low) or ("levels %d-%d"):format(low, high)
+  return low == high and L["level %d"]:format(low) or L["levels %d-%d"]:format(low, high)
 end
 
 -- The parts given, the empty ones left out ("a  -  b").
@@ -115,10 +122,10 @@ local function day(stamp) return ui.day(stamp) end
 -- The creatures of a family in the order the select asks: by name, the most
 -- slain, the last slain, or in the order they were first met.
 local SORTS = {
-  { value = "name", text = "Sorted by name" },
-  { value = "slain", text = "The most slain first" },
-  { value = "recent", text = "The last slain first" },
-  { value = "met", text = "In the order met" },
+  { value = "name", text = L["Sorted by name"] },
+  { value = "slain", text = L["The most slain first"] },
+  { value = "recent", text = L["The last slain first"] },
+  { value = "met", text = L["In the order met"] },
 }
 local function sortedIds(ids)
   local creatures = ns.journal().creatures
@@ -156,7 +163,7 @@ local function layEntries(ids, line)
   for _, id in ipairs(ids) do
     local rec = creatures[id]
     local c = page:card(
-      (rec.name or ("Creature " .. id)) .. rankTag(id, rec),
+      (rec.name or L["Creature %d"]:format(id)) .. rankTag(id, rec),
       line(id, rec),
       function(p) setPortrait(p, id, rec) end,
       function() ns.openCreature(id) end,
@@ -173,10 +180,10 @@ local function dropLines(rec, itemId)
     local drop = ns.dropRate(rec, itemId)
     if not drop then return end
     tip:AddLine(" ")
-    tip:AddLine("Drop rate: " .. drop.rate, T.accent[1], T.accent[2], T.accent[3])
+    tip:AddLine(L["Drop rate: %s"]:format(drop.rate), T.accent[1], T.accent[2], T.accent[3])
     tip:AddLine(drop.detail, T.soft[1], T.soft[2], T.soft[3], true)
     if drop.before then
-      tip:AddLine("It dropped for you before the count began.", T.soft[1], T.soft[2], T.soft[3], true)
+      tip:AddLine(L["It dropped for you before the count began."], T.soft[1], T.soft[2], T.soft[3], true)
     end
   end
 end
@@ -191,9 +198,9 @@ local function showFamily(key)
       if rec.trophy then table.insert(ids, id) end
     end
     table.sort(ids, function(a, b) return creatures[a].trophy.at < creatures[b].trophy.at end)
-    start("Trophies", ("%d brought down"):format(#ids), ui.icon("Interface\\Icons\\INV_Misc_Head_Dragon_01"))
+    start(L["Trophies"], L["%d brought down"]:format(#ids), ui.icon("Interface\\Icons\\INV_Misc_Head_Dragon_01"))
     intro =
-      "The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed."
+      L["The rare beasts and the great foes this traveller has brought down, with the day and the level of the deed."]
   else
     ids = sortedIds(ns.metByFamily()[key] or {})
     local family = ns.familyById[key]
@@ -201,7 +208,7 @@ local function showFamily(key)
     for _, s in ipairs(D.sections) do
       if family and s.id == family.section then section = s.title end
     end
-    start(ns.familyTitle(key), joined({ section, ("%d slain"):format(#ids) }), function(p)
+    start(ns.familyTitle(key), joined({ section, L["%d slain"]:format(#ids) }), function(p)
       if ids[1] then
         setPortrait(p, ids[1], creatures[ids[1]])
       else
@@ -209,7 +216,7 @@ local function showFamily(key)
       end
     end)
     intro = family and #family.note > 0 and table.concat(family.note, "\n\n")
-      or (SOFT .. "The naturalist has not yet written of these. What follows is your own record.|r")
+      or (SOFT .. L["The naturalist has not yet written of these. What follows is your own record."] .. "|r")
   end
   page:text({ intro })
   local slainAll, trophies, bosses = 0, 0, 0
@@ -223,27 +230,27 @@ local function showFamily(key)
   end
   if key == TROPHIES then
     page:stats({
-      { tostring(#ids), "brought down" },
-      { tostring(#ids - bosses), #ids - bosses == 1 and "rare" or "rares" },
-      { tostring(bosses), bosses == 1 and "boss" or "bosses" },
+      { tostring(#ids), L["brought down"] },
+      { tostring(#ids - bosses), ns.kit.plural(#ids - bosses, "rare", "rares") },
+      { tostring(bosses), ns.kit.plural(bosses, "boss", "bosses") },
     })
   else
     page:stats({
-      { tostring(#ids), #ids == 1 and "kind met" or "kinds met" },
-      { tostring(slainAll), "slain" },
-      { tostring(trophies), trophies == 1 and "trophy" or "trophies" },
+      { tostring(#ids), ns.kit.plural(#ids, "kind met", "kinds met") },
+      { tostring(slainAll), L["slain"] },
+      { tostring(trophies), ns.kit.plural(trophies, "trophy", "trophies") },
     })
   end
-  page:section(key == TROPHIES and "The trophy shelf" or "Slain in the wild")
+  page:section(key == TROPHIES and L["The trophy shelf"] or L["Slain in the wild"])
   if key == TROPHIES then
     layEntries(ids, function(id, rec)
-      local slain = ("slain %s at level %d"):format(day(rec.trophy), rec.trophy.level or 0)
+      local slain = L["slain %s at level %d"]:format(day(rec.trophy), rec.trophy.level or 0)
       return joined({ ns.familyTitle(ns.familyKey(id, rec)), slain })
     end)
-    if #ids == 0 then page:paragraph("None yet.", T.soft) end
+    if #ids == 0 then page:paragraph(L["None yet."], T.soft) end
   else
     layEntries(ids, function(id, rec)
-      local slain = (rec.slain or 0) > 0 and ("%d slain"):format(rec.slain) or "none slain"
+      local slain = (rec.slain or 0) > 0 and (L["%d slain"]):format(rec.slain) or L["none slain"]
       return joined({ levels(id, rec), slain, placeShort(rec.places and rec.places[1]) })
     end)
   end
@@ -255,7 +262,7 @@ local function showCreature(id)
   local rec = ns.journal().creatures[id]
   local rank = rankOf(id, rec)
   start(
-    rec.name or ("Creature " .. id),
+    rec.name or L["Creature %d"]:format(id),
     joined({ T.link .. ns.familyTitle(current) .. "|r", levels(id, rec), RANK[rank] }),
     function(p) setPortrait(p, id, rec) end,
     ringOf(id, rec)
@@ -268,39 +275,44 @@ local function showCreature(id)
     table.insert(items, { itemId, nil, false, count, dropLines(rec, itemId) })
   end
   table.sort(items, function(a, b) return a[4] > b[4] end)
-  local lv = levels(id, rec)
-  local figures = { { tostring(rec.slain or 0), "slain" } }
-  if lv then table.insert(figures, { (lv:gsub("^levels? ", "")), lv:find("^levels") and "levels" or "level" }) end
-  table.insert(figures, { tostring(#items), #items == 1 and "spoil" or "spoils" })
+  local figures = { { tostring(rec.slain or 0), L["slain"] } }
+  local low, high = levelRange(id, rec)
+  if low then
+    table.insert(
+      figures,
+      { low == high and tostring(low) or ("%d-%d"):format(low, high), low == high and L["level"] or L["levels"] }
+    )
+  end
+  table.insert(figures, { tostring(#items), ns.kit.plural(#items, "spoil", "spoils") })
   page:stats(figures)
   page:model((D.models and D.models[id]) or rec.display)
 
   local first, last = rec.first or {}, rec.last
-  page:section("Encounters")
-  page:row("First met", joined({ day(first), first.level and ("you were level %d"):format(first.level) }, ", "))
+  page:section(L["Encounters"])
+  page:row(L["First met"], joined({ day(first), first.level and (L["you were level %d"]):format(first.level) }, ", "))
   if last and last.at ~= first.at then
-    page:row("Last seen", joined({ day(last), last.level and ("you were level %d"):format(last.level) }, ", "))
+    page:row(L["Last seen"], joined({ day(last), last.level and (L["you were level %d"]):format(last.level) }, ", "))
   end
-  page:row("Where", rec.places and table.concat(rec.places, "\n"))
+  page:row(L["Where"], rec.places and table.concat(rec.places, "\n"))
   page.y = page.y + 10
 
-  page:section("The hunt")
+  page:section(L["The hunt"])
   if (rec.slain or 0) > 0 then
-    page:row("Slain", tostring(rec.slain))
-    local firstLevel = rec.firstSlain and ("you were level %d"):format(rec.firstSlain.level or 0)
-    page:row("First kill", joined({ day(rec.firstSlain), firstLevel }, ", "))
+    page:row(L["Slain"], tostring(rec.slain))
+    local firstLevel = rec.firstSlain and (L["you were level %d"]):format(rec.firstSlain.level or 0)
+    page:row(L["First kill"], joined({ day(rec.firstSlain), firstLevel }, ", "))
     if rec.lastSlain and rec.firstSlain and rec.lastSlain.at ~= rec.firstSlain.at then
-      page:row("Last kill", day(rec.lastSlain))
+      page:row(L["Last kill"], day(rec.lastSlain))
     end
   else
-    page:row("Slain", SOFT .. "none yet|r")
+    page:row(L["Slain"], SOFT .. L["none yet"] .. "|r")
   end
-  if rec.trophy then page:row("Trophy", ("%s, at level %d"):format(day(rec.trophy), rec.trophy.level or 0)) end
+  if rec.trophy then page:row(L["Trophy"], L["%s, at level %d"]:format(day(rec.trophy), rec.trophy.level or 0)) end
   page.y = page.y + 10
 
-  page:section("Spoils")
+  page:section(L["Spoils"])
   if #items == 0 then
-    page:paragraph("Nothing taken from it yet.", T.soft)
+    page:paragraph(L["Nothing taken from it yet."], T.soft)
     return
   end
   page:items(items)
@@ -308,9 +320,9 @@ end
 
 -- Before anything is recorded.
 local function showEmpty()
-  start("The Bestiary", nil, ui.icon("Interface\\Icons\\INV_Misc_Book_11"))
+  start(L["The Bestiary"], nil, ui.icon("Interface\\Icons\\INV_Misc_Book_11"))
   page:paragraph(
-    "Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here.",
+    L["Nothing recorded yet. Target or mouse over a creature of the wild, and it will be written here."],
     T.soft
   )
 end
@@ -388,7 +400,7 @@ local function refreshList()
     if rec.trophy then trophies = trophies + 1 end
   end
   if trophies > 0 and not searching then
-    local r = list:add("trophies", "Trophies", trophies)
+    local r = list:add("trophies", L["Trophies"], trophies)
     r:SetScript("OnClick", function()
       choose(TROPHIES)
       ns.refresh()
@@ -424,7 +436,7 @@ local function refreshList()
     for _, id in ipairs(shownIds) do
       local rec = creatures[id]
       local mark = rankOf(id, rec) and (" " .. SOFT .. "*|r") or ""
-      local c = list:add("creature", (rec.name or ("Creature " .. id)) .. mark)
+      local c = list:add("creature", (rec.name or L["Creature %d"]:format(id)) .. mark)
       c.id = id
       c:SetScript("OnClick", function()
         choose(key, id)
@@ -476,13 +488,13 @@ local function refreshList()
     if not placed[key] then table.insert(other, key) end
   end
   table.sort(other, function(a, b) return tostring(a) < tostring(b) end)
-  addSection("unrecorded", "Unrecorded", other)
+  addSection("unrecorded", L["Unrecorded"], other)
   list:finish()
 end
 
 local function refresh()
   local creatures, families, slain = ns.counts()
-  book.count:SetText(("%d creatures, %d families, %d slain"):format(creatures, families, slain))
+  book.count:SetText(L["%d creatures, %d families, %d slain"]:format(creatures, families, slain))
   -- The first opening: the family most recently met.
   if current == nil then
     local latest, at = nil, -1
