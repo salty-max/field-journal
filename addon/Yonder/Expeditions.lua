@@ -36,6 +36,7 @@
 -- with the clue, plain with the map; a quarry's gold if never tracked, plain
 -- if it was.
 local _, ns = ...
+local L = ns.kit.L
 local D = ns.data
 local X = D.expeditions or {}
 local PREFIX = ns.PREFIX
@@ -62,6 +63,9 @@ ns.expeditionPrint = print_ -- for the tests
 
 -- A veiled text, read (MINSTD's stream from the riddle's id, as the build's:
 -- plain ASCII turned back, a translation's other bytes as they are).
+-- A seal in the chat's line ("with a gold seal").
+local A_SEAL = { gold = L["a gold seal"], silver = L["a silver seal"], plain = L["a plain seal"] }
+
 local function unveil(text, id)
   local state = fnv(SALT .. "|veil|" .. id) % 2147483646 + 1
   local out = {}
@@ -213,7 +217,7 @@ local function creatureNear(unit)
   local guid = UnitGUID(unit)
   if not guid or secret(guid) then return end
   local kind, _, _, _, _, id = strsplit("-", guid)
-  if kind ~= "Creature" then return end
+  if kind ~= L["Creature"] then return end
   local near = CheckInteractDistance(unit, 2)
   if not near or secret(near) then return end
   return tonumber(id)
@@ -225,7 +229,7 @@ local function speakingTo()
   local guid = UnitGUID("npc")
   if not guid or secret(guid) then return end
   local kind, _, _, _, _, id = strsplit("-", guid)
-  if kind ~= "Creature" then return end
+  if kind ~= L["Creature"] then return end
   return tonumber(id)
 end
 
@@ -267,11 +271,10 @@ local function solve(r, x, y)
   e.riddles[r.id] = rec
   print(
     PREFIX
-      .. ("a riddle read aright: |cffffd100|Hyonder:x%s|h[%s]|h|r, %s, with a %s seal."):format(
-        r.id,
-        ns.riddleName(r),
+      .. L["a riddle read aright: %s, %s, with %s."]:format(
+        ("|cffffd100|Hyonder:x%s|h[%s]|h|r"):format(r.id, ns.riddleName(r)),
         ns.zoneName(r.zone),
-        ns.riddleSeal(rec)
+        A_SEAL[ns.riddleSeal(rec)]
       )
   )
   ns.playSound()
@@ -405,13 +408,13 @@ function ns.hintCircles(uiMap)
     local rec = ns.riddleRecord(r.id)
     if rec and (rec.hints or 0) >= 2 and not rec.at then
       local c = r.circle
-      table.insert(out, { x = c[1], y = c[2], r = c[3], title = "A riddle's place", text = r.verse[1] })
+      table.insert(out, { x = c[1], y = c[2], r = c[3], title = L["A riddle's place"], text = r.verse[1] })
     end
   end
   local q = ns.huntTarget()
   if q and q.zone == uiMap then
     for _, h in ipairs(q.haunts) do
-      table.insert(out, { x = h[1], y = h[2], r = h[3], title = q.name, text = "Its haunts: the quarry you track." })
+      table.insert(out, { x = h[1], y = h[2], r = h[3], title = q.name, text = L["Its haunts: the quarry you track."] })
     end
   end
   return out
@@ -446,11 +449,10 @@ function ns.quarrySlain(id)
   if e.target == id then e.target = nil end
   print(
     PREFIX
-      .. ("a quarry brought down: |cffffd100|Hyonder:q%d|h[%s]|h|r, %s, with a %s seal."):format(
-        id,
-        q.name,
+      .. L["a quarry brought down: %s, %s, with %s."]:format(
+        ("|cffffd100|Hyonder:q%d|h[%s]|h|r"):format(id, q.name),
         ns.zoneName(q.zone),
-        ns.huntSeal(rec)
+        A_SEAL[ns.huntSeal(rec)] or ns.huntSeal(rec)
       )
   )
   -- (a rare's trophy has its own sound)
@@ -482,38 +484,38 @@ function ns.whereReport()
   local best = C_Map.GetBestMapForUnit("player")
   local uiMap, x, y = where()
   if not best or secret(best) then
-    print(PREFIX .. "the game doesn't say where you are here.")
+    print(PREFIX .. L["the game doesn't say where you are here."])
     return
   end
   local map = uiMap or best
-  local pos = x and ("%.2f, %.2f"):format(x * 100, y * 100) or "no position"
+  local pos = x and (L["%.2f, %.2f"]):format(x * 100, y * 100) or L["no position"]
   local sub = GetSubZoneText()
-  local text = (sub and not secret(sub) and sub ~= "") and (", in %s"):format(sub) or ""
-  print(PREFIX .. ("%s (map %d): %s%s."):format(ns.zoneName(map), map, pos, text))
+  local text = (sub and not secret(sub) and sub ~= "") and (L[", in %s"]):format(sub) or ""
+  print(PREFIX .. (L["%s (map %d): %s%s."]):format(ns.zoneName(map), map, pos, text))
   if uiMap then
     local open, solved = 0, 0
     for _, r in ipairs(ns.riddlesOf(uiMap)) do
       open = open + 1
       if ns.riddleSolved(r.id) then solved = solved + 1 end
     end
-    print(("  riddles here: %d, %d solved."):format(open, solved))
+    print(L["  riddles here: %d, %d solved."]:format(open, solved))
   end
   -- the maps' circles: what this zone shades, what each map drew (and the
   -- world map's error, which its game would keep quiet)
   local here = uiMap and #ns.hintCircles(uiMap) or 0
   local world, mini = ns.mapLayer or {}, ns.minimapLayer or {}
-  local drawn = "not attached"
+  local drawn = L["not attached"]
   if ns.worldMapPinsAttached then
     drawn = world.map
-        and ("%d on %s (map %d) when last drawn"):format(world.circles or 0, ns.zoneName(world.map), world.map)
-      or "not drawn yet (open the map)"
+        and (L["%d on %s (map %d) when last drawn"]):format(world.circles or 0, ns.zoneName(world.map), world.map)
+      or L["not drawn yet (open the map)"]
   end
   print(
-    ("  hint circles: %d here; world map: %s; minimap: %s."):format(
+    L["  hint circles: %d here; world map: %s; minimap: %s."]:format(
       here,
       drawn,
-      mini.attached and ("%d in sight"):format(mini.seen or 0) or "not attached"
+      mini.attached and (L["%d in sight"]):format(mini.seen or 0) or L["not attached"]
     )
   )
-  if world.err then print("  world map error: " .. world.err) end
+  if world.err then print(L["  world map error: %s"]:format(world.err)) end
 end

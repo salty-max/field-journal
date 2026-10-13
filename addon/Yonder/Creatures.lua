@@ -3,6 +3,7 @@
 -- what was seen of it, filed in its family (the data file's, else by what the game
 -- says of it). Kills, loot and trophies too. The journal: Core.lua.
 local _, ns = ...
+local L = ns.kit.L
 local D = ns.data
 local PREFIX, secret = ns.PREFIX, ns.secret
 
@@ -120,8 +121,8 @@ end
 function ns.familyTitle(key)
   if byId[key] then return byId[key].title end
   local t, f = key:match("^%?([^/]+)/?(.*)$")
-  if f and f ~= "" then return ("Unrecorded %s: %s"):format(t or "?", f) end
-  return ("Unrecorded: %s"):format(t or "?")
+  if f and f ~= "" then return (L["Unrecorded %s: %s"]):format(t or "?", f) end
+  return (L["Unrecorded: %s"]):format(t or "?")
 end
 
 local function here()
@@ -249,7 +250,7 @@ local function join(id, unit)
           id,
           rec.name or "?",
           ns.familyTitle(key),
-          newFamily and ", a new family" or ""
+          newFamily and L[", a new family"] or ""
         )
     )
   end
@@ -299,7 +300,7 @@ end
 -- or from a kill it doesn't hold) }, nil before any corpse was counted.
 local function percent(f)
   local p = f * 100
-  if p > 0 and p < 1 then return "under 1%" end
+  if p > 0 and p < 1 then return L["under 1%"] end
   if p < 10 and math.floor(p * 10 + 0.5) % 10 ~= 0 then return ("%.1f%%"):format(p) end
   return ("%d%%"):format(math.floor(p + 0.5))
 end
@@ -309,7 +310,9 @@ function ns.dropRate(rec, itemId)
   local n = d.items[itemId] or 0
   return {
     rate = percent(n / d.corpses),
-    detail = ("in %d of %d %s looted or found empty"):format(n, d.corpses, d.corpses == 1 and "kill" or "kills"),
+    detail = ns.kit
+      .plural(d.corpses, "in %d of %d kill looted or found empty", "in %d of %d kills looted or found empty")
+      :format(n, d.corpses),
     before = n == 0 and (rec.loot and rec.loot[itemId] or 0) > 0 or nil,
   }
 end
@@ -330,7 +333,7 @@ local function slay(id, unit, guid)
   local rank = ns.rank(id, unit)
   if rank and not rec.trophy then
     rec.trophy = { at = stamp.at, level = stamp.level, rank = rank }
-    print(PREFIX .. ("a trophy: |cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, rec.name or "?"))
+    print(PREFIX .. L["a trophy: %s"]:format(("|cffffd100|Hyonder:c%d|h[%s]|h|r"):format(id, rec.name or "?")))
     ns.playSound()
   end
   if ns.quarrySlain then ns.quarrySlain(id) end

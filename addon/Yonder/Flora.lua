@@ -19,6 +19,7 @@
 -- reaches the bags another way (bought, a quest's reward, the mail) is noted
 -- once, when the bags are next looked at.
 local _, ns = ...
+local L = ns.kit.L
 local F = ns.data.flora
 local secret = ns.secret
 
@@ -48,7 +49,9 @@ end
 local function announce(kind, id, name)
   print(
     ns.PREFIX
-      .. ("a new %s: |cffffd100|Hyonder:%s%d|h[%s]|h|r"):format(kind == "f" and "catch" or "herb", kind, id, name)
+      .. (kind == "f" and L["a new catch: %s"] or L["a new herb: %s"]):format(
+        ("|cffffd100|Hyonder:%s%d|h[%s]|h|r"):format(kind, id, name)
+      )
   )
 end
 
@@ -152,25 +155,25 @@ ns.on("LOOT_OPENED", readLoot)
 local probing = false
 function ns.lootProbe()
   probing = true
-  print(ns.PREFIX .. "the next loot window will be described here: loot something.")
+  print(ns.PREFIX .. L["the next loot window will be described here: loot something."])
 end
 local function describe(event)
   if not probing then return end
   local parts = {}
   for slot = 1, GetNumLootItems() do
     local link = GetLootSlotLink(slot)
-    local name = link and not secret(link) and link:match("%[(.-)%]") or "money or nothing"
+    local name = link and not secret(link) and link:match("%[(.-)%]") or L["money or nothing"]
     local guid = GetLootSourceInfo(slot)
     local from = guid and not secret(guid) and guid:match("^(%a+)") or "?"
-    table.insert(parts, ("%s (%s)"):format(name, from))
+    table.insert(parts, L["%s (%s)"]:format(name, from))
   end
   local fishing = IsFishingLoot()
   print(
     ns.PREFIX
-      .. ("%s: %d slots%s%s"):format(
+      .. (L["%s: %d slots%s%s"]):format(
         event,
         GetNumLootItems(),
-        (not secret(fishing) and fishing) and ", fishing" or "",
+        (not secret(fishing) and fishing) and L[", fishing"] or "",
         #parts > 0 and (": " .. table.concat(parts, ", ")) or ""
       )
   )

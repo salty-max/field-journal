@@ -8,6 +8,7 @@
 -- that swallows an error without a word: the layer catches its own, says it
 -- once in chat, and keeps what it drew last for /yonder where (ns.mapLayer).
 local _, ns = ...
+local L = ns.kit.L
 
 local SKULL = "Interface\\TargetingFrame\\UI-TargetingFrame-Skull"
 local CLOSE = "Interface\\GossipFrame\\AvailableQuestIcon"
@@ -72,7 +73,7 @@ local function circle(i)
 end
 
 local function line(e)
-  return ("%s, level %d%s"):format(date("%d %b %Y", e.at or 0), e.level or 0, e.by and (" - " .. e.by) or "")
+  return L["%s, level %d%s"]:format(ns.kit.day(e.at or 0), e.level or 0, e.by and (" - " .. e.by) or "")
 end
 
 local function create()
@@ -125,8 +126,8 @@ local function create()
         end
       end
     end
-    place(atlas.closeCalls, CLOSE, "A close call")
-    place(atlas.deaths, SKULL, "Died here")
+    place(atlas.closeCalls, CLOSE, L["A close call"])
+    place(atlas.deaths, SKULL, L["Died here"])
     layer.marks = n
   end
   function provider:RefreshAllData()
@@ -135,7 +136,9 @@ local function create()
     if not ok then
       local first = ns.mapLayer.err == nil
       ns.mapLayer.err = tostring(err)
-      if first then print(ns.PREFIX .. "the world map's circles and marks failed to draw: " .. ns.mapLayer.err) end
+      if first then
+        print(ns.PREFIX .. L["the world map's circles and marks failed to draw: %s"]:format(ns.mapLayer.err))
+      end
     end
   end
   WorldMapFrame:AddDataProvider(provider)

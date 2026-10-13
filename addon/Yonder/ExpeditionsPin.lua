@@ -6,10 +6,11 @@
 -- replaces it. The book's pages pin and unpin (ns.pin); the record keeps it
 -- (Expeditions.lua: pinned, pinAt).
 local _, ns = ...
+local L = ns.kit.L
 local ui = ns.ui
 local T = ui.T
 local WIDTH, PAD = 280, 14
-local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
+local TIERS = { near = L["Near the road"], off = L["Off the road"], hidden = L["Hidden"], town = L["In town"] }
 local card
 
 function ns.pinned()
@@ -114,7 +115,7 @@ local function build()
   card:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_BOTTOM")
     GameTooltip:AddLine("Yonder", T.accent[1], T.accent[2], T.accent[3])
-    GameTooltip:AddLine("Click to open it in the journal; drag to move it.", 1, 1, 1, true)
+    GameTooltip:AddLine(L["Click to open it in the journal; drag to move it."], 1, 1, 1, true)
     GameTooltip:Show()
   end)
   card:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -142,31 +143,31 @@ local function fill(r, q)
     if rec.at then
       local s = ns.riddleSeal(rec)
       card.title:SetText(ns.riddleName(r))
-      table.insert(extra, ("Read, with the %s."):format(seal(s .. " seal", SEAL_COLORS[s])))
+      table.insert(extra, L["Read, with %s."]:format(seal(ns.SEALS[s][6], SEAL_COLORS[s])))
     else
       card.title:SetText(TIERS[r.tier])
-      if (rec.hints or 0) >= 1 then table.insert(extra, "The clue: " .. r.hint) end
-      if (rec.hints or 0) >= 2 then table.insert(extra, "Its place is shaded on your world map.") end
+      if (rec.hints or 0) >= 1 then table.insert(extra, L["The clue: %s"]:format(r.hint)) end
+      if (rec.hints or 0) >= 2 then table.insert(extra, L["Its place is shaded on your world map."]) end
     end
-    card.sub:SetText(ns.zoneName(r.zone) .. (r.night and "  -  by night" or ""))
+    card.sub:SetText(ns.zoneName(r.zone) .. (r.night and L["  -  by night"] or ""))
     card.verse:SetText(table.concat(r.verse, "\n"))
   else
     local rec = ns.huntRecord(q.id) or {}
     ns.quarryPicture(q)(card.picture)
     ring(ns.sealRing(rec.at and ns.HUNT_SEALS[ns.huntSeal(rec)], rec.at ~= nil))
     card.title:SetText(q.name)
-    card.sub:SetText(ns.zoneName(q.zone) .. "  -  the quarry")
+    card.sub:SetText(ns.zoneName(q.zone) .. L["  -  the quarry"])
     card.verse:SetText(table.concat(q.verse, "\n"))
     if rec.at then
       local s = ns.huntSeal(rec)
       table.insert(
         extra,
-        s == "before" and "Brought down before the journal kept the hunts."
-          or ("Brought down, with the %s."):format(seal(s .. " seal", SEAL_COLORS[s]))
+        s == "before" and L["Brought down before the journal kept the hunts."]
+          or L["Brought down, with %s."]:format(seal(ns.HUNT_SEALS[s][6], SEAL_COLORS[s]))
       )
     else
       local target = ns.huntTarget()
-      if target and target.id == q.id then table.insert(extra, "Its haunts are shaded on your world map.") end
+      if target and target.id == q.id then table.insert(extra, L["Its haunts are shaded on your world map."]) end
     end
   end
   card.extra:SetText(table.concat(extra, "\n"))

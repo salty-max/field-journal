@@ -14,6 +14,7 @@
 --   (the account-wide values of 0.6.0 and before, at the top of the table:
 --   the first profile of a character who kept a journal before takes them)
 local _, ns = ...
+local L = ns.kit.L
 local K = ns.kit
 
 -- (minimapAngle: the button's place around the minimap, in degrees; 225 is
@@ -33,13 +34,13 @@ local SHARED = { "banner", "sound", "milestoneToast", "worldMapPins", "tooltipHi
 -- Sounds for a trophy: all from the original game's interface. -1 is the
 -- sting heard on discovering a new zone, which differs by race.
 ns.SOUNDS = {
-  { -1, "Zone discovery" },
-  { 878, "Quest complete" },
-  { 3175, "Map ping" },
-  { 8960, "Ready check" },
-  { 836, "Page turn" },
-  { 844, "Book opening (quiet)" },
-  { 0, "None" },
+  { -1, L["Zone discovery"] },
+  { 878, L["Quest complete"] },
+  { 3175, L["Map ping"] },
+  { 8960, L["Ready check"] },
+  { 836, L["Page turn"] },
+  { 844, L["Book opening (quiet)"] },
+  { 0, L["None"] },
 }
 
 -- The profiles: a code "YD1:b1:s3175:m1:w1:t1:h0:a225" (the banners, the
@@ -123,15 +124,15 @@ function ns.createSettingsPanel()
   end
   checkbox(
     "banner",
-    "Banners for riddles and quarries",
-    "A banner among the game's alerts when you solve a riddle or bring down a quarry (the sounds and the chat lines stay)."
+    L["Banners for riddles and quarries"],
+    L["A banner among the game's alerts when you solve a riddle or bring down a quarry (the sounds and the chat lines stay)."]
   )
 
   local sound = Settings.RegisterProxySetting(
     category,
     "YONDER_SOUND",
     Settings.VarType.Number,
-    "Sound for a trophy",
+    L["Sound for a trophy"],
     DEFAULTS.sound,
     function() return ns.option("sound") end,
     function(value)
@@ -145,28 +146,28 @@ function ns.createSettingsPanel()
       options:Add(s[1], s[2])
     end
     return options:GetData()
-  end, "Played when you slay a rare or a boss for the first time.")
+  end, L["Played when you slay a rare or a boss for the first time."])
 
   checkbox(
     "milestoneToast",
-    "Alerts for milestones",
-    "The game's achievement alert when you earn a milestone (the fanfare and the chat line stay)."
+    L["Alerts for milestones"],
+    L["The game's achievement alert when you earn a milestone (the fanfare and the chat line stay)."]
   )
   checkbox(
     "worldMapPins",
-    "Deaths on the world map",
-    "Mark on the game's world map where you died and came close, from the Atlas."
+    L["Deaths on the world map"],
+    L["Mark on the game's world map where you died and came close, from the Atlas."]
   )
   checkbox(
     "tooltipHints",
-    "Hints on tooltips",
-    "A line on creature tooltips: not yet in the journal, or how many you have slain."
+    L["Hints on tooltips"],
+    L["A line on creature tooltips: not yet in the journal, or how many you have slain."]
   )
 
   checkbox(
     "minimapHidden",
-    "Minimap button",
-    "The book by the minimap: click to open the journal, drag to move it.",
+    L["Minimap button"],
+    L["The book by the minimap: click to open the journal, drag to move it."],
     true
   )
 
@@ -175,8 +176,8 @@ function ns.createSettingsPanel()
     category,
     "YONDER_COPYFROM",
     P,
-    "Another character's choices, for this one (of this game: Classic and Forever keep their own). From elsewhere: /yonder export there, then /yonder import CODE here.",
-    function(other) print(ns.PREFIX .. ("%s's settings copied."):format(other)) end
+    L["Another character's choices, for this one (of this game: Classic and Forever keep their own). From elsewhere: /yonder export there, then /yonder import CODE here."],
+    function(other) print(ns.PREFIX .. (L["%s's settings copied."]):format(other)) end
   )
 
   Settings.RegisterAddOnCategory(category)

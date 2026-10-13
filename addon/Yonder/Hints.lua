@@ -2,6 +2,7 @@
 -- character hasn't met, else how many it has slain (and a trophy's mark).
 -- Off in the settings (tooltipHints).
 local _, ns = ...
+local L = ns.kit.L
 local D = ns.data
 
 local NEW = { 1, 0.82, 0 }
@@ -24,13 +25,13 @@ local function addHint(tooltip)
     local ctype = not D.creatures[id] and UnitCreatureType(unit)
     local fileable = D.creatures[id] or (ctype and not ns.secret(ctype) and ns.knownType(ctype))
     if fileable and (ns.secret(canAttack) or canAttack) then
-      tooltip:AddLine("Yonder: not yet recorded", unpack(NEW))
+      tooltip:AddLine(L["Yonder: not yet recorded"], unpack(NEW))
     end
     return
   end
   local slain = rec.slain or 0
-  local mark = rec.trophy and " (trophy)" or ""
-  tooltip:AddLine(("Yonder: %s%s"):format(slain > 0 and ("%d slain"):format(slain) or "met", mark), unpack(KNOWN))
+  local mark = rec.trophy and L[" (trophy)"] or ""
+  tooltip:AddLine(L["Yonder: %s%s"]:format(slain > 0 and L["%d slain"]:format(slain) or L["met"], mark), unpack(KNOWN))
 end
 
 if TooltipDataProcessor and TooltipDataProcessor.AddTooltipPostCall and Enum and Enum.TooltipDataType then

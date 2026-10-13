@@ -9,6 +9,7 @@
 -- (milestoneToast) and the riddles' and quarries' (banner) apart; /yonder
 -- toast shows one.
 local _, ns = ...
+local L = ns.kit.L
 local PREFIX = ns.PREFIX
 
 local BOOK = "Interface\\AddOns\\Yonder\\Media\\Logo"
@@ -20,9 +21,9 @@ local function about(kind, id)
   if kind == "milestone" then
     return {
       picture = BOOK,
-      kicker = "Yonder milestone",
+      kicker = L["Yonder milestone"],
       title = ns.milestoneById[id].title,
-      tip = "Click to see your milestones",
+      tip = L["Click to see your milestones"],
       click = function() ns.openMilestones(id) end,
     }
   elseif kind == "riddle" then
@@ -30,9 +31,9 @@ local function about(kind, id)
     return {
       picture = ns.riddlePicture(r),
       medal = ns.SEALS[ns.riddleSeal(ns.riddleRecord(id))],
-      kicker = "A riddle read aright",
+      kicker = L["A riddle read aright"],
       title = ns.riddleName(r),
-      tip = "Click to read it in the journal",
+      tip = L["Click to read it in the journal"],
       click = function() ns.openRiddle(id) end,
     }
   end
@@ -41,9 +42,9 @@ local function about(kind, id)
   return {
     picture = ns.quarryPicture(q),
     medal = seal[1] and seal or nil,
-    kicker = "A quarry brought down",
+    kicker = L["A quarry brought down"],
     title = q.name,
-    tip = "Click to see its poster",
+    tip = L["Click to see its poster"],
     click = function() ns.openQuarry(id) end,
   }
 end
@@ -81,15 +82,15 @@ function ns.toastTest()
     end
   end
   if not best then
-    print(PREFIX .. "no riddle in this game to show.")
+    print(PREFIX .. L["no riddle in this game to show."])
     return
   end
   local b = show("riddle", best)
   print(
     PREFIX
       .. (
-        b.frames[1].joined and "a riddle's banner, among the game's own alerts."
-        or "a riddle's banner, at the top of the screen (the game's alerts couldn't take it)."
+        b.frames[1].joined and L["a riddle's banner, among the game's own alerts."]
+        or L["a riddle's banner, at the top of the screen (the game's alerts couldn't take it)."]
       )
   )
 end

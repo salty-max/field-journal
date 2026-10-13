@@ -16,6 +16,7 @@
 -- character had already discovered before the Atlas is recorded quietly at
 -- its first login (retro).
 local _, ns = ...
+local L = ns.kit.L
 local D = ns.data
 local A = D.atlas or { zones = {}, continents = {} }
 local PREFIX = ns.PREFIX
@@ -350,22 +351,23 @@ end)
 function ns.atlasReport()
   local zone, x, y = here()
   if not zone then
-    print(PREFIX .. "no zone of the atlas here (or the game hides where you are).")
+    print(PREFIX .. L["no zone of the atlas here (or the game hides where you are)."])
     return
   end
   local w, h = artSize(zone)
   print(
-    PREFIX .. ("%s (map %d), at %s, %s; map art %dx%d."):format(ns.zoneName(zone), zone, tostring(x), tostring(y), w, h)
+    PREFIX
+      .. (L["%s (map %d), at %s, %s; map art %dx%d."]):format(ns.zoneName(zone), zone, tostring(x), tostring(y), w, h)
   )
   local z = ns.atlas().zones[zone]
   for _, place in ipairs(A.zones[zone].places) do
     local now = discovered(zone, place, w, h)
     local rec = z and z.places[placeKey(place)]
     print(
-      ("  %s: %s%s"):format(
+      L["  %s: %s%s"]:format(
         place[1],
-        now and "discovered" or "not discovered",
-        rec and (rec.retro and ", recorded before the journal" or ", recorded") or ""
+        now and L["discovered"] or L["not discovered"],
+        rec and (rec.retro and L[", recorded before the journal"] or L[", recorded"]) or ""
       )
     )
   end
@@ -375,12 +377,12 @@ function ns.atlasReport()
     if e.x then placed = placed + 1 end
   end
   print(
-    ("  deaths recorded: %d (%d with a position), close calls: %d; world map pins: %s."):format(
+    L["  deaths recorded: %d (%d with a position), close calls: %d; world map pins: %s."]:format(
       #a.deaths,
       placed,
       #a.closeCalls,
       (ns.option("worldMapPins") and "on" or "off")
-        .. (ns.worldMapPinsAttached and ", attached to the map" or ", not attached")
+        .. (ns.worldMapPinsAttached and L[", attached to the map"] or L[", not attached"])
     )
   )
 end

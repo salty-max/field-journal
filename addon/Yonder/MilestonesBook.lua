@@ -5,25 +5,26 @@
 -- title, what it asks, when it was earned or how far along it is).
 -- Milestones: Achievements.lua.
 local _, ns = ...
+local L = ns.kit.L
 local ui = ns.ui
 
 -- (each group: its id, its heading, its picture, the figure it counts in)
 local GROUPS = {
-  { "tally", "Tallies", "Interface\\Icons\\INV_Misc_Book_09", "creatures" },
-  { "type", "Every Family", "Interface\\Icons\\Ability_Hunter_BeastTaming", "creatures" },
-  { "feat", "Feats", "Interface\\Icons\\INV_Misc_Head_Dragon_01", "creatures" },
-  { "zone", "Rares by Zone", "Interface\\Icons\\INV_Misc_Map_01", "creatures" },
-  { "fishing", "Fishing", "Interface\\Icons\\Trade_Fishing", "land" },
-  { "herbs", "Herbs", "Interface\\Icons\\INV_Misc_Herb_07", "land" },
-  { "travel", "Travels", "Interface\\Icons\\Ability_Mount_RidingHorse", "land" },
-  { "explore", "Exploration", "Interface\\Icons\\INV_Misc_Map02", "land" },
-  { "expeditions", "Expeditions", "Interface\\Icons\\INV_Misc_Note_02", "expeditions" },
+  { "tally", L["Tallies"], "Interface\\Icons\\INV_Misc_Book_09", "creatures" },
+  { "type", L["Every Family"], "Interface\\Icons\\Ability_Hunter_BeastTaming", "creatures" },
+  { "feat", L["Feats"], "Interface\\Icons\\INV_Misc_Head_Dragon_01", "creatures" },
+  { "zone", L["Rares by Zone"], "Interface\\Icons\\INV_Misc_Map_01", "creatures" },
+  { "fishing", L["Fishing"], "Interface\\Icons\\Trade_Fishing", "land" },
+  { "herbs", L["Herbs"], "Interface\\Icons\\INV_Misc_Herb_07", "land" },
+  { "travel", L["Travels"], "Interface\\Icons\\Ability_Mount_RidingHorse", "land" },
+  { "explore", L["Exploration"], "Interface\\Icons\\INV_Misc_Map02", "land" },
+  { "expeditions", L["Expeditions"], "Interface\\Icons\\INV_Misc_Note_02", "expeditions" },
 }
 local FIGURES = {
   { "all", "earned" },
-  { "creatures", "of the creatures" },
-  { "land", "of the land" },
-  { "expeditions", "of the expeditions" },
+  { "creatures", L["of the creatures"] },
+  { "land", L["of the land"] },
+  { "expeditions", L["of the expeditions"] },
 }
 local book, panel, board
 ns.milestoneRows = {} -- for the tests
@@ -48,7 +49,7 @@ local function items()
 end
 
 local function refresh()
-  book.count:SetText(("%d of %d milestones"):format(ns.milestoneCount()))
+  book.count:SetText(L["%d of %d milestones"]:format(ns.milestoneCount()))
   board:refresh(picked)
 end
 

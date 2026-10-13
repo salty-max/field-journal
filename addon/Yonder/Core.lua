@@ -31,6 +31,7 @@
 --     collapsed, open, atlasOpen, expeditionsOpen   the book's folds (types,
 --                                families, zones)
 local _, ns = ...
+local L = ns.kit.L
 local PREFIX = "|cffc9a227Yonder:|r "
 ns.PREFIX = PREFIX
 
@@ -179,8 +180,7 @@ local function oldSelf()
   if disable then pcall(disable, "FieldJournal") end
   print(
     PREFIX
-      .. "Explorer's Field Journal, Yonder's old name, was still running beside it: it is turned off from your "
-      .. "next /reload, and your journal is Yonder's. Its FieldJournal folder in Interface\\AddOns can go."
+      .. "Explorer's Field Journal, Yonder's old name, was still running beside it: it is turned off from your next /reload, and your journal is Yonder's. Its FieldJournal folder in Interface\\AddOns can go."
   )
 end
 
@@ -195,8 +195,7 @@ function ns.login()
   if took and before then
     print(
       PREFIX
-        .. "Explorer's Field Journal is now called Yonder (another addon uses its old folder name). Your journal "
-        .. "came along: everything you recorded is here. /yonder opens it."
+        .. L["Explorer's Field Journal is now called Yonder (another addon uses its old folder name). Your journal came along: everything you recorded is here. /yonder opens it."]
     )
   end
   if before then
@@ -220,7 +219,7 @@ end
 -- At each login and /reload, a line in chat: what the journal holds (never
 -- what remains: no spoilers), and how to open it, the only reminder of it (as
 -- the Codex's).
-local function counted(n, one, many) return n > 0 and ("%d %s"):format(n, n == 1 and one or many) or nil end
+local function counted(n, one, many) return n > 0 and ns.kit.plural(n, one, many):format(n) or nil end
 function ns.loginLine()
   local e = ns.expeditions() or {}
   local riddles, hunts = 0, 0
@@ -233,29 +232,26 @@ function ns.loginLine()
   local creatures = ns.counts()
   local held = {}
   for _, part in ipairs({
-    { riddles, "riddle solved", "riddles solved" },
-    { hunts, "quarry brought down", "quarries brought down" },
-    { creatures, "creature in the Bestiary", "creatures in the Bestiary" },
+    { riddles, "%d riddle solved", "%d riddles solved" },
+    { hunts, "%d quarry brought down", "%d quarries brought down" },
+    { creatures, "%d creature in the Bestiary", "%d creatures in the Bestiary" },
   }) do
     local text = counted(unpack(part))
     if text then table.insert(held, text) end -- (none of a kind: left out)
   end
-  local open = ns.option("minimapHidden") and "Type /yonder" or "Type /yonder or click the button by the minimap"
+  local open = ns.option("minimapHidden") and L["Type /yonder"] or L["Type /yonder or click the button by the minimap"]
   print(
     PREFIX
-      .. ("%s. %s to open the journal."):format(
-        #held > 0 and table.concat(held, ", ") or "the journal is empty for now",
+      .. (L["%s. %s to open the journal."]):format(
+        #held > 0 and table.concat(held, ", ") or L["the journal is empty for now"],
         open
       )
   )
 end
 
 -- ── /yonder ─────────────────────────────────────────────────────────────────
-local USAGE = "/yonder opens the book; /yonder settings; /yonder minimap shows or hides the button; "
-  .. "/yonder welcome shows the welcome page again; /yonder export gives this character's settings as a code, "
-  .. "/yonder import CODE takes them; /yonder reset starts this character's journal over; /yonder where "
-  .. "tells the map and your position on it; /yonder probe describes the next loot window, as the game shows it; "
-  .. "/yonder toast shows a riddle's banner, as it would come."
+local USAGE =
+  L["/yonder opens the book; /yonder settings; /yonder minimap shows or hides the button; /yonder welcome shows the welcome page again; /yonder export gives this character's settings as a code, /yonder import CODE takes them; /yonder reset starts this character's journal over; /yonder where tells the map and your position on it; /yonder probe describes the next loot window, as the game shows it; /yonder toast shows a riddle's banner, as it would come."]
 
 SLASH_YONDER1 = "/yonder"
 SlashCmdList.YONDER = function(msg)
@@ -266,22 +262,21 @@ SlashCmdList.YONDER = function(msg)
   elseif msg == "reset" then
     print(
       PREFIX
-        .. "this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its "
-        .. "riddles, its milestones. Type /yonder reset yes to do it."
+        .. L["this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its riddles, its milestones. Type /yonder reset yes to do it."]
     )
   elseif msg == "reset yes" then
     newJournal(char.guid)
     ns.refresh()
-    print(PREFIX .. "the journal starts afresh.")
+    print(PREFIX .. L["the journal starts afresh."])
   elseif msg == "welcome" then
     ns.showWelcome()
   elseif msg == "export" then
     ns.showWelcome("export")
   elseif msg:match("^import%s") then
     if ns.profiles:import(raw:match("^%a+%s+(.+)$")) then
-      print(PREFIX .. "settings imported for this character.")
+      print(PREFIX .. L["settings imported for this character."])
     else
-      print(PREFIX .. "that isn't a Yonder settings code (/yonder export makes one).")
+      print(PREFIX .. L["that isn't a Yonder settings code (/yonder export makes one)."])
     end
   elseif msg == "atlas" then
     ns.atlasReport()
@@ -294,7 +289,7 @@ SlashCmdList.YONDER = function(msg)
   elseif msg == "minimap" then
     ns.setOption("minimapHidden", not ns.option("minimapHidden"))
   elseif msg == "settings" or msg == "options" then
-    if not ns.openSettings() then print(PREFIX .. "no settings page in this client.") end
+    if not ns.openSettings() then print(PREFIX .. L["no settings page in this client."]) end
   else
     print(PREFIX .. USAGE)
   end

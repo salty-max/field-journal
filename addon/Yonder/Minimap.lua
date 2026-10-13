@@ -3,6 +3,7 @@
 -- character's settings (Settings.lua). Built with the textures of the game's
 -- own minimap buttons (the tracking button's border, the zoom highlight).
 local _, ns = ...
+local L = ns.kit.L
 
 local button
 
@@ -56,10 +57,10 @@ function ns.createMinimapButton()
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
     GameTooltip:AddLine("Yonder")
     local creatures, families, slain = ns.counts()
-    GameTooltip:AddLine(("%d creatures in %d families, %d slain"):format(creatures, families, slain), 1, 1, 1)
-    GameTooltip:AddLine(("%d milestones"):format((ns.milestoneCount())), 1, 1, 1)
+    GameTooltip:AddLine(L["%d creatures in %d families, %d slain"]:format(creatures, families, slain), 1, 1, 1)
+    GameTooltip:AddLine(L["%d milestones"]:format((ns.milestoneCount())), 1, 1, 1)
     GameTooltip:AddLine(
-      "Click to open the book, right-click for the settings. Drag to move this button.",
+      L["Click to open the book, right-click for the settings. Drag to move this button."],
       0.7,
       0.7,
       0.7,

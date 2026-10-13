@@ -7,6 +7,7 @@
 -- Forever's Professions cards; on Classic, the game's insets, the quest log's
 -- dark book behind the list. /yonder opens it.
 local _, ns = ...
+local L = ns.kit.L
 
 -- ── look ─────────────────────────────────────────────────────────────────────
 -- The kit's (Kit.lua), in the Yonder's theme: a sage accent, the panels
@@ -48,7 +49,7 @@ ns.TAB = TAB
 -- tabs[n] = { build(book), show(selected tab), refresh(), chosen() (its tab
 -- clicked), whole (over both panels), filter = { default, options() } (a
 -- select under the search box: its choice, ns.filterOf(n)) }
-local tabs, TAB_TITLES = {}, { "Expeditions", "Bestiary", "Fish", "Plants", "Atlas", "Milestones" }
+local tabs, TAB_TITLES = {}, { L["Expeditions"], L["Bestiary"], L["Fish"], L["Plants"], L["Atlas"], L["Milestones"] }
 function ns.addTab(n, tab) tabs[n] = tab end
 
 -- A tab's choice in its select (the kit's, under the search box), else its
