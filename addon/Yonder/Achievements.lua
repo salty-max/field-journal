@@ -767,7 +767,7 @@ function ns.checkMilestones(quiet)
         earned = true
         if not quiet then
           local link = ("|cffffd100|Hyonder:m%s|h[%s]|h|r"):format(m.id, m.title)
-          print(PREFIX .. L["you have earned the milestone %s!"]:format(link))
+          print(PREFIX .. L["achievement earned: %s"]:format(link))
           fanfare()
           ns.toast("milestone", m.id)
         end

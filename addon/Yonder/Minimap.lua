@@ -58,7 +58,7 @@ function ns.createMinimapButton()
     GameTooltip:AddLine("Yonder")
     local creatures, families, slain = ns.counts()
     GameTooltip:AddLine(L["%d creatures in %d families, %d slain"]:format(creatures, families, slain), 1, 1, 1)
-    GameTooltip:AddLine(L["%d milestones"]:format((ns.milestoneCount())), 1, 1, 1)
+    GameTooltip:AddLine(L["%d achievements"]:format((ns.milestoneCount())), 1, 1, 1)
     GameTooltip:AddLine(
       L["Click to open the book, right-click for the settings. Drag to move this button."],
       0.7,

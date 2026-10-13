@@ -27,8 +27,8 @@ download (Classic Era and TBC; a later update removes it).
   30 herbs, and records of where you found them.
 - **Atlas.** The zones you've visited, with maps, explored places, surveyor's
   notes, flights, deaths and close calls.
-- **Milestones.** Achievements for exploring, completing expeditions,
-  collecting trophies, fishing and gathering.
+- **Achievements.** For exploring, completing expeditions, collecting
+  trophies, fishing and gathering.
 
 Each riddle has two optional hints: a clearer clue, then a location marked
 on the world map. Solve it without hints for a gold seal and an extra piece

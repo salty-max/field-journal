@@ -60,23 +60,23 @@ It picks up areas you've already uncovered on the game map. Click a discovered p
 
 Deaths and close calls can also be marked on the game's world map. You can turn those markers off in the settings.
 
-## Milestones
+## Achievements
 
-The **Milestones** tab rewards progress throughout the journal. These include creature and trophy counts, completing families, defeating a zone's rares, exploring every part of a zone, and fishing and gathering goals.
+The **Achievements** tab rewards progress throughout the journal. These include creature and trophy counts, completing families, defeating a zone's rares, exploring every part of a zone, and fishing and gathering goals.
 
-There are feats for Hogger, the Emerald Nightmare and the Firelord, for Nat Pagle's rare fish and Black Lotus, and for solving expeditions with gold seals or completing hunts without tracking. Each milestone records the date and level you earned it, and shows in the game's achievement alert with a fanfare and a chat message.
+There are feats for Hogger, the Emerald Nightmare and the Firelord, for Nat Pagle's rare fish and Black Lotus, and for solving expeditions with gold seals or completing hunts without tracking. Each achievement records the date and level you earned it, and shows in the game's achievement alert with a fanfare and a chat message.
 
 ## Compatibility
 
 One download covers Classic Era, Hardcore, Season of Discovery, TBC Anniversary and World of Warcraft: Forever.
 
-Forever adds Zephras Isle to the Atlas, and its new rares count towards zone milestones. The game hides creatures inside Forever dungeons and raids from addons, so the journal cannot record them there.
+Forever adds Zephras Isle to the Atlas, and its new rares count towards zone achievements. The game hides creatures inside Forever dungeons and raids from addons, so the journal cannot record them there.
 
 ## Settings and commands
 
 Type `/yonder` or click the minimap button to open the journal. Each login says in chat what your journal holds. A welcome page appears once per character. Use `/yonder welcome` to see it again.
 
-Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose the banners for riddles and quarries, the alerts for milestones (each its own switch), trophy sounds, map markers, tooltip hints and whether to show the minimap button. Chat lines always show.
+Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose the banners for riddles and quarries, the alerts for achievements (each its own switch), trophy sounds, map markers, tooltip hints and whether to show the minimap button. Chat lines always show.
 
 Settings are saved per character. Copy them from another character of the same game on the welcome or settings page, or transfer them with `/yonder export` and `/yonder import CODE`. Codes made by Explorer's Field Journal still work.
 
@@ -89,7 +89,7 @@ Settings are saved per character. Copy them from another character of the same g
 
 The addon was renamed because another addon, Field Journal: Forever, uses the same folder name. With both installed, one replaced the other. Yonder lives in its own folder, so the two can now sit side by side.
 
-You don't need to do anything. At each character's first login with Yonder, its journal moves over: riddles, seals, creatures, Atlas, fish, herbs, milestones and settings. A line in chat confirms it.
+You don't need to do anything. At each character's first login with Yonder, its journal moves over: riddles, seals, creatures, Atlas, fish, herbs, achievements and settings. A line in chat confirms it.
 
 The download includes a small **FieldJournal** folder that hands the old journal over. It does nothing else, and a later update removes it. It works on Classic Era and TBC Anniversary. Forever beta journals start fresh, since beta characters don't carry over to launch.
 

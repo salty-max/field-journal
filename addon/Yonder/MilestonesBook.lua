@@ -49,7 +49,7 @@ local function items()
 end
 
 local function refresh()
-  book.count:SetText(L["%d of %d milestones"]:format(ns.milestoneCount()))
+  book.count:SetText(L["%d of %d achievements"]:format(ns.milestoneCount()))
   board:refresh(picked)
 end
 

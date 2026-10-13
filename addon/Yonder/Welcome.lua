@@ -17,7 +17,7 @@ local W = K.welcome({
   logo = "Interface\\AddOns\\Yonder\\Media\\Logo",
   heading = "Yonder",
   tagline = L["Riddles, rare hunts and an explorer's journal."],
-  intro = L["The zones you travel hide riddles: a verse that points to a place, and something to do once you stand there. Solve one without a hint and it earns a gold seal. Most zones also have a quarry, a rare creature whose poster tells you where it roams.\n\nOn the way, the journal fills in by itself: the creatures you slay and what they dropped, the lands you explore with your deaths and close calls, the fish and herbs you find, and milestones along the road."],
+  intro = L["The zones you travel hide riddles: a verse that points to a place, and something to do once you stand there. Solve one without a hint and it earns a gold seal. Most zones also have a quarry, a rare creature whose poster tells you where it roams.\n\nOn the way, the journal fills in by itself: the creatures you slay and what they dropped, the lands you explore with your deaths and close calls, the fish and herbs you find, and achievements along the road."],
   profiles = ns.profiles,
   choices = function()
     local sounds = {}
@@ -42,7 +42,7 @@ local W = K.welcome({
         end,
       },
       {
-        text = L["Alerts for milestones"],
+        text = L["Alerts for achievements"],
         hint = L["The game's achievement alert, with its fanfare."],
         get = function() return ns.option("milestoneToast") end,
         set = function(v) ns.setOption("milestoneToast", v) end,

@@ -1,5 +1,5 @@
 -- A milestone earned: the game's own achievement alert (the kit's: the
--- journal's book, "Yonder milestone", its name; the banner where the
+-- journal's book, "Yonder achievement", its name; the banner where the
 -- client has none). The rest, banners (the kit's: a card in the book's look,
 -- which the game's alert stack places with its own), each deed its own, so a
 -- deed that earns two shows both, never one in place of the other: a riddle read aright, what it led to (its keeper's face, a
@@ -21,9 +21,9 @@ local function about(kind, id)
   if kind == "milestone" then
     return {
       picture = BOOK,
-      kicker = L["Yonder milestone"],
+      kicker = L["Yonder achievement"],
       title = ns.milestoneById[id].title,
-      tip = L["Click to see your milestones"],
+      tip = L["Click to see your achievements"],
       click = function() ns.openMilestones(id) end,
     }
   elseif kind == "riddle" then

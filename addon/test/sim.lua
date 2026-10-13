@@ -806,7 +806,7 @@ check(
 )
 check(
   ns.earnedMilestone("trophies-1")
-    and said("you have earned the milestone |cffffd100|Hyonder:mtrophies-1|h[First Trophy]|h|r!")
+    and said("achievement earned: |cffffd100|Hyonder:mtrophies-1|h[First Trophy]|h|r")
     and played[12891],
   "… and the first trophy earns a milestone, with the game's achievement fanfare and a chat line"
 )
@@ -1438,7 +1438,7 @@ check(
     and not row.picture.ring.desaturated,
   "a milestone's link opens the Milestones tab, the milestone earned with its level, its ring gold"
 )
-check(YonderFrame.count.text == ("%d of %d milestones"):format(ns.milestoneCount()), "… which counts them")
+check(YonderFrame.count.text == ("%d of %d achievements"):format(ns.milestoneCount()), "… which counts them")
 clickTab(ns.TAB.bestiary)
 check(
   YonderFrame.selectedTab == ns.TAB.bestiary and YonderPage and shown("Wolves"),
@@ -1858,7 +1858,7 @@ toastsBefore = #toasted
 ns.toast("riddle", "the-barrens-ratchet-book")
 ns.toast("milestone", milestone)
 check(
-  #toasted == toastsBefore + 1 and toasted[#toasted].kicker == "Yonder milestone",
+  #toasted == toastsBefore + 1 and toasted[#toasted].kicker == "Yonder achievement",
   "the banners off: no riddle's, a milestone's alert still (a switch of its own)"
 )
 ns.setOption("milestoneToast", false)

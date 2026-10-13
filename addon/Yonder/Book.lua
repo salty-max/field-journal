@@ -49,7 +49,7 @@ ns.TAB = TAB
 -- tabs[n] = { build(book), show(selected tab), refresh(), chosen() (its tab
 -- clicked), whole (over both panels), filter = { default, options() } (a
 -- select under the search box: its choice, ns.filterOf(n)) }
-local tabs, TAB_TITLES = {}, { L["Expeditions"], L["Bestiary"], L["Fish"], L["Plants"], L["Atlas"], L["Milestones"] }
+local tabs, TAB_TITLES = {}, { L["Expeditions"], L["Bestiary"], L["Fish"], L["Plants"], L["Atlas"], L["Achievements"] }
 function ns.addTab(n, tab) tabs[n] = tab end
 
 -- A tab's choice in its select (the kit's, under the search box), else its

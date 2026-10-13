@@ -171,7 +171,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   cross), `Toasts.lua` (the kit's banners, among the game's alerts: a
   milestone's, a riddle's (its seal its ring: gold, silver, copper; iron
   till solved), a quarry's, each its own),
-  `MilestonesBook.lua` (the kit's board: figures on top, each group's
+  `MilestonesBook.lua` (the Achievements tab, "Hauts faits" in French: milestones in the code and the saved journal, achievements to the player, as the Codex's; the kit's board: figures on top, each group's
   picture and count, its ring gold once earned, iron till then). Every page is made of the
   same parts (the kit's, shared by the family's books).
   `Expeditions.lua` (the riddles' records and their
