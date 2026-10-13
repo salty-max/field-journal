@@ -1,6 +1,7 @@
 ## Interface: 16001
 ## Title: Yonder
 ## Notes: Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish and herbs you find.
+## Notes-frFR: Résolvez des énigmes d'exploration, traquez des créatures rares et tenez un journal des créatures, lieux, poissons et plantes que vous découvrez.
 ## Category: Achievements
 ## Author: salty-max
 ## Version: 0.9.1
