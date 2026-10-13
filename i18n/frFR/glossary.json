@@ -342,6 +342,12 @@
    "retail": "Theramore",
    "use": "Theramore"
   },
+  "Thorium Brotherhood": {
+   "classic": "Confrérie du thorium",
+   "forever": "Confrérie du thorium",
+   "retail": "Confrérie du thorium",
+   "use": "Confrérie du thorium"
+  },
   "Thunder Bluff": {
    "classic": "Thunder Bluff",
    "forever": "Thunder Bluff",
@@ -602,6 +608,12 @@
    "retail": "Edwin VanCleef",
    "use": "Edwin VanCleef"
   },
+  "Elder Ironband": {
+   "classic": "Ancien Ironband",
+   "forever": "Ancien Ironband",
+   "retail": "Ancien Baguefer",
+   "use": "Ancien Ironband"
+  },
   "Father Lankester": {
    "classic": "Père Lankester",
    "forever": "Père Lankester",
@@ -750,6 +762,12 @@
    "retail": "Jordan Morpuits",
    "use": "Jordan Stilwell"
   },
+  "Keeper Remulos": {
+   "classic": "Gardien Remulos",
+   "forever": "Gardien Remulos",
+   "retail": "Gardien Remulos",
+   "use": "Gardien Remulos"
+  },
   "King Mosh": {
    "classic": "Roi Mosh",
    "forever": "Roi Mosh",
@@ -761,6 +779,12 @@
    "forever": "Roi Mukla",
    "retail": "Roi Mukla",
    "use": "Roi Mukla"
+  },
+  "Lady Jaina Proudmoore": {
+   "classic": "Dame Jaina Proudmoore",
+   "forever": "Dame Jaina Proudmoore",
+   "retail": "Dame Jaina Portvaillant",
+   "use": "Dame Jaina Proudmoore"
   },
   "Lady Zephris": {
    "classic": "Dame Zephris",
@@ -1170,6 +1194,12 @@
    "retail": "Tosamina",
    "use": "Tosamina"
   },
+  "Umi Rumplesnicker": {
+   "classic": "Umi Rumplesnicker",
+   "forever": "Umi Rumplesnicker",
+   "retail": "Umi Sarcafroisse",
+   "use": "Umi Rumplesnicker"
+  },
   "Unseen": {
    "classic": "Invisible",
    "forever": "Invisible",
@@ -1338,6 +1368,12 @@
    "retail": "Vallée d'Alterac",
    "use": "Vallée d'Alterac"
   },
+  "Ambermill": {
+   "classic": "Moulin-de-l'Ambre",
+   "forever": "Moulin-de-l'Ambre",
+   "retail": "Moulin-de-l'Ambre",
+   "use": "Moulin-de-l'Ambre"
+  },
   "Amberstill Ranch": {
    "classic": "Ferme des Amberstill",
    "forever": "Ferme des Amberstill",
@@ -1424,6 +1460,12 @@
    "forever": "Baie des tempêtes",
    "retail": "Baie des Tempêtes",
    "use": "Baie des tempêtes"
+  },
+  "Black Channel Marsh": {
+   "classic": "Marais des eaux-noires",
+   "forever": "Marais des eaux-noires",
+   "retail": "Marais des Eaux-Noires",
+   "use": "Marais des eaux-noires"
   },
   "Black Rook Hold": {
    "retail": "Bastion du Freux",
@@ -1615,6 +1657,12 @@
    "retail": "Lac Darrowmere",
    "use": "Lac Darrowmere"
   },
+  "Darrowshire": {
+   "classic": "Darrowshire",
+   "forever": "Comté-de-Darrow",
+   "retail": "Comté-de-Darrow",
+   "use": "Comté-de-Darrow"
+  },
   "Dawning Wood Catacombs": {
    "classic": "Catacombes du Bois-de-l'Aube",
    "forever": "Catacombes du Bois-de-l'Aube",
@@ -1638,6 +1686,10 @@
    "forever": "Le Glas",
    "retail": "Le Glas",
    "use": "Le Glas"
+  },
+  "Deathwing": {
+   "retail": "Aile de mort",
+   "use": "Aile de mort"
   },
   "Deeprun Tram": {
    "classic": "Tram des profondeurs",
@@ -1674,6 +1726,12 @@
    "forever": "Poste Cognepeur",
    "retail": "Poste Cognepeur",
    "use": "Poste Cognepeur"
+  },
+  "Dream Bough": {
+   "classic": "Bosquet du rêve",
+   "forever": "Bosquet du rêve",
+   "retail": "Bosquet du Rêve",
+   "use": "Bosquet du rêve"
   },
   "Dun Algaz": {
    "classic": "Dun Algaz",
@@ -1997,6 +2055,12 @@
    "forever": "Collines des Chardons de glace",
    "retail": "Collines des Chardons de glace",
    "use": "Collines des Chardons de glace"
+  },
+  "Iceflow Lake": {
+   "classic": "Lac glacial",
+   "forever": "Lac glacial",
+   "retail": "Lac Glacial",
+   "use": "Lac glacial"
   },
   "Ironbeard's Tomb": {
    "classic": "Tombe d'Ironbeard",

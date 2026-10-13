@@ -51,6 +51,6 @@ Sur l'île au milieu du lac gelé, au nord-ouest,
 un loup blanc mène la meute, deux loups affamés sur les talons.
 Engagez-le dans un combat et il en amènera d'autres.
 Éclaircissez l'île d'abord.
-= Grumeux, un loup blanc, et très probablement le chef de la meute du lac Glacier. Il est le seul à porter les Brassards bordés d'argent et les Gants du loup blanc.
+= Grumeux, un loup blanc, et très probablement le chef de la meute du lac glacial. Il est le seul à porter les Brassards bordés d'argent et les Gants du loup blanc.
 + Il est de niveau dix, quand un chasseur apprend à dresser : un nain ou un gnome peut en faire son premier compagnon.
 @ Grumeux
