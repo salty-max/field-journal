@@ -26,7 +26,7 @@ La nouvelle terre de son fils s'étend hors de ces murs.
 ## quarry
 À l'ouest de la route, les hurans Tranchecrin ont pris des terres à eux,
 et pillent les fermes et les camps voisins sous deux chefs.
-Le capitaine d'entre eux est le premier vrai danger que rencontrent bien des jeunes orcs et trolls,
+Leur capitaine est le premier vrai danger que rencontrent bien des jeunes orcs et trolls,
 et la plupart ne le sous-estiment qu'une fois.
 = Le capitaine Plate-défense, des Tranchecrin : un élite, que les jeunes de Durotar apprennent à respecter à leurs dépens.
 + La géomaîtresse Mottle, une chamane hurane qui a une vague de soins et un bouclier de foudre, tient les mêmes huttes.

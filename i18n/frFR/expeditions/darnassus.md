@@ -7,7 +7,7 @@ Dans la cité de l'arbre, une alchimiste prépare la même potion avec les même
 et chaque fois elle soigne un peu moins. Elle en a tiré la seule conclusion possible.
 Demandez-lui laquelle.
 ? Darnassus, chez les alchimistes.
-= Ainethil, alchimiste artisane : "Il n'y a qu'une conclusion à en tirer : les plantes changent. J'ignore pourquoi et de quelle manière."
+= Ainethil, alchimiste de rang artisan : "Il n'y a qu'une conclusion à en tirer : les plantes changent. J'ignore pourquoi et de quelle manière."
 + Les chroniques de cette cité racontent comment trois dragons bénirent le premier Arbre-monde, pour que son peuple ne vieillisse ni ne tombe jamais malade ; de l'arbre où il vit aujourd'hui, elles ne disent rien de tel.
 ! Calme
 @ Ainethil
@@ -17,7 +17,7 @@ Sur la terrasse des Artisans, une jeune travailleuse du cuir tient à peine en p
 et espère que les Sentinelles l'appelleront au front.
 Son maître craint qu'elles le fassent. Souhaitez-lui bonne chance.
 ? La terrasse des Artisans, à Darnassus, chez les travailleurs du cuir.
-= Darianna, compagnon travailleuse du cuir : "Si j'ai de la chance, les Sentinelles me demanderont de les rejoindre sur le front !"
+= Darianna, travailleuse du cuir de rang compagnon : "Si j'ai de la chance, les Sentinelles me demanderont de les rejoindre sur le front !"
 + Faldron, son maître : "Avec sa force et son agilité, j'ai peur qu'elle soit bien vite appelée à combattre. Nous devons la former rapidement."
 ! Calme
 @ Darianna

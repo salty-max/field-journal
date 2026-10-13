@@ -8,7 +8,7 @@ fermé de ce côté par une grille de fer, son levier juste à côté.
 La manière de bâtir qui fit ce passage fut l'invention d'un Sombrefer,
 tout comme le grand barrage du lac au-delà. Entrez.
 ? Le bout nord de la vallée des Escarbilles, au nord-est de la gorge des Vents brûlants.
-= Le passage de Formepierre : en forme-pierre, comme le barrage du Loch Modan, selon la méthode de Franclorn Forgewright, un architecte Sombrefer.
+= Le passage de Formepierre : bâti comme le barrage de Formepierre, au Loch Modan, selon la méthode de Franclorn Forgewright, un architecte Sombrefer.
 + Son fantôme, au fond du mont Rochenoire, le dit lui-même : "Vous êtes sans doute $gpassé:passée; par l'une de mes créations, ou vous vous êtes $gtenu:tenue; dessus."
 ! Gardé (araignées verrières, niveau 43) ; et la grille est fermée à clé
 @ Passage de Formepierre
