@@ -72,6 +72,8 @@ One download covers Classic Era, Hardcore, Season of Discovery, TBC Anniversary 
 
 Forever adds Zephras Isle to the Atlas, and its new rares count towards zone achievements. The game hides creatures inside Forever dungeons and raids from addons, so the journal cannot record them there.
 
+Yonder speaks English and French. With a French client, the whole journal is in French: the riddles and quarries, the Bestiary, the Atlas, the fish and herbs and the achievements, with every name as the game itself writes it. Other clients get English.
+
 ## Settings and commands
 
 Type `/yonder` or click the minimap button to open the journal. Each login says in chat what your journal holds. A welcome page appears once per character. Use `/yonder welcome` to see it again.
