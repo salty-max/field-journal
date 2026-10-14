@@ -9,8 +9,8 @@ dessen Name Riesenherz bedeutete,
 der allein vor dem Dämon stand und die Freiheit seines Volkes mit seinem Blut erkaufte.
 Lass ihm, was einem Krieger gebührt.
 ? Der Demonfall-Canyon, im Südosten von Ashenvale.
-= 'Lok'Tar ogar, großer Bruder. Mögen die Warsong niemals vergehen.' Thrall hat es geschrieben.
-+ Grom war der erste Häuptling, der Mannoroths Blut trank, und derjenige, der den Dämon tötete: 'Der Fluch unseres Volkes begann und endete mit Grom.'
+= 'Lok-Tar Ogar, großer Bruder. Mögen die Warsong niemals untergehen.' Thrall hat es geschrieben.
++ Grom war der erste Häuptling, der Mannoroths Blut trank, und derjenige, der den Dämon tötete: 'In vielerlei Hinsicht begann und endete der Fluch, der auf unserem Volk lastete, mit Grom.'
 ! Gefährlich (die Diener der Legion)
 @ Denkmal für Grom Hellscream
 
