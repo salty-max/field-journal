@@ -2491,4 +2491,41 @@ do
   )
 end
 
+-- The German (Text_deDE.lua, from i18n/deDE, a first translation): the same,
+-- every riddle and quarry whole, its gender tokens resolved.
+do
+  assert(loadfile(DIR .. "Text_deDE.lua"))("Yonder", ns)
+  local bad = {}
+  local function read(s, what)
+    if s and (s:find("%$[gG]") or s:find("\195$") or s:find("\195[^\128-\191]")) then table.insert(bad, what) end
+  end
+  for _, e in pairs(D.expeditions) do
+    for _, r in ipairs(e.riddles or {}) do
+      read(ns.riddleName(r), r.id .. " name")
+      read(ns.riddleNote(r), r.id .. " note")
+      read(ns.riddleMargin(r), r.id .. " margin")
+      for _, line in ipairs(r.verse or {}) do
+        read(line, r.id .. " verse")
+      end
+    end
+    if e.quarry then
+      read(ns.quarryNote(e.quarry), e.quarry.name .. " note")
+      read(ns.quarryMargin(e.quarry), e.quarry.name .. " margin")
+    end
+  end
+  local etched
+  for _, r in ipairs(D.expeditions[1426].riddles) do
+    if r.id == "dun-morogh-etched-note" then etched = r end
+  end
+  check(#bad == 0, "the shipped German: every riddle and quarry reads whole (" .. table.concat(bad, ", ") .. ")")
+  check(
+    ns.riddleName(etched) == "Geätzte Notiz"
+      and ns.riddleNote(etched):find("Ironforge hat sehr viele Ambosse", 1, true)
+      and ns.familyById.wolves.title == "Wölfe"
+      and ns.kit.L["Expeditions"] ~= "Expeditions",
+    "… its words, a family, a riddle's answer and note"
+  )
+  check(ns.creatureName(1132, { name = "Timber" }) == "Holzplanke", "… a creature by its German name")
+end
+
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")

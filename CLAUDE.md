@@ -219,7 +219,12 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   journal recorded in the client's language of the day (a creature's, a
   place's) read in the client's language now: `ns.creatureName` (the
   translation's, else the last met), `ns.placeText` (the data's `areaNames`,
-  every area's English name by id, and `C_Map.GetAreaInfo`).
+  every area's English name by id, and `C_Map.GetAreaInfo`). French done 13
+  October 2026; German the 14th, flagged (a first translation, corrections
+  welcome): "du", the game's own German names (most of Classic's cities and
+  many places stay English on a German client), `$gmasc:fem;` where a line
+  speaks to the reader, quotes the game has in German (wow-data's `speech`)
+  taken as it writes them.
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).
 
@@ -229,7 +234,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   colleague): observant, dry, fond of the creatures it describes. Two to four
   short paragraphs per family: what they are, where and how they live, what a
   traveller should know. The player's own numbers follow the note on the page.
-- No semicolons in prose, English or French (the user's rule, 14 October
+- No semicolons in prose, in any language (the user's rule, 14 October
   2026): two sentences, or a comma, or a rewrite for a list. The gender
   tokens' own `;` stay. Research notes (`sources:`) may keep theirs.
 - Lore scope as the Codex (loosened on 12 October 2026): the past up to the
