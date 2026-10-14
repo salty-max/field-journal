@@ -23,6 +23,7 @@ ignore:
   - content
   - data
   - docs
+  - i18n
   - expeditions
   - notes
   - scripts
