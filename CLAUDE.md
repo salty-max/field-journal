@@ -204,7 +204,11 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   kit's welcome page, once per character, `/yonder welcome`: the logo,
   `Media/Logo.tga` from `assets/logo.png` with magick, what the journal is,
   the choices, the sound in a select; the packages carry `Media/`),
-  `Minimap.lua`. A game function is checked before use only
+  `Minimap.lua`. The opt-in that shares what the game tells of the world
+  (the kit's `K.collect`: quests' texts, creatures' facts, NPCs' lines, loot
+  by source; off until the player ticks it on the welcome page or the
+  Options page) keeps it account-wide in `YonderCollect`, which Ravenpost
+  sends to the addons' database. A game function is checked before use only
   where the clients differ; the test game has every one the addon calls.
 - Languages: every word the addon shows goes through `L["..."]` (the kit's
   `K.L`; plurals through `ns.kit.plural`); link and colour codes stay outside

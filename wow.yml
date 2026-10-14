@@ -255,7 +255,31 @@ globals:
     any: true
   YonderSettings:
     any: true
+  YonderCollect:
+    any: true
   C_AddOns:
     any: true
   GetAddOnMetadata:
+    any: true
+  C_GossipInfo:
+    any: true
+  GetGossipText:
+    any: true
+  GetObjectiveText:
+    any: true
+  GetProgressText:
+    any: true
+  GetQuestID:
+    any: true
+  GetQuestText:
+    any: true
+  GetRewardText:
+    any: true
+  GetTitleText:
+    any: true
+  UnitClass:
+    any: true
+  UnitReaction:
+    any: true
+  SaltyMaxCollector:
     any: true

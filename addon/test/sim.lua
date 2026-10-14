@@ -168,6 +168,7 @@ local function elapse()
 end
 function UnitXP() return 0 end
 function UnitRace() return "Dwarf", "Dwarf" end
+function UnitClass() return "Hunter", "HUNTER", 3 end
 
 -- UI: any method works and returns something sensible, scripts are kept.
 local function ui()
@@ -2297,7 +2298,21 @@ check(
 )
 fire("PLAYER_ENTERING_WORLD", true, false)
 local W = ns.welcome
-check(W.frame and W.frame.shown and #W.rows == 6, "the first login: the welcome page and its six choices")
+check(W.frame and W.frame.shown and #W.rows == 7, "the first login: the welcome page and its seven choices")
+-- The last: sharing what the game tells of the world (the kit's collector),
+-- off until the player says yes, account-wide in YonderCollect.
+local share = W.rows[7]
+check(
+  not share.box:GetChecked() and not ns.collect:on() and SaltyMaxCollector == nil,
+  "… the last, sharing what you see, off: nothing kept"
+)
+share.scripts.OnClick(share)
+check(
+  ns.collect:on() and YonderCollect.share == true and SaltyMaxCollector ~= nil,
+  "… ticked: on, account-wide, this addon collects"
+)
+share.scripts.OnClick(share)
+check(not ns.collect:on() and next(YonderCollect.facts) == nil, "… unticked: off, what was kept forgotten")
 local soundRow = W.rows[2]
 check(soundRow.select and soundRow.select:GetValue() == 3175, "… the trophy's sound in a select, as it is")
 soundRow.select.scripts.OnClick(soundRow.select)

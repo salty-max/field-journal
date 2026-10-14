@@ -208,6 +208,7 @@ function ns.login()
     newJournal(guid)
   end
   ns.loadProfile(before)
+  ns.collect:start()
   ns.createMinimapButton()
   ns.createSettingsPanel()
   ns.expeditionsLogin()
