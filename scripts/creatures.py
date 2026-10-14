@@ -13,20 +13,22 @@ with no vendor/quest/gossip flags, selectable, not critters or totems, not on
 either side (Alliance or Horde: guards, soldiers), and not the database's
 helpers (triggers, dummies, markers, unused entries).
 
-  python3 scripts/creatures.py            (downloads ~13 MB once, cached in .cache/)
-"""
-import csv, gzip, json, os, re, urllib.request
+  python3 scripts/creatures.py
 
-COMMIT = "28ef6259c782928b08a8dc9cacf6bc02e64f2b29"
-URL = f"https://github.com/cmangos/classic-db/raw/{COMMIT}/Full_DB/ClassicDB_1_12_1_z2815.sql.gz"
+The dump is wow-data's (../wow-data: pinned in its pins.json, downloaded once
+into its cache).
+"""
+import gzip, json, os, re, sys
+
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-CACHE = os.path.join(ROOT, ".cache", f"classicdb-{COMMIT[:12]}.sql.gz")
+sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
+from wowdata import client, path  # noqa: E402
+
 OUT = os.path.join(ROOT, "data", "creatures.json")
-# The client's faction templates (wago.tools, Classic Era): which side a
-# creature is on. Creatures friendly to the Alliance or the Horde (guards,
-# soldiers, town folk of either side) are people, not the Bestiary's game.
-FACTIONS_URL = "https://wago.tools/db2/FactionTemplate/csv?product=wow_classic_era"
-FACTIONS = os.path.join(ROOT, ".cache", "FactionTemplate.csv")
+# The client's faction templates (Classic Era's, wow-data's database): which
+# side a creature is on. Creatures friendly to the Alliance or the Horde
+# (guards, soldiers, town folk of either side) are people, not the
+# Bestiary's game.
 PLAYER, ALLIANCE, HORDE = 1, 2, 4
 
 TYPES = {1: "Beast", 2: "Dragonkin", 3: "Demon", 4: "Elemental", 5: "Giant", 6: "Undead", 7: "Humanoid", 9: "Mechanical", 10: "NotSpecified"}
@@ -39,10 +41,8 @@ HELPER = re.compile(r"\b(Trigger|Doodad|Dummy|Marker|Target|Bunny|DND|UNUSED|unu
 
 
 def sql_text():
-    if not os.path.exists(CACHE):
-        os.makedirs(os.path.dirname(CACHE), exist_ok=True)
-        urllib.request.urlretrieve(URL, CACHE)
-    with gzip.open(CACHE, "rt", encoding="utf-8", errors="replace") as f:
+    """the Classic database's dump, as text"""
+    with gzip.open(path("classicdb"), "rt", encoding="utf-8", errors="replace") as f:
         return f.read()
 
 
@@ -91,18 +91,13 @@ def rows(sql, table):
 
 def aligned_factions():
     """Faction templates on a side (Alliance or Horde), and those friendly to every player."""
-    if not os.path.exists(FACTIONS):
-        req = urllib.request.Request(FACTIONS_URL, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req) as r, open(FACTIONS, "wb") as f:
-            f.write(r.read())
     sides, friendly = set(), set()
-    with open(FACTIONS) as f:
-        for r in csv.DictReader(f):
-            groups = int(r["FactionGroup"]) | int(r["FriendGroup"])
-            if groups & (ALLIANCE | HORDE):
-                sides.add(int(r["ID"]))
-            elif groups & PLAYER:
-                friendly.add(int(r["ID"]))  # mounts, pets, neutral town folk
+    for r in client("classic", "FactionTemplate"):
+        groups = int(r["FactionGroup"]) | int(r["FriendGroup"])
+        if groups & (ALLIANCE | HORDE):
+            sides.add(int(r["ID"]))
+        elif groups & PLAYER:
+            friendly.add(int(r["ID"]))  # mounts, pets, neutral town folk
     return sides, friendly
 
 

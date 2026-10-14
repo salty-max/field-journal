@@ -3,38 +3,29 @@
 
   python3 scripts/zones.py
 
-From the client's own tables (wago.tools, cached in .cache/<game>/): UiMap (the
-zones, type 3, and their continent), UiMapXMapArt and WorldMapOverlay (the
-map's explorable places: each overlay is lifted from the fog by the areas it
-names, as the game's exploration achievements count them), AreaTable (the
-places' names). Forever's build is pinned, as the Codex's.
+From the client's own tables (wow-data's databases, ../wow-data: each game's
+at its pinned build): UiMap (the zones, type 3, and their continent),
+UiMapXMapArt and WorldMapOverlay (the map's explorable places: each overlay
+is lifted from the fog by the areas it names, as the game's exploration
+achievements count them), AreaTable (the places' names).
 
 Each zone: { id (uiMap), name, continent (uiMap), places: [{ name, areas, rect }] }
 (rect: left, top, right, bottom on the map art: the addon asks the game which
 of the place's areas are explored at points inside it).
 Battlegrounds are left out.
 """
-import csv, json, os, urllib.request
+import json, os, sys
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
-GAMES = {
-    "classic": "product=wow_classic_era",
-    "forever": "product=wow_classic_beta&build=1.60.1.70291",
-}
-TABLES = ("UiMap", "UiMapXMapArt", "WorldMapOverlay", "AreaTable")
-UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
-SUBDIR = {"classic": "era", "forever": "forever"}
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
+from wowdata import client  # noqa: E402
+
+GAMES = ("classic", "forever")
 BATTLEGROUNDS = {1459, 1460, 1461}  # Alterac Valley, Warsong Gulch, Arathi Basin
 
 
 def table(game, name):
-    path = os.path.join(ROOT, ".cache", SUBDIR[game], f"{name}.csv")
-    if not os.path.exists(path):
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        url = f"https://wago.tools/db2/{name}/csv?{GAMES[game]}"
-        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180) as r, open(path, "wb") as f:
-            f.write(r.read())
-    return list(csv.DictReader(open(path, encoding="utf-8")))
+    return client(game, name)
 
 
 def zones(game):

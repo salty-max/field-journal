@@ -1,7 +1,59 @@
 {
+  "210107": {
+    "name": "Kackle",
+    "zone": 1432
+  },
+  "250936": {
+    "name": "Den'dralass",
+    "zone": 2521
+  },
+  "256028": {
+    "name": "The Lost One",
+    "zone": 2521
+  },
+  "256492": {
+    "name": "Fernfeather",
+    "zone": 2521
+  },
+  "259385": {
+    "name": "Tel'daeor the Stormspeaker",
+    "zone": 2521
+  },
   "259398": {
     "name": "Galemender Delanea",
     "zone": 2521
+  },
+  "271080": {
+    "name": "Blightsculler",
+    "zone": 1420
+  },
+  "276061": {
+    "name": "Decrepit Harvester",
+    "zone": 1420
+  },
+  "276089": {
+    "name": "The Condemned One",
+    "zone": 1420
+  },
+  "276099": {
+    "name": "Wrathvine",
+    "zone": 1438
+  },
+  "276101": {
+    "name": "Nightscreech",
+    "zone": 1438
+  },
+  "276105": {
+    "name": "Stormherald Ukta",
+    "zone": 1412
+  },
+  "276108": {
+    "name": "Thornstarter Igleg",
+    "zone": 1412
+  },
+  "276109": {
+    "name": "Snarlsnout",
+    "zone": 1412
   },
   "276111": {
     "name": "Ghostfang",
@@ -14,6 +66,10 @@
   "276189": {
     "name": "Matriarch Bristlefur",
     "zone": 1429
+  },
+  "276194": {
+    "name": "Dustwind Eggtender",
+    "zone": 1411
   },
   "276198": {
     "name": "Shal'ma",

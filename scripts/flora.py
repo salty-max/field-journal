@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 data/flora.json: the herbs and fish of the original world, for the Plants and
-Fish tabs. From the CMaNGOS Classic database (the same pinned commit as
+Fish tabs. From the CMaNGOS Classic database (wow-data's pinned dump, as
 scripts/creatures.py: a community reconstruction of the 1.12 server, not an
-official Blizzard source), with the client's own tables from wago.tools
-(Classic Era): Lock (the Herbalism skill a node needs), AreaTable, UiMap and
-UiMapAssignment (which zone a place or a spot of the world is in).
+official Blizzard source), with the client's own tables (Classic Era's, from
+wow-data's database): Lock (the Herbalism skill a node needs), AreaTable,
+UiMap and UiMapAssignment (which zone a place or a spot of the world is in).
 
 Herbs: the items the database files as herbs (Trade Goods, Herb), each with
 the nodes that give it (game objects of the same name, plus the herbs found
@@ -25,13 +25,13 @@ Summer Bass: the database's fishing season events). The database doesn't
 model the hour (Nightfin Snapper by night, Sunscale Salmon by day): the
 character's catches record it.
 
-  python3 scripts/flora.py            (the database and tables are cached in .cache/)
+  python3 scripts/flora.py            (wow-data's dump and databases)
 """
 import collections, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import creatures as db  # the pinned dump and its SQL readers
-import zones as zones_script  # the client's tables from wago.tools
+import creatures as db  # wow-data's pinned dump and its SQL readers
+import zones as zones_script  # the client's tables from wow-data's database
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "data", "flora.json")
@@ -42,7 +42,7 @@ FISHING_HOLE = 25  # game object type: a school
 
 
 def wago(name):
-    """A Classic Era client table, through scripts/zones.py's cache (.cache/era)."""
+    """A Classic Era client table (wow-data's database, through scripts/zones.py)."""
     return zones_script.table("classic", name)
 
 

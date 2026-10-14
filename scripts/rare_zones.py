@@ -4,42 +4,35 @@ milestones: data/rare-zones.json ({creature id: uiMap id}).
 
   python3 scripts/rare_zones.py
 
-Two sources, the first that knows wins:
-  1. the "Rare mobs by zone" page of the WoWWiki archive, its section for the
-     original game's zones (fetched once into .cache/);
-  2. the rare's spawn points (CMaNGOS, as scripts/creatures.py) placed in the
-     zones' map rectangles (the client's UiMapAssignment, wago.tools); where
-     rectangles overlap near a border, the zone whose centre is nearest.
+Two sources, from wow-data (../wow-data), the first that knows wins:
+  1. Questie's zone for the rare (its spawns are by zone: the zone's own map);
+  2. the rare's spawn points (the Classic database's dump, as
+     scripts/creatures.py) placed in the zones' map rectangles (the client's
+     UiMapAssignment); where rectangles overlap near a border, the zone whose
+     centre is nearest.
 Disagreements between the two are printed for review.
 """
-import collections, csv, json, os, re, urllib.parse, urllib.request
+import collections, json, os, sys
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
-CACHE = os.path.join(ROOT, ".cache")
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
+from wowdata import client, db  # noqa: E402
+
 OUT = os.path.join(ROOT, "data", "rare-zones.json")
-WIKI = "https://wowwiki-archive.fandom.com/api.php?action=parse&redirects=1&prop=wikitext&format=json&page=Rare_mobs_by_zone"
-WAGO = "https://wago.tools/db2/{}/csv?product=wow_classic_era"
-UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
 
 
-def cached(name, url):
-    path = os.path.join(CACHE, name)
-    if not os.path.exists(path):
-        os.makedirs(CACHE, exist_ok=True)
-        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120) as r, open(path, "wb") as f:
-            f.write(r.read())
-    return path
-
-
-def wiki_zones():
-    """Rare name -> zone names, from the original game's section."""
-    text = json.load(open(cached("rare-mobs-by-zone.json", WIKI)))["parse"]["wikitext"]["*"]
-    section = text[text.index("== In World of Warcraft =="):]
-    section = section[: section.index("\n== ", 5)]
-    out = collections.defaultdict(set)
-    for zone, cell in re.findall(r"^! \[\[([^\]|]+)\]\]\s*\n\| (.+)$", section, re.M):
-        for m in re.finditer(r"\[\[([^\]]+)\]\]", cell):
-            out[m.group(1).split("|")[-1].strip()].add(zone)
+def questie_zones():
+    """Rare id -> its zone's map, by Questie's spawns (the most of them)."""
+    d = db("classic")
+    out = {}
+    for id, ui, n in d.execute(
+        """SELECT s.entity_id, (SELECT a.UiMapID FROM client_UiMapAssignment a JOIN client_UiMap u ON u.ID = a.UiMapID
+                                WHERE a.AreaID = s.area_id AND u.Type = 3 ORDER BY a.OrderIndex LIMIT 1) AS ui, count(*)
+           FROM spawn s WHERE s.kind = 'creature' AND s.source = 'questie' AND s.area_id IS NOT NULL
+           GROUP BY s.entity_id, ui ORDER BY s.entity_id, count(*) DESC"""
+    ):
+        if ui is not None:
+            out.setdefault(id, ui)
     return out
 
 
@@ -73,13 +66,12 @@ def main():
             if guid in pos:
                 spawns[i].append(pos[guid])
 
-    uimap = {r["ID"]: r for r in csv.DictReader(open(cached("UiMap.csv", WAGO.format("UiMap"))))}
+    uimap = {r["ID"]: r for r in client("classic", "UiMap")}
     rects = [
         (int(r["MapID"]), float(r["Region_0"]), float(r["Region_1"]), float(r["Region_3"]), float(r["Region_4"]), int(r["UiMapID"]))
-        for r in csv.DictReader(open(cached("UiMapAssignment.csv", WAGO.format("UiMapAssignment"))))
+        for r in client("classic", "UiMapAssignment")
         if uimap[r["UiMapID"]]["Type"] == "3"
     ]
-    by_name = {r["Name_lang"]: int(r["ID"]) for r in uimap.values() if r["Type"] == "3"}
 
     def place(m, x, y):
         best = None
@@ -90,17 +82,16 @@ def main():
                     best = (d, ui)
         return best and best[1]
 
-    wiki = wiki_zones()
+    questie = questie_zones()
     out, disagree, unplaced = {}, [], []
     for i in sorted(rares):
         name = data[i]["name"]
         counts = collections.Counter(place(*s) for s in spawns[i])
         counts.pop(None, None)
         coords = counts.most_common(1)[0][0] if counts else None
-        named = [by_name[z] for z in wiki.get(name, ()) if z in by_name]
-        zone = named[0] if len(named) == 1 else coords
-        if named and coords and named[0] != coords:
-            disagree.append(f"{name}: wiki {uimap[str(named[0])]['Name_lang']}, coordinates {uimap[str(coords)]['Name_lang']}")
+        zone = questie.get(i) or coords
+        if questie.get(i) and coords and questie[i] != coords:
+            disagree.append(f"{name}: Questie {uimap[str(questie[i])]['Name_lang']}, coordinates {uimap[str(coords)]['Name_lang']}")
         if zone:
             out[str(i)] = zone
         else:
@@ -110,7 +101,7 @@ def main():
         f.write("\n")
     print(f"{len(out)} rares placed -> data/rare-zones.json; {len(unplaced)} in no zone (dungeons)")
     for line in disagree:
-        print("  wiki wins:", line)
+        print("  Questie wins:", line)
 
 
 if __name__ == "__main__":

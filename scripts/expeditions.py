@@ -21,7 +21,7 @@ A riddle names its spot by what the game's data pins down:
                    zone's own area): every id of that name
 
 The world positions go on the zone's map by the client's UiMapAssignment
-(wago.tools, Classic Era, cached in .cache/era/). The hint circle (hint_area,
+(Classic Era's, wow-data's database: ../wow-data). The hint circle (hint_area,
 in percent of the map's width) must hold the spot (an area's: its overlay's
 centre, or its anchor's); an object's spawns outside it are other copies (a
 history book stands in more than one inn), not the riddle's. Each zone also gets its size in yards
@@ -45,9 +45,9 @@ each other, each a circle around them wide enough for its wandering (the
 dump's radius or path), HAUNT_MIN at least.
 
 A zone of Forever's own (`client: forever`, Zephras Isle) is placed on
-Forever's client tables (wago.tools, the beta build zones.py pins, cached in
-.cache/forever/), its creatures from the QuestieDB traces (Questie's in-game
-recorder of the beta, pinned; percent of the zone's map), each point kept only
+Forever's client tables (wow-data's database), its creatures from the
+QuestieDB traces (Questie's in-game recorder of the beta, wow-data's pinned
+"questiedb"; percent of the zone's map), each point kept only
 where Wowhead's Forever database (its tooltip) places the creature too: a
 creature or a sub-area, and a quarry the data doesn't know (its name, level,
 rank and model given in the file).
@@ -61,26 +61,26 @@ Then the riddles are checked as a reader meets them:
     arrival, one reading, one creature found by speaking to it at most, and
     no gesture two riddles both accept;
   - never on Forever's own new quests' road (its quests no Classic one is:
-    AllTheThings' Forever database and QuestieDB's traces, both pinned): no
-    new quest gives, ends or asks for the riddle's creature or object, none
-    names it in its title or its objectives, and none sends a player (its
-    giver, its ender, what it asks for, by either source's points) within
-    FOREVER_NEAR of a riddle solved by arriving.
+    AllTheThings' Forever database and QuestieDB's traces, both pinned in
+    wow-data): no new quest gives, ends or asks for the riddle's creature or
+    object, none names it in its title or its objectives, and none sends a
+    player (its giver, its ender, what it asks for, by either source's
+    points) within FOREVER_NEAR of a riddle solved by arriving.
 
 Anything that fails is printed and nothing is written.
 """
-import collections, csv, json, math, os, re, sys, time, urllib.error, urllib.request
+import collections, json, math, os, re, sys, time, urllib.error, urllib.request
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
+from wowdata import client as client_table, path, tree  # noqa: E402
+
 EXPEDITIONS = os.path.join(ROOT, "expeditions")
 OUT = os.path.join(ROOT, "data", "expeditions.json")
-ERA = os.path.join(ROOT, ".cache", "era")
-FOREVER = os.path.join(ROOT, ".cache", "forever")
 WOWHEAD = os.path.join(ROOT, ".cache", "wowhead")
-WAGO = {"classic": "https://wago.tools/db2/{}/csv?product=wow_classic_era",
-        "forever": "https://wago.tools/db2/{}/csv?product=wow_classic_beta&build=1.60.1.70291"}
-QUESTIEDB_COMMIT = "7e87203312ef7ba309b96361fed90e492e145cff"
-QUESTIEDB = f"https://raw.githubusercontent.com/Questie/QuestieDB/{QUESTIEDB_COMMIT}/src/corrections/Forever/traces/forever{{}}Traces.lua"
+# QuestieDB's Forever traces (wow-data's pinned "questiedb", the commit these
+# riddles were checked against) and AllTheThings' Forever zones ("allthethings")
+QUESTIEDB = "src/corrections/Forever/traces/forever{}Traces.lua"
 UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
 # How near the spot counts, in yards: an object or a creature stood beside
 # (a statue's base can be a few yards from its centre), a trigger by its own
@@ -99,34 +99,23 @@ HAUNT, HAUNT_MIN = 6, 3
 # Wowhead's sightings of a quarry count within this of a spawn the two agree
 # on (further out, they are another place's, or noise).
 ROAM = 10
-# AllTheThings' Forever database, pinned (as Hearthtale's scripts/forever-data.ts).
-ATT_REPO, ATT_COMMIT = "ATTWoWAddon/AllTheThings", "a21caf2a7ec636785505a7f4e7e4311d16ce28af"
 # A new quest of Forever's this near an arrival's spot (percent of the map's
 # width) sends its players through it.
 FOREVER_NEAR = 4
 
 
-def table(name, client="classic"):
-    folder = FOREVER if client == "forever" else ERA
-    path = os.path.join(folder, f"{name}.csv")
-    if not os.path.exists(path):
-        os.makedirs(folder, exist_ok=True)
-        with urllib.request.urlopen(urllib.request.Request(WAGO[client].format(name), headers=UA), timeout=180) as r, open(path, "wb") as f:
-            f.write(r.read())
-    return list(csv.DictReader(open(path, encoding="utf-8")))
+def table(name, game="classic"):
+    """a client table of the game (wow-data's database, the pinned build)"""
+    return client_table(game, name)
 
 
 def traces(kind):
     """The QuestieDB traces of Forever's creatures (kind "Npc") or objects:
     {id: {"name", "spawns": {zone area id: [(x, y)]}}}, x and y in percent of
     the zone's map."""
-    path = os.path.join(FOREVER, f"questiedb-{kind.lower()}-{QUESTIEDB_COMMIT[:12]}.lua")
-    if not os.path.exists(path):
-        os.makedirs(FOREVER, exist_ok=True)
-        with urllib.request.urlopen(urllib.request.Request(QUESTIEDB.format(kind), headers=UA), timeout=180) as r, open(path, "wb") as f:
-            f.write(r.read())
     out = {}
-    for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", open(path, encoding="utf-8").read(), re.S | re.M):
+    src = open(path("repo", "questiedb", QUESTIEDB.format(kind)), encoding="utf-8").read()
+    for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
         body = m.group(2)
         name = re.search(r'\.name\] = "((?:[^"\\]|\\.)*)"', body)
         spawns = re.search(r"\.spawns\] = \{(.*)\},\n", body)
@@ -142,16 +131,12 @@ def forever_quests(classic):
     title and objectives, lower case, "ids": the creatures, objects and items
     that give, end or are asked for by it, "points": [(map name, x, y)] where
     AllTheThings sends its players}}. From QuestieDB's traces and
-    AllTheThings' Forever zones (cached in .cache/forever/)."""
-    def fetch(url, path):
-        if not os.path.exists(path):
-            os.makedirs(os.path.dirname(path), exist_ok=True)
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180) as r, open(path, "wb") as f:
-                f.write(r.read())
-        return open(path, encoding="utf-8").read()
+    AllTheThings' Forever zones (wow-data's pins)."""
+    def read(repo, file):
+        return open(path("repo", repo, file), encoding="utf-8").read()
 
     out = collections.defaultdict(lambda: {"text": "", "ids": set(), "points": []})
-    src = fetch(QUESTIEDB.format("Quest"), os.path.join(FOREVER, f"questiedb-quest-{QUESTIEDB_COMMIT[:12]}.lua"))
+    src = read("questiedb", QUESTIEDB.format("Quest"))
     for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
         q = int(m.group(1))
         if q in classic:
@@ -165,20 +150,16 @@ def forever_quests(classic):
             if v:
                 out[q]["ids"] |= {int(n) for n in re.findall(r"\b(\d{2,7})\b", v.group(1))}
     for kind in ("Npc", "Object"):
-        src = fetch(QUESTIEDB.format(kind), os.path.join(FOREVER, f"questiedb-{kind.lower()}-{QUESTIEDB_COMMIT[:12]}.lua"))
+        src = read("questiedb", QUESTIEDB.format(kind))
         for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
             for v in re.findall(r"quest(?:Starts|Ends)_add\] = \{([\d,\s]*)\}", m.group(2)):
                 for q in re.findall(r"\d+", v):
                     if int(q) not in classic:
                         out[int(q)]["ids"].add(int(m.group(1)))
-    tree = json.loads(fetch(f"https://api.github.com/repos/{ATT_REPO}/git/trees/{ATT_COMMIT}?recursive=1",
-                            os.path.join(FOREVER, f"att-tree-{ATT_COMMIT[:12]}.json")))
-    for f in tree["tree"]:
-        if f["type"] != "blob" or not re.match(r"^\.contrib/\.db/forever/zones/.*\.lua$", f["path"]):
+    for file in tree("allthethings"):
+        if not re.match(r"^\.contrib/\.db/forever/zones/.*\.lua$", file):
             continue
-        rel = f["path"][len(".contrib/.db/forever/"):]
-        url = f"https://raw.githubusercontent.com/{ATT_REPO}/{ATT_COMMIT}/" + "/".join(urllib.request.quote(x) for x in f["path"].split("/"))
-        src = fetch(url, os.path.join(FOREVER, "att", rel))
+        src = read("allthethings", file)
         parts = re.split(r"\bq\((\d+), \{", src)
         for k in range(1, len(parts), 2):
             q, body = int(parts[k]), parts[k + 1]

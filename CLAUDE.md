@@ -31,25 +31,32 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
 
 ## Layout
 
+- The game's data comes through wow-data (`../wow-data`, beside this folder:
+  its pins, its one cache, its databases; the Python scripts read them with
+  `../wow-data/py/wowdata.py`). No script here pins a source. Only
+  `scripts/expeditions.py` may still ask Wowhead, for a tooltip it hasn't
+  cached in `.cache/wowhead/` (its cross-check of the spots).
 - `data/creatures.json`: the creatures of the original world (id, name, type,
-  beast family, rank, levels), from the CMaNGOS Classic database pinned to one
-  commit (`scripts/creatures.py`, `bun run creatures`). Leaves out friendly
+  beast family, rank, levels), from the CMaNGOS Classic database's dump
+  (wow-data's pin; `scripts/creatures.py`, `bun run creatures`). Leaves out friendly
   folk (either side's factions, vendors, quest givers), critters, totems and
   the database's helpers. A community reconstruction, not Blizzard's data.
 - `data/peoples.json`: creature id lists per people (from the Codex's research).
 - `data/zones-<game>.json` (`python3 scripts/zones.py`): the Atlas's zones from
-  the client's map tables (UiMap, WorldMapOverlay, AreaTable on wago.tools; the
-  Forever build pinned): continent, places (name, overlay offset, area ids).
+  the client's map tables (UiMap, WorldMapOverlay, AreaTable: wow-data's
+  databases, each game's pinned build): continent, places (name, overlay
+  offset, area ids).
   `atlas/<zone>.md`: the surveyor's note for a zone (front matter `zone:`).
 - `data/rare-zones.json` (rare id -> uiMap) and `data/zones.csv` (the client's
   zones): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
-  the WoWWiki archive's "Rare mobs by zone", original-game section, else the
-  rare's spawn points in the zones' map rectangles). Dungeon rares have none.
+  Questie's zone for the rare, else its spawn points in the zones' map
+  rectangles). Dungeon rares have none.
   `data/rare-zones-forever.json` (`python3 scripts/forever_rares.py`, from
-  AllTheThings' Forever database, MIT, pinned): Forever's own rares (Zephras
-  Isle's, the new ones of the old zones), in the Forever package's milestones
-  only. No source gives Forever's new creatures' type, family or rank: the
-  journal files them when met (`Creatures.lua`), from what the game says.
+  wow-data's Forever database: its rares Classic's world doesn't have, by
+  Questie's zones): Forever's own rares (Zephras Isle's, the new ones of the
+  old zones), in the Forever package's milestones only. No source gives
+  Forever's new creatures' type or family: the journal files them when met
+  (`Creatures.lua`), from what the game says.
 - `data/flora.json` (`bun run flora`, `scripts/flora.py`): the herbs and fish
   of the Plants and Fish tabs (being built, see PLAN.md): herbs with their
   nodes, Herbalism skill (the client's Lock table) and zones (the nodes'
@@ -82,9 +89,10 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   a trigger, a sub-area's ids; a quarry's haunts (its spawns that Wowhead
   places too, and the paths they walk, gathered into circles); each zone's
   size in yards and sub-areas; the client's emote tokens. A zone of Forever's
-  own is placed on Forever's client tables (the beta build zones.py pins),
-  its creatures from the QuestieDB traces (pinned, no license: credited)
-  where Wowhead's Forever database places them too. Rerun it after changing a spot or a hint circle (the
+  own is placed on Forever's client tables (wow-data's), its creatures from
+  the QuestieDB traces (wow-data's legacy pin, no license: credited) where
+  Wowhead's Forever database places them too (its pages and tooltips cached
+  in `.cache/wowhead/`). Rerun it after changing a spot or a hint circle (the
   build refuses a stale one). `scripts/expeditions.ts` (for build.ts) checks
   every riddle and writes the answers as fingerprints only (salted FNV-1a of
   5-yard cells, sub-areas, the keeper, the gestures), the texts read once

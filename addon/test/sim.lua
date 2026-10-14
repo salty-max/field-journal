@@ -865,8 +865,8 @@ if FOREVER then
   kill(259398)
   local done, need = ns.milestoneById["zone-2521"].progress()
   check(
-    done == 1 and need == 1 and ns.rank(259398) == nil,
-    "… earned by slaying Galemender Delanea, unknown to the data"
+    done == 1 and need == #D.rareZones[2521] and need > 1 and ns.rank(259398) == nil,
+    "… Galemender Delanea, unknown to the data, counts among the isle's rares"
   )
 else
   check(ns.milestoneById["zone-2521"] == nil, "Classic: no milestone for Forever's Zephras Isle")
