@@ -7,9 +7,9 @@ Am südlichen Ende des Waldes schließt eine Mauer aus grauem Stein ein Königre
 Unter ihr warten die Flüchtlinge der Seuche auf ein Tor, das sich nicht öffnet,
 und unter ihnen verkauft ein Schmied Klingen an jeden, ganz gleich wen:
 Er kann nicht sehen, auf welcher Seite du stehst. Spar dir das Winken.
-? Unter dem Graumähnenwall, am südlichen Ende des Silberwalds, bei den Flüchtlingen.
-= Wallace der Blinde, Waffenschmied für Horde und Allianz gleichermaßen, unter dem Graumähnenwall: Gilneas hält sein Tor vor den Flüchtlingen zu seinen Füßen verschlossen.
-+ Gilneas errichtete die Mauer nach dem Zweiten Krieg, als Genn Graumähne die Allianz wegen der Kosten der Internierungslager für die Orcs verließ.
+? Unter dem Greymane-Wall, am südlichen Ende des Silberwalds, bei den Flüchtlingen.
+= Wallace der Blinde, Waffenschmied für Horde und Allianz gleichermaßen, unter dem Greymane-Wall: Gilneas hält sein Tor vor den Flüchtlingen zu seinen Füßen verschlossen.
++ Gilneas errichtete die Mauer nach dem Zweiten Krieg, als Genn Greymane die Allianz wegen der Kosten der Internierungslager für die Orcs verließ.
 ! Bewacht für die Horde (die Flüchtlinge, Stufe 18 bis 20, sind Lordaerons eigene Leute), ruhig für die Allianz
 @ Wallace der Blinde
 
