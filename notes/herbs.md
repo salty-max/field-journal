@@ -183,3 +183,9 @@ Major Mana Potions and Purification Potions use it, along with the Flask of Dist
 Black Lotus is a rare find in a small number of dangerous lands. A gatherer who spots it has good reason to remember the place.
 
 The great flasks call for it, including those of the Titans and Supreme Power. Many bundles can be replenished on an ordinary round. This one tends to determine when the most ambitious work can begin.
+
+## 19726 Bloodvine
+
+Bloodvine grows nowhere a map can show. Herbalists find it only in Zul'Gurub, tucked inside the troll city's Dreamfoil, Sungrass, Purple Lotus, Golden Sansam and Mountain Silversage, as if the place had laced its own plants with something redder.
+
+The Zandalar crafts are built on it: Bloodsoul plate, the Bloodvine vest, leggings and boots, Blood Tiger leather, and the engineers' Bloodvine Goggles and Lens. The Cenarion Circle's patterns ask for it too, from Gaea's Embrace to the Ironvine pieces, and a Core Felcloth Bag takes its share. Whoever gathers it in Zul'Gurub rarely keeps it long.

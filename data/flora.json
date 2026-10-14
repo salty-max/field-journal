@@ -753,6 +753,32 @@
     "Silithus"
    ],
    "dungeons": []
+  },
+  {
+   "id": 19726,
+   "name": "Bloodvine",
+   "level": 60,
+   "skill": 210,
+   "nodes": [
+    "Dreamfoil",
+    "Golden Sansam",
+    "Mountain Silversage",
+    "Purple Lotus",
+    "Sungrass"
+   ],
+   "nodeIds": [
+    180164,
+    180165,
+    180166,
+    180167,
+    180168
+   ],
+   "spawns": 0,
+   "zones": [],
+   "dungeons": [
+    "Zul'Gurub"
+   ],
+   "inside": true
   }
  ],
  "fish": [

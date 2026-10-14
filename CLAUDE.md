@@ -35,8 +35,8 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   its pins, its one cache, its databases; the Python scripts read them with
   `../wow-data/py/wowdata.py`). No script here pins or downloads a source.
 - `data/creatures.json`: the creatures of the original world (id, name, type,
-  beast family, rank, levels), from the CMaNGOS Classic database's dump
-  (wow-data's pin; `scripts/creatures.py`, `bun run creatures`). Leaves out friendly
+  beast family, rank, levels), from wow-data's Classic Era database (Questie's
+  and the CMaNGOS Classic database's; `scripts/creatures.py`, `bun run creatures`). Leaves out friendly
   folk (either side's factions, vendors, quest givers), critters, totems and
   the database's helpers. A community reconstruction, not Blizzard's data.
 - `data/peoples.json`: creature id lists per people (from the Codex's research).

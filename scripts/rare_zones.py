@@ -6,8 +6,8 @@ milestones: data/rare-zones.json ({creature id: uiMap id}).
 
 Two sources, from wow-data (../wow-data), the first that knows wins:
   1. Questie's zone for the rare (its spawns are by zone: the zone's own map);
-  2. the rare's spawn points (the Classic database's dump, as
-     scripts/creatures.py) placed in the zones' map rectangles (the client's
+  2. the rare's spawn points (the Classic database's, with the spawns another
+     creature may take) placed in the zones' map rectangles (the client's
      UiMapAssignment); where rectangles overlap near a border, the zone whose
      centre is nearest.
 Disagreements between the two are printed for review.
@@ -37,29 +37,22 @@ def questie_zones():
 
 
 def main():
-    g = {"__file__": os.path.join(ROOT, "scripts", "creatures.py")}
-    exec(open(g["__file__"]).read().split("\nif __name__")[0], g)
-    sql = g["sql_text"]()
     data = {c["id"]: c for c in json.load(open(os.path.join(ROOT, "data", "creatures.json")))}
     rares = {i for i, c in data.items() if c["rank"] in ("rare", "rareelite")}
 
     # Spawn points: a spawn's own entry, or the entries that may take its place.
-    cols = g["columns"](sql, "creature")
+    d = db("classic")
     pos = {}
     entries = collections.defaultdict(set)
-    for r in g["rows"](sql, "creature"):
-        d = dict(zip(cols, r))
-        pos[d["guid"]] = (int(d["map"]), float(d["position_x"]), float(d["position_y"]))
-        entries[d["guid"]].add(int(d["id"]))
-    c = g["columns"](sql, "creature_spawn_entry")
-    for r in g["rows"](sql, "creature_spawn_entry"):
-        entries[r[c.index("guid")]].add(int(r[c.index("entry")]))
-    c1, c2 = g["columns"](sql, "spawn_group_entry"), g["columns"](sql, "spawn_group_spawn")
-    group = collections.defaultdict(set)
-    for r in g["rows"](sql, "spawn_group_entry"):
-        group[r[c1.index("Id")]].add(int(r[c1.index("Entry")]))
-    for r in g["rows"](sql, "spawn_group_spawn"):
-        entries[r[c2.index("Guid")]] |= group[r[c2.index("Id")]]
+    for guid, id, m, x, y in d.execute("SELECT spawn_id, entity_id, map_id, x, y FROM spawn WHERE kind = 'creature' AND source = 'classicdb'"):
+        pos[guid] = (m, x, y)
+        entries[guid].add(id)
+    for guid, id in d.execute(
+        """SELECT spawn_id, entity_id FROM spawn_entry WHERE kind = 'creature'
+           UNION SELECT s.spawn_id, e.entity_id FROM spawn_group_spawn s JOIN spawn_group_entry e ON e.group_id = s.group_id
+           JOIN spawn_group g ON g.id = s.group_id WHERE g.kind = 'creature'"""
+    ):
+        entries[guid].add(id)
     spawns = collections.defaultdict(list)
     for guid, ids in entries.items():
         for i in ids & rares:

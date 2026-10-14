@@ -30,6 +30,7 @@ sources:
   - 13466 5496a36d25b1
   - 13467 1dc5cc5c1fd9
   - 13468 a46eeb0af1ed
+  - 19726 8d32f4376496
 ---
 ## 2447 Friedensblume
 
@@ -210,3 +211,9 @@ Erhebliche Manatränke und Läuterungstränke verwenden sie, ebenso das Fläschc
 Schwarzer Lotus ist ein seltener Fund in einer kleinen Zahl gefährlicher Länder. Ein Sammler, der ihn entdeckt, hat guten Grund, sich den Ort zu merken.
 
 Die großen Fläschchen verlangen danach, darunter das der Titanen und das mit oberster Macht. Viele Bündel lassen sich auf einer gewöhnlichen Runde wieder auffüllen. Dieses bestimmt meist, wann die ehrgeizigste Arbeit beginnen kann.
+
+## 19726 Blutrebe
+
+Blutrebe wächst nirgends, wo eine Karte sie zeigen könnte. Kräuterkundige finden sie nur in Zul'Gurub, verborgen im Traumblatt, Sonnengras, Lila Lotus, Goldenen Sansam und Bergsilberweisling der Trollstadt, als hätte der Ort seine eigenen Pflanzen mit etwas Röterem durchsetzt.
+
+Das Handwerk der Zandalar baut auf ihr auf: die Blutseelenbrustplatte, Weste, Gamaschen und Stiefel aus Blutrebe, das Leder des Bluttigers, die Blutrebenschutzbrille und die Blutrebenlinse der Ingenieure. Auch die Muster des Zirkels des Cenarius verlangen nach ihr, von Gaeas Umarmung bis zu den Eisenrankenstücken, und eine Kernteufelsstofftasche nimmt ihren Teil. Wer sie in Zul'Gurub sammelt, behält sie selten lange.

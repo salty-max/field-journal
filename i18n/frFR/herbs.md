@@ -30,6 +30,7 @@ sources:
   - 13466 5496a36d25b1
   - 13467 1dc5cc5c1fd9
   - 13468 a46eeb0af1ed
+  - 19726 8d32f4376496
 ---
 ## 2447 Pacifique
 
@@ -210,3 +211,9 @@ La Potion de mana majeure et la Potion de purification l'emploient, tout comme l
 Le Lotus noir est une trouvaille rare dans un petit nombre de terres dangereuses. Le cueilleur qui en repère un a toutes les raisons de se souvenir de l'endroit.
 
 Les grands flacons le réclament, dont ceux des Titans et du pouvoir suprême. Bien des bouquets se renouvellent au fil d'une tournée ordinaire. Celui-ci décide plutôt du moment où le travail le plus ambitieux peut commencer.
+
+## 19726 Vignesang
+
+La vignesang ne pousse nulle part où une carte puisse la montrer. Les herboristes ne la trouvent qu'à Zul'Gurub, cachée au cœur de la feuillerêve, de la soleillette, du lotus pourpre, du sansam doré et de la sauge-argent des montagnes de la cité troll, comme si l'endroit avait mêlé à ses propres plantes quelque chose de plus rouge.
+
+L'artisanat des Zandalar repose sur elle : la cuirasse d'âmesang, le gilet, les jambières et les bottes en vignesang, le cuir du tigre-sang, les lunettes et la lentille en vignesang des ingénieurs. Les patrons du Cercle cénarien la réclament aussi, de l'Etreinte de Gaïa aux pièces en vignefer, et un sac en gangrétoffe du Magma en prend sa part. Qui la cueille à Zul'Gurub la garde rarement longtemps.

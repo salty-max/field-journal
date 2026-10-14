@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
 data/creatures.json: the creatures of the original world, for sorting into the
-Bestiary's families. From the CMaNGOS Classic database (a community
-reconstruction of the 1.12 server, not an official Blizzard source), pinned to
-one commit so the output only changes when we choose.
+Bestiary's families. From wow-data's Classic Era database (the creatures
+Questie and the CMaNGOS Classic database know, pinned there: a community
+reconstruction of the 1.12 server, not an official Blizzard source; their
+levels Questie's, their factions and flags the Classic database's).
 
-Dungeon and raid bosses come from the database's encounter table (the
-templates rank most of them merely elite).
+Dungeon and raid bosses come from the encounters (the templates rank most of
+them merely elite).
 
 Kept: creatures that spawn in the world (or bosses, which may be summoned),
 with no vendor/quest/gossip flags, selectable, not critters or totems, not on
@@ -14,15 +15,12 @@ either side (Alliance or Horde: guards, soldiers), and not the database's
 helpers (triggers, dummies, markers, unused entries).
 
   python3 scripts/creatures.py
-
-The dump is wow-data's (../wow-data: pinned in its pins.json, downloaded once
-into its cache).
 """
-import gzip, json, os, re, sys
+import json, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
-from wowdata import client, path  # noqa: E402
+from wowdata import client, db  # noqa: E402
 
 OUT = os.path.join(ROOT, "data", "creatures.json")
 # The client's faction templates (Classic Era's, wow-data's database): which
@@ -40,55 +38,6 @@ EVENT = re.compile(r"Infantry|Infantryman|Booty Bay Elite|Lookout|Lunar Festival
 HELPER = re.compile(r"\b(Trigger|Doodad|Dummy|Marker|Target|Bunny|DND|UNUSED|unused|Visual|Spell|Generator|TEST|Test)\b|^\[|\(1\)$")
 
 
-def sql_text():
-    """the Classic database's dump, as text"""
-    with gzip.open(path("classicdb"), "rt", encoding="utf-8", errors="replace") as f:
-        return f.read()
-
-
-def columns(sql, table):
-    m = re.search(r"CREATE TABLE `%s` \((.*?)\n\) ENGINE" % table, sql, re.S)
-    return re.findall(r"^\s*`(\w+)`", m.group(1), re.M)
-
-
-def rows(sql, table):
-    """The rows of a table's INSERT statements (values as strings)."""
-    for m in re.finditer(r"INSERT INTO `%s` (?:\([^)]*\) )?VALUES\s*(.*?);\n" % table, sql, re.S):
-        s, i, n = m.group(1), 0, len(m.group(1))
-        while i < n:
-            if s[i] != "(":
-                i += 1
-                continue
-            i += 1
-            vals, cur, quoted = [], "", False
-            while True:
-                c = s[i]
-                if quoted:
-                    if c == "\\":
-                        cur += s[i + 1]
-                        i += 2
-                        continue
-                    if c == "'":
-                        quoted = False
-                    else:
-                        cur += c
-                    i += 1
-                    continue
-                if c == "'":
-                    quoted = True
-                elif c == ",":
-                    vals.append(cur)
-                    cur = ""
-                elif c == ")":
-                    vals.append(cur)
-                    i += 1
-                    break
-                else:
-                    cur += c
-                i += 1
-            yield vals
-
-
 def aligned_factions():
     """Faction templates on a side (Alliance or Horde), and those friendly to every player."""
     sides, friendly = set(), set()
@@ -102,52 +51,49 @@ def aligned_factions():
 
 
 def main():
-    sql = sql_text()
+    c = db("classic")
     sides, friendly = aligned_factions()
-    spawn_cols = columns(sql, "creature")
-    spawned = {int(r[spawn_cols.index("id")]) for r in rows(sql, "creature")}
+    one = lambda sql: {r[0] for r in c.execute(sql)}
+    spawned = one("SELECT DISTINCT entity_id FROM spawn WHERE kind = 'creature' AND source = 'classicdb'")
     # Creatures that share a spawn point with others (a rare that sometimes
     # takes an ordinary mob's place) are listed in their own tables.
-    for table, col in (("creature_spawn_entry", "entry"), ("spawn_group_entry", "Entry")):
-        cols_ = columns(sql, table)
-        spawned |= {int(r[cols_.index(col)]) for r in rows(sql, table)}
-    # Dungeon and raid bosses: the encounters' kill credits (creditType 0). The
-    # templates call most of them merely elite.
-    enc_cols = columns(sql, "instance_encounters")
-    bosses = {int(r[enc_cols.index("creditEntry")]) for r in rows(sql, "instance_encounters") if r[enc_cols.index("creditType")] == "0"}
-    cols = columns(sql, "creature_template")
+    spawned |= one("SELECT entity_id FROM spawn_entry WHERE kind = 'creature'")
+    spawned |= one("SELECT e.entity_id FROM spawn_group_entry e JOIN spawn_group g ON g.id = e.group_id WHERE g.kind = 'creature'")
+    # Dungeon and raid bosses: the encounters' kill credits. The templates call
+    # most of them merely elite.
+    bosses = one("SELECT credit_id FROM encounter WHERE credit_type = 0")
     out = []
-    for r in rows(sql, "creature_template"):
-        d = dict(zip(cols, r))
-        cid, ctype, rank = int(d["Entry"]), int(d["CreatureType"]), int(d["Rank"])
+    for cid, name, ctype, family, rank, lo, hi, faction, npc_flags, unit_flags, models in c.execute(
+        """SELECT c.id, n.name, c.type_id, c.family_id, c.rank, c.min_level, c.max_level, c.faction_id, c.npc_flags,
+                  c.unit_flags, c.display_ids
+           FROM creature c LEFT JOIN name n ON n.kind = 'creature' AND n.id = c.id AND n.locale = 'enUS'
+           WHERE c.unit_flags IS NOT NULL ORDER BY c.id"""
+    ):
         if ctype not in TYPES:
             continue  # critters, totems, untyped
-        if cid in bosses:
-            rank = 3
+        rank = 3 if cid in bosses else rank or 0
         if cid not in spawned and rank != 3:
             continue
         # Gossip or quest flags mark town folk, but some rares carry them too
         # (Old Grizzlegut, Commander Felstrom): rares stay.
-        if (int(d["NpcFlags"]) and rank not in (2, 3, 4)) or int(d["UnitFlags"]) & NOT_SELECTABLE or HELPER.search(d["Name"]) or EVENT.search(d["Name"]):
+        if (npc_flags and rank not in (2, 3, 4)) or unit_flags & NOT_SELECTABLE or HELPER.search(name or "") or EVENT.search(name or ""):
             continue
         # Either side's folk out. Those friendly to every player too, except
         # elites, rares and bosses: many start friendly and turn on you through
         # their scripts (Zum'rah, Nefarius, the khans of Maraudon, the arena of
         # Blackrock Depths).
-        faction = int(d["Faction"])
         if faction in sides or (faction in friendly and rank == 0):
             continue
         out.append({
             "id": cid,
-            "name": d["Name"],
+            "name": name,
             "type": TYPES[ctype],
-            "family": int(d["Family"]),
+            "family": family or 0,
             "rank": RANKS.get(rank, "normal"),
-            "levels": [int(d["MinLevel"]), int(d["MaxLevel"])],
+            "levels": [lo, hi],
             # the first of its display ids: the book's 3D portrait
-            "model": next((int(d[k]) for k in ("ModelId1", "ModelId2", "ModelId3", "ModelId4") if int(d[k])), 0),
+            "model": int((models or "0").split(",")[0]),
         })
-    out.sort(key=lambda c: c["id"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:
         f.write("[\n" + ",\n".join(json.dumps(c, ensure_ascii=True) for c in out) + "\n]\n")

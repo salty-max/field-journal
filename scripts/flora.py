@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
 data/flora.json: the herbs and fish of the original world, for the Plants and
-Fish tabs. From the CMaNGOS Classic database (wow-data's pinned dump, as
-scripts/creatures.py: a community reconstruction of the 1.12 server, not an
-official Blizzard source), with the client's own tables (Classic Era's, from
+Fish tabs. From the CMaNGOS Classic database (wow-data's database: a community
+reconstruction of the 1.12 server, not an official Blizzard source), with the
+client's own tables (Classic Era's, from
 wow-data's database): Lock (the Herbalism skill a node needs), AreaTable,
 UiMap and UiMapAssignment (which zone a place or a spot of the world is in).
 
-Herbs: the items the database files as herbs (Trade Goods, Herb), each with
+Herbs: the items an Herbalism node gives (the client files them as trade
+goods like any other), each with
 the nodes that give it (game objects of the same name, plus the herbs found
 in another's node: Swiftthistle, Wildvine), the Herbalism skill the node needs,
 and the zones where its nodes grow (from the nodes' spawns, placed by the
@@ -25,15 +26,16 @@ Summer Bass: the database's fishing season events). The database doesn't
 model the hour (Nightfin Snapper by night, Sunscale Salmon by day): the
 character's catches record it.
 
-  python3 scripts/flora.py            (wow-data's dump and databases)
+  python3 scripts/flora.py            (wow-data's databases)
 """
 import collections, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import creatures as db  # wow-data's pinned dump and its SQL readers
 import zones as zones_script  # the client's tables from wow-data's database
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
+from wowdata import db  # noqa: E402
 OUT = os.path.join(ROOT, "data", "flora.json")
 
 HERBALISM = 2  # LockType: Herbalism
@@ -46,9 +48,34 @@ def wago(name):
     return zones_script.table("classic", name)
 
 
-def table(sql, name):
-    cols = db.columns(sql, name)
-    return [dict(zip(cols, r)) for r in db.rows(sql, name)]
+def classic_rows():
+    """The Classic database's items, objects, their spawns and loot (wow-data's
+    database), in the shapes below: values as text, keyed by id."""
+    d = db("classic")
+    s = lambda v: "" if v is None else str(v)
+    en = {(k, i): n for k, i, n in d.execute("SELECT kind, id, name FROM name WHERE locale = 'enUS' AND kind IN ('item', 'object', 'game_event')")}
+    items = {
+        str(i): {"entry": str(i), "class": s(c), "subclass": s(sc), "ItemLevel": s(lv), "name": en.get(("item", i), "")}
+        for i, c, sc, lv in d.execute("SELECT id, class_id, subclass_id, item_level FROM item")
+    }
+    gos = {}
+    for i, kind, data in d.execute("SELECT id, type, data FROM object WHERE data IS NOT NULL ORDER BY id"):
+        data = json.loads(data)
+        gos[str(i)] = {"entry": str(i), "type": s(kind), "name": en.get(("object", i), ""), "data0": str(data[0]), "data1": str(data[1])}
+    spawns = collections.defaultdict(list)
+    for i, m, x, y in d.execute("SELECT entity_id, map_id, x, y FROM spawn WHERE kind = 'object' AND source = 'classicdb'"):
+        spawns[str(i)].append({"map": m, "position_x": x, "position_y": y})
+
+    def loot(kind):
+        """a kind of loot's rows by template; a reference row's count is minus the table it points to"""
+        out = collections.defaultdict(list)
+        for src, item, ref, count, event in d.execute(
+            "SELECT source_id, item_id, ref_id, min_count, event_id FROM loot WHERE kind = ? AND source = 'classicdb' ORDER BY rowid", (kind,)
+        ):
+            out[str(src)].append({"entry": str(src), "item": s(item), "mincountOrRef": str(-ref if ref else count or 0), "event": event})
+        return out
+
+    return items, gos, spawns, loot, en
 
 
 # ── zones ─────────────────────────────────────────────────────────────────────
@@ -116,16 +143,9 @@ def zone_tools():
 
 
 def main():
-    sql = db.sql_text()
     area_zone, spot_zone, area_name, top, maps = zone_tools()
-    items = {r["entry"]: r for r in table(sql, "item_template")}
-    gos = {g["entry"]: g for g in table(sql, "gameobject_template")}
-    goloot = collections.defaultdict(list)
-    for r in table(sql, "gameobject_loot_template"):
-        goloot[r["entry"]].append(r)
-    spawns = collections.defaultdict(list)
-    for r in table(sql, "gameobject"):
-        spawns[r["id"]].append(r)
+    items, gos, spawns, loot_of, en = classic_rows()
+    goloot = loot_of("object")
     locks = {int(r["ID"]): r for r in wago("Lock")}
 
     def herb_skill(lock):
@@ -137,9 +157,7 @@ def main():
                 return int(r[f"Skill_{i}"])
         return None
 
-    ref = collections.defaultdict(list)
-    for r in table(sql, "reference_loot_template"):
-        ref[r["entry"]].append(r)
+    ref = loot_of("reference")
 
     def expand(rows):
         """A loot table's items, through its reference tables."""
@@ -151,19 +169,18 @@ def main():
                 yield r["item"]
 
     # Fish of a season: loot rows only while a fishing season's event is on.
-    events = {r["entry"]: r["description"] for r in table(sql, "game_event")}
-    conds = {r["condition_entry"]: r for r in table(sql, "conditions")}
     season = {}
-    for t in ("reference_loot_template", "fishing_loot_template"):
-        for r in table(sql, t):
-            c = conds.get(r["condition_id"])
-            if c and c["type"] == "12":  # an active game event
-                m = re.match(r"(Winter|Summer) Season Fishing", events.get(c["value1"], ""))
-                if m:
-                    season[r["item"]] = m.group(1).lower()
+    for kind in ("reference", "fishing"):
+        for r in (r for rows in loot_of(kind).values() for r in rows):
+            m = r["event"] and re.match(r"(Winter|Summer) Season Fishing", en.get(("game_event", r["event"]), ""))
+            if m:
+                season[r["item"]] = m.group(1).lower()
 
     # ── herbs ─────────────────────────────────────────────────────────────────
-    herb_items = {e: r for e, r in items.items() if r["class"] == "7" and r["subclass"] == "9"}
+    # (the client files herbs as trade goods like any other: an herb is what an
+    # Herbalism node gives)
+    gathered = {e for g in gos.values() if g["type"] == "3" and herb_skill(int(g["data0"])) is not None for e in expand(goloot.get(g["data1"], []))}
+    herb_items = {e: r for e, r in items.items() if e in gathered and r["class"] == "7"}
     names = {r["name"]: e for e, r in herb_items.items()}
     herbs = []
     for e, r in sorted(herb_items.items(), key=lambda x: (int(x[1]["ItemLevel"]), x[1]["name"])):
@@ -202,10 +219,11 @@ def main():
                 h["zones"].append(z)
 
     # ── fish ──────────────────────────────────────────────────────────────────
+    # (a quest's fish: a quest item, or one the client files as miscellaneous
+    # that a quest asks for: Feralas Ahi)
+    asked = {str(i) for (i,) in db("classic").execute("SELECT DISTINCT target_id FROM quest_objective WHERE kind = 'item'")}
     where = collections.defaultdict(set)  # item: areas
-    fishing = collections.defaultdict(list)
-    for r in table(sql, "fishing_loot_template"):
-        fishing[int(r["entry"])].append(r)
+    fishing = {int(area): rows for area, rows in loot_of("fishing").items()}
     for area, rows in fishing.items():
         for item in expand(rows):
             where[item].add(area)
@@ -220,7 +238,7 @@ def main():
             return "reagent"
         if c == "7" and name == "Deviate Fish":
             return "special"
-        if c == "12":
+        if c == "12" or (c == "15" and r["entry"] in asked):
             return "quest"
         return None
 

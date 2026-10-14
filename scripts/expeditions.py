@@ -5,8 +5,8 @@
 
 A riddle names its spot by what the game's data pins down:
 
-  object: <id>     a game object of the CMaNGOS dump (wow-data's, as
-                   scripts/creatures.py): every spawn of it on the zone's
+  object: <id>     a game object of the CMaNGOS Classic database (wow-data's
+                   database, its spawns): every spawn of it on the zone's
                    map, each checked against Wowhead's points (frozen in
                    wow-data: bin/wowhead-points.ts): within 0.6% of one
   creature: <id>   a creature: its spawns inside the hint circle, Wowhead's
@@ -209,50 +209,47 @@ def riddle_files():
 
 # ── placing on a zone's map ────────────────────────────────────────────────
 def main():
-    g = {"__file__": os.path.join(ROOT, "scripts", "creatures.py")}
-    exec(open(g["__file__"]).read().split("\nif __name__")[0], g)
-    sql = g["sql_text"]()
-
-    def tab(name):
-        cols = g["columns"](sql, name)
-        return [dict(zip(cols, r)) for r in g["rows"](sql, name)]
-
-    otypes = {int(d["entry"]): int(d["type"]) for d in tab("gameobject_template")}
-    names = {("object", int(d["entry"])): d["name"] for d in tab("gameobject_template")}
-    names.update({("creature", int(d["Entry"])): d["Name"] for d in tab("creature_template")})
+    cdb = db("classic")
+    # the Classic database's world (wow-data's database): its objects and
+    # creatures, their spawns and the paths they walk
+    otypes = {i: kind for i, kind in cdb.execute("SELECT id, type FROM object WHERE data IS NOT NULL")}
+    names = {}
+    for kind in ("object", "creature"):
+        for i, n in cdb.execute(f"SELECT e.id, n.name FROM {kind} e JOIN name n ON n.kind = '{kind}' AND n.id = e.id AND n.locale = 'enUS'"):
+            names[(kind, i)] = n
     # a creature's face (its display id), shown once its riddle is solved
-    faces = {int(d["Entry"]): int(d["ModelId1"]) for d in tab("creature_template") if d["ModelId1"] not in ("0", "")}
+    faces = {i: int(m.split(",")[0]) for i, m in cdb.execute("SELECT id, display_ids FROM creature WHERE display_ids IS NOT NULL")}
     objects = collections.defaultdict(list)
-    for d in tab("gameobject"):
-        objects[int(d["id"])].append((int(d["map"]), float(d["position_x"]), float(d["position_y"])))
-    creatures = collections.defaultdict(list)
-    for d in tab("creature"):
-        creatures[int(d["id"])].append((int(d["map"]), float(d["position_x"]), float(d["position_y"]), d))
+    for i, m, x, y in cdb.execute("SELECT entity_id, map_id, x, y FROM spawn WHERE kind = 'object' AND source = 'classicdb' ORDER BY rowid"):
+        objects[i].append((m, x, y))
+    creatures, spawn = collections.defaultdict(list), {}
+    for guid, i, m, x, y, move, dist in cdb.execute(
+        """SELECT spawn_id, entity_id, map_id, x, y, movement_type, wander_distance FROM spawn
+           WHERE kind = 'creature' AND source = 'classicdb' ORDER BY rowid"""
+    ):
+        spawn[guid] = {"guid": guid, "id": i, "map": m, "position_x": x, "position_y": y, "MovementType": str(move), "spawndist": dist}
+        creatures[i].append((m, x, y, spawn[guid]))
     # the spawns a creature may take (a spawn's other entries, its group's), as scripts/rare_zones.py
-    spawn = {d["guid"]: d for d in tab("creature")}
     takes = collections.defaultdict(set)
-    for d in tab("creature_spawn_entry"):
-        takes[int(d["entry"])].add(d["guid"])
-    group = collections.defaultdict(set)
-    for d in tab("spawn_group_entry"):
-        group[d["Id"]].add(int(d["Entry"]))
-    for d in tab("spawn_group_spawn"):
-        for e in group[d["Id"]]:
-            takes[e].add(d["Guid"])
+    for guid, i in cdb.execute(
+        """SELECT spawn_id, entity_id FROM spawn_entry WHERE kind = 'creature'
+           UNION SELECT s.spawn_id, e.entity_id FROM spawn_group_spawn s JOIN spawn_group_entry e ON e.group_id = s.group_id
+           JOIN spawn_group g ON g.id = s.group_id WHERE g.kind = 'creature'"""
+    ):
+        takes[i].add(guid)
     for c, rows in list(creatures.items()):
-        takes[c] |= {d["guid"] for *_, d in rows}
+        takes[c] |= {s["guid"] for *_, s in rows}
     # the paths creatures walk: a spawn's own (by guid), else its kind's (by entry)
     paths = collections.defaultdict(list)
-    for t, key in (("creature_movement", "Id"), ("creature_movement_template", "Entry")):
-        for d in tab(t):
-            paths[(t, d[key])].append((float(d["PositionX"]), float(d["PositionY"])))
-    graves = {int(d["id"]): (int(d["map"]), float(d["x"]), float(d["y"])) for d in tab("world_safe_locs")}
+    for owner, i, x, y in cdb.execute("SELECT owner, owner_id, x, y FROM path WHERE source = 'classicdb' ORDER BY owner, owner_id, path_id, point"):
+        paths[(owner, i)].append((x, y))
+    graves = {i: (m, x, y) for i, m, x, y in cdb.execute("SELECT id, map_id, x, y FROM graveyard")}
 
     def path(d):
         """The points a spawn walks through (world x, y), if it walks a path."""
         if d["MovementType"] != "2":
             return []
-        return paths[("creature_movement", d["guid"])] or paths[("creature_movement_template", d["id"])]
+        return paths[("spawn", d["guid"])] or paths[("creature", d["id"])]
 
     def wanders(d):
         """How far a spawn goes from where it stands, in yards."""
@@ -457,7 +454,7 @@ def main():
             placed.append((f, uimap, r, inside or points))
 
     # ── as a reader meets them ──────────────────────────────────────────────
-    ct = {int(d["Entry"]): d for d in tab("creature_template")}
+    ct = {i: {"Faction": faction or 0, "Name": names.get(("creature", i))} for i, faction in cdb.execute("SELECT id, faction_id FROM creature")}
     ft = {int(d["ID"]): d for d in table("FactionTemplate")}
     SIDES = {"alliance": (2, {469, 72, 47, 54, 69, 1}), "horde": (4, {67, 76, 81, 68, 530, 2})}
 
@@ -506,7 +503,7 @@ def main():
                 if len(ids) > 1:
                     errors.append(f"{f}: the {side}'s reader is asked {token} twice here: {', '.join(ids)}")
 
-    classic = {int(d["entry"]) for d in tab("quest_template")}
+    classic = {i for (i,) in cdb.execute("SELECT id FROM quest")}
     new = forever_quests(classic)
     norm = lambda x: re.sub(r"[^a-z]", "", x.lower())
     zone_names = {int(z["ID"]): z["Name_lang"] for z in table("UiMap")}
