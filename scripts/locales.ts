@@ -12,7 +12,8 @@
  *                                   kit's included); i18n/words.json lists them
  *   i18n/<locale>/sections.json    { "<section id>": "title" }
  *   i18n/<locale>/places.json      { "English": "name" }: the fish's waters and
- *                                   the herbs' and fish's dungeons
+ *                                   the herbs' and fish's dungeons, the
+ *                                   game's (python3 scripts/places.py <locale>)
  *   i18n/<locale>/subzones.json    the places inside buildings, by their English
  *                                   names (../addon-kit/subzones.py)
  *   i18n/<locale>/creatures.json   the creatures' names, by id: Forever's, and

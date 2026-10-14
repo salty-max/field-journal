@@ -521,7 +521,7 @@ ns.translate({
     ["The clue: %s"] = "Der Hinweis: %s",
     ["The code's choices are this character's now."] = "Die Einstellungen des Codes gelten jetzt für diesen Charakter.",
     ["The Complete Herbarium"] = "Das vollständige Herbarium",
-    ["The Emerald Nightmare"] = "Der Smaragdgrüne Albtraum",
+    ["The Emerald Nightmare"] = "Der Smaragdgrüne Alptraum",
     ["The Expeditions of %s"] = "Die Expeditionen von %s",
     ["The Firelord Falls"] = "Der Feuerfürst fällt",
     ["the game doesn't say where you are here."] = "das Spiel sagt hier nicht, wo du bist.",

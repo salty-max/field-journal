@@ -32,6 +32,7 @@ jobs:
           python3 scripts/creature_names.py "$locale"
           python3 ../addon-kit/glossary.py "$locale" --prose content atlas notes expeditions --ids creature id
           python3 ../addon-kit/subzones.py "$locale"
+          python3 scripts/places.py "$locale"
         done
         bun run build
       paths: |
