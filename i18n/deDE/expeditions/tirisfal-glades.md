@@ -53,7 +53,7 @@ der dem Licht seine ersten Ritter gab.
 Tu dort, was er ein Königreich lehrte, wenn der Kreuzzug dich lässt.
 ? Südwestlich des Scharlachroten Klosters, wo seine Gefallenen zurückkehren.
 = Faols Ruheplatz, in Sichtweite der Eiferer, die sein Licht für sich beanspruchen.
-+ Auch Stormwind erinnert sich an ihn: Eine Tafel in seiner Kathedrale nennt ihn den 'gütigen Förderer der Kirche des Lichts', der sein Werk in Stratholme begann und nach dem Zweiten Krieg die Mittel für den Wiederaufbau von Stormwind sammelte.
++ Auch Stormwind erinnert sich an ihn: Auf einer Tafel in seiner Kathedrale steht unter seinem Namen 'Gütiger Schutzherr der Kirche des Lichts'. Er begann sein Werk in Stratholme und sammelte nach dem Zweiten Krieg die Mittel für den Wiederaufbau von Stormwind.
 ! Gefährlich (der Scharlachrote Kreuzzug)
 @ Faols Ruheplatz
 
