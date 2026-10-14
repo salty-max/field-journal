@@ -206,7 +206,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   `check`) writes them from `i18n/<locale>/` (words, sections, families,
   atlas, herbs/fish notes, expeditions with their riddles veiled as the
   English, places, `creatures.json`: every creature's name by id, each game's,
-  `python3 scripts/creature_names.py <locale>` from Wowhead's tooltips;
+  `python3 scripts/creature_names.py <locale>` from wow-data's databases;
   `glossary.json` and `classic.json`: `../addon-kit/glossary.py`). Each
   translation records its English source's hash (`--stamp`). The names the
   journal recorded in the client's language of the day (a creature's, a
