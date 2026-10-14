@@ -111,6 +111,7 @@ ns.collect = K.collect({
     if type(YonderCollect) ~= "table" then YonderCollect = {} end
     return YonderCollect
   end,
+  prefix = ns.PREFIX,
 })
 
 local category
