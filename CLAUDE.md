@@ -259,6 +259,11 @@ python3 scripts/rare_zones.py    # then data/rare-zones.json (each rare's zone)
 bun scripts/build.ts --verbose   # per-family counts, overlaps, unsorted
 ```
 
+- `.github/workflows/game-data.yml`: daily and by hand, wow-data's
+  `addon-data.yml` builds the game data again from wow-data's pins (the zones, creatures, herbs and fish, rares' zones, the expeditions' spots (a new build's quests checked against every riddle's road), the names in every language, then `bun run build`);
+  a pull request when a generated file changes, the checks run on it, never
+  merged by itself. The generators' list lives there: a new one goes in too.
+
 ## Conventions
 
 - Conventional Commits, lowercase subjects; no AI co-author trailers.

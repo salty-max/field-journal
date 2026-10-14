@@ -1,0 +1,41 @@
+# Every day, and by hand: Yonder's game data built again from wow-data's pins
+# (salty-max/wow-data's addon-data.yml: wow-data and addon-kit beside it, the
+# databases downloaded): the zones, the creatures, the herbs and fish, the
+# rares' zones, the expeditions' spots (a new build's quests checked against
+# every riddle's road), the names in every language, then the addon's files.
+# When one changes, a pull request with the checks run (never merged by
+# itself).
+name: Game data
+
+on:
+  schedule:
+    - cron: "37 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  data:
+    uses: salty-max/wow-data/.github/workflows/addon-data.yml@main
+    with:
+      kit: true
+      generate: |
+        python3 scripts/zones.py
+        python3 scripts/creatures.py
+        python3 scripts/flora.py
+        python3 scripts/rare_zones.py
+        python3 scripts/forever_rares.py
+        python3 scripts/expeditions.py
+        for locale in $(ls i18n | grep -E '^[a-z]{2}[A-Z]{2}$'); do
+          python3 scripts/creature_names.py "$locale"
+          python3 ../addon-kit/glossary.py "$locale" --prose content atlas notes expeditions --ids creature id
+          python3 ../addon-kit/subzones.py "$locale"
+        done
+        bun run build
+      paths: |
+        data
+        i18n
+        addon/Yonder
+        addon/FieldJournal
