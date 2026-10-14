@@ -45,8 +45,8 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   databases, each game's pinned build): continent, places (name, overlay
   offset, area ids).
   `atlas/<zone>.md`: the surveyor's note for a zone (front matter `zone:`).
-- `data/rare-zones.json` (rare id -> uiMap) and `data/zones.csv` (the client's
-  zones): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
+- `data/rare-zones.json` (rare id -> uiMap; the zones' names from
+  `data/zones-classic.json`): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
   Questie's zone for the rare, else its spawn points in the zones' map
   rectangles). Dungeon rares have none.
   `data/rare-zones-forever.json` (`python3 scripts/forever_rares.py`, from

@@ -253,13 +253,10 @@ const GAMES = [
 ];
 
 // Rares by zone (data/rare-zones.json, from scripts/rare_zones.py), and the
-// zones' English names (the client's UiMap, cached by that script).
+// zones' English names (the client's UiMap: data/zones-classic.json, scripts/zones.py).
 const rareZone: Record<string, number> = JSON.parse(readFileSync(join(ROOT, "data/rare-zones.json"), "utf8"));
 const zoneNames: Record<number, string> = Object.fromEntries(
-  readFileSync(join(ROOT, "data/zones.csv"), "utf8").trim().split("\n").slice(1).map((l) => {
-    const [id, ...name] = l.split(",");
-    return [Number(id), name.join(",")];
-  }),
+  (JSON.parse(readFileSync(join(ROOT, "data/zones-classic.json"), "utf8")).zones as { id: number; name: string }[]).map((z) => [z.id, z.name]),
 );
 // Forever's own rares (data/rare-zones-forever.json, scripts/forever_rares.py):
 // unknown to the data until met, filed then from what the game says of them.
