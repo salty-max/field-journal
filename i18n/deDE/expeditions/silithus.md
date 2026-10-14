@@ -9,7 +9,7 @@ und ein Drache der Zeit versiegelte sie. Ein Gong hängt davor.
 Finde die Mauer, und lass den Gong in Ruhe.
 ? Der Skarabäuswall, am südlichen Rand von Silithus.
 = Der Skarabäuswall, und Ahn'Qiraj dahinter.
-+ Vor tausend Jahren kamen die Qiraji und ihre Schwärme von Silithiden aus Ahn'Qiraj und fielen über Kalimdor her. Der bronzene Drache Anachronos schuf das Zepter der Sandstürme, um sie einzuschließen.
++ Vor tausend Jahren kamen die Qiraji und ihre Schwärme von Silithiden aus Ahn'Qiraj und fielen über Kalimdor her. Der bronzene Drache Anachronos schuf das Szepter der Sandstürme, um sie einzuschließen.
 ! Gefährlich (die Silithiden)
 @ Der Skarabäuswall
 

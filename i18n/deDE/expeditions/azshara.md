@@ -9,7 +9,7 @@ Sie bewahrt den Namen eines Lords, der sich der Königin dieser Küste
 und ihren Dämonen entgegenstellte, als die Welt zerbrach. Finde, was von ihm übrig ist.
 ? Das Ravencrest-Monument, auf den südlichen Klippen von Azshara.
 = Das Ravencrest-Monument. Die Naga halten die Ruinen ringsum.
-+ Lord Kur'talos Ravencrest führte im Krieg der Ahnen den Widerstand der Nachtelfen von der Rabenwehr aus: Der Hof der Königin war nicht ihr ganzes Volk.
++ Lord Kur'talos Ravencrest führte im Krieg der Urtume den Widerstand der Nachtelfen von der Rabenwehr aus: Der Hof der Königin war nicht ihr ganzes Volk.
 ! Bewacht (Naga)
 @ Ravencrest-Monument
 
@@ -37,6 +37,6 @@ Frag ihn, was er jetzt davon hält.
 Zwischen den Ruinen eines Schreins im Südwesten
 wandelt ein Geist in der Rüstung einer königlichen Garde:
 der Hauptmann, der vor zehntausend Jahren der Königin diente, nach der dieses Land benannt ist.
-= Varo'thens Geist: was von Hauptmann Varo'then übrig ist, der im Krieg der Ahnen die Garde von Königin Azshara anführte.
+= Varo'thens Geist: was von Hauptmann Varo'then übrig ist, der im Krieg der Urtume die Garde von Königin Azshara anführte.
 + Weiter östlich erinnert Ravencrests zerbrochenes Monument an einen Befehlshaber, der sich seiner Königin widersetzte. Azshara bewahrt die Überreste beider Seiten dieses Krieges.
 @ Varo'thens Geist

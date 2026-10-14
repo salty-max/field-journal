@@ -2,7 +2,7 @@
 source: d7593bd384c2
 zone: 1441
 ---
-Der große Aufzug führt aus dem Brachland hinab in eine Schlucht voller Steinsäulen. Der Freiwindposten steht oben auf einer davon und ist über eigene Aufzüge zu erreichen. Unten fädelt sich die Straße zwischen Klippen hindurch zur Schimmernden Ebene.
+Der große Aufzug führt aus dem Brachland hinab in eine Schlucht voller Steinsäulen. Der Freiwindposten steht oben auf einer davon und ist über eigene Aufzüge zu erreichen. Unten fädelt sich die Straße zwischen Klippen hindurch zur schimmernden Ebene.
 
 Der Düsterwolkengipfel ist Boden der Grimmtotem, während Zentauren und Harpyien andere Seitenschluchten besetzen. Die Säulen sind gute Orientierungspunkte, bis die nächste sie verdeckt.
 

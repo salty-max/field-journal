@@ -6,7 +6,7 @@ zone: 1441
 Auf den Salzebenen lassen Gnome und Goblins ihre Maschinen um die Wette fahren,
 ein Oger sagt die Rennen an, und eine Schankmaid schickt sie mit einer Flagge los.
 Jedes Rennen braucht Publikum. Sei es.
-? Die Illusionenrennbahn, auf der Schimmernden Ebene.
+? Die Illusionenrennbahn, auf der schimmernden Ebene.
 = Daisy, das Startmädchen der Illusionenrennbahn, mit Fobeed, dem Oger, und Zuzubee, die die Rennen ansagen.
 + Die Rennfahrer kommen und gehen. Die Flagge, die Stimme des Ogers und das Salz bleiben.
 ! Ruhig

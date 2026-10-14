@@ -29,5 +29,5 @@ Ein großer Bär hält sich im Osten des Waldes auf
 und streift um die Ruinen der Satyrn.
 Der Name, den er trägt, gehört keinem Satyr.
 = Ursol'lok, ein Bär im Osten von Ashenvale, der um Satyrnaar streift.
-+ Der Name ist älter als die Satyrn: Ursol und sein Zwilling Ursoc, Bärengötter der Furbolgs, kämpften im Krieg der Ahnen an der Seite der Nachtelfen.
++ Der Name ist älter als die Satyrn: Ursol und sein Zwilling Ursoc, Bärengötter der Furbolgs, kämpften im Krieg der Urtume an der Seite der Nachtelfen.
 @ Ursol'lok

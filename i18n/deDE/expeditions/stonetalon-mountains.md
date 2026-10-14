@@ -16,6 +16,6 @@ Wem er alles beigebracht hat, was er weiß, den schickt er zu ihr. Frag ihn, wer
 Im Tal, das das Feuer nahm, wandeln manche der Bäume noch.
 Such unter den verkohlten Urtumen
 das eine, dessen Name eine Antwort auf das Brennen verspricht.
-= Das Rachsüchtige Urtum, ein Treant des verkohlten Tals, zwischen seinen verkohlten Urtumen.
+= Das Rachsüchtige Urtum, ein Treant des verbrannten Tals, zwischen seinen verkohlten Urtumen.
 + Das Tal brennt noch immer: Flammengeister und brennende Zerstörer streifen hindurch, und die Urtume wandeln zwischen ihnen.
 @ Rachsüchtiges Urtum
