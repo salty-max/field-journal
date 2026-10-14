@@ -64,7 +64,7 @@ der Bögen und Gewehre für den Kreuzzug baute, und von einer Waffe, die er voll
 Frag ihn danach.
 ? Das Bollwerk, am östlichen Rand von Tirisfal.
 = Bardu Sharpeye, am Bollwerk: Ein Zauberer hat dem Kreuzzug eine bemerkenswerte Waffe gebaut, so hat er gehört, und der Kreuzzug hat ihn dafür getötet.
-+ Im Chillwind-Lager, dem Lager der Allianz, erzählt eine Reisende dieselbe Geschichte: 'Vielleicht haben sie ihn getötet, um es geheim zu halten... oder vielleicht misstrauen sie dem Arkanen so sehr.'
++ Im Chillwind-Lager, dem Lager der Allianz, erzählt eine Reisende dieselbe Geschichte: 'Vielleicht brachten sie ihn ja um, um das Geheimnis zu bewahren - oder sie misstrauen dem Arkanen wirklich so sehr.'
 ! Ruhig
 @ Bardu Sharpeye
 

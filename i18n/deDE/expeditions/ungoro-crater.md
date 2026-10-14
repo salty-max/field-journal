@@ -7,7 +7,7 @@ An den heißen Quellen im Westen des Kraters wandert eine Trollfrau mit ihrem Wo
 und findet alles herrlich: den Dampf, die Farne, die Tiere, die sie fressen würden.
 Sei freundlich zu ihr, und nur freundlich.
 ? Die heißen Quellen von Golakka, im Westen von Un'Goro. Von dort geht sie nach Süden und zurück.
-= Simone die Unauffällige, mit Pummelchen, ihrem Wolf: 'Was für ein wunderbarer Tag, um am Leben zu sein! Sieh dir die Schönheit an, die dich umgibt, Freund.'
+= Simone die Unauffällige, mit Pummelchen, ihrem Wolf: 'Ein herrlicher Tag, um am Leben zu sein! Seht Euch nur diese prächtige Schönheit um Euch herum an, $gmein Freund:meine Freundin;.'
 + Sie ist nicht, was sie scheint: Jäger auf der Spur eines uralten Bogens kennen sie als Simone die Verführerin, eine Sukkubus. Schlag sie, wie sie ist, und sie antwortet mit Schlägen, die einen Helden auf einen Streich fällen.
 ! Tödlich, wenn man sie reizt (sie antwortet auf einen Schlag mit Schlägen, die einen Helden fällen), sonst ruhig
 @ Simone die Unauffällige

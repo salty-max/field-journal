@@ -28,7 +28,7 @@ Auf einer Anhöhe im Nordosten der Wüste steht eine Frau, die sagt, sie sei hie
 als die Insekten vor tausend Jahren zum ersten Mal ausrückten,
 und sie könne nicht fort. Frag sie, woher sie das weiß.
 ? Im Nordosten von Silithus. Sie steht allein.
-= Ralo'shan die ewige Wächterin, eine Nachtelfe: 'Ich wurde hundertmal erschlagen. Ich erwache immer hier, lebendig.'
+= Ralo'shan die ewige Wächterin, eine Nachtelfe: 'Ich wurde schon hunderte Male getötet, doch wache ich immer wieder hier auf, lebendig.'
 + 'Manche sagen, ich sei verflucht, und andere... Sie sagen, ich sei gesegnet: eine Botin, die ein neues Zeitalter ankündigt.'
 ! Gefährlich (die Silithiden der Wüste und der Twilight-Hammer)
 @ Ralo'shan die ewige Wächterin
