@@ -9,7 +9,7 @@ zerstörten es von der anderen Seite, damit diese Welt lebe,
 und niemand weiß, ob sie heimgekehrt sind. Ehre sie, wie Soldaten die Ihren ehren.
 ? Das Dunkle Portal, im Süden der Verwüsteten Lande.
 = Das Dunkle Portal, still und dunkel.
-+ Khadgar, Turalyon, Alleria, Kurdran und Danath entschieden sich, auf der sterbenden Welt zu bleiben: 'Ob sie dem Todeskampf Draenors entkommen sind, bleibt abzuwarten.'
++ Khadgar, Turalyon, Alleria, Kurdran und Danath entschieden sich, auf der sterbenden Welt zu bleiben: 'Doch bleibt abzuwarten, ob sie dem Todeskampf von Draenor zu entkommen vermochten oder nicht.'
 ! Bewacht (Dämonen und Oger)
 @ Das Dunkle Portal
 

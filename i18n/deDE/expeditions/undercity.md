@@ -8,7 +8,7 @@ Er versprach den Armen Gleichheit und ein Leben, das nie enden würde.
 Die Geschichte seiner Gemeinde steht unter den Büchern der Kräuterkundigen.
 ? In Undercity, bei den Kräuterkundigen: der Laden der Alliestars.
 = Kel'Thuzad und das Entstehen der Geißel. Der frühere Erzmagier gründete den Kult der Verdammten, um Ner'zhul zu dienen, und nannte die Untoten, die sich aus der Seuche erhoben, die Geißel.
-+ 'Es fiel Kel'Thuzad erstaunlich leicht, sein Ziel zu erreichen: nämlich den Glauben der Bürger an das Heilige Licht in den Glauben an Ner'zhuls dunklen Schatten zu verwandeln.'
++ 'Es fiel Kel'Thuzad überraschend leicht, dieses Ziel zu erreichen: den Glauben der Bürger an das Heilige Licht zum Glauben an Ner'zhuls dunklen Schatten zu verwandeln.'
 ! Ruhig
 @ Kel'Thuzad und das Entstehen der Geißel
 
@@ -27,7 +27,7 @@ und sie kommt immer zurück. Lass dein Gesicht sagen, was du davon hältst.
 des Landes unter einem Stein, der darum bittet, die Taten seines Sohnes
 nicht ihm zur Last zu legen. Erweise ihm den Respekt, den sein Sohn ihm verweigerte.
 ? In den Gärten der Ruinen von Lordaeron, über Undercity.
-= 'Hier ruht König Terenas Menethil II. -- Letzter wahrer König von Lordaeron. Groß waren seine Taten -- lang war seine Herrschaft -- unvorstellbar war sein Tod.'
-+ 'Möge der Vater schuldlos ruhen für die Taten des Sohnes. Möge die blutbefleckte Krone verloren und vergessen bleiben.'
+= 'Hier ruht König Terenas Menethil II. - der letzte wahre König von Lordaeron. Groß waren seine Taten - lang währte seine Herrschaft - undenkbar schien sein Tod.'
++ 'Möge der Vater unschuldig an des Sohnes Taten ruhen. Möge die blutige Krone verloren und vergessen bleiben.'
 ! Ruhig
 @ Hier ruht König Terenas Menethil II.

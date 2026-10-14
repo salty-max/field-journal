@@ -31,7 +31,7 @@ Seine Stadt fiel, und sein Tod kam von einer Klinge, die schon in ihr war.
 Der Bericht wartet auf einer Seite.
 ? Seenhain, beim Gasthaus.
 = Das Dunkle Portal und der Untergang von Stormwind. Llane hielt seine Hauptstadt, sicher, dass die Orcs sie nie einnehmen könnten. Garona tötete ihn, als sie fiel.
-+ Im selben Buch ein Orcsäugling, Durotans Sohn, von einem menschlichen Offizier namens Blackmoore gefunden und als Sklave genommen: 'Dieser Orcsäugling sollte eines Tages zum größten Anführer aufsteigen, den sein Volk je kennen würde.'
++ Im selben Buch ein Orcsäugling, Durotans Sohn, von einem menschlichen Offizier namens Blackmoore gefunden und als Sklave genommen: 'Dieser kleine Orc sollte eines Tages zum größten Führer werden, den sein Volk je gekannt hatte.'
 ! Ruhig
 @ Das Dunkle Portal und der Untergang von Stormwind
 

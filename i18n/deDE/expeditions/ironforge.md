@@ -8,10 +8,10 @@ zu groß, als dass ein Gelehrter ihn erklären könnte, und unermüdlich über a
 In ihrer Stadt steht sein Abbild, mit allen Knochen, maßstabsgetreu gebaut.
 Stell dich unter ihn, und sei so beeindruckt, wie es die Erzähler waren.
 ? Die Halle der Forscher.
-= Toothgnashers Skelett, eine maßstabsgetreue Nachbildung.
-+ 'Der legendäre Widder war ein Wunder von Khaz Modan und der Held vieler Geschichten aus der Überlieferung der Zwerge.'
+= Knirschzahns Skelett, eine maßstabsgetreue Nachbildung.
++ 'Der legendäre Widder war ein Wunder von Khaz Modan und Gegenstand vieler Geschichten der Zwergenvolkskunde.'
 ! Ruhig
-@ Toothgnashers Skelett
+@ Knirschzahns Skelett
 
 ## ironforge-tyrannistrasz
 Nachdem Grim Batol gefallen war, gab das Sumpfland die Überreste von etwas Gewaltigem frei,

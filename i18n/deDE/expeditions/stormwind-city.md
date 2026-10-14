@@ -7,8 +7,8 @@ Eine wiederaufgebaute Stadt erinnert sich an den Mann, der half, sie zu bezahlen
 Such seine Tafel in der Kathedrale, die er möglich machte.
 Sein Werk begann in einer Stadt im Norden, die den Lebenden nun verloren ist.
 ? Die Kathedrale des Lichts, am Kathedralenplatz.
-= Erzbischof Alonsus Faol, 'gütiger Förderer der Kirche des Lichts'. Sein Werk begann in Stratholme. Nach dem Zweiten Krieg half er, die Bruderschaft von Nordhain neu zu ordnen, und sammelte Mittel für den Wiederaufbau von Stormwind.
-+ 'Diese Kathedrale steht nicht nur als Bollwerk des Heiligen Lichts, sondern als bleibendes Zeugnis für den edlen Geist und die Großzügigkeit eines Mannes.' Seine Ruhestätte liegt weit im Norden, neben dem Scharlachroten Kloster.
+= Erzbischof Alonsus Faol, 'Gütiger Schutzherr der Kirche des Lichts'. Sein Werk begann in Stratholme. Nach dem Zweiten Krieg half er, die Bruderschaft von Nordhain neu zu ordnen, und sammelte Mittel für den Wiederaufbau von Stormwind.
++ 'Diese Kathedrale steht jetzt nicht nur hier als Bastion des Heiligen Lichts, sondern als das dauerhafte Testament an den edlen Geist und die Großzügigkeit eines ganz besonderen Mannes.' Seine Ruhestätte liegt weit im Norden, neben dem Scharlachroten Kloster.
 ! Ruhig
 @ Erzbischof Alonsus Faol
 
@@ -17,8 +17,8 @@ Unter den Gedenktafeln für jene, die durch das dunkle Tor gingen,
 hält eine ihren Helden für tot und wünscht ihm dann alles Gute auf seinen Reisen.
 Füge dem eingemeißelten Wunsch deinen eigenen hinzu, für einen Wanderer, der vielleicht doch noch heimkehrt.
 ? Unter den Gedenktafeln für die Expedition der Allianz, in der Stadt.
-= Erzmagier Khadgar von den Kirin Tor: 'Vermutlich verstorben.'
-+ 'Nie hat sich jemand so selbstlos in das dunkle Herz von Magie und Krieg gewagt. Wir wünschen dir alles Gute, kühner Wanderer. Wo immer du bist.' - Antonidas, Erzmagier von Dalaran.
+= Erzmagier Khadgar von den Kirin Tor: 'Vermutlich gefallen.'
++ 'Noch nie hat sich jemand so selbstlos ins finstere Herz von Magie und Krieg begeben. Wir wünschen euch alles Gute, kühner Wanderer. Wo immer Ihr auch seid.' - Antonidas, Erzmagier von Dalaran.
 ! Ruhig
 @ Erzmagier Khadgar von den Kirin Tor
 
@@ -28,7 +28,7 @@ für einen Heiler, Lehrer und Freund, der glaubte, es sei die Pflicht eines Heil
 die Kranken und Erschöpften von jedem letzten Leiden zu reinigen.
 Seine Tafel nennt eines seiner Talente außergewöhnlich. Ehre ihn damit.
 ? Such bei den Heilern der Stadt.
-= 'In Erinnerung an meinen lieben Mentor, Horatio M. Montgomery, Dr. med. Heiler, Lehrer, Freund.'
-+ 'Die Welt ist voll von Kranken und Erschöpften. Es ist unsere Aufgabe als Heiler, NEIN, als Männer und Frauen der Medizin, sie ALLE von der Itis zu reinigen.' - H.M.M., Dr. med., PhD, JD, Großmeister des Ackerbaus, Tänzer der Extraklasse, Freund der Tiere.
+= 'Im Andenken an meinen teuren Mentor, Horatio M. Montgomery, promovierter Heiler, Lehrer, Freund.'
++ "Es gibt sehr viele Kranke und Müde auf der Welt. Unsere Aufgabe als Heiler, NEE, als Männer und Frauen der Medizin, ist es, sie alle von der 'itis' zu heilen." - Prof. Dr. Dr. h. c. Großmeisterbauer, Tänzer extraordinaire, Freund der Tiere.
 ! Ruhig
-@ Horatio Montgomery, Dr. med.
+@ Dr. Horatio Montgomery

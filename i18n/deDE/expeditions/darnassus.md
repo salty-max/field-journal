@@ -27,7 +27,7 @@ Unter den Chroniken dieser Stadt erzählt eine von einem Handel, bezahlt mit Jah
 Seine Hüter sollten nicht am Alter sterben, während die Welt ohne sie weiterging.
 Der Preis und das Versprechen teilen sich eine Seite.
 ? Im Norden von Darnassus.
-= Der Weltbaum und der Smaragdgrüne Traum: Nordrassil, 'Krone der Himmel'. Drei Drachen segneten den Baum. Die Nachtelfen erhielten die Unsterblichkeit, und ihre Druiden willigten in lange Jahre des Schlafs in Yseras Traum ein.
-+ 'Obwohl die Druiden darüber betrübt waren, so viele Jahre ihres Lebens an den Winterschlaf zu verlieren, willigten sie selbstlos ein, ihren Handel mit Ysera zu halten.'
+= Der Weltbaum und der Smaragdgrüne Traum: Nordrassil, 'Krone des Himmels'. Drei Drachen segneten den Baum. Die Nachtelfen erhielten die Unsterblichkeit, und ihre Druiden willigten in lange Jahre des Schlafs in Yseras Traum ein.
++ 'Es bekümmerte die Druiden zwar, so viele Jahre ihres Lebens für den Großen Schlaf zu opfern, aber sie hielten sich selbstlos an ihren Teil der Abmachung mit Ysera.'
 ! Ruhig
 @ Der Weltbaum und der Smaragdgrüne Traum

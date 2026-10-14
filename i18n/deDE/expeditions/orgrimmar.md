@@ -8,7 +8,7 @@ getragen von dem Geschöpf, das die Orcs zuerst mit der Blutgier verfluchte,
 besiegt durch die Tat eines tapferen Orcs. Finde sie.
 ? Im Tal der Stärke, in der Mitte von Orgrimmar.
 = Die Rüstung von Mannoroth.
-+ 'Mögen diese Platten uns stets daran erinnern, wie weit wir gekommen sind und wie hart wir gekämpft haben, um unsere Ehre zurückzugewinnen.' - Thrall. Groms Denkmal steht in Ashenvale, wo er starb.
++ 'Mögen uns diese Platten daran erinnern, wie weit wir gekommen sind und wie hart wir kämpften, um unsere Ehre zurückzuerobern.' - Thrall. Groms Denkmal steht in Ashenvale, wo er starb.
 ! Ruhig
 @ Die Rüstung von Mannoroth
 

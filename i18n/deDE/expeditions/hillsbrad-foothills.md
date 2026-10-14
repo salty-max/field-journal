@@ -31,9 +31,9 @@ einen Namen und zwei Jahreszahlen, und nichts weiter.
 Jemand hat dafür gesorgt, dass er hier steht, für jemanden, den er verloren hat.
 ? Unterhalb von Dun Garok, zum Meer hin.
 = 'Anthony Ray Stark. 1961 - 2005.'
-+ Ein Denkmal, das die Schöpfer der Welt einem ihrer Freunde hinterließen. Rousch, der Zwerg, der davor steht, war seine eigene Figur im Spiel. Er hatte ihn bis irgendwo in die Vierziger gebracht.
++ Ein Denkmal, das die Schöpfer der Welt einem ihrer Freunde hinterließen. Rousch, der Zwerg, der davor steht, war seine eigene Figur im Spiel. Er hatte ihn bis über Stufe vierzig gebracht.
 ! Ruhig
-@ In liebevoller Erinnerung
+@ In liebendem Angedenken
 
 ## hillsbrad-foothills-southshore
 Ein Buch unter den Lebenden erinnert an einen Aufstand der Toten.

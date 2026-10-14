@@ -8,7 +8,7 @@ hat ein Schmied schriftlich einen Amboss für sich beansprucht,
 höflich und sehr bestimmt.
 Finde, was er daneben eingeätzt hat.
 ? Am Fuß der Straße hinauf nach Ironforge hat ein Amboss einen Besitzer und sagt es auch.
-= 'Dieser Amboss ist Eigentum von Jordan Stilwell - Bitte NICHT benutzen!' Ironforge hat sehr viele Ambosse. Dieser hier ist vergeben.
+= 'This anvil is the property of Jordan Stilwell - Please do NOT use!' Ironforge hat sehr viele Ambosse. Dieser hier ist vergeben.
 + Jordan Stilwell ist kein Zwerg: ein menschlicher Schmied mit einem Haus an Westfalls Longshore, der Paladin werden wollte, bevor ihn die Schmiedekunst packte, und der neben den Zwergen arbeiten kam, während seine Frau Daphne am Meer wartete. Die Paladine, die seine Prüfungen bestehen, tragen einen Hammer, den er schmiedet und nach einem zwergischen Paladin benennt, den er seinen Freund nannte.
 ! Ruhig
 @ Geätzte Notiz

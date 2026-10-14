@@ -8,7 +8,7 @@ dessen Geweih sich in den Sternen verfing, als er vor den Jägern floh,
 und vom Mond, der ihn aus Liebe befreite. Finde die Geschichte.
 ? Die Anhöhe der Ältesten.
 = Der weiße Hirsch und der Mond: Apa'ro, den die Nachtelfen Malorne nennen.
-+ Ihr Kind war Cenarius, der 'den Sternenpfad zwischen der wachen Welt und dem Reich der Himmel wandeln sollte'.
++ Ihr Kind war Cenarius, der 'auf dem Sternenpfad zwischen der erwachenden Welt und dem Königreich des Himmels' wandelte.
 ! Ruhig
 @ Der weiße Hirsch und der Mond
 
