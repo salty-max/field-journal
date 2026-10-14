@@ -33,9 +33,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
 
 - The game's data comes through wow-data (`../wow-data`, beside this folder:
   its pins, its one cache, its databases; the Python scripts read them with
-  `../wow-data/py/wowdata.py`). No script here pins a source. Only
-  `scripts/expeditions.py` may still ask Wowhead, for a tooltip it hasn't
-  cached in `.cache/wowhead/` (its cross-check of the spots).
+  `../wow-data/py/wowdata.py`). No script here pins or downloads a source.
 - `data/creatures.json`: the creatures of the original world (id, name, type,
   beast family, rank, levels), from the CMaNGOS Classic database's dump
   (wow-data's pin; `scripts/creatures.py`, `bun run creatures`). Leaves out friendly
@@ -89,10 +87,11 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   a trigger, a sub-area's ids; a quarry's haunts (its spawns that Wowhead
   places too, and the paths they walk, gathered into circles); each zone's
   size in yards and sub-areas; the client's emote tokens. A zone of Forever's
-  own is placed on Forever's client tables (wow-data's), its creatures from
-  the QuestieDB traces (wow-data's legacy pin, no license: credited) where
-  Wowhead's Forever database places them too (its pages and tooltips cached
-  in `.cache/wowhead/`). Rerun it after changing a spot or a hint circle (the
+  own is placed on Forever's client tables, its creatures from Questie's
+  Forever (no license: credited) where Wowhead's Forever database places them
+  too. Wowhead's points (the cross-check of every spot, a quarry's
+  sightings) are frozen in wow-data (`bun ../wow-data/bin/wowhead-points.ts`:
+  a new riddle's creature or object fetched there first). Rerun it after changing a spot or a hint circle (the
   build refuses a stale one). `scripts/expeditions.ts` (for build.ts) checks
   every riddle and writes the answers as fingerprints only (salted FNV-1a of
   5-yard cells, sub-areas, the keeper, the gestures), the texts read once

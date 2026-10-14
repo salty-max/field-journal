@@ -5,10 +5,10 @@
 
 A riddle names its spot by what the game's data pins down:
 
-  object: <id>     a game object of the pinned CMaNGOS dump (scripts/creatures.py):
-                   every spawn of it on the zone's map, each checked against
-                   Wowhead's (nether.wowhead.com's tooltip, cached in
-                   .cache/wowhead/): within 0.6% of one of its points
+  object: <id>     a game object of the CMaNGOS dump (wow-data's, as
+                   scripts/creatures.py): every spawn of it on the zone's
+                   map, each checked against Wowhead's points (frozen in
+                   wow-data: bin/wowhead-points.ts): within 0.6% of one
   creature: <id>   a creature: its spawns inside the hint circle, Wowhead's
                    alike; found where it stands still (no further than 10
                    yards from its spawn: the dump's wandering radius or its
@@ -33,9 +33,11 @@ with no overlay of its own names an anchor inside it for its hint
 (`anchor: { creature: <id> }`, `{ object: <id> }`, or `{ grave: <id> }`: a
 graveyard the server names, world_safe_locs).
 
-Wowhead's position: its object or NPC page's map data when cached
-(.cache/wowhead/page-object-<id>.html: every copy, by zone; its site refuses
-scripts after a few pages), else its tooltip (the zone with the most).
+Wowhead's position: its object or NPC page's map data where a browser saved
+it (every copy, by zone; its site refuses scripts), else its tooltip (the
+zone with the most), frozen in wow-data's data/wowhead/<game>/points.json
+(bun ../wow-data/bin/wowhead-points.ts: a new riddle's thing fetched there
+first) and read from its databases (spawns of source wowhead).
 
 A zone's quarry (`quarry: { id, sources }`): every spawn of the creature on
 the zone's map (its own, or one that may take its place: creature_spawn_entry,
@@ -45,9 +47,9 @@ each other, each a circle around them wide enough for its wandering (the
 dump's radius or path), HAUNT_MIN at least.
 
 A zone of Forever's own (`client: forever`, Zephras Isle) is placed on
-Forever's client tables (wow-data's database), its creatures from the
-QuestieDB traces (Questie's in-game recorder of the beta, wow-data's pinned
-"questiedb"; percent of the zone's map), each point kept only
+Forever's client tables (wow-data's database), its creatures from Questie's
+Forever (its in-game recorder's traces, merged: wow-data's database; percent
+of the zone's map), each point kept only
 where Wowhead's Forever database (its tooltip) places the creature too: a
 creature or a sub-area, and a quarry the data doesn't know (its name, level,
 rank and model given in the file).
@@ -61,27 +63,23 @@ Then the riddles are checked as a reader meets them:
     arrival, one reading, one creature found by speaking to it at most, and
     no gesture two riddles both accept;
   - never on Forever's own new quests' road (its quests no Classic one is:
-    AllTheThings' Forever database and QuestieDB's traces, both pinned in
-    wow-data): no new quest gives, ends or asks for the riddle's creature or
-    object, none names it in its title or its objectives, and none sends a
-    player (its giver, its ender, what it asks for, by either source's
-    points) within FOREVER_NEAR of a riddle solved by arriving.
+    Questie's Forever, wow-data's database): no new quest gives, ends or
+    asks for the riddle's creature or object (by kind: an item's id is no
+    creature's), none names it in its title or its objectives, and none
+    sends a player (its giver, its ender, what it asks for, where Questie
+    places them) within FOREVER_NEAR of a riddle solved by arriving.
 
 Anything that fails is printed and nothing is written.
 """
-import collections, json, math, os, re, sys, time, urllib.error, urllib.request
+import collections, json, math, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
-from wowdata import client as client_table, path, tree  # noqa: E402
+from wowdata import client as client_table, db  # noqa: E402
 
 EXPEDITIONS = os.path.join(ROOT, "expeditions")
 OUT = os.path.join(ROOT, "data", "expeditions.json")
-WOWHEAD = os.path.join(ROOT, ".cache", "wowhead")
-# QuestieDB's Forever traces (wow-data's pinned "questiedb", the commit these
-# riddles were checked against) and AllTheThings' Forever zones ("allthethings")
-QUESTIEDB = "src/corrections/Forever/traces/forever{}Traces.lua"
-UA = {"User-Agent": "Yonder/0.1 (addon data; github.com/salty-max/yonder)"}
+
 # How near the spot counts, in yards: an object or a creature stood beside
 # (a statue's base can be a few yards from its centre), a trigger by its own
 # radius (never less).
@@ -110,96 +108,56 @@ def table(name, game="classic"):
 
 
 def traces(kind):
-    """The QuestieDB traces of Forever's creatures (kind "Npc") or objects:
-    {id: {"name", "spawns": {zone area id: [(x, y)]}}}, x and y in percent of
-    the zone's map."""
+    """Forever's creatures (kind "Npc") or objects as Questie places them
+    (wow-data's Forever database): {id: {"name", "spawns": {zone area id:
+    [(x, y)]}}}, x and y in percent of the zone's map."""
     out = {}
-    src = open(path("repo", "questiedb", QUESTIEDB.format(kind)), encoding="utf-8").read()
-    for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
-        body = m.group(2)
-        name = re.search(r'\.name\] = "((?:[^"\\]|\\.)*)"', body)
-        spawns = re.search(r"\.spawns\] = \{(.*)\},\n", body)
-        zones = {}
-        for z, pts in re.findall(r"\[(\d+)\]=\{((?:\{[\d.]+,[\d.]+\},?)*)\}", spawns.group(1) if spawns else ""):
-            zones[int(z)] = [(float(x), float(y)) for x, y in re.findall(r"\{([\d.]+),([\d.]+)\}", pts)]
-        out[int(m.group(1))] = {"name": name and name.group(1).replace('\\"', '"'), "spawns": zones}
+    k = "creature" if kind == "Npc" else "object"
+    for id, name in db("forever").execute(f"SELECT e.id, n.name FROM {k} e LEFT JOIN name n ON n.kind = '{k}' AND n.id = e.id AND n.locale = 'enUS'"):
+        out[id] = {"name": name, "spawns": {}}
+    for id, area, x, y in db("forever").execute(
+        "SELECT entity_id, area_id, ux, uy FROM spawn WHERE kind = ? AND source = 'questie' AND area_id IS NOT NULL AND ux IS NOT NULL ORDER BY rowid", (k,)
+    ):
+        if id in out:
+            out[id]["spawns"].setdefault(area, []).append((x, y))
     return out
 
 
 def forever_quests(classic):
     """Forever's own new quests (none of Classic's ids): {id: {"text": its
     title and objectives, lower case, "ids": the creatures, objects and items
-    that give, end or are asked for by it, "points": [(map name, x, y)] where
-    AllTheThings sends its players}}. From QuestieDB's traces and
-    AllTheThings' Forever zones (wow-data's pins)."""
-    def read(repo, file):
-        return open(path("repo", repo, file), encoding="utf-8").read()
-
+    that give, end or are asked for by it, by kind ((kind, id): an item's id
+    is no creature's), "points": []}} (wow-data's Forever database: where
+    they stand is their spawns, by traces())."""
     out = collections.defaultdict(lambda: {"text": "", "ids": set(), "points": []})
-    src = read("questiedb", QUESTIEDB.format("Quest"))
-    for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
-        q = int(m.group(1))
+    f = db("forever")
+    for (q,) in f.execute("SELECT id FROM quest ORDER BY id"):
         if q in classic:
             continue
-        body = m.group(2)
-        for key in ("name", "objectivesText"):
-            for t in re.findall(r"\." + key + r'\] = \{?((?:"(?:[^"\\]|\\.)*",?\s*)+)', body):
-                out[q]["text"] += " " + " ".join(re.findall(r'"((?:[^"\\]|\\.)*)"', t)).lower()
-        for key in ("startedBy_add", "finishedBy_add", "objectives"):
-            v = re.search(r"\." + key + r"\] = (.*),\n", body)
-            if v:
-                out[q]["ids"] |= {int(n) for n in re.findall(r"\b(\d{2,7})\b", v.group(1))}
-    for kind in ("Npc", "Object"):
-        src = read("questiedb", QUESTIEDB.format(kind))
-        for m in re.finditer(r"^        \[(\d+)\] = \{\n(.*?)^        \},", src, re.S | re.M):
-            for v in re.findall(r"quest(?:Starts|Ends)_add\] = \{([\d,\s]*)\}", m.group(2)):
-                for q in re.findall(r"\d+", v):
-                    if int(q) not in classic:
-                        out[int(q)]["ids"].add(int(m.group(1)))
-    for file in tree("allthethings"):
-        if not re.match(r"^\.contrib/\.db/forever/zones/.*\.lua$", file):
-            continue
-        src = read("allthethings", file)
-        parts = re.split(r"\bq\((\d+), \{", src)
-        for k in range(1, len(parts), 2):
-            q, body = int(parts[k]), parts[k + 1]
-            if q in classic:
-                continue
-            # (a quest's body ends where the next begins: its givers, providers, coordinates)
-            out[q]["ids"] |= {int(x) for v in re.findall(r'\["qgs?"\] = \{?\s*([\d, ]+)', body) for x in re.findall(r"\d+", v)}
-            out[q]["ids"] |= {int(x) for x in re.findall(r'\{ "[noi]", (\d+) \}', body)}
-            out[q]["points"] += [(c, float(a), float(b)) for a, b, c in re.findall(r"\{ ([\d.]+), ([\d.]+), MAP\.(\w+) \}", body)]
+        d = out[q]
+        for (t,) in f.execute(
+            """SELECT name FROM name WHERE kind = 'quest' AND id = ?1 AND locale = 'enUS'
+               UNION ALL SELECT text FROM quest_text WHERE quest_id = ?1 AND locale = 'enUS' AND field = 'objectives'
+               UNION ALL SELECT text FROM quest_objective WHERE quest_id = ?1 AND text IS NOT NULL""",
+            (q,),
+        ):
+            d["text"] += " " + t.lower()
+        d["ids"] |= set(f.execute("SELECT kind, entity_id FROM quest_relation WHERE quest_id = ?", (q,)))
+        d["ids"] |= {("item" if k == "source" else k, i) for k, i in f.execute("SELECT kind, target_id FROM quest_objective WHERE quest_id = ? AND target_id > 0", (q,))}
     return out
 
 
-def wowhead(kind, id, area, site="classic"):
+def wowhead(kind, id, area, game="classic"):
     """Wowhead's points of an object or a creature in a zone (its area id), on
-    Classic or Forever (site): None when Wowhead doesn't place it there."""
-    pre = "" if site == "classic" else f"{site}-"
-    page = os.path.join(WOWHEAD, f"{pre}page-{kind}-{id}.html")
-    if os.path.exists(page):
-        m = re.search(r"g_mapperData = (\{.*?\});", open(page, encoding="utf-8").read())
-        floors = json.loads(m.group(1)).get(str(area)) if m else None
-        return [tuple(p) for f in floors for p in f["coords"]] if floors else None
-    path = os.path.join(WOWHEAD, f"{pre}{kind}-{id}.json")
-    if not os.path.exists(path):
-        os.makedirs(WOWHEAD, exist_ok=True)
-        url = f"https://nether.wowhead.com/{site}/tooltip/{kind}/{id}"
-        try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
-                data = r.read()
-        except urllib.error.HTTPError as e:
-            if e.code != 404:
-                raise
-            data = b"{}"  # Wowhead knows no such thing: no second source
-        with open(path, "wb") as f:
-            f.write(data)
-        time.sleep(0.25)
-    m = (json.load(open(path)) or {}).get("map") or {}
-    coords = m.get("coords") or {}
-    if m.get("zone") != area:
-        return None
-    return [tuple(p) for floor in (coords.values() if isinstance(coords, dict) else []) for p in floor]
+    Classic or Forever: its players' sightings, frozen in wow-data
+    (bin/wowhead-points.ts, spawns of source wowhead), in Wowhead's order. None
+    when Wowhead doesn't place it there."""
+    k = "creature" if kind == "npc" else kind
+    rows = db(game).execute(
+        "SELECT ux, uy FROM spawn WHERE kind = ? AND entity_id = ? AND area_id = ? AND source = 'wowhead' ORDER BY rowid",
+        (k, int(id), area),
+    ).fetchall()
+    return [(x, y) for x, y in rows] or None
 
 
 # ── the riddle files ───────────────────────────────────────────────────────
@@ -557,13 +515,13 @@ def main():
     own = [(f, uimap, r, []) for f, uimap, client, rs, _ in files if client == "forever" for r in rs]
     for f, uimap, r, points in placed + own:
         where = f"{f}: {r['id']}"
-        subject = [int(r[k]) for k in ("creature", "object") if k in r]
-        subject += [int(v) for k, v in (r.get("anchor") or {}).items() if k in ("creature", "object")]
-        named = {n for n in [r.get("name"), r.get("area"), r.get("reading")] + [names.get(("creature", i)) or names.get(("object", i)) or (npcs.get(i) or {}).get("name") for i in subject] if n and len(n) > 4}
+        subject = [(k, int(r[k])) for k in ("creature", "object") if k in r]
+        subject += [(k, int(v)) for k, v in (r.get("anchor") or {}).items() if k in ("creature", "object")]
+        named = {n for n in [r.get("name"), r.get("area"), r.get("reading")] + [names.get(s) or ((npcs if s[0] == "creature" else objs).get(s[1]) or {}).get("name") for s in subject] if n and len(n) > 4}
         for q, d in sorted(new.items()):
             hit = [i for i in subject if i in d["ids"]]
             if hit:
-                errors.append(f"{where}: Forever's new quest {q} gives, ends or asks for {hit[0]}")
+                errors.append(f"{where}: Forever's new quest {q} gives, ends or asks for {hit[0][0]} {hit[0][1]}")
             said = [n for n in named if re.search(r"\b" + re.escape(n.lower()) + r"\b", d["text"])]
             if said:
                 errors.append(f"{where}: Forever's new quest {q} names {said[0]!r}")
@@ -572,9 +530,9 @@ def main():
             near = lambda x, y: any(((x - a) ** 2 + ((y - b) * ASPECT) ** 2) ** 0.5 <= FOREVER_NEAR for a, b in points)
             mine = [(x, y) for m, x, y in d["points"] if norm(m) == norm(zone_names.get(uimap, ""))]
             area = zone_area(uimap)
-            for i in d["ids"]:
-                for t in (npcs.get(i), objs.get(i)):
-                    mine += (t or {}).get("spawns", {}).get(area, [])
+            for k, i in d["ids"]:
+                t = npcs.get(i) if k == "creature" else objs.get(i) if k == "object" else None
+                mine += (t or {}).get("spawns", {}).get(area, [])
             close = [(x, y) for x, y in mine if near(x, y)]
             if close:
                 errors.append(f"{where}: arriving here is Forever's new quest {q}'s road (a point at {close[0][0]:.1f}, {close[0][1]:.1f})")
@@ -610,7 +568,7 @@ def overlay_centres(areas, client="classic"):
 
 def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
     """A zone of Forever's own: its map from Forever's client tables, its
-    creatures' points from the QuestieDB traces, each kept only where Wowhead's
+    creatures' points from Questie's Forever (wow-data's database), each kept only where Wowhead's
     Forever database places the creature too (they share the zone's map)."""
     assignments = [a for a in table("UiMapAssignment", "forever") if int(a["UiMapID"]) == uimap]
     if not assignments:
