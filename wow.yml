@@ -283,3 +283,5 @@ globals:
     any: true
   SaltyMaxCollector:
     any: true
+  C_Seasons:
+    any: true
