@@ -22,7 +22,6 @@ Ehre den Posten, wer ihn auch hält.
 = Behüter Callahan, der entfernteste Posten der Nachtwache an der Straße ins Rotkammgebirge. Die Wache ist Dunkelhains eigene Miliz, unter der Tochter des Bürgermeisters, Kommandantin Althea Ebonlocke.
 + Stormwinds Armee ist fort an der Front und hat den Wald so gut wie aufgegeben: Die Wache ist alles, was seine Straßen offen hält.
 ! Ruhig
-@ Behüter Callahan
 
 ## duskwood-unseen
 Das Dorf auf dem Rabenhügel wurde seinen Toten überlassen,
@@ -44,7 +43,6 @@ Finde sie unter ihnen: Sie wird es dir selbst erzählen.
 = Behüter Brownell. Der, den sie bewundert, ist Behüter Backus, der die Straße westlich des Anwesens der Mistmantles hält.
 + Dunkelhain war einst Grand Hamlet, ein malerisches Walddorf. Der Name änderte sich, als die Dunkelheit über den Wald kam.
 ! Ruhig
-@ Behüter Brownell
 
 ## quarry
 Unter dem Friedhof auf dem Rabenhügel hält ein toter Kommandant seinen Posten.
@@ -53,4 +51,3 @@ Der Zauber ist sein eigener, und er wirkt ihn, während er fällt.
 Mach ihm ein Ende, bevor er den Zauber zu Ende bringt.
 = Kommandant Felstrom, in den Katakomben des Morgenwaldes unter dem Friedhof von Rabenflucht. Lord Malathrom, ein Ghul, der zwei üble Diener herbeiruft, Faultier und Schlamm, haust in derselben Dunkelheit.
 + Jede Kopie, die sich erhebt, kämpft so lange wie die letzte. Wer den Zauber nicht aufhält, für den nimmt die Jagd kein Ende.
-@ Kommandant Felstrom

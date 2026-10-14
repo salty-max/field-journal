@@ -31,4 +31,3 @@ Son terrain de chasse s'étend au-delà des chantiers des kobolds.
 Dépassez les kobolds, et continuez.
 = Mère Croc, une araignée de la mine Veine-de-jaspe. Un chasseur peut l'apprivoiser : une bonne première compagne, quoique exigeante, car elle ne mange que de la viande.
 + Sa toile retient quelques secondes quiconque elle attrape, assez longtemps pour sa morsure.
-@ Mère Croc

@@ -22,7 +22,6 @@ Honorez le poste, qui que ce soit qui le tienne.
 = Le gardien Callahan, le poste le plus éloigné des Veilleurs sur la route des Carmines. Les Veilleurs sont la milice de Sombre-Comté, sous les ordres de la fille du bourgmestre, le commandant Althea Ebonlocke.
 + L'armée de Hurlevent est partie au front, et a pour ainsi dire abandonné la forêt : les Veilleurs sont tout ce qui garde ses routes ouvertes.
 ! Calme
-@ Gardien Callahan
 
 ## duskwood-unseen
 Le village sur la colline aux corbeaux a été laissé à ses morts,
@@ -44,7 +43,6 @@ Trouvez-la parmi eux : elle vous le dira elle-même.
 = La gardienne Brownell. Celui qu'elle admire est le gardien Backus, qui tient la route à l'ouest du manoir Mantebrume.
 + Sombre-Comté s'appelait jadis Grand Hameau, un pittoresque village des bois. Le nom a changé quand l'obscurité est tombée sur la forêt.
 ! Calme
-@ Gardienne Brownell
 
 ## quarry
 Sous le cimetière de la colline aux corbeaux, un commandant mort tient son poste.
@@ -53,4 +51,3 @@ le sort est le sien, et il le lance en tombant.
 Achevez-le avant qu'il ne l'achève.
 = Le commandant Gangretrombe, des catacombes du Bois-de-l'Aube, sous le cimetière de Colline-aux-Corbeaux. Le seigneur Malathrom, une goule qui appelle deux immondes serviteurs, Paresse et Limace, tient les mêmes ténèbres.
 + Chaque copie qui se relève combat aussi longtemps que la précédente. Ne parvenez pas à arrêter le sort, et la chasse n'a pas de fin.
-@ Commandant Gangretrombe

@@ -34,8 +34,13 @@
  *                                   "## <riddle id>" section each: its verse,
  *                                   "? " its clue, "= " its note, "+ " its
  *                                   margin, "! " its danger, "@ " its answer's
- *                                   name; "## quarry": its verse, note,
- *                                   margin and "@ " its name
+ *                                   name, only one of its own ("Roger
+ *                                   und Jamin": the thing's own name is
+ *                                   the game's, data/expeditions.json's
+ *                                   names); "## quarry": its verse, note,
+ *                                   margin
+ *   i18n/<locale>/names-ok.json     the names a translation writes otherwise
+ *                                   than the game (scripts/names.ts), why
  *
  * A language not given its own folder may borrow another's (esMX: esES).
  *
@@ -53,6 +58,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { readExpeditions, veil } from "./expeditions";
+import { misnamed } from "./names";
 import { paragraphs, type Paragraph } from "./paragraphs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
@@ -267,6 +273,17 @@ function read(locale: string) {
       if (head.trim() === "quarry") zone.quarry = r;
       else zone.riddles.set(head.trim(), r);
     }
+    // (an answer that is the thing's own name is the game's, by its id: the
+    // data's, from wow-data's databases; a translation writes only its own)
+    const same = (s: string) => s.replace(/\u00a0/g, " ").replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"');
+    const answers: [string, Riddle, string | undefined][] = [
+      ...[...zone.riddles].map(([rid, r]) => [rid, r, expeditionData.riddles[rid]?.names?.[locale]] as [string, Riddle, string | undefined]),
+      ...(zone.quarry ? [["quarry", zone.quarry, expeditionData.quarries[String(m.zone)]?.names?.[locale]] as [string, Riddle, string | undefined]] : []),
+    ];
+    for (const [rid, r, game] of answers) {
+      if (game && r.name && same(r.name) !== same(game)) fail(file, `${rid}: the answer is the game's own name "${game}": leave out its @ line`);
+      r.name ??= game && same(game);
+    }
     zones.set(Number(m.zone), zone);
   }
   return { meta, words, sections, places, creatures, subzones, classic, families, atlas, flora, zones, stale, done };
@@ -414,6 +431,17 @@ for (const locale of LOCALES) {
     );
     if (t.stale.size) console.log(`  stale (the English changed): ${[...t.stale].join(", ")}`);
     if (unused.length) console.log(`  words no longer used: ${unused.join(" | ")}`);
+    // (every family's, zone's, herb's, fish's and expedition's text with its translation)
+    const md = (dir: string) => (existsSync(join(ROOT, dir)) ? (readdirSync(join(ROOT, dir), { recursive: true }) as string[]) : []).filter((f) => f.endsWith(".md"));
+    const pairs: [string, string][] = [
+      ...md("content")
+        .filter((f) => !f.endsWith("_section.md"))
+        .map((f) => [join(ROOT, "content", f), join(I18N, locale, "families", f)] as [string, string]),
+      ...["atlas", "expeditions"].flatMap((dir) => md(dir).map((f) => [join(ROOT, dir, f), join(I18N, locale, dir, f)] as [string, string])),
+      ...["herbs", "fish"].map((n) => [join(ROOT, "notes", `${n}.md`), join(I18N, locale, `${n}.md`)] as [string, string]),
+    ];
+    for (const m of misnamed(I18N, locale, pairs))
+      errors.push(`i18n/${locale}: a name not as the game writes it (or i18n/${locale}/names-ok.json says why): ${m}`);
   }
 }
 if (errors.length) {

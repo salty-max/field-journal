@@ -11,7 +11,6 @@ Il a une faveur à demander à qui passe par là. Donnez-lui votre parole.
 = Zapetta, le maître des zeppelins : "Mon frère disait qu'il y avait de l'argent à se faire avec cette route commerciale, mais il ne m'avait pas dit que ce serait moi qui vivrais de ce côté. Si vous revenez par ici en zeppelin, pouvez-vous m'apporter quelque chose à manger ?"
 + Hin Denburg, qui envoie l'autre dirigeable vers le sud, a piètre opinion du tram des gnomes : si vous y croyez, il a une statue à Strangleronce à vous vendre.
 ! Calme
-@ Zapetta
 
 ## tirisfal-glades-stillwater
 À l'ouest de la ville des morts, un petit étang s'étend, gris et immobile.
@@ -66,7 +65,6 @@ Demandez-lui ce qu'il en sait.
 = Bardu Sharpeye, à la Barricade : un mage aurait fait à la Croisade une arme remarquable, a-t-il entendu dire, et la Croisade l'a tué pour ça.
 + Au camp du Noroît, le camp de l'Alliance, un voyageur raconte la même histoire : "Peut-être l'ont-ils éliminé pour conserver un secret... ou peut-être haïssent-ils les arcanes..."
 ! Calme
-@ Bardu Sharpeye
 
 ## quarry
 Dans le val flétri du sud-ouest, où sombredogues et grandes chauves-souris
@@ -75,4 +73,3 @@ aux ailes roses, et les chasseurs qui la voient la veulent pour eux.
 Elle se tient dans un petit coin du val.
 = Ressan le Harceleur, une chauve-souris blanche aux ailes roses, de la Vallée des cauchemars.
 + La Vallée des cauchemars était verte, jadis, et pleine d'animaux de la forêt. Les sombredogues et les chauves-souris vampiriques les ont mangés.
-@ Ressan le Harceleur

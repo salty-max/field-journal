@@ -32,7 +32,6 @@ Montrez-leur à quoi servent leurs tambours.
 = Les tambours Revantusk, au nombre de trois, qui battent la mesure du village.
 + Le village garde un oeil sur les Vilebranch de Jintha'Alor, en haut de la colline. Les tambours sont le seul bruit qu'il fait exprès.
 ! Calme
-@ Tambour Revantusk
 
 ## quarry
 Parmi les ruines trolles à l'est des collines,
@@ -40,4 +39,3 @@ un géant des collines marche seul, sans se presser.
 Cherchez-le sur le terrain en contrebas de la grande cité des trolls.
 = Grimungous, un géant des collines élite, qui arpente les ruines de Shaol'watha.
 + Quand on se presse autour de lui, il frappe du pied, et les plus proches sont étourdis.
-@ Grimungous

@@ -24,7 +24,6 @@ riddles:
   - id: undercity-terenas
     tier: hidden
     gestures: [KNEEL, BOW, MOURN]
-    name: Here Lies King Terenas Menethil II
     object: 175659   # dump 66.0, 43.9; Wowhead 65.9, 43.4
     hint_area: { x: 68.6, y: 40.9, r: 8 }
     danger: "Quiet"

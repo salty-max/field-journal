@@ -31,7 +31,6 @@ Demandez-lui ce qu'il en pense aujourd'hui.
 = Haggrum Bloodfist, à Valormok : "Je me souviens du temps où mon frère et moi campions seuls dans les étendues sauvages d'Azshara. Regardez-les maintenant."
 + Son frère, à en juger par le nom, est Ag'tor Bloodfist, qui a assez d'affaires pour occuper n'importe quel voyageur.
 ! Calme
-@ Haggrum Bloodfist
 
 ## quarry
 Parmi les ruines d'un sanctuaire, au sud-ouest,
@@ -39,4 +38,3 @@ un fantôme marche dans l'armure de la garde d'une reine :
 le capitaine qui servait la reine dont cette terre porte le nom, il y a dix mille ans.
 = Le fantôme de Varo'then : ce qui reste du capitaine Varo'then, qui menait la garde de la reine Azshara pendant la guerre des Anciens.
 + Plus à l'est, le colosse brisé de Ravencrest se souvient d'un commandant qui s'opposa à sa reine. Azshara garde les restes des deux camps de cette guerre.
-@ Fantôme de Varo'then

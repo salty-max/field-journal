@@ -17,7 +17,6 @@ riddles:
   - id: stormwind-city-khadgar-plaque
     tier: off
     gestures: [GOODLUCK, SALUTE, WAVE]
-    name: Archmage Khadgar of the Kirin Tor
     object: 25333   # dump 64.7, 78.2; Wowhead 64.9, 78.2
     hint_area: { x: 62.7, y: 81.7, r: 8 }
     danger: "Quiet"
@@ -25,7 +24,6 @@ riddles:
   - id: stormwind-city-horatio
     tier: hidden
     gestures: [DANCE]
-    name: Horatio Montgomery, M.D.
     object: 124374   # dump 77.5, 58.7; Wowhead 77.6, 58.9
     hint_area: { x: 75.1, y: 55.5, r: 8 }
     danger: "Quiet"

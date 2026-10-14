@@ -32,7 +32,6 @@ Zeig ihnen, wofür ihre Trommeln da sind.
 = Die Trommler der Revantusk, drei an der Zahl, die den Takt des Dorfes halten.
 + Das Dorf behält die Vilebranch von Jintha'Alor den Hügel hinauf im Auge. Die Trommeln sind das einzige Geräusch, das es mit Absicht macht.
 ! Ruhig
-@ Trommler der Revantusk
 
 ## quarry
 Zwischen den Trollruinen im Osten der Hügel
@@ -40,4 +39,3 @@ wandert ein Hügelriese allein, ohne Eile.
 Such ihn auf dem Boden unterhalb der großen Stadt der Trolle.
 = Grimungous, ein Elite-Hügelriese, der durch die Ruinen von Shaol'watha wandert.
 + Wird es ihm zu eng, stampft er auf, und wer ihm am nächsten steht, ist betäubt.
-@ Grimungous

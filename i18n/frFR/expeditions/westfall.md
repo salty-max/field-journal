@@ -10,7 +10,6 @@ Elle crut avoir mis fin au danger. La page se souvient de ce qui la suivit chez 
 = Aegwynn et la chasse au dragon, sur l'étagère des Saldean. Une ferme est un drôle d'endroit pour garder le récit de la Gardienne qui abattit le corps de Sargeras.
 + "Aegwynn ne sut jamais qu'elle avait exactement suivi le plan de Sargeras" : son esprit passa en elle et resta caché dans son âme pendant des années.
 ! Calme
-@ Aegwynn et la chasse au dragon
 
 ## westfall-dead-acre
 Au sud-est, près du pont vers le bois sombre,
@@ -29,4 +28,3 @@ n'importe où entre le champ de potirons du nord et les plaines de poussière du
 Son piqué vous laisse $gétourdi:étourdie;.
 = Vultros, un charognard de niveau 26, bien plus fort que les charognards ordinaires de la Marche de l'Ouest.
 + On l'a vu aussi près de l'étang de Stendel, de la colline des Sentinelles et de l'acre mort, ainsi que dans les fermes du nord et la poussière du sud.
-@ Vultros

@@ -31,7 +31,6 @@ und hustet dabei ununterbrochen. Sei freundlich zu ihm, und hör es dir an.
 = Opus, Kiblers Papagei, am Flammenkamm: 'KRÄCHZ!!! *hust* *hust* Ich muss mit dem Rauchen aufhören!'
 + Er weiß mehr, als er sollte: 'Kibler wird vom Fantasy-Tierschutz untersucht.' Und: 'Alle gehen zur Spitze, aber keiner kommt zurück... genau wie Bijou.'
 ! Ruhig
-@ Opus
 
 ## quarry
 Etwas wandert durch den Osten der brennenden Ebene, um den Felsen der Oger,
@@ -39,4 +38,3 @@ an der zerstörten Stadt vorbei und hinab zur Wacht der Zwerge, und zurück:
 ein Riese aus geschmolzenem Stein, der die Pläne eines Schmieds für einen Hammer aus demselben Feuer trägt.
 = Volchan, ein geschmolzener Elite-Riese, der durch den Osten der Brennenden Steppe wandert: der Einzige, der die Pläne: Vulkanischer Hammer bei sich trägt.
 + Die anderen geschmolzenen Riesen stehen tief unter dem Blackrock, im Geschmolzenen Kern unter Ragnaros' Dienern. Volchan wandert unter offenem Himmel.
-@ Volchan

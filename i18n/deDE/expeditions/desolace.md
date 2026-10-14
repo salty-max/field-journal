@@ -20,7 +20,6 @@ Manche der Pferde darin sind noch Pferde. Sei freundlich zu ihnen.
 = Die Shadowbreakklamm: das verborgene Lager der Burning Blade, ihr angeketteter Kreis, ihre dämonischen Nachtmahre und zwei eingefangene Hengste im Stall daneben.
 + Woher die Hengste kamen, weiß niemand. Was der Kult aus ihnen machen will, lassen die Nachtmahre daneben ahnen.
 ! Gefährlich (Beschwörer, Herbeirufer und Leyjäger der Burning Blade, Stufe 38 bis 40)
-@ Eingefangener Hengst
 
 ## quarry
 Nördlich des Friedhofs, zu dem die Kodos zum Sterben gehen,
@@ -28,4 +27,3 @@ jagt ein Basilisk im Staub.
 Such ihn jenseits der Knochen, wo die toten Herden der offenen Öde weichen.
 = Hissperak, ein Basilisk, der nördlich des Kodofriedhofs gesichtet wurde.
 + Man ist ihm auch weiter westlich zum Tal der Speere hin begegnet.
-@ Hissperak

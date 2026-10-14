@@ -208,6 +208,24 @@ def riddle_files():
 
 
 # ── placing on a zone's map ────────────────────────────────────────────────
+def game_names(kind, id, english):
+    """An answer's name in every other language, the game's own (Forever's,
+    else Classic's, wow-data's databases), when the answer is the thing's own
+    name: never a riddle's own ("Roger and Jamin"), which its translations give."""
+    if kind not in ("object", "creature") or not isinstance(id, int):
+        return None
+    plain = lambda s: s.replace("\u2019", "'").replace("\u201c", '"').replace("\u201d", '"')
+    out = {}
+    for game in ("forever", "classic"):
+        rows = {loc: plain(n) for loc, n in db(game).execute("SELECT locale, name FROM name WHERE kind = ? AND id = ?", (kind, id))}
+        if rows.get("enUS") != english:
+            continue
+        for loc, n in rows.items():
+            if loc not in ("enUS", "enGB"):
+                out.setdefault(loc, n)
+    return dict(sorted(out.items())) or None
+
+
 def main():
     cdb = db("classic")
     # the Classic database's world (wow-data's database): its objects and
@@ -358,6 +376,8 @@ def main():
                 errors.append(f"{f}: quarry {id}: no spawn on the map that the dump and Wowhead agree on")
             else:
                 quarries[str(uimap)] = {"id": id, "name": names.get(("creature", id)), "haunts": spots}
+                if game_names("creature", id, names.get(("creature", id))):
+                    quarries[str(uimap)]["names"] = game_names("creature", id, names.get(("creature", id)))
         for r in rs:
             id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
             # what it was resolved from: the build refuses a file changed since
@@ -372,6 +392,8 @@ def main():
             # its name, once solved: the file's, else the game's (the object's,
             # the creature's, the area's)
             out["name"] = r.get("name") or names.get((kind, r.get(kind))) or (r["area"] if kind == "area" else None)
+            if game_names(kind, r.get(kind), out["name"]):
+                out["names"] = game_names(kind, r.get(kind), out["name"])
             if not out["name"]:
                 errors.append(f"{where}: no name: give the riddle's own (name:)")
             if "object" in r:
@@ -619,6 +641,8 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
             errors.append(f"{f}: quarry {id}: no point the traces and Wowhead's Forever agree on")
         else:
             quarries[str(uimap)] = {"id": id, "name": quarry.get("name") or (npcs.get(id) or {}).get("name"), "haunts": haunts}
+            if game_names("creature", id, quarries[str(uimap)]["name"]):
+                quarries[str(uimap)]["names"] = game_names("creature", id, quarries[str(uimap)]["name"])
     for r in rs:
         id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
         kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
@@ -633,6 +657,8 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
         held = lambda p: ha and (p[0] - ha["x"]) ** 2 + ((p[1] - ha["y"]) * ASPECT) ** 2 <= ha["r"] ** 2
         if kind == "creature":
             out["name"] = r.get("name") or (npcs.get(r["creature"]) or {}).get("name")
+            if game_names("creature", r["creature"], out["name"]):
+                out["names"] = game_names("creature", r["creature"], out["name"])
             target = r.get("found") == "target"
             kept, _ = agreed(r["creature"], AGREE_HAUNT if target else AGREE)
             points = [p for p in kept if held(p)]

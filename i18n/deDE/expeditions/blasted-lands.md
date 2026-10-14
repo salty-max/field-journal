@@ -32,7 +32,6 @@ Wer den Orcs dorthin folgte, musste den Weg in die eigene Welt verschließen.
 = Jenseits des Dunklen Portals, in Burg Nethergarde. Ner'zhuls Portale rissen Draenor auseinander. Die Expedition der Allianz schloss das Dunkle Portal, damit diese Zerstörung Azeroth nicht erreichte.
 + Ner'zhul entkam mit seinen treuesten Dienern durch eines seiner eigenen Portale, während Khadgar darum kämpfte, seine Gefährten heimzubringen.
 ! Ruhig
-@ Jenseits des Dunklen Portals
 
 ## quarry
 Die Schreckensfelsoger halten einen Posten mitten in diesen verwüsteten Landen,
@@ -41,4 +40,3 @@ Einer von ihnen heißt der Unerschütterliche und hält sich an diesen Posten,
 wenn er überhaupt dort ist.
 = Magronos der Unerschütterliche, ein Oger der Schreckensfelsoger. Selten anzutreffen: An manchen Tagen gehört ihm der Posten, an den meisten ist er nicht dort.
 + Akubar der Seher, ein weiterer Schreckensfelsoger, der ebenso selten zu sehen ist, wurde am selben Posten angetroffen.
-@ Magronos der Unerschütterliche

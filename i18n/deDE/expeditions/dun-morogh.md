@@ -11,7 +11,6 @@ Finde, was er daneben eingeätzt hat.
 = 'This anvil is the property of Jordan Stilwell - Please do NOT use!' Ironforge hat sehr viele Ambosse. Dieser hier ist vergeben.
 + Jordan Stilwell ist kein Zwerg: ein menschlicher Schmied mit einem Haus an Westfalls Longshore, der Paladin werden wollte, bevor ihn die Schmiedekunst packte, und der neben den Zwergen arbeiten kam, während seine Frau Daphne am Meer wartete. Die Paladine, die seine Prüfungen bestehen, tragen einen Hammer, den er schmiedet und nach einem zwergischen Paladin benennt, den er seinen Freund nannte.
 ! Ruhig
-@ Geätzte Notiz
 
 ## dun-morogh-tog
 In der Brauerstadt im Herzen des Schnees
@@ -22,7 +21,6 @@ Finde ihn, und lass ihn dir davon erzählen.
 = Tog Rustsprocket, aus Kharanos: 'Ich wünschte, der Schnee würde einfach wegschmelzen. Er macht meine Robe immer nass und hinterlässt nichts als Dreck!'
 + Er hat eine Nachricht für die Hexenmeister, die ihm über den Weg laufen, und schickt sie weiter zu Lago Blackwrench.
 ! Ruhig
-@ Tog Rustsprocket
 
 ## dun-morogh-range
 An der Straße aus dem Tal, in dem junge Zwerge beginnen,
@@ -44,7 +42,6 @@ Regle die Sache, bevor es wieder davonläuft.
 = Flauschie, ein Kaninchen, und Yarlyn Amberstill, die ihm um das Widdergehege nachläuft und ruft: 'Komm schon, Flauschie! Ich will dich doch nur baden!'
 + Ihre anderen Angebote, auf Zwergisch: 'Ein Jahr lang jeden Tag Karotten, wenn du stehen bleibst!' Und als das nichts nützt: 'Zwing mich nicht, meinen Papa zu holen! Der fängt Häschen gern mit seinem Gewehr!'
 ! Ruhig
-@ Flauschie
 
 ## quarry
 Auf der Insel mitten im gefrorenen See im Nordwesten
@@ -53,4 +50,3 @@ Zieh ihn in einen Kampf, und er bringt andere mit.
 Lichte die Insel zuerst.
 = Holzplanke, ein weißer Wolf und sehr wahrscheinlich der Leitwolf des Rudels am Iceflowsee. Nur er trägt die Silbergefütterten Armschienen und die Weißen Wolfsfellhandschuhe.
 + Er ist auf Stufe zehn, wenn ein Jäger das Zähmen lernt: Ein Zwerg oder ein Gnom kann ihn als ersten Gefährten nehmen.
-@ Holzplanke

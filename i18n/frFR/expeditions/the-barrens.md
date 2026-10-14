@@ -10,7 +10,6 @@ Leur châtiment fut le début d'un voyage.
 = L'exil des hauts-elfes, à Ratchet. Bannis pour avoir refusé de renoncer à la magie des arcanes, les Bien-nés partirent vers l'est et fondèrent Quel'thalas. Les gobelins gardent leur histoire. Elle n'est pas à vendre.
 + Dath'Remar traitait les druides de lâches. "Les druides, incapables de se résoudre à tuer tant des leurs, décidèrent d'ostraciser les Bien-nés."
 ! Calme
-@ L'exil des hauts-elfes
 
 ## the-barrens-lizzarik
 Sur la route entre le port des gobelins et la croisée des orcs,
@@ -21,7 +20,6 @@ Attrapez le colporteur sur la route.
 = Lizzarik, un marchand d'armes gobelin de Ratchet, qui fait l'aller-retour jusqu'à la Croisée avec Jorb, son garde du corps ogre.
 + Jorb est de niveau trente-sept, sur une route que la plupart des voyageurs parcourent au niveau quinze.
 ! Calme sur la route
-@ Lizzarik
 
 ## the-barrens-tidus-stair
 Au sud du port des gobelins, de grandes marches de pierre ancienne sortent de la mer,
@@ -42,7 +40,6 @@ et son petit garçon joue devant sa porte. Soyez $gamical:amicale;.
 = Pooka et son fils Mogg, au Rempart de Mor'shan : une famille, dans un camp de guerre.
 + Du père du garçon, le rempart ne dit rien.
 ! Calme pour la Horde, les gardes du rempart pour l'Alliance
-@ Pooka
 
 ## the-barrens-fallen-warrior
 Non loin de la route la plus fréquentée des plaines, un court sentier gravit une colline
@@ -61,4 +58,3 @@ et celui du milieu a une robe différente de la leur.
 Il rugit quand il est blessé, et le cercle accourt.
 = Humar le Fier, un lion élite, sous son arbre au nord-ouest de Ratchet, sa troupe autour de lui.
 + Il ne quitte jamais cet arbre, si bien que les chasseurs qui veulent sa robe noire pour compagnon ont appris à attendre dessous.
-@ Humar le Fier

@@ -11,7 +11,6 @@ Er hat eine Bitte an jeden, der vorbeikommt. Gib ihm dein Wort.
 = Zapetta, der Zeppelinmeister: 'Mein Bruder sagte, wir könnten viel Geld mit dieser Handelsroute machen, aber ich wusste nicht, dass ich auf dieser Seite leben würde. Wenn Ihr mit dem Zeppelin wieder hier vorbeikommt, könntet Ihr mir da wohl etwas zu essen mitbringen?'
 + Hin Denburg, der das andere Luftschiff nach Süden schickt, hält wenig von der Bahn der Gnome: Wer an sie glaubt, dem verkauft er auch eine Statue im Schlingendorntal.
 ! Ruhig
-@ Zapetta
 
 ## tirisfal-glades-stillwater
 Westlich der Stadt der Toten liegt ein kleiner Tümpel, grau und still.
@@ -66,7 +65,6 @@ Frag ihn danach.
 = Bardu Sharpeye, am Bollwerk: Ein Zauberer hat dem Kreuzzug eine bemerkenswerte Waffe gebaut, so hat er gehört, und der Kreuzzug hat ihn dafür getötet.
 + Im Chillwind-Lager, dem Lager der Allianz, erzählt eine Reisende dieselbe Geschichte: 'Vielleicht brachten sie ihn ja um, um das Geheimnis zu bewahren - oder sie misstrauen dem Arkanen wirklich so sehr.'
 ! Ruhig
-@ Bardu Sharpeye
 
 ## quarry
 Im verdorrten Tal im Südwesten, wo Schattenhunde und große Fledermäuse
@@ -75,4 +73,3 @@ mit rosa Flügeln, und die Jäger, die sie sehen, wollen sie für sich.
 Sie bleibt in einer kleinen Ecke des Tals.
 = Ressan der Aufstachler, eine weiße Fledermaus mit rosa Flügeln, im Alptraumtal.
 + Das Alptraumtal war einst grün und voller Waldtiere. Die Schattenhunde und die Vampirnachtsauger haben sie gefressen.
-@ Ressan der Aufstachler

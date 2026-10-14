@@ -23,7 +23,6 @@ Soyez $ggentil:gentille; avec lui.
 = Le Serviteur d'Azora capturé, un gnome de la tour d'Elwynn, enchaîné dans le camp Rochenoire, et qui vend toujours des fournitures de couture.
 + Il ne garde qu'un exemplaire de chaque cape : la Cape d'Inferno, la Cape spirituelle et la Cape sylvestre. La Cape d'Inferno protège du feu, ce qui est bien utile dans une vallée tenue par les Rochenoire.
 ! Périlleux (le camp Rochenoire autour de lui, niveaux 19 à 23)
-@ Serviteur d'Azora capturé
 
 ## redridge-mountains-lakeshire
 Dans l'auberge de la ville du lac, trouvez la certitude fatale d'un roi : ses murs tiendraient.
@@ -33,7 +32,6 @@ Le récit attend sur une page.
 = La Porte des ténèbres et la chute de Stormwind. Llane tint sa capitale, certain que les orcs ne pourraient jamais la prendre. Garona le tua quand elle tomba.
 + Dans le même livre, un nourrisson orc, le fils de Durotan, trouvé par un officier humain nommé Blackmoore et réduit en esclavage : "Ce petit orc allait un jour devenir le plus grand chef que son peuple ait jamais connu."
 ! Calme
-@ La Porte des ténèbres et la chute de Stormwind
 
 ## quarry
 À l'est des chutes sous Guet-de-pierre,
@@ -41,4 +39,3 @@ un col monte dans les montagnes.
 Un géant des collines l'arpente, aller et retour, seul.
 = Rochecoeur, un géant des collines dans le col à l'est des chutes de Guet-de-pierre.
 + C'est le seul géant des Carmines, et il ne descend jamais du col jusqu'à la route du lac.
-@ Rochecoeur

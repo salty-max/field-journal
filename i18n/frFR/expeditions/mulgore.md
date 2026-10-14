@@ -21,7 +21,6 @@ et finit par deux rois au bord d'une route de montagne.
 = La guerre des trois clans, au site de fouilles de Bael'Dun : un avant-poste des quatre cent cinquante nains qui creusent à Bael Modan. Les taurens voient dans ces fouilles un affront à la Terre-Mère.
 + Brann Bronzebeard, raconte-t-on, visita le chantier puis alla à Thunder Bluff proposer que des taurens travaillent aux côtés des nains, pour que la terre soit respectée.
 ! Gardé (les nains de Bael'Dun)
-@ La guerre des trois clans
 
 ## quarry
 Dans l'herbe dorée à l'est de la falaise, un lion chasse seul,
@@ -29,4 +28,3 @@ plus rapide des griffes que les autres félins des plaines.
 Les chasseurs de la falaise préféreraient l'apprivoiser plutôt que l'écorcher.
 = Le Rake, un lion des plaines dorées. Il frappe plus vite que presque toutes les bêtes qu'un chasseur peut dresser, ce qui en a fait l'un des compagnons les plus courants du pays.
 + On ne l'a jamais rencontré hors des plaines dorées, les terrains de chasse les plus chers aux taurens.
-@ Le Rake

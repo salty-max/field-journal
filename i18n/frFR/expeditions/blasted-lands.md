@@ -32,7 +32,6 @@ Ceux qui y suivirent les orcs durent fermer le chemin vers le leur.
 = Au-delà de la Porte des ténèbres, à Rempart-du-Néant. Les portails de Ner'zhul déchirèrent Draenor. L'expédition de l'Alliance ferma la Porte des ténèbres pour que cette destruction n'atteigne pas Azeroth.
 + Ner'zhul s'échappa par l'un de ses propres portails avec ses serviteurs les plus fidèles, tandis que Khadgar luttait pour ramener ses compagnons chez eux.
 ! Calme
-@ Au-delà de la Porte des ténèbres
 
 ## quarry
 Les ogres Cognepeur tiennent un poste au milieu de ces terres foudroyées,
@@ -41,4 +40,3 @@ L'un d'eux s'appelle l'Inflexible, et se tient à ce poste,
 quand il y est.
 = Magronos l'Inflexible, un ogre Cognepeur. Rarement rencontré : le poste est à lui certains jours, et vide de lui la plupart du temps.
 + Akubar le Prophète, un autre Cognepeur aussi rarement vu, a été rencontré au même poste.
-@ Magronos l'Inflexible

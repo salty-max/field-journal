@@ -10,7 +10,6 @@ vaincue par le geste d'un seul orc brave. Trouvez-les.
 = L'armure de Mannoroth.
 + "Que ces plaques nous rappellent toujours jusqu'où nous nous sommes égarés et combien il nous fallut combattre pour recouvrer notre honneur." - Thrall. Le monument de Grom se dresse en Ashenvale, là où il est mort.
 ! Calme
-@ L'armure de Mannoroth
 
 ## orgrimmar-orphanage
 Dans la Herse, parmi les boutiques et les cris, la cité tient un orphelinat,
@@ -20,4 +19,3 @@ Soyez $ggentil:gentille; avec les petits.
 = L'orphelinat d'Orgrimmar : les orphelins de la cité, la directrice de l'orphelinat Battlewail, et Tosamina, qui a la main lourde avec les enfants.
 + Une fois par an, pendant la Semaine des enfants, la directrice cherche des voyageurs pour emmener un orphelin voir le monde.
 ! Calme
-@ Tosamina

@@ -21,7 +21,6 @@ Die Wacht, die diese Frauen hielten, begann mit diesem Abschied.
 = Die Schildwachen und die lange Wacht, in Feathermoon: Tyrandes Kriegerinnen, der Verteidigung Kalimdors verschworen, während die Druiden im Smaragdgrünen Traum schliefen.
 + Malfurion schwor, sie würden niemals getrennt sein, solange sie ihrer Liebe treu blieben. Die Jahrhunderte vergingen, und Tyrande fürchtete die Rückkehr der Legion.
 ! Ruhig
-@ Die Schildwachen und die lange Wacht
 
 ## quarry
 Unter den zwei großen Steinsäulen im Norden
@@ -29,4 +28,3 @@ stehen Erdelementare in den Hügeln.
 Eine Windnatter kreist um sie, immer und immer wieder, als wäre sie ihre Hüterin.
 = Arash-ethis, eine Windnatter, die die Erdelementare der Zwillingskolosse umkreist.
 + Ihr Blitz springt von dem, den sie trifft, auf jeden, der in der Nähe steht.
-@ Arash-ethis

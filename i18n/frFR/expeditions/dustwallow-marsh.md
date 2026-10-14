@@ -10,7 +10,6 @@ pour laquelle une elfe garde une archimage des humains. Rendez-lui les honneurs 
 = Peine, une elfe de la nuit, garde du corps de Jaina Proudmoore dans la tour de Theramore.
 + Elle partage la tour de la Dame avec l'archimage Tervosh. Entre eux deux, Jaina est rarement seule.
 ! Calme
-@ Peine
 
 ## quarry
 Au sud du marais, là où le vol draconique noir élève ses petits,
@@ -18,4 +17,3 @@ cherchez un drake parmi les dragonnets.
 Trouvez-le sans vous mettre toute la couvée à dos.
 = Soufresang, un drake noir élite du sud d'Âprefange.
 + Les dragonnets et les drakes de cette tourbière sont la couvée d'Onyxia : son repaire s'ouvre dans les falaises de la même tourbière du Ver.
-@ Soufresang

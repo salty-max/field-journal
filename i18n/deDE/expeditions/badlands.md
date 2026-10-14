@@ -19,4 +19,3 @@ in der Sonne und scheint zu schlafen.
 Seine Ruhe verrät wenig über die Schnelligkeit seiner Krallen.
 = Zerbrochener Zahn, ein Puma des Ödlands, der sich im Norden sonnt, um die Festung Angor und Hammertoes Grabungsstätte und hinauf bis zur Terrasse des Schöpfers.
 + Gezähmt behält er die Schnelligkeit dieser Krallen, was ihn unter Jägern zu einem begehrten Preis macht.
-@ Zerbrochener Zahn

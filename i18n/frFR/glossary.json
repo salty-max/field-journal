@@ -39,6 +39,9 @@
   "Stonemaul": {
    "use": "Cognepierre"
   },
+  "Stormwind": {
+   "use": "Hurlevent"
+  },
   "The Emerald Dream": {
    "use": "Le Rêve d'émeraude"
   },
@@ -266,11 +269,6 @@
    "classic": "Esprit",
    "forever": "Esprit",
    "use": "Esprit"
-  },
-  "Stormwind": {
-   "classic": "Stormwind",
-   "forever": "Stormwind",
-   "use": "Stormwind"
   },
   "Syndicate": {
    "classic": "Syndicat",

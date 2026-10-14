@@ -10,7 +10,6 @@ Faites-vous un ami du cheval.
 = Mirador, le cheval de Tirion Fordring, devant la chaumière où son maître vit en exil.
 + Tirion perdit ses terres et son titre pour avoir sauvé la vie d'un orc, Eitrigg, qui avait jadis épargné la sienne.
 ! Calme
-@ Mirador
 
 ## eastern-plaguelands-adon
 Au bout nord du pays mort, là où la route monte vers le royaume des elfes,
@@ -20,7 +19,6 @@ Personne ne passe devant lui, et personne n'est envoyé à lui. Rendez-lui tout 
 = Adon, un haut-elfe, seul sur la route du nord vers Quel'thalas : il n'a ni marchandises, ni ordres, ni paroles.
 + Tout près, au gîte de Quel'Lithien, les derniers hauts-elfes de ces terres tiennent un pavillon de chasse.
 ! Périlleux (le Fléau de la route du nord)
-@ Adon
 
 ## quarry
 Un ogre qui est mort et n'est pas resté mort arpente le pays mort, baigné d'une lueur verte.
@@ -28,4 +26,3 @@ Cherchez-le près de l'une de trois vieilles tours :
 le col du nord, le mur de l'est, ou la garde de la couronne au sud-ouest.
 = Hed'mush le Pourrissant, un ogre mort-vivant, près de la tour du Col du nord, de la tour du Mur d'est ou de la tour de garde de la couronne.
 + Il porte toujours une Pierre du Fléau des corrupteurs, la plus rare des pierres que l'Aube d'argent prend aux morts du Fléau.
-@ Hed'mush le Pourrissant

@@ -18,4 +18,3 @@ un infernal brûle encore.
 Cherchez le démon nommé parmi les blessures de la forêt.
 = Immolatus, un infernal élite du Val Grêlé.
 + Quand le feu le quitte, c'est de la pierre qui reste : de la Pierre morte surtout, parfois du sel des roches profondes ou un Noyau de terre.
-@ Immolatus

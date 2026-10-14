@@ -214,7 +214,13 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   atlas, herbs/fish notes, expeditions with their riddles veiled as the
   English, places, `creatures.json`: every creature's name by id, each game's,
   `python3 scripts/creature_names.py <locale>` from wow-data's databases;
-  `glossary.json` and `classic.json`: `../addon-kit/glossary.py`). Each
+  `glossary.json` and `classic.json`: `../addon-kit/glossary.py`, with
+  `glossary-by-hand.json`'s names no table has). A name the glossary holds
+  that an English text names is in its translation as the game writes it
+  (`scripts/names.ts`, in `--check`; the exceptions, with their reason, in
+  `names-ok.json`), and a riddle's answer that is the thing's own name is the
+  game's, by its id (`data/expeditions.json`'s `names`): a translation's `@`
+  only for an answer of its own. Each
   translation records its English source's hash (`--stamp`). The names the
   journal recorded in the client's language of the day (a creature's, a
   place's) read in the client's language now: `ns.creatureName` (the

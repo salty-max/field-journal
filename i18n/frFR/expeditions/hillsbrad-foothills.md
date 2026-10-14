@@ -12,7 +12,6 @@ Attrapez-le sur la route.
 = Zixil, marchand suprême, un gobelin qui commerce à la fois à Austrivage et à Moulin-de-Tarren, avec Vigilant modèle 1, son robot, sur les talons.
 + Son schéma apprend à un ingénieur à fabriquer le Défibrillateur gobelin, qui peut ramener à la vie un compagnon tombé par une décharge. Le mot "peut" mérite qu'on s'en souvienne.
 ! Disputé (la route entre les deux villes)
-@ Zixil
 
 ## hillsbrad-foothills-gryphons
 Là où la route sort des contreforts et monte vers le pays des nains sauvages,
@@ -23,7 +22,6 @@ Rendez-leur les honneurs d'un soldat.
 = Granistad et Kurdros, griffons de Forgefer, qui gardent le col de Hautebrande vers les Hinterlands.
 + Ils sont de niveau quarante, sur une route que la plupart des voyageurs gravissent au niveau vingt-cinq : pour la Horde, moins des gardes qu'un mur.
 ! Mortel pour la Horde (deux griffons de Forgefer, niveau 40), calme pour l'Alliance
-@ Granistad
 
 ## hillsbrad-foothills-loving-memory
 Au sud du donjon des nains, une grande pierre
@@ -33,7 +31,6 @@ Quelqu'un a veillé à ce qu'elle soit là, pour quelqu'un qu'il a perdu.
 = "Anthony Ray Stark. 1961 - 2005."
 + Un mémorial que les créateurs du monde ont laissé pour l'un de leurs amis. Rousch, le nain qui se tient devant, était son propre personnage dans le jeu. Il l'avait mené jusque vers le niveau quarante et quelques.
 ! Calme
-@ Souvenir affectueux
 
 ## hillsbrad-foothills-southshore
 Un livre chez les vivants se souvient d'une rébellion des morts.
@@ -43,7 +40,6 @@ Cherchez le récit dans la ville du rivage sud.
 = Guerre civile dans les Maleterres, à Austrivage : comment Sylvanas et ses Réprouvés prirent les ruines de la capitale de Lordaeron pendant qu'Arthas partait vers le nord.
 + Plus haut sur la route, les Réprouvés tiennent Moulin-de-Tarren : les rebelles du livre sont les voisins d'Austrivage.
 ! Calme
-@ Guerre civile dans les Maleterres
 
 ## hillsbrad-foothills-tarren-mill
 Au pied des montagnes enneigées, les Réprouvés gardent une page sur cent élèves humains.
@@ -53,7 +49,6 @@ Trouvez ce que leur première grande leçon fit à une armée.
 = Arathor et les Guerres trolls, à Moulin-de-Tarren : la bataille se livra au pied des montagnes d'Alterac.
 + Les elfes enseignèrent à cent humains les rudiments de la magie, pas plus que nécessaire. Les trolls ne se relevèrent plus jamais comme une seule nation.
 ! Calme
-@ Arathor et les Guerres trolls
 
 ## quarry
 Des nagas ont débarqué sur le rivage oriental de Hautebrande,
@@ -62,4 +57,3 @@ et l'une d'elles porte un nom de dame.
 Elle se tient sur le sable où ils ont abordé, et n'y est pas toujours.
 = Dame Zephris, une naga Daguéchine. Rarement rencontrée : certains jours elle est sur le rivage, la plupart du temps non.
 + En remontant le rivage ouest, Scargil, des murlocs Aileron déchiré, n'est pas plus facile à trouver.
-@ Dame Zephris

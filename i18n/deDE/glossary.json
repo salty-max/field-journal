@@ -1,5 +1,57 @@
 {
- "by hand": {},
+ "by hand": {
+  "Andorhal": {
+   "use": "Andorhal"
+  },
+  "Black Tooth Grin": {
+   "use": "Black Tooth Grin"
+  },
+  "Brann Bronzebeard": {
+   "use": "Brann Bronzebeard"
+  },
+  "Deathwing": {
+   "use": "Todesschwinge"
+  },
+  "Dragonmaw Clan": {
+   "use": "Dragonmawklan"
+  },
+  "Grimtotem": {
+   "use": "Grimmtotem"
+  },
+  "Iron Dwarves": {
+   "use": "Eisenzwerge"
+  },
+  "Nordrassil": {
+   "use": "Nordrassil"
+  },
+  "Northshire": {
+   "use": "Nordhain"
+  },
+  "Quel'Thalas": {
+   "use": "Quel'Thalas"
+  },
+  "Shadow Council": {
+   "use": "Schattenrat"
+  },
+  "Shifting Sands": {
+   "use": "Sandstürme"
+  },
+  "Stonemaul": {
+   "use": "Stonemaul"
+  },
+  "The Emerald Dream": {
+   "use": "Der Smaragdgrüne Traum"
+  },
+  "The Necropolis": {
+   "use": "Die Nekropole"
+  },
+  "War of the Shifting Sands": {
+   "use": "Krieg der Sandstürme"
+  },
+  "Well of Eternity": {
+   "use": "Brunnen der Ewigkeit"
+  }
+ },
  "factions": {
   "Alliance": {
    "classic": "Allianz",
@@ -317,6 +369,10 @@
    "forever": "Arash-ethis",
    "use": "Arash-ethis"
   },
+  "Archmage Modera": {
+   "forever": "Erzmagierin Modera",
+   "use": "Erzmagierin Modera"
+  },
   "Archmage Tervosh": {
    "classic": "Erzmagier Tervosh",
    "forever": "Erzmagier Tervosh",
@@ -346,6 +402,10 @@
    "classic": "Zerbrochener Zahn",
    "forever": "Zerbrochener Zahn",
    "use": "Zerbrochener Zahn"
+  },
+  "Brother Zendraas": {
+   "forever": "Bruder Zendraas",
+   "use": "Bruder Zendraas"
   },
   "Bunthen Plainswind": {
    "classic": "Bunthen Plainswind",
@@ -401,6 +461,10 @@
    "classic": "Dockmeister Baren",
    "forever": "Dockmeister Baren",
    "use": "Dockmeister Baren"
+  },
+  "Donaal Downbreeze": {
+   "forever": "Donaal Downbreeze",
+   "use": "Donaal Downbreeze"
   },
   "Donni Anthania": {
    "classic": "Donni Anthania",
@@ -497,6 +561,10 @@
    "forever": "Gubber Blump",
    "use": "Gubber Blump"
   },
+  "Haal": {
+   "forever": "Haal",
+   "use": "Haal"
+  },
   "Haggrum Bloodfist": {
    "classic": "Haggrum Bloodfist",
    "forever": "Haggrum Bloodfist",
@@ -541,6 +609,11 @@
    "classic": "Hurrikanus",
    "forever": "Hurrikanus",
    "use": "Hurrikanus"
+  },
+  "Ice Troll": {
+   "classic": "Eistroll",
+   "forever": "Eistroll",
+   "use": "Eistroll"
   },
   "Immolatus": {
    "classic": "Korruptus",
@@ -661,6 +734,10 @@
    "classic": "Giftzahnbrutmutter",
    "forever": "Giftzahnbrutmutter",
    "use": "Giftzahnbrutmutter"
+  },
+  "Musical Gustjumper": {
+   "forever": "Musikalischer Böenspringer",
+   "use": "Musikalischer Böenspringer"
   },
   "Myolor Sunderfury": {
    "classic": "Myolor Sunderfury",
@@ -822,6 +899,10 @@
    "forever": "Singer",
    "use": "Singer"
   },
+  "Sirocca \"Swimmers\" Starfeather": {
+   "forever": "Sirocca \"Schwimmer\" Starfeather",
+   "use": "Sirocca \"Schwimmer\" Starfeather"
+  },
   "Skarr the Unbreakable": {
    "classic": "Skarr der Unbezwingbare",
    "forever": "Skarr der Unbezwingbare",
@@ -871,6 +952,10 @@
    "classic": "Die Hülse",
    "forever": "Die Hülse",
    "use": "Die Hülse"
+  },
+  "The Lost One": {
+   "forever": "Der Verlorene",
+   "use": "Der Verlorene"
   },
   "The Rake": {
    "classic": "Der Kratzer",
@@ -986,6 +1071,10 @@
    "classic": "Wizbang Cranktoggle",
    "forever": "Wizbang Cranktoggle",
    "use": "Wizbang Cranktoggle"
+  },
+  "Yala Windwatcher": {
+   "forever": "Yala Windwächter",
+   "use": "Yala Windwächter"
   },
   "Yalda": {
    "classic": "Yalda",
@@ -2880,10 +2969,14 @@
   }
  },
  "titles": {
+  "Argent Dawn": {
+   "forever": "Argentumdämmerung",
+   "use": "Argentumdämmerung"
+  },
   "Artisan Alchemist": {
    "classic": "Alchimiefachfrau",
-   "forever": "Alchimiefachfrau",
-   "use": "Alchimiefachfrau"
+   "forever": "Alchimiefachmann",
+   "use": "Alchimiefachmann"
   },
   "Artisan Enchanter": {
    "classic": "Verzauberkunstfachfrau",
@@ -2902,8 +2995,8 @@
   },
   "Cenarion Circle": {
    "classic": "Der Zirkel des Cenarius",
-   "forever": "Der Zirkel des Cenarius",
-   "use": "Der Zirkel des Cenarius"
+   "forever": "Zirkel des Cenarius",
+   "use": "Zirkel des Cenarius"
   },
   "Crazy Cat Lady": {
    "classic": "Verrückte Katzenfrau",
@@ -2926,9 +3019,9 @@
    "use": "Smaragdkreis"
   },
   "Gerard's Mindslave": {
-   "classic": "Gerards Gedankensklavin",
-   "forever": "Gerards Gedankensklavin",
-   "use": "Gerards Gedankensklavin"
+   "classic": "Gerards Experiment",
+   "forever": "Gerards Experiment",
+   "use": "Gerards Experiment"
   },
   "High Priest": {
    "classic": "Hohepriester",

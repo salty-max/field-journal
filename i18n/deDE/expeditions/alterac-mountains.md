@@ -11,7 +11,6 @@ Finde die Person, die das Gelände dieses geheimsten aller Häuser pflegt, und l
 = Simone Cantrell, eine Nachtelfe, Landschaftsarchitektin des Ravenholdt-Anwesens, der Halle der Auftragsmörderliga.
 + Nahe dem Meister steht Winstone Wolfe, den das Anwesen den Wolf nennt. Und eine Hauskatze, Salome, hat das Haus für sich.
 ! Ruhig
-@ Simone Cantrell
 
 ## quarry
 Berglöwen beherrschen die südlichen Hügel von Alterac.
@@ -19,4 +18,3 @@ Unter ihnen trägt eine einzelne Löwin einen eigenen Namen.
 Such von den Hügeln der Yetis hinab bis zur Landspitze.
 = Araga, eine Berglöwin der südlichen Hügel Alteracs, von westlich der Yetihöhle hinab bis zu Gavins Landspitze.
 + Ihr Fell ist ihr eigenes: eine leichte Mähne und ein gestreifter Schwanz, wie sie keine andere Katze trägt.
-@ Araga

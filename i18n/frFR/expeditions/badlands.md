@@ -19,4 +19,3 @@ paresse au soleil, et semble dormir.
 Son immobilité en dit bien peu sur la vitesse de ses griffes.
 = Brèchedent, un couguar des Terres ingrates, qui se chauffe au soleil dans le nord, autour de la forteresse d'Angor et du site de fouilles d'Hammertoe, et jusqu'à la Terrasse des faiseurs.
 + Apprivoisé, il garde la vitesse de ces griffes, ce qui en fait un trophée prisé des chasseurs.
-@ Brèchedent

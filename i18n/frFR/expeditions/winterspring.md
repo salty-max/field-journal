@@ -10,7 +10,6 @@ Trouvez l'inventeur dont le titre vous donne une raison d'hésiter.
 = Zap Farflinger, ingénieur déséquilibré. Son plan de transport instantané commence par réduire le voyageur en morceaux, puis réassemble les particules à Long-guet.
 + Il apprend aux ingénieurs gobelins chevronnés à fabriquer le Déchiquetteur dimensionnel qui se branche sur sa machine. Aux doutes sur la sécurité, il répond que la survie passe après l'ingénierie.
 ! Calme
-@ Zap Farflinger
 
 ## quarry
 Sous le roc des Sabres-de-Givre, la robe d'un sabre met un peu de couleur dans la neige :
@@ -18,4 +17,3 @@ turquoise sous les rayures, parmi le blanc et le lavande de ses voisins.
 Fouillez les pentes et le terrain au bord du lac gelé.
 = Rak'shiri, un sabre à la robe turquoise du Berceau-de-l'Hiver, près du roc des Sabres-de-Givre.
 + Un seul autre félin porte la robe turquoise : Shy-Rotam.
-@ Rak'shiri

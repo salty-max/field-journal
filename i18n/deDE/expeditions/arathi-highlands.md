@@ -21,7 +21,6 @@ Die Geschichte wird auf einer Seite bewahrt.
 = Aufstieg der Blutelfen, in Hammerfall: Kael'thas' Hochelfen, umbenannt in Blutelfen, von der Allianz verstoßen und mit Illidan in die Scherbenwelt gezogen.
 + Vom Sonnenbrunnen abgeschnitten, hungerten sie nach Magie. Die Suche nach einem Heilmittel führte Kael'thas zu Illidan und seinen Naga.
 ! Ruhig
-@ Aufstieg der Blutelfen
 
 ## quarry
 Auf dem Hof von Northfold, zwischen den Halsabschneidern des Syndikats,
@@ -30,4 +29,3 @@ Komm ihr nah, und sie nimmt dir vielleicht für eine Weile den Verstand.
 Ihr Name ist alles, was man von ihr weiß.
 = Singer, auf dem Northfold-Anwesen, maskiert wie das Syndikat um sie herum und doch keine von ihnen.
 + Ihr Griff nach dem Verstand reicht bis zu jedem Humanoiden bis Stufe fünfundzwanzig: Wer älter kommt, über den hat sie keine Macht.
-@ Singer

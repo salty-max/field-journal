@@ -12,7 +12,6 @@ Erwisch ihn auf der Straße.
 = Zixil, Erster Händler, ein Goblin, der in Southshore wie in Tarrens Mühle handelt, mit Überwacher V. I, seinem Roboter, auf den Fersen.
 + Seine Bauanleitung lehrt einen Ingenieur, Goblin-Überbrückungskabel herzustellen, die einen gefallenen Gefährten mit einem Schlag ins Leben zurückholen können. Das Wort 'können' sollte man sich merken.
 ! Umkämpft (die Straße zwischen den beiden Städten)
-@ Zixil
 
 ## hillsbrad-foothills-gryphons
 Wo die Straße aus dem Vorgebirge zum Land der wilden Zwerge hinaufsteigt,
@@ -23,7 +22,6 @@ Erweise ihnen den Respekt eines Soldaten.
 = Granistad und Kurdros, Greifen aus Ironforge, die den Pass von Hillsbrad hinauf ins Hinterland halten.
 + Sie sind auf Stufe vierzig, an einer Straße, die die meisten Reisenden mit fünfundzwanzig hinaufsteigen: für die Horde weniger Wachen als eine Mauer.
 ! Tödlich für die Horde (zwei Greifen aus Ironforge, Stufe 40), ruhig für die Allianz
-@ Granistad
 
 ## hillsbrad-foothills-loving-memory
 Südlich der Feste der Zwerge bewahrt ein großer Stein
@@ -33,7 +31,6 @@ Jemand hat dafür gesorgt, dass er hier steht, für jemanden, den er verloren ha
 = 'Anthony Ray Stark. 1961 - 2005.'
 + Ein Denkmal, das die Schöpfer der Welt einem ihrer Freunde hinterließen. Rousch, der Zwerg, der davor steht, war seine eigene Figur im Spiel. Er hatte ihn bis über Stufe vierzig gebracht.
 ! Ruhig
-@ In liebendem Angedenken
 
 ## hillsbrad-foothills-southshore
 Ein Buch unter den Lebenden erinnert an einen Aufstand der Toten.
@@ -43,7 +40,6 @@ Such den Bericht in der Stadt an der Südküste.
 = Bürgerkrieg in den Pestländern, in Southshore: wie Sylvanas und ihre Verlassenen die Ruinen der Hauptstadt Lordaerons einnahmen, während Arthas nach Norden zog.
 + Die Straße hinauf halten die Verlassenen Tarrens Mühle: Die Aufständischen des Buches sind die Nachbarn von Southshore.
 ! Ruhig
-@ Bürgerkrieg in den Pestländern
 
 ## hillsbrad-foothills-tarren-mill
 Am Fuß der verschneiten Berge bewahren die Verlassenen eine Seite über hundert menschliche Schüler.
@@ -53,7 +49,6 @@ Finde, was ihre erste große Lektion einem Heer antat.
 = Arathor und die Trollkriege, in Tarrens Mühle: Die Schlacht wurde am Fuß des Alteracgebirges geschlagen.
 + Die Elfen lehrten hundert Menschen die Grundlagen der Magie, nicht mehr als nötig. Die Trolle erhoben sich nie wieder als ein Volk.
 ! Ruhig
-@ Arathor und die Trollkriege
 
 ## quarry
 Naga sind am östlichen Strand von Hillsbrad an Land gekommen,
@@ -62,4 +57,3 @@ und eine unter ihnen trägt den Namen einer Lady.
 Sie bleibt im Sand, wo sie gelandet sind, und ist nicht immer dort.
 = Lady Zephris, eine Naga der Säbelflossen. Selten anzutreffen: An manchen Tagen ist sie am Strand, an den meisten nicht.
 + Den westlichen Strand hinauf ist Narbenflosse von den Murlocs der Fetzenflossen nicht leichter zu finden.
-@ Lady Zephris

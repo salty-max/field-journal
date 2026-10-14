@@ -11,7 +11,6 @@ Prenez son parti.
 = Sirocco "le nageur" Plumétoile, qui menait les fend-ciel entre les îles avant le début des ennuis, et qui est cloué au sol depuis. Il jure que la forêt de Trombenoire est hantée.
 + Ce qu'il jure y avoir vu : des âmes en peine portées par le vent, des esprits de la forêt qui vous rongent les chevilles, et une terrible âme en peine tout de noir vêtue.
 ! Calme
-@ Sirocco « le nageur » Plumétoile
 
 ## zephras-isle-gustjumpers
 À l'est des pierres dressées, sur le bord sud des hautes-terres,
@@ -33,7 +32,6 @@ Laissez-le le lire sur votre visage.
 = Frère Zendraas, de Falaath. Quand le culte s'est installé, il s'est rasé la tête, a enfilé les robes grises et a dit les mots qu'on voulait entendre. Aujourd'hui il fait profil bas, et survit.
 + Il est tailleur, et il a dessiné l'essentiel de ce que porte le culte. Apportez-lui des pierres de vent en trop et il vous échangera son stock de leurs robes.
 ! Gardé (le sanctuaire même du culte, ses fanatiques de niveaux 10 et 11)
-@ Frère Zendraas
 
 ## zephras-isle-thendal-tree
 Au sommet de l'arbre de Thendal,
@@ -52,4 +50,3 @@ bien plus fort que son niveau : qui le rencontre là ne devrait pas le rencontre
 On ne le connaît que par son surnom.
 = L'Introuvable, un draconien élite de niveau six, au bord du lac Chantevent.
 + De toutes les créatures de l'île de Zéphras, c'est le seul draconien.
-@ L'Introuvable

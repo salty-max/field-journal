@@ -10,7 +10,6 @@ et de la lune, qui le libéra en échange de son amour. Trouvez le conte.
 = Le Cerf blanc et la Lune : Apa'ro, que les elfes de la nuit appellent Malorne.
 + Leur enfant fut Cenarius, qui "marcherait sur le chemin étoilé entre le monde éveillé et le royaume des cieux".
 ! Calme
-@ Le Cerf blanc et la Lune
 
 ## thunder-bluff-nibbles
 Près de la loge du chef, un tauren vend des chiens de prairie comme compagnons,
@@ -20,4 +19,3 @@ Faites sa connaissance.
 = Grignote, le propre chien de prairie de Halpa, à côté de son étal : Halpa vend des sifflets à chien de prairie à quiconque veut un ami bien à lui.
 + Grignote n'est pas à vendre.
 ! Calme
-@ Grignote

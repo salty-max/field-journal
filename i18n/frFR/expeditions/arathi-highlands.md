@@ -21,7 +21,6 @@ L'histoire est gardée sur une page.
 = La montée des elfes de sang, à Trépas-d'Orgrim : les hauts-elfes de Kael'thas, devenus elfes de sang, chassés par l'Alliance et partis en Outreterre avec Illidan.
 + Coupés du Puits de soleil, ils eurent faim de magie. C'est en cherchant un remède que Kael'thas en vint à Illidan et à ses nagas.
 ! Calme
-@ La montée des elfes de sang
 
 ## quarry
 À la ferme de Nordclos, parmi les coupe-gorge du Syndicat,
@@ -30,4 +29,3 @@ Approchez-vous et elle pourrait vous prendre l'esprit un moment.
 Son nom est tout ce qu'on sait d'elle.
 = Singer, au manoir de Nordclos, masquée comme le Syndicat qui l'entoure, et pourtant pas des leurs.
 + Son emprise sur un esprit atteint tout humanoïde jusqu'au niveau vingt-cinq : venez plus $gaguerri:aguerrie;, et elle n'a plus aucun pouvoir sur vous.
-@ Singer

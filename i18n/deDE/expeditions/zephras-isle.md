@@ -8,10 +8,9 @@ dem Wirt, laut und oft, dass er gesehen hat, was er gesehen hat.
 Niemand im Raum glaubt ihm ein Wort.
 Stell dich auf seine Seite.
 ? Das Gasthaus in Valanaar.
-= Sirocca 'Swimmers' Starfeather, der die Himmelsschiffe zwischen den Inseln steuerte, bevor die Schwierigkeiten begannen, und seither am Boden festsitzt. Er schwört, dass es im Schattenwindwald spukt.
+= Sirocca "Schwimmer" Starfeather, der die Himmelsschiffe zwischen den Inseln steuerte, bevor die Schwierigkeiten begannen, und seither am Boden festsitzt. Er schwört, dass es im Schattenwindwald spukt.
 + Was er dort gesehen haben will: vom Wind verwehte Gespenster, Waldgeister, die an den Knöcheln nagen, und ein schreckliches Gespenst ganz in Schwarz.
 ! Ruhig
-@ Sirocca 'Swimmers' Starfeather
 
 ## zephras-isle-gustjumpers
 Östlich der Menhire am südlichen Rand des Hochlands
@@ -33,7 +32,6 @@ Lass es ihn in deinem Gesicht sehen.
 = Bruder Zendraas, aus Falaath. Als der Kult einzog, schor er sich den Kopf, zog die grauen Roben an und sagte die Worte, die sie hören wollten. Jetzt zieht er den Kopf ein, und überlebt.
 + Er ist Schneider und hat das meiste entworfen, was der Kult trägt. Bring ihm übrige Windsteine, und er tauscht seinen Vorrat an ihren Roben.
 ! Bewacht (der eigene Schrein des Kults, seine Eiferer der Stufen 10 und 11)
-@ Bruder Zendraas
 
 ## zephras-isle-thendal-tree
 Oben im Baum in Thendal
@@ -41,7 +39,7 @@ sind zwei Kinder höher geklettert, als sich die Erwachsenen die Mühe machen.
 Sie beobachten etwas, von dem der Rest der Insel sagt, es sei fort.
 Sieh es mit ihnen.
 ? Thendal, im Nordwesten der Insel: den Baum hinauf.
-= Haal und Meeri, zwei Kinder aus Thendal, die von der Spitze des Baums einen Geist beobachten. Die Windgeister haben Zephras vor langer Zeit verlassen. Yala Windwatcher sagt, nur ihre geistlosen Echos seien geblieben.
+= Haal und Meeri, zwei Kinder aus Thendal, die von der Spitze des Baums einen Geist beobachten. Die Windgeister haben Zephras vor langer Zeit verlassen. Yala Windwächter sagt, nur ihre geistlosen Echos seien geblieben.
 + In denselben Ästen bewahrt ein weißer Kristall eine Aufzeichnung, Über die Shal'nan: der maskierte Anführer der Aufständischen, die aus Eldre'Thalas flohen, der sein Volk über ein Jahrhundert lang regierte und seine Macht dann an einen Rat abgab.
 ! Ruhig
 @ Haal und Meeri
@@ -52,4 +50,3 @@ weit stärker als seine Stufe: Wer ihm dort begegnet, sollte ihm nicht allein be
 Er hat keinen Namen, nur das, wie man ihn nennt.
 = Der Verlorene, ein Elite-Drachkin der Stufe sechs, am Windweisensee.
 + Von allen Geschöpfen der Insel Zephras ist er der einzige Drachkin.
-@ Der Verlorene

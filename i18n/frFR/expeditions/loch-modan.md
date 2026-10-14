@@ -22,7 +22,6 @@ Deux d'entre eux sont des orcs. C'est le troisième qu'il vous faut.
 = Haren Swifthoof, un tauren, messager de la Horde, avec Gradok et Thragomm : trois coureurs élites de la Horde qui font des tours au bord d'un lac de l'Alliance.
 + Gradok et Thragomm ont le même visage : le même orc, en double.
 ! Mortel pour l'Alliance (trois élites, niveaux 19 à 21), des amis pour la Horde
-@ Haren Swifthoof
 
 ## loch-modan-thelsamar
 L'auberge de la route du lac garde le récit d'une pierre devenue chair.
@@ -32,7 +31,6 @@ La chambre forte se trouve au sud de ce lac.
 = Ironforge - l'Eveil des Nains, à Thelsamar. La chambre forte qu'il nomme, Uldaman, se trouve au sud du Loch, dans les Terres ingrates.
 + Les nains nommèrent leur terre Khaz Modan, "Montagne de Khaz", en l'honneur du Titan Khaz'goroth, et lui bâtirent une forge au coeur de la montagne. La cité grandit autour.
 ! Calme
-@ Ironforge - l'Eveil des Nains
 
 ## quarry
 Les éclaireurs des montagnards disent que les troggs suivent un chef nommé Grawmug,
@@ -42,4 +40,3 @@ ont un chef à eux, sur la plate-forme de la fouille,
 parmi ses creuseurs et un enragé. On l'appelle le boss.
 = Boss Galgosh, chef des Brisepierres selon son propre titre : le Grawmug des éclaireurs commande dans la vallée, mais le chef de la tribu se tient au chantier.
 + Magosh, le chaman de la tribu, aussi rare à voir que le boss, se tient au même chantier, un peu à l'est de lui.
-@ Boss Galgosh

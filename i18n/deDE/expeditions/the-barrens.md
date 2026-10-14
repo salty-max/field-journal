@@ -10,7 +10,6 @@ Ihre Strafe begann eine Reise.
 = Die Verbannung der Hochelfen, in Ratchet. Verbannt, weil sie sich weigerten, der arkanen Magie abzuschwören, segelten die Hochgeborenen nach Osten und gründeten Quel'Thalas. Die Goblins bewahren ihre Geschichte. Sie ist nicht zu verkaufen.
 + Dath'Remar verspottete die Druiden als Feiglinge. Sie brachten es nicht über sich, so viele ihrer Verwandten hinzurichten, und verbannten sie stattdessen.
 ! Ruhig
-@ Die Verbannung der Hochelfen
 
 ## the-barrens-lizzarik
 Auf der Straße zwischen dem Hafen der Goblins und der Wegkreuzung der Orcs
@@ -21,7 +20,6 @@ Erwisch den Händler auf der Straße.
 = Lizzarik, ein Waffenhändler der Goblins aus Ratchet, der mit Jorb, seinem Oger-Leibwächter, die Straße nach Crossroads und zurück geht.
 + Jorb ist auf Stufe siebenunddreißig, an einer Straße, die die meisten Reisenden mit fünfzehn gehen.
 ! Ruhig auf der Straße
-@ Lizzarik
 
 ## the-barrens-tidus-stair
 Südlich des Hafens der Goblins steigen große Stufen aus uraltem Stein aus dem Meer,
@@ -42,7 +40,6 @@ und ihr kleiner Sohn spielt vor ihrer Tür. Sei freundlich.
 = Pooka und ihr Sohn Mogg, am Mor'shan-Schutzwall: eine Familie, in einem Kriegslager.
 + Über den Vater des Jungen sagt der Schutzwall nichts.
 ! Ruhig für die Horde, die Wachen des Schutzwalls für die Allianz
-@ Pooka
 
 ## the-barrens-fallen-warrior
 Nicht weit von der belebtesten Straße der Ebenen steigt ein kurzer Pfad einen Hügel hinauf
@@ -61,4 +58,3 @@ und der in der Mitte hat ein Fell, das anders ist als ihres.
 Er brüllt, wenn er verletzt wird, und der Kreis kommt angerannt.
 = Humar der Stolze Lord, ein Elite-Löwe, unter seinem Baum nordwestlich von Ratchet, sein Rudel um ihn herum.
 + Er verlässt diesen Baum nie, und so haben Jäger, die das schwarze Fell für einen Gefährten wollen, gelernt, darunter zu warten.
-@ Humar der Stolze Lord

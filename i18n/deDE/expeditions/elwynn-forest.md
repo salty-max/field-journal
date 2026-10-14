@@ -31,4 +31,3 @@ Ihr Jagdgrund liegt jenseits der Grabungen der Kobolde.
 Geh an den Kobolden vorbei, und geh weiter.
 = Giftzahnbrutmutter, eine Spinne der Jaspismine. Ein Jäger kann sie zähmen: eine gute erste Gefährtin, wenn auch eine anspruchsvolle, denn sie frisst nur Fleisch.
 + Ihr Netz hält jeden, den sie fängt, ein paar Sekunden fest, lange genug für ihren Biss.
-@ Giftzahnbrutmutter

@@ -10,7 +10,6 @@ und vom Mond, der ihn aus Liebe befreite. Finde die Geschichte.
 = Der weiße Hirsch und der Mond: Apa'ro, den die Nachtelfen Malorne nennen.
 + Ihr Kind war Cenarius, der 'auf dem Sternenpfad zwischen der erwachenden Welt und dem Königreich des Himmels' wandelte.
 ! Ruhig
-@ Der weiße Hirsch und der Mond
 
 ## thunder-bluff-nibbles
 Bei der Halle des Häuptlings verkauft ein Taure Präriehunde als Freunde
@@ -20,4 +19,3 @@ Mach seine Bekanntschaft.
 = Nibbles, Halpas eigener Präriehund, neben seinem Stand: Halpa verkauft Präriehundepfeifen an jeden, der einen eigenen Freund haben will.
 + Nibbles ist nicht zu verkaufen.
 ! Ruhig
-@ Nibbles

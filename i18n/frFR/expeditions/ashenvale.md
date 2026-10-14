@@ -12,7 +12,6 @@ Rendez-lui ce que l'on doit à un guerrier.
 = "Lok'Tar ogar, grand frère. Que le clan Warsong jamais ne disparaisse." C'est Thrall qui l'a écrit.
 + Grom fut le premier chef à boire le sang de Mannoroth, et celui qui tua le démon : "la malédiction de notre peuple a commencé et fini avec Grom."
 ! Périlleux (les serviteurs de la Légion)
-@ Monument à Grom Hellscream
 
 ## ashenvale-astranaar
 L'une des cinq figures qui veillent sur le monde reçut un devoir qu'elle ne pouvait remplir qu'en dormant.
@@ -22,7 +21,6 @@ Les quatre autres reçurent leur charge sur la même page.
 = Le fardeau des Vols draconiques, à Astranaar : les Titans confièrent le monde à cinq dragons, et donnèrent à Ysera le Rêve d'émeraude à surveiller.
 + Ysera tomba en une transe éternelle, liée au Rêve de la Création. Ses dragons verts en gardent les portes, dont le grand arbre du Bosquet du crépuscule, dans le bois de la Pénombre.
 ! Calme
-@ Le fardeau des Vols draconiques
 
 ## quarry
 Un grand ours se tient à l'est de la forêt,
@@ -30,4 +28,3 @@ rôdant autour des ruines des satyres.
 Le nom qu'il porte n'appartient à aucun satyre.
 = Ursol'lok, un ours de l'est d'Ashenvale, qui rôde autour de Satyrnaar.
 + Le nom est plus ancien que les satyres : Ursol et son jumeau Ursoc, dieux ours des furbolgs, combattirent aux côtés des elfes de la nuit pendant la guerre des Anciens.
-@ Ursol'lok

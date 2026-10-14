@@ -31,7 +31,6 @@ Frag ihn, was er jetzt davon hält.
 = Haggrum Bloodfist, in Valormok: 'Ich weiß noch, wie mein Bruder und ich allein in der Wildnis von Azshara lagerten. Und jetzt sieh es dir an.'
 + Sein Bruder ist dem Namen nach Ag'tor Bloodfist, der Arbeit genug für jeden Reisenden hat.
 ! Ruhig
-@ Haggrum Bloodfist
 
 ## quarry
 Zwischen den Ruinen eines Schreins im Südwesten
@@ -39,4 +38,3 @@ wandelt ein Geist in der Rüstung einer königlichen Garde:
 der Hauptmann, der vor zehntausend Jahren der Königin diente, nach der dieses Land benannt ist.
 = Varo'thens Geist: was von Hauptmann Varo'then übrig ist, der im Krieg der Urtume die Garde von Königin Azshara anführte.
 + Weiter östlich erinnert Ravencrests zerbrochenes Monument an einen Befehlshaber, der sich seiner Königin widersetzte. Azshara bewahrt die Überreste beider Seiten dieses Krieges.
-@ Varo'thens Geist

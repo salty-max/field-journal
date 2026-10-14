@@ -22,7 +22,6 @@ Zwei von ihnen sind Orcs. Den dritten suchst du.
 = Haren Swifthoof, ein Taure, Läufer der Horde, mit Gradok und Thragomm: drei Eliteläufer der Horde, die ihre Runden am Ufer eines Sees der Allianz drehen.
 + Gradok und Thragomm haben dasselbe Gesicht: derselbe Orc, zweimal.
 ! Tödlich für die Allianz (drei Elitegegner, Stufe 19 bis 21), Freunde der Horde
-@ Haren Swifthoof
 
 ## loch-modan-thelsamar
 Das Gasthaus an der Seestraße bewahrt einen Bericht darüber, wie Stein zu Fleisch wurde.
@@ -32,7 +31,6 @@ Das Gewölbe liegt südlich dieses Sees.
 = Ironforge - das Erwachen der Zwerge, in Thelsamar. Das Gewölbe, das es nennt, Uldaman, liegt südlich des Sees, im Ödland.
 + Die Zwerge nannten ihr Land Khaz Modan nach dem Titanen Khaz'goroth und bauten ihm eine Schmiede im Herzen des Berges. Die Stadt wuchs um sie herum.
 ! Ruhig
-@ Ironforge - das Erwachen der Zwerge
 
 ## quarry
 Die Späher der Gebirgsjäger sagen, die Troggs folgen einem Häuptling namens Grawmug,
@@ -42,4 +40,3 @@ haben einen eigenen Häuptling, auf der Plattform der Ausgrabung,
 zwischen seinen Gräbern und einem Berserker. Man nennt ihn den Boss.
 = Boss Galgosh, nach seinem eigenen Titel Häuptling der Splittersteintroggs: Der Grawmug der Späher führt im Tal, doch der Häuptling des Stammes steht an der Grabung.
 + Magosh, der Schamane des Stammes und ebenso selten zu sehen wie der Boss, bleibt an derselben Grabung, ein wenig östlich von ihm.
-@ Boss Galgosh

@@ -10,7 +10,6 @@ als sie nicht mehr zahlen konnten, was er verlangte.
 = Der Zorn des Seelenschinders, in Booty Bay. Die Gurubashi fütterten Hakkar mit Seelen und vertrieben dann den Blutgott und die Priester, die ihm noch dienten. Diese Priester flohen nach Norden in die Sümpfe.
 + Die Dunkelspeer gehörten zu den Stämmen, die nach diesem Krieg ihre eigenen Wege gingen. Und manche sprachen von einer Prophezeiung, Hakkar werde eines Tages wiedergeboren und die ganze Welt verschlingen.
 ! Ruhig
-@ Der Zorn des Seelenschinders
 
 ## stranglethorn-vale-emperors-tomb
 In den nordwestlichen Ruinen des Trollreichs, das den Süden beherrschte,
@@ -20,7 +19,6 @@ von einem seiner Imperatoren übrig ist. Finde es.
 = Das Grabmal des Imperators, in Zul'Kunda.
 + Das Reich der Gurubashi erstreckte sich einst über den ganzen Süden. Seine Nachfahren halten heute seine Ruinen, und Hakkar ist zurück in Zul'Gurub.
 ! Gefährlich (die Bloodscalp)
-@ Das Grabmal des Imperators
 
 ## stranglethorn-vale-gromgol
 Oben auf dem Turm der Horde im Dschungel verabschiedet ein Goblin die Luftschiffe nach Orgrimmar
@@ -30,7 +28,6 @@ Er gäbe viel für eine anständige Mahlzeit von zu Hause. Frag ihn.
 = Nez'raz, Zeppelinmeister in Grom'gol: Sein Bruder hat ihn zu der Handelsroute überredet und ihm das Dschungelende überlassen.
 + 'Wenn Ihr mit dem Zeppelin wieder hier vorbeikommt, könntet Ihr mir da wohl etwas zu essen mitbringen? ... Ich könnte wirklich etwas vertragen, das nicht schon Wochen, bevor es sich zu bewegen aufhörte, gestorben ist.'
 ! Ruhig
-@ Nez'raz
 
 ## quarry
 In den warmen Untiefen um die Südspitze des Dschungels
@@ -38,4 +35,3 @@ gibt es viele kleine Frenzys.
 Such den, der groß genug ist, um einen Namen zu haben.
 = Rippa, ein Frenzy der Küste um Booty Bay: ein Fisch mit Namen, ausgerechnet.
 + Er frisst, während er schwimmt: Oft findet man einen rohen Stoppelfühlerwels in ihm.
-@ Rippa

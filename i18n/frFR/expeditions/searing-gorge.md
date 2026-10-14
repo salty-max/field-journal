@@ -30,4 +30,3 @@ Le feu brûle à ses sabots,
 mais il n'a pas de cavalier sur le dos.
 = Shleipnarr, un palefroi corrompu sans démoniste pour le monter, qui erre au site de fouilles de Crasseboue.
 + Ce qu'il laisse derrière lui, c'est du crin, de longs crins de queue et des brins plus fins : un démon, et pourtant toujours un cheval.
-@ Shleipnarr

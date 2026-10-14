@@ -21,7 +21,6 @@ La veille que ces femmes ont tenue a commencé avec cette séparation.
 = Les Sentinelles et la longue veille, à Feathermoon : les guerrières de Tyrande, vouées à la défense de Kalimdor pendant que les druides dormaient dans le Rêve d'émeraude.
 + Malfurion jura qu'ils ne seraient jamais séparés, tant qu'ils resteraient fidèles à leur amour. Les siècles passèrent, et Tyrande craignit le retour de la Légion.
 ! Calme
-@ Les Sentinelles et la longue veille
 
 ## quarry
 Sous les deux grands piliers de pierre du nord,
@@ -29,4 +28,3 @@ des élémentaires de terre se tiennent dans les collines.
 Un serpent des vents tourne autour d'eux, encore et encore, comme s'il était leur gardien.
 = Arash-ethis, un serpent des vents, qui tourne autour des élémentaires de terre des Colosses jumeaux.
 + Sa foudre saute de celui qu'elle frappe à quiconque se tient près de lui.
-@ Arash-ethis

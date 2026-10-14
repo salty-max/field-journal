@@ -10,7 +10,6 @@ Ceux à qui il a appris tout ce qu'il sait, il les envoie à elle. Demandez-lui 
 = Hgarth, enchanteur de rang artisan, à la retraite de Roche-Soleil : "Il n'existe qu'une personne dont les compétences dépassent les miennes. Son nom est Annora, et vous la trouverez à Uldaman."
 + Annora se tient dans les salles d'Uldaman, sous les Terres ingrates, parmi ses troggs et ses morts : une étrange demeure pour la meilleure enchanteresse du monde.
 ! Calme
-@ Hgarth
 
 ## quarry
 Dans le val que le feu a pris, certains arbres marchent encore.
@@ -18,4 +17,3 @@ Parmi les anciens calcinés,
 cherchez celui dont le nom promet une réponse à l'incendie.
 = L'Ancien vengeur, un tréant du Val calciné, parmi ses anciens calcinés.
 + Le val brûle toujours : des esprits de flamme et des destructeurs ardents l'arpentent, et les anciens marchent parmi eux.
-@ Ancien vengeur

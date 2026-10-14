@@ -10,4 +10,3 @@ Bitte die Elfe um einen Flug, und hör, was sie den meisten sagt, die fragen.
 = Silva Fil'naveth und Bunthen Plainswind, Flugmeister von Nighthaven: 'Ihr seid kein Druide!'
 + Sie fliegen nur Druiden, und nur in eine Richtung: sie nach Rut'theran, er nach Thunder Bluff, und jeder schickt dich für den anderen Weg zum anderen.
 ! Ruhig
-@ Silva Fil'naveth

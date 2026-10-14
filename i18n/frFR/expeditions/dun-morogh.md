@@ -11,7 +11,6 @@ Trouvez ce qu'il a gravé à côté.
 = "Cette enclume est la propriété de Jordan Stilwell. NE PAS utiliser !" Forgefer compte un grand nombre d'enclumes. Celle-ci est prise.
 + Jordan Stilwell n'est pas un nain : c'est un forgeron humain qui a une maison à Longrivage, dans la Marche de l'Ouest, qui voulait devenir paladin avant que la forge ne l'emporte, et qui est venu travailler auprès des nains pendant que sa femme, Daphné, l'attendait au bord de la mer. Les paladins qui réussissent ses épreuves portent un marteau qu'il forge et nomme d'après un paladin nain qu'il appelait son ami.
 ! Calme
-@ Note gravée
 
 ## dun-morogh-tog
 Dans la ville des brasseurs, au coeur des neiges,
@@ -22,7 +21,6 @@ Trouvez-le, et laissez-le vous raconter ça.
 = Tog Rustsprocket, de Kharanos : "Si seulement la neige pouvait fondre complètement. Elle mouille constamment ma robe et salit tout !"
 + Il garde un message pour les démonistes qui passent par là, et les envoie à Lago Blackwrench.
 ! Calme
-@ Tog Rustsprocket
 
 ## dun-morogh-range
 Sur la route qui sort de la vallée où débutent les jeunes nains,
@@ -44,7 +42,6 @@ Calmez le jeu, avant qu'il ne s'enfuie encore.
 = Tout-doux, un lapin, et Yarlyn Amberstill, qui lui court après autour de l'enclos des béliers en criant : "Allons Tout-doux ! Je veux juste te donner un bain !"
 + Ses autres offres, en nain : "Des carottes tous les jours pendant un an si tu arrêtes !" Et, quand ça ne marche pas : "Ne me pousse pas à aller chercher mon papi pour t'attraper ! Il aime attraper les lapins avec son fusil !"
 ! Calme
-@ Tout-doux
 
 ## quarry
 Sur l'île au milieu du lac gelé, au nord-ouest,
@@ -53,4 +50,3 @@ Engagez-le dans un combat et il en amènera d'autres.
 Éclaircissez d'abord les rangs de la meute.
 = Grumeux, un loup blanc, et très probablement le chef de la meute du lac glacial. Il est le seul à porter les Brassards bordés d'argent et les Gants du loup blanc.
 + Il est de niveau dix, quand un chasseur apprend à dresser : un nain ou un gnome peut en faire son premier compagnon.
-@ Grumeux

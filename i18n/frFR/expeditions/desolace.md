@@ -20,7 +20,6 @@ Certains des chevaux qui s'y trouvent sont encore des chevaux. Soyez $gbon:bonne
 = Le ravin de Brèche-de-l'Ombre : le camp caché de la Lame ardente, son cercle enchaîné, ses destriers démoniaques, et deux étalons capturés dans l'écurie à côté.
 + D'où viennent les étalons, personne ne le sait. Ce que le culte compte en faire, les destriers démoniaques à côté d'eux le laissent deviner.
 ! Périlleux (invocateurs de la Lame ardente et chasseurs ley, niveaux 38 à 40)
-@ Etalon capturé
 
 ## quarry
 Au nord du cimetière où les kodos vont mourir,
@@ -28,4 +27,3 @@ un basilic chasse dans la poussière.
 Cherchez-le au-delà des os, là où les troupeaux morts laissent place à l'étendue nue.
 = Hissperak, un basilic aperçu au nord du Cimetière des kodos.
 + On l'a aussi rencontré à l'ouest, vers la vallée des Lances.
-@ Hissperak

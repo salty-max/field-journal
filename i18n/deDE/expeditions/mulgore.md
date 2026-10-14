@@ -21,7 +21,6 @@ und endet mit zwei Königen an einer Bergstraße.
 = Krieg der drei Hämmer, an der Grabungsstätte von Bael'dun: ein Außenposten der vierhundertfünfzig Zwerge, die in Bael Modan graben. Die Tauren sehen die Grabung als Beleidigung der Erdenmutter.
 + Brann Bronzebeard, so heißt es, besuchte die Grabung und ging weiter nach Thunder Bluff, um vorzuschlagen, dass Tauren neben den Zwergen arbeiten, damit für das Land gesorgt wird.
 ! Bewacht (die Zwerge von Bael'dun)
-@ Krieg der drei Hämmer
 
 ## quarry
 Im goldenen Gras östlich des Felsens jagt ein Löwe allein,
@@ -29,4 +28,3 @@ schneller mit den Krallen als die anderen Katzen der Ebenen.
 Die Jäger des Felsens würden ihn lieber zähmen als häuten.
 = Der Kratzer, ein Löwe der goldenen Ebenen. Er schlägt schneller zu als fast jedes Tier, das ein Jäger zähmen kann, was ihn zu einem der häufigsten Gefährten im Land machte.
 + Außerhalb der goldenen Ebenen, der wertvollsten Jagdgründe der Tauren, ist man ihm nirgends begegnet.
-@ Der Kratzer

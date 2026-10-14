@@ -23,7 +23,6 @@ Sei freundlich zu ihm.
 = Der Gefangene Diener von Azora, ein Gnom aus dem Turm in Elwynn, angekettet im Lager der Blackrock und noch immer Händler für Schneiderbedarf.
 + Er hat von jedem Umhang nur einen: Inferno-Umhang, Umhang des Willens und Sylvanumhang. Der Inferno-Umhang schützt vor Feuer, nützlich genug in einem Tal, das die Blackrock halten.
 ! Gefährlich (das Lager der Blackrock um ihn herum, Stufe 19 bis 23)
-@ Gefangener Diener von Azora
 
 ## redridge-mountains-lakeshire
 Finde im Gasthaus der Seestadt die tödliche Gewissheit eines Königs: Seine Mauern würden halten.
@@ -33,7 +32,6 @@ Der Bericht wartet auf einer Seite.
 = Das Dunkle Portal und der Untergang von Stormwind. Llane hielt seine Hauptstadt, sicher, dass die Orcs sie nie einnehmen könnten. Garona tötete ihn, als sie fiel.
 + Im selben Buch ein Orcsäugling, Durotans Sohn, von einem menschlichen Offizier namens Blackmoore gefunden und als Sklave genommen: 'Dieser kleine Orc sollte eines Tages zum größten Führer werden, den sein Volk je gekannt hatte.'
 ! Ruhig
-@ Das Dunkle Portal und der Untergang von Stormwind
 
 ## quarry
 Östlich der Fälle unterhalb von Steinwacht
@@ -41,4 +39,3 @@ steigt ein Pass in die Berge hinauf.
 Ein Hügelriese geht ihn hinauf und zurück, allein.
 = Felsenherz, ein Hügelriese im Pass östlich der Steinwachtfälle.
 + Er ist der einzige Riese des Rotkammgebirges und kommt nie vom Pass hinab zur Seestraße.
-@ Felsenherz

@@ -10,7 +10,6 @@ Sein Werk begann in einer Stadt im Norden, die den Lebenden nun verloren ist.
 = Erzbischof Alonsus Faol, 'Gütiger Schutzherr der Kirche des Lichts'. Sein Werk begann in Stratholme. Nach dem Zweiten Krieg half er, die Bruderschaft von Nordhain neu zu ordnen, und sammelte Mittel für den Wiederaufbau von Stormwind.
 + 'Diese Kathedrale steht jetzt nicht nur hier als Bastion des Heiligen Lichts, sondern als das dauerhafte Testament an den edlen Geist und die Großzügigkeit eines ganz besonderen Mannes.' Seine Ruhestätte liegt weit im Norden, neben dem Scharlachroten Kloster.
 ! Ruhig
-@ Erzbischof Alonsus Faol
 
 ## stormwind-city-khadgar-plaque
 Unter den Gedenktafeln für jene, die durch das dunkle Tor gingen,
@@ -20,7 +19,6 @@ Füge dem eingemeißelten Wunsch deinen eigenen hinzu, für einen Wanderer, der 
 = Erzmagier Khadgar von den Kirin Tor: 'Vermutlich gefallen.'
 + 'Noch nie hat sich jemand so selbstlos ins finstere Herz von Magie und Krieg begeben. Wir wünschen euch alles Gute, kühner Wanderer. Wo immer Ihr auch seid.' - Antonidas, Erzmagier von Dalaran.
 ! Ruhig
-@ Erzmagier Khadgar von den Kirin Tor
 
 ## stormwind-city-horatio
 Irgendwo in der Stadt hat ein dankbarer Schüler ein Denkmal errichtet
@@ -31,4 +29,3 @@ Seine Tafel nennt eines seiner Talente außergewöhnlich. Ehre ihn damit.
 = 'Im Andenken an meinen teuren Mentor, Horatio M. Montgomery, promovierter Heiler, Lehrer, Freund.'
 + "Es gibt sehr viele Kranke und Müde auf der Welt. Unsere Aufgabe als Heiler, NEE, als Männer und Frauen der Medizin, ist es, sie alle von der 'itis' zu heilen." - Prof. Dr. Dr. h. c. Großmeisterbauer, Tänzer extraordinaire, Freund der Tiere.
 ! Ruhig
-@ Dr. Horatio Montgomery

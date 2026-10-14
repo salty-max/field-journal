@@ -11,7 +11,6 @@ Passez dessous, et soyez aussi $gimpressionné:impressionnée; que les conteurs.
 = Le squelette de Grincedents, une réplique à l'échelle.
 + "Le bélier légendaire était une des merveilles de Khaz Modan et peuple de sa présence le folklore des nains."
 ! Calme
-@ Squelette de Grincedents
 
 ## ironforge-tyrannistrasz
 Après la chute de Grim Batol, les Paluns livrèrent les restes de quelque chose d'immense,
@@ -22,7 +21,6 @@ le plus ancien de ses compagnons. Apprenez à qui c'était.
 = Le crâne de Tyrannistrasz.
 + Ses restes furent trouvés dans les Paluns peu après la bataille de Grim Batol, où les Dragonmaw avaient tenu Alexstrasza captive.
 ! Calme
-@ Le crâne de Tyrannistrasz
 
 ## ironforge-great-forge
 Au coeur de la cité des nains, près de la grande forge qui lui donne son nom,
@@ -32,4 +30,3 @@ qu'un forgeron doit choisir une voie, et jamais l'autre. Demandez-lui.
 = Myolor Sunderfury, gardien de la Grande forge : "Vous pouvez choisir entre deux voies : Fabricant d'armes ou fabricant d'armures."
 + "Faites attention, une fois que vous aurez choisi une voie, vous ne pourrez plus changer d'avis. La discipline requise par chaque voie ne laisse pas de place aux mélanges."
 ! Calme
-@ Myolor Sunderfury

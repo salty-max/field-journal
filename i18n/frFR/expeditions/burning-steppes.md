@@ -31,7 +31,6 @@ en toussant sans arrêt. Soyez $ggentil:gentille; avec lui, et écoutez-le jusqu
 = Opus, le perroquet de Kibler, à la Corniche des flammes : "GROA !! *tousse* *tousse* Faut que j'arrête de fumer."
 + Il en sait plus qu'il ne devrait : "Le G.E.T.A. mène une enquête sur Kibler." Et : "Ils vont tous au Pic, mais ils ne reviennent jamais... Tout comme Bijou."
 ! Calme
-@ Opus
 
 ## quarry
 Quelque chose arpente l'est de la plaine brûlante, autour du rocher des ogres,
@@ -39,4 +38,3 @@ passe la cité en ruine et descend vers la veille des nains, puis revient :
 un géant de pierre en fusion, qui porte les plans d'un forgeron pour un marteau du même feu.
 = Volchan, un géant de magma élite qui arpente l'est des steppes Ardentes : le seul à porter les Plans : Marteau volcanique.
 + Les autres géants de magma se tiennent au fond du mont Rochenoire, dans le Cœur du Magma, parmi les serviteurs de Ragnaros. Volchan, lui, marche à ciel ouvert.
-@ Volchan

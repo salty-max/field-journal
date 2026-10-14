@@ -10,7 +10,6 @@ Die Geschichte seiner Gemeinde steht unter den Büchern der Kräuterkundigen.
 = Kel'Thuzad und das Entstehen der Geißel. Der frühere Erzmagier gründete den Kult der Verdammten, um Ner'zhul zu dienen, und nannte die Untoten, die sich aus der Seuche erhoben, die Geißel.
 + 'Es fiel Kel'Thuzad überraschend leicht, dieses Ziel zu erreichen: den Glauben der Bürger an das Heilige Licht zum Glauben an Ner'zhuls dunklen Schatten zu verwandeln.'
 ! Ruhig
-@ Kel'Thuzad und das Entstehen der Geißel
 
 ## undercity-theresa
 Im Viertel der Soldaten der Stadt stehen drei Verlassene um eine lebende Frau,
@@ -20,7 +19,6 @@ und sie kommt immer zurück. Lass dein Gesicht sagen, was du davon hältst.
 = Theresa, Gerard Abernathys Gedankensklavin: 'Theresa, bringt dies zu Vater Lankester.' 'Ja, mein Herr.'
 + 'Ich habe entdeckt, dass die Entfernung oder Stimulierung gewisser Teile des Gehirns ein Subjekt noch unterwürfiger machen können.' Selbst seine Gefährten fragen ihn, wie er das gemacht hat.
 ! Ruhig
-@ Theresa
 
 ## undercity-terenas
 Über der Stadt, in dem, was vom Palastgarten übrig ist, liegt der letzte wahre König
@@ -30,4 +28,3 @@ nicht ihm zur Last zu legen. Erweise ihm den Respekt, den sein Sohn ihm verweige
 = 'Hier ruht König Terenas Menethil II. - der letzte wahre König von Lordaeron. Groß waren seine Taten - lang währte seine Herrschaft - undenkbar schien sein Tod.'
 + 'Möge der Vater unschuldig an des Sohnes Taten ruhen. Möge die blutige Krone verloren und vergessen bleiben.'
 ! Ruhig
-@ Hier ruht König Terenas Menethil II.

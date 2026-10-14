@@ -30,4 +30,3 @@ Feuer brennt an seinen Hufen,
 doch kein Reiter sitzt auf seinem Rücken.
 = Shleipnarr, ein Teufelsross ohne Hexenmeister, der es reitet, streift durch die Grimesilt-Grabungsstätte.
 + Was es zurücklässt, ist Rosshaar, langes Haar vom Schweif und feinere lose Strähnen: ein Dämon, und doch ein Pferd.
-@ Shleipnarr

@@ -10,7 +10,6 @@ Sie glaubte, die Gefahr gebannt zu haben. Die Seite erinnert sich, was ihr nach 
 = Aegwynn und die Drachenjagd, auf dem Regal der Saldeans. Ein Bauernhaus ist ein seltsamer Ort für die Geschichte der Wächterin, die Sargeras' Körper niederstreckte.
 + Sie erfuhr nie, dass sie getan hatte, was er plante: Sein Geist ging in sie über und verbarg sich viele Jahre lang in ihrer Seele.
 ! Ruhig
-@ Aegwynn und die Drachenjagd
 
 ## westfall-dead-acre
 Im Südosten, nahe der Brücke in den dunklen Wald,
@@ -29,4 +28,3 @@ irgendwo zwischen dem Kürbishof im Norden und den Staubebenen im Süden.
 Sein Sturzflug lässt dich taumeln.
 = Vultros, ein Aasvogel der Stufe 26, weit stärker als die gewöhnlichen Aasfresser von Westfall.
 + Man hat ihn auch bei Stendels Tümpel, bei der Späherkuppe und beim Todesacker gesehen, ebenso auf den nördlichen Höfen und im südlichen Staub.
-@ Vultros

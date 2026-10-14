@@ -56,8 +56,20 @@ export function veil(text: string, id: string, back = false) {
   return bytes.toString("utf8");
 }
 
-type Spot = { zone: number; of: string; hint: number[]; name: string; spots?: number[][]; r?: number; npc?: number; areas?: number[]; face?: number };
-type Haunts = { id: number; name: string; haunts: number[][] };
+type Spot = {
+  zone: number;
+  of: string;
+  hint: number[];
+  name: string;
+  // (its name in every other language, the game's own, where the answer is the thing's own name)
+  names?: Record<string, string>;
+  spots?: number[][];
+  r?: number;
+  npc?: number;
+  areas?: number[];
+  face?: number;
+};
+type Haunts = { id: number; name: string; names?: Record<string, string>; haunts: number[][] };
 type Data = {
   zones: Record<string, { w: number; h: number; areas: number[] }>;
   riddles: Record<string, Spot>;

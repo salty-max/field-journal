@@ -10,7 +10,6 @@ Jedes Rennen braucht Publikum. Sei es.
 = Daisy, das Startmädchen der Illusionenrennbahn, mit Fobeed, dem Oger, und Zuzubee, die die Rennen ansagen.
 + Die Rennfahrer kommen und gehen. Die Flagge, die Stimme des Ogers und das Salz bleiben.
 ! Ruhig
-@ Daisy
 
 ## quarry
 Ein Zentaur, den man den Verbannten nennt, kreist über die Hochebenen im Westen der Schluchten,
@@ -18,4 +17,3 @@ zwischen den Höhen der Wyvern und der kreischenden Schlucht.
 Drei Hunde halten sich an seinen Fersen.
 = Achellios der Verbannte, ein Zentaur, der mit drei Rudelhunden der Galak über die Hochebenen zwischen dem Steilhang und der Kreischenden Schlucht kreist.
 + Die Hunde der Galak folgen ihm noch immer, wer auch immer ihn verbannt hat.
-@ Achellios der Verbannte

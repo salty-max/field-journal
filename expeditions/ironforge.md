@@ -10,7 +10,6 @@ riddles:
   - id: ironforge-toothgnasher
     tier: off
     gestures: [AMAZE, AWE, WHOA, GASP]
-    name: Toothgnasher's Skeleton
     object: 175683   # dump 74.3, 21.1; Wowhead's page alike
     hint_area: { x: 78.3, y: 21.6, r: 8 }
     danger: "Quiet"

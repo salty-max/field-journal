@@ -11,7 +11,6 @@ Erweise ihm den Respekt, den seine Jahre verdient haben.
 = Rokar Bladeshadow, ein betagter Orc-Bauer, und Harroc, sein Knecht: 'Was führt einen jungen Spund wie dich zu einem alten Bauern wie mir?'
 + Harroc arbeitet draußen im Garten. Rokar bleibt im Haus, und bei dem, was er war, bevor er Bauer wurde.
 ! Ruhig (Eber und Raptoren in der Nähe)
-@ Rokar Bladeshadow
 
 ## durotar-tiragarde
 Finde in der zurückeroberten Burg an der roten Küste die Häuptlinge, die versammelt sind, um aus einem Becher zu trinken.
@@ -21,7 +20,6 @@ Das neue Land seines Sohnes liegt vor diesen Mauern.
 = Aufstieg der Horde, in Burg Tiragarde. Das Buch schreibt Durotan zu, Mannoroths Blut verweigert zu haben. Das Land vor den Mauern trägt seinen Namen.
 + Die Burg wurde von Admiral Prachtmeers Leuten errichtet, die über das Meer kamen, um die Horde in ihrem neuen Land zu vernichten. Sie gehört ihnen noch immer.
 ! Bewacht (Soldaten von Kul Tiras)
-@ Aufstieg der Horde
 
 ## quarry
 Westlich der Straße haben die Stacheleber der Grimmhauer eigenes Land eingenommen
@@ -30,4 +28,3 @@ Der Captain unter ihnen ist die erste echte Gefahr, der viele junge Orcs und Tro
 und die meisten unterschätzen ihn nur ein einziges Mal.
 = Captain Stumpfhauer, von den Grimmhauern: ein Elitegegner, vor dem die Jungen von Durotar auf die harte Tour Respekt lernen.
 + Geolord Mottle, ein Schamane der Stacheleber mit einer Welle der Heilung und einem Blitzschlagschild, bewohnt dieselben Hütten.
-@ Captain Stumpfhauer

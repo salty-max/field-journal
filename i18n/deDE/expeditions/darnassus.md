@@ -10,7 +10,6 @@ Frag sie, welcher es ist.
 = Ainethil, Alchimiefachfrau: 'Das lässt nur eine Schlussfolgerung zu: Die Pflanzen verändern sich. Aber warum und in was, kann ich nicht sagen.'
 + Die Chroniken dieser Stadt erzählen, wie drei Drachen den ersten Weltenbaum segneten, damit sein Volk nie altere und nie erkranke. Von dem Baum, in dem sie heute leben, sagen sie nichts dergleichen.
 ! Ruhig
-@ Ainethil
 
 ## darnassus-darianna
 Auf der Terrasse der Handwerker kann eine junge Lederverarbeiterin bei ihren Lektionen kaum stillhalten
@@ -20,7 +19,6 @@ Ihr Lehrer fürchtet, dass sie es tun werden. Wünsch ihr alles Gute.
 = Darianna, Lederverarbeitungsgesellin: 'Und wenn ich sehr viel Glück habe, bittet mich die Schildwache vielleicht, ihren Streitkräften an der Front beizutreten!'
 + Faldron, ihr Lehrer: 'Mit ihrer Kraft und Beweglichkeit fürchte ich, dass es nicht lange dauert, bis sie zum Kampf gerufen wird. Wir müssen sie schnell ausbilden.'
 ! Ruhig
-@ Darianna
 
 ## darnassus-world-tree
 Unter den Chroniken dieser Stadt erzählt eine von einem Handel, bezahlt mit Jahrhunderten des Schlafs.
@@ -30,4 +28,3 @@ Der Preis und das Versprechen teilen sich eine Seite.
 = Der Weltbaum und der Smaragdgrüne Traum: Nordrassil, 'Krone des Himmels'. Drei Drachen segneten den Baum. Die Nachtelfen erhielten die Unsterblichkeit, und ihre Druiden willigten in lange Jahre des Schlafs in Yseras Traum ein.
 + 'Es bekümmerte die Druiden zwar, so viele Jahre ihres Lebens für den Großen Schlaf zu opfern, aber sie hielten sich selbstlos an ihren Teil der Abmachung mit Ysera.'
 ! Ruhig
-@ Der Weltbaum und der Smaragdgrüne Traum

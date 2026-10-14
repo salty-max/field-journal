@@ -18,4 +18,3 @@ brennt noch eine Höllenbestie.
 Such den Dämon mit Namen zwischen den Wunden des Waldes.
 = Korruptus, eine Elite-Höllenbestie im Shatter Scar-Tal.
 + Wenn das Feuer aus ihm weicht, bleibt Stein zurück: meist lebloser Stein, manchmal Salz aus tiefem Gestein oder ein Erdkern.
-@ Korruptus

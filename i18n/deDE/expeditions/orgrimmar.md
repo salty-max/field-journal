@@ -10,7 +10,6 @@ besiegt durch die Tat eines tapferen Orcs. Finde sie.
 = Die Rüstung von Mannoroth.
 + 'Mögen uns diese Platten daran erinnern, wie weit wir gekommen sind und wie hart wir kämpften, um unsere Ehre zurückzuerobern.' - Thrall. Groms Denkmal steht in Ashenvale, wo er starb.
 ! Ruhig
-@ Die Rüstung von Mannoroth
 
 ## orgrimmar-orphanage
 In der Gasse, zwischen den Läden und dem Geschrei, unterhält die Stadt ein Waisenhaus,
@@ -20,4 +19,3 @@ Sei freundlich zu den Kleinen.
 = Das Waisenhaus von Orgrimmar: die Waisen der Stadt, Waisenmatrone Battlewail und Tosamina, die mit den Kindern eine harte Hand hat.
 + Einmal im Jahr, in der Kinderwoche, sucht die Matrone Reisende, die einer Waise die Welt zeigen.
 ! Ruhig
-@ Tosamina

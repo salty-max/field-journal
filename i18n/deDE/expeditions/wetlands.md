@@ -12,7 +12,6 @@ Klopf an ihre Tür.
 = Wenna Silkbeard, eine Zwergin, und Fradd Swiftgear, ein Gnom, in ihrem Steinhaus in den Sonnenwendmarschen. Fradds Pläne: ein Liebevoll hergestelltes Schießeisen und ein Schwacher Rekombobulator.
 + Fradds kleineres Gerät stellt etwas Gesundheit und Mana wieder her, doch sein besonderes Talent ist es, ein Schaf wieder in einen Reisenden zu verwandeln. Ein Ingenieur muss nicht warten, bis der Zauber des Magiers verfliegt.
 ! Bewacht (Krokilisken, Sumpfungeheuer und Raptoren ringsum)
-@ Wenna Silkbeard
 
 ## wetlands-terl
 Nördlich der alten Grabung, draußen in der Marsch, wo die Raptoren jagen,
@@ -22,7 +21,6 @@ Frag ihn, was er dort tut. Er hat eine Antwort, und er wird sie brüllen.
 = Terl Arakor, allein in der Marsch: 'Das ist MEIN WAGEN! MEINER!'
 + Er steht zur Allianz: Ein Reisender der Horde bekommt von ihm keine Antwort, nur einen Kampf.
 ! Bewacht (scheckige Raptoren), und für die Horde Terl selbst
-@ Terl Arakor
 
 ## wetlands-menethil
 Der Hafen bewahrt einen Bericht über ein Gefängnis hoch über der Marsch.
@@ -32,7 +30,6 @@ Finde die Seite, die erzählt, wie sie befreit wurde.
 = Die Schlacht von Grim Batol, im Hafen von Menethil. Die Orcs der Dragonmaw hielten Alexstrasza im Berg am östlichen Rand des Sumpflands gefangen. Einmal frei, zerstörten sie und die anderen großen Drachen ihre Festung.
 + Grim Batol war zuerst eine Feste der Wildhammer, 'manche sagen, verflucht'. Eine kleine Schar unter dem Magier Rhonin zerstörte die Dämonenseele und befreite Alexstrasza.
 ! Ruhig
-@ Die Schlacht von Grim Batol
 
 ## quarry
 Im Osten des Sumpflands hat ein Grat der Raptoren eine Höhle.
@@ -40,4 +37,3 @@ Such die Matriarchin unter der Brut der Hochland- und der alten Scharfzähne.
 Ihre Mutter hält kein leeres Haus.
 = Die Scharfzahnmatriarchin, Stufe 31, in der Höhle am Raptorgrat, mit ihren Hochlandscharfzähnen und Alten Scharfzähnen.
 + Sie entfernt sich nie weit von ihrer Brut: die Höhle und der Hang davor.
-@ Scharfzahnmatriarchin
