@@ -270,6 +270,7 @@ riddles:
     tier: near
     reading: <a book's title>             # optional: a book or plaque read there
     gestures: [EMOTE, ...]                # optional: the emotes' tokens it accepts, the story's own first
+    companions: [CREATURE_ID, ...]        # optional: other members of a gesture's group that count as targets
     night: false                          # optional
     object: <id>                          # the spot: a game object of the dump, or
     area: <a sub-area>                    # a named sub-area of the game's, or
@@ -350,7 +351,10 @@ remains for anyone to confirm a spot in passing; no riddle waits on it.
   cited beside it in the file; no invented sights (colours, weather, what
   stands where) beyond what the game shows.
 - Fair: the verse alone should lead an attentive player there; the first
-  hint, a newcomer.
+  hint, a newcomer. If solving also needs an action, the verse must suggest
+  that action, and the paid hint must help with it as well as the location.
+  The hint may name an ordinary action, without giving a slash command.
+  Do not make a player spend a seal to learn only a place they already found.
 - A gesture or a reading only where the thing calls for it, and the one the
   story itself asks for, never named in the verse (no "kneel by him", no
   "smell the powder"): the story leads to it and the reader guesses it.

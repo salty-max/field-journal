@@ -34,7 +34,7 @@ riddles:
 A city rebuilt remembers the man who helped pay for it.
 Seek his plaque in the cathedral he made possible.
 His work began in a northern city now lost to the living.
-? The Cathedral of Light, in Cathedral Square.
+? The Cathedral of Light, in Cathedral Square. Read the archbishop's plaque inside the cathedral.
 = Archbishop Alonsus Faol, 'benevolent patron of the Church of Light'. His work began in Stratholme. After the Second War he helped reform the Brotherhood of Northshire and raised funds to rebuild Stormwind.
 + 'This Cathedral stands not only as a bastion of the Holy Light, but as a lasting testament to one man's noble spirit and generosity.' His resting place is far to the north, beside the Scarlet Monastery.
 
@@ -42,7 +42,7 @@ His work began in a northern city now lost to the living.
 Among the memorials to those who went through the dark gate,
 one plaque presumes its hero dead, then wishes him well on his travels.
 Add your wish to the one carved there, for a wanderer who might yet come home.
-? Among the memorials to the Alliance Expedition, in the city.
+? Among the memorials to the Alliance Expedition, in the city. At the memorial, wish the absent traveller good luck with an emote.
 = Archmage Khadgar of the Kirin Tor: 'Presumed deceased.'
 + 'Never did one so selflessly delve into the dark heart of magic and warfare. We wish you well, bold wanderer. Wherever you are.' - Antonidas, Archmage of Dalaran.
 
@@ -51,6 +51,6 @@ Somewhere in the city, a grateful student set up a memorial
 to a healer, teacher and friend who believed it was a healer's duty
 to cleanse the sick and weary of every last ailment.
 His plaque calls one of his talents extraordinary. Honour him with it.
-? Seek among the city's healers.
+? Seek among the city's healers. Read the plaque for the talent called extraordinary, then honour him with a dance.
 = 'In memory of my dear mentor, Horatio M. Montgomery, M.D. Healer, Teacher, Friend.'
 + 'The world is full of the sick and weary. It is our job, as healers, NAY, as men and women of medicine, to cleanse them ALL of the itis.' - H.M.M., M.D., PhD, JD, Grandmaster Farmer, Dancer Extraordinaire, Friend to the Animals.

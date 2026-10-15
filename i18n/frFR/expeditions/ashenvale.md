@@ -1,5 +1,5 @@
 ---
-source: 89dec6a2160b
+source: 8bd9dafd9c6d
 zone: 1440
 ---
 ## ashenvale-grom
@@ -8,7 +8,7 @@ un chef de guerre a gravé des mots pour son grand frère,
 dont le nom voulait dire coeur de géant,
 qui se dressa seul devant le démon et paya de son sang la liberté de son peuple.
 Rendez-lui ce que l'on doit à un guerrier.
-? Le canyon de la Malechute, au sud-est d'Ashenvale.
+? Le canyon de la Malechute, au sud-est d'Ashenvale. Devant le monument, saluez le guerrier tombé, inclinez-vous ou posez un genou à terre.
 = "Lok'Tar ogar, grand frère. Que le clan Warsong jamais ne disparaisse." C'est Thrall qui l'a écrit.
 + Grom fut le premier chef à boire le sang de Mannoroth, et celui qui tua le démon : "la malédiction de notre peuple a commencé et fini avec Grom."
 ! Périlleux (les serviteurs de la Légion)
@@ -17,7 +17,7 @@ Rendez-lui ce que l'on doit à un guerrier.
 L'une des cinq figures qui veillent sur le monde reçut un devoir qu'elle ne pouvait remplir qu'en dormant.
 Dans la ville des sentinelles au bord du lac, trouvez la page qui nomme sa charge.
 Les quatre autres reçurent leur charge sur la même page.
-? Astranaar.
+? Astranaar. Lisez le livre qui raconte les devoirs des cinq vols draconiques.
 = Le fardeau des Vols draconiques, à Astranaar : les Titans confièrent le monde à cinq dragons, et donnèrent à Ysera le Rêve d'émeraude à surveiller.
 + Ysera tomba en une transe éternelle, liée au Rêve de la Création. Ses dragons verts en gardent les portes, dont le grand arbre du Bosquet du crépuscule, dans le bois de la Pénombre.
 ! Calme

@@ -1,12 +1,12 @@
 ---
-source: 4acf3a888b2b
+source: 1a17088c1e46
 zone: 1452
 ---
 ## winterspring-farflinger
 Dans la ville gobeline au milieu de la neige, un ingénieur a terminé une machine
 et attend que quelqu'un d'autre l'essaie.
-Trouvez l'inventeur dont le titre vous donne une raison d'hésiter.
-? Long-guet.
+Trouvez l'inventeur dont le titre vous donne une raison d'hésiter, et demandez-lui de vous parler de sa machine.
+? Long-guet. Parlez à l'ingénieur. Vous n'avez pas besoin d'utiliser sa machine.
 = Zap Farflinger, ingénieur déséquilibré. Son plan de transport instantané commence par réduire le voyageur en morceaux, puis réassemble les particules à Long-guet.
 + Il apprend aux ingénieurs gobelins chevronnés à fabriquer le Déchiquetteur dimensionnel qui se branche sur sa machine. Aux doutes sur la sécurité, il répond que la survie passe après l'ingénierie.
 ! Calme

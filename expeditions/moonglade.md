@@ -19,6 +19,6 @@ riddles:
 In the druids' town by the sacred lake, an elf and a tauren keep flying beasts side by side,
 and fly travellers to the capitals of their peoples for nothing.
 Ask the elf for a flight, and hear what she tells most of those who ask.
-? Nighthaven, by the lake, where the flying beasts wait.
+? Nighthaven, by the lake, where the flying beasts wait. Speak to the elven flight master. You do not need to take a flight.
 = Silva Fil'naveth and Bunthen Plainswind, flight masters of Nighthaven: 'You're not a druid!'
 + They fly druids alone, one way: she to Rut'theran, he to Thunder Bluff, and each sends you to the other for the other road.

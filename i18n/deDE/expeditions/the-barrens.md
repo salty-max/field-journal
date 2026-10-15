@@ -1,12 +1,12 @@
 ---
-source: 556f43fdbe85
+source: f2d6e2dfcf87
 zone: 1413
 ---
 ## the-barrens-ratchet-book
 Die Elfen in diesem Bericht antworteten auf ein Verbot der Magie mit einem Sturm.
 Finde im Hafen der Goblins die Seite, die erzählt, was aus ihnen wurde.
 Ihre Strafe begann eine Reise.
-? Ratchet, an der Küste des Brachlands.
+? Ratchet, an der Küste des Brachlands. Öffne das Buch über die verbannten Elfen.
 = Die Verbannung der Hochelfen, in Ratchet. Verbannt, weil sie sich weigerten, der arkanen Magie abzuschwören, segelten die Hochgeborenen nach Osten und gründeten Quel'Thalas. Die Goblins bewahren ihre Geschichte. Sie ist nicht zu verkaufen.
 + Dath'Remar verspottete die Druiden als Feiglinge. Sie brachten es nicht über sich, so viele ihrer Verwandten hinzurichten, und verbannten sie stattdessen.
 ! Ruhig
@@ -15,8 +15,8 @@ Ihre Strafe begann eine Reise.
 Auf der Straße zwischen dem Hafen der Goblins und der Wegkreuzung der Orcs
 geht ein Goblinhändler mit Waffen und Tränken hin und her,
 und hinter ihm geht ein Oger, viel zu stark für diese Ebenen.
-Erwisch den Händler auf der Straße.
-? Die Straße von Ratchet nach Crossroads. Er geht sie von einem Ende zum anderen.
+Hol den Händler auf der Straße ein und lass dir seine Waren zeigen.
+? Die Straße von Ratchet nach Crossroads. Er geht sie von einem Ende zum anderen. Hol den Händler ein und öffne sein Warenangebot. Du musst nichts kaufen.
 = Lizzarik, ein Waffenhändler der Goblins aus Ratchet, der mit Jorb, seinem Oger-Leibwächter, die Straße nach Crossroads und zurück geht.
 + Jorb ist auf Stufe siebenunddreißig, an einer Straße, die die meisten Reisenden mit fünfzehn gehen.
 ! Ruhig auf der Straße
@@ -36,7 +36,7 @@ Setz deinen Fuß auf die Treppe.
 Am Schutzwall an der Nordstraße, wo die Horde den Wald der Elfen beobachtet,
 führt eine Mutter mitten im Kriegslager ihren Haushalt,
 und ihr kleiner Sohn spielt vor ihrer Tür. Sei freundlich.
-? Der Mor'shan-Schutzwall, am nördlichen Rand des Brachlands.
+? Der Mor'shan-Schutzwall, am nördlichen Rand des Brachlands. Nimm das Kind ins Ziel und grüße es, winke ihm oder lächle es an.
 = Pooka und ihr Sohn Mogg, am Mor'shan-Schutzwall: eine Familie, in einem Kriegslager.
 + Über den Vater des Jungen sagt der Schutzwall nichts.
 ! Ruhig für die Horde, die Wachen des Schutzwalls für die Allianz
@@ -46,7 +46,7 @@ Nicht weit von der belebtesten Straße der Ebenen steigt ein kurzer Pfad einen H
 zu einem Schrein, errichtet für einen Krieger, der fiel,
 und ein Geistheiler wartet davor, als wartete er auf ihn.
 Wenige finden ihn. Ehre ihn, wie ein Krieger einen anderen ehrt.
-? Westlich von Crossroads, folge einem Grat einen kleinen Hügel hinauf.
+? Westlich von Crossroads, folge einem Grat einen kleinen Hügel hinauf. Erweise dem Krieger am Schrein mit einem militärischen Salut oder einer respektvollen Verbeugung die Ehre.
 = Der Schrein des gefallenen Kriegers und sein eigener Geistheiler, Koiter.
 + Er erinnert an Michel Koiter, der an dieser Welt arbeitete und starb, bevor sie fertig war. Der Geistheiler trägt seinen Namen, und der Orc des Schreins war seine eigene Figur.
 ! Ruhig

@@ -15,7 +15,7 @@ riddles:
     sources: "quest 3801's text (Franclorn Forgewright and the stonewrought method); the WoWWiki archive's Stonewrought Pass and Franclorn Forgewright pages"
   - id: searing-gorge-blackchar
     tier: hidden
-    gestures: [STARE, GASP, SURPRISED, AMAZE]
+    gestures: [STARE, GASP, SURPRISED, AMAZE, LOOK, GAZE, PEER]
     area: Blackchar Cave   # placed: the client's overlay: 23.0, 73.4; its mouth by Elder Ironband's Lunar Festival spot, dump 21.5, 79.0
     hint_area: { x: 22.5, y: 77.0, r: 5 }
     danger: "Perilous (lava spiders and fire elementals, levels 46 to 48)"
@@ -38,7 +38,7 @@ In the gorge's south-west, a cave is sealed shut under the mountains,
 and there is nothing at its mouth but black rock.
 Go there and study your map, not the rock:
 something in the mountains is staring back.
-? Blackchar Cave, at the Searing Gorge's south-western edge. What you want is on your minimap.
+? Blackchar Cave, at the Searing Gorge's south-western edge. What you want is on your minimap. At the cave, stare or gasp at the face on the minimap with an emote.
 = Blackchar Cave, sealed. And in the mountains above it, on the minimap, is what can only be a face.
 + The cave keeps its seal all year. Only at the Lunar Festival does an elder of Ironforge come to stand at its mouth.
 

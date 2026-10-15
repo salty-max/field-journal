@@ -1,12 +1,12 @@
 ---
-source: e5ddceb55ff5
+source: 0280124bd20c
 zone: 1435
 ---
 ## swamp-of-sorrows-stonard
 Dans la forteresse de pierre au-dessus du bourbier, cherchez le nom d'un enfant qui voulait dire une vie de chaînes.
 Un geôlier le choisit pour l'orphelin qu'il éleva.
 L'histoire ne finit pas comme il l'avait prévu.
-? Pierrêche.
+? Pierrêche. Lisez le récit du nouveau départ de la Horde. Le nom se trouve dans l'histoire.
 = La nouvelle Horde, à Pierrêche : Aedelas Blackmoore et l'orphelin qu'il appela Thrall.
 + Doomhammer tomba en libérant l'un des camps d'internement. Thrall ramassa son marteau de guerre, endossa son armure noire, et devint chef de la Horde.
 ! Calme

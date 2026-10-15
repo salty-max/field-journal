@@ -18,6 +18,7 @@ riddles:
     tier: hidden
     gestures: [WAVE, HELLO, GREET, SMILE, PAT, COMFORT]
     creature: 14498   # Tosamina, dump 70.6, 23.7, among the Horde Orphans (14499) in the Drag
+    companions: [14499]   # kindness addressed to a child counts too
     hint_area: { x: 70.5, y: 24.0, r: 3 }
     danger: "Quiet"
     sources: "the dump's spawns (the orphans, Matron Battlewail, Tosamina); the WoWWiki archive's Tosamina page"
@@ -27,7 +28,7 @@ riddles:
 In the city named for a fallen warchief, the plates of a demon hang on display,
 worn by the creature that first cursed the orcs with bloodlust,
 defeated by the act of one brave orc. Find them.
-? In the Valley of Strength, in the middle of Orgrimmar.
+? In the Valley of Strength, in the middle of Orgrimmar. Read the inscription beside the displayed armour.
 = The Armor of Mannoroth.
 + 'Let these plates always remind us of how far we've come and how hard we fought to regain our honor.' - Thrall. Grom's monument stands in Ashenvale, where he died.
 
@@ -35,6 +36,6 @@ defeated by the act of one brave orc. Find them.
 In the Drag, among the shops and the shouting, the city keeps an orphanage,
 and its children run about under the eye of a stern orc who keeps them in line.
 Be kind to the little ones.
-? The Drag, in Orgrimmar's east.
+? The Drag, in Orgrimmar's east. Near the stern caretaker, target an orphan and offer a wave or a smile.
 = The Orgrimmar Orphanage: the city's orphans, Matron Battlewail, and Tosamina, who is heavy-handed with the children.
 + Once a year, in Children's Week, the matron looks for travellers to take an orphan out to see the world.

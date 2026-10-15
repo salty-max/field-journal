@@ -18,6 +18,7 @@ riddles:
     faction: alliance   # its keeper attacks the other side: this side's alone
     gestures: [SALUTE, HAIL]
     creature: 2473   # Granistad, dump 84.3, 32.8; Kurdros (2474) beside him
+    companions: [2474]   # the verse addresses either gryphon
     hint_area: { x: 82.0, y: 34.5, r: 5 }
     danger: "Deadly to the Horde (two gryphons of Ironforge, level 40), quiet for the Alliance"
     sources: "the WoWWiki archive's Granistad page (the passage to the Hinterlands); the dump's spawns and faction (Ironforge's)"
@@ -53,8 +54,8 @@ On the road between two towns that hate each other,
 a goblin walks from one to the other and back, all day,
 with a robot at his heels, and sells in both:
 belts, orbs, a pattern or two, one of each at a time.
-Catch him on the road.
-? The road from Southshore to Tarren Mill. He walks it end to end.
+Catch him on the road and ask to see his wares.
+? The road from Southshore to Tarren Mill. He walks it end to end. Catch the goblin and open his wares. You do not need to buy anything.
 = Zixil, Merchant Supreme, a goblin who trades in both Southshore and Tarren Mill, with Overwatch Mark I, his robot, at his heels.
 + His schematic teaches an engineer to make Goblin Jumper Cables, which may shock a fallen companion back to life. The word 'may' is worth remembering.
 
@@ -63,7 +64,7 @@ Where the road climbs out of the foothills toward the wild dwarves' country,
 two gryphons keep the pass, and each of them has a name.
 They answer to Ironforge, and they are no friends of the Horde.
 Show them a soldier's respect.
-? Hillsbrad's north-east corner, where the way climbs toward the Hinterlands.
+? Hillsbrad's north-east corner, where the way climbs toward the Hinterlands. Approach either gryphon, target it and give a military salute.
 = Granistad and Kurdros, gryphons of Ironforge, keeping the pass from Hillsbrad up to the Hinterlands.
 + They are of level forty, on a road most travellers climb at twenty-five: for the Horde, not guards so much as a wall.
 
@@ -71,7 +72,8 @@ Show them a soldier's respect.
 South of the dwarves' keep, a great stone
 keeps a name and two years, and nothing more.
 Someone made sure it would be here, for someone they lost.
-? Below Dun Garok, toward the sea.
+Give the one remembered here a moment of respect.
+? Below Dun Garok, toward the sea. Kneel, pray or mourn beside the memorial stone.
 = 'Anthony Ray Stark. 1961 - 2005.'
 + A memorial the world's makers left for a friend of theirs. Rousch, the dwarf standing before it, was his own character in the game. He had brought him to somewhere in the forties.
 
@@ -79,7 +81,7 @@ Someone made sure it would be here, for someone they lost.
 A book among the living remembers a rebellion of the dead.
 Their new ruler took a ruined capital while their old one hurried north.
 Seek the account in the town on the southern shore.
-? Southshore, by the inn.
+? Southshore, by the inn. Open the book about the dead fighting among themselves.
 = Civil War in the Plaguelands, in Southshore: how Sylvanas and her Forsaken took the ruins of Lordaeron's capital while Arthas went north.
 + Up the road, the Forsaken hold Tarren Mill: the book's rebels are Southshore's neighbours.
 
@@ -87,7 +89,7 @@ Seek the account in the town on the southern shore.
 At the foot of the snowy mountains, the Forsaken keep a page about a hundred human pupils.
 Their elven teachers gave them only the magic they needed.
 Find what their first great lesson did to an army.
-? Tarren Mill.
+? Tarren Mill. Read the book about the human kingdom and its war against the trolls.
 = Arathor and the Troll Wars, in Tarren Mill: the battle was fought at the foot of the Alterac Mountains.
 + The elves taught a hundred humans the basics of magic, no more than was needed. The trolls never rose as one nation again.
 

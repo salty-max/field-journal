@@ -92,6 +92,7 @@ end
 for uiMap, z in pairs(X) do
   for _, r in ipairs(z.riddles) do
     r.zone, r.atSet, r.bySet = uiMap, set(r.at), set(r.by)
+    r.npcSet = set(r.npcs)
     byId[r.id] = r
   end
 end
@@ -219,7 +220,8 @@ local function creatureNear(unit)
   local guid = UnitGUID(unit)
   if not guid or secret(guid) then return end
   local kind, _, _, _, _, id = strsplit("-", guid)
-  if kind ~= L["Creature"] then return end
+  -- GUID kinds are protocol tokens, even on a translated client.
+  if kind ~= "Creature" then return end
   local near = CheckInteractDistance(unit, 2)
   if not near or secret(near) then return end
   return tonumber(id)
@@ -231,7 +233,7 @@ local function speakingTo()
   local guid = UnitGUID("npc")
   if not guid or secret(guid) then return end
   local kind, _, _, _, _, id = strsplit("-", guid)
-  if kind ~= L["Creature"] then return end
+  if kind ~= "Creature" then return end
   return tonumber(id)
 end
 
@@ -250,7 +252,8 @@ local function there(r, here)
   end
   if r.npc then
     for _, id in ipairs(here.creatures) do
-      if r.npc == print_(r.id, "npc", id) then return true end
+      local keeper = print_(r.id, "npc", id)
+      if r.npc == keeper or r.npcSet[keeper] then return true end
     end
   end
   return false

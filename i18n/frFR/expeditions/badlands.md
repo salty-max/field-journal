@@ -1,5 +1,5 @@
 ---
-source: b1fbeb3adbf5
+source: b651c85bed31
 zone: 1418
 ---
 ## badlands-apocryphans-rest
@@ -7,7 +7,7 @@ Au sud de la palissade de la Horde, sur les falaises de l'ouest,
 est mort quelque chose de plus grand qu'un donjon, et il gît là où il est tombé :
 une cage de côtes que les vautours ont depuis longtemps nettoyée.
 Il a un nom sur les cartes, et rien de plus. Contemplez ce qu'il en reste parmi ses os.
-? Au sud de Kargath, du côté ouest des Terres ingrates.
+? Au sud de Kargath, du côté ouest des Terres ingrates. Placez-vous parmi les os et montrez votre émerveillement, ou examinez-les du regard.
 = Le repos d'Apocryphan : le squelette d'un dragon, au sud de Kargath. À qui étaient ces os, personne dans les Terres ingrates ne le dit.
 + Le vol draconique noir garde toujours un ravin à lui, à l'extrême est de l'étendue.
 ! Gardé (busards géants, coyotes et traqueurs des crêtes, niveaux 39 et 40)

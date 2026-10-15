@@ -1,12 +1,12 @@
 ---
-source: d9f81de74a56
+source: 5b1c0541f179
 zone: 1430
 ---
 ## deadwind-pass-deadmans-crossing
 Wo die Straße aus dem dunklen Wald auf den Weg hinab zu einem toten Turm trifft,
 trägt ein Baum zwei Gehenkte, und ein Wegweiser spricht klar zu den Reisenden.
 Befolge seinen Rat, oder lass es. Aber zeig ihm, was seine Warnung mit dir macht.
-? Die Totmannsfurt, wo die Straße aus dem Dämmerwald in den Gebirgspass der Totenwinde führt.
+? Die Totmannsfurt, wo die Straße aus dem Dämmerwald in den Gebirgspass der Totenwinde führt. Erschaudere an der Kreuzung oder zeig, dass die Warnung dir Angst macht.
 = Die Totmannsfurt: ein Galgenbaum mit seinem Leichenpaar und ein Wegweiser, auf dem 'Kehrt um!' steht.
 + Sein anderer Arm ist finsterer: 'Lasst alle Hoffnung fahren, die ihr hier eintretet.' Und doch ist die Straße selbst sicher genug für alle, die auf ihr bleiben.
 ! Ruhig auf der Straße

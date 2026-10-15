@@ -1,5 +1,5 @@
 ---
-source: ae0938d668c9
+source: 6ca6b665f57c
 zone: 1419
 ---
 ## blasted-lands-dark-portal
@@ -7,7 +7,7 @@ Au fond de l'étendue rouge se dresse la porte par où les orcs sont venus la pr
 Elle fut fracassée, puis rouverte. Les derniers héros qui la franchirent
 la détruisirent depuis l'autre côté pour que ce monde vive,
 et nul ne sait s'ils sont rentrés. Honorez-les comme des soldats honorent les leurs.
-? La Porte des ténèbres, au sud des Terres foudroyées.
+? La Porte des ténèbres, au sud des Terres foudroyées. Devant la porte, adressez un salut aux soldats disparus ou inclinez-vous en leur mémoire.
 = La Porte des ténèbres, immobile et sombre.
 + Khadgar, Turalyon, Alleria, Kurdran et Danath choisirent de rester sur le monde à l'agonie : "nul ne sait s'ils échappèrent à la destruction de Draenor."
 ! Gardé (démons et ogres)
@@ -28,7 +28,7 @@ Trouvez son terrain, et ne vous attardez pas.
 Dans le donjon qui surveille la grande porte, cherchez le récit
 d'un monde brisé par trop de portes.
 Ceux qui y suivirent les orcs durent fermer le chemin vers le leur.
-? Rempart-du-Néant.
+? Rempart-du-Néant. Ouvrez le récit de l'expédition au-delà de la porte.
 = Au-delà de la Porte des ténèbres, à Rempart-du-Néant. Les portails de Ner'zhul déchirèrent Draenor. L'expédition de l'Alliance ferma la Porte des ténèbres pour que cette destruction n'atteigne pas Azeroth.
 + Ner'zhul s'échappa par l'un de ses propres portails avec ses serviteurs les plus fidèles, tandis que Khadgar luttait pour ramener ses compagnons chez eux.
 ! Calme

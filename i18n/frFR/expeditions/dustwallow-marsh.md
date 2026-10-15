@@ -1,12 +1,12 @@
 ---
-source: 05aa4079cfc3
+source: 4a823fda5f2a
 zone: 1445
 ---
 ## dustwallow-marsh-theramore
 Dans la tour de l'île des humains, une elfe de la nuit se tient à l'épaule de la Dame,
 une épée lumineuse à la main, et ne dit rien de la raison
 pour laquelle une elfe garde une archimage des humains. Rendez-lui les honneurs d'un soldat.
-? L'île de Theramore, dans la tour, aux côtés de dame Jaina Proudmoore.
+? L'île de Theramore, dans la tour, aux côtés de dame Jaina Proudmoore. Ciblez la garde elfe de la Dame et adressez-lui un salut ou inclinez-vous.
 = Peine, une elfe de la nuit, garde du corps de Jaina Proudmoore dans la tour de Theramore.
 + Elle partage la tour de la Dame avec l'archimage Tervosh. Entre eux deux, Jaina est rarement seule.
 ! Calme

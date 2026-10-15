@@ -1,5 +1,5 @@
 ---
-source: 22012b25166b
+source: aec7a7388135
 zone: 1411
 ---
 ## durotar-rokar
@@ -7,7 +7,7 @@ Au nord-est de la ville sur la colline rouge, juste à l'écart de la route,
 un vieil orc tient une maison et un carré de cultures, avec un jeune pour l'aider.
 Ce n'est pas en cultivant la terre qu'il s'est fait un nom.
 Rendez-lui le respect que ses années lui ont valu.
-? Au nord-est de Tranchecolline, à l'est du canyon de Tranchevent : une ferme, un vieil orc, et son valet dans le jardin.
+? Au nord-est de Tranchecolline, à l'est du canyon de Tranchevent : une ferme, un vieil orc, et son valet dans le jardin. Ciblez le vieil orc et inclinez-vous ou adressez-lui un salut respectueux.
 = Rokar Bladeshadow, un vieux fermier orc, et Harroc, son valet de ferme : "Qu'est-ce qu'un jeune comme toi vient faire chez un vieux fermier comme moi ?"
 + Harroc travaille le jardin dehors. Rokar reste dans la maison, et dans ce qu'il était avant d'être fermier.
 ! Calme (sangliers et raptors aux alentours)
@@ -16,7 +16,7 @@ Rendez-lui le respect que ses années lui ont valu.
 Dans le donjon repris sur la côte rouge, trouvez les chefs réunis pour boire à la même coupe.
 L'un des chefs du récit refuse de se joindre à eux.
 La nouvelle terre de son fils s'étend hors de ces murs.
-? Au sud de Tranchecolline, Kul Tiras tient toujours un donjon sur le rivage de Durotar.
+? Au sud de Tranchecolline, Kul Tiras tient toujours un donjon sur le rivage de Durotar. Ouvrez le livre qui raconte les débuts de la Horde. La coupe appartient au récit.
 = La montée de la Horde, au donjon de Tiragarde. Le livre attribue à Durotan le refus du sang de Mannoroth. La terre hors des murs porte son nom.
 + Le donjon fut élevé par les hommes de l'amiral Proudmoore, qui traversèrent la mer pour détruire la Horde dans sa nouvelle terre. Il est toujours à eux.
 ! Gardé (soldats de Kul Tiras)

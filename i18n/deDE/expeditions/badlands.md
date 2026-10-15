@@ -1,5 +1,5 @@
 ---
-source: b1fbeb3adbf5
+source: b651c85bed31
 zone: 1418
 ---
 ## badlands-apocryphans-rest
@@ -7,7 +7,7 @@ Südlich der Palisade der Horde auf den westlichen Klippen
 starb etwas, das größer war als eine Burg, und es liegt, wo es fiel:
 ein Käfig aus Rippen, den die Geier längst blank gepickt haben.
 Es hat einen Namen auf den Karten, und mehr nicht. Betrachte, was zwischen seinen Knochen übrig ist.
-? Südlich von Kargath, auf der Westseite des Ödlands.
+? Südlich von Kargath, auf der Westseite des Ödlands. Stell dich zwischen die Knochen und zeig dein Staunen oder betrachte sie genau.
 = Apocryphans Ruheplatz: das Skelett eines Drachen, südlich von Kargath. Wessen Knochen es waren, sagt im Ödland niemand.
 + Der schwarze Drachenschwarm hält noch immer eine eigene Klamm, am fernen Ostrand der Öde.
 ! Bewacht (Riesenbussarde, Kojoten und Kammpirscher, Stufe 39 und 40)

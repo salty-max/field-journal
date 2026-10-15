@@ -22,7 +22,7 @@ quarry:
 In the stone fortress above the mire, seek a child's name that meant a lifetime in chains.
 A warden chose it for the orphan he raised.
 The story did not end as he intended.
-? Stonard.
+? Stonard. Read the account of the Horde's new beginning. The name belongs to its story.
 = The New Horde, in Stonard: Aedelas Blackmoore and the orphan he called Thrall.
 + Doomhammer fell freeing one of the camps. Thrall took up his warhammer and his black plate, and became warchief of the Horde.
 

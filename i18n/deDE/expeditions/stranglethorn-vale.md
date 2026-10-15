@@ -1,12 +1,12 @@
 ---
-source: ea528e952260
+source: a29210d388c5
 zone: 1434
 ---
 ## stranglethorn-vale-booty-bay
 Der Hunger eines Gottes leerte ein Königreich im Dschungel.
 Finde im Hafen der Piraten den Bericht über die Antwort seiner Anbeter,
 als sie nicht mehr zahlen konnten, was er verlangte.
-? Booty Bay.
+? Booty Bay. Öffne das Buch über den hungrigen Gott und seine Anhänger.
 = Der Zorn des Seelenschinders, in Booty Bay. Die Gurubashi fütterten Hakkar mit Seelen und vertrieben dann den Blutgott und die Priester, die ihm noch dienten. Diese Priester flohen nach Norden in die Sümpfe.
 + Die Dunkelspeer gehörten zu den Stämmen, die nach diesem Krieg ihre eigenen Wege gingen. Und manche sprachen von einer Prophezeiung, Hakkar werde eines Tages wiedergeboren und die ganze Welt verschlingen.
 ! Ruhig
@@ -24,7 +24,7 @@ von einem seiner Imperatoren übrig ist. Finde es.
 Oben auf dem Turm der Horde im Dschungel verabschiedet ein Goblin die Luftschiffe nach Orgrimmar
 und sitzt am falschen Ende der Route fest.
 Er gäbe viel für eine anständige Mahlzeit von zu Hause. Frag ihn.
-? Das Basislager von Grom'gol, oben auf dem Zeppelinturm.
+? Das Basislager von Grom'gol, oben auf dem Zeppelinturm. Sprich mit dem Goblin oben auf dem Turm. Du brauchst ihm kein Essen zu bringen.
 = Nez'raz, Zeppelinmeister in Grom'gol: Sein Bruder hat ihn zu der Handelsroute überredet und ihm das Dschungelende überlassen.
 + 'Wenn Ihr mit dem Zeppelin wieder hier vorbeikommt, könntet Ihr mir da wohl etwas zu essen mitbringen? ... Ich könnte wirklich etwas vertragen, das nicht schon Wochen, bevor es sich zu bewegen aufhörte, gestorben ist.'
 ! Ruhig

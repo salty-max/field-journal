@@ -51,7 +51,7 @@ Find the wall, and leave the gong alone.
 Outside a hive in the yellow desert, a sergeant stands guard among dwarves,
 and he has a few things to say about the promotion that put him there.
 Hear him out, and be kind.
-? Outside Hive'Zora, in western Silithus.
+? Outside Hive'Zora, in western Silithus. Target the sergeant and comfort him or congratulate him on his promotion.
 = Sergeant Carnes: '"Great job collecting resources for the war," they said, "Have a promotion," they said.'
 + 'What they really meant is "You're stationed outside a bughive in Silithus with a bunch of sweaty dwarves, Carnes!" Thanks for the promotion, Captain!'
 
@@ -59,7 +59,7 @@ Hear him out, and be kind.
 On a rise in the desert's north-east stands a woman who says she was here
 when the insects first marched out, a thousand years ago,
 and that she cannot leave. Ask her how she knows.
-? Silithus's north-east. She stands alone.
+? Silithus's north-east. She stands alone. Open a conversation with the lone watcher.
 = Ralo'shan the Eternal Watcher, a night elf: 'I have been slain a hundred times. I always wake here, alive.'
 + 'Some say I am cursed and others... They say that I am blessed: a herald to harken in a new age.'
 
@@ -67,7 +67,7 @@ and that she cannot leave. Ask her how she knows.
 In the desert's south, a monkey waits in the sand,
 the companion of the dwarves' most famous explorer.
 The explorer himself is nowhere to be seen. Be friendly to the monkey.
-? Silithus's south, east of the Scarab Wall.
+? Silithus's south, east of the Scarab Wall. Target the monkey and offer a greeting, a wave or a pat.
 = Glibb, Brann Bronzebeard's pet monkey, waiting in the desert without Brann.
 + Nobody in Silithus says where Brann has gone.
 

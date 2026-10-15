@@ -483,9 +483,9 @@ def main():
     ft = {int(d["ID"]): d for d in table("FactionTemplate")}
     SIDES = {"alliance": (2, {469, 72, 47, 54, 69, 1}), "horde": (4, {67, 76, 81, 68, 530, 2})}
 
-    def hostile(template, side):
+    def hostile(template, side, templates=None):
         """A creature of this faction template attacks the side's players."""
-        t = ft.get(template)
+        t = (ft if templates is None else templates).get(template)
         if not t:
             return False
         group, factions = SIDES[side]
@@ -510,6 +510,30 @@ def main():
             if c and hostile(int(c["Faction"]), side):
                 errors.append(f"{f}: {r['id']}: {c['Name']} attacks the {side}'s players: a riddle never asks for a kill (or give it to the other side: faction:)")
     files = list(riddle_files())
+    # A group named in a verse must not silently mean just its first keeper.
+    # Companions are real, non-hostile creatures too, and participate in the
+    # same quest-road checks as the primary creature below.
+    for f, uimap, client, rs, _ in files:
+        for r in rs:
+            ids = r.get("companions", [])
+            if not ids:
+                continue
+            if (not isinstance(ids, list) or not r.get("gestures") or not r.get("creature")
+                or any(type(i) is not int or i <= 0 or i == r["creature"] for i in ids)
+                or len(set(ids)) != len(ids)):
+                errors.append(f"{f}: {r['id']}: companions: distinct other creature ids for a gesture's group")
+                continue
+            sides = [r["faction"]] if r.get("faction") else ([homes.get(f)] if homes.get(f) else list(SIDES))
+            for game in (["forever"] if client == "forever" else ["classic", "forever"]):
+                templates = {int(t["ID"]): t for t in table("FactionTemplate", game)}
+                for i in ids:
+                    creature = db(game).execute("SELECT faction_id FROM creature WHERE id = ?", (i,)).fetchone()
+                    if not creature:
+                        errors.append(f"{f}: {r['id']}: no companion creature {i} in {game}")
+                    elif any(hostile(int(creature[0] or 0), side, templates) for side in sides):
+                        errors.append(f"{f}: {r['id']}: companion {i} attacks a side that may solve the riddle in {game}")
+            if r["id"] in riddles:
+                riddles[r["id"]]["companions"] = ids
     for f, *_ in files:
         if f not in homes:
             homes[f] = (re.search(r"^home: (\w+)", open(os.path.join(EXPEDITIONS, f)).read(), re.M) or [None, None])[1]
@@ -538,6 +562,7 @@ def main():
     for f, uimap, r, points in placed + own:
         where = f"{f}: {r['id']}"
         subject = [(k, int(r[k])) for k in ("creature", "object") if k in r]
+        subject += [("creature", i) for i in r.get("companions", [])]
         subject += [(k, int(v)) for k, v in (r.get("anchor") or {}).items() if k in ("creature", "object")]
         named = {n for n in [r.get("name"), r.get("area"), r.get("reading")] + [names.get(s) or ((npcs if s[0] == "creature" else objs).get(s[1]) or {}).get("name") for s in subject] if n and len(n) > 4}
         for q, d in sorted(new.items()):

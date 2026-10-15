@@ -1,12 +1,12 @@
 ---
-source: fc7a50b6edfe
+source: 895466e97be2
 zone: 1422
 ---
 ## western-plaguelands-chillwind
 Im Lager der Allianz am südlichen Rand der Seuche rastet eine Reisende, bevor sie nach Hearthglen aufbricht,
 und gibt weiter, was sie gehört hat: Der Kreuzzug hatte einst einen Magier, der Bögen und Gewehre baute,
 und tötete ihn, bevor seine Arbeit je die Stadt verließ. Frag sie danach.
-? Das Chillwind-Lager.
+? Das Chillwind-Lager. Sprich mit der Reisenden, die im Lager rastet.
 = Alexia Ironknife, die sich im Chillwind-Lager ausruht, bevor sie nach Hearthglen aufbricht: Der eigene Waffenmacher des Kreuzzugs, so hat sie gehört, wurde vom Kreuzzug getötet.
 + Am Bollwerk, dem Lager der Horde, erzählt ein Reisender dieselbe Geschichte und fügt hinzu, dass der Zauberer zuvor eine bemerkenswerte Waffe vollendet hat.
 ! Ruhig

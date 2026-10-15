@@ -22,7 +22,7 @@ quarry:
 In the Horde's retreat among the stone mountains, an enchanter teaches,
 and he is as good as any in the world but one.
 Those he has taught all he knows, he sends on to her. Ask him who she is.
-? Sun Rock Retreat.
+? Sun Rock Retreat. Speak to the enchanting trainer about his teacher.
 = Hgarth, Artisan Enchanter, at Sun Rock Retreat: 'There is only one whose skills exceed my own... She is Annora, and you may find her... in Uldaman.'
 + Annora keeps to the halls of Uldaman, under the Badlands, among its troggs and its dead: a strange home for the best enchanter in the world.
 

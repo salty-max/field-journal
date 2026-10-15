@@ -36,7 +36,7 @@ At the bottom of the red waste stands the gate the orcs first came through.
 It was shattered, and opened again. The last heroes who went through it
 destroyed it from the far side so that this world would live,
 and nobody knows whether they came home. Honour them as soldiers honour their own.
-? The Dark Portal, in the south of the Blasted Lands.
+? The Dark Portal, in the south of the Blasted Lands. Salute the lost soldiers before the gate, or bow to their memory.
 = The Dark Portal, still and dark.
 + Khadgar, Turalyon, Alleria, Kurdran and Danath chose to stay on the dying world: 'whether or not they escaped the death throes of Draenor remains to be seen.'
 
@@ -53,7 +53,7 @@ Find his ground, and do not linger.
 In the keep that watches the great gate, seek an account
 of a world broken by too many doorways.
 Those who followed the orcs there had to shut the way to their own.
-? Nethergarde Keep.
+? Nethergarde Keep. Open the account of the expedition beyond the gate.
 = Beyond the Dark Portal, in Nethergarde Keep. Ner'zhul's portals tore Draenor apart. The Alliance Expedition closed the Dark Portal to keep that destruction from reaching Azeroth.
 + Ner'zhul escaped through one of his own portals with his most trusted servants, while Khadgar fought to bring his comrades home.
 

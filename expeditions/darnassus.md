@@ -35,7 +35,7 @@ riddles:
 In the tree city, an alchemist brews the same potion from the same plants, again and again,
 and every time it heals a little less. She has drawn the only conclusion she can.
 Ask her what it is.
-? Darnassus, by the alchemists.
+? Darnassus, by the alchemists. Open a conversation with the alchemist about her potions.
 = Ainethil, Artisan Alchemist: 'There can be only one conclusion: the plants are changing. I cannot say why or into what.'
 + The histories in this city tell how three dragons blessed the first World Tree, so that its people would never age nor sicken. Of the tree they live in now, they say nothing of the kind.
 
@@ -43,7 +43,7 @@ Ask her what it is.
 On the craftsmen's terrace, a young leatherworker can hardly keep still at her lessons,
 and hopes the Sentinels will call her to the front.
 Her teacher fears that they will. Wish her well.
-? The Craftsmen's Terrace, in Darnassus, among the leatherworkers.
+? The Craftsmen's Terrace, in Darnassus, among the leatherworkers. Target the apprentice and encourage her or wish her good luck.
 = Darianna, Journeyman Leatherworker: 'Maybe if I'm really lucky, the Sentinels will ask me to join their forces on the front!'
 + Faldron, her teacher: 'With her strength and agility, I fear it won't be long before she is called to fight. We must teach her quickly.'
 
@@ -51,7 +51,7 @@ Her teacher fears that they will. Wish her well.
 Among this city's histories, one tells of a bargain paid in centuries of sleep.
 Its keepers would not die of age while the world went on without them.
 The price and the promise share a page.
-? In the north of Darnassus.
+? In the north of Darnassus. Read the book about the tree and the dream.
 = The World Tree and the Emerald Dream: Nordrassil, 'crown of the heavens'. Three dragons blessed the tree. The night elves received immortality, and their druids agreed to long years of sleep in Ysera's Dream.
 + 'Though the druids were grieved at the prospect of losing so many years of their lives to hibernation, they selflessly agreed to uphold their bargain with Ysera.'
 

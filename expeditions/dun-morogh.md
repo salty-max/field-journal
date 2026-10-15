@@ -46,7 +46,7 @@ Below the great gates, where every traveller climbs,
 a smith has claimed an anvil in writing,
 politely, and very firmly.
 Find what he etched beside it.
-? At the foot of the road up to Ironforge, an anvil has an owner, and says so.
+? At the foot of the road up to Ironforge, an anvil has an owner, and says so. Open the writing beside the anvil and read it.
 = 'This anvil is the property of Jordan Stilwell - Please do NOT use!' Ironforge has a great many anvils. This one is spoken for.
 + Jordan Stilwell is no dwarf: a human smith with a house on Westfall's Longshore, who meant to be a paladin before smithing took him, and came to work beside the dwarves while his wife, Daphne, waited by the sea. The paladins who pass his tests carry a hammer he forges and names for a dwarven paladin he called a friend.
 
@@ -55,7 +55,7 @@ In the brewers' town in the heart of the snows,
 a gnome who cannot abide them stands and grumbles:
 the snow soaks his robe and spoils everything he owns.
 Find him, and let him tell you about it.
-? Kharanos: among its people, a gnome in a wet robe.
+? Kharanos: among its people, a gnome in a wet robe. Speak to the complaining gnome.
 = Tog Rustsprocket, of Kharanos: 'I wish the snow would just all melt away. It's always getting my robe wet and messing up everything!'
 + He keeps a message for the warlocks who come his way, and sends them on to Lago Blackwrench.
 
@@ -64,7 +64,7 @@ On the road out of the valley where young dwarves begin,
 a gunsmith keeps a camp, and beside it a range.
 Two riflemen settle their differences there, and a mortar team practises
 on dummies a spotter has to run out to. Mind your ears.
-? Hegnar Rumbleshot's camp, by the road from Coldridge Pass to Kharanos.
+? Hegnar Rumbleshot's camp, by the road from Coldridge Pass to Kharanos. Cover your ears or duck at the firing range.
 = Rumbleshot's practice range. Every so often the five dwarves of the camp head out to it. First come Riflemen Middlecamp and Wheeler, who shoot at an orc target and a row of bottles. Then the mortar team, Angus and Shorty, fire at three target dummies in turn, while Spotter Klemmy runs back and forth.
 + Middlecamp misses the orc target twice and the bottles twice, while Wheeler hits the target without trying, and the middle target dead centre. Then Wheeler only hits the side of the bottles' box, and it is Middlecamp who shoots the orc dummy, turns to the paper target and shoots from the hip at the bottles.
 
@@ -72,8 +72,8 @@ on dummies a spotter has to run out to. Mind your ears.
 At the ranch on the road east, where a family raises rams,
 the youngest has spent all day chasing someone small and white
 who wants no part of what she has in mind.
-Settle it, before it runs off again.
-? Amberstill Ranch, by the road to Loch Modan: the girl, and what she is chasing.
+Ease its fright before it runs off again.
+? Amberstill Ranch, by the road to Loch Modan: the girl, and what she is chasing. Target the small animal the girl is chasing and soothe or pet it.
 = Fluffy, a rabbit, and Yarlyn Amberstill, who runs after it round the ram pen, calling: 'C'mon Fluffy! I just want to give you a bath!'
 + Her other offers, in Dwarvish: 'Carrots every day for a year if you stop!' And, when that fails: 'Don't make me get my pappy to catch you! He likes to catch bunnies using his rifle!'
 

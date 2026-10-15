@@ -1,12 +1,12 @@
 ---
-source: ea528e952260
+source: a29210d388c5
 zone: 1434
 ---
 ## stranglethorn-vale-booty-bay
 L'appétit d'un dieu vida un royaume de la jungle.
 Dans le port des pirates, trouvez le récit de la réponse de ses fidèles
 quand ils ne purent plus payer ce qu'il exigeait.
-? Baie-du-Butin.
+? Baie-du-Butin. Ouvrez le livre sur le dieu affamé et ses fidèles.
 = La colère du fléau des âmes, à Baie-du-Butin. Les Gurubashi nourrirent Hakkar d'âmes, puis chassèrent le dieu du sang et les prêtres qui le servaient encore. Ces prêtres s'enfuirent au nord, dans les marais.
 + Les Darkspear furent parmi les tribus qui suivirent leur propre chemin après cette guerre. Et "certains évoquaient une prophétie selon laquelle Hakkar renaîtrait en ce monde un jour et le consumerait intégralement."
 ! Calme
@@ -24,7 +24,7 @@ de l'un de ses empereurs. Trouvez-la.
 Au sommet de la tour de la Horde dans la jungle, un gobelin voit partir les dirigeables pour Orgrimmar,
 et on l'a laissé au mauvais bout de la ligne.
 Il donnerait cher pour un repas correct de chez lui. Demandez-lui.
-? Le campement Grom'gol, au sommet de la tour des zeppelins.
+? Le campement Grom'gol, au sommet de la tour des zeppelins. Parlez au gobelin en haut de la tour. Aucun repas n'est nécessaire.
 = Nez'raz, maître des zeppelins à Grom'gol : son frère l'a convaincu de prendre cette route commerciale, et lui en a laissé le bout dans la jungle.
 + "Si vous revenez par ici en zeppelin, pouvez-vous m'apporter quelque chose à manger ? ... Pour une fois, j'aimerais bien manger quelque chose qui a eu le bon sens d'arrêter de bouger au moment de sa mort, et pas quelques semaines après..."
 ! Calme

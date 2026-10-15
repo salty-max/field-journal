@@ -22,7 +22,7 @@ quarry:
 By the hot springs in the crater's west, a troll woman walks with her wolf
 and finds everything lovely: the steam, the ferns, the beasts that would eat her.
 Be pleasant to her, and only pleasant.
-? Golakka Hot Springs, in western Un'Goro. She walks south from there and back.
+? Golakka Hot Springs, in western Un'Goro. She walks south from there and back. Target the troll woman and offer a greeting, a wave or a smile.
 = Simone the Inconspicuous, with Precious, her wolf: 'What a wonderful day to be alive! Look at the beauty that surrounds you, friend.'
 + She is not what she seems: hunters on the trail of an ancient bow know her as Simone the Seductress, a succubus. Strike her as she is, and she answers with blows that fell a hero in one.
 

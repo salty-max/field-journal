@@ -22,7 +22,7 @@ South of the Horde's stockade on the western cliffs,
 something died that was bigger than a keep, and it lies where it fell:
 a cage of ribs the vultures have long since picked clean.
 It has a name on the maps, and nothing more. Take in what remains among its bones.
-? South of Kargath, on the Badlands' western side.
+? South of Kargath, on the Badlands' western side. Stand among the bones and show your wonder, or look at them closely.
 = Apocryphan's Rest: the skeleton of a dragon, south of Kargath. Whose bones they were, nobody in the Badlands says.
 + The black dragonflight still keeps a ravine of its own, at the waste's far eastern edge.
 

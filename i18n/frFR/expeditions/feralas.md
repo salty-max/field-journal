@@ -1,13 +1,13 @@
 ---
-source: cd9729fbb33d
+source: c9f0ae9e28a8
 zone: 1444
 ---
 ## feralas-the-maul
 Parmi les ruines de la vieille cité elfe dans la forêt, les ogres ont une fosse,
 et des combattants y sautent pour affronter ce qui est venu dans l'arène.
 Au-dessus, un gobelin regarde chaque combat et les acclame tous.
-Sautez, et donnez-lui du spectacle.
-? Les communs en ruine de Hache-tripes : la fosse qu'on appelle l'Etripoir, sous le perchoir de Griniblix.
+Sautez, et montrez-lui votre force sans tirer vos armes.
+? Les communs en ruine de Hache-tripes : la fosse qu'on appelle l'Etripoir, sous le perchoir de Griniblix. Dans la fosse, montrez vos muscles ou rugissez comme un adversaire. Aucun combat n'est nécessaire.
 = L'Etripoir, la fosse de combat des ogres à Hache-tripes, et Griniblix le Spectateur au-dessus : "Waou ! Ça y est, ils y sont !"
 + Bâlhafr l'Invaincu, la Razza ou Mushgog peuvent venir dans l'arène. Quand vient Mushgog, des herbes poussent dans la fosse, et certains disent qu'un lotus noir s'y trouve parmi elles.
 ! Périlleux (les ogres gordok, et une fosse où chacun peut combattre n'importe qui)
@@ -17,7 +17,7 @@ Sautez, et donnez-lui du spectacle.
 Dans la place forte des sentinelles, sur leur île, cherchez une promesse entre amants
 qui pourraient ne pas se revoir avant des siècles.
 La veille que ces femmes ont tenue a commencé avec cette séparation.
-? Le bastion de Feathermoon, sur l'île de Sardor.
+? Le bastion de Feathermoon, sur l'île de Sardor. Lisez le récit de la longue veille des sentinelles.
 = Les Sentinelles et la longue veille, à Feathermoon : les guerrières de Tyrande, vouées à la défense de Kalimdor pendant que les druides dormaient dans le Rêve d'émeraude.
 + Malfurion jura qu'ils ne seraient jamais séparés, tant qu'ils resteraient fidèles à leur amour. Les siècles passèrent, et Tyrande craignit le retour de la Légion.
 ! Calme

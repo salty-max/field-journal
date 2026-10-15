@@ -1,5 +1,5 @@
 ---
-source: 64af92f6b204
+source: 3e2892c4671b
 zone: 1447
 ---
 ## azshara-ravencrest
@@ -17,7 +17,7 @@ et à ses démons, quand le monde fut brisé. Trouvez ce qu'il reste de lui.
 Au sud de l'ancien pays des elfes, des draconiens du vol bleu tiennent les rives d'un lac,
 loin du nord glacé auquel appartient leur espèce.
 À l'intérieur de leur cercle, le lac lui-même est calme. Passez-les, et rafraîchissez-vous à l'eau.
-? Le lac Mennar, au sud d'Azshara.
+? Le lac Mennar, au sud d'Azshara. Asseyez-vous au bord du lac ou faites le geste de boire.
 = Le lac Mennar : des draconiens bleus en tiennent les rives, plaiedécailles, tisse-magie et seigneurs-mages, loin du foyer de leur vol, dans le nord.
 + Les grottes de Mazthoril, au Berceau-de-l'Hiver, sont un autre refuge du vol bleu hors de Norfendre.
 ! Périlleux (les draconiens bleus autour du lac, niveaux 50 à 53)
@@ -27,7 +27,7 @@ loin du nord glacé auquel appartient leur espèce.
 Dans le camp de la Horde au milieu des étendues sauvages des elfes, un orc se souvient du temps où son frère et lui
 campaient ici, seuls, avant qu'il y ait le moindre camp.
 Demandez-lui ce qu'il en pense aujourd'hui.
-? Valormok, à l'ouest d'Azshara.
+? Valormok, à l'ouest d'Azshara. Parlez à l'orc qui se souvient des débuts du camp.
 = Haggrum Bloodfist, à Valormok : "Je me souviens du temps où mon frère et moi campions seuls dans les étendues sauvages d'Azshara. Regardez-les maintenant."
 + Son frère, à en juger par le nom, est Ag'tor Bloodfist, qui a assez d'affaires pour occuper n'importe quel voyageur.
 ! Calme

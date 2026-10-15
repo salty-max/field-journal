@@ -35,7 +35,7 @@ quarry:
 A god's appetite emptied a jungle kingdom.
 In the pirates' port, find the account of his worshippers' answer
 when they could no longer pay what he demanded.
-? Booty Bay.
+? Booty Bay. Open the book about the hungry god and his followers.
 = Wrath of Soulflayer, in Booty Bay. The Gurubashi fed souls to Hakkar, then drove out the blood god and the priests who still served him. Those priests fled north to the swamps.
 + The Darkspear were among the tribes that went their own way after that war. And some spoke of a prophecy, that Hakkar would one day be reborn and consume the world whole.
 
@@ -51,7 +51,7 @@ of one of its emperors. Find it.
 At the top of the Horde's tower in the jungle, a goblin sees the airships off to Orgrimmar,
 and has been left at the wrong end of the route.
 He would give a great deal for a decent meal from home. Ask him.
-? Grom'gol Base Camp, at the top of the zeppelin tower.
+? Grom'gol Base Camp, at the top of the zeppelin tower. Speak to the goblin at the top of the tower. No meal is needed.
 = Nez'raz, Zeppelin Master at Grom'gol: his brother talked him into the trade route, and left him the jungle end of it.
 + 'If you come back this way on the Zeppelin, could you bring me something to eat? ... I sure could use something that didn't die weeks before it stopped moving.'
 

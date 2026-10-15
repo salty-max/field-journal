@@ -37,16 +37,16 @@ West of the elves' lodge, a ravine climbs out of the green hills,
 and a mist hangs in it that does not belong to them:
 the air of the dead country comes down it from the north.
 Walk up into it, and you will know it by the taste.
-? Plaguemist Ravine, north-west of Quel'Danil Lodge.
+? Plaguemist Ravine, north-west of Quel'Danil Lodge. In the ravine, show how the foul air affects you: cough, sniff or sneeze.
 = Plaguemist Ravine: a way out of the Hinterlands, north toward Caer Darrow and the Western Plaguelands, with the plague's mist in it.
 + Nothing lives in it and nothing waits there. It is only a road, and the mist.
 
 ## the-hinterlands-seradane
 In the Hinterlands' north-east, green dragons keep a door
 that opens on nothing anyone awake has ever seen.
-There are four such doors in this world. Linger before this one long enough,
-and you might go through it the only way the living can.
-? Seradane, in the Hinterlands' north-east.
+There are four such doors in this world. Close your eyes before this one,
+and follow the druids into their dreams.
+? Seradane, in the Hinterlands' north-east. Use a sleeping or lying-down emote before the door. Waiting will not solve it.
 = Seradane: one of the four doors into the Emerald Dream, kept by the green drakes Dreamtracker and Rothos. Its sisters stand in Duskwood, Ashenvale and Feralas.
 + On the hill north of it lies the skull of a dragon nobody has named, inside a ring of stones like the Arathi Highlands' circles of binding.
 
@@ -54,7 +54,7 @@ and you might go through it the only way the living can.
 In the trolls' village on the eastern cliffs, three drummers keep the beat,
 and do not stop for anybody.
 Show them what their drums are for.
-? Revantusk Village, among its huts.
+? Revantusk Village, among its huts. Target a drummer and dance to the beat with an emote.
 = The Revantusk Drummers, three of them, keeping the village's beat.
 + The village keeps its eye on the Vilebranch of Jintha'Alor, up the hill. The drums are the one sound it makes on purpose.
 

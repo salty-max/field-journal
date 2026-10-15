@@ -22,8 +22,8 @@ quarry:
 In the elves' town on the dark shore, by a house just east of the inn,
 a woman stands whom you can see straight through.
 She has no wares and no errands, and nobody in the town remarks on her.
-Find her.
-? Auberdine, east of the inn.
+Find her, and ask why she is still here.
+? Auberdine, east of the inn. Approach the ghostly woman and open a conversation.
 = Yalda, at Auberdine: you can see through her, and nobody in the town has a word to say about it.
 + She is not hiding, and she is no spirit healer. She simply stands there, and the town goes on around her.
 

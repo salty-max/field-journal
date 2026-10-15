@@ -66,6 +66,7 @@ type Spot = {
   spots?: number[][];
   r?: number;
   npc?: number;
+  companions?: number[];
   areas?: number[];
   face?: number;
 };
@@ -170,6 +171,10 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
       if (r.tier === "town" && !r.faction) fail(file, `${where} a town's riddle has its faction`);
       if (r.faction && !FACTIONS.includes(r.faction)) fail(file, `${where} faction: ${FACTIONS.join(" or ")}`);
       const gestures: string[] = r.gestures ?? [];
+      const companions: unknown = r.companions ?? [];
+      if (!Array.isArray(companions) || companions.some((id) => !Number.isInteger(id) || id <= 0 || id === r.creature)
+        || new Set(companions).size !== companions.length || (companions.length && (!r.creature || !gestures.length)))
+        fail(file, `${where} companions: distinct other creature ids for a gesture's group`);
       for (const g of gestures) {
         if (!emotes.has(g)) fail(file, `${where} gesture ${g}: not one of the client's emote tokens`);
       }
@@ -192,7 +197,8 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
       if (r.found !== undefined && (r.found !== "target" || kinds[0] !== "creature"))
         fail(file, `${where} found: target, for a creature found only by talking to it`);
       if (!spot) fail(file, `${where} not in data/expeditions.json: run python3 scripts/expeditions.py`);
-      else if (spot.zone !== zone || spot.of !== of || String(spot.hint) !== String(ha && [ha.x, ha.y, ha.r]))
+      else if (spot.zone !== zone || spot.of !== of || String(spot.hint) !== String(ha && [ha.x, ha.y, ha.r])
+        || String(spot.companions ?? []) !== String(companions))
         fail(file, `${where} changed since data/expeditions.json was made: run python3 scripts/expeditions.py`);
 
       const lines = sections.get(id);
@@ -207,10 +213,12 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
       if (verse.length < 2) fail(file, `${where} a verse of two lines or more`);
       for (const [name, xs] of [["hint (?)", hint], ["note (=)", note], ["margin (+)", margin]] as const)
         if (xs.length !== 1) fail(file, `${where} one ${name} line`);
-      // the verse and its hint never name what is to be done there
+      // The verse leaves the gesture to infer. A paid clue may name the
+      // ordinary action: repeating only the location strands a reader who
+      // already found it. Neither needs to hand out a slash command.
       for (const g of gestures) {
         const word = new RegExp(`\\b${g}\\b`, "i");
-        if ([...verse, ...hint].some((l) => word.test(l))) fail(file, `${where} the verse or its hint names the gesture ${g}`);
+        if (verse.some((l) => word.test(l))) fail(file, `${where} the verse names the gesture ${g}`);
       }
       riddles.push({
         id,
@@ -281,6 +289,7 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
       s.areas ? "area = true" : "",
       `at = ${nums(at.sort((a, b) => a - b))}`,
       s.npc ? `npc = ${print(r.id, "npc", s.npc)}` : "",
+      s.companions?.length ? `npcs = ${nums(s.companions.map((id) => print(r.id, "npc", id)))}` : "",
       r.gestures.length ? `by = ${nums(r.gestures.map((g) => print(r.id, g)).sort((a, b) => a - b))}` : "",
     ];
     return `        { ${fields.filter(Boolean).join(", ")} },`;
@@ -294,7 +303,8 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
   -- read once it is solved, veiled (its answer's name, its keeper's face, the
   -- note, the margin);
   -- and its answer as fingerprints only: at (the cells of its spot, or its
-  -- sub-area), npc (the creature it may be found by), by (the gestures it takes);
+  -- sub-area), npc (the creature it may be found by), npcs (other keepers
+  -- of a group), by (the gestures it takes);
   -- its quarry: the creature, its poster, its haunts (x, y, r) shaded once it is
   -- the target, the note and margin veiled
   expeditions = {

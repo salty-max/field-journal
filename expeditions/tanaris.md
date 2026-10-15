@@ -35,7 +35,7 @@ quarry:
 In the desert's goblin town, find a daughter who chose the peace her father had come to break.
 Their quarrel crossed an ocean before it ended.
 The town keeps the account among its books.
-? Gadgetzan.
+? Gadgetzan. Read the account of the daughter and her father's war.
 = Old Hatreds - The Colonization of Kalimdor, in Gadgetzan: Durotar named for Thrall's father, and Jaina Proudmoore against her father, the Grand Admiral.
 + He died before she could reconcile with him. For her loyalty, the orcs let her forces go home to Theramore in peace.
 
@@ -43,15 +43,15 @@ The town keeps the account among its books.
 East of the goblins' town, a naga keeps a den in the rocks,
 and wants nothing at all from you: no war, no treasure, no blood.
 Be friendly, for once.
-? Zalashji's Den, east of Gadgetzan.
+? Zalashji's Den, east of Gadgetzan. Approach the naga, target him and offer a greeting or a bow.
 = Zalashji, a naga at home in his den: friendly to all, and wanting nothing from anyone.
 + Horde and Alliance alike may walk up to him unharmed, as to few naga anywhere.
 
 ## tanaris-winkey
 Off the quiet beach south of the pirates' cove, a little island holds one gnome, alone,
 sunning herself as if the whole sea were her garden.
-She has one request for whoever swims out to her. Be nice.
-? An islet off Southbreak Shore, south of Lost Rigger Cove.
+She has one request for whoever swims out to her. Let your face answer hers.
+? An islet off Southbreak Shore, south of Lost Rigger Cove. Target the sunbathing gnome and answer with a wink, a smile or a blush.
 = Winkey, a gnome alone on her islet off Southbreak Shore: 'Hey there, cutie! Mind rubbing some lotion on my exposed areas?'
 + Far away in the Burning Steppes, a dwarf at Morgan's Vigil grabs at the air and shouts at someone called Winky who isn't there. Whether he means her, nobody can say.
 

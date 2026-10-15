@@ -1,5 +1,5 @@
 ---
-source: 72342053957c
+source: da5a515e0e00
 zone: 1417
 ---
 ## arathi-highlands-thoradins-wall
@@ -7,7 +7,7 @@ Am nordwestlichen Rand des Hochlands verläuft eine Mauer des ersten Königreich
 die Grenze entlang, über die Hügel, so weit sie sehen kann.
 Sie wurde vor langer Zeit gegen die Trolle errichtet. Nun klafft sie, durchbrochen.
 Geh zu ihrem Fuß und betrachte, was von ihr übrig ist.
-? Arathis nordwestlicher Rand, wo das Hochland auf das Vorgebirge trifft.
+? Arathis nordwestlicher Rand, wo das Hochland auf das Vorgebirge trifft. Betrachte die zerbrochene Mauer oder zeig, dass du über sie nachdenkst.
 = Der Thoradinswall, errichtet von König Thoradin von Arathor, dem ersten Königreich der Menschen, gegen die Amani-Trolle, nun zerbrochen und weit klaffend.
 + 'Einst ein Symbol für die Stärke und Wehrhaftigkeit der Menschheit', nennt ihn eine alte Vermessung dieser Lande, 'nun dem Verfall und dem Krieg anheimgefallen.'
 ! Bewacht (Hochlandschreiter, Hochlandhauer und Kriecher)
@@ -17,7 +17,7 @@ Geh zu ihrem Fuß und betrachte, was von ihr übrig ist.
 Such im Lager der Horde im Hochland die Elfen, die sich nach ihren Toten benannten.
 Ihr Königreich ging verloren, doch der Name reiste mit ihnen.
 Die Geschichte wird auf einer Seite bewahrt.
-? Hammerfall.
+? Hammerfall. Öffne das Buch über den neuen Namen der Elfen.
 = Aufstieg der Blutelfen, in Hammerfall: Kael'thas' Hochelfen, umbenannt in Blutelfen, von der Allianz verstoßen und mit Illidan in die Scherbenwelt gezogen.
 + Vom Sonnenbrunnen abgeschnitten, hungerten sie nach Magie. Die Suche nach einem Heilmittel führte Kael'thas zu Illidan und seinen Naga.
 ! Ruhig

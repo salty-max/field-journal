@@ -60,7 +60,7 @@ At the tower north of the city gate, where the airships come in over the sea,
 a goblin takes the fares on the dead side of the water.
 His brother talked of good money in it, and never said which of them would live here.
 He has one favour to ask of whoever passes through. Give him your word.
-? The zeppelin tower north of the Undercity's gates: the goblin who sends the airship to Durotar.
+? The zeppelin tower north of the Undercity's gates: the goblin who sends the airship to Durotar. Target the goblin and promise to help, or nod your agreement, with an emote.
 = Zapetta, the zeppelin master: 'My brother said we could make great money with this trade route, but he didn't tell me I would be the one living on this side. If you come back this way on the Zeppelin, could you bring me something to eat?'
 + Hin Denburg, who sends the other airship south, has a low opinion of the gnomes' tram: if you believe in it, he has a statue in Stranglethorn to sell you.
 
@@ -69,7 +69,7 @@ West of the town of the dead, a little pond lies gray and still.
 Before the plague, the folk of the glades came here to picnic,
 and children too young for the deep lake learned to swim in it.
 Only the dead and the hungry come now. Remember what it was.
-? West of Brill, off the road to Deathknell: a gray pond, nearly forgotten.
+? West of Brill, off the road to Deathknell: a gray pond, nearly forgotten. Beside the pond, sigh or mourn what has been lost.
 = Stillwater Pond, once the glades' picnic ground. Darkhounds hunt its banks now.
 + Brightwater Lake, east of Brill, was for the older children: much larger, and much deeper.
 
@@ -77,8 +77,8 @@ Only the dead and the hungry come now. Remember what it was.
 On the hill south of the red crusaders' monastery,
 a host of the dead once met the men who would become the Crusade.
 Those who fell there have not gone quiet:
-at twilight they can still be heard, if you will be still.
-? South of the Scarlet Monastery, on its hill, in north-eastern Tirisfal.
+Give the quiet a moment of your attention.
+? South of the Scarlet Monastery, on its hill, in north-eastern Tirisfal. Listen with an emote in the gardens. You do not need to wait for twilight.
 = The Whispering Gardens, where those who would found the Scarlet Crusade fought the Scourge. Their dead whisper still.
 + The Crusade keeps its monastery a stone's throw away. To its zealots, every Forsaken is Scourge.
 
@@ -87,7 +87,7 @@ North of the red crusaders' monastery, the plague never came:
 the hedges are green there, kept by the Crusade,
 and a fountain runs with water that is fresh, as nothing else in these glades is.
 Taste what the living keep for themselves.
-? Behind the Scarlet Monastery, on its northern grounds: a garden the Crusade keeps.
+? Behind the Scarlet Monastery, on its northern grounds: a garden the Crusade keeps. Make a drinking gesture by the fountain. You do not need a drink item.
 = The Terrace of Repose: one of the very few places in northern Lordaeron the plague never reached.
 + Everywhere else in Tirisfal the water stands stagnant.
 
@@ -96,7 +96,7 @@ Near the monastery of the red crusaders,
 a resting place bears the name of the archbishop
 who gave the Light its first knights.
 Do there what he taught a kingdom to do, if the Crusade lets you.
-? South-west of the Scarlet Monastery, where its fallen come back.
+? South-west of the Scarlet Monastery, where its fallen come back. At the resting place, pray or kneel in respect.
 = Faol's Rest, in sight of the zealots who claim his Light.
 + Stormwind remembers him too: a plaque in its cathedral calls him the 'benevolent patron of the Church of Light', who began his work in Stratholme and raised the funds to rebuild Stormwind after the Second War.
 
@@ -105,7 +105,7 @@ In the Horde's camp at the Glades' eastern edge, where the plaguelands begin,
 a traveller makes ready for Hearthglen. He has heard of a great wizard there
 who made bows and guns for the Crusade, and of a weapon he finished before they killed him.
 Ask him about it.
-? The Bulwark, at Tirisfal's eastern edge.
+? The Bulwark, at Tirisfal's eastern edge. Speak to the traveller preparing to leave.
 = Bardu Sharpeye, at the Bulwark: a wizard made the Crusade a remarkable weapon, he has heard, and the Crusade killed him for it.
 + At Chillwind, the Alliance's camp, a traveller tells the same story: 'Maybe they killed him to keep it a secret... or maybe they distrust the arcane that much.'
 

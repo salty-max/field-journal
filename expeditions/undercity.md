@@ -34,15 +34,15 @@ riddles:
 In the city beneath the ruins, seek a preacher whose master spoke from the frozen north.
 He promised the poor equality and a life that would never end.
 His congregation's story stands among the herbalists' books.
-? In the Undercity, by the herbalists: the Alliestars' shop.
+? In the Undercity, by the herbalists: the Alliestars' shop. Read the book about the preacher and his cult.
 = Kel'Thuzad and the Forming of the Scourge. The former archmage founded the Cult of the Damned to serve Ner'zhul, and named the undead rising from the plague the Scourge.
 + 'It was surprisingly easy for Kel'Thuzad to achieve his goal: namely, to transfer the citizens' faith in the Holy Light into belief in Ner'zhul's dark shadow.'
 
 ## undercity-theresa
 In the quarter of the city's soldiers, three of the Forsaken stand around a living woman,
 and one of them is very proud of her. He sends her across the bridge on errands,
-and she always comes back. Let your face say what you think of it.
-? The War Quarter, in the Undercity.
+Let her see that someone still feels for her.
+? The War Quarter, in the Undercity. Target the living woman and show pity, or sigh at her plight.
 = Theresa, Gerard Abernathy's mindslave: 'Theresa, take this to Father Lankester.' 'Yes My Lord.'
 + 'I managed to discover that certain parts of the brain when removed or stimulated will make a subject much more docile.' Even his companions ask him how he did it.
 
@@ -50,6 +50,6 @@ and she always comes back. Let your face say what you think of it.
 Above the city, in what is left of the palace garden, the last true king
 of the land lies under a stone that asks for his son's deeds
 not to be laid at his feet. Pay him the respect his son did not.
-? In the gardens of the Ruins of Lordaeron, above the Undercity.
+? In the gardens of the Ruins of Lordaeron, above the Undercity. Bow, kneel or mourn beside the king's tomb.
 = 'Here lies King Terenas Menethil II -- Last True King of Lordaeron. Great were his deeds -- long was his reign -- unthinkable was his death.'
 + 'May the Father lie blameless for the deeds of the son. May the bloodied crown stay lost and forgotten.'

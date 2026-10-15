@@ -1,5 +1,5 @@
 ---
-source: 0455436e5bcc
+source: 0b8b09a78252
 zone: 1428
 ---
 ## burning-steppes-pillar-of-ash
@@ -7,7 +7,7 @@ Genau in der Mitte der brennenden Ebene haben die Orcs ihre Türme errichtet,
 und zwischen ihnen steht die Statue eines Menschen, die sie nicht niedergerissen haben.
 Die Chroniken sagen, ein Held der Allianz fiel in der Mitte dieser Steppe,
 im Zweikampf mit dem Kriegshäuptling der Horde. Erweise ihm die Ehre.
-? Die Aschensäule, in der Mitte der Brennenden Steppe.
+? Die Aschensäule, in der Mitte der Brennenden Steppe. Ehre den Gefallenen an der Statue mit einem Salut, einer Verbeugung oder einer Trauergeste.
 = Die Aschensäule: zwischen den Türmen der Blackrock die Statue eines menschlichen Helden, in der Mitte der Steppe, wo Schicksalshammer gegen Lothar kämpfte und Lothar fiel.
 + Schicksalshammer gewann den Zweikampf, sagt Folgen des Zweiten Krieges, doch der Tod zerbrach die Allianz nicht, wie er gehofft hatte: Turalyon sammelte sie, und die Horde wurde geschlagen.
 ! Gefährlich (Soldaten, Zauberhexer und Töter der Blackrock, Stufe 54 bis 56)
@@ -27,7 +27,7 @@ Noch immer versammeln sich dort Hexenmeister. Finde den Altar.
 Im Lager der Horde auf der brennenden Ebene hält ein Goblin exotische Haustiere,
 und eines davon hütet die Geheimnisse aller: Es wiederholt, was es gehört hat,
 und hustet dabei ununterbrochen. Sei freundlich zu ihm, und hör es dir an.
-? Der Flammenkamm, bei Kibler.
+? Der Flammenkamm, bei Kibler. Nimm das hustende Haustier ins Ziel und zeig ihm Zuneigung oder höre ihm mit einem Emote zu.
 = Opus, Kiblers Papagei, am Flammenkamm: 'KRÄCHZ!!! *hust* *hust* Ich muss mit dem Rauchen aufhören!'
 + Er weiß mehr, als er sollte: 'Kibler wird vom Fantasy-Tierschutz untersucht.' Und: 'Alle gehen zur Spitze, aber keiner kommt zurück... genau wie Bijou.'
 ! Ruhig

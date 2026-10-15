@@ -1,5 +1,5 @@
 ---
-source: 511e5ac0effa
+source: 12c9abf6f6ad
 zone: 1432
 ---
 ## loch-modan-valley-of-kings
@@ -7,7 +7,7 @@ De trois grands marteaux, deux furent taillés dans la pierre.
 Vivants, ils n'eurent ni même salle ni même bannière.
 Leurs fils les ont dressés ensemble au bord de la route,
 face au sud, où le troisième attisait ses feux sous la voûte.
-? Au sud-ouest du pays du lac, deux grandes figures gardent un col. On doit quelque chose à des rois.
+? Au sud-ouest du pays du lac, deux grandes figures gardent un col. On doit quelque chose à des rois. Devant les statues, inclinez-vous, agenouillez-vous ou adressez un salut aux rois.
 = Bronzebeard et Wildhammer, côte à côte, dressés par leurs fils. Leurs peuples se sont séparés plus tard. Les statues, non.
 + Toute la guerre est dans une histoire naine, La guerre des trois clans : l'invocation de Thaurissan réveilla Ragnaros, et les statues "servaient d'avertissement à quiconque voudrait attaquer les royaumes des nains et rappelaient le prix que les Sombrefer avaient payé pour leurs crimes."
 ! Calme
@@ -17,8 +17,8 @@ face au sud, où le troisième attisait ses feux sous la voûte.
 Trois de la Horde courent sur la rive est du Loch,
 des collines au sud de l'eau jusqu'au pied du barrage, et retour,
 encore et encore, en plein milieu du pays des nains.
-Deux d'entre eux sont des orcs. C'est le troisième qu'il vous faut.
-? La rive est du Loch, n'importe où entre les collines du sud et le barrage : ils ne s'arrêtent pas de courir.
+Deux d'entre eux sont des orcs. Rejoignez le troisième pour lui parler.
+? La rive est du Loch, n'importe où entre les collines du sud et le barrage : ils ne s'arrêtent pas de courir. Parlez au tauren parmi les coureurs.
 = Haren Swifthoof, un tauren, messager de la Horde, avec Gradok et Thragomm : trois coureurs élites de la Horde qui font des tours au bord d'un lac de l'Alliance.
 + Gradok et Thragomm ont le même visage : le même orc, en double.
 ! Mortel pour l'Alliance (trois élites, niveaux 19 à 21), des amis pour la Horde
@@ -27,7 +27,7 @@ Deux d'entre eux sont des orcs. C'est le troisième qu'il vous faut.
 L'auberge de la route du lac garde le récit d'une pierre devenue chair.
 Cherchez les dormeurs qui se réveillèrent sous la terre et se découvrirent mortels.
 La chambre forte se trouve au sud de ce lac.
-? L'auberge de Thelsamar.
+? L'auberge de Thelsamar. Ouvrez le récit de l'éveil des nains.
 = Ironforge - l'Eveil des Nains, à Thelsamar. La chambre forte qu'il nomme, Uldaman, se trouve au sud du Loch, dans les Terres ingrates.
 + Les nains nommèrent leur terre Khaz Modan, "Montagne de Khaz", en l'honneur du Titan Khaz'goroth, et lui bâtirent une forge au coeur de la montagne. La cité grandit autour.
 ! Calme

@@ -1,12 +1,12 @@
 ---
-source: fc7a50b6edfe
+source: 895466e97be2
 zone: 1422
 ---
 ## western-plaguelands-chillwind
 Dans le camp de l'Alliance à la lisière sud de la peste, une voyageuse se repose avant Âtreval,
 et répète ce qu'elle a entendu : la Croisade avait jadis un mage qui faisait des arcs et des fusils,
 et l'a tué avant que son travail ne quitte jamais la ville. Demandez-lui ce qu'elle en sait.
-? Le camp du Noroît.
+? Le camp du Noroît. Parlez à la voyageuse qui se repose dans le camp.
 = Alexia Ironknife, qui se repose au Noroît avant Âtreval : le fabricant d'armes de la Croisade elle-même, a-t-elle entendu dire, a été tué par la Croisade.
 + À la Barricade, le camp de la Horde, un voyageur raconte la même histoire, et ajoute que le mage avait d'abord achevé une arme remarquable.
 ! Calme

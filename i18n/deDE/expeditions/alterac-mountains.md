@@ -1,5 +1,5 @@
 ---
-source: 67f4663221c4
+source: 1de26f2d591e
 zone: 1416
 ---
 ## alterac-mountains-simone
@@ -7,7 +7,7 @@ In den Hügeln über dem Vorgebirge verbirgt sich ein Anwesen vor allen, die den
 eine Halle für jene, die im Verborgenen arbeiten.
 Und doch arbeitet dort jemand vor aller Augen, mit einem Titel als Beweis:
 Finde die Person, die das Gelände dieses geheimsten aller Häuser pflegt, und lass sie hören, wie schön die Arbeit ist.
-? Das Ravenholdt-Anwesen, einen Bergpfad hinauf nordwestlich von Burg Durnholde.
+? Das Ravenholdt-Anwesen, einen Bergpfad hinauf nordwestlich von Burg Durnholde. Nimm die Person ins Ziel, die das Gelände pflegt, und lobe ihre Arbeit.
 = Simone Cantrell, eine Nachtelfe, Landschaftsarchitektin des Ravenholdt-Anwesens, der Halle der Auftragsmörderliga.
 + Nahe dem Meister steht Winstone Wolfe, den das Anwesen den Wolf nennt. Und eine Hauskatze, Salome, hat das Haus für sich.
 ! Ruhig

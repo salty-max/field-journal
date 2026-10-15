@@ -30,7 +30,7 @@ North-east of the town on the red hill, just off the road,
 an old orc keeps a house and a patch of crops, with a young hand to help.
 His name was not made by farming.
 Pay him the respect his years have earned.
-? North-east of Razor Hill, east of Razorwind Canyon: a farmhouse, an old orc, and his farmhand in the garden.
+? North-east of Razor Hill, east of Razorwind Canyon: a farmhouse, an old orc, and his farmhand in the garden. Target the old orc and bow or salute respectfully.
 = Rokar Bladeshadow, an aged orc farmer, and Harroc, his farmhand: 'What's a young one like you out visiting an old farmer like me?'
 + Harroc works the garden outside. Rokar keeps to the house, and to whatever he was before he was a farmer.
 
@@ -38,7 +38,7 @@ Pay him the respect his years have earned.
 In the retaken keep on the red coast, find the chieftains gathered to drink from one cup.
 One chieftain in the account will not join them.
 His son's new land lies outside these walls.
-? South of Razor Hill, Kul Tiras still holds a keep on Durotar's shore.
+? South of Razor Hill, Kul Tiras still holds a keep on Durotar's shore. Open the book about the Horde's beginning, not the drinking cup.
 = Rise of the Horde, at Tiragarde Keep. The book credits Durotan with refusing Mannoroth's blood. The land outside bears his name.
 + The keep was raised by Admiral Proudmoore's men, who crossed the sea to destroy the Horde in its new land. It is theirs still.
 

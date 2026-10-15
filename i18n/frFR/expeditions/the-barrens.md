@@ -1,12 +1,12 @@
 ---
-source: 556f43fdbe85
+source: f2d6e2dfcf87
 zone: 1413
 ---
 ## the-barrens-ratchet-book
 Les elfes de ce récit répondirent par une tempête à l'interdiction de la magie.
 Trouvez la page, dans le port des gobelins, qui raconte ce qu'il advint d'eux.
 Leur châtiment fut le début d'un voyage.
-? Ratchet, sur la côte des Tarides.
+? Ratchet, sur la côte des Tarides. Ouvrez le livre sur les elfes exilés.
 = L'exil des hauts-elfes, à Ratchet. Bannis pour avoir refusé de renoncer à la magie des arcanes, les Bien-nés partirent vers l'est et fondèrent Quel'thalas. Les gobelins gardent leur histoire. Elle n'est pas à vendre.
 + Dath'Remar traitait les druides de lâches. "Les druides, incapables de se résoudre à tuer tant des leurs, décidèrent d'ostraciser les Bien-nés."
 ! Calme
@@ -15,8 +15,8 @@ Leur châtiment fut le début d'un voyage.
 Sur la route entre le port des gobelins et la croisée des orcs,
 un colporteur gobelin fait l'aller-retour avec des armes et des potions à vendre,
 et un ogre marche derrière lui, bien trop fort pour ces plaines.
-Attrapez le colporteur sur la route.
-? La route de Ratchet à la Croisée. Il la parcourt d'un bout à l'autre.
+Rejoignez le colporteur sur la route et demandez à voir ses marchandises.
+? La route de Ratchet à la Croisée. Il la parcourt d'un bout à l'autre. Rejoignez le colporteur et ouvrez ses marchandises. Aucun achat n'est nécessaire.
 = Lizzarik, un marchand d'armes gobelin de Ratchet, qui fait l'aller-retour jusqu'à la Croisée avec Jorb, son garde du corps ogre.
 + Jorb est de niveau trente-sept, sur une route que la plupart des voyageurs parcourent au niveau quinze.
 ! Calme sur la route
@@ -36,7 +36,7 @@ Posez le pied sur l'escalier.
 Au rempart de la route du nord, où la Horde surveille la forêt des elfes,
 une mère tient sa maison au milieu du camp de guerre,
 et son petit garçon joue devant sa porte. Soyez $gamical:amicale;.
-? Le Rempart de Mor'shan, à la lisière nord des Tarides.
+? Le Rempart de Mor'shan, à la lisière nord des Tarides. Ciblez l'enfant et adressez-lui des salutations, un signe de la main ou un sourire.
 = Pooka et son fils Mogg, au Rempart de Mor'shan : une famille, dans un camp de guerre.
 + Du père du garçon, le rempart ne dit rien.
 ! Calme pour la Horde, les gardes du rempart pour l'Alliance
@@ -46,7 +46,7 @@ Non loin de la route la plus fréquentée des plaines, un court sentier gravit u
 jusqu'à un autel élevé pour un guerrier tombé,
 et un gardien des âmes attend devant, comme s'il l'attendait, lui.
 Peu le trouvent. Honorez-le comme un guerrier en honore un autre.
-? À l'ouest de la Croisée, suivez une crête jusqu'en haut d'une petite colline.
+? À l'ouest de la Croisée, suivez une crête jusqu'en haut d'une petite colline. Devant l'autel, faites un salut militaire ou inclinez-vous respectueusement.
 = L'autel du Guerrier mort, et son propre gardien des âmes, Koiter.
 + Il rappelle le souvenir de Michel Koiter, qui travaillait sur ce monde et mourut avant qu'il soit achevé. Le gardien des âmes porte son nom, et l'orc de l'autel était son propre personnage.
 ! Calme

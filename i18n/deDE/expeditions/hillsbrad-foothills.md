@@ -1,5 +1,5 @@
 ---
-source: 38dcf02358ca
+source: 200f96884a2a
 zone: 1424
 ---
 ## hillsbrad-foothills-zixil
@@ -7,8 +7,8 @@ Auf der Straße zwischen zwei Städten, die einander hassen,
 geht ein Goblin den ganzen Tag von der einen zur anderen und zurück,
 mit einem Roboter auf den Fersen, und verkauft in beiden:
 Gürtel, Kugeln, ein Muster oder zwei, von allem eins nach dem anderen.
-Erwisch ihn auf der Straße.
-? Die Straße von Southshore nach Tarrens Mühle. Er geht sie von einem Ende zum anderen.
+Hol ihn auf der Straße ein und lass dir seine Waren zeigen.
+? Die Straße von Southshore nach Tarrens Mühle. Er geht sie von einem Ende zum anderen. Hol den Goblin ein und öffne sein Warenangebot. Du musst nichts kaufen.
 = Zixil, Erster Händler, ein Goblin, der in Southshore wie in Tarrens Mühle handelt, mit Überwacher V. I, seinem Roboter, auf den Fersen.
 + Seine Bauanleitung lehrt einen Ingenieur, Goblin-Überbrückungskabel herzustellen, die einen gefallenen Gefährten mit einem Stromstoß ins Leben zurückholen können. Das Wort 'können' sollte man sich merken.
 ! Umkämpft (die Straße zwischen den beiden Städten)
@@ -18,7 +18,7 @@ Wo die Straße aus dem Vorgebirge zum Land der wilden Zwerge hinaufsteigt,
 halten zwei Greifen den Pass, und jeder von ihnen hat einen Namen.
 Sie hören auf Ironforge und sind keine Freunde der Horde.
 Erweise ihnen den Respekt eines Soldaten.
-? Die nordöstliche Ecke von Hillsbrad, wo der Weg zum Hinterland hinaufsteigt.
+? Die nordöstliche Ecke von Hillsbrad, wo der Weg zum Hinterland hinaufsteigt. Geh zu einem der beiden Greifen, nimm ihn ins Ziel und salutiere militärisch.
 = Granistad und Kurdros, Greifen aus Ironforge, die den Pass von Hillsbrad hinauf ins Hinterland halten.
 + Sie sind auf Stufe vierzig, an einer Straße, die die meisten Reisenden mit fünfundzwanzig hinaufsteigen: für die Horde weniger Wachen als eine Mauer.
 ! Tödlich für die Horde (zwei Greifen aus Ironforge, Stufe 40), ruhig für die Allianz
@@ -27,7 +27,8 @@ Erweise ihnen den Respekt eines Soldaten.
 Südlich der Feste der Zwerge bewahrt ein großer Stein
 einen Namen und zwei Jahreszahlen, und nichts weiter.
 Jemand hat dafür gesorgt, dass er hier steht, für jemanden, den er verloren hat.
-? Unterhalb von Dun Garok, zum Meer hin.
+Erweise der Person, an die dieser Stein erinnert, einen Augenblick lang die Ehre.
+? Unterhalb von Dun Garok, zum Meer hin. Knie am Gedenkstein nieder, bete oder zeig deine Trauer.
 = 'Anthony Ray Stark. 1961 - 2005.'
 + Ein Denkmal, das die Schöpfer der Welt einem ihrer Freunde hinterließen. Rousch, der Zwerg, der davor steht, war seine eigene Figur im Spiel. Er hatte ihn bis über Stufe vierzig gebracht.
 ! Ruhig
@@ -36,7 +37,7 @@ Jemand hat dafür gesorgt, dass er hier steht, für jemanden, den er verloren ha
 Ein Buch unter den Lebenden erinnert an einen Aufstand der Toten.
 Ihre neue Herrscherin nahm eine zerstörte Hauptstadt ein, während ihr alter Herr nach Norden eilte.
 Such den Bericht in der Stadt an der Südküste.
-? Southshore, beim Gasthaus.
+? Southshore, beim Gasthaus. Öffne das Buch über den Krieg der Toten untereinander.
 = Bürgerkrieg in den Pestländern, in Southshore: wie Sylvanas und ihre Verlassenen die Ruinen der Hauptstadt Lordaerons einnahmen, während Arthas nach Norden zog.
 + Die Straße hinauf halten die Verlassenen Tarrens Mühle: Die Aufständischen des Buches sind die Nachbarn von Southshore.
 ! Ruhig
@@ -45,7 +46,7 @@ Such den Bericht in der Stadt an der Südküste.
 Am Fuß der verschneiten Berge bewahren die Verlassenen eine Seite über hundert menschliche Schüler.
 Ihre elfischen Lehrer gaben ihnen nur die Magie, die sie brauchten.
 Finde, was ihre erste große Lektion einem Heer antat.
-? Tarrens Mühle.
+? Tarrens Mühle. Lies das Buch über das Menschenreich und seinen Krieg gegen die Trolle.
 = Arathor und die Trollkriege, in Tarrens Mühle: Die Schlacht wurde am Fuß des Alteracgebirges geschlagen.
 + Die Elfen lehrten hundert Menschen die Grundlagen der Magie, nicht mehr als nötig. Die Trolle erhoben sich nie wieder als ein Volk.
 ! Ruhig

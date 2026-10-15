@@ -1,13 +1,13 @@
 ---
-source: 721322997d0c
+source: 34e4f3187e5f
 zone: 1431
 ---
 ## duskwood-twilight-grove
 Au coeur du bois sombre, un grand arbre se tient à l'écart :
 une porte que les druides rêveurs franchissent vers le Rêve d'émeraude.
 Des dragons verts furent chargés de la garder. Le Cauchemar a pris les gardiens.
-La porte s'ouvre à ceux qui suivent la voie des druides.
-? La route à travers la forêt contourne quelque chose de plus ancien que la ville.
+Les druides commencent ce voyage les yeux fermés. Suivez leur exemple.
+? La route à travers la forêt contourne quelque chose de plus ancien que la ville. Dans le bosquet, faites une emote de sommeil ou allongez-vous. Le portail n'a pas besoin de s'ouvrir.
 = Le Bosquet du crépuscule, dans le cratère d'un volcan mort depuis longtemps. Son arbre est l'une des quatre portes du Rêve d'émeraude que garde le vol draconique vert, et ses gardiens sont revenus du Rêve changés.
 + Le crépuscule, ici, n'est pas l'obscurité du bois de la Pénombre : les druides endormis entretiennent au-dessus du cratère une pénombre bien à eux, toute différente du reste de la forêt.
 ! Calme, mais périlleux quand un dragon du Cauchemar s'y trouve
@@ -18,7 +18,7 @@ Là où finit la rive nord, près de la route qui mène aux montagnes rouges,
 les Veilleurs tiennent un poste loin de leurs murs.
 Sa seule compagnie est un gobelin qui vend des marchandises rares.
 Honorez le poste, qui que ce soit qui le tienne.
-? La route de Sombre-Comté aux Carmines, là où elle quitte la forêt : un veilleur, et l'étal d'un gobelin.
+? La route de Sombre-Comté aux Carmines, là où elle quitte la forêt : un veilleur, et l'étal d'un gobelin. Ciblez le veilleur et adressez-lui un salut ou inclinez-vous.
 = Le gardien Callahan, le poste le plus éloigné des Veilleurs sur la route des Carmines. Les Veilleurs sont la milice de Sombre-Comté, sous les ordres de la fille du bourgmestre, le commandant Althea Ebonlocke.
 + L'armée de Hurlevent est partie au front, et a pour ainsi dire abandonné la forêt : les Veilleurs sont tout ce qui garde ses routes ouvertes.
 ! Calme
@@ -28,7 +28,7 @@ Le village sur la colline aux corbeaux a été laissé à ses morts,
 et la plupart de ses maisons sont vides, ou semblent l'être.
 Dans l'une d'elles, une maisonnée occupe les deux étages, cachée à l'oeil nu.
 Étudiez les pièces vides, et ne dérangez pas leurs occupants.
-? Colline-aux-Corbeaux, à la lisière nord du village : une maison à deux étages, et personne dedans.
+? Colline-aux-Corbeaux, à la lisière nord du village : une maison à deux étages, et personne dedans. Dans la maison, scrutez les pièces vides avec une emote.
 = Les Invisibles : des âmes en peine invisibles, d'une force bien au-delà de celle du bois de la Pénombre. Deux occupent cette maison. D'autres occupent le reste de celles de Colline-aux-Corbeaux.
 + La Détection de l'invisibilité d'un démoniste les révèle. Leur invisibilité n'est pas le camouflage d'un voleur : un oeil exercé à trouver l'un peut manquer toute une maisonnée ici.
 ! Périlleux (morts-vivants invisibles, niveaux 49 à 51)

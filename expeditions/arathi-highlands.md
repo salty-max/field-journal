@@ -30,7 +30,7 @@ On the highlands' north-western edge, a wall of the first kingdom of men
 runs along the border, over the hills, as far as it can see.
 It was raised against the trolls, long ago. Now it gapes, broken through.
 Go to its foot, and take in what is left.
-? Arathi's north-western edge, where the highlands meet the foothills.
+? Arathi's north-western edge, where the highlands meet the foothills. Look at the broken wall or show that you are thinking about it.
 = Thoradin's Wall, raised by King Thoradin of Arathor, the first kingdom of men, against the Amani trolls, broken now and gaping wide.
 + 'Once a symbol of humanity's strength and defensive might,' an old survey of these lands calls it, 'now fallen to decay and war.'
 
@@ -38,7 +38,7 @@ Go to its foot, and take in what is left.
 In the Horde's highland camp, seek the elves who named themselves for their dead.
 Their kingdom was lost, but the name travelled with them.
 The story is kept on a page.
-? Hammerfall.
+? Hammerfall. Open the book about the elves' new name.
 = Rise of the Blood Elves, in Hammerfall: Kael'thas's high elves, renamed blood elves, cast out by the Alliance and gone to Outland with Illidan.
 + Cut off from the Sunwell, they hungered for magic. Looking for a cure is what led Kael'thas to Illidan and his naga.
 

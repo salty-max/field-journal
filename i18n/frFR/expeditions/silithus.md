@@ -1,5 +1,5 @@
 ---
-source: 634b705c0102
+source: 29ea2ebc24e8
 zone: 1451
 ---
 ## silithus-scarab-wall
@@ -17,7 +17,7 @@ Trouvez le mur, et laissez le gong tranquille.
 Devant une ruche du désert jaune, un sergent monte la garde parmi des nains,
 et il a deux mots à dire sur la promotion qui l'a mis là.
 Écoutez-le jusqu'au bout, et soyez $ggentil:gentille;.
-? Devant la Ruche'Zora, à l'ouest de Silithus.
+? Devant la Ruche'Zora, à l'ouest de Silithus. Ciblez le sergent et réconfortez-le ou félicitez-le pour sa promotion.
 = Le sergent Carnes : "Vous avez fait un boulot splendide pendant la collecte des ressources", qu'ils ont dit. "Voilà une promotion", qu'ils ont dit.
 + "En réalité, ça voulait dire : Carnes, mon brave Carnes, vous allez être cantonné en Silithus, devant un nid à cafards, en compagnie d'une bande de nains moites. Merci pour cette promotion, capitaine !"
 ! Périlleux (les silithides de la Ruche'Zora)
@@ -26,7 +26,7 @@ et il a deux mots à dire sur la promotion qui l'a mis là.
 Sur une hauteur au nord-est du désert se tient une femme qui dit qu'elle était là
 quand les insectes sortirent pour la première fois, il y a mille ans,
 et qu'elle ne peut pas partir. Demandez-lui comment elle le sait.
-? Au nord-est de Silithus. Elle se tient seule.
+? Au nord-est de Silithus. Elle se tient seule. Engagez la conversation avec la gardienne solitaire.
 = Ralo'shan, la Gardienne éternelle, une elfe de la nuit : "J'ai été tuée une centaine de fois. Mais je me réveille toujours ici, bien vivante."
 + "Certains disent que je suis maudite, et d'autres... Ils disent que je suis bénie, et que je suis le héraut qui doit annoncer un nouvel âge."
 ! Périlleux (les silithides du désert et le Marteau du crépuscule)
@@ -35,7 +35,7 @@ et qu'elle ne peut pas partir. Demandez-lui comment elle le sait.
 Au sud du désert, un singe attend dans le sable,
 le compagnon du plus célèbre explorateur des nains.
 L'explorateur lui-même est introuvable. Soyez $gamical:amicale; avec le singe.
-? Au sud de Silithus, à l'est du mur du Scarabée.
+? Au sud de Silithus, à l'est du mur du Scarabée. Ciblez le singe et adressez-lui des salutations, un signe de la main ou une caresse.
 = Glibb, le singe de compagnie de Brann Bronzebeard, qui attend dans le désert sans Brann.
 + Personne en Silithus ne dit où Brann est parti.
 ! Périlleux (les silithides près du mur)

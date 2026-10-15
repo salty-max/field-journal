@@ -22,7 +22,7 @@ quarry:
 In the Alliance's camp at the plague's southern edge, a traveller rests before Hearthglen,
 and passes on what she has heard: the Crusade once had a mage making bows and guns,
 and killed him before his work ever left the town. Ask her about it.
-? Chillwind Camp.
+? Chillwind Camp. Speak to the traveller resting in the camp.
 = Alexia Ironknife, resting at Chillwind before Hearthglen: the Crusade's own weapon-maker, she has heard, was killed by the Crusade.
 + At the Bulwark, the Horde's camp, a traveller tells the same tale, and adds that the wizard finished a remarkable weapon first.
 

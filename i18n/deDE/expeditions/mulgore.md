@@ -1,5 +1,5 @@
 ---
-source: d7985b3e3f51
+source: dd5de5c3d91a
 zone: 1412
 ---
 ## mulgore-rolling-plains
@@ -7,7 +7,7 @@ Im Südosten der Ebenen, wo das Gras zum trockenen Land hin abfällt,
 teilen sich Wölfe und Kodos, Schreiter und Pumas das offene Gelände,
 und ab und zu Reiter von jenseits der Grenze:
 der einzige Ort, an dem sie je ins Land der Tauren gelangt sind. Halte Ausschau nach ihnen.
-? Südöstlich von Bloodhoof, zum Brachland hin: das Gras, das bis zur Grenze wogt.
+? Südöstlich von Bloodhoof, zum Brachland hin: das Gras, das bis zur Grenze wogt. Schau oder spähe mit einem Emote über die Ebene. Die Reiter müssen nicht anwesend sein.
 = Die wogenden Ebenen: der einzige Teil von Mulgore, in den die Kundschafter der Zentauren eingedrungen sind.
 + Im Norden, jenseits von Bloodhoof, sind die goldenen Ebenen um den Felsen die wertvollsten Jagdgründe der Tauren.
 ! Ruhig (Präriewölfe, und ab und zu Kundschafter der Zentauren)
@@ -17,7 +17,7 @@ der einzige Ort, an dem sie je ins Land der Tauren gelangt sind. Halte Ausschau 
 Such im Steinbruch der Zwerge in den westlichen Klippen ihren eigenen Bericht über einen Krieg.
 Er beginnt mit drei Anwärtern auf einen Thron
 und endet mit zwei Königen an einer Bergstraße.
-? Die Grabungsstätte von Bael'dun, in den westlichen Klippen von Mulgore.
+? Die Grabungsstätte von Bael'dun, in den westlichen Klippen von Mulgore. Lies den Bericht über die drei verfeindeten Zwergenclans.
 = Krieg der drei Hämmer, an der Grabungsstätte von Bael'dun: ein Außenposten der vierhundertfünfzig Zwerge, die in Bael Modan graben. Die Tauren sehen die Grabung als Beleidigung der Erdenmutter.
 + Brann Bronzebeard, so heißt es, besuchte die Grabung und ging weiter nach Thunder Bluff, um vorzuschlagen, dass Tauren neben den Zwergen arbeiten, damit für das Land gesorgt wird.
 ! Bewacht (die Zwerge von Bael'dun)

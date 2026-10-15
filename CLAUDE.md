@@ -81,7 +81,9 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   Expeditions, PLAN.md): front matter in YAML (`zone`, `home` for a starting
   zone or capital, `riddles`: id, tier, `faction` (a town's, or the side a
   keeper doesn't attack), `gestures`
-  (emote tokens) or `reading`, `night`, the spot: `object`, `creature`,
+  (emote tokens) or `reading`, `night`, `companions` (other creature ids
+  accepted by a group gesture, such as either musical frog or either
+  gryphon), the spot: `object`, `creature`,
   `trigger` or `area` (with an `anchor` where the area has no map overlay),
   `found: target` for a keeper met by speaking to it or one that walks,
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
@@ -273,6 +275,12 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
 - No semicolons in prose, in any language (the user's rule, 14 October
   2026): two sentences, or a comma, or a rewrite for a list. The gender
   tokens' own `;` stay. Research notes (`sources:`) may keep theirs.
+- A gesture's verse suggests the action as well as the place. Its paid hint
+  helps with the action, even if that means naming an ordinary verb. The
+  riddle page says it needs an emote. Avoid false requirements to wait, fight,
+  buy an item or operate a portal. `scripts/riddle-solutions.test.ts` checks
+  every authored solution against all twelve client language files, including
+  group keepers. GUID kinds are protocol tokens, never translated UI words.
 - Lore scope as the Codex (loosened on 12 October 2026): the past up to the
   vanilla era from any source (the games, novels, comics, RPG books,
   Chronicle), nothing anachronic to vanilla or Forever; Forever-only families

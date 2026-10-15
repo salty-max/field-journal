@@ -44,7 +44,7 @@ and her demons, when the world was broken. Find what is left of him.
 In the south of the elves' old country, dragonkin of the blue flight hold the shores of a lake,
 far from the cold north where their kind belongs.
 Inside their ring, the lake itself is calm. Get through them, and refresh yourself at the water.
-? Lake Mennar, in southern Azshara.
+? Lake Mennar, in southern Azshara. Sit by the lake or make a drinking gesture there.
 = Lake Mennar: blue dragonkin hold its shores, scalebanes, mageweavers and magelords, far from their flight's northern home.
 + Mazthoril's caves in Winterspring are another blue dragonflight refuge outside Northrend.
 
@@ -52,7 +52,7 @@ Inside their ring, the lake itself is calm. Get through them, and refresh yourse
 In the Horde's camp in the elven wilds, an orc remembers when he and his brother
 camped here alone, before there was any camp at all.
 Ask him what he makes of it now.
-? Valormok, in western Azshara.
+? Valormok, in western Azshara. Speak to the orc who remembers the camp's beginning.
 = Haggrum Bloodfist, at Valormok: 'I remember when my brother and I would camp alone in the Azshara wilderness. Look at it now.'
 + His brother, by the name, is Ag'tor Bloodfist, who has business enough for any traveller.
 

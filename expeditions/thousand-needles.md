@@ -8,7 +8,7 @@ client: both
 riddles:
   - id: thousand-needles-raceway
     tier: near
-    gestures: [CHEER, APPLAUD]
+    gestures: [CHEER, APPLAUD, CLAP]
     creature: 4507   # Daisy, Race Starter Girl, dump 79.5, 76.9; Fobeed (4620) and Zuzubee (4707) announce
     hint_area: { x: 79.0, y: 77.5, r: 5 }
     danger: "Quiet"
@@ -21,7 +21,7 @@ quarry:
 On the salt flats, gnomes and goblins race their machines,
 an ogre calls the races, and a barmaid sends them off with a flag.
 Every race needs a crowd. Be one.
-? The Mirage Raceway, on the Shimmering Flats.
+? The Mirage Raceway, on the Shimmering Flats. Beside the flag-bearer, cheer or applaud the race with an emote.
 = Daisy, the race starter girl of the Mirage Raceway, with Fobeed, the ogre, and Zuzubee calling the races.
 + The racers come and go. The flag, the ogre's voice and the salt stay.
 

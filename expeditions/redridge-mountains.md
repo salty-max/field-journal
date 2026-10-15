@@ -38,8 +38,8 @@ quarry:
 At the end of the lake town's docks, two boys keep the same afternoon every day.
 One asks the other what he wants to do.
 The other doesn't know, and asks him back.
-Join them on the planks while they make up their minds.
-? Lakeshire's docks, on Lake Everstill.
+Make yourself comfortable beside them on the planks while they make up their minds.
+? Lakeshire's docks, on Lake Everstill. Sit beside the boys at the end of the docks.
 = Roger and Jamin, two boys of Lakeshire: 'So what do you want to do today?' 'I dunno. What do you want to do?' 'Fishing sounds good.'
 + The question comes round every two and a half to three minutes, and the answer has never once changed.
 
@@ -48,8 +48,8 @@ In the far south-east, the black-rock orcs keep a camp in a valley,
 and by its fire sits a gnome with a ball and chain at his feet.
 He served a mage's tower once, and he still has wares,
 for whoever can reach him: thread, dye, and cloaks fit for a tower.
-Be kind to him.
-? Render's Valley, Redridge's south-east, in the Blackrock camp.
+Offer him a little reassurance in his captivity.
+? Render's Valley, Redridge's south-east, in the Blackrock camp. Target the captive gnome and comfort or encourage him.
 = The Captured Servant of Azora, a gnome of the tower in Elwynn, chained in the Blackrock camp, and still selling tailoring supplies.
 + He keeps only one of each cloak: Inferno, Spirit and Sylvan. The Inferno offers protection against fire, useful enough in a valley held by the Blackrock.
 
@@ -57,7 +57,7 @@ Be kind to him.
 In the lake-town inn, find a king's fatal certainty: his walls would hold.
 His city fell, and his death came from a blade already inside it.
 The account waits on a page.
-? Lakeshire, by the inn.
+? Lakeshire, by the inn. Read the account of the human capital's fall.
 = The Dark Portal and the Fall of Stormwind. Llane held his capital, sure the orcs could never take it. Garona killed him as it fell.
 + In the same book, an orc infant, Durotan's son, found by a human officer named Blackmoore and taken as a slave: 'That infant orc would one day rise to become the greatest leader his people would ever know.'
 

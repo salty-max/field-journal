@@ -27,7 +27,7 @@ riddles:
 On the rise of the elders, a tale tells of a white stag
 whose antlers tangled in the stars as he fled the hunters,
 and of the moon, who freed him for his love. Find the tale.
-? Elder Rise.
+? Elder Rise. Read the tale of the stag and the moon.
 = The White Stag and the Moon: Apa'ro, whom the night elves call Malorne.
 + Their child was Cenarius, who 'would walk the starry path between the waking world and the kingdom of the heavens'.
 
@@ -35,6 +35,6 @@ and of the moon, who freed him for his love. Find the tale.
 By the chieftain's lodge, a tauren sells prairie dogs to keep as friends,
 and keeps one of his own beside his stall, with a name.
 Make its acquaintance.
-? Thunder Bluff, by the prairie dog seller's stall near Cairne's lodge.
+? Thunder Bluff, by the prairie dog seller's stall near Cairne's lodge. Target the named prairie dog and pet it or offer a greeting.
 = Nibbles, Halpa's own prairie dog, beside his stall: Halpa sells prairie dog whistles to anyone who wants a friend of their own.
 + Nibbles is not for sale.

@@ -15,7 +15,7 @@ riddles:
     sources: "object 175738's text"
   - id: westfall-dead-acre
     tier: off
-    gestures: [MOURN, SIGH]
+    gestures: [MOURN, SIGH, CRY]
     area: The Dead Acre   # placed: the client's overlay: 62.4, 61.4
     hint_area: { x: 60.0, y: 58.5, r: 6 }
     danger: "Guarded (harvest reapers to level 18, and at times the Foe Reaper 4000)"
@@ -28,7 +28,7 @@ quarry:
 On a farmhouse shelf north of the militia's hill,
 seek a young woman's victory over a fallen god.
 She believed she had ended the danger. The page remembers what followed her home.
-? The Saldeans' farm, north of Sentinel Hill.
+? The Saldeans' farm, north of Sentinel Hill. Open the book on the farmhouse shelf.
 = Aegwynn and the Dragon Hunt, on the Saldeans' shelf. A farmhouse is an odd place to keep the tale of the Guardian who struck down Sargeras's body.
 + She never knew she had done as he planned: his spirit passed into her and hid in her soul for many years.
 
@@ -37,7 +37,7 @@ In the south-east, near the bridge into the dark wood,
 a farm burned when the Brotherhood came, fields and all,
 and its ruins still smoke. The iron harvesters that walk its rows
 are the strongest left in the west. Grieve for the farm, and keep moving.
-? South-east Westfall, by the bridge to Duskwood: a farm that is only ashes.
+? South-east Westfall, by the bridge to Duskwood: a farm that is only ashes. Among the ruins, mourn the loss or let out a sorrowful sigh.
 = The Dead Acre: one of Westfall's many farms, burned by the Defias as they took the land.
 + The Foe Reaper 4000, a harvest golem worse than all the rest, walks these fields at times, and others of Westfall's.
 

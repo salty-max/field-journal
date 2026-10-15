@@ -40,7 +40,7 @@ a dwarf and a gnome keep a stone house with a windmill,
 and sell what they come by: fine belts and leggings, one of each at a time,
 and two gnomish plans, one copy of each.
 Call at their door.
-? Sundown Marsh, the Wetlands' north-west, west of Ironbeard's Tomb.
+? Sundown Marsh, the Wetlands' north-west, west of Ironbeard's Tomb. Approach the merchants, target the dwarf and offer a greeting with an emote.
 = Wenna Silkbeard, a dwarf, and Fradd Swiftgear, a gnome, in their stone house in Sundown Marsh. Fradd's plans: a Lovingly Crafted Boomstick and a Minor Recombobulator.
 + Fradd's smaller device restores some health and mana, but its particular talent is turning a sheep back into a traveller. An engineer need not wait for the mage's spell to wear off.
 
@@ -48,7 +48,7 @@ Call at their door.
 North of the old dig, out in the marsh where the raptors hunt,
 a man stands alone, and he is not going anywhere.
 Ask him what he is doing there. He has an answer, and he will shout it.
-? Black Channel Marsh's north edge, north of Whelgar's Excavation Site.
+? Black Channel Marsh's north edge, north of Whelgar's Excavation Site. Speak to the man standing alone in the marsh.
 = Terl Arakor, alone in the marsh: 'This is MY WAGON! MINE!'
 + He stands with the Alliance: a Horde traveller gets no answer from him, only a fight.
 
@@ -56,7 +56,7 @@ Ask him what he is doing there. He has an answer, and he will shout it.
 The harbour keeps an account of a prison high above the marsh.
 Its captive could burn an army, yet her captors forced her to serve them.
 Find the page that tells how she was freed.
-? Menethil Harbor.
+? Menethil Harbor. Read the account of the dragon queen's captivity.
 = The Battle of Grim Batol, in Menethil Harbor. The Dragonmaw orcs held Alexstrasza captive in the mountain at the Wetlands' eastern edge. Once free, she and the other great dragons destroyed their fortress.
 + Grim Batol was a Wildhammer stronghold first, 'some say cursed'. A small band led by the mage Rhonin destroyed the Demon Soul and freed Alexstrasza.
 

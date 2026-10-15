@@ -1,5 +1,5 @@
 ---
-source: 89dec6a2160b
+source: 8bd9dafd9c6d
 zone: 1440
 ---
 ## ashenvale-grom
@@ -8,7 +8,7 @@ meißelte ein Kriegshäuptling Worte für seinen großen Bruder,
 dessen Name Riesenherz bedeutete,
 der allein vor dem Dämon stand und die Freiheit seines Volkes mit seinem Blut erkaufte.
 Lass ihm, was einem Krieger gebührt.
-? Der Demonfall-Canyon, im Südosten von Ashenvale.
+? Der Demonfall-Canyon, im Südosten von Ashenvale. Erweise dem gefallenen Krieger am Denkmal mit einem Salut, einer Verbeugung oder einem gebeugten Knie die Ehre.
 = 'Lok-Tar Ogar, großer Bruder. Mögen die Warsong niemals untergehen.' Thrall hat es geschrieben.
 + Grom war der erste Häuptling, der Mannoroths Blut trank, und derjenige, der den Dämon tötete: 'In vielerlei Hinsicht begann und endete der Fluch, der auf unserem Volk lastete, mit Grom.'
 ! Gefährlich (die Diener der Legion)
@@ -17,7 +17,7 @@ Lass ihm, was einem Krieger gebührt.
 Eine der fünf Gestalten, die über die Welt wachen, erhielt eine Pflicht, die sie nur im Schlaf erfüllen konnte.
 Finde in der Stadt der Schildwachen am See die Seite, die diesen Auftrag nennt.
 Die vier anderen erhielten den ihren auf derselben Seite.
-? Astranaar.
+? Astranaar. Lies das Buch, das von den Pflichten der fünf Drachenschwärme erzählt.
 = Der Bund der Drachenschwärme, in Astranaar: Die Titanen vertrauten die Welt fünf Drachen an und gaben Ysera den Smaragdgrünen Traum zur Obhut.
 + Ysera fiel in eine ewige Trance, gebunden an den wachen Traum der Schöpfung. Ihre grünen Drachen hüten seine Tore, darunter den großen Baum im Zwielichtshain des Dämmerwalds.
 ! Ruhig

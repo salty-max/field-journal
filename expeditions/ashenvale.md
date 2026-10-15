@@ -31,7 +31,7 @@ a warchief carved words for his big brother,
 whose name meant giant's heart,
 who stood alone before the demon and bought his people's freedom with his blood.
 Leave him what a warrior is owed.
-? Demon Fall Canyon, in Ashenvale's south-east.
+? Demon Fall Canyon, in Ashenvale's south-east. Give the fallen warrior a salute, a bow or a bent knee at his monument.
 = 'Lok'Tar ogar, big brother. May the Warsong never fade.' Thrall wrote it.
 + Grom was the first chieftain to drink Mannoroth's blood, and the one who killed the demon: 'the curse of our people began and ended with Grom.'
 
@@ -39,7 +39,7 @@ Leave him what a warrior is owed.
 One of the world's five keepers was given a duty she could fulfil only in sleep.
 In the sentinels' town beside the lake, find the page that names her charge.
 Her four kin received theirs on the same page.
-? Astranaar.
+? Astranaar. Read the book that recounts the five dragonflights' duties.
 = Charge of the Dragonflights, in Astranaar: the Titans entrusted the world to five dragons, and gave Ysera the Emerald Dream to watch over.
 + Ysera fell into an eternal trance, bound to the waking Dream of Creation. Her green dragons keep its doors, the great tree of Duskwood's Twilight Grove among them.
 

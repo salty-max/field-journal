@@ -46,8 +46,8 @@ quarry:
 In the heart of the dark wood a great tree stands apart:
 a door the dreaming druids walk through to the Emerald Dream.
 Green dragons were set to keep it. The Nightmare took the keepers.
-The door opens for those who go the druids' way.
-? The road through the forest bends around something older than the town.
+The druids begin that journey with their eyes closed. Follow their example.
+? The road through the forest bends around something older than the town. Use a sleeping or lying-down emote in the grove. The portal does not need to open.
 = The Twilight Grove, in the crater of a volcano long dead. Its tree is one of four doors the green dragonflight keeps into the Emerald Dream, and its keepers came back from the Dream changed.
 + The dusk here is not Duskwood's darkness: the sleeping druids keep a twilight of their own over the crater, quite unlike the rest of the forest.
 
@@ -56,7 +56,7 @@ Where the northern bank ends, by the road into the red mountains,
 the Night Watch keeps one post far from its walls.
 Its only company is a goblin with rare goods to sell.
 Honour the post, whoever keeps it.
-? The road from Darkshire to Redridge, where it leaves the forest: a watcher, and a goblin's stall.
+? The road from Darkshire to Redridge, where it leaves the forest: a watcher, and a goblin's stall. Target the watcher and salute or bow.
 = Watcher Callahan, the Night Watch's farthest post on the road to Redridge. The Watch is Darkshire's own militia, under the mayor's daughter, Commander Althea Ebonlocke.
 + Stormwind's army is away at the front, and has all but abandoned the forest: the Watch is all that keeps its roads open.
 
@@ -65,7 +65,7 @@ The village on the hill of ravens was left to its dead,
 and most of its houses stand empty, or seem to.
 In one of them, a household keeps both floors, hidden from an unaided eye.
 Study the empty rooms, and leave their occupants undisturbed.
-? Raven Hill, at the village's northern edge: a house of two floors, and no one in it.
+? Raven Hill, at the village's northern edge: a house of two floors, and no one in it. Inside the house, peer into the empty rooms with an emote.
 = The Unseen: invisible wraiths, of a strength far beyond Duskwood's. Two keep this house. Others keep the rest of Raven Hill's.
 + A warlock's Detect Invisibility reveals them. Their invisibility is not a rogue's stealth: an eye trained to find the latter may miss an entire household here.
 

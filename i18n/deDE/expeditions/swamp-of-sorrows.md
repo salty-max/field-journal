@@ -1,12 +1,12 @@
 ---
-source: e5ddceb55ff5
+source: 0280124bd20c
 zone: 1435
 ---
 ## swamp-of-sorrows-stonard
 Such in der Steinfestung über dem Morast den Namen eines Kindes, der ein Leben in Ketten bedeutete.
 Ein Aufseher wählte ihn für die Waise, die er großzog.
 Die Geschichte endete nicht so, wie er es wollte.
-? Stonard.
+? Stonard. Lies den Bericht über den Neuanfang der Horde. Der Name gehört zu dieser Geschichte.
 = Die neue Horde, in Stonard: Aedelas Blackmoore und die Waise, die er Thrall nannte.
 + Schicksalshammer fiel bei der Befreiung eines der Lager. Thrall nahm seinen Kriegshammer und seine schwarze Rüstung auf und wurde Kriegshäuptling der Horde.
 ! Ruhig
