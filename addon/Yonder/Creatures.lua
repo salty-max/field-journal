@@ -54,14 +54,21 @@ local BEAST_NAMES = {
 }
 local byBeast, byType
 local typeOf -- a type's name, as the game says it, to the data's (English)
+local familyOf -- a family's name, as the game says it, to its English one
 local function lookups()
   if byBeast then return end
-  byBeast, byType, typeOf = {}, {}, {}
+  byBeast, byType, typeOf, familyOf = {}, {}, {}, {}
   local info = C_CreatureInfo or {}
   for familyId, index in pairs(D.beasts or {}) do
-    if BEAST_NAMES[familyId] then byBeast[BEAST_NAMES[familyId]] = index end
+    if BEAST_NAMES[familyId] then
+      byBeast[BEAST_NAMES[familyId]] = index
+      familyOf[BEAST_NAMES[familyId]] = BEAST_NAMES[familyId]
+    end
     local f = info.GetCreatureFamilyInfo and info.GetCreatureFamilyInfo(familyId)
-    if f and f.name then byBeast[f.name] = index end
+    if f and f.name then
+      byBeast[f.name] = index
+      familyOf[f.name] = BEAST_NAMES[familyId] or f.name
+    end
   end
   for typeName, index in pairs(D.fallbacks or {}) do
     byType[TYPE_NAMES[typeName] or typeName] = index
@@ -111,6 +118,20 @@ function ns.familyKey(id, rec)
   return "?" .. rec.type .. (rec.family and ("/" .. rec.family) or "")
 end
 
+-- A creature type's and a family's English names (the game's word on an
+-- English client), from the game's word in this client's language, by their
+-- ids: a journal keeps them in English, so a creature met in one language is
+-- filed in another; a word of another language is kept as it was.
+function ns.typeEnglish(word)
+  lookups()
+  local t = word and typeOf[word]
+  return t and (TYPE_NAMES[t] or t) or word
+end
+function ns.familyEnglish(word)
+  lookups()
+  return word and familyOf[word] or word
+end
+
 -- Can the journal file a creature of this type the data doesn't know?
 -- (Not critters, wild pets, totems...)
 function ns.knownType(ctype)
@@ -131,8 +152,8 @@ local function here()
   return {
     at = time(),
     level = UnitLevel("player"),
-    zone = GetRealZoneText(),
-    sub = GetSubZoneText(),
+    zone = ns.areaEnglish(GetRealZoneText()),
+    sub = ns.areaEnglish(GetSubZoneText()),
     map = map,
     x = pos and math.floor(pos.x * 1000 + 0.5) / 10,
     y = pos and math.floor(pos.y * 1000 + 0.5) / 10,
@@ -185,8 +206,9 @@ local function meet(unit)
       if not known then
         local ctype, cfam = UnitCreatureType(unit), UnitCreatureFamily(unit)
         if secret(ctype) or not ns.knownType(ctype) then return end
-        rec.type = ctype
-        rec.family = not secret(cfam) and cfam or nil
+        -- (kept in English, by what the game says it is: filed in any language)
+        rec.type = ns.typeEnglish(ctype)
+        rec.family = not secret(cfam) and ns.familyEnglish(cfam) or nil
       end
       rec.first = here()
       char.seen[id] = rec

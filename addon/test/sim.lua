@@ -2498,6 +2498,14 @@ do
     ns.areaName("The Library") == "La Bibliothèque",
     "… and a place inside a building (no area id) by the translation's list"
   )
+  -- (and the other way: a place met on this French client kept in English, by
+  -- its id, so it reads in any language)
+  check(
+    ns.areaEnglish("Lac glacial") == "Iceflow Lake"
+      and ns.areaEnglish("La Bibliothèque") == "The Library"
+      and ns.areaEnglish("Ailleurs") == "Ailleurs",
+    "… a place met in French kept in English by its id; one it doesn't know as the game gave it"
+  )
   C_Map.GetAreaInfo = area
   -- a creature by this game's name for it, whatever its record kept
   check(

@@ -277,6 +277,31 @@ function ns.areaName(name)
   -- (a place inside a building: a translation's own list)
   return ns.subzoneNames and ns.subzoneNames[name] or name
 end
+-- An area's English name from its name in the client's language, by its id:
+-- the game's C_Map.GetAreaInfo for each of the data's areas, the reverse made
+-- once (a place inside a building: a translation's list, reversed). The journal
+-- keeps places in English, by what the game says they are, so a journal kept
+-- in one language reads in another (ns.areaName); a name the data doesn't know
+-- is kept as the game gave it.
+local areaHere, builtWith
+function ns.areaEnglish(name)
+  if not name or name == "" or secret(name) then return name end
+  -- (made again only if the game's function is another: the tests' clients)
+  if not areaHere or builtWith ~= C_Map.GetAreaInfo then
+    areaHere, builtWith = {}, C_Map.GetAreaInfo
+    for id, english in pairs(A.areaNames or {}) do
+      local own = C_Map.GetAreaInfo and C_Map.GetAreaInfo(id)
+      if type(own) == "string" and own ~= "" and (not areaHere[own] or id < areaHere[own][1]) then
+        areaHere[own] = { id, english }
+      end
+    end
+    for english, own in pairs(ns.subzoneNames or {}) do
+      if not areaHere[own] then areaHere[own] = { 0, english } end
+    end
+  end
+  local hit = areaHere[name]
+  return hit and hit[2] or name
+end
 -- A place recorded as "Zone: Subzone": each part in the client's language,
 -- joined as the language joins them.
 function ns.placeText(p)
@@ -300,30 +325,39 @@ end
 -- ── deaths and close calls ───────────────────────────────────────────────────
 -- What hurt the player last: the combat log's damage on Classic; on Forever,
 -- which closes the combat log, the last foe targeted in a fight.
-local lastHit, lastFoe
+local lastHit, lastFoe, lastFoeId
+-- (its name, and its creature's id where the game gave it: its name in any
+-- language, ns.creatureName)
 local function foe()
-  if lastHit and time() - lastHit.at <= 10 then return lastHit.name end
-  return lastFoe
+  if lastHit and time() - lastHit.at <= 10 then return lastHit.name, lastHit.id end
+  return lastFoe, lastFoeId
+end
+local function npcOf(guid)
+  local id = type(guid) == "string" and not secret(guid) and guid:match("^%a+%-%d+%-%d+%-%d+%-%d+%-(%d+)%-")
+  return id and tonumber(id) or nil
 end
 
 if not ns.forever then
   ns.on("COMBAT_LOG_EVENT_UNFILTERED", function()
-    local _, sub, _, _, sourceName, _, _, dest = CombatLogGetCurrentEventInfo()
+    local _, sub, _, source, sourceName, _, _, dest = CombatLogGetCurrentEventInfo()
     if dest == UnitGUID("player") and sourceName and (sub == "SWING_DAMAGE" or sub:find("_DAMAGE$")) then
-      lastHit = { name = sourceName, at = time() }
+      lastHit = { name = sourceName, id = npcOf(source), at = time() }
     end
   end)
 end
 ns.on("PLAYER_TARGET_CHANGED", function()
   if not UnitExists("target") or UnitIsPlayer("target") then return end
   local canAttack, name = UnitCanAttack("player", "target"), UnitName("target")
-  if not secret(canAttack) and canAttack and name and not secret(name) then lastFoe = name end
+  if not secret(canAttack) and canAttack and name and not secret(name) then
+    lastFoe, lastFoeId = name, npcOf(UnitGUID("target"))
+  end
 end)
 
 local function mark(list, most)
   local zone, x, y = here()
   local s = stamp()
-  keep(list, { at = s.at, level = s.level, zone = zone, x = x, y = y, by = foe() }, most)
+  local by, byId = foe()
+  keep(list, { at = s.at, level = s.level, zone = zone, x = x, y = y, by = by, byId = byId }, most)
 end
 
 ns.on("PLAYER_DEAD", function()
@@ -369,7 +403,7 @@ hooksecurefunc("TakeTaxiNode", function(index)
 end)
 
 ns.on("HEARTHSTONE_BOUND", function()
-  local place = GetBindLocation()
+  local place = ns.areaEnglish(GetBindLocation())
   if not place then return end
   local s = stamp()
   keep(ns.atlas().binds, { place = place, at = s.at, level = s.level }, 100)

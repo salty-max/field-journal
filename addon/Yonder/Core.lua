@@ -186,6 +186,46 @@ end
 
 -- This character's journal, or a new one (a journal saved by another
 -- character of the same name is not theirs).
+-- A journal's names kept in the client's language of the day (before 15
+-- October 2026): in English by their ids, where today's language knows them;
+-- a name of another language waits for a client of its own.
+local function mendNames(c)
+  local function place(p)
+    if type(p) ~= "string" then return p end
+    local zone, sub = p:match("^(.-): (.+)$")
+    if zone then return ns.areaEnglish(zone) .. ": " .. ns.areaEnglish(sub) end
+    return ns.areaEnglish(p)
+  end
+  local function stamps(rec)
+    for _, h in ipairs({ rec.first or false, rec.last or false }) do
+      if h then
+        if type(h.zone) == "string" then h.zone = ns.areaEnglish(h.zone) end
+        if type(h.sub) == "string" then h.sub = ns.areaEnglish(h.sub) end
+      end
+    end
+  end
+  for _, list in ipairs({ c.creatures or {}, c.seen or {} }) do
+    for _, rec in pairs(list) do
+      if type(rec) == "table" then
+        for i, p in ipairs(rec.places or {}) do
+          rec.places[i] = place(p)
+        end
+        stamps(rec)
+        if rec.type then rec.type = ns.typeEnglish(rec.type) end
+        if rec.family then rec.family = ns.familyEnglish(rec.family) end
+      end
+    end
+  end
+  for _, kind in ipairs({ c.fish or {}, c.plants or {} }) do
+    for _, rec in pairs(kind) do
+      if type(rec) == "table" then stamps(rec) end
+    end
+  end
+  for _, b in ipairs(c.atlas and c.atlas.binds or {}) do
+    b.place = ns.areaEnglish(b.place)
+  end
+end
+
 function ns.login()
   ns.localNames()
   local took = adopt()
@@ -203,6 +243,7 @@ function ns.login()
     char.creatures = char.creatures or {}
     char.families = char.families or {}
     if not char.killRule then killRule(char) end
+    mendNames(char)
     syncFamilies(char)
   else
     newJournal(guid)

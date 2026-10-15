@@ -37,6 +37,7 @@ local function now()
   local zone = ns.atlasHere()
   local sub = GetSubZoneText()
   if secret(sub) or sub == "" then sub = nil end
+  sub = ns.areaEnglish(sub) -- (in English, by its id: ns.areaName shows it)
   return { at = time(), level = UnitLevel("player"), zone = zone, sub = sub }
 end
 

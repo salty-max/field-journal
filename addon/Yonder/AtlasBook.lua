@@ -221,7 +221,11 @@ local function inZone(events, uiMap)
   return out
 end
 
-local function eventLine(e) return (L["%s, level %d%s"]):format(day(e), e.level or 0, e.by and (" - " .. e.by) or "") end
+-- (what hurt: its creature's name in today's language, by its id)
+local function byOf(e) return e.byId and ns.creatureName(e.byId, { name = e.by }) or e.by end
+local function eventLine(e)
+  return (L["%s, level %d%s"]):format(day(e), e.level or 0, byOf(e) and (" - " .. byOf(e)) or "")
+end
 
 -- The page, laid out again: the map hidden too.
 local MAP_ICON, MAP2_ICON = "Interface\\Icons\\INV_Misc_Map_01", "Interface\\Icons\\INV_Misc_Map02"
@@ -243,7 +247,7 @@ end
 local function eventCard(e, died)
   page:card(
     died and (L["Died, at level %d"]):format(e.level or 0) or (L["A close call, at level %d"]):format(e.level or 0),
-    day(e) .. (e.by and ("  -  " .. e.by) or ""),
+    day(e) .. (byOf(e) and ("  -  " .. byOf(e)) or ""),
     function(p)
       p.tex:SetTexture(died and SKULL or CLOSE)
       p.tex:SetTexCoord(0, 1, 0, 1)
@@ -470,7 +474,7 @@ local function showTravels()
   if top then page:row(L["Flown most"], L["%s, %d times"]:format(top, topN)) end
   if #(a.crossings or {}) > 0 then page:row(L["Crossings"], L["%d between continents"]:format(#a.crossings)) end
   local bind = a.binds and a.binds[#a.binds]
-  if bind then page:row(L["Hearth"], L["%s, since %s"]:format(bind.place, day(bind))) end
+  if bind then page:row(L["Hearth"], L["%s, since %s"]:format(ns.areaName(bind.place), day(bind))) end
   page:row(L["Close calls"], tostring(#(a.closeCalls or {})))
   if #(a.deaths or {}) > 0 then
     page:section(L["The last deaths"])
