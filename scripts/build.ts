@@ -340,14 +340,19 @@ checkZones(expeditions, (client) => new Set(zoneData[client].zones.map((z) => z.
 const fishNotes = floraNotes(join(ROOT, "notes/fish.md"), flora.fish);
 const noteLua = (paras: Paragraph[] | undefined, client: string) => (paras ? `, note = { ${forClient(paras, client).map(q).join(", ")} }` : "");
 
+// (a herb's or a fish's zone: a map's id one game at least has; a zone the
+// other game alone has is left out of this one's)
+const anyGame = new Set(CLIENTS.flatMap((client) => zoneData[client].zones.map((z) => z.id)));
+for (const kind of [flora.herbs, flora.fish] as { name: string; zones: unknown[] }[][])
+  for (const x of kind)
+    for (const z of x.zones)
+      if (typeof z !== "number" || !anyGame.has(z))
+        fail(join(ROOT, "data/flora.json"), `${x.name}: zone ${JSON.stringify(z)} is no map either game has (scripts/flora.py)`);
+
 function floraLua(client: string) {
   const { zones } = zoneData[client];
   const known = new Set(zones.map((z) => z.id));
-  const ids = (maps: number[], who: string) =>
-    maps.filter((id) => {
-      if (!known.has(id)) console.warn(`  ${client}: ${who}: no zone ${id} in data/zones-${client}.json`);
-      return known.has(id);
-    });
+  const ids = (maps: number[]) => maps.filter((id) => known.has(id));
   const list = (xs: number[]) => `{ ${xs.join(", ")} }`;
   const nodes = new Map<number, number>();
   for (const h of flora.herbs) for (const n of h.nodeIds) if (!nodes.has(n)) nodes.set(n, h.id);
@@ -358,12 +363,12 @@ function floraLua(client: string) {
   -- entry, pounds }), and every school (fishing hole object id)
   flora = {
     herbs = {
-${flora.herbs.map((h) => `      [${h.id}] = { name = ${q(h.name)}, skill = ${Math.max(1, h.skill ?? 1)}, zones = { ${ids(h.zones, h.name).join(", ")} }, dungeons = ${list(h.dungeons)}${h.inside ? ", inside = true" : ""}${noteLua(herbNotes.get(h.id), client)} },`).join("\n")}
+${flora.herbs.map((h) => `      [${h.id}] = { name = ${q(h.name)}, skill = ${Math.max(1, h.skill ?? 1)}, zones = { ${ids(h.zones).join(", ")} }, dungeons = ${list(h.dungeons)}${h.inside ? ", inside = true" : ""}${noteLua(herbNotes.get(h.id), client)} },`).join("\n")}
     },
     herbOrder = { ${[...flora.herbs].sort((a, b) => (a.skill ?? 1) - (b.skill ?? 1) || a.name.localeCompare(b.name)).map((h) => h.id).join(", ")} },
     herbNodes = { ${[...nodes].map(([n, h]) => `[${n}]=${h}`).join(", ")} },
     fish = {
-${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.kind)}, zones = { ${ids(f.zones, f.name).join(", ")} }, subzones = ${list(f.subzones)}, dungeons = ${list(f.dungeons)}${f.season ? `, season = ${q(f.season)}` : ""}${noteLua(fishNotes.get(f.id), client)} },`).join("\n")}
+${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.kind)}, zones = { ${ids(f.zones).join(", ")} }, subzones = ${list(f.subzones)}, dungeons = ${list(f.dungeons)}${f.season ? `, season = ${q(f.season)}` : ""}${noteLua(fishNotes.get(f.id), client)} },`).join("\n")}
     },
     fishOrder = { ${flora.fish.map((f) => f.id).join(", ")} },
     weights = { ${flora.fish.flatMap((f) => (f.weights ?? []).map((w) => `[${w.id}]={ ${f.id}, ${w.pounds} }`)).join(", ")} },
