@@ -1,5 +1,5 @@
 ---
-source: 200f96884a2a
+source: aa792d1e9dff
 zone: 1424
 ---
 ## hillsbrad-foothills-zixil
@@ -7,8 +7,8 @@ Auf der Straße zwischen zwei Städten, die einander hassen,
 geht ein Goblin den ganzen Tag von der einen zur anderen und zurück,
 mit einem Roboter auf den Fersen, und verkauft in beiden:
 Gürtel, Kugeln, ein Muster oder zwei, von allem eins nach dem anderen.
-Hol ihn auf der Straße ein und lass dir seine Waren zeigen.
-? Die Straße von Southshore nach Tarrens Mühle. Er geht sie von einem Ende zum anderen. Hol den Goblin ein und öffne sein Warenangebot. Du musst nichts kaufen.
+Erwisch ihn auf der Straße.
+? Die Straße von Southshore nach Tarrens Mühle. Er geht sie von einem Ende zum anderen. Lass dir vom Goblin seine Waren zeigen. Dein Geldbeutel kann zu bleiben.
 = Zixil, Erster Händler, ein Goblin, der in Southshore wie in Tarrens Mühle handelt, mit Überwacher V. I, seinem Roboter, auf den Fersen.
 + Seine Bauanleitung lehrt einen Ingenieur, Goblin-Überbrückungskabel herzustellen, die einen gefallenen Gefährten mit einem Stromstoß ins Leben zurückholen können. Das Wort 'können' sollte man sich merken.
 ! Umkämpft (die Straße zwischen den beiden Städten)
@@ -18,7 +18,7 @@ Wo die Straße aus dem Vorgebirge zum Land der wilden Zwerge hinaufsteigt,
 halten zwei Greifen den Pass, und jeder von ihnen hat einen Namen.
 Sie hören auf Ironforge und sind keine Freunde der Horde.
 Erweise ihnen den Respekt eines Soldaten.
-? Die nordöstliche Ecke von Hillsbrad, wo der Weg zum Hinterland hinaufsteigt. Geh zu einem der beiden Greifen, nimm ihn ins Ziel und salutiere militärisch.
+? Die nordöstliche Ecke von Hillsbrad, wo der Weg zum Hinterland hinaufsteigt. Salutiere einem der beiden Greifen.
 = Granistad und Kurdros, Greifen aus Ironforge, die den Pass von Hillsbrad hinauf ins Hinterland halten.
 + Sie sind auf Stufe vierzig, an einer Straße, die die meisten Reisenden mit fünfundzwanzig hinaufsteigen: für die Horde weniger Wachen als eine Mauer.
 ! Tödlich für die Horde (zwei Greifen aus Ironforge, Stufe 40), ruhig für die Allianz
@@ -28,7 +28,7 @@ Südlich der Feste der Zwerge bewahrt ein großer Stein
 einen Namen und zwei Jahreszahlen, und nichts weiter.
 Jemand hat dafür gesorgt, dass er hier steht, für jemanden, den er verloren hat.
 Erweise der Person, an die dieser Stein erinnert, einen Augenblick lang die Ehre.
-? Unterhalb von Dun Garok, zum Meer hin. Knie am Gedenkstein nieder, bete oder zeig deine Trauer.
+? Unterhalb von Dun Garok, zum Meer hin. Knie neben dem Gedenkstein nieder.
 = 'Anthony Ray Stark. 1961 - 2005.'
 + Ein Denkmal, das die Schöpfer der Welt einem ihrer Freunde hinterließen. Rousch, der Zwerg, der davor steht, war seine eigene Figur im Spiel. Er hatte ihn bis über Stufe vierzig gebracht.
 ! Ruhig

@@ -36,6 +36,6 @@ defeated by the act of one brave orc. Find them.
 In the Drag, among the shops and the shouting, the city keeps an orphanage,
 and its children run about under the eye of a stern orc who keeps them in line.
 Be kind to the little ones.
-? The Drag, in Orgrimmar's east. Near the stern caretaker, target an orphan and offer a wave or a smile.
+? The Drag, in Orgrimmar's east. A friendly wave belongs to one of the children, rather than their stern keeper.
 = The Orgrimmar Orphanage: the city's orphans, Matron Battlewail, and Tosamina, who is heavy-handed with the children.
 + Once a year, in Children's Week, the matron looks for travellers to take an orphan out to see the world.

@@ -1,5 +1,5 @@
 ---
-source: da5a515e0e00
+source: 3457e2c69d06
 zone: 1417
 ---
 ## arathi-highlands-thoradins-wall
@@ -7,7 +7,7 @@ Am nordwestlichen Rand des Hochlands verläuft eine Mauer des ersten Königreich
 die Grenze entlang, über die Hügel, so weit sie sehen kann.
 Sie wurde vor langer Zeit gegen die Trolle errichtet. Nun klafft sie, durchbrochen.
 Geh zu ihrem Fuß und betrachte, was von ihr übrig ist.
-? Arathis nordwestlicher Rand, wo das Hochland auf das Vorgebirge trifft. Betrachte die zerbrochene Mauer oder zeig, dass du über sie nachdenkst.
+? Arathis nordwestlicher Rand, wo das Hochland auf das Vorgebirge trifft. Denk an der zerbrochenen Mauer darüber nach, was sie einst fernhielt.
 = Der Thoradinswall, errichtet von König Thoradin von Arathor, dem ersten Königreich der Menschen, gegen die Amani-Trolle, nun zerbrochen und weit klaffend.
 + 'Einst ein Symbol für die Stärke und Wehrhaftigkeit der Menschheit', nennt ihn eine alte Vermessung dieser Lande, 'nun dem Verfall und dem Krieg anheimgefallen.'
 ! Bewacht (Hochlandschreiter, Hochlandhauer und Kriecher)

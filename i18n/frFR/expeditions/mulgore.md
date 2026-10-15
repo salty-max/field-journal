@@ -1,5 +1,5 @@
 ---
-source: dd5de5c3d91a
+source: f62fab0fbc33
 zone: 1412
 ---
 ## mulgore-rolling-plains
@@ -7,7 +7,7 @@ Au sud-est des plaines, là où l'herbe ondule et descend vers le pays sec,
 loups et kodos, trotteurs et couguars partagent le terrain découvert,
 et de temps à autre des cavaliers venus d'au-delà de la frontière :
 le seul endroit où ils soient jamais entrés sur la terre des taurens. Ouvrez l'oeil.
-? Au sud-est de Sabot-de-Sang, vers les Tarides : l'herbe qui ondule jusqu'à la frontière. Scrutez la plaine avec une emote. Les cavaliers n'ont pas besoin d'être présents.
+? Au sud-est de Sabot-de-Sang, vers les Tarides : l'herbe qui ondule jusqu'à la frontière. Scrutez la plaine. Nul besoin d'attendre les cavaliers.
 = Les plaines vallonnées : la seule partie de Mulgore où les estafettes des centaures ont pénétré.
 + Au nord, au-delà de Sabot-de-Sang, les plaines dorées autour de la falaise sont les terrains de chasse les plus chers aux taurens.
 ! Calme (loups des prairies, et estafettes centaures de temps à autre)

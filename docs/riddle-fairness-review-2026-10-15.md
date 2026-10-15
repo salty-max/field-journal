@@ -1,6 +1,44 @@
 # Yonder: riddle fairness and interaction review
 
-15 October 2026. Contains solution spoilers. All changes applied locally.
+15 October 2026. Contains solution spoilers. The original review below
+describes ace263c, released in 0.11.3. Its JSON ledger is a historical
+before/after record, not a snapshot of the current prose.
+
+## Editorial follow-up, 16 October 2026
+
+Re-read the 110 riddles' clues in English, French and German, and the
+changed verses in context. The original tests checked whether actions
+registered, but did not catch broken sentences or weaker writing.
+
+- Restore the earlier verses for Wallace, the two horses, Yalda, the Maul,
+  Zixil, the Loch's runners, the boys on the docks, the captive gnome,
+  Lizzarik, the Everlook inventor and Brother Zendraas. The page and paid
+  clue supply the mechanics without spelling them out in the verse.
+- Retain the action cues for Fluffy, the memorial, Winkey and Theresa,
+  and Claude's repaired Theresa sentence and Whispering Gardens verse.
+  Keep the Dream-door clues free of waiting or portal-opening requirements.
+  Seradane's verse now ends with "None was made for waking eyes."
+- Shorten the gesture clues and the more mechanical conversation clues
+  across the three authored languages: one concrete accepted action rather
+  than a list, without repeated targeting or "with an emote" wording.
+  The creature-emote page explains proximity and targeting before any hint
+  is bought. Place-emote pages do not ask for a creature target.
+- Reconcile PLAN.md and CLAUDE.md: a verse suggests through its story, a
+  paid clue may name an accepted gesture, and general mechanics belong on
+  the page. No slash commands in the prose.
+- Replace the test's comment-based slicing of sim.lua with an independent
+  small game, addon/test/riddle-game.lua. All authored solutions now run
+  through the real event and emote hooks, with fresh data for each language,
+  on Classic and Forever, using modern and legacy emote APIs. The Wallace
+  regression and companion distance/unrelated-target rejections remain.
+
+The GUID fix, group keepers and accepted actions are unchanged. This is an
+editorial and test-harness follow-up, not a new riddle batch. German still
+needs a native reader's signoff, and the simulations are not an in-game
+playtest. The research JSON stays as evidence of the original review,
+outside the installed addon.
+
+## Original review
 
 ## Verdict
 

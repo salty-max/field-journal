@@ -64,7 +64,7 @@ On the road out of the valley where young dwarves begin,
 a gunsmith keeps a camp, and beside it a range.
 Two riflemen settle their differences there, and a mortar team practises
 on dummies a spotter has to run out to. Mind your ears.
-? Hegnar Rumbleshot's camp, by the road from Coldridge Pass to Kharanos. Cover your ears or duck at the firing range.
+? Hegnar Rumbleshot's camp, by the road from Coldridge Pass to Kharanos. Cover your ears at the firing range.
 = Rumbleshot's practice range. Every so often the five dwarves of the camp head out to it. First come Riflemen Middlecamp and Wheeler, who shoot at an orc target and a row of bottles. Then the mortar team, Angus and Shorty, fire at three target dummies in turn, while Spotter Klemmy runs back and forth.
 + Middlecamp misses the orc target twice and the bottles twice, while Wheeler hits the target without trying, and the middle target dead centre. Then Wheeler only hits the side of the bottles' box, and it is Middlecamp who shoots the orc dummy, turns to the paper target and shoots from the hip at the bottles.
 
@@ -73,7 +73,7 @@ At the ranch on the road east, where a family raises rams,
 the youngest has spent all day chasing someone small and white
 who wants no part of what she has in mind.
 Ease its fright before it runs off again.
-? Amberstill Ranch, by the road to Loch Modan: the girl, and what she is chasing. Target the small animal the girl is chasing and soothe or pet it.
+? Amberstill Ranch, by the road to Loch Modan: the girl, and what she is chasing. Soothe the little animal the girl is chasing.
 = Fluffy, a rabbit, and Yarlyn Amberstill, who runs after it round the ram pen, calling: 'C'mon Fluffy! I just want to give you a bath!'
 + Her other offers, in Dwarvish: 'Carrots every day for a year if you stop!' And, when that fails: 'Don't make me get my pappy to catch you! He likes to catch bunnies using his rifle!'
 

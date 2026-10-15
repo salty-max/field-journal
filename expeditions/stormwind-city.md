@@ -42,7 +42,7 @@ His work began in a northern city now lost to the living.
 Among the memorials to those who went through the dark gate,
 one plaque presumes its hero dead, then wishes him well on his travels.
 Add your wish to the one carved there, for a wanderer who might yet come home.
-? Among the memorials to the Alliance Expedition, in the city. At the memorial, wish the absent traveller good luck with an emote.
+? Among the memorials to the Alliance Expedition, in the city. Wish the absent traveller good luck at his memorial.
 = Archmage Khadgar of the Kirin Tor: 'Presumed deceased.'
 + 'Never did one so selflessly delve into the dark heart of magic and warfare. We wish you well, bold wanderer. Wherever you are.' - Antonidas, Archmage of Dalaran.
 
@@ -51,6 +51,6 @@ Somewhere in the city, a grateful student set up a memorial
 to a healer, teacher and friend who believed it was a healer's duty
 to cleanse the sick and weary of every last ailment.
 His plaque calls one of his talents extraordinary. Honour him with it.
-? Seek among the city's healers. Read the plaque for the talent called extraordinary, then honour him with a dance.
+? Seek among the city's healers. The plaque calls one of his talents extraordinary. Honour that talent with a dance.
 = 'In memory of my dear mentor, Horatio M. Montgomery, M.D. Healer, Teacher, Friend.'
 + 'The world is full of the sick and weary. It is our job, as healers, NAY, as men and women of medicine, to cleanse them ALL of the itis.' - H.M.M., M.D., PhD, JD, Grandmaster Farmer, Dancer Extraordinaire, Friend to the Animals.

@@ -1,5 +1,5 @@
 ---
-source: f55b7046ca4b
+source: 3c056dd79a4e
 zone: 1427
 ---
 ## searing-gorge-stonewrought-pass
@@ -18,7 +18,7 @@ Im Südwesten der Schlucht ist eine Höhle unter den Bergen versiegelt,
 und an ihrem Eingang ist nichts als schwarzer Fels.
 Geh hin und studiere deine Karte, nicht den Fels:
 Etwas in den Bergen starrt zurück.
-? Die Blackcharhöhle, am südwestlichen Rand der Sengenden Schlucht. Was du suchst, ist auf deiner Minikarte. Starre vor der Höhle mit einem Emote das Gesicht auf der Minikarte an oder schnapp vor Überraschung nach Luft.
+? Die Blackcharhöhle, am südwestlichen Rand der Sengenden Schlucht. Schau vor der Höhle auf das Gesicht auf deiner Minikarte.
 = Die Blackcharhöhle, versiegelt. Und in den Bergen darüber, auf der Minikarte, ist etwas, das nur ein Gesicht sein kann.
 + Die Höhle bleibt das ganze Jahr versiegelt. Nur zum Mondfest kommt ein Ältester aus Ironforge und steht an ihrem Eingang.
 ! Gefährlich (Lavaspinnen und Feuerelementare, Stufe 46 bis 48)

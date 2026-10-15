@@ -22,7 +22,7 @@ quarry:
 In the human isle's tower, a night elf stands at the Lady's shoulder,
 a glowing sword in her hand, and says nothing about why
 an elf should guard an archmage of the humans. Pay her a soldier's respect.
-? Theramore Isle, in the tower, at Lady Jaina Proudmoore's side. Target the Lady's elven guard and salute or bow.
+? Theramore Isle, in the tower, at Lady Jaina Proudmoore's side. Salute the elven guard.
 = Pained, a night elf, Jaina Proudmoore's bodyguard in the tower of Theramore.
 + She shares the Lady's tower with Archmage Tervosh. Between them, Jaina is seldom alone.
 

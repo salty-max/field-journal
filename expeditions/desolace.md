@@ -28,15 +28,15 @@ quarry:
 North of the Burning Blade's fortress, the stones of an elven town lie scattered in the dust.
 No elf has lived there since the world broke.
 The beasts of the waste have it now. Spare a moment for those who built these walls.
-? Tethris Aran, in the north of Desolace. Among the ruins, ponder the lost town or mourn those who lived here.
+? Tethris Aran, in the north of Desolace. Among the ruins, mourn the town that stood here.
 = Tethris Aran: the ruins of a night elf town in the north of Desolace. Only beasts live there now.
 + Further east, the satyrs hold another such ruin, and have named it Sargeron, for their master.
 
 ## desolace-shadowbreak
 In a ravine hidden in the south-eastern mountains, among mushrooms as tall as trees,
 the Burning Blade work a summoning circle hung with chains, and keep a stable.
-Some of the horses in it are still horses. Offer one a gentle touch.
-? Shadowbreak Ravine, hidden in Desolace's south-eastern mountains. Target a captive horse and pet or soothe it.
+Some of the horses in it are still horses. Be kind to them.
+? Shadowbreak Ravine, hidden in Desolace's south-eastern mountains. A captive horse could use a reassuring pat.
 = Shadowbreak Ravine: the Burning Blade's hidden camp, its chained circle, its demon nightmares, and two captured stallions in the stable beside them.
 + Where the stallions came from, nobody knows. What the cult means to make of them, the nightmares beside them suggest.
 

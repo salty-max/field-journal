@@ -1,13 +1,13 @@
 ---
-source: c9f0ae9e28a8
+source: 955cca63abb2
 zone: 1444
 ---
 ## feralas-the-maul
 Zwischen den Ruinen der alten Elfenstadt im Wald haben die Oger eine Grube,
 und Kämpfer springen hinein, um sich dem zu stellen, was in den Ring gekommen ist.
 Darüber sieht ein Goblin jedem Kampf zu und brüllt für alle.
-Spring hinein und zeig ihm deine Kraft, ohne eine Waffe zu ziehen.
-? Das zerfallene Viertel von Düsterbruch: die Grube, die man die Schlägergrube nennt, unter Griniblix' Hochsitz. Spann in der Grube die Muskeln an oder brülle wie ein Herausforderer. Ein Kampf ist nicht nötig.
+Spring hinein, und biete ihm eine Vorstellung.
+? Das zerfallene Viertel von Düsterbruch: die Grube, die man die Schlägergrube nennt, unter Griniblix' Hochsitz. Spann in der Grube die Muskeln an. Der Goblin will eine Schau, keinen Kampf.
 = Die Schlägergrube, die Kampfgrube der Oger in Düsterbruch, und Griniblix der Beobachter darüber: 'Juchuuu! Jetzt sind sie drin!'
 + Skarr der Unbezwingbare, der Razza oder Mushgog können in den Ring kommen. Wenn Mushgog kommt, sprießen Kräuter in der Grube, und manche sagen, ein Schwarzer Lotus darunter.
 ! Gefährlich (die Gordok-Oger, und eine Grube, in der jeder gegen jeden kämpfen kann)

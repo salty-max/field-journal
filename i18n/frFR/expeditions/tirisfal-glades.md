@@ -1,5 +1,5 @@
 ---
-source: d3681a2622ec
+source: 0f0a60f948a0
 zone: 1420
 ---
 ## tirisfal-glades-zapetta
@@ -7,7 +7,7 @@ zone: 1420
 un gobelin encaisse les billets du côté mort de l'eau.
 Son frère parlait d'argent facile, et n'a jamais dit lequel d'entre eux vivrait ici.
 Il a une faveur à demander à qui passe par là. Donnez-lui votre parole.
-? La tour des zeppelins au nord des portes de Fossoyeuse : le gobelin qui envoie le dirigeable vers Durotar. Ciblez le gobelin et faites-lui une promesse ou acquiescez avec une emote.
+? La tour des zeppelins au nord des portes de Fossoyeuse : le gobelin qui envoie le dirigeable vers Durotar. Acquiescez à la demande du gobelin affamé.
 = Zapetta, le maître des zeppelins : "Mon frère disait qu'il y avait de l'argent à se faire avec cette route commerciale, mais il ne m'avait pas dit que ce serait moi qui vivrais de ce côté. Si vous revenez par ici en zeppelin, pouvez-vous m'apporter quelque chose à manger ?"
 + Hin Denburg, qui envoie l'autre dirigeable vers le sud, a piètre opinion du tram des gnomes : si vous y croyez, il a une statue à Strangleronce à vous vendre.
 ! Calme
@@ -17,7 +17,7 @@ Il a une faveur à demander à qui passe par là. Donnez-lui votre parole.
 Avant la peste, les gens des clairières venaient y pique-niquer,
 et les enfants trop jeunes pour le lac profond y apprenaient à nager.
 Seuls les morts et les affamés y viennent aujourd'hui. Souvenez-vous de ce qu'il était.
-? À l'ouest de Brill, à l'écart de la route du Glas : un étang gris, presque oublié. Au bord de l'étang, soupirez ou exprimez votre deuil pour ce qui a disparu.
+? À l'ouest de Brill, à l'écart de la route du Glas : un étang gris, presque oublié. Laissez échapper un soupir pour ce que l'étang a perdu.
 = L'Etang immobile, jadis le coin de pique-nique des clairières. Des sombredogues chassent sur ses rives aujourd'hui.
 + Le lac Etincelant, à l'est de Brill, était pour les plus grands : bien plus vaste, et bien plus profond.
 ! Calme (des sombredogues, et Bayne, un rare, qui rôde tout près)
@@ -28,7 +28,7 @@ Sur la colline au sud du monastère des croisés rouges,
 une armée de morts affronta jadis les hommes qui allaient devenir la Croisade.
 Ceux qui tombèrent là ne se sont pas tus.
 Prêtez-leur l'oreille.
-? Au sud du Monastère écarlate, sur sa colline, au nord-est de Tirisfal. Écoutez avec une emote dans les jardins. Vous n'avez pas besoin d'attendre le crépuscule.
+? Au sud du Monastère écarlate, sur sa colline, au nord-est de Tirisfal. Écoutez les morts dans les jardins. Ils ne vous font pas attendre le crépuscule.
 = Les Jardins des murmures, où ceux qui allaient fonder la Croisade écarlate combattirent le Fléau. Leurs morts murmurent encore.
 + La Croisade garde son monastère à deux pas. Pour ses fanatiques, tout Réprouvé est le Fléau.
 ! Périlleux (les élites de la Croisade écarlate, niveaux 29 à 31)
@@ -39,7 +39,7 @@ Au nord du monastère des croisés rouges, la peste n'est jamais venue :
 les haies y sont vertes, entretenues par la Croisade,
 et une fontaine y coule d'une eau fraîche, comme rien d'autre dans ces clairières.
 Goûtez ce que les vivants gardent pour eux.
-? Derrière le Monastère écarlate, sur ses terres du nord : un jardin qu'entretient la Croisade. Faites le geste de boire près de la fontaine. Vous n'avez pas besoin d'une boisson dans vos sacs.
+? Derrière le Monastère écarlate, sur ses terres du nord : un jardin qu'entretient la Croisade. Faites mine de boire près de la fontaine. Nul besoin d'une bouteille.
 = La Terrasse de la quiétude : l'un des très rares lieux du nord de Lordaeron que la peste n'a jamais atteints.
 + Partout ailleurs à Tirisfal, l'eau croupit.
 ! Périlleux (les élites de la Croisade écarlate, niveaux 29 à 31)
@@ -50,7 +50,7 @@ Près du monastère des croisés rouges,
 un lieu de repos porte le nom de l'archevêque
 qui donna à la Lumière ses premiers chevaliers.
 Faites-y ce qu'il apprit à un royaume à faire, si la Croisade vous laisse.
-? Au sud-ouest du Monastère écarlate, là où ses morts reviennent. Devant la sépulture, priez ou agenouillez-vous en signe de respect.
+? Au sud-ouest du Monastère écarlate, là où ses morts reviennent. Priez devant la sépulture de l'archevêque.
 = Le repos de Faol, sous les yeux des fanatiques qui revendiquent sa Lumière.
 + Hurlevent se souvient de lui aussi : une plaque dans sa cathédrale l'appelle "bienveillant protecteur de l'Eglise de la Lumière", qui commença son oeuvre à Stratholme et leva les fonds pour rebâtir Hurlevent après la Deuxième Guerre.
 ! Périlleux (la Croisade écarlate)

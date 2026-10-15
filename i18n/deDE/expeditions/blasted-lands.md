@@ -1,5 +1,5 @@
 ---
-source: 6ca6b665f57c
+source: fffcd444c037
 zone: 1419
 ---
 ## blasted-lands-dark-portal
@@ -7,7 +7,7 @@ Am Grund der roten Öde steht das Tor, durch das die Orcs zuerst kamen.
 Es wurde zerschlagen und wieder geöffnet. Die letzten Helden, die hindurchgingen,
 zerstörten es von der anderen Seite, damit diese Welt lebe,
 und niemand weiß, ob sie heimgekehrt sind. Ehre sie, wie Soldaten die Ihren ehren.
-? Das Dunkle Portal, im Süden der Verwüsteten Lande. Salutiere vor dem Tor für die verschollenen Soldaten oder verbeuge dich zu ihrem Gedenken.
+? Das Dunkle Portal, im Süden der Verwüsteten Lande. Salutiere denen, die hindurchgingen und nie zurückkehrten.
 = Das Dunkle Portal, still und dunkel.
 + Khadgar, Turalyon, Alleria, Kurdran und Danath entschieden sich, auf der sterbenden Welt zu bleiben: 'Doch bleibt abzuwarten, ob sie dem Todeskampf von Draenor zu entkommen vermochten oder nicht.'
 ! Bewacht (Dämonen und Oger)

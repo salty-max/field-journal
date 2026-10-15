@@ -1,5 +1,5 @@
 ---
-source: 7ea104cf9034
+source: f97aecb61964
 zone: 1446
 ---
 ## tanaris-gadgetzan
@@ -15,7 +15,7 @@ Die Stadt bewahrt den Bericht unter ihren Büchern.
 Östlich der Stadt der Goblins hat ein Naga einen Bau in den Felsen
 und will überhaupt nichts von dir: keinen Krieg, keinen Schatz, kein Blut.
 Sei ausnahmsweise freundlich.
-? Zalashjis Bau, östlich von Gadgetzan. Geh zu dem Naga, nimm ihn ins Ziel und grüße ihn oder verbeuge dich.
+? Zalashjis Bau, östlich von Gadgetzan. Verbeuge dich vor dem Naga. Er ist bereit, dich in Ruhe zu lassen.
 = Zalashji, ein Naga, zu Hause in seinem Bau: freundlich zu allen und ohne Wunsch an irgendwen.
 + Horde und Allianz können gleichermaßen unbehelligt zu ihm gehen, wie zu kaum einem Naga sonst.
 ! Bewacht (Banditen der Wüstenläufer und Stahlkieferschnapper in der Nähe)
@@ -24,7 +24,7 @@ Sei ausnahmsweise freundlich.
 Vor dem stillen Strand südlich der Piratenbucht trägt eine kleine Insel eine einzige Gnomin, allein,
 die sich sonnt, als wäre das ganze Meer ihr Garten.
 Sie hat eine Bitte an jeden, der zu ihr hinausschwimmt. Lass dein Gesicht für dich sprechen.
-? Ein Inselchen vor Southbreak Shore, südlich der Lost-Rigger-Bucht. Nimm die sonnenbadende Gnomin ins Ziel und antworte mit einem Zwinkern, einem Lächeln oder einem Erröten.
+? Ein Inselchen vor Southbreak Shore, südlich der Lost-Rigger-Bucht. Antworte der sonnenbadenden Gnomin mit einem Zwinkern.
 = Winkey, eine Gnomin allein auf ihrem Inselchen vor Southbreak Shore: 'Hallo, $gSüßer:Süße;! Würdest du mir die unbedeckten Stellen eincremen?'
 + Weit weg in der Brennenden Steppe greift ein Zwerg in Morgans Wacht in die Luft und ruft nach jemandem namens Winky, der nicht da ist. Ob er sie meint, kann niemand sagen.
 ! Bewacht (Brandungsgleiter und Küstenschreiter, Stufe 48, in den Untiefen)

@@ -30,7 +30,7 @@ On the highlands' north-western edge, a wall of the first kingdom of men
 runs along the border, over the hills, as far as it can see.
 It was raised against the trolls, long ago. Now it gapes, broken through.
 Go to its foot, and take in what is left.
-? Arathi's north-western edge, where the highlands meet the foothills. Look at the broken wall or show that you are thinking about it.
+? Arathi's north-western edge, where the highlands meet the foothills. At the broken wall, ponder what it once kept out.
 = Thoradin's Wall, raised by King Thoradin of Arathor, the first kingdom of men, against the Amani trolls, broken now and gaping wide.
 + 'Once a symbol of humanity's strength and defensive might,' an old survey of these lands calls it, 'now fallen to decay and war.'
 

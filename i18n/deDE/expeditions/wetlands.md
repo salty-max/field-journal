@@ -1,5 +1,5 @@
 ---
-source: 0bd799324141
+source: 9dfb8f17003b
 zone: 1437
 ---
 ## wetlands-sundown-marsh
@@ -8,7 +8,7 @@ haben eine Zwergin und ein Gnom ein Steinhaus mit einer Windmühle
 und verkaufen, was ihnen in die Hände fällt: feine Gürtel und Gamaschen, von jedem eins nach dem anderen,
 und zwei gnomische Pläne, je ein Exemplar.
 Statte ihnen einen Besuch ab und lass sie wissen, dass du da bist.
-? Die Sonnenwendmarschen, im Nordwesten des Sumpflands, westlich von Ironbeards Grabmal. Geh zu den Händlern, nimm die Zwergin ins Ziel und grüße sie mit einem Emote.
+? Die Sonnenwendmarschen, im Nordwesten des Sumpflands, westlich von Ironbeards Grabmal. Sag der Zwergin bei den Händlern Hallo.
 = Wenna Silkbeard, eine Zwergin, und Fradd Swiftgear, ein Gnom, in ihrem Steinhaus in den Sonnenwendmarschen. Fradds Pläne: ein Liebevoll hergestelltes Schießeisen und ein Schwacher Rekombobulator.
 + Fradds kleineres Gerät stellt etwas Gesundheit und Mana wieder her, doch sein besonderes Talent ist es, ein Schaf wieder in einen Reisenden zu verwandeln. Ein Ingenieur muss nicht warten, bis der Zauber des Magiers verfliegt.
 ! Bewacht (Krokilisken, Sumpfungeheuer und Raptoren ringsum)

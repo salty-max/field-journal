@@ -1,12 +1,12 @@
 ---
-source: 4e1c1396fd1e
+source: 4866ced26b91
 zone: 1433
 ---
 ## redridge-mountains-docks
 Au bout des quais de la ville du lac, deux garçons vivent le même après-midi tous les jours.
 L'un demande à l'autre ce qu'il veut faire.
 L'autre ne sait pas, et lui retourne la question.
-Installez-vous près d'eux sur les planches pendant qu'ils se décident.
+Rejoignez-les sur les planches pendant qu'ils se décident.
 ? Les quais de Comté-du-Lac, sur le lac Placide. Asseyez-vous près des garçons au bout des quais.
 = Roger et Jamin, deux garçons de Comté-du-Lac : "Qu'est-ce que tu veux faire aujourd'hui ?" "J'sais pas. Qu'est-ce que tu veux faire ?" "Si on allait à la pêche."
 + La question revient toutes les deux minutes et demie à trois minutes, et la réponse n'a jamais changé une seule fois.
@@ -18,8 +18,8 @@ Tout au sud-est, les orcs Rochenoire tiennent un camp dans une vallée,
 et près de leur feu est assis un gnome, un boulet aux pieds.
 Il a servi jadis la tour d'un mage, et il a encore des marchandises,
 pour qui peut l'atteindre : du fil, de la teinture, et des capes dignes d'une tour.
-Offrez-lui un peu de réconfort dans sa captivité.
-? La vallée des Etripeurs, au sud-est des Carmines, dans le camp Rochenoire. Ciblez le gnome captif et réconfortez-le ou encouragez-le.
+Soyez $ggentil:gentille; avec lui.
+? La vallée des Etripeurs, au sud-est des Carmines, dans le camp Rochenoire. Réconfortez le gnome captif près du feu.
 = Le Serviteur d'Azora capturé, un gnome de la tour d'Elwynn, enchaîné dans le camp Rochenoire, et qui vend toujours des fournitures de couture.
 + Il ne garde qu'un exemplaire de chaque cape : la Cape d'Inferno, la Cape spirituelle et la Cape sylvestre. La Cape d'Inferno protège du feu, ce qui est bien utile dans une vallée tenue par les Rochenoire.
 ! Périlleux (le camp Rochenoire autour de lui, niveaux 19 à 23)

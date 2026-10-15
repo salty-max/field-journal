@@ -1,12 +1,12 @@
 ---
-source: 9e1390805d83
+source: 74ec8180f41b
 zone: 1449
 ---
 ## ungoro-crater-simone
 Près des sources chaudes à l'ouest du cratère, une trolle se promène avec son loup
 et trouve tout ravissant : la vapeur, les fougères, les bêtes qui voudraient la manger.
 Soyez agréable avec elle, et seulement agréable.
-? Les sources de Golakka, à l'ouest d'Un'Goro. Elle marche vers le sud depuis là, puis revient. Ciblez la trolle et adressez-lui des salutations, un signe de la main ou un sourire.
+? Les sources de Golakka, à l'ouest d'Un'Goro. Elle marche vers le sud depuis là, puis revient. Faites un signe de la main à la trolle quand elle passe.
 = Simona la Discrète, avec Bijou, son loup : "Quelle belle journée pour être en vie ! Admirez la beauté qui vous entoure, mon $gami:amie;."
 + Elle n'est pas ce qu'elle paraît : les chasseurs sur la piste d'un arc ancien la connaissent sous le nom de Simona la Séductrice, une succube. Frappez-la telle qu'elle est, et elle répond par des coups qui abattent un héros d'un seul.
 ! Mortel si on la provoque (elle répond à un coup par des coups qui abattent un héros), calme sinon

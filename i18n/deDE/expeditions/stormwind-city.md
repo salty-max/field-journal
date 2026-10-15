@@ -1,5 +1,5 @@
 ---
-source: e3b2f90fea11
+source: 6670237bcb44
 zone: 1453
 ---
 ## stormwind-city-faol-plaque
@@ -15,7 +15,7 @@ Sein Werk begann in einer Stadt im Norden, die den Lebenden nun verloren ist.
 Unter den Gedenktafeln für jene, die durch das dunkle Tor gingen,
 hält eine ihren Helden für tot und wünscht ihm dann alles Gute auf seinen Reisen.
 Füge dem eingemeißelten Wunsch deinen eigenen hinzu, für einen Wanderer, der vielleicht doch noch heimkehrt.
-? Unter den Gedenktafeln für die Expedition der Allianz, in der Stadt. Wünsche dem abwesenden Reisenden am Denkmal mit einem Emote viel Glück.
+? Unter den Gedenktafeln für die Expedition der Allianz, in der Stadt. Wünsche dem abwesenden Reisenden an seinem Denkmal Glück.
 = Erzmagier Khadgar von den Kirin Tor: 'Vermutlich gefallen.'
 + 'Noch nie hat sich jemand so selbstlos ins finstere Herz von Magie und Krieg begeben. Wir wünschen euch alles Gute, kühner Wanderer. Wo immer Ihr auch seid.' - Antonidas, Erzmagier von Dalaran.
 ! Ruhig
@@ -25,7 +25,7 @@ Irgendwo in der Stadt hat ein dankbarer Schüler ein Denkmal errichtet
 für einen Heiler, Lehrer und Freund, der glaubte, es sei die Pflicht eines Heilers,
 die Kranken und Erschöpften von jedem letzten Leiden zu reinigen.
 Seine Tafel nennt eines seiner Talente 'extraordinaire'. Ehre ihn damit.
-? Such bei den Heilern der Stadt. Lies auf der Tafel nach, welches Talent 'extraordinaire' genannt wird, und ehre ihn dann mit einem Tanz.
+? Such bei den Heilern der Stadt. Die Tafel nennt eines seiner Talente 'extraordinaire'. Ehre dieses Talent mit einem Tanz.
 = 'Im Andenken an meinen teuren Mentor, Horatio M. Montgomery, promovierter Heiler, Lehrer, Freund.'
 + "Es gibt sehr viele Kranke und Müde auf der Welt. Unsere Aufgabe als Heiler, NEE, als Männer und Frauen der Medizin, ist es, sie alle von der 'itis' zu heilen." - Prof. Dr. Dr. h. c. Großmeisterbauer, Tänzer extraordinaire, Freund der Tiere.
 ! Ruhig

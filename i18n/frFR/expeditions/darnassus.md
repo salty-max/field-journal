@@ -1,12 +1,12 @@
 ---
-source: b461472ca463
+source: c639a558ca00
 zone: 1457
 ---
 ## darnassus-ainethil
 Dans la cité de l'arbre, une alchimiste prépare la même potion avec les mêmes plantes, encore et encore,
 et chaque fois elle soigne un peu moins. Elle en a tiré la seule conclusion possible.
 Demandez-lui laquelle.
-? Darnassus, chez les alchimistes. Engagez la conversation avec l'alchimiste au sujet de ses potions.
+? Darnassus, chez les alchimistes. Parlez à l'alchimiste que ses potions inquiètent.
 = Ainethil, alchimiste de rang artisan : "Il n'y a qu'une conclusion à en tirer : les plantes changent. J'ignore pourquoi et de quelle manière."
 + Les chroniques de cette cité racontent comment trois dragons bénirent le premier Arbre-monde, pour que son peuple ne vieillisse ni ne tombe jamais malade. De l'arbre où il vit aujourd'hui, elles ne disent rien de tel.
 ! Calme
@@ -15,7 +15,7 @@ Demandez-lui laquelle.
 Sur la terrasse des Artisans, une jeune travailleuse du cuir tient à peine en place pendant ses leçons,
 et espère que les Sentinelles l'appelleront au front.
 Son maître craint qu'elles le fassent. Souhaitez-lui bonne chance.
-? La terrasse des Artisans, à Darnassus, chez les travailleurs du cuir. Ciblez l'apprentie et encouragez-la ou souhaitez-lui bonne chance.
+? La terrasse des Artisans, à Darnassus, chez les travailleurs du cuir. Souhaitez bonne chance à l'apprentie. Elle en aura peut-être besoin.
 = Darianna, travailleuse du cuir de rang compagnon : "Si j'ai de la chance, les Sentinelles me demanderont de les rejoindre sur le front !"
 + Faldron, son maître : "Avec sa force et son agilité, j'ai peur qu'elle soit bien vite appelée à combattre. Nous devons la former rapidement."
 ! Calme

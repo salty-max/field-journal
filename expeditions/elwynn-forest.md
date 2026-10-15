@@ -33,7 +33,7 @@ In a house on the road between the abbey and the gold town,
 a woman lives with four cats, and her title says what the neighbours make of it.
 The cats have the run of the place.
 Address them in their own tongue.
-? Donni Anthania's house, on the road from Northshire down to Goldshire. Near the woman, answer one of her cats with a meow or a purr.
+? Donni Anthania's house, on the road from Northshire down to Goldshire. Answer one of the cats in its own tongue. A meow will do.
 = Donni Anthania, the Crazy Cat Lady, and her four cats: a Bombay, a Cornish Rex, an Orange Tabby and a Silver Tabby. Every one of them is for sale, at forty silver a carrier.
 + They are four of the five cats anyone in the world will sell you. The fifth, a white kitten, is carried about Stormwind by a boy called Lil Timmy, and sold one at a time.
 
@@ -42,7 +42,7 @@ In a lake shaped like a ring, an island holds a ring of stones
 and a stone raised so that heroes would be remembered.
 Renegade wizards hold the island now, gone over to the bandits.
 Cross the water, and give the stone what it was raised for.
-? The ring-shaped lake north of the road to Eastvale has an island in its middle. Heroes are honoured there. At the memorial stone, honour the dead with a salute, a bow or a prayer.
+? The ring-shaped lake north of the road to Eastvale has an island in its middle. Heroes are honoured there. Kneel by the memorial stone.
 = Heroes' Vigil, and its Stone of Remembrance: a cairn for the dead of the First War, when the orcs sacked Goldshire and the lands around it. The lake takes its name from the cairn.
 + The lake was a place of pilgrimage once. The Defias' renegade wizards have made it a dangerous one.
 

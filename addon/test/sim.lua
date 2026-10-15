@@ -2226,6 +2226,10 @@ check(
 )
 ns.openRiddle("elwynn-forest-cats")
 rows = pageRows()
+check(
+  rows["It asks"] == "an emote with someone nearby targeted",
+  "a creature's gesture page explains proximity and targeting before a clue is taken"
+)
 local TIERS = { near = "Near the road", off = "Off the road", hidden = "Hidden", town = "In town" }
 check(
   YonderExpeditionsPage.title.text == TIERS[ns.riddleById["elwynn-forest-cats"].tier],
@@ -2240,6 +2244,7 @@ check(listed.Duskwood and listed["Watcher Callahan"], "the list: the zones enter
 -- Asking from the page: the game's confirmation, then the clue.
 local vigil = ns.riddleById["elwynn-forest-heroes-vigil"]
 ns.openRiddle(vigil.id)
+check(pageRows()["It asks"] == "an emote there", "a place's gesture page does not ask for a creature target")
 local ask = YonderExpeditionsPage.buttons[1]
 check(ask and ask.shown, "an unsolved riddle's page offers its clue")
 ask.scripts.OnClick(ask)

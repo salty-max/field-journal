@@ -1,5 +1,5 @@
 ---
-source: 0bd799324141
+source: 9dfb8f17003b
 zone: 1437
 ---
 ## wetlands-sundown-marsh
@@ -8,7 +8,7 @@ une naine et un gnome tiennent une maison de pierre avec un moulin à vent,
 et vendent ce qui leur tombe sous la main : de belles ceintures et jambières, une de chaque à la fois,
 et deux plans gnomes, un exemplaire de chaque.
 Allez les saluer à leur porte.
-? Le marais du couchant, au nord-ouest des Paluns, à l'ouest de la tombe d'Ironbeard. Approchez les marchands, ciblez la naine et adressez-lui des salutations avec une emote.
+? Le marais du couchant, au nord-ouest des Paluns, à l'ouest de la tombe d'Ironbeard. Dites bonjour à la naine parmi les marchands.
 = Wenna Silkbeard, une naine, et Fradd Swiftgear, un gnome, dans leur maison de pierre du marais du couchant. Les plans de Fradd : l'Espingole amoureusement construite et le Recombobulateur mineur.
 + Le plus petit appareil de Fradd rend un peu de vie et de mana, mais son talent particulier est de changer un mouton en voyageur. Un ingénieur n'a pas besoin d'attendre que le sort du mage se dissipe.
 ! Gardé (crocilisques, bêtes des tourbières et raptors tout autour)

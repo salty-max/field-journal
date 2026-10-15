@@ -38,7 +38,7 @@ Of three great hammers, two were set in stone.
 In life they shared no hall and shared no throne.
 Their sons set them together by the road,
 facing the south, where once the third one's fires glowed.
-? In the lake country's south-west, two great figures guard a pass. Kings are owed something. At the statues, bow, kneel or salute the kings.
+? In the lake country's south-west, two great figures guard a pass. Bow before the two stone kings.
 = Bronzebeard and Wildhammer, side by side, raised by their sons. Their peoples parted ways later. The statues did not.
 + The whole war is in a dwarven history, War of the Three Hammers: Thaurissan's summoning woke Ragnaros, and the statues were meant as a warning to all who would attack the dwarven kingdoms, and a reminder of what the Dark Irons paid.
 
@@ -46,7 +46,7 @@ facing the south, where once the third one's fires glowed.
 Three of the Horde run the Loch's eastern shore,
 from the hills south of the water to the foot of the dam and back,
 round and round, in the very middle of the dwarves' country.
-Two of them are orcs. Catch the third for a word.
+Two of them are orcs. It is the third you want.
 ? The east shore of the Loch, anywhere from the southern hills to the dam: they keep running. Speak to the tauren among the runners.
 = Haren Swifthoof, a tauren, Horde Runner, with Gradok and Thragomm: three elite runners of the Horde, lapping the shore of an Alliance lake.
 + Gradok and Thragomm share one face: the same orc, twice over.

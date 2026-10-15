@@ -31,7 +31,7 @@ a warchief carved words for his big brother,
 whose name meant giant's heart,
 who stood alone before the demon and bought his people's freedom with his blood.
 Leave him what a warrior is owed.
-? Demon Fall Canyon, in Ashenvale's south-east. Give the fallen warrior a salute, a bow or a bent knee at his monument.
+? Demon Fall Canyon, in Ashenvale's south-east. A soldier's salute belongs at this monument.
 = 'Lok'Tar ogar, big brother. May the Warsong never fade.' Thrall wrote it.
 + Grom was the first chieftain to drink Mannoroth's blood, and the one who killed the demon: 'the curse of our people began and ended with Grom.'
 

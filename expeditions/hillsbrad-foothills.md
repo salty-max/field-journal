@@ -54,8 +54,8 @@ On the road between two towns that hate each other,
 a goblin walks from one to the other and back, all day,
 with a robot at his heels, and sells in both:
 belts, orbs, a pattern or two, one of each at a time.
-Catch him on the road and ask to see his wares.
-? The road from Southshore to Tarren Mill. He walks it end to end. Catch the goblin and open his wares. You do not need to buy anything.
+Catch him on the road.
+? The road from Southshore to Tarren Mill. He walks it end to end. Let the goblin show you his wares. Your purse can stay shut.
 = Zixil, Merchant Supreme, a goblin who trades in both Southshore and Tarren Mill, with Overwatch Mark I, his robot, at his heels.
 + His schematic teaches an engineer to make Goblin Jumper Cables, which may shock a fallen companion back to life. The word 'may' is worth remembering.
 
@@ -64,7 +64,7 @@ Where the road climbs out of the foothills toward the wild dwarves' country,
 two gryphons keep the pass, and each of them has a name.
 They answer to Ironforge, and they are no friends of the Horde.
 Show them a soldier's respect.
-? Hillsbrad's north-east corner, where the way climbs toward the Hinterlands. Approach either gryphon, target it and give a military salute.
+? Hillsbrad's north-east corner, where the way climbs toward the Hinterlands. Give either gryphon a military salute.
 = Granistad and Kurdros, gryphons of Ironforge, keeping the pass from Hillsbrad up to the Hinterlands.
 + They are of level forty, on a road most travellers climb at twenty-five: for the Horde, not guards so much as a wall.
 
@@ -73,7 +73,7 @@ South of the dwarves' keep, a great stone
 keeps a name and two years, and nothing more.
 Someone made sure it would be here, for someone they lost.
 Give the one remembered here a moment of respect.
-? Below Dun Garok, toward the sea. Kneel, pray or mourn beside the memorial stone.
+? Below Dun Garok, toward the sea. Kneel beside the memorial stone.
 = 'Anthony Ray Stark. 1961 - 2005.'
 + A memorial the world's makers left for a friend of theirs. Rousch, the dwarf standing before it, was his own character in the game. He had brought him to somewhere in the forties.
 

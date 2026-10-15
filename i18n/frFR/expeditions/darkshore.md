@@ -1,13 +1,13 @@
 ---
-source: 3eca64d9f28d
+source: b0a8cc830e76
 zone: 1439
 ---
 ## darkshore-auberdine
 Dans la ville des elfes sur le rivage sombre, près d'une maison juste à l'est de l'auberge,
 se tient une femme à travers laquelle on voit.
 Elle n'a ni marchandises ni commissions, et personne en ville ne s'en étonne.
-Trouvez-la, et demandez-lui pourquoi elle est encore là.
-? Auberdine, à l'est de l'auberge. Approchez la femme fantomatique et engagez la conversation.
+Trouvez-la.
+? Auberdine, à l'est de l'auberge. Parlez à la femme fantomatique.
 = Yalda, à Auberdine : on voit à travers elle, et personne en ville n'a un mot à en dire.
 + Elle ne se cache pas, et ce n'est pas un gardien des âmes. Elle se tient simplement là, et la ville vit autour d'elle.
 ! Calme

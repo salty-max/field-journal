@@ -1,13 +1,13 @@
 ---
-source: 3eca64d9f28d
+source: b0a8cc830e76
 zone: 1439
 ---
 ## darkshore-auberdine
 In der Stadt der Elfen an der dunklen Küste, bei einem Haus gleich östlich des Gasthauses,
 steht eine Frau, durch die man glatt hindurchsehen kann.
 Sie hat keine Waren und keine Aufträge, und niemand in der Stadt verliert ein Wort über sie.
-Finde sie und frag, warum sie noch hier ist.
-? Auberdine, östlich des Gasthauses. Geh zu der geisterhaften Frau und sprich sie an.
+Finde sie.
+? Auberdine, östlich des Gasthauses. Sprich mit der geisterhaften Frau.
 = Yalda, in Auberdine: Man kann durch sie hindurchsehen, und niemand in der Stadt hat ein Wort dazu zu sagen.
 + Sie versteckt sich nicht, und sie ist kein Geistheiler. Sie steht einfach dort, und die Stadt geht um sie herum ihren Gang.
 ! Ruhig

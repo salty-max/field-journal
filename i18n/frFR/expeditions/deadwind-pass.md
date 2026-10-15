@@ -1,12 +1,12 @@
 ---
-source: 5b1c0541f179
+source: 6a5023670cc4
 zone: 1430
 ---
 ## deadwind-pass-deadmans-crossing
 Là où la route du bois sombre rejoint le chemin qui descend vers une tour morte,
 un arbre porte deux pendus, et un panneau parle franchement aux voyageurs.
 Suivez son conseil, ou non. Mais montrez-lui ce que sa menace vous inspire.
-? La Croisée de l'homme mort, là où la route entre dans le défilé de Deuillevent depuis le bois de la Pénombre. À la croisée, frissonnez ou montrez la peur que vous inspire cet avertissement.
+? La Croisée de l'homme mort, là où la route entre dans le défilé de Deuillevent depuis le bois de la Pénombre. Un frisson à cette croisée serait bien compréhensible.
 = La Croisée de l'homme mort : un arbre de pendu avec sa paire de cadavres, et un panneau qui dit "Faites demi-tour !"
 + Son autre bras est plus sinistre : "Vous qui entrez ici, abandonnez toute espérance." Et pourtant la route elle-même est assez sûre, pour qui ne la quitte pas.
 ! Calme sur la route

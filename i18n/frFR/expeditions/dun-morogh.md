@@ -1,5 +1,5 @@
 ---
-source: a4c36a900bf8
+source: e87109026211
 zone: 1426
 ---
 ## dun-morogh-etched-note
@@ -27,7 +27,7 @@ Sur la route qui sort de la vallée où débutent les jeunes nains,
 un armurier tient un camp, et à côté un champ de tir.
 Deux fusiliers y règlent leurs différends, et une équipe de mortier s'exerce
 sur des mannequins qu'un éclaireur doit rejoindre en courant. Gare à vos oreilles.
-? Le camp de Hegnar Rumbleshot, sur la route de la passe des Frigères à Kharanos. Au champ de tir, couvrez-vous les oreilles ou baissez-vous.
+? Le camp de Hegnar Rumbleshot, sur la route de la passe des Frigères à Kharanos. Couvrez-vous les oreilles au champ de tir.
 = Le champ de tir de Rumbleshot. De temps à autre, les cinq nains du camp s'y rendent. D'abord les fusiliers Middlecamp et Wheeler, qui tirent sur une cible orc et une rangée de bouteilles. Puis l'équipe de mortier, Angus et Shorty, fait feu tour à tour sur trois mannequins, pendant que l'éclaireur Klemmy court dans tous les sens.
 + Middlecamp manque deux fois la cible orc et deux fois les bouteilles, tandis que Wheeler touche la cible sans même essayer, et la cible du milieu en plein centre. Puis Wheeler ne touche que le flanc de la caisse des bouteilles, et c'est Middlecamp qui abat le mannequin orc, se tourne vers la cible en papier et tire de la hanche sur les bouteilles.
 ! Calme
@@ -38,7 +38,7 @@ sur des mannequins qu'un éclaireur doit rejoindre en courant. Gare à vos oreil
 la plus jeune a passé la journée à poursuivre quelqu'un de petit et blanc
 qui ne veut rien savoir de ce qu'elle a en tête.
 Rassurez-le avant qu'il ne s'enfuie encore.
-? La ferme des Amberstill, sur la route du Loch Modan : la fillette, et ce qu'elle poursuit. Ciblez le petit animal que poursuit la fillette et apaisez-le ou caressez-le.
+? La ferme des Amberstill, sur la route du Loch Modan : la fillette, et ce qu'elle poursuit. Apaisez le petit animal que poursuit la fillette.
 = Tout-doux, un lapin, et Yarlyn Amberstill, qui lui court après autour de l'enclos des béliers en criant : "Allons Tout-doux ! Je veux juste te donner un bain !"
 + Ses autres offres, en nain : "Des carottes tous les jours pendant un an si tu arrêtes !" Et, quand ça ne marche pas : "Ne me pousse pas à aller chercher mon papi pour t'attraper ! Il aime attraper les lapins avec son fusil !"
 ! Calme

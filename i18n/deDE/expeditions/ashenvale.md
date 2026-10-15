@@ -1,5 +1,5 @@
 ---
-source: 8bd9dafd9c6d
+source: 589d5b7c19ec
 zone: 1440
 ---
 ## ashenvale-grom
@@ -8,7 +8,7 @@ meißelte ein Kriegshäuptling Worte für seinen großen Bruder,
 dessen Name Riesenherz bedeutete,
 der allein vor dem Dämon stand und die Freiheit seines Volkes mit seinem Blut erkaufte.
 Lass ihm, was einem Krieger gebührt.
-? Der Demonfall-Canyon, im Südosten von Ashenvale. Erweise dem gefallenen Krieger am Denkmal mit einem Salut, einer Verbeugung oder einem gebeugten Knie die Ehre.
+? Der Demonfall-Canyon, im Südosten von Ashenvale. Ein militärischer Salut gehört an dieses Denkmal.
 = 'Lok-Tar Ogar, großer Bruder. Mögen die Warsong niemals untergehen.' Thrall hat es geschrieben.
 + Grom war der erste Häuptling, der Mannoroths Blut trank, und derjenige, der den Dämon tötete: 'In vielerlei Hinsicht begann und endete der Fluch, der auf unserem Volk lastete, mit Grom.'
 ! Gefährlich (die Diener der Legion)

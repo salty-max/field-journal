@@ -1,5 +1,5 @@
 ---
-source: 5e91a1bd8ffd
+source: 95ee773c71b9
 zone: 1456
 ---
 ## thunder-bluff-white-stag
@@ -15,7 +15,7 @@ und vom Mond, der ihn befreite und dafür seine Liebe verlangte. Finde die Gesch
 Bei der Halle des Häuptlings verkauft ein Taure Präriehunde als Freunde
 und hält einen eigenen neben seinem Stand, mit Namen.
 Mach seine Bekanntschaft.
-? Thunder Bluff, beim Stand des Präriehundverkäufers nahe Cairnes Halle. Nimm den Präriehund mit Namen ins Ziel und streichle oder grüße ihn.
+? Thunder Bluff, beim Stand des Präriehundverkäufers nahe Cairnes Halle. Streichle den Präriehund, der einen eigenen Namen hat.
 = Nibbles, Halpas eigener Präriehund, neben seinem Stand: Halpa verkauft Präriehundepfeifen an jeden, der einen eigenen Freund haben will.
 + Nibbles ist nicht zu verkaufen.
 ! Ruhig

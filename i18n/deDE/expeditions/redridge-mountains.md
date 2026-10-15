@@ -1,12 +1,12 @@
 ---
-source: 4e1c1396fd1e
+source: 4866ced26b91
 zone: 1433
 ---
 ## redridge-mountains-docks
 Am Ende der Stege der Seestadt verbringen zwei Jungen jeden Tag denselben Nachmittag.
 Einer fragt den anderen, was er tun will.
 Der andere weiß es nicht und fragt zurück.
-Setz dich zu ihnen auf die Planken, während sie sich entscheiden.
+Leiste ihnen auf den Planken Gesellschaft, während sie sich entscheiden.
 ? Die Stege von Seenhain, am Immerruhsee. Setz dich am Ende der Stege zu den Jungen.
 = Roger und Jamin, zwei Jungen aus Seenhain: 'Was also möchtet Ihr heute machen?' 'Ich weiß es nicht. Was willst du jetzt tun?' 'Fischen hört sich gut an.'
 + Die Frage kommt alle zweieinhalb bis drei Minuten wieder, und die Antwort hat sich noch nie geändert.
@@ -18,8 +18,8 @@ Im fernen Südosten unterhalten die Orcs der Blackrock ein Lager in einem Tal,
 und an seinem Feuer sitzt ein Gnom mit einer Eisenkugel am Fuß.
 Er diente einst im Turm eines Magiers, und er hat noch Waren
 für jeden, der ihn erreichen kann: Faden, Farbe und Umhänge, die eines Turms würdig sind.
-Schenk ihm in seiner Gefangenschaft ein wenig Zuspruch.
-? Renders Tal, im Südosten des Rotkammgebirges, im Lager der Blackrock. Nimm den gefangenen Gnom ins Ziel und tröste oder ermutige ihn.
+Sei freundlich zu ihm.
+? Renders Tal, im Südosten des Rotkammgebirges, im Lager der Blackrock. Tröste den gefangenen Gnom am Feuer.
 = Der Gefangene Diener von Azora, ein Gnom aus dem Turm in Elwynn, angekettet im Lager der Blackrock und noch immer Händler für Schneiderbedarf.
 + Er hat von jedem Umhang nur einen: Inferno-Umhang, Umhang des Willens und Sylvanumhang. Der Inferno-Umhang schützt vor Feuer, nützlich genug in einem Tal, das die Blackrock halten.
 ! Gefährlich (das Lager der Blackrock um ihn herum, Stufe 19 bis 23)

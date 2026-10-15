@@ -42,7 +42,7 @@ His congregation's story stands among the herbalists' books.
 In the quarter of the city's soldiers, three of the Forsaken stand around a living woman,
 and one of them is very proud of her. He sends her across the bridge on errands,
 and she always comes back. Let her see that someone still feels for her.
-? The War Quarter, in the Undercity. Target the living woman and show pity, or sigh at her plight.
+? The War Quarter, in the Undercity. Show the living woman a little pity.
 = Theresa, Gerard Abernathy's mindslave: 'Theresa, take this to Father Lankester.' 'Yes My Lord.'
 + 'I managed to discover that certain parts of the brain when removed or stimulated will make a subject much more docile.' Even his companions ask him how he did it.
 
@@ -50,6 +50,6 @@ and she always comes back. Let her see that someone still feels for her.
 Above the city, in what is left of the palace garden, the last true king
 of the land lies under a stone that asks for his son's deeds
 not to be laid at his feet. Pay him the respect his son did not.
-? In the gardens of the Ruins of Lordaeron, above the Undercity. Bow, kneel or mourn beside the king's tomb.
+? In the gardens of the Ruins of Lordaeron, above the Undercity. Kneel beside the king's tomb.
 = 'Here lies King Terenas Menethil II -- Last True King of Lordaeron. Great were his deeds -- long was his reign -- unthinkable was his death.'
 + 'May the Father lie blameless for the deeds of the son. May the bloodied crown stay lost and forgotten.'

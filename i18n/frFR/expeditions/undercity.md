@@ -1,5 +1,5 @@
 ---
-source: 7b8955c1efec
+source: d6e7203916cf
 zone: 1458
 ---
 ## undercity-kelthuzad-book
@@ -15,7 +15,7 @@ L'histoire de ses fidèles se trouve parmi les livres des herboristes.
 Dans le quartier des soldats de la cité, trois Réprouvés se tiennent autour d'une femme vivante,
 et l'un d'eux est très fier d'elle. Il l'envoie de l'autre côté du pont faire des courses,
 et elle revient toujours. Montrez-lui que quelqu'un éprouve encore de la compassion pour elle.
-? Le quartier de la Guerre, à Fossoyeuse. Ciblez la femme vivante et témoignez-lui de la pitié, ou soupirez sur son sort.
+? Le quartier de la Guerre, à Fossoyeuse. Témoignez un peu de pitié à la femme vivante.
 = Theresa, l'esclave mentale de Gerard Abernathy : "Theresa, portez ceci au Père Lankester." "Oui Monseigneur."
 + "J'ai découvert que retirer ou stimuler certaines parties du cerveau rendait un sujet beaucoup plus docile." Même ses compagnons lui demandent comment il s'y est pris.
 ! Calme
@@ -24,7 +24,7 @@ et elle revient toujours. Montrez-lui que quelqu'un éprouve encore de la compas
 Au-dessus de la cité, dans ce qui reste du jardin du palais, le dernier vrai roi
 du pays repose sous une pierre qui demande qu'on ne lui impute pas
 les actes de son fils. Rendez-lui le respect que son fils ne lui a pas rendu.
-? Dans les jardins des ruines de Lordaeron, au-dessus de Fossoyeuse. Devant la tombe du roi, inclinez-vous, agenouillez-vous ou exprimez votre deuil.
+? Dans les jardins des ruines de Lordaeron, au-dessus de Fossoyeuse. Agenouillez-vous près de la tombe du roi.
 = "Ici repose le roi Terenas Menethil II, le dernier vrai roi de Lordaeron. Ses actes furent grands, son règne fut long, sa mort était impensable."
 + "Que le père ne soit pas souillé par les actions du fils. Que la couronne sanglante reste perdue et oubliée."
 ! Calme

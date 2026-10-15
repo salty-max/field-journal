@@ -59,8 +59,8 @@ Their punishment began a voyage.
 On the road between the goblins' port and the orcs' crossroads,
 a goblin peddler walks back and forth with weapons and potions to sell,
 and an ogre walks behind him, far too strong for these plains.
-Catch the peddler on the road and ask to see his wares.
-? The road from Ratchet to the Crossroads. He walks it end to end. Catch the peddler and open his wares. You do not need to buy anything.
+Catch the peddler on the road.
+? The road from Ratchet to the Crossroads. He walks it end to end. Ask the peddler to show you his wares. There is no need to buy.
 = Lizzarik, a goblin weapon dealer of Ratchet, walking the road to the Crossroads and back with Jorb, his ogre bodyguard.
 + Jorb is of level thirty-seven, on a road most travellers walk at fifteen.
 
@@ -77,7 +77,7 @@ Set foot on the stair.
 At the rampart on the northern road, where the Horde watches the elves' forest,
 a mother keeps house in the middle of the war camp,
 and her small son plays outside her door. Be friendly.
-? The Mor'shan Rampart, at the Barrens' northern edge. Target the child and offer a greeting, a wave or a smile.
+? The Mor'shan Rampart, at the Barrens' northern edge. Greet the child with a wave.
 = Pooka and her son Mogg, at the Mor'shan Rampart: a family, in a war camp.
 + Of the boy's father, the rampart says nothing.
 
@@ -86,7 +86,7 @@ Not far from the busiest road of the plains, a short trail climbs a hill
 to a shrine raised for a warrior who fell,
 and a spirit healer waits before it, as if for him.
 Few find it. Honour him as one warrior honours another.
-? West of the Crossroads, follow a ridge up a small hill. Give a military salute or a respectful bow at the shrine.
+? West of the Crossroads, follow a ridge up a small hill. Salute the warrior at his shrine.
 = The Shrine of the Fallen Warrior, and its own spirit healer, Koiter.
 + It remembers Michel Koiter, who worked on this world and died before it was finished. The spirit healer bears his name, and the orc of the shrine was his own character.
 

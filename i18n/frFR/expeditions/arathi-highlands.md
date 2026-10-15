@@ -1,5 +1,5 @@
 ---
-source: da5a515e0e00
+source: 3457e2c69d06
 zone: 1417
 ---
 ## arathi-highlands-thoradins-wall
@@ -7,7 +7,7 @@ Au bord nord-ouest des hautes-terres, un mur du premier royaume des hommes
 longe la frontière, par-dessus les collines, aussi loin que porte la vue.
 On l'éleva contre les trolls, il y a longtemps. Aujourd'hui il bée, percé de part en part.
 Allez à son pied, et contemplez ce qu'il en reste.
-? Le bord nord-ouest d'Arathi, là où les hautes-terres rejoignent les contreforts. Contemplez le mur brisé ou montrez que vous y réfléchissez.
+? Le bord nord-ouest d'Arathi, là où les hautes-terres rejoignent les contreforts. Devant le mur brisé, songez à ce qu'il tenait autrefois à distance.
 = Le mur de Thoradin, élevé par le roi Thoradin d'Arathor, le premier royaume des hommes, contre les trolls amani, brisé désormais et grand ouvert.
 + "Jadis symbole de la force et de la puissance défensive de l'humanité", dit de lui un vieux relevé de ces terres, "aujourd'hui livré à la ruine et à la guerre."
 ! Gardé (arpenteurs des hautes-terres, vandales et rampants)

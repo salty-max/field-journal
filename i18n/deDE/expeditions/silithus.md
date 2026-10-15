@@ -1,5 +1,5 @@
 ---
-source: 29ea2ebc24e8
+source: 566528b8b315
 zone: 1451
 ---
 ## silithus-scarab-wall
@@ -17,7 +17,7 @@ Finde die Mauer, und lass den Gong in Ruhe.
 Vor einem Stock in der gelben Wüste steht ein Sergeant zwischen Zwergen Wache,
 und er hat einiges über die Beförderung zu sagen, die ihn hierher gebracht hat.
 Hör ihn an, und sei freundlich.
-? Vor dem Bau des Zoraschwarms, im Westen von Silithus. Nimm den Sergeant ins Ziel und tröste ihn oder gratuliere ihm zur Beförderung.
+? Vor dem Bau des Zoraschwarms, im Westen von Silithus. Gratuliere dem Sergeant zur Beförderung. Irgendjemand sollte es tun.
 = Sergeant Carnes: '"Ein klasse Job in der Kriegsressourcenbeschaffung", hieß es, "Wie wär's mit einer Beförderung?", hieß es.'
 + 'Die Übersetzung von dem ganzen Quatsch lautet: "Du wirst gleich neben 'nem Käferbau in Silithus zusammen mit 'nem Haufen schwitzender Zwerge stationiert, Carnes." Vielen Dank für die Beförderung, Captain!'
 ! Gefährlich (die Silithiden des Baus des Zoraschwarms)
@@ -35,7 +35,7 @@ und sie könne nicht fort. Frag sie, woher sie das weiß.
 Im Süden der Wüste wartet ein Affe im Sand,
 der Gefährte des berühmtesten Forschers der Zwerge.
 Der Forscher selbst ist nirgends zu sehen. Sei freundlich zu dem Affen.
-? Im Süden von Silithus, östlich des Skarabäuswalls. Nimm den Affen ins Ziel und grüße ihn, winke ihm oder tätschle ihn.
+? Im Süden von Silithus, östlich des Skarabäuswalls. Ein Winken genügt, um dich dem Affen vorzustellen.
 = Glibb, Brann Bronzebeards Haustieraffe, der ohne Brann in der Wüste wartet.
 + Niemand in Silithus sagt, wohin Brann gegangen ist.
 ! Gefährlich (die Silithiden nahe der Mauer)

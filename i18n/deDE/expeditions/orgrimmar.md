@@ -1,5 +1,5 @@
 ---
-source: fb746ae7620a
+source: 7a8bd2f64a87
 zone: 1454
 ---
 ## orgrimmar-mannoroth-armor
@@ -15,7 +15,7 @@ besiegt durch die Tat eines tapferen Orcs. Finde sie.
 In der Gasse, zwischen den Läden und dem Geschrei, unterhält die Stadt ein Waisenhaus,
 und seine Kinder laufen unter den Augen einer strengen Orcfrau umher, die sie im Zaum hält.
 Sei freundlich zu den Kleinen.
-? Die Gasse, im Osten von Orgrimmar. Nimm bei der strengen Betreuerin ein Waisenkind ins Ziel und winke ihm oder lächle es an.
+? Die Gasse, im Osten von Orgrimmar. Ein freundliches Winken gilt einem der Kinder, nicht ihrer strengen Betreuerin.
 = Das Waisenhaus von Orgrimmar: die Waisen der Stadt, Waisenmatrone Battlewail und Tosamina, die mit den Kindern eine harte Hand hat.
 + Einmal im Jahr, in der Kinderwoche, sucht die Matrone Reisende, die einer Waise die Welt zeigen.
 ! Ruhig

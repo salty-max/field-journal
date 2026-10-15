@@ -21,7 +21,7 @@ quarry:
 On the salt flats, gnomes and goblins race their machines,
 an ogre calls the races, and a barmaid sends them off with a flag.
 Every race needs a crowd. Be one.
-? The Mirage Raceway, on the Shimmering Flats. Beside the flag-bearer, cheer or applaud the race with an emote.
+? The Mirage Raceway, on the Shimmering Flats. Cheer on the race beside the flag-bearer.
 = Daisy, the race starter girl of the Mirage Raceway, with Fobeed, the ogre, and Zuzubee calling the races.
 + The racers come and go. The flag, the ogre's voice and the salt stay.
 

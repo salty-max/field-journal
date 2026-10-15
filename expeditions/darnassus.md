@@ -35,7 +35,7 @@ riddles:
 In the tree city, an alchemist brews the same potion from the same plants, again and again,
 and every time it heals a little less. She has drawn the only conclusion she can.
 Ask her what it is.
-? Darnassus, by the alchemists. Open a conversation with the alchemist about her potions.
+? Darnassus, by the alchemists. Speak to the alchemist who worries about her potions.
 = Ainethil, Artisan Alchemist: 'There can be only one conclusion: the plants are changing. I cannot say why or into what.'
 + The histories in this city tell how three dragons blessed the first World Tree, so that its people would never age nor sicken. Of the tree they live in now, they say nothing of the kind.
 
@@ -43,7 +43,7 @@ Ask her what it is.
 On the craftsmen's terrace, a young leatherworker can hardly keep still at her lessons,
 and hopes the Sentinels will call her to the front.
 Her teacher fears that they will. Wish her well.
-? The Craftsmen's Terrace, in Darnassus, among the leatherworkers. Target the apprentice and encourage her or wish her good luck.
+? The Craftsmen's Terrace, in Darnassus, among the leatherworkers. Wish the apprentice good luck. She may need it.
 = Darianna, Journeyman Leatherworker: 'Maybe if I'm really lucky, the Sentinels will ask me to join their forces on the front!'
 + Faldron, her teacher: 'With her strength and agility, I fear it won't be long before she is called to fight. We must teach her quickly.'
 

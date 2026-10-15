@@ -275,12 +275,19 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
 - No semicolons in prose, in any language (the user's rule, 14 October
   2026): two sentences, or a comma, or a rewrite for a list. The gender
   tokens' own `;` stay. Research notes (`sources:`) may keep theirs.
-- A gesture's verse suggests the action as well as the place. Its paid hint
-  helps with the action, even if that means naming an ordinary verb. The
-  riddle page says it needs an emote. Avoid false requirements to wait, fight,
-  buy an item or operate a portal. `scripts/riddle-solutions.test.ts` checks
-  every authored solution against all twelve client language files, including
-  group keepers. GUID kinds are protocol tokens, never translated UI words.
+- A gesture's verse suggests the action through its story, without naming
+  the emote. Its paid hint helps with the action as well as the place and
+  may name one accepted gesture in ordinary words. Keep the League's voice,
+  not a list of possible answers. The riddle page explains emotes and, for
+  creatures, proximity and targeting. Do not repeat those mechanics in each
+  hint. Avoid false requirements to wait, fight, buy an item or operate a
+  portal. Read changed passages in context in English, French and German
+  before release: passing interaction tests does not check the writing.
+  `scripts/riddle-solutions.test.ts` checks every authored solution against
+  all twelve client language files, including group keepers, through both
+  emote APIs and the event hooks. Its small game is
+  `addon/test/riddle-game.lua`, independent of `sim.lua`'s narrative.
+  GUID kinds are protocol tokens, never translated UI words.
 - Lore scope as the Codex (loosened on 12 October 2026): the past up to the
   vanilla era from any source (the games, novels, comics, RPG books,
   Chronicle), nothing anachronic to vanilla or Forever; Forever-only families

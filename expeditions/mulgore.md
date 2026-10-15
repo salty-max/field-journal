@@ -30,7 +30,7 @@ In the south-east of the plains, where the grass rolls down toward the dry count
 wolves and kodo, striders and cougars share the open ground,
 and now and then riders from beyond the border:
 the only place they have ever got into the tauren's land. Keep an eye out for them.
-? South-east of Bloodhoof Village, toward the Barrens: the grass that rolls to the border. Look or peer across the plains with an emote. The riders do not have to be present.
+? South-east of Bloodhoof Village, toward the Barrens: the grass that rolls to the border. Peer across the plains. There is no need to wait for the riders.
 = The Rolling Plains: the one part of Mulgore the centaurs' outriders have broken into.
 + North, beyond Bloodhoof Village, the Golden Plains around the bluff are the most treasured of the tauren's hunting grounds.
 

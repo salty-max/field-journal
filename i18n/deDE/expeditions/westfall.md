@@ -1,5 +1,5 @@
 ---
-source: 8303b1b947da
+source: 2cd8ad1dd935
 zone: 1436
 ---
 ## westfall-aegwynn
@@ -16,7 +16,7 @@ Im Südosten, nahe der Brücke in den dunklen Wald,
 brannte ein Hof, als die Bruderschaft kam, mitsamt den Feldern,
 und seine Ruinen rauchen noch. Die eisernen Erntemaschinen, die durch seine Reihen gehen,
 sind die stärksten, die es im Westen noch gibt. Trauere um den Hof, und geh weiter.
-? Der Südosten von Westfall, bei der Brücke in den Dämmerwald: ein Hof, der nur noch Asche ist. Trauere zwischen den Ruinen um den Verlust oder lass einen traurigen Seufzer hören.
+? Der Südosten von Westfall, bei der Brücke in den Dämmerwald: ein Hof, der nur noch Asche ist. Ein trauriger Seufzer passt hierher.
 = Der Todesacker: einer der vielen Höfe von Westfall, den die Defias niederbrannten, als sie das Land nahmen.
 + Der Feindschnitter 4000, ein Erntegolem, schlimmer als alle anderen, geht manchmal über diese Felder, und über andere in Westfall.
 ! Bewacht (Ernteschnitter bis Stufe 18, und manchmal der Feindschnitter 4000)

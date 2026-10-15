@@ -30,8 +30,8 @@ quarry:
 Among the ruins of the old elven city in the forest, the ogres have a pit,
 and fighters drop into it to face whatever has come to the ring.
 Above it, a goblin watches every fight and yells for all of them.
-Drop in, and show him your strength without drawing a weapon.
-? Dire Maul's broken commons: the pit called the Maul, under Griniblix's perch. In the pit, flex your muscles or roar like a challenger. No fight is needed.
+Drop in, and give him a show.
+? Dire Maul's broken commons: the pit called the Maul, under Griniblix's perch. Flex your muscles in the pit. The goblin needs a show, not a fight.
 = The Maul, the ogres' fighting pit in Dire Maul, and Griniblix the Spectator above it: 'Woohoo! They are into it now!'
 + Skarr the Unbreakable, the Razza or Mushgog may come to the ring. When Mushgog comes, herbs spring up in the pit, and some say a black lotus among them.
 

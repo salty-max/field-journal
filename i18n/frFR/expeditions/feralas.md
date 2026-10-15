@@ -1,13 +1,13 @@
 ---
-source: c9f0ae9e28a8
+source: 955cca63abb2
 zone: 1444
 ---
 ## feralas-the-maul
 Parmi les ruines de la vieille cité elfe dans la forêt, les ogres ont une fosse,
 et des combattants y sautent pour affronter ce qui est venu dans l'arène.
 Au-dessus, un gobelin regarde chaque combat et les acclame tous.
-Sautez, et montrez-lui votre force sans tirer vos armes.
-? Les communs en ruine de Hache-tripes : la fosse qu'on appelle l'Etripoir, sous le perchoir de Griniblix. Dans la fosse, montrez vos muscles ou rugissez comme un adversaire. Aucun combat n'est nécessaire.
+Sautez, et donnez-lui du spectacle.
+? Les communs en ruine de Hache-tripes : la fosse qu'on appelle l'Etripoir, sous le perchoir de Griniblix. Montrez vos muscles dans la fosse. Le gobelin veut du spectacle, pas un combat.
 = L'Etripoir, la fosse de combat des ogres à Hache-tripes, et Griniblix le Spectateur au-dessus : "Waou ! Ça y est, ils y sont !"
 + Bâlhafr l'Invaincu, la Razza ou Mushgog peuvent venir dans l'arène. Quand vient Mushgog, des herbes poussent dans la fosse, et certains disent qu'un lotus noir s'y trouve parmi elles.
 ! Périlleux (les ogres gordok, et une fosse où chacun peut combattre n'importe qui)

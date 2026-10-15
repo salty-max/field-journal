@@ -1,5 +1,5 @@
 ---
-source: 6ca6b665f57c
+source: fffcd444c037
 zone: 1419
 ---
 ## blasted-lands-dark-portal
@@ -7,7 +7,7 @@ Au fond de l'étendue rouge se dresse la porte par où les orcs sont venus la pr
 Elle fut fracassée, puis rouverte. Les derniers héros qui la franchirent
 la détruisirent depuis l'autre côté pour que ce monde vive,
 et nul ne sait s'ils sont rentrés. Honorez-les comme des soldats honorent les leurs.
-? La Porte des ténèbres, au sud des Terres foudroyées. Devant la porte, adressez un salut aux soldats disparus ou inclinez-vous en leur mémoire.
+? La Porte des ténèbres, au sud des Terres foudroyées. Adressez un salut militaire à ceux qui l'ont franchie sans revenir.
 = La Porte des ténèbres, immobile et sombre.
 + Khadgar, Turalyon, Alleria, Kurdran et Danath choisirent de rester sur le monde à l'agonie : "nul ne sait s'ils échappèrent à la destruction de Draenor."
 ! Gardé (démons et ogres)

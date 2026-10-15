@@ -35,6 +35,6 @@ and of the moon, who freed him for his love. Find the tale.
 By the chieftain's lodge, a tauren sells prairie dogs to keep as friends,
 and keeps one of his own beside his stall, with a name.
 Make its acquaintance.
-? Thunder Bluff, by the prairie dog seller's stall near Cairne's lodge. Target the named prairie dog and pet it or offer a greeting.
+? Thunder Bluff, by the prairie dog seller's stall near Cairne's lodge. Pet the prairie dog with a name of its own.
 = Nibbles, Halpa's own prairie dog, beside his stall: Halpa sells prairie dog whistles to anyone who wants a friend of their own.
 + Nibbles is not for sale.

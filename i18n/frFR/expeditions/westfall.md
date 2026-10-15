@@ -1,5 +1,5 @@
 ---
-source: 8303b1b947da
+source: 2cd8ad1dd935
 zone: 1436
 ---
 ## westfall-aegwynn
@@ -16,7 +16,7 @@ Au sud-est, près du pont vers le bois sombre,
 une ferme a brûlé quand la Confrérie est venue, champs compris,
 et ses ruines fument encore. Les moissonneurs de fer qui arpentent ses rangs
 sont les plus forts qui restent à l'ouest. Pleurez la ferme, et ne vous arrêtez pas.
-? Au sud-est de la Marche de l'Ouest, près du pont vers le bois de la Pénombre : une ferme qui n'est plus que cendres. Au milieu des ruines, exprimez votre deuil ou laissez échapper un soupir de tristesse.
+? Au sud-est de la Marche de l'Ouest, près du pont vers le bois de la Pénombre : une ferme qui n'est plus que cendres. Un soupir de tristesse a sa place ici.
 = L'acre mort : l'une des nombreuses fermes de la Marche de l'Ouest, brûlée par les Défias quand ils prirent le pays.
 + Le Découpeur 4000, un golem des moissons pire que tous les autres, arpente parfois ces champs, et d'autres de la Marche de l'Ouest.
 ! Gardé (moissonneurs jusqu'au niveau 18, et parfois le Découpeur 4000)

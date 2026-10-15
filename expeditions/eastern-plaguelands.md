@@ -27,8 +27,8 @@ quarry:
 ## eastern-plaguelands-mirador
 Where the river runs between the two plaguelands, an old knight lives in exile in a cottage,
 and outside it his horse waits, as if a war might call any day.
-Offer the waiting horse a gentle touch.
-? The Thondroril River, at the Eastern Plaguelands' western edge, by a cottage. Target the horse outside the cottage and pet it.
+Make a friend of the horse.
+? The Thondroril River, at the Eastern Plaguelands' western edge, by a cottage. Pet the horse waiting outside the cottage.
 = Mirador, the horse of Tirion Fordring, outside the cottage where his master lives in exile.
 + Tirion lost his lands and his title for saving the life of an orc, Eitrigg, who had once spared his own.
 
@@ -36,7 +36,7 @@ Offer the waiting horse a gentle touch.
 At the dead country's northern end, where the road climbs toward the elves' kingdom,
 one of them stands alone at the way north, and says nothing at all.
 Nobody gets past him, and nobody is sent to him. Pay him your respects all the same.
-? The Eastern Plaguelands' northern edge, where the road goes on toward Quel'Thalas. Target the silent elf and offer a greeting or a respectful bow.
+? The Eastern Plaguelands' northern edge, where the road goes on toward Quel'Thalas. Bow to the silent elf.
 = Adon, a high elf, alone at the road north to Quel'Thalas: he has no wares, no orders and no words.
 + Close by, at Quel'Lithien Lodge, the last high elves of these lands keep a hunting lodge.
 

@@ -205,9 +205,12 @@ the count above.
 - **Two hints a riddle**, each asked for ("This riddle will no longer earn its
   gold seal"): a plainer clue in prose, then a circle shaded on the world map
   (wider than the spot, never centred on it). A riddle asking a gesture says
-  so on its page ("asks something of you there"), never which: the verse
-  never names it, the story leads to it; the first hint points closer
-  ("Rejold's casks are not there to be looked at"), still without its name.
+  so on its page ("an emote there"), with proximity and targeting explained
+  for a creature. The page never names the emote: the verse leaves it to
+  the story. The paid clue helps with both the place and the action, and
+  may name one accepted gesture in ordinary words. It need not list the
+  alternatives. Keep it in the League's voice, with the general mechanics
+  on the page rather than repeated in each clue.
 - **A quarry's help** is the target: its haunts shaded on the map (its spawn
   points from the pinned CMaNGOS spawns, clustered into a few soft circles;
   Forever's new rares from AllTheThings' coordinates), with a tooltip naming
@@ -353,7 +356,9 @@ remains for anyone to confirm a spot in passing; no riddle waits on it.
 - Fair: the verse alone should lead an attentive player there; the first
   hint, a newcomer. If solving also needs an action, the verse must suggest
   that action, and the paid hint must help with it as well as the location.
-  The hint may name an ordinary action, without giving a slash command.
+  The hint may name an ordinary action, without giving a slash command or
+  listing every accepted emote. General targeting instructions belong on
+  the page. The verse keeps its inference and its own voice.
   Do not make a player spend a seal to learn only a place they already found.
 - A gesture or a reading only where the thing calls for it, and the one the
   story itself asks for, never named in the verse (no "kneel by him", no

@@ -1,5 +1,5 @@
 ---
-source: 5e91a1bd8ffd
+source: 95ee773c71b9
 zone: 1456
 ---
 ## thunder-bluff-white-stag
@@ -15,7 +15,7 @@ et de la lune, qui le libéra en échange de son amour. Trouvez le conte.
 Près de la loge du chef, un tauren vend des chiens de prairie comme compagnons,
 et en garde un à lui à côté de son étal, avec un nom.
 Faites sa connaissance.
-? Thunder Bluff, près de l'étal du vendeur de chiens de prairie, à côté de la loge de Cairne. Ciblez le chien de prairie qui porte un nom et caressez-le ou saluez-le.
+? Thunder Bluff, près de l'étal du vendeur de chiens de prairie, à côté de la loge de Cairne. Caressez le chien de prairie qui porte son propre nom.
 = Grignote, le propre chien de prairie de Halpa, à côté de son étal : Halpa vend des sifflets à chien de prairie à quiconque veut un ami bien à lui.
 + Grignote n'est pas à vendre.
 ! Calme

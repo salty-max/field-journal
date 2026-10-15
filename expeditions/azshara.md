@@ -44,7 +44,7 @@ and her demons, when the world was broken. Find what is left of him.
 In the south of the elves' old country, dragonkin of the blue flight hold the shores of a lake,
 far from the cold north where their kind belongs.
 Inside their ring, the lake itself is calm. Get through them, and refresh yourself at the water.
-? Lake Mennar, in southern Azshara. Sit by the lake or make a drinking gesture there.
+? Lake Mennar, in southern Azshara. Sit by the water a while.
 = Lake Mennar: blue dragonkin hold its shores, scalebanes, mageweavers and magelords, far from their flight's northern home.
 + Mazthoril's caves in Winterspring are another blue dragonflight refuge outside Northrend.
 

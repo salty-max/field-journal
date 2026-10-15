@@ -1,12 +1,12 @@
 ---
-source: 6f0288928e27
+source: 0cb2563d524f
 zone: 1423
 ---
 ## eastern-plaguelands-mirador
 Wo der Fluss zwischen den beiden Pestländern fließt, lebt ein alter Ritter im Exil in einer Hütte,
 und davor wartet sein Pferd, als könnte jeden Tag ein Krieg rufen.
-Schenk dem wartenden Pferd eine sanfte Berührung.
-? Der Thondroril, am westlichen Rand der Östlichen Pestländer, bei einer Hütte. Nimm das Pferd vor der Hütte ins Ziel und streichle es.
+Freunde dich mit dem Pferd an.
+? Der Thondroril, am westlichen Rand der Östlichen Pestländer, bei einer Hütte. Streichle das Pferd, das vor der Hütte wartet.
 = Mirador, das Pferd von Tirion Fordring, vor der Hütte, in der sein Herr im Exil lebt.
 + Tirion verlor seine Ländereien und seinen Titel, weil er einem Orc das Leben rettete, Etrigg, der einst seines verschont hatte.
 ! Ruhig
@@ -15,7 +15,7 @@ Schenk dem wartenden Pferd eine sanfte Berührung.
 Am nördlichen Ende des toten Landes, wo die Straße zum Königreich der Elfen hinaufsteigt,
 steht einer von ihnen allein am Weg nach Norden und sagt überhaupt nichts.
 Niemand kommt an ihm vorbei, und niemand wird zu ihm geschickt. Erweise ihm trotzdem deinen Respekt.
-? Der nördliche Rand der Östlichen Pestländer, wo die Straße weiter nach Quel'Thalas führt. Nimm den schweigenden Elfen ins Ziel und grüße ihn oder verbeuge dich respektvoll.
+? Der nördliche Rand der Östlichen Pestländer, wo die Straße weiter nach Quel'Thalas führt. Verbeuge dich vor dem schweigenden Elfen.
 = Adon, ein Hochelf, allein an der Straße nach Norden nach Quel'Thalas: Er hat keine Waren, keine Befehle und keine Worte.
 + Ganz in der Nähe, in der Quel'Lithien-Lodge, unterhalten die letzten Hochelfen dieser Lande eine Jagdhütte.
 ! Gefährlich (die Geißel an der Nordstraße)

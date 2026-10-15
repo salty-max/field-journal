@@ -571,7 +571,7 @@ local function showRiddle(r)
   page:section(L["The riddle"])
   page:row(L["Danger"], r.danger)
   if r.asks == "gesture" then
-    page:row(L["It asks"], L["an emote there"])
+    page:row(L["It asks"], r.npc and L["an emote with someone nearby targeted"] or L["an emote there"])
   elseif r.asks == "reading" then
     page:row(L["It asks"], L["a reading there"])
   elseif r.npc then

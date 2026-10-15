@@ -1,12 +1,12 @@
 ---
-source: 65e645467efd
+source: 059351186607
 zone: 1443
 ---
 ## desolace-tethris-aran
 Au nord de la forteresse de la Lame ardente, les pierres d'une ville elfe gisent éparpillées dans la poussière.
 Aucun elfe n'y a vécu depuis que le monde s'est brisé.
 Les bêtes de l'étendue l'ont désormais. Accordez un moment à ceux qui ont bâti ces murs.
-? Tethris Aran, au nord de Désolace. Au milieu des ruines, méditez sur la ville disparue ou exprimez votre deuil pour ses habitants.
+? Tethris Aran, au nord de Désolace. Au milieu des ruines, exprimez votre deuil pour la ville disparue.
 = Tethris Aran : les ruines d'une ville elfe de la nuit au nord de Désolace. Seules des bêtes y vivent aujourd'hui.
 + Plus à l'est, les satyres tiennent une autre ruine de ce genre, qu'ils ont nommée Sargeron, d'après leur maître.
 ! Gardé (basilics, scorpides et pattes-d'os affamées, niveaux 30 à 32)
@@ -15,8 +15,8 @@ Les bêtes de l'étendue l'ont désormais. Accordez un moment à ceux qui ont b�
 ## desolace-shadowbreak
 Dans un ravin caché dans les montagnes du sud-est, parmi des champignons aussi hauts que des arbres,
 la Lame ardente entretient un cercle d'invocation tendu de chaînes, et tient une écurie.
-Certains des chevaux qui s'y trouvent sont encore des chevaux. Offrez à l'un d'eux un peu de douceur.
-? Le ravin de Brèche-de-l'Ombre, caché dans les montagnes du sud-est de Désolace. Ciblez un cheval captif et caressez-le ou apaisez-le.
+Certains des chevaux qui s'y trouvent sont encore des chevaux. Soyez $gbon:bonne; avec eux.
+? Le ravin de Brèche-de-l'Ombre, caché dans les montagnes du sud-est de Désolace. Un cheval captif apprécierait une caresse rassurante.
 = Le ravin de Brèche-de-l'Ombre : le camp caché de la Lame ardente, son cercle enchaîné, ses destriers démoniaques, et deux étalons capturés dans l'écurie à côté.
 + D'où viennent les étalons, personne ne le sait. Ce que le culte compte en faire, les destriers démoniaques à côté d'eux le laissent deviner.
 ! Périlleux (invocateurs de la Lame ardente et chasseurs ley, niveaux 38 à 40)

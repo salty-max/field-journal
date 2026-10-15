@@ -35,7 +35,7 @@ The dwarves still tell of a ram of Khaz Modan,
 too big for any scholar to account for and tireless past all reason.
 In their city his likeness stands, bones and all, built to scale.
 Get beneath him, and be as impressed as the tellers were.
-? The Hall of Explorers. Beneath the great skeleton, show amazement or gasp.
+? The Hall of Explorers. Beneath the skeleton, a gasp would hardly be out of place.
 = Toothgnasher's skeleton, a scale replica.
 + 'The legendary ram was a wonder of Khaz Modan and the subject of many tales of dwarven folklore.'
 
@@ -52,6 +52,6 @@ the eldest of her consorts. Learn whose it was.
 At the heart of the dwarves' city, by the great forge that gives it its name,
 the forge's keeper waits for smiths good enough to hear what he has to say:
 that a smith must choose one way, and never the other. Ask him.
-? The Great Forge, at the heart of Ironforge. Speak to the forge's keeper. You do not need to learn a specialization.
+? The Great Forge, at the heart of Ironforge. Speak to the forge's keeper. His lessons can wait.
 = Myolor Sunderfury, keeper of the Great Forge: 'The way of the weaponsmith or the art of the armorsmith.'
 + 'Be warned, when you have chosen to dedicate yourself to a path, there is no going back. The discipline each path requires leaves no room for hybrids.'

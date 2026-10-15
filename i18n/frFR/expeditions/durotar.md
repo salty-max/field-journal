@@ -1,5 +1,5 @@
 ---
-source: aec7a7388135
+source: bab9480bf0f4
 zone: 1411
 ---
 ## durotar-rokar
@@ -7,7 +7,7 @@ Au nord-est de la ville sur la colline rouge, juste à l'écart de la route,
 un vieil orc tient une maison et un carré de cultures, avec un jeune pour l'aider.
 Ce n'est pas en cultivant la terre qu'il s'est fait un nom.
 Rendez-lui le respect que ses années lui ont valu.
-? Au nord-est de Tranchecolline, à l'est du canyon de Tranchevent : une ferme, un vieil orc, et son valet dans le jardin. Ciblez le vieil orc et inclinez-vous ou adressez-lui un salut respectueux.
+? Au nord-est de Tranchecolline, à l'est du canyon de Tranchevent : une ferme, un vieil orc, et son valet dans le jardin. Inclinez-vous devant le vieil orc. Il l'a mérité.
 = Rokar Bladeshadow, un vieux fermier orc, et Harroc, son valet de ferme : "Qu'est-ce qu'un jeune comme toi vient faire chez un vieux fermier comme moi ?"
 + Harroc travaille le jardin dehors. Rokar reste dans la maison, et dans ce qu'il était avant d'être fermier.
 ! Calme (sangliers et raptors aux alentours)

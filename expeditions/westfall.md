@@ -37,7 +37,7 @@ In the south-east, near the bridge into the dark wood,
 a farm burned when the Brotherhood came, fields and all,
 and its ruins still smoke. The iron harvesters that walk its rows
 are the strongest left in the west. Grieve for the farm, and keep moving.
-? South-east Westfall, by the bridge to Duskwood: a farm that is only ashes. Among the ruins, mourn the loss or let out a sorrowful sigh.
+? South-east Westfall, by the bridge to Duskwood: a farm that is only ashes. A sorrowful sigh belongs here.
 = The Dead Acre: one of Westfall's many farms, burned by the Defias as they took the land.
 + The Foe Reaper 4000, a harvest golem worse than all the rest, walks these fields at times, and others of Westfall's.
 

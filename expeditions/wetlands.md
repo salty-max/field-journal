@@ -40,7 +40,7 @@ a dwarf and a gnome keep a stone house with a windmill,
 and sell what they come by: fine belts and leggings, one of each at a time,
 and two gnomish plans, one copy of each.
 Call at their door.
-? Sundown Marsh, the Wetlands' north-west, west of Ironbeard's Tomb. Approach the merchants, target the dwarf and offer a greeting with an emote.
+? Sundown Marsh, the Wetlands' north-west, west of Ironbeard's Tomb. Say hello to the dwarf among the merchants.
 = Wenna Silkbeard, a dwarf, and Fradd Swiftgear, a gnome, in their stone house in Sundown Marsh. Fradd's plans: a Lovingly Crafted Boomstick and a Minor Recombobulator.
 + Fradd's smaller device restores some health and mana, but its particular talent is turning a sheep back into a traveller. An engineer need not wait for the mage's spell to wear off.
 

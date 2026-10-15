@@ -1,5 +1,5 @@
 ---
-source: f2d6e2dfcf87
+source: 5e5ef1141058
 zone: 1413
 ---
 ## the-barrens-ratchet-book
@@ -15,8 +15,8 @@ Leur châtiment fut le début d'un voyage.
 Sur la route entre le port des gobelins et la croisée des orcs,
 un colporteur gobelin fait l'aller-retour avec des armes et des potions à vendre,
 et un ogre marche derrière lui, bien trop fort pour ces plaines.
-Rejoignez le colporteur sur la route et demandez à voir ses marchandises.
-? La route de Ratchet à la Croisée. Il la parcourt d'un bout à l'autre. Rejoignez le colporteur et ouvrez ses marchandises. Aucun achat n'est nécessaire.
+Attrapez le colporteur sur la route.
+? La route de Ratchet à la Croisée. Il la parcourt d'un bout à l'autre. Demandez au colporteur de vous montrer ses marchandises. Nul besoin d'acheter.
 = Lizzarik, un marchand d'armes gobelin de Ratchet, qui fait l'aller-retour jusqu'à la Croisée avec Jorb, son garde du corps ogre.
 + Jorb est de niveau trente-sept, sur une route que la plupart des voyageurs parcourent au niveau quinze.
 ! Calme sur la route
@@ -36,7 +36,7 @@ Posez le pied sur l'escalier.
 Au rempart de la route du nord, où la Horde surveille la forêt des elfes,
 une mère tient sa maison au milieu du camp de guerre,
 et son petit garçon joue devant sa porte. Soyez $gamical:amicale;.
-? Le Rempart de Mor'shan, à la lisière nord des Tarides. Ciblez l'enfant et adressez-lui des salutations, un signe de la main ou un sourire.
+? Le Rempart de Mor'shan, à la lisière nord des Tarides. Saluez l'enfant d'un signe de la main.
 = Pooka et son fils Mogg, au Rempart de Mor'shan : une famille, dans un camp de guerre.
 + Du père du garçon, le rempart ne dit rien.
 ! Calme pour la Horde, les gardes du rempart pour l'Alliance
@@ -46,7 +46,7 @@ Non loin de la route la plus fréquentée des plaines, un court sentier gravit u
 jusqu'à un autel élevé pour un guerrier tombé,
 et un gardien des âmes attend devant, comme s'il l'attendait, lui.
 Peu le trouvent. Honorez-le comme un guerrier en honore un autre.
-? À l'ouest de la Croisée, suivez une crête jusqu'en haut d'une petite colline. Devant l'autel, faites un salut militaire ou inclinez-vous respectueusement.
+? À l'ouest de la Croisée, suivez une crête jusqu'en haut d'une petite colline. Adressez un salut militaire au guerrier devant son autel.
 = L'autel du Guerrier mort, et son propre gardien des âmes, Koiter.
 + Il rappelle le souvenir de Michel Koiter, qui travaillait sur ce monde et mourut avant qu'il soit achevé. Le gardien des âmes porte son nom, et l'orc de l'autel était son propre personnage.
 ! Calme

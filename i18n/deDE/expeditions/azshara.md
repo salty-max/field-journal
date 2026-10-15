@@ -1,5 +1,5 @@
 ---
-source: 3e2892c4671b
+source: 645b4b05ac19
 zone: 1447
 ---
 ## azshara-ravencrest
@@ -17,7 +17,7 @@ und ihren Dämonen entgegenstellte, als die Welt zerbrach. Finde, was von ihm ü
 Im Süden des alten Landes der Elfen halten Drachkin des blauen Schwarms die Ufer eines Sees,
 fern dem kalten Norden, in den ihresgleichen gehört.
 Innerhalb ihres Rings ist der See selbst ruhig. Komm an ihnen vorbei und erfrisch dich am Wasser.
-? Der Mennarsee, im Süden von Azshara. Setz dich an den See oder mach dort eine Trinkgeste.
+? Der Mennarsee, im Süden von Azshara. Setz dich eine Weile ans Wasser.
 = Der Mennarsee: Blaue Drachkin halten seine Ufer, Bannschuppen, Magiewirker und Magierlords, fern der nördlichen Heimat ihres Schwarms.
 + Mazthorils Höhlen in Winterspring sind eine weitere Zuflucht des blauen Drachenschwarms außerhalb von Nordend.
 ! Gefährlich (die blauen Drachkin rund um den See, Stufe 50 bis 53)

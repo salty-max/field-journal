@@ -20,8 +20,8 @@ quarry:
 ## winterspring-farflinger
 In the goblins' town in the snow, an engineer has finished a machine
 and is waiting for someone else to try it.
-Find the inventor whose title gives you reason to hesitate, and ask about his machine.
-? Everlook. Speak to the engineer. You do not need to use his machine.
+Find the inventor whose title gives you reason to hesitate.
+? Everlook. Speak to the engineer. Trying his machine is another matter.
 = Zap Farflinger, Unbalanced Engineer. His plan for instant transport begins by blowing the traveller to pieces, then reassembling the particles at Everlook.
 + He teaches skilled goblin engineers to build the ripper that connects to his machine. His answer to doubts about safety is that survival comes second to engineering.
 

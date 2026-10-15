@@ -21,8 +21,8 @@ quarry:
 At the forest's southern end, a wall of grey stone shuts a kingdom in.
 Under it, the plague's refugees wait for a gate that does not open,
 and among them a smith sells blades to anyone at all:
-he cannot see which side you are on. Let him hear a greeting.
-? Under the Greymane Wall, at the south end of Silverpine, among the refugees. Stand close to the smith, target him and greet him with an emote he could hear.
+he cannot see which side you are on. Don't bother waving.
+? Under the Greymane Wall, at the south end of Silverpine, among the refugees. Say hello to the smith. A wave is no use to a blind man.
 = Wallace the Blind, weaponsmith to Horde and Alliance alike, under the Greymane Wall: Gilneas keeps its gate shut on the refugees at its foot.
 + Gilneas raised the wall after the Second War, when Genn Greymane quit the Alliance over the cost of the orcs' internment camps.
 

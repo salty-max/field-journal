@@ -30,7 +30,7 @@ North-east of the town on the red hill, just off the road,
 an old orc keeps a house and a patch of crops, with a young hand to help.
 His name was not made by farming.
 Pay him the respect his years have earned.
-? North-east of Razor Hill, east of Razorwind Canyon: a farmhouse, an old orc, and his farmhand in the garden. Target the old orc and bow or salute respectfully.
+? North-east of Razor Hill, east of Razorwind Canyon: a farmhouse, an old orc, and his farmhand in the garden. Bow to the old orc. He has earned it.
 = Rokar Bladeshadow, an aged orc farmer, and Harroc, his farmhand: 'What's a young one like you out visiting an old farmer like me?'
 + Harroc works the garden outside. Rokar keeps to the house, and to whatever he was before he was a farmer.
 

@@ -1,12 +1,12 @@
 ---
-source: 6f0288928e27
+source: 0cb2563d524f
 zone: 1423
 ---
 ## eastern-plaguelands-mirador
 Là où la rivière coule entre les deux Maleterres, un vieux chevalier vit en exil dans une chaumière,
 et dehors son cheval attend, comme si une guerre pouvait l'appeler d'un jour à l'autre.
-Offrez au cheval qui attend un peu de douceur.
-? La Thondroril, à la lisière ouest des Maleterres de l'est, près d'une chaumière. Ciblez le cheval devant la chaumière et caressez-le.
+Faites-vous un ami du cheval.
+? La Thondroril, à la lisière ouest des Maleterres de l'est, près d'une chaumière. Caressez le cheval qui attend devant la chaumière.
 = Mirador, le cheval de Tirion Fordring, devant la chaumière où son maître vit en exil.
 + Tirion perdit ses terres et son titre pour avoir sauvé la vie d'un orc, Eitrigg, qui avait jadis épargné la sienne.
 ! Calme
@@ -15,7 +15,7 @@ Offrez au cheval qui attend un peu de douceur.
 Au bout nord du pays mort, là où la route monte vers le royaume des elfes,
 l'un d'eux se tient seul sur le chemin du nord, et ne dit absolument rien.
 Personne ne passe devant lui, et personne n'est envoyé à lui. Rendez-lui tout de même vos hommages.
-? La lisière nord des Maleterres de l'est, là où la route continue vers Quel'thalas. Ciblez l'elfe silencieux et saluez-le ou inclinez-vous respectueusement.
+? La lisière nord des Maleterres de l'est, là où la route continue vers Quel'thalas. Inclinez-vous devant l'elfe silencieux.
 = Adon, un haut-elfe, seul sur la route du nord vers Quel'thalas : il n'a ni marchandises, ni ordres, ni paroles.
 + Tout près, au gîte de Quel'Lithien, les derniers hauts-elfes de ces terres tiennent un pavillon de chasse.
 ! Périlleux (le Fléau de la route du nord)

@@ -1,5 +1,5 @@
 ---
-source: aec7a7388135
+source: bab9480bf0f4
 zone: 1411
 ---
 ## durotar-rokar
@@ -7,7 +7,7 @@ Nordöstlich der Stadt auf dem roten Hügel, gleich abseits der Straße,
 hat ein alter Orc ein Haus und ein Stück Acker, mit einem jungen Knecht als Hilfe.
 Seinen Namen hat er sich nicht mit dem Ackerbau gemacht.
 Erweise ihm den Respekt, den seine Jahre verdient haben.
-? Nordöstlich des Klingenhügels, östlich der Klingenschlucht: ein Bauernhaus, ein alter Orc und sein Knecht im Garten. Nimm den alten Orc ins Ziel und verbeuge dich oder salutiere respektvoll.
+? Nordöstlich des Klingenhügels, östlich der Klingenschlucht: ein Bauernhaus, ein alter Orc und sein Knecht im Garten. Verbeuge dich vor dem alten Orc. Er hat es verdient.
 = Rokar Bladeshadow, ein betagter Orc-Bauer, und Harroc, sein Knecht: 'Was führt einen jungen Spund wie dich zu einem alten Bauern wie mir?'
 + Harroc arbeitet draußen im Garten. Rokar bleibt im Haus, und bei dem, was er war, bevor er Bauer wurde.
 ! Ruhig (Eber und Raptoren in der Nähe)

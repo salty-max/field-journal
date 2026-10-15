@@ -1,5 +1,5 @@
 ---
-source: a29210d388c5
+source: 28e62b1a89ca
 zone: 1434
 ---
 ## stranglethorn-vale-booty-bay
@@ -24,7 +24,7 @@ von einem seiner Imperatoren übrig ist. Finde es.
 Oben auf dem Turm der Horde im Dschungel verabschiedet ein Goblin die Luftschiffe nach Orgrimmar
 und sitzt am falschen Ende der Route fest.
 Er gäbe viel für eine anständige Mahlzeit von zu Hause. Frag ihn.
-? Das Basislager von Grom'gol, oben auf dem Zeppelinturm. Sprich mit dem Goblin oben auf dem Turm. Du brauchst ihm kein Essen zu bringen.
+? Das Basislager von Grom'gol, oben auf dem Zeppelinturm. Sprich mit dem Goblin. Er redet auch ohne eine Mahlzeit.
 = Nez'raz, Zeppelinmeister in Grom'gol: Sein Bruder hat ihn zu der Handelsroute überredet und ihm das Dschungelende überlassen.
 + 'Wenn Ihr mit dem Zeppelin wieder hier vorbeikommt, könntet Ihr mir da wohl etwas zu essen mitbringen? ... Ich könnte wirklich etwas vertragen, das nicht schon Wochen, bevor es sich zu bewegen aufhörte, gestorben ist.'
 ! Ruhig

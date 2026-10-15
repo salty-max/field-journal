@@ -1,5 +1,5 @@
 ---
-source: 8bd9dafd9c6d
+source: 589d5b7c19ec
 zone: 1440
 ---
 ## ashenvale-grom
@@ -8,7 +8,7 @@ un chef de guerre a gravé des mots pour son grand frère,
 dont le nom voulait dire coeur de géant,
 qui se dressa seul devant le démon et paya de son sang la liberté de son peuple.
 Rendez-lui ce que l'on doit à un guerrier.
-? Le canyon de la Malechute, au sud-est d'Ashenvale. Devant le monument, saluez le guerrier tombé, inclinez-vous ou posez un genou à terre.
+? Le canyon de la Malechute, au sud-est d'Ashenvale. Un salut militaire a sa place devant ce monument.
 = "Lok'Tar ogar, grand frère. Que le clan Warsong jamais ne disparaisse." C'est Thrall qui l'a écrit.
 + Grom fut le premier chef à boire le sang de Mannoroth, et celui qui tua le démon : "la malédiction de notre peuple a commencé et fini avec Grom."
 ! Périlleux (les serviteurs de la Légion)
