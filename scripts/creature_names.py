@@ -7,9 +7,10 @@ folder:
 
   python3 scripts/creature_names.py frFR
 """
-import json, os, sys
+import json, os, re, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "addon-kit"))
 from glossary import bare, creature
+from wowdata import db  # noqa: E402  (the path glossary set)
 
 locale = sys.argv[1]
 ids = [str(c["id"]) for c in json.load(open("data/creatures.json"))]
@@ -23,6 +24,17 @@ for id in ids:
         out["forever"][id] = fv
     if cl and cl != (fv or None):
         out["classic"][id] = cl
+# Forever's own creatures, which data/creatures.json (the original world's)
+# doesn't hold: the journal records one by the name the game gave the day it
+# was met, so a client of another language since reads it by its id here
+# ("Snow Leopard Prowler" met in English, Schneeleopardenpirscher in German)
+classic_ids = {r[0] for r in db("classic").execute("SELECT id FROM creature")}
+for (fid,) in db("forever").execute("SELECT id FROM creature WHERE removed IS NOT 1 ORDER BY id"):
+    if fid in classic_ids or str(fid) in out["forever"]:
+        continue
+    fv = creature("forever", fid, locale)
+    if fv and not re.match(r"^\s*[\[(<]", fv):
+        out["forever"][str(fid)] = bare(fv)
 os.makedirs(f"i18n/{locale}", exist_ok=True)
 with open(f"i18n/{locale}/creatures.json", "w", encoding="utf-8") as f:
     json.dump({k: dict(sorted(v.items(), key=lambda kv: int(kv[0]))) for k, v in out.items()}, f, ensure_ascii=False, indent=1)
