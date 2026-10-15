@@ -1,0 +1,7027 @@
+{
+  "date": "2026-10-15",
+  "purpose": "Riddle expansion research, no live riddles added",
+  "metadata": {
+    "classic": {
+      "game": "classic",
+      "built_at": "2026-10-15T19:17:45.672Z",
+      "pins": {
+        "builds": {
+          "classic": {
+            "product": "wow_classic_era",
+            "build": "1.15.9.70003"
+          },
+          "forever": {
+            "product": "wow_classic_beta",
+            "build": "1.60.1.70374"
+          }
+        },
+        "repos": {
+          "questie": {
+            "repo": "Questie/QuestieDB",
+            "commit": "57931281737632202e9838f17efd5c3618d10f55"
+          },
+          "classicdb": {
+            "repo": "cmangos/classic-db",
+            "commit": "28ef6259c782928b08a8dc9cacf6bc02e64f2b29"
+          }
+        }
+      },
+      "schema": "1"
+    },
+    "forever": {
+      "game": "forever",
+      "built_at": "2026-10-15T19:33:21.027Z",
+      "pins": {
+        "builds": {
+          "classic": {
+            "product": "wow_classic_era",
+            "build": "1.15.9.70003"
+          },
+          "forever": {
+            "product": "wow_classic_beta",
+            "build": "1.60.1.70374"
+          }
+        },
+        "repos": {
+          "questie": {
+            "repo": "Questie/QuestieDB",
+            "commit": "57931281737632202e9838f17efd5c3618d10f55"
+          },
+          "classicdb": {
+            "repo": "cmangos/classic-db",
+            "commit": "28ef6259c782928b08a8dc9cacf6bc02e64f2b29"
+          }
+        }
+      },
+      "schema": "1"
+    }
+  },
+  "counts": {
+    "classic": {
+      "creature": 10387,
+      "object": 10753,
+      "quest": 4257,
+      "readable": 387,
+      "readable_page": 1222,
+      "npc_line": 0,
+      "speech": 77728,
+      "readable_by_kind": [
+        {
+          "kind": "item",
+          "count": 279
+        },
+        {
+          "kind": "object",
+          "count": 108
+        }
+      ],
+      "english_readable_by_kind": [
+        {
+          "kind": "item",
+          "count": 279
+        },
+        {
+          "kind": "object",
+          "count": 108
+        }
+      ],
+      "npc_speakers": 0,
+      "npc_line_breakdown": []
+    },
+    "forever": {
+      "creature": 13657,
+      "object": 12027,
+      "quest": 5269,
+      "readable": 451,
+      "readable_page": 6473,
+      "npc_line": 838,
+      "speech": 77728,
+      "readable_by_kind": [
+        {
+          "kind": "item",
+          "count": 343
+        },
+        {
+          "kind": "object",
+          "count": 108
+        }
+      ],
+      "english_readable_by_kind": [
+        {
+          "kind": "item",
+          "count": 343
+        },
+        {
+          "kind": "object",
+          "count": 108
+        }
+      ],
+      "npc_speakers": 172,
+      "npc_line_breakdown": [
+        {
+          "locale": "enUS",
+          "kind": "say",
+          "source": "wowhead",
+          "count": 801
+        },
+        {
+          "locale": "enUS",
+          "kind": "whisper",
+          "source": "wowhead",
+          "count": 1
+        },
+        {
+          "locale": "enUS",
+          "kind": "yell",
+          "source": "wowhead",
+          "count": 36
+        }
+      ]
+    }
+  },
+  "candidates": [
+    {
+      "key": "shendralas-citizen",
+      "status": "needs-location-reaction-and-persistence",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 251343,
+          "entity": [
+            {
+              "id": 251343,
+              "min_level": 60,
+              "max_level": 60,
+              "type_id": 6,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "143402",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Shen'dralar Citizen",
+              "source": "english"
+            },
+            {
+              "locale": "enUS",
+              "name": "Shen'dralar Citizen",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Shen'dralar Citizen",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16651,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 43.24,
+              "uy": 71.25,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Hey, watch where you are walking!",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I hate tourists.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Imagine if I just waltzed right into your home and started stomping everywhere.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Is someone going to deal with this intruder, or...?",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Really? Are you incapable of keeping a respectful distance?",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Who do you think you are?",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "You are incredibly disrespectful.",
+              "source": "wowhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "drunken-dwarf-performer",
+      "status": "no-spawn-record",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 272612,
+          "entity": [
+            {
+              "id": 272612,
+              "min_level": null,
+              "max_level": null,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "147669",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Performer",
+              "source": "english"
+            },
+            {
+              "locale": "enUS",
+              "name": "Performer",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Performer",
+              "source": "english"
+            }
+          ],
+          "positions": [],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Stamp, stomp, in from the marsh!",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "You're welcome in the Drunken Dwarf!",
+              "source": "wowhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "riverglades-history",
+      "status": "missing-pages-position-and-object-resolution",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 667573,
+          "entity": [
+            {
+              "id": 667573,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Ritter der Bruderschaft",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Knights of the Brotherhood",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Knights of the Brotherhood",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 63.5,
+              "uy": 83.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 63.5,
+              "uy": 83.5,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 668544,
+          "entity": [
+            {
+              "id": 668544,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Ein vom Krieg zerrüttetes Land und die Bruderschaft",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "A Wartorn Land and The Brotherhood",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "A Wartorn Land and The Brotherhood",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 62.1,
+              "uy": 85.6,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        }
+      ]
+    },
+    {
+      "key": "riverglades-markers",
+      "status": "missing-pages-position-and-object-resolution",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 659308,
+          "entity": [
+            {
+              "id": 659308,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Brienne Stormhart",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Brienne Stormhart",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Brienne Stormhart",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 60.0,
+              "uy": 84.9,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 659309,
+          "entity": [
+            {
+              "id": 659309,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Sir Howard Armstrong",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Sir Howard Armstrong",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Sir Howard Armstrong",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.9,
+              "uy": 85.6,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 659310,
+          "entity": [
+            {
+              "id": 659310,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Roderick der Ungebrochene",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Roderick the Unbroken",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Roderick the Unbroken",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.7,
+              "uy": 84.6,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 659311,
+          "entity": [
+            {
+              "id": 659311,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Rosalind Ashwood",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Rosalind Ashwood",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Rosalind Ashwood",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 60.1,
+              "uy": 85.2,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 659313,
+          "entity": [
+            {
+              "id": 659313,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Alden Amberhall",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Alden Amberhall",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Alden Amberhall",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.5,
+              "uy": 85.2,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 667574,
+          "entity": [
+            {
+              "id": 667574,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Fern Crimsonleaf",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Fern Crimsonleaf",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Fern Crimsonleaf",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 61.4,
+              "uy": 85.2,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 688047,
+          "entity": [
+            {
+              "id": 688047,
+              "type": 9,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Lady Isolde Brightlance",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Lady Isolde Brightlance",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Lady Isolde Brightlance",
+              "source": "english"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 61.3,
+              "uy": 84.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 61.4,
+              "uy": 84.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 61.5,
+              "uy": 84.5,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16591,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 61.6,
+              "uy": 84.3,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        }
+      ]
+    },
+    {
+      "key": "zephras-recordings",
+      "status": "missing-pages-type-position-and-object-resolution",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 658836,
+          "entity": [
+            {
+              "id": 658836,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Über die Shal'nan",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "On the Shal'nan",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Le Shal’nan",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 41.9,
+              "uy": 23.3,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 658837,
+          "entity": [
+            {
+              "id": 658837,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Der Verzicht der Shal'nan",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "The Shal'nan's Abdication",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "L’Abdication du shal’nan",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 45.1,
+              "uy": 44.8,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.3,
+              "uy": 32.9,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 658838,
+          "entity": [
+            {
+              "id": 658838,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Die Rebellion in Eldre'thalas, Teil 1",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "The Rebellion In Eldre'Thalas, Part 1",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "La Rébellion d’Eldre’thalas I",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 49.77,
+              "uy": 56.59,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 49.81,
+              "uy": 56.48,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 49.82,
+              "uy": 56.4,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 658839,
+          "entity": [
+            {
+              "id": 658839,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Die Rebellion in Eldre'thalas, Teil 2",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "The Rebellion In Eldre'Thalas, Part 2",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "La Rébellion d’Eldre’thalas II",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 64.32,
+              "uy": 34.32,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 658840,
+          "entity": [
+            {
+              "id": 658840,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Die Rebellion in Eldre'thalas, Teil 3",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "The Rebellion In Eldre'Thalas, Part 3",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "La Rébellion d’Eldre’thalas III",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 64.59,
+              "uy": 35.12,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 658841,
+          "entity": [
+            {
+              "id": 658841,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Die Rebellion in Eldre'thalas, Teil 4",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "The Rebellion In Eldre'Thalas, Part 4",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "La Rébellion d’Eldre’thalas IV",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 64.7,
+              "uy": 34.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 64.7,
+              "uy": 34.5,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.8,
+              "uy": 50.6,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 671478,
+          "entity": [
+            {
+              "id": 671478,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Das himmelsberührte Geheimnis",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "The Sky-Touched Mystery",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Le Mystère touché par le ciel",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.4,
+              "uy": 34.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.5,
+              "uy": 34.4,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 671479,
+          "entity": [
+            {
+              "id": 671479,
+              "type": null,
+              "display_id": null,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": null,
+              "loot_id": null,
+              "data": null,
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Über den Windlord",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "On The Windlord",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Tout sur le seigneur des Vents",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 56.0,
+              "uy": 58.74,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.7,
+              "uy": 34.16,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": []
+        }
+      ]
+    },
+    {
+      "key": "zephras-docks",
+      "status": "needs-position-reaction-and-persistence",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 275269,
+          "entity": [
+            {
+              "id": 275269,
+              "min_level": 10,
+              "max_level": 10,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "148200",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Dockmeister des Hohen Ordens",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "High Order Dockmaster",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Maître des docks de l'Ordre suprême",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.0,
+              "uy": 81.22,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.11,
+              "uy": 81.62,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.15,
+              "uy": 81.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.51,
+              "uy": 82.62,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.57,
+              "uy": 82.76,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.69,
+              "uy": 83.23,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 65.7,
+              "uy": 83.41,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "The skycutter bound for Dalaran City has just arrived. All aboard for Dalaran City!",
+              "source": "wowhead"
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 275270,
+          "entity": [
+            {
+              "id": 275270,
+              "min_level": 10,
+              "max_level": 10,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "148201",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Dockmeister der Windformer",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Windshapers Dockmaster",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Maître des docks sculpte-vent",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 57.98,
+              "uy": 80.57,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.05,
+              "uy": 80.24,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.05,
+              "uy": 80.42,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.21,
+              "uy": 79.87,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.23,
+              "uy": 79.15,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.23,
+              "uy": 79.57,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.52,
+              "uy": 80.99,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.97,
+              "uy": 78.61,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "The Skycutter bound for Mulgore has arrived! All aboard for Mulgore!",
+              "source": "wowhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dalaran-investigators",
+      "status": "actual-map-and-runtime-support-unproven",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 275430,
+          "entity": [
+            {
+              "id": 275430,
+              "min_level": 50,
+              "max_level": 50,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "148250",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Ermittlerin Kath'leen",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Investigator Kath'leen",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Enquêtrice Kath'leen",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 36,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 20.2,
+              "uy": 71.4,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "The disturbance has only grown in severity, Silva. If the citizens do not know about this-",
+              "source": "wowhead"
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 275432,
+          "entity": [
+            {
+              "id": 275432,
+              "min_level": 50,
+              "max_level": 50,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "148251",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Ermittler Silva",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Investigator Silva",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Enquêteur Silva",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 36,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 20.62,
+              "uy": 71.31,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Let's go over the findings from that pylon again, in case we missed something.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "You know our orders. Until we know for sure, this is the best way to keep the city calm.",
+              "source": "wowhead"
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 275398,
+          "entity": [
+            {
+              "id": 275398,
+              "min_level": 50,
+              "max_level": 50,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "148244",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Arkanist Braedin",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Arcanist Braedin",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Arcaniste Braedin",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 36,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 13.47,
+              "uy": 64.28,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "If Archmage Rhonin does not return soon then what will come of the-",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Not now--we are not alone. Stay on mission.",
+              "source": "wowhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "swimmers-support",
+      "status": "existing-story",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 255940,
+          "entity": [
+            {
+              "id": 255940,
+              "min_level": 10,
+              "max_level": 10,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": 132,
+              "unit_class": null,
+              "display_ids": "139379",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Donaal Downbreeze",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Donaal Downbreeze",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Donaal Bassebrise",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 61.64,
+              "uy": 73.26,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 62.15,
+              "uy": 73.44,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 62.16,
+              "uy": 73.31,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 62.17,
+              "uy": 72.88,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 62.18,
+              "uy": 72.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 62.19,
+              "uy": 72.96,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Oh enough of that crazy talk, swimmers. You are going to scare off the few customers we have with your drunken ghost stories!",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Oh, enough of that crazy talk, swimmers. You are going to scare off the few customers we have with your drunken ghost stories!",
+              "source": "wowhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "quest-scene-risk",
+      "status": "event-risk",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 268614,
+          "entity": [
+            {
+              "id": 268614,
+              "min_level": 16,
+              "max_level": 16,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "145528",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Geist von Olgra",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Ghost of Olgra",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Fantôme d'Olgra",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 17,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 51.98,
+              "uy": 31.53,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 17,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 52.0,
+              "uy": 31.34,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 17,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 52.0,
+              "uy": 31.59,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 17,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 52.04,
+              "uy": 31.49,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Remember me, husband, but do not let your life be consumed by revenge!",
+              "source": "wowhead"
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 259377,
+          "entity": [
+            {
+              "id": 259377,
+              "min_level": 1,
+              "max_level": 1,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "1587",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Verletzte Todeswache",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Injured Deathguard",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Nécrogarde blessé",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 29.86,
+              "uy": 63.77,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 29.92,
+              "uy": 63.59,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.15,
+              "uy": 64.13,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.21,
+              "uy": 64.65,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.26,
+              "uy": 63.89,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.33,
+              "uy": 63.01,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.39,
+              "uy": 60.6,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.43,
+              "uy": 63.81,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.45,
+              "uy": 62.84,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.5,
+              "uy": 63.79,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.61,
+              "uy": 65.5,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.67,
+              "uy": 63.6,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.72,
+              "uy": 63.77,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.82,
+              "uy": 63.37,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 30.98,
+              "uy": 63.21,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.03,
+              "uy": 63.56,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.11,
+              "uy": 63.29,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.2,
+              "uy": 63.3,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.21,
+              "uy": 63.24,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.23,
+              "uy": 61.82,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.23,
+              "uy": 63.79,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.24,
+              "uy": 67.24,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.24,
+              "uy": 67.99,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.27,
+              "uy": 63.43,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.3,
+              "uy": 64.02,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.3,
+              "uy": 64.86,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.35,
+              "uy": 63.49,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.36,
+              "uy": 62.77,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.37,
+              "uy": 64.09,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.38,
+              "uy": 63.36,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.46,
+              "uy": 64.83,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.48,
+              "uy": 63.08,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.49,
+              "uy": 64.21,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.5,
+              "uy": 64.09,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.51,
+              "uy": 63.68,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.52,
+              "uy": 63.37,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.54,
+              "uy": 63.01,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.54,
+              "uy": 64.77,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.54,
+              "uy": 66.2,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.54,
+              "uy": 66.43,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.58,
+              "uy": 64.66,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.59,
+              "uy": 65.83,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.6,
+              "uy": 64.73,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.6,
+              "uy": 66.41,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.61,
+              "uy": 63.37,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.61,
+              "uy": 64.87,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.61,
+              "uy": 66.27,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.62,
+              "uy": 64.25,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.62,
+              "uy": 65.93,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.63,
+              "uy": 63.98,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.63,
+              "uy": 64.32,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.63,
+              "uy": 65.52,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.64,
+              "uy": 64.18,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.64,
+              "uy": 65.66,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.64,
+              "uy": 65.78,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.66,
+              "uy": 63.0,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.66,
+              "uy": 65.6,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.67,
+              "uy": 64.83,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.67,
+              "uy": 66.17,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.68,
+              "uy": 64.04,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.7,
+              "uy": 65.39,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.71,
+              "uy": 65.24,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.72,
+              "uy": 64.19,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.72,
+              "uy": 64.61,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.72,
+              "uy": 65.88,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.74,
+              "uy": 65.72,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.75,
+              "uy": 65.58,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.76,
+              "uy": 65.18,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.77,
+              "uy": 63.03,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.77,
+              "uy": 63.85,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.78,
+              "uy": 63.52,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.78,
+              "uy": 65.91,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.8,
+              "uy": 63.14,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.81,
+              "uy": 65.8,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.82,
+              "uy": 64.98,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.83,
+              "uy": 61.95,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.83,
+              "uy": 63.83,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.83,
+              "uy": 65.61,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.85,
+              "uy": 63.26,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.86,
+              "uy": 66.17,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.89,
+              "uy": 65.0,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.9,
+              "uy": 64.16,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.94,
+              "uy": 64.83,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.95,
+              "uy": 63.48,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.97,
+              "uy": 62.47,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.97,
+              "uy": 62.85,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.99,
+              "uy": 62.64,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 31.99,
+              "uy": 63.83,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.01,
+              "uy": 63.38,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.02,
+              "uy": 62.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.03,
+              "uy": 61.98,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.07,
+              "uy": 62.12,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.07,
+              "uy": 65.73,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.09,
+              "uy": 62.46,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.11,
+              "uy": 66.08,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.12,
+              "uy": 63.31,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.14,
+              "uy": 61.57,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.14,
+              "uy": 62.87,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.16,
+              "uy": 64.62,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.18,
+              "uy": 65.0,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.2,
+              "uy": 61.96,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.21,
+              "uy": 62.16,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.23,
+              "uy": 64.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.24,
+              "uy": 62.84,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.26,
+              "uy": 62.65,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.26,
+              "uy": 63.61,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.29,
+              "uy": 63.0,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.3,
+              "uy": 61.68,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.3,
+              "uy": 63.49,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.32,
+              "uy": 61.33,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.37,
+              "uy": 62.37,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.39,
+              "uy": 63.27,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.39,
+              "uy": 63.37,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.42,
+              "uy": 62.69,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.42,
+              "uy": 63.54,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.45,
+              "uy": 63.19,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.48,
+              "uy": 62.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.5,
+              "uy": 61.8,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.51,
+              "uy": 63.2,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.53,
+              "uy": 63.02,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.57,
+              "uy": 64.21,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.61,
+              "uy": 63.44,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.64,
+              "uy": 63.27,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.66,
+              "uy": 63.46,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.76,
+              "uy": 62.06,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.85,
+              "uy": 63.71,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.87,
+              "uy": 61.79,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.88,
+              "uy": 63.57,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.89,
+              "uy": 63.47,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.9,
+              "uy": 61.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.96,
+              "uy": 62.12,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 32.97,
+              "uy": 63.61,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.06,
+              "uy": 63.67,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.23,
+              "uy": 63.69,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.24,
+              "uy": 64.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.26,
+              "uy": 63.54,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.29,
+              "uy": 64.18,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.33,
+              "uy": 63.94,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.34,
+              "uy": 63.56,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.34,
+              "uy": 64.22,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.37,
+              "uy": 63.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.38,
+              "uy": 64.85,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.41,
+              "uy": 64.37,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.42,
+              "uy": 63.99,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.44,
+              "uy": 64.59,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.45,
+              "uy": 64.05,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.45,
+              "uy": 64.51,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.51,
+              "uy": 63.7,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.51,
+              "uy": 63.96,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.56,
+              "uy": 64.73,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.6,
+              "uy": 64.54,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.61,
+              "uy": 64.71,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.61,
+              "uy": 64.8,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.61,
+              "uy": 66.72,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.62,
+              "uy": 66.61,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.64,
+              "uy": 65.11,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.68,
+              "uy": 65.14,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.72,
+              "uy": 65.05,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.74,
+              "uy": 66.02,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.75,
+              "uy": 65.64,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.78,
+              "uy": 65.12,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.82,
+              "uy": 63.41,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.87,
+              "uy": 63.44,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 33.97,
+              "uy": 64.8,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 34.1,
+              "uy": 64.7,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "A paladin... here? How?",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I need no help from the light. Begone, paladin.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I never thought I'd see the day that a paladin would be doing anything other than trying to destroy me.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I'm feeling much better, thank you.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I... thank you, paladin.",
+              "source": "wowhead"
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 271968,
+          "entity": [
+            {
+              "id": 271968,
+              "min_level": 2,
+              "max_level": 3,
+              "type_id": 7,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "146876",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Abenteurer der Verlassenen",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Forsaken Adventurer",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Aventurier réprouvé",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 23.19,
+              "uy": 60.22,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 23.25,
+              "uy": 59.65,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 23.26,
+              "uy": 60.17,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 23.84,
+              "uy": 60.58,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 24.38,
+              "uy": 59.65,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 24.52,
+              "uy": 60.24,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 24.53,
+              "uy": 60.33,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 24.69,
+              "uy": 59.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 24.88,
+              "uy": 60.45,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 24.93,
+              "uy": 60.35,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.02,
+              "uy": 59.19,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.12,
+              "uy": 59.37,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.28,
+              "uy": 59.57,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.47,
+              "uy": 59.99,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.52,
+              "uy": 60.06,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.67,
+              "uy": 59.36,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.72,
+              "uy": 59.48,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 25.79,
+              "uy": 59.4,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 26.18,
+              "uy": 59.76,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 26.21,
+              "uy": 60.31,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 26.46,
+              "uy": 59.46,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 26.57,
+              "uy": 59.45,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 85,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 26.63,
+              "uy": 59.46,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Executor Arren can do it himself next time!",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Has anyone seen my weapon?",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I have failed the Dark Lady. But not again.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I live to fight another day!",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I need to train more.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "I was in over my head!",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "It had to be spiders...",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "Thank you. I'll head back to Deathknell.",
+              "source": "wowhead"
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "creature",
+          "id": 256076,
+          "entity": [
+            {
+              "id": 256076,
+              "min_level": 10,
+              "max_level": 10,
+              "type_id": 4,
+              "family_id": null,
+              "rank": 0,
+              "faction_id": null,
+              "npc_flags": null,
+              "unit_class": null,
+              "display_ids": "136609",
+              "loot_id": null,
+              "skin_loot_id": null,
+              "pick_loot_id": null,
+              "kill_credit": null,
+              "removed": null,
+              "source": "questie",
+              "trainer_type": null,
+              "trainer_class": null,
+              "unit_flags": null
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Beschädigtes Konstrukt",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Damaged Construct",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Assemblage endommagé",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.14,
+              "uy": 71.6,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.26,
+              "uy": 71.89,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.8,
+              "uy": 75.1,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.89,
+              "uy": 71.43,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 58.99,
+              "uy": 72.94,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.08,
+              "uy": 73.07,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.09,
+              "uy": 74.23,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.24,
+              "uy": 73.81,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.38,
+              "uy": 74.16,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.51,
+              "uy": 73.42,
+              "source": "questie",
+              "movement_type": null
+            },
+            {
+              "area_id": 16593,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 59.64,
+              "uy": 74.28,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "lines": [
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "...BELATHAAN BRIGHTWISH",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "ONE MOMENT PLEASE. RECOGNITION. SHEN'DOREI. HIGH ORDER MAGISTER.",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "kind": "say",
+              "text": "POWER RESTORED. READY TO RESUME FUNCTION.",
+              "source": "wowhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "quest-destinations",
+      "status": "reject-quest-destination",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 2082,
+          "entity": [
+            {
+              "id": 2082,
+              "type": 9,
+              "display_id": 218,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": 292,
+              "loot_id": null,
+              "data": "[292,7,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
+              "removed": null,
+              "source": "questie"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Uther Lightbringer",
+              "source": "questie"
+            },
+            {
+              "locale": "enUS",
+              "name": "Uther the Lightbringer",
+              "source": "questie"
+            },
+            {
+              "locale": "frFR",
+              "name": "Uther, le Porteur de Lumière",
+              "source": "questie"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 0,
+              "x": 979.335,
+              "y": -1822.82,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": 28,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 52.08,
+              "uy": 83.28,
+              "source": "questie",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": [
+            {
+              "locale": "deDE",
+              "pages": 1
+            },
+            {
+              "locale": "enUS",
+              "pages": 1
+            },
+            {
+              "locale": "esES",
+              "pages": 1
+            },
+            {
+              "locale": "esMX",
+              "pages": 1
+            },
+            {
+              "locale": "frFR",
+              "pages": 1
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 24777,
+          "entity": [
+            {
+              "id": 24777,
+              "type": 9,
+              "display_id": 19,
+              "faction_id": 35,
+              "lock_id": null,
+              "page_id": 690,
+              "loot_id": null,
+              "data": "[690,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
+              "removed": null,
+              "source": "classicdb"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Yurivs Grabstein",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Yuriv's Tombstone",
+              "source": "classicdb"
+            },
+            {
+              "locale": "frFR",
+              "name": "Tombe de Yuriv",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 0,
+              "x": 471.736,
+              "y": 1597.1,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": [
+            {
+              "locale": "deDE",
+              "pages": 1
+            },
+            {
+              "locale": "enUS",
+              "pages": 1
+            },
+            {
+              "locale": "esES",
+              "pages": 1
+            },
+            {
+              "locale": "esMX",
+              "pages": 1
+            },
+            {
+              "locale": "frFR",
+              "pages": 1
+            }
+          ]
+        },
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 19025,
+          "entity": [
+            {
+              "id": 19025,
+              "type": 9,
+              "display_id": 403,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": 395,
+              "loot_id": null,
+              "data": "[395,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
+              "removed": null,
+              "source": "classicdb"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Uralte Inschrift",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Ancient Inscription",
+              "source": "classicdb"
+            },
+            {
+              "locale": "frFR",
+              "name": "Inscription ancienne",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 1,
+              "x": 3150.38,
+              "y": -1200.59,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": [
+            {
+              "locale": "deDE",
+              "pages": 1
+            },
+            {
+              "locale": "enUS",
+              "pages": 1
+            },
+            {
+              "locale": "esES",
+              "pages": 1
+            },
+            {
+              "locale": "esMX",
+              "pages": 1
+            },
+            {
+              "locale": "frFR",
+              "pages": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "auberdine-book",
+      "status": "feasible-draft-needs-normal-build-and-playtest",
+      "entities": [
+        {
+          "game": "forever",
+          "kind": "object",
+          "id": 175729,
+          "entity": [
+            {
+              "id": 175729,
+              "type": 9,
+              "display_id": 559,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": 1828,
+              "loot_id": null,
+              "data": "[1828,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
+              "removed": null,
+              "source": "classicdb"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Der Berg Hyjal und Illidans Geschenk",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Mount Hyjal and Illidan's Gift",
+              "source": "classicdb"
+            },
+            {
+              "locale": "frFR",
+              "name": "Le Mont Hyjal et le Cadeau d'Illidan",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 1,
+              "x": -1049.53,
+              "y": -3639.98,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 0,
+              "x": -10517.8,
+              "y": -1155.65,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 0,
+              "x": -8861.0,
+              "y": 821.677,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 1,
+              "x": 6410.5,
+              "y": 546.773,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": [
+            {
+              "locale": "deDE",
+              "pages": 8
+            },
+            {
+              "locale": "enUS",
+              "pages": 8
+            },
+            {
+              "locale": "esES",
+              "pages": 8
+            },
+            {
+              "locale": "esMX",
+              "pages": 8
+            },
+            {
+              "locale": "frFR",
+              "pages": 8
+            }
+          ]
+        },
+        {
+          "game": "classic",
+          "kind": "object",
+          "id": 175729,
+          "entity": [
+            {
+              "id": 175729,
+              "type": 9,
+              "display_id": 559,
+              "faction_id": null,
+              "lock_id": null,
+              "page_id": 1828,
+              "loot_id": null,
+              "data": "[1828,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
+              "removed": null,
+              "source": "classicdb"
+            }
+          ],
+          "names": [
+            {
+              "locale": "deDE",
+              "name": "Der Berg Hyjal und Illidans Geschenk",
+              "source": "wowhead"
+            },
+            {
+              "locale": "enUS",
+              "name": "Mount Hyjal and Illidan's Gift",
+              "source": "classicdb"
+            },
+            {
+              "locale": "frFR",
+              "name": "Le Mont Hyjal et le Cadeau d'Illidan",
+              "source": "wowhead"
+            }
+          ],
+          "positions": [
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 1,
+              "x": -1049.53,
+              "y": -3639.98,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 0,
+              "x": -10517.8,
+              "y": -1155.65,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 0,
+              "x": -8861.0,
+              "y": 821.677,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": null,
+              "ui_map_id": null,
+              "map_id": 1,
+              "x": 6410.5,
+              "y": 546.773,
+              "ux": null,
+              "uy": null,
+              "source": "classicdb",
+              "movement_type": null
+            },
+            {
+              "area_id": 10,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 73.7,
+              "uy": 44.6,
+              "source": "wowhead",
+              "movement_type": null
+            },
+            {
+              "area_id": 17,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 61.8,
+              "uy": 39.4,
+              "source": "wowhead",
+              "movement_type": null
+            },
+            {
+              "area_id": 148,
+              "ui_map_id": null,
+              "map_id": null,
+              "x": null,
+              "y": null,
+              "ux": 36.6,
+              "uy": 44.0,
+              "source": "wowhead",
+              "movement_type": null
+            }
+          ],
+          "quest_relations": [],
+          "quest_objectives": [],
+          "pages_by_locale": [
+            {
+              "locale": "enUS",
+              "pages": 8
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "type9_missing_english_pages": [
+    {
+      "id": 556650,
+      "name": "Decorated Headstone",
+      "source": "questie"
+    },
+    {
+      "id": 570207,
+      "name": "Archmage Khadgar",
+      "source": "questie"
+    },
+    {
+      "id": 573811,
+      "name": "Gravestone",
+      "source": "questie"
+    },
+    {
+      "id": 573815,
+      "name": "Sparkle",
+      "source": "wowhead"
+    },
+    {
+      "id": 644442,
+      "name": "Here Lies King Terenas Menethil II",
+      "source": "questie"
+    },
+    {
+      "id": 650518,
+      "name": "The Skull of Tyrannistrasz",
+      "source": "questie"
+    },
+    {
+      "id": 650519,
+      "name": "Fossilized Egg",
+      "source": "questie"
+    },
+    {
+      "id": 650520,
+      "name": "Roc Talon",
+      "source": "questie"
+    },
+    {
+      "id": 650521,
+      "name": "Geru Strider",
+      "source": "questie"
+    },
+    {
+      "id": 650522,
+      "name": "Toothgnasher's Skeleton",
+      "source": "questie"
+    },
+    {
+      "id": 650523,
+      "name": "Saurial Egg",
+      "source": "questie"
+    },
+    {
+      "id": 650524,
+      "name": "Pteradon Skeleton",
+      "source": "questie"
+    },
+    {
+      "id": 650525,
+      "name": "Highborne Astrolabe",
+      "source": "questie"
+    },
+    {
+      "id": 650526,
+      "name": "Uldaman Relics",
+      "source": "questie"
+    },
+    {
+      "id": 650527,
+      "name": "Horde Catapult",
+      "source": "questie"
+    },
+    {
+      "id": 650528,
+      "name": "Uldaman Reliefs",
+      "source": "questie"
+    },
+    {
+      "id": 650529,
+      "name": "Pteradon Skeleton",
+      "source": "questie"
+    },
+    {
+      "id": 658980,
+      "name": "The Armor of Mannoroth",
+      "source": "questie"
+    },
+    {
+      "id": 659167,
+      "name": "Horde Military Ranks",
+      "source": "questie"
+    },
+    {
+      "id": 659308,
+      "name": "Brienne Stormhart",
+      "source": "questie"
+    },
+    {
+      "id": 659309,
+      "name": "Sir Howard Armstrong",
+      "source": "questie"
+    },
+    {
+      "id": 659310,
+      "name": "Roderick the Unbroken",
+      "source": "questie"
+    },
+    {
+      "id": 659311,
+      "name": "Rosalind Ashwood",
+      "source": "questie"
+    },
+    {
+      "id": 659313,
+      "name": "Alden Amberhall",
+      "source": "questie"
+    },
+    {
+      "id": 660331,
+      "name": "Note",
+      "source": "questie"
+    },
+    {
+      "id": 667572,
+      "name": "Gnawed on Forearm",
+      "source": "wowhead"
+    },
+    {
+      "id": 667573,
+      "name": "Knights of the Brotherhood",
+      "source": "questie"
+    },
+    {
+      "id": 667574,
+      "name": "Fern Crimsonleaf",
+      "source": "questie"
+    },
+    {
+      "id": 668544,
+      "name": "A Wartorn Land and The Brotherhood",
+      "source": "questie"
+    },
+    {
+      "id": 674068,
+      "name": "Burnt Page",
+      "source": "questie"
+    },
+    {
+      "id": 678414,
+      "name": "Torn Page",
+      "source": "questie"
+    },
+    {
+      "id": 678602,
+      "name": "Book",
+      "source": "questie"
+    },
+    {
+      "id": 688047,
+      "name": "Lady Isolde Brightlance",
+      "source": "questie"
+    },
+    {
+      "id": 696295,
+      "name": "Kurdran Wildhammer",
+      "source": "questie"
+    },
+    {
+      "id": 696296,
+      "name": "General Turalyon",
+      "source": "questie"
+    },
+    {
+      "id": 696297,
+      "name": "Ranger Captain Alleria Windrunner",
+      "source": "questie"
+    },
+    {
+      "id": 696298,
+      "name": "Danath Trollbane",
+      "source": "questie"
+    },
+    {
+      "id": 696299,
+      "name": "Archmage Khadgar of the Kirin Tor",
+      "source": "questie"
+    },
+    {
+      "id": 696376,
+      "name": "Alliance Military Ranks",
+      "source": "questie"
+    },
+    {
+      "id": 696392,
+      "name": "Archbishop Alonsus Faol",
+      "source": "questie"
+    },
+    {
+      "id": 696503,
+      "name": "King Llane I of the House of Wrynn",
+      "source": "questie"
+    },
+    {
+      "id": 696504,
+      "name": "Grand Admiral Daelin Proudmoore",
+      "source": "questie"
+    },
+    {
+      "id": 696505,
+      "name": "Lady Mara Fordragon",
+      "source": "questie"
+    }
+  ],
+  "additional_readable_item_ids": [
+    203723,
+    205184,
+    205864,
+    207098,
+    208205,
+    208224,
+    209029,
+    210967,
+    211777,
+    213563,
+    216610,
+    216956,
+    219929,
+    221017,
+    221314,
+    226421,
+    227658,
+    227748,
+    228144,
+    236002,
+    239246,
+    251522,
+    251941,
+    254871,
+    264693,
+    265782,
+    266895,
+    267454,
+    270151,
+    270308,
+    271745,
+    272319,
+    273658,
+    273659,
+    274463,
+    274483,
+    277976,
+    279045,
+    279048,
+    280430,
+    281046,
+    281139,
+    281149,
+    281243,
+    281328,
+    281347,
+    282338,
+    282346,
+    282380,
+    282400,
+    282416,
+    282418,
+    282419,
+    282420,
+    282421,
+    282422,
+    282423,
+    284844,
+    285356,
+    285357,
+    286104,
+    286200,
+    286201,
+    286202
+  ],
+  "english_quest_name_search": {
+    "classic": {
+      "Uther": [
+        {
+          "quest_id": 5861,
+          "title": "Find Myranda",
+          "field": "objectives",
+          "excerpt": "Travel to Uther's Tomb, located in the southern Plaguelands. Show Myranda the Hag Tirion's Gift."
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "objectives",
+          "excerpt": "Travel to Uther's Tomb in Western Plaguelands and use Uther's Tribute at his statue, and then return to Wagner Hammerstrike outside Ironforge before the Harvest Festival is ov"
+        },
+        {
+          "quest_id": 5845,
+          "title": "Of Lost Honor",
+          "field": "details",
+          "excerpt": "The Order of the Silver Hand was utterly decimated when Uther was slain.$B$BThe boy held out for as long as he could. Pushed to the war torn hamlet of Northdale, he made his final stand.$B$BWere any of the Order left aliv"
+        },
+        {
+          "quest_id": 5861,
+          "title": "Find Myranda",
+          "field": "details",
+          "excerpt": "message and that is through a guise of deception.$B$BTo the south you will find Uther's tomb. An old and trusted confidant of mine, Myranda, now resides there - seek her out. Show her the items and she will assist you."
+        },
+        {
+          "quest_id": 7495,
+          "title": "Victory for the Alliance",
+          "field": "request",
+          "excerpt": "By Uther's beard!"
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "details",
+          "excerpt": "liance acknowledges many heroes, but none weave a more tragic tale than that of Uther Lightbringer.$B$BHelp us honor Uther by taking this offering to his tomb in the Western Plaguelands.  Place it at his statue, and then return to me.  I'll only"
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "request",
+          "excerpt": "Have you made the journey to Uther's Tomb and placed the tribute there?$B$BIt can be a dangerous trip for less experienced adventurers; a safer way of traveling there, relatively speaking, may b"
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "reward",
+          "excerpt": "He was a hero among heroes, Uther was.  I can't even begin to imagine the anguish of what he felt when Arthas - his greatest student and someone whom Uther loved like his own son - betrayed all"
+        },
+        {
+          "quest_id": 8414,
+          "title": "Dispelling Evil",
+          "field": "details",
+          "excerpt": "nd bring them to High Priest Thel'danis.  The high priest can be found guarding Uther's Tomb in Sorrow Hill, not far from here.$B$BOnly one with an Argent Dawn Commission can hope to find scourgestones, so speak to Officer Pureheart if you haven"
+        }
+      ],
+      "Yuriv": [
+        {
+          "quest_id": 264,
+          "title": "Until Death Do Us Part",
+          "field": "objectives",
+          "excerpt": "Place Clarice's Pendant on Yuriv's Tomb in Silverpine."
+        }
+      ],
+      "Mel'Thandris": [
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "objectives",
+          "excerpt": "Go to the Howling Vale and study the Tome of Mel'Thandris, then return to Sentinel Melyria Frostshadow at Forest Song."
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "details",
+          "excerpt": " from Ashenvale.$B$BTo the north, near the Felwood border, the ruined shrine of Mel'Thandris has been overtaken by mysterious wolf-men. Their chilling calls have led the area to be known as the Howling Vale. The Tome of Mel'Thandris kept at the shrine "
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "request",
+          "excerpt": " is not a book in the traditional sense. The leaves of the tome were blessed by Mel'Thandris herself, and records events of import in its pages.$B$BIt is hard for me to explain. If you go to the shrine, you will understand."
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "reward",
+          "excerpt": "The Tome of Mel'Thandris works in strange ways. The events it records, the events it shows... No one truly understands why it does what it does.$B$BNonetheless, it is clear that what P"
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "objective1",
+          "excerpt": "View the Tome of Mel'Thandris"
+        },
+        {
+          "quest_id": 1038,
+          "title": "Velinde's Effects",
+          "field": "details",
+          "excerpt": "The Tome of Mel'Thandris showed you this? I suppose there would be little harm in allowing you to examine her belongings. This key will allow you to open the chest where we stored her "
+        }
+      ],
+      "Shen'dralar Citizen": [],
+      "Performer": [],
+      "Drunken Dwarf": [],
+      "Investigator Kath'leen": [],
+      "Kath'leen": [],
+      "Investigator Silva": [],
+      "Silva": [],
+      "Arcanist Braedin": [],
+      "High Order Dockmaster": [],
+      "Windshapers Dockmaster": [],
+      "Brienne Stormhart": [],
+      "Sir Howard Armstrong": [],
+      "Roderick the Unbroken": [],
+      "Rosalind Ashwood": [],
+      "Alden Amberhall": [],
+      "Fern Crimsonleaf": [],
+      "Lady Isolde Brightlance": [],
+      "Knights of the Brotherhood": [],
+      "A Wartorn Land and The Brotherhood": [],
+      "Mount Hyjal and Illidan's Gift": []
+    },
+    "forever": {
+      "Uther": [
+        {
+          "quest_id": 5861,
+          "title": "Find Myranda",
+          "field": "objectives",
+          "excerpt": "Travel to Uther's Tomb, located in the southern Plaguelands. Show Myranda the Hag Tirion's Gift."
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "objectives",
+          "excerpt": "Travel to Uther's Tomb in Western Plaguelands and use Uther's Tribute at his statue, and then return to Wagner Hammerstrike outside Ironforge before the Harvest Festival is ov"
+        },
+        {
+          "quest_id": 5845,
+          "title": "Of Lost Honor",
+          "field": "details",
+          "excerpt": "The Order of the Silver Hand was utterly decimated when Uther was slain.$B$BThe boy held out for as long as he could. Pushed to the war torn hamlet of Northdale, he made his final stand.$B$BWere any of the Order left aliv"
+        },
+        {
+          "quest_id": 5861,
+          "title": "Find Myranda",
+          "field": "details",
+          "excerpt": "message and that is through a guise of deception.$B$BTo the south you will find Uther's tomb. An old and trusted confidant of mine, Myranda, now resides there - seek her out. Show her the items and she will assist you."
+        },
+        {
+          "quest_id": 7495,
+          "title": "Victory for the Alliance",
+          "field": "request",
+          "excerpt": "By Uther's beard!"
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "details",
+          "excerpt": "liance acknowledges many heroes, but none weave a more tragic tale than that of Uther Lightbringer.$B$BHelp us honor Uther by taking this offering to his tomb in the Western Plaguelands.  Place it at his statue, and then return to me.  I'll only"
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "request",
+          "excerpt": "Have you made the journey to Uther's Tomb and placed the tribute there?$B$BIt can be a dangerous trip for less experienced adventurers; a safer way of traveling there, relatively speaking, may b"
+        },
+        {
+          "quest_id": 8149,
+          "title": "Honoring a Hero",
+          "field": "reward",
+          "excerpt": "He was a hero among heroes, Uther was.  I can't even begin to imagine the anguish of what he felt when Arthas - his greatest student and someone whom Uther loved like his own son - betrayed all"
+        },
+        {
+          "quest_id": 8414,
+          "title": "Dispelling Evil",
+          "field": "details",
+          "excerpt": "nd bring them to High Priest Thel'danis.  The high priest can be found guarding Uther's Tomb in Sorrow Hill, not far from here.$B$BOnly one with an Argent Dawn Commission can hope to find scourgestones, so speak to Officer Pureheart if you haven"
+        }
+      ],
+      "Yuriv": [
+        {
+          "quest_id": 264,
+          "title": "Until Death Do Us Part",
+          "field": "objectives",
+          "excerpt": "Place Clarice's Pendant on Yuriv's Tomb in Silverpine."
+        }
+      ],
+      "Mel'Thandris": [
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "objectives",
+          "excerpt": "Go to the Howling Vale and study the Tome of Mel'Thandris, then return to Sentinel Melyria Frostshadow at Forest Song."
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "details",
+          "excerpt": " from Ashenvale.$B$BTo the north, near the Felwood border, the ruined shrine of Mel'Thandris has been overtaken by mysterious wolf-men. Their chilling calls have led the area to be known as the Howling Vale. The Tome of Mel'Thandris kept at the shrine "
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "request",
+          "excerpt": " is not a book in the traditional sense. The leaves of the tome were blessed by Mel'Thandris herself, and records events of import in its pages.$B$BIt is hard for me to explain. If you go to the shrine, you will understand."
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "reward",
+          "excerpt": "The Tome of Mel'Thandris works in strange ways. The events it records, the events it shows... No one truly understands why it does what it does.$B$BNonetheless, it is clear that what P"
+        },
+        {
+          "quest_id": 1022,
+          "title": "The Howling Vale",
+          "field": "objective1",
+          "excerpt": "View the Tome of Mel'Thandris"
+        },
+        {
+          "quest_id": 1038,
+          "title": "Velinde's Effects",
+          "field": "details",
+          "excerpt": "The Tome of Mel'Thandris showed you this? I suppose there would be little harm in allowing you to examine her belongings. This key will allow you to open the chest where we stored her "
+        }
+      ],
+      "Shen'dralar Citizen": [],
+      "Performer": [],
+      "Drunken Dwarf": [],
+      "Investigator Kath'leen": [],
+      "Kath'leen": [],
+      "Investigator Silva": [],
+      "Silva": [],
+      "Arcanist Braedin": [],
+      "High Order Dockmaster": [],
+      "Windshapers Dockmaster": [],
+      "Brienne Stormhart": [],
+      "Sir Howard Armstrong": [],
+      "Roderick the Unbroken": [],
+      "Rosalind Ashwood": [],
+      "Alden Amberhall": [],
+      "Fern Crimsonleaf": [],
+      "Lady Isolde Brightlance": [],
+      "Knights of the Brotherhood": [],
+      "A Wartorn Land and The Brotherhood": [],
+      "Mount Hyjal and Illidan's Gift": []
+    }
+  },
+  "client_maps": [
+    {
+      "ID": "2959",
+      "Directory": "2959",
+      "MapName_lang": "City of Dalaran",
+      "MapDescription0_lang": "",
+      "MapDescription1_lang": "",
+      "PvpShortDescription_lang": "",
+      "PvpLongDescription_lang": "",
+      "Corpse_0": "0.0",
+      "Corpse_1": "0.0",
+      "MapType": "1",
+      "InstanceType": "1",
+      "ExpansionID": "0",
+      "AreaTableID": "16544",
+      "LoadingScreenID": "647",
+      "TimeOfDayOverride": "1380",
+      "ParentMapID": "-1",
+      "CosmeticParentMapID": "0",
+      "TimeOffset": "0",
+      "MinimapIconScale": "1.0",
+      "CorpseMapID": "-1",
+      "MaxPlayers": "0",
+      "WindSettingsID": "135",
+      "ZmpFileDataID": "0",
+      "WdtFileDataID": "6982267",
+      "OceanLiquidTypeID": "2",
+      "NavigationMaxDistance": "0",
+      "PreloadFileDataID": "0",
+      "Flags_0": "8396381",
+      "Flags_1": "1040",
+      "Flags_2": "119008"
+    },
+    {
+      "ID": "2991",
+      "Directory": "2991",
+      "MapName_lang": "Zephras Isle",
+      "MapDescription0_lang": "",
+      "MapDescription1_lang": "",
+      "PvpShortDescription_lang": "",
+      "PvpLongDescription_lang": "",
+      "Corpse_0": "0.0",
+      "Corpse_1": "0.0",
+      "MapType": "1",
+      "InstanceType": "0",
+      "ExpansionID": "0",
+      "AreaTableID": "0",
+      "LoadingScreenID": "687",
+      "TimeOfDayOverride": "-1",
+      "ParentMapID": "-1",
+      "CosmeticParentMapID": "-1",
+      "TimeOffset": "0",
+      "MinimapIconScale": "1.0",
+      "CorpseMapID": "-1",
+      "MaxPlayers": "0",
+      "WindSettingsID": "136",
+      "ZmpFileDataID": "0",
+      "WdtFileDataID": "7198644",
+      "OceanLiquidTypeID": "2",
+      "NavigationMaxDistance": "0",
+      "PreloadFileDataID": "0",
+      "Flags_0": "142614109",
+      "Flags_1": "134218768",
+      "Flags_2": "180448"
+    }
+  ],
+  "client_uimaps": [
+    {
+      "Name_lang": "Riverglades",
+      "ID": "2548",
+      "ParentUiMapID": "1415",
+      "Flags": "2",
+      "System": "0",
+      "Type": "3",
+      "BountySetID": "0",
+      "BountyDisplayLocation": "0",
+      "VisibilityPlayerConditionID": "0",
+      "HelpTextPosition": "0",
+      "BkgAtlasID": "0",
+      "AlternateUiMapGroup": "0",
+      "ContentTuningID": "0",
+      "AdventureMapTextureKitID": "0",
+      "MapArtZoneTextPosition": "0"
+    },
+    {
+      "Name_lang": "Shen'dralas",
+      "ID": "2652",
+      "ParentUiMapID": "1414",
+      "Flags": "2",
+      "System": "0",
+      "Type": "3",
+      "BountySetID": "0",
+      "BountyDisplayLocation": "0",
+      "VisibilityPlayerConditionID": "0",
+      "HelpTextPosition": "0",
+      "BkgAtlasID": "0",
+      "AlternateUiMapGroup": "0",
+      "ContentTuningID": "0",
+      "AdventureMapTextureKitID": "0",
+      "MapArtZoneTextPosition": "0"
+    }
+  ],
+  "accepted_emote_token_presence": {
+    "classic": [
+      "APOLOGIZE",
+      "APPLAUD",
+      "BOW",
+      "BYE",
+      "CHEER",
+      "CLAP",
+      "DANCE",
+      "KNEEL",
+      "LISTEN",
+      "MOURN",
+      "WAVE"
+    ],
+    "forever": [
+      "APOLOGIZE",
+      "APPLAUD",
+      "BOW",
+      "BYE",
+      "CHEER",
+      "CLAP",
+      "DANCE",
+      "KNEEL",
+      "LISTEN",
+      "MOURN",
+      "WAVE"
+    ]
+  },
+  "current_expeditions": [
+    {
+      "file": "alterac-mountains.md",
+      "zone": 1416,
+      "client": "both",
+      "sha256": "0bcbae08153c11de3f636c2c8d01e7cd7059a28aab5ab6a9ad42d46778c7056a",
+      "riddles": [
+        {
+          "id": "alterac-mountains-simone",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PRAISE",
+            "COMMEND",
+            "APPLAUD"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "arathi-highlands.md",
+      "zone": 1417,
+      "client": "both",
+      "sha256": "e9192130078072f3f87321f07c3c0d8cdaf98e4a17ede6e72b456ecea786bfa3",
+      "riddles": [
+        {
+          "id": "arathi-highlands-thoradins-wall",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "GAZE",
+            "PONDER",
+            "THINK",
+            "SIGH",
+            "LOOK"
+          ]
+        },
+        {
+          "id": "arathi-highlands-hammerfall",
+          "faction": "horde",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "ashenvale.md",
+      "zone": 1440,
+      "client": "both",
+      "sha256": "dd54789d2a7accf3ff90d83060a5497cbd109aa22dc45ff451430e4d27d92120",
+      "riddles": [
+        {
+          "id": "ashenvale-grom",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "BOW",
+            "KNEEL"
+          ]
+        },
+        {
+          "id": "ashenvale-astranaar",
+          "faction": "alliance",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "azshara.md",
+      "zone": 1447,
+      "client": "both",
+      "sha256": "07d3da20df659e4d043d3bd81bc65c75c1eb6421005be0769b40183112e207ac",
+      "riddles": [
+        {
+          "id": "azshara-ravencrest",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        },
+        {
+          "id": "azshara-lake-mennar",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "DRINK",
+            "SIT"
+          ]
+        },
+        {
+          "id": "azshara-valormok",
+          "faction": "horde",
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "badlands.md",
+      "zone": 1418,
+      "client": "both",
+      "sha256": "863fc3018941234f654df2cdf2a07483b9dfd02c674318bae57ac5b96b9bfa27",
+      "riddles": [
+        {
+          "id": "badlands-apocryphans-rest",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "GAZE",
+            "AWE",
+            "AMAZE",
+            "PONDER",
+            "THINK",
+            "LOOK",
+            "PEER",
+            "STARE"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "blasted-lands.md",
+      "zone": 1419,
+      "client": "both",
+      "sha256": "d779c8f1ee1096873f3eb81199fd285e83ecade1f84ac7c6524629871602e975",
+      "riddles": [
+        {
+          "id": "blasted-lands-dark-portal",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "BOW",
+            "KNEEL"
+          ]
+        },
+        {
+          "id": "blasted-lands-tainted-scar",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        },
+        {
+          "id": "blasted-lands-nethergarde",
+          "faction": "alliance",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "burning-steppes.md",
+      "zone": 1428,
+      "client": "both",
+      "sha256": "2ce35c0d21be918d7ee0df8cabf3771f49864a3571f758483bf7feaf407ec237",
+      "riddles": [
+        {
+          "id": "burning-steppes-pillar-of-ash",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "KNEEL",
+            "BOW",
+            "MOURN"
+          ]
+        },
+        {
+          "id": "burning-steppes-altar-of-storms",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        },
+        {
+          "id": "burning-steppes-flame-crest",
+          "faction": "horde",
+          "deed": "gesture",
+          "gestures": [
+            "PET",
+            "PAT",
+            "SOOTHE",
+            "COMFORT",
+            "LISTEN"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "darkshore.md",
+      "zone": 1439,
+      "client": "both",
+      "sha256": "a0d60cf18cf265e40f32bf9ca8195997e11ff27d04cbfc46103b83e13d823b2a",
+      "riddles": [
+        {
+          "id": "darkshore-auberdine",
+          "faction": "alliance",
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "darnassus.md",
+      "zone": 1457,
+      "client": "both",
+      "sha256": "e2c9ff850a77d6d8b77212cfc090e53f8ccc17253f61308a269e575d287214c3",
+      "riddles": [
+        {
+          "id": "darnassus-ainethil",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        },
+        {
+          "id": "darnassus-darianna",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "ENCOURAGE",
+            "CHEER",
+            "GOODLUCK",
+            "SMILE"
+          ]
+        },
+        {
+          "id": "darnassus-world-tree",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "deadwind-pass.md",
+      "zone": 1430,
+      "client": "both",
+      "sha256": "4bd12682dc70c2163a3c636d01b6e02e840f1a0c9c44aae7afccf46dafb445a3",
+      "riddles": [
+        {
+          "id": "deadwind-pass-deadmans-crossing",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SHIVER",
+            "SCARED",
+            "COWER",
+            "FLEE"
+          ]
+        },
+        {
+          "id": "deadwind-pass-karazhan",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "desolace.md",
+      "zone": 1443,
+      "client": "both",
+      "sha256": "943789fa6e9b206fe2b5e3320705114bd8738b448102135b7dce86500c3ee6ab",
+      "riddles": [
+        {
+          "id": "desolace-tethris-aran",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PONDER",
+            "THINK",
+            "SIGH",
+            "MOURN"
+          ]
+        },
+        {
+          "id": "desolace-shadowbreak",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PET",
+            "PAT",
+            "COMFORT",
+            "SOOTHE"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dun-morogh.md",
+      "zone": 1426,
+      "client": "both",
+      "sha256": "f13748318c60ebff67abc40c99d7e0df8d5ff37fc5be2976cd84c8f1a9943f54",
+      "riddles": [
+        {
+          "id": "dun-morogh-etched-note",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "dun-morogh-tog",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        },
+        {
+          "id": "dun-morogh-range",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "COVEREARS",
+            "DUCK",
+            "COWER",
+            "CRINGE"
+          ]
+        },
+        {
+          "id": "dun-morogh-fluffy",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SOOTHE",
+            "CALM",
+            "PET",
+            "COMFORT"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "durotar.md",
+      "zone": 1411,
+      "client": "both",
+      "sha256": "99dbf138c9944cec0de6323cb7311ff79e04ceb838e6f6fd2806a200b3b8c2c3",
+      "riddles": [
+        {
+          "id": "durotar-rokar",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "BOW",
+            "SALUTE"
+          ]
+        },
+        {
+          "id": "durotar-tiragarde",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "duskwood.md",
+      "zone": 1431,
+      "client": "both",
+      "sha256": "1c18620ddc408c812c6ccc4897809b6e2b4b150ae86227e68cf86d896ebba1d4",
+      "riddles": [
+        {
+          "id": "duskwood-twilight-grove",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SLEEP",
+            "LAYDOWN"
+          ]
+        },
+        {
+          "id": "duskwood-callahan",
+          "faction": "alliance",
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "BOW"
+          ]
+        },
+        {
+          "id": "duskwood-unseen",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PEER",
+            "LOOK",
+            "GAZE",
+            "STARE",
+            "SHIVER"
+          ]
+        },
+        {
+          "id": "duskwood-darkshire",
+          "faction": "alliance",
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "dustwallow-marsh.md",
+      "zone": 1445,
+      "client": "both",
+      "sha256": "5395f52d8e964d57a24e10677d7b8db3d9e2e55eafe951f4318d376a9f87a846",
+      "riddles": [
+        {
+          "id": "dustwallow-marsh-theramore",
+          "faction": "alliance",
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "BOW"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "eastern-plaguelands.md",
+      "zone": 1423,
+      "client": "both",
+      "sha256": "0d4d2f09c845c3aaf7bdd8a8ec38b1adea565c2a8b48b707eddec3bc4b509e21",
+      "riddles": [
+        {
+          "id": "eastern-plaguelands-mirador",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PET",
+            "PAT",
+            "SOOTHE",
+            "COMFORT"
+          ]
+        },
+        {
+          "id": "eastern-plaguelands-adon",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "BOW",
+            "SALUTE",
+            "GREET",
+            "WAVE",
+            "HELLO",
+            "HAIL"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "elwynn-forest.md",
+      "zone": 1429,
+      "client": "both",
+      "sha256": "108de065c7a675f284ebbe3350efa4e4e5856bb4a348017ee777cae22ab5b18b",
+      "riddles": [
+        {
+          "id": "elwynn-forest-cats",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "MEOW",
+            "PURR"
+          ]
+        },
+        {
+          "id": "elwynn-forest-heroes-vigil",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "BOW",
+            "KNEEL",
+            "MOURN",
+            "PRAY"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "felwood.md",
+      "zone": 1448,
+      "client": "both",
+      "sha256": "b070135cd81169cef3dc9723d1af63d8a8eeb66c1da5e4d7b0180f8beab8a02c",
+      "riddles": [
+        {
+          "id": "felwood-morlos-aran",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PONDER",
+            "THINK",
+            "MOURN",
+            "SIGH"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "feralas.md",
+      "zone": 1444,
+      "client": "both",
+      "sha256": "42f5e262a7f14abb5bc07d63a14b7c7149da7a84c5937039da1506f761452d84",
+      "riddles": [
+        {
+          "id": "feralas-the-maul",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "FLEX",
+            "ROAR",
+            "CHALLENGE",
+            "VICTORY"
+          ]
+        },
+        {
+          "id": "feralas-feathermoon",
+          "faction": "alliance",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "hillsbrad-foothills.md",
+      "zone": 1424,
+      "client": "both",
+      "sha256": "ef3e6da4d13887914e2b21b876259696aeb9ef735438fb475343b0f013db5dc8",
+      "riddles": [
+        {
+          "id": "hillsbrad-foothills-zixil",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        },
+        {
+          "id": "hillsbrad-foothills-gryphons",
+          "faction": "alliance",
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "HAIL"
+          ]
+        },
+        {
+          "id": "hillsbrad-foothills-loving-memory",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "KNEEL",
+            "MOURN",
+            "PRAY",
+            "BOW"
+          ]
+        },
+        {
+          "id": "hillsbrad-foothills-southshore",
+          "faction": "alliance",
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "hillsbrad-foothills-tarren-mill",
+          "faction": "horde",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "ironforge.md",
+      "zone": 1455,
+      "client": "both",
+      "sha256": "077a515dad9fccf6f632ff8ad54a2c402b7ef6660db71907b6dc15fb4d7bd4ad",
+      "riddles": [
+        {
+          "id": "ironforge-toothgnasher",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "AMAZE",
+            "AWE",
+            "WHOA",
+            "GASP"
+          ]
+        },
+        {
+          "id": "ironforge-tyrannistrasz",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "ironforge-great-forge",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "loch-modan.md",
+      "zone": 1432,
+      "client": "both",
+      "sha256": "e559e1a8c1f8f4d127e60775c991ca0ba7eb1bf8c745298b75a7a6d6db5eb7ad",
+      "riddles": [
+        {
+          "id": "loch-modan-valley-of-kings",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "BOW",
+            "SALUTE",
+            "KNEEL"
+          ]
+        },
+        {
+          "id": "loch-modan-horde-runners",
+          "faction": "horde",
+          "deed": "speaking",
+          "gestures": []
+        },
+        {
+          "id": "loch-modan-thelsamar",
+          "faction": "alliance",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "moonglade.md",
+      "zone": 1450,
+      "client": "both",
+      "sha256": "061a1a2c50ffdc328b0e7d153054ba8bccec18afb1a973aa2d4226838a5b6527",
+      "riddles": [
+        {
+          "id": "moonglade-flight-masters",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "mulgore.md",
+      "zone": 1412,
+      "client": "both",
+      "sha256": "b27629ef1f2dd6e277cdbb09ba80f53a9507bf9370c73f45659638fcf9e20816",
+      "riddles": [
+        {
+          "id": "mulgore-rolling-plains",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PEER",
+            "LOOK",
+            "GAZE",
+            "STARE"
+          ]
+        },
+        {
+          "id": "mulgore-three-hammers",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "orgrimmar.md",
+      "zone": 1454,
+      "client": "both",
+      "sha256": "7634f1ae236083f69818ce818e3bff6a8402f35fc09b4e160470e25d02f84594",
+      "riddles": [
+        {
+          "id": "orgrimmar-mannoroth-armor",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "orgrimmar-orphanage",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "WAVE",
+            "HELLO",
+            "GREET",
+            "SMILE",
+            "PAT",
+            "COMFORT"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "redridge-mountains.md",
+      "zone": 1433,
+      "client": "both",
+      "sha256": "797e9495d9cb96c29449cc9c281f32ac07d0a31ea9d26bbb9959510708ba77de",
+      "riddles": [
+        {
+          "id": "redridge-mountains-docks",
+          "faction": "alliance",
+          "deed": "gesture",
+          "gestures": [
+            "SIT"
+          ]
+        },
+        {
+          "id": "redridge-mountains-captive",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "COMFORT",
+            "SOOTHE",
+            "ENCOURAGE"
+          ]
+        },
+        {
+          "id": "redridge-mountains-lakeshire",
+          "faction": "alliance",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "searing-gorge.md",
+      "zone": 1427,
+      "client": "both",
+      "sha256": "22ca36924f4ad9fc3f576e0fbd60c602281131f170452a4a8aa64de091358837",
+      "riddles": [
+        {
+          "id": "searing-gorge-stonewrought-pass",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        },
+        {
+          "id": "searing-gorge-blackchar",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "STARE",
+            "GASP",
+            "SURPRISED",
+            "AMAZE",
+            "LOOK",
+            "GAZE",
+            "PEER"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "silithus.md",
+      "zone": 1451,
+      "client": "both",
+      "sha256": "0800175e9bf1e2538eef57861083d611abc934a9b1b3927038debdf8bec19c11",
+      "riddles": [
+        {
+          "id": "silithus-scarab-wall",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        },
+        {
+          "id": "silithus-carnes",
+          "faction": "alliance",
+          "deed": "gesture",
+          "gestures": [
+            "COMFORT",
+            "PAT",
+            "SOOTHE",
+            "CONGRATULATE",
+            "PITY"
+          ]
+        },
+        {
+          "id": "silithus-raloshan",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        },
+        {
+          "id": "silithus-glibb",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "WAVE",
+            "HELLO",
+            "GREET",
+            "PET"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "silverpine-forest.md",
+      "zone": 1421,
+      "client": "both",
+      "sha256": "4aa1543ee497ba8b5a15e7ab09591af029faf1963e66a190f1bc5238e1484f5d",
+      "riddles": [
+        {
+          "id": "silverpine-forest-wallace",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "HELLO",
+            "HAIL",
+            "GREET"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "stonetalon-mountains.md",
+      "zone": 1442,
+      "client": "both",
+      "sha256": "e8c698ca9c3f4bd92445338bf219ab875aa62bc7a36b611b51b70cff604a9912",
+      "riddles": [
+        {
+          "id": "stonetalon-mountains-sun-rock",
+          "faction": "horde",
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "stormwind-city.md",
+      "zone": 1453,
+      "client": "both",
+      "sha256": "e6f5e75b5469f3d30cecee5f46eafbde9ab6c2b48b4f7cd4dc9cfd1c3c041a85",
+      "riddles": [
+        {
+          "id": "stormwind-city-faol-plaque",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "stormwind-city-khadgar-plaque",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "GOODLUCK",
+            "SALUTE",
+            "WAVE"
+          ]
+        },
+        {
+          "id": "stormwind-city-horatio",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "DANCE"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "stranglethorn-vale.md",
+      "zone": 1434,
+      "client": "both",
+      "sha256": "b54e349b66532003b89848bf843326404468b184d8ac61ea2240be123307b328",
+      "riddles": [
+        {
+          "id": "stranglethorn-vale-booty-bay",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "stranglethorn-vale-emperors-tomb",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        },
+        {
+          "id": "stranglethorn-vale-gromgol",
+          "faction": "horde",
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "swamp-of-sorrows.md",
+      "zone": 1435,
+      "client": "both",
+      "sha256": "2839855633f9d8614557a4c3eb11b8a747ce29ca7f320c937a9be1cce420f3c7",
+      "riddles": [
+        {
+          "id": "swamp-of-sorrows-stonard",
+          "faction": "horde",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "tanaris.md",
+      "zone": 1446,
+      "client": "both",
+      "sha256": "ebd7873afc590e6de73285156a127851fec6ebfcf06379d6e8076a3f15dc683c",
+      "riddles": [
+        {
+          "id": "tanaris-gadgetzan",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "tanaris-zalashji",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "WAVE",
+            "HELLO",
+            "GREET",
+            "BOW",
+            "HAIL"
+          ]
+        },
+        {
+          "id": "tanaris-winkey",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "WINK",
+            "SMILE",
+            "BLUSH"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "teldrassil.md",
+      "zone": 1438,
+      "client": "both",
+      "sha256": "c78907d7fdf512607815a9e20644ea4865cdf3fdafceadee6a62cc6cc62fb1b6",
+      "riddles": []
+    },
+    {
+      "file": "the-barrens.md",
+      "zone": 1413,
+      "client": "both",
+      "sha256": "a247b5201f8336df2f260d371c05247cd325a96224ba9c3571d60919abef0440",
+      "riddles": [
+        {
+          "id": "the-barrens-ratchet-book",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "the-barrens-lizzarik",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        },
+        {
+          "id": "the-barrens-tidus-stair",
+          "faction": null,
+          "deed": "arrival",
+          "gestures": []
+        },
+        {
+          "id": "the-barrens-pooka",
+          "faction": "horde",
+          "deed": "gesture",
+          "gestures": [
+            "WAVE",
+            "HELLO",
+            "GREET",
+            "SMILE"
+          ]
+        },
+        {
+          "id": "the-barrens-fallen-warrior",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SALUTE",
+            "BOW"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "the-hinterlands.md",
+      "zone": 1425,
+      "client": "both",
+      "sha256": "edb9ad3853e86ab9abc243584066f30f8f55c451af076e0d52ef397c14172560",
+      "riddles": [
+        {
+          "id": "the-hinterlands-plaguemist",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "COUGH",
+            "SNIFF",
+            "SNEEZE"
+          ]
+        },
+        {
+          "id": "the-hinterlands-seradane",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SLEEP",
+            "LAYDOWN"
+          ]
+        },
+        {
+          "id": "the-hinterlands-revantusk",
+          "faction": "horde",
+          "deed": "gesture",
+          "gestures": [
+            "DANCE"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "thousand-needles.md",
+      "zone": 1441,
+      "client": "both",
+      "sha256": "dfbcedac95a2361124e21474f3ee39692ced9b119056402f623cb834c6625458",
+      "riddles": [
+        {
+          "id": "thousand-needles-raceway",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "CHEER",
+            "APPLAUD",
+            "CLAP"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "thunder-bluff.md",
+      "zone": 1456,
+      "client": "both",
+      "sha256": "832493754ee3c4786da4157dd6cf8a208545de180255e2d9b52f7b65a962f0ae",
+      "riddles": [
+        {
+          "id": "thunder-bluff-white-stag",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "thunder-bluff-nibbles",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PET",
+            "PAT",
+            "SOOTHE",
+            "HELLO",
+            "GREET",
+            "WAVE"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "tirisfal-glades.md",
+      "zone": 1420,
+      "client": "both",
+      "sha256": "a76b776fee7468807acea4076ee47fcd228c0609beb5c7fa834dcc3dc003efbf",
+      "riddles": [
+        {
+          "id": "tirisfal-glades-zapetta",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PROMISE",
+            "NOD",
+            "AGREE"
+          ]
+        },
+        {
+          "id": "tirisfal-glades-stillwater",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "SIGH",
+            "MOURN",
+            "CRY"
+          ]
+        },
+        {
+          "id": "tirisfal-glades-whispering-gardens",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "LISTEN"
+          ]
+        },
+        {
+          "id": "tirisfal-glades-terrace",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "DRINK"
+          ]
+        },
+        {
+          "id": "tirisfal-glades-faols-rest",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PRAY",
+            "KNEEL",
+            "BOW"
+          ]
+        },
+        {
+          "id": "tirisfal-glades-bulwark",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "undercity.md",
+      "zone": 1458,
+      "client": "both",
+      "sha256": "73081c153d096e4cbc5ef7c9177f21d3e66c69bb4678774ca044c18d4fc20f8b",
+      "riddles": [
+        {
+          "id": "undercity-kelthuzad-book",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "undercity-theresa",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "PITY",
+            "SHUDDER",
+            "SIGH"
+          ]
+        },
+        {
+          "id": "undercity-terenas",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "KNEEL",
+            "BOW",
+            "MOURN"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ungoro-crater.md",
+      "zone": 1449,
+      "client": "both",
+      "sha256": "6421379e1a4ecabac05f266692f80668fd87c3da2874b7144d8b984c6c76cd63",
+      "riddles": [
+        {
+          "id": "ungoro-crater-simone",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "WAVE",
+            "HELLO",
+            "GREET",
+            "SMILE"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "western-plaguelands.md",
+      "zone": 1422,
+      "client": "both",
+      "sha256": "c199cf83a66f186cfde7695fc99e742c99e8380da09a9d34c8c277eefcc5842a",
+      "riddles": [
+        {
+          "id": "western-plaguelands-chillwind",
+          "faction": "alliance",
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "westfall.md",
+      "zone": 1436,
+      "client": "both",
+      "sha256": "1c6abfe04655e7390053eb2fd1f7a536c12701d2dbe9cef7ee4f9b59e4bf062c",
+      "riddles": [
+        {
+          "id": "westfall-aegwynn",
+          "faction": null,
+          "deed": "reading",
+          "gestures": []
+        },
+        {
+          "id": "westfall-dead-acre",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "MOURN",
+            "SIGH",
+            "CRY"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "wetlands.md",
+      "zone": 1437,
+      "client": "both",
+      "sha256": "37874692b19027f3d8ee8a2b866633d27e19e4d6da66e217082ed45dab207199",
+      "riddles": [
+        {
+          "id": "wetlands-sundown-marsh",
+          "faction": "alliance",
+          "deed": "gesture",
+          "gestures": [
+            "HELLO",
+            "GREET",
+            "WAVE",
+            "HAIL",
+            "BOW"
+          ]
+        },
+        {
+          "id": "wetlands-terl",
+          "faction": "alliance",
+          "deed": "speaking",
+          "gestures": []
+        },
+        {
+          "id": "wetlands-menethil",
+          "faction": "alliance",
+          "deed": "reading",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "winterspring.md",
+      "zone": 1452,
+      "client": "both",
+      "sha256": "80a2398c73330810af96f99d1c6fd5249e2840f086eb8c8f4279d5acc38fca51",
+      "riddles": [
+        {
+          "id": "winterspring-farflinger",
+          "faction": null,
+          "deed": "speaking",
+          "gestures": []
+        }
+      ]
+    },
+    {
+      "file": "zephras-isle.md",
+      "zone": 2521,
+      "client": "forever",
+      "sha256": "64523a9e10427c8afab997685f0042a7cac1c4112133566e546b31a667fef259",
+      "riddles": [
+        {
+          "id": "zephras-isle-swimmers",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "AGREE",
+            "NOD"
+          ]
+        },
+        {
+          "id": "zephras-isle-gustjumpers",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "LISTEN",
+            "APPLAUD",
+            "CLAP",
+            "DANCE"
+          ]
+        },
+        {
+          "id": "zephras-isle-zendraas",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "GLARE",
+            "SCOWL",
+            "FROWN",
+            "EYE",
+            "DOUBT"
+          ]
+        },
+        {
+          "id": "zephras-isle-thendal-tree",
+          "faction": null,
+          "deed": "gesture",
+          "gestures": [
+            "LOOK",
+            "GAZE",
+            "PEER",
+            "STARE",
+            "POINT"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "No live in-game verification",
+    "No prior database snapshot used to calculate growth",
+    "Missing quest relations do not establish script independence",
+    "Traces and independent frozen positions need agreement before shipping",
+    "No new production riddles were authored"
+  ],
+  "auberdine_temporary_resolver_probe": {
+    "result": "pass",
+    "production_files_modified": false,
+    "riddle_id": "darkshore-illidans-gift",
+    "resolved": {
+      "zone": 1439,
+      "of": "object:175729",
+      "hint": [
+        36.5,
+        44.0,
+        3
+      ],
+      "name": "Mount Hyjal and Illidan's Gift",
+      "names": {
+        "deDE": "Der Berg Hyjal und Illidans Geschenk",
+        "esES": "El Monte Hyjal y el obsequio de Illidan",
+        "esMX": "El Monte Hyjal y el Obsequio de Illidan",
+        "frFR": "Le Mont Hyjal et le Cadeau d'Illidan",
+        "itIT": "Mount Hyjal and Illidan's Gift",
+        "koKR": "하이잘 산과 일리단의 선물",
+        "ptBR": "O Monte Hyjal e a Dádiva de Illidan",
+        "ruRU": "Гора Хиджал и Дар Иллидана",
+        "zhCN": "海加尔山和伊利丹的礼物",
+        "zhTW": "海加爾山和伊利丹的禮物"
+      },
+      "spots": [
+        [
+          36.56,
+          44.03
+        ]
+      ],
+      "r": 10
+    },
+    "scope": "Full resolver against a temporary copy of the current expedition files. No runtime playtest or new translation check."
+  }
+}
