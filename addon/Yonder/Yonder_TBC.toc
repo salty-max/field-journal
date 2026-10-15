@@ -5,7 +5,7 @@
 ## Notes-deDE: Löse Erkundungsrätsel, jage seltene Gegner und führe ein Tagebuch über die Geschöpfe, Orte, Fische und Kräuter, die du findest.
 ## Category: Achievements
 ## Author: salty-max
-## Version: 0.11.1
+## Version: 0.11.2
 ## SavedVariablesPerCharacter: YonderChar
 ## SavedVariables: YonderSettings, YonderCollect
 ## IconTexture: Interface\AddOns\Yonder\Media\Logo
