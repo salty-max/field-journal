@@ -30,7 +30,7 @@ In einem davon bewohnt ein Haushalt beide Stockwerke, verborgen vor dem bloßen 
 Betrachte die leeren Räume, und lass ihre Bewohner ungestört.
 ? Rabenflucht, am nördlichen Rand des Dorfes: ein Haus mit zwei Stockwerken, und niemand darin.
 = Die Unsichtbaren: unsichtbare Gespenster, weit stärker als alles sonst im Dämmerwald. Zwei bewohnen dieses Haus. Andere bewohnen die übrigen Häuser von Rabenflucht.
-+ Das Unsichtbarkeit entdecken eines Hexenmeisters macht sie sichtbar. Ihre Unsichtbarkeit ist nicht die Verstohlenheit eines Schurken: Ein Auge, das darauf geschult ist, Letztere zu finden, kann hier einen ganzen Haushalt übersehen.
++ Mit dem Zauber Unsichtbarkeit entdecken kann ein Hexenmeister sie sichtbar machen. Ihre Unsichtbarkeit ist nicht die Verstohlenheit eines Schurken: Ein Auge, das darauf geschult ist, Letztere zu finden, kann hier einen ganzen Haushalt übersehen.
 ! Gefährlich (unsichtbare Untote, Stufe 49 bis 51)
 @ Unsichtbarer
 

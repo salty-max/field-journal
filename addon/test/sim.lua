@@ -2543,4 +2543,122 @@ do
   check(ns.creatureName(1132, { name = "Timber" }) == "Holzplanke", "… a creature by its German name")
 end
 
+-- The finished German on a fresh client, for both character genders. A valid
+-- gender token alone did not catch "diejenige, der", and a raw catalog never
+-- showed Classic's doubled faction article. Load the actual files in TOC order.
+do
+  local oldSex = UnitSex
+  local function utf8(s)
+    local i = 1
+    while i <= #s do
+      local c = s:byte(i)
+      local length = c < 0x80 and 1
+        or c >= 0xF0 and c <= 0xF4 and 4
+        or c >= 0xE0 and c < 0xF0 and 3
+        or c >= 0xC2 and c < 0xE0 and 2
+        or nil
+      if not length or (c < 32 and c ~= 10) then return false end
+      for j = i + 1, i + length - 1 do
+        local b = s:byte(j)
+        if not b or b < 128 or b > 191 then return false end
+      end
+      i = i + length
+    end
+    return true
+  end
+  for _, sex in ipairs({ 2, 3 }) do
+    UnitSex = function() return sex end
+    local target = { on = function() end, secret = function() return false end }
+    for _, file in ipairs({
+      "Kit.lua",
+      FOREVER and "Data_Forever.lua" or "Data_Classic.lua",
+      "Locale.lua",
+      "Text_deDE.lua",
+      "Expeditions.lua",
+    }) do
+      assert(loadfile(DIR .. file))("Yonder", target)
+    end
+    local function read(text, label)
+      check(
+        type(text) == "string" and utf8(text) and not text:find("$g", 1, true) and not text:find(";", 1, true),
+        "German finished text, valid UTF-8 and gender, no prose semicolon: " .. label
+      )
+      check(not text:find("Der Der Zirkel", 1, true), "Classic faction article stays grammatical: " .. label)
+    end
+    local data, riddles, quarries = target.data, 0, 0
+    for key, value in pairs(target.kit.L) do
+      read(value, "UI " .. key)
+    end
+    for _, section in ipairs(data.sections) do
+      read(section.title, section.id)
+    end
+    for _, family in ipairs(data.families) do
+      read(family.title, family.id)
+      for i, para in ipairs(family.note) do
+        read(para, family.id .. " / " .. i)
+      end
+    end
+    for id, zone in pairs(data.atlas.zones) do
+      for i, para in ipairs(zone.note or {}) do
+        read(para, "atlas " .. id .. " / " .. i)
+      end
+    end
+    for kind, list in pairs({ herbs = data.flora.herbs, fish = data.flora.fish }) do
+      for id, entry in pairs(list) do
+        for i, para in ipairs(entry.note) do
+          read(para, kind .. " " .. id .. " / " .. i)
+        end
+      end
+    end
+    for _, expedition in pairs(data.expeditions) do
+      for _, riddle in ipairs(expedition.riddles) do
+        riddles = riddles + 1
+        for _, line in ipairs(riddle.verse) do
+          read(line, riddle.id .. " verse")
+        end
+        read(riddle.hint, riddle.id .. " hint")
+        read(riddle.danger, riddle.id .. " danger")
+        read(target.riddleName(riddle), riddle.id .. " answer")
+        read(target.riddleNote(riddle), riddle.id .. " note")
+        read(target.riddleMargin(riddle), riddle.id .. " margin")
+      end
+      local quarry = expedition.quarry
+      if quarry then
+        quarries = quarries + 1
+        read(quarry.name, "quarry " .. quarry.id)
+        for _, line in ipairs(quarry.verse) do
+          read(line, "quarry " .. quarry.id .. " verse")
+        end
+        read(target.quarryNote(quarry), "quarry " .. quarry.id .. " note")
+        read(target.quarryMargin(quarry), "quarry " .. quarry.id .. " margin")
+      end
+    end
+    check(
+      riddles == (FOREVER and 110 or 106) and quarries == (FOREVER and 39 or 38),
+      "German expedition coverage, this client's only"
+    )
+    check(
+      data.expeditions[1438].quarry.verse[4]
+        == (sex == 3 and "Sei du diejenige, die verfolgt." or "Sei du derjenige, der verfolgt."),
+      "the full German chasing clue agrees with the reader's gender"
+    )
+    local K = target.kit
+    for _, n in ipairs({ 0, 1, 2 }) do
+      check(
+        K.plural(n, "%d more fish to find here.", "%d more fish to find here."):format(n)
+          == "Fehlende Fischarten: " .. n .. ".",
+        "the actual Atlas fish counter works for " .. n
+      )
+      check(
+        K.plural(n, "None found here yet: %d fish to find.", "None found here yet: %d fish to find."):format(n)
+          == "Hier noch nichts gefunden. Fehlende Fischarten: " .. n .. ".",
+        "the empty Atlas fish counter works for " .. n
+      )
+    end
+    check(K.isOne(1) and not K.isOne(0) and not K.isOne(2), "German number rule on the real loader")
+    check(K.L["Hearth"] == "Heimatort", "the inn bind has a German location label")
+  end
+  UnitSex = oldSex
+end
+
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")

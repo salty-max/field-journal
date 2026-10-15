@@ -35,7 +35,7 @@ Lass es ihn in deinem Gesicht sehen.
 
 ## zephras-isle-thendal-tree
 Oben im Baum in Thendal
-sind zwei Kinder höher geklettert, als sich die Erwachsenen die Mühe machen.
+sind zwei Kinder höher geklettert, als die Erwachsenen zu klettern bereit sind.
 Sie beobachten etwas, von dem der Rest der Insel sagt, es sei fort.
 Sieh es mit ihnen.
 ? Thendal, im Nordwesten der Insel: den Baum hinauf.
@@ -47,6 +47,6 @@ Sieh es mit ihnen.
 ## quarry
 Am See in der Mitte der Insel wandelt ein Drachkin,
 weit stärker als seine Stufe: Wer ihm dort begegnet, sollte ihm nicht allein begegnen.
-Er hat keinen Namen, nur das, wie man ihn nennt.
+Er hat keinen Namen, nur eine Bezeichnung.
 = Der Verlorene, ein Elite-Drachkin der Stufe sechs, am Windweisensee.
 + Von allen Geschöpfen der Insel Zephras ist er der einzige Drachkin.

@@ -146,7 +146,7 @@ Hummereintopf lohnt die Reise mit einer gehaltvollen Mahlzeit. Die für sich gew
 
 Großer Machtfisch stammt aus der Bucht der Stürme, wo erfahrene Angler auch den Dunkelklauenhummer suchen.
 
-Machtfischsteak ergibt eine kräftige Mahlzeit mit zusätzlicher Ausdauer. Die für sich gewogenen Riesen derselben Gewässer sind ein anderer Preis, einer, der den Bericht eines Anglers unglaubwürdig klingen lassen kann, selbst wenn er genau ist.
+Machtfischsteak ergibt eine kräftige Mahlzeit mit zusätzlicher Ausdauer. Die für sich gewogenen Riesen derselben Gewässer sind ein anderer Fang, einer, der den Bericht eines Anglers unglaubwürdig klingen lassen kann, selbst wenn er genau ist.
 
 ## 13889 Roher Weißschuppenlachs
 
@@ -180,7 +180,7 @@ Er hat keinen vertrauten Platz unter den Zubereitungen von Koch oder Alchemist. 
 
 ## 13890 Roher Panzerfisch
 
-Der Panzerfisch ist ein weniger bekannter Preis aus Gewässern, die auch den Weißschuppenlachs hergeben.
+Der Panzerfisch ist ein weniger bekannter Fang aus Gewässern, die auch den Weißschuppenlachs hergeben.
 
 Der Koch hat keine übliche Zubereitung dafür. Sein Platz im Fang ist trotzdem eine Aufzeichnung wert. Ein Fischkorb enthält mehr als die Zutaten auf einem Einkaufszettel.
 
@@ -272,4 +272,4 @@ Ein Fang am oberen Ende dieser Spanne verdient einen sorgfältigen Eintrag im Ta
 
 Die größten gewogenen Machtfische wiegen von siebzig bis hundertdrei Pfund, in der Bucht der Stürme in Azshara.
 
-Auch ohne die Zutaten eines Anglers ist ein Fang von fast hundert Pfund eine völlig ausreichende Erklärung dafür, spät heimzukommen.
+Auch ohne die Ausschmückungen eines Anglers ist ein Fang von fast hundert Pfund eine völlig ausreichende Erklärung dafür, spät heimzukommen.

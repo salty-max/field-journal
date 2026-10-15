@@ -2,7 +2,7 @@
 source: 5ee9ae0e86d3
 zone: 1447
 ---
-Die Straße kommt aus Ashenvale über einer Küste aus zerbrochenen Tempeln und rotgoldenen Bäumen herein. Die Talrendisspitze und Valormok bieten kleine Stützpunkte nahe dem westlichen Zugang. Weiter östlich fallen die Hügel steil zur Bucht der Stürme ab.
+Die Straße aus Ashenvale führt oberhalb einer Küste mit zerbrochenen Tempeln und rotgoldenen Bäumen ins Land. Die Talrendisspitze und Valormok bieten kleine Stützpunkte nahe dem westlichen Zugang. Weiter östlich fallen die Hügel steil zur Bucht der Stürme ab.
 
 Naga besetzen einen Großteil der Küste, während Satyrlager und elfische Expeditionen Boden zwischen den Ruinen halten. Azuregos streift durch den Süden. Eine gerade Linie auf der Karte kann sowohl eine Klippe als auch den langen Umweg um sie herum verbergen.
 

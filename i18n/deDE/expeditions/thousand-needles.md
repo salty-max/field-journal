@@ -12,8 +12,8 @@ Jedes Rennen braucht Publikum. Sei es.
 ! Ruhig
 
 ## quarry
-Ein Zentaur, den man den Verbannten nennt, kreist über die Hochebenen im Westen der Schluchten,
+Ein Zentaur, den man den Verbannten nennt, zieht seine Runden um die Hochebenen im Westen der Schluchten,
 zwischen den Höhen der Wyvern und der kreischenden Schlucht.
 Drei Hunde halten sich an seinen Fersen.
-= Achellios der Verbannte, ein Zentaur, der mit drei Rudelhunden der Galak über die Hochebenen zwischen dem Steilhang und der Kreischenden Schlucht kreist.
+= Achellios der Verbannte, ein Zentaur, der mit drei Rudelhunden der Galak seine Runden um die Hochebenen zwischen dem Steilhang und der Kreischenden Schlucht zieht.
 + Die Hunde der Galak folgen ihm noch immer, wer auch immer ihn verbannt hat.

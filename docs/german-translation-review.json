@@ -1,0 +1,2492 @@
+{
+  "review_date": "2026-10-15",
+  "reviewed_commit": "2ed72f510e944f49ccd719cdf798e4e01e92fdaf",
+  "scope": "Full English/German authored comparison, all UI strings and section labels, all 110 riddle verses/hints against the accepted deeds, 39 quarry posters/notes, targeted source checks for names and quotations. Generated creature/place labels rebuilt byte-identically from pinned wow-data. Does not certify native fluency or live-client layout/difficulty.",
+  "coverage": {
+    "families": 96,
+    "atlas_notes": 47,
+    "herb_notes": 31,
+    "fish_notes": 39,
+    "expedition_zones": 47,
+    "riddles": 110,
+    "quarries": 39,
+    "interface_strings": 619,
+    "section_labels": 9,
+    "translation_source_units": 260,
+    "creature_names_forever": 3504,
+    "creature_name_overrides_classic": 9,
+    "flora_place_labels": 93
+  },
+  "findings_count": 43,
+  "priorities": {
+    "P2": 26,
+    "P3": 17
+  },
+  "structure_before": {
+    "markers": [],
+    "numbers": [],
+    "format": [],
+    "gender": [],
+    "semicolons": []
+  },
+  "findings": [
+    {
+      "file": "i18n/deDE/classic.json",
+      "current": "\"Zirkel des Cenarius\": \"Der Zirkel des Cenarius\"",
+      "suggested": "Identity override in classic-by-hand.json, regenerate swaps",
+      "category": "runtime",
+      "priority": "P2",
+      "reason": "Article-only replacement duplicates the existing article in the Moonglade Atlas note on Classic. Test actual loaded text.",
+      "id": "YD-001",
+      "line": 5,
+      "resolution": "fixed",
+      "resolved_line": 5
+    },
+    {
+      "file": "i18n/deDE/families/beasts/great-saurians.md",
+      "current": "Der Krater gibt ihnen den Rest:",
+      "suggested": "Den Rest bietet ihnen der Krater:",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "Jemandem den Rest geben normally means finishing someone off, unlike supplying the remaining habitat.",
+      "id": "YD-002",
+      "line": 8,
+      "resolution": "fixed",
+      "resolved_line": 8
+    },
+    {
+      "file": "i18n/deDE/families/beasts/insects.md",
+      "current": "aus eigenem Recht",
+      "suggested": "auch unabhängig von den Silithiden",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "In their own right is not legal entitlement. Keep the independent inhabitants sense.",
+      "id": "YD-003",
+      "line": 6,
+      "resolution": "fixed",
+      "resolved_line": 6
+    },
+    {
+      "file": "i18n/deDE/families/beasts/wind-serpents.md",
+      "current": "Die wilden Geschöpfe bleiben aus eigenem Recht eindrucksvoll.",
+      "suggested": "Auch für sich genommen sind die wilden Geschöpfe eindrucksvoll.",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "The English idiom means intrinsically impressive, not possessing a legal right.",
+      "id": "YD-004",
+      "line": 8,
+      "resolution": "fixed",
+      "resolved_line": 8
+    },
+    {
+      "file": "i18n/deDE/families/beasts/owls.md",
+      "current": "Eine Eule ist eine vorzügliche Studie seines Fehlens.",
+      "suggested": "An einer Eule lässt sich diese Stille vorzüglich studieren.",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "Preserve the noise/absence joke without the literal study of its lack.",
+      "id": "YD-005",
+      "line": 8,
+      "resolution": "fixed",
+      "resolved_line": 8
+    },
+    {
+      "file": "i18n/deDE/families/beasts/wolves.md",
+      "current": "auf ganz anderem Fuß",
+      "suggested": "unter ganz anderen Umständen",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "On a different footing is not idiomatic German on another foot.",
+      "id": "YD-006",
+      "line": 8,
+      "resolution": "fixed",
+      "resolved_line": 8
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/green-dragonflight.md",
+      "current": "doch der Nachtmahr hat einige seiner eigenen Wächter erreicht",
+      "suggested": "doch der Nachtmahr hat einige Wächter dieses Schwarms erreicht",
+      "category": "reference",
+      "priority": "P2",
+      "reason": "Explicitly identify the afflicted guardians as the flight's. The masculine pronoun beside Nachtmahr suggests the Nightmare's own guardians.",
+      "id": "YD-007",
+      "line": 6,
+      "resolution": "fixed",
+      "resolved_line": 6
+    },
+    {
+      "file": "i18n/deDE/families/elementals/fire-elementals.md",
+      "current": "doch seine Gegenwart allein verrät einem Reisenden nicht, wessen Befehl es gehorcht, falls überhaupt jemandes.",
+      "suggested": "doch seine Gegenwart allein verrät einem Reisenden nicht, ob und unter wessen Befehl es steht.",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "Avoid the stranded genitive and keep uncertainty about a commander.",
+      "id": "YD-008",
+      "line": 8,
+      "resolution": "fixed",
+      "resolved_line": 8
+    },
+    {
+      "file": "i18n/deDE/families/elementals/water-elementals.md",
+      "current": "doch es braucht etwas vom Ort und seiner Geschichte, um zu erklären, warum sie dort ist.",
+      "suggested": "doch um ihre Anwesenheit zu erklären, muss man etwas über den Ort und seine Geschichte wissen.",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "It takes some knowledge of is rendered as needing some of the place itself.",
+      "id": "YD-009",
+      "line": 8,
+      "resolution": "fixed",
+      "resolved_line": 8
+    },
+    {
+      "file": "i18n/deDE/families/peoples/kobolds.md",
+      "current": "einem kleinen Gräber",
+      "suggested": "einem kleinen Schürfer",
+      "category": "lexical",
+      "priority": "P2",
+      "reason": "Use an ordinary mining-worker noun instead of the misleading/archaic agent noun Gräber.",
+      "id": "YD-010",
+      "line": 6,
+      "resolution": "fixed",
+      "resolved_line": 6
+    },
+    {
+      "file": "i18n/deDE/families/peoples/worgen.md",
+      "current": "Beide Orte haben denselben schrecklichen Umriss zwischen den Bäumen angenommen:",
+      "suggested": "An beiden Orten erscheint dieselbe schreckliche Gestalt zwischen den Bäumen:",
+      "category": "reference",
+      "priority": "P2",
+      "reason": "The creatures have the silhouette, not the two places themselves.",
+      "id": "YD-011",
+      "line": 10,
+      "resolution": "fixed",
+      "resolved_line": 10
+    },
+    {
+      "file": "i18n/deDE/atlas/darnassus.md",
+      "current": "muss sich hier einiges umgewöhnen",
+      "suggested": "muss sich hier erst umgewöhnen",
+      "category": "grammar",
+      "priority": "P2",
+      "reason": "Reflexive sich umgewöhnen does not take einiges as its direct object.",
+      "id": "YD-012",
+      "line": 7,
+      "resolution": "fixed",
+      "resolved_line": 7
+    },
+    {
+      "file": "i18n/deDE/atlas/alterac-mountains.md",
+      "current": "Die Straße bringt einen Reisenden an die Außenseite ihrer Arbeit.",
+      "suggested": "Auf der Straße kommt ein Reisender nur bis vor die Kuppel.",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "The English outside of their work means outside the rebuilding behind the dome, not an outside surface of work.",
+      "id": "YD-013",
+      "line": 7,
+      "resolution": "fixed",
+      "resolved_line": 7
+    },
+    {
+      "file": "i18n/deDE/atlas/azshara.md",
+      "current": "Die Straße kommt aus Ashenvale über einer Küste aus zerbrochenen Tempeln und rotgoldenen Bäumen herein.",
+      "suggested": "Die Straße aus Ashenvale führt oberhalb einer Küste mit zerbrochenen Tempeln und rotgoldenen Bäumen ins Land.",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "Clarify road/coast relation without the literal comes in over construction.",
+      "id": "YD-014",
+      "line": 5,
+      "resolution": "fixed",
+      "resolved_line": 5
+    },
+    {
+      "file": "i18n/deDE/atlas/the-barrens.md",
+      "current": "Das offene Land macht ferne Orientierungspunkte leicht sichtbar und leicht unterschätzt.",
+      "suggested": "Im offenen Land sind ferne Orientierungspunkte leicht zu sehen, doch ihre Entfernung wird leicht unterschätzt.",
+      "category": "grammar",
+      "priority": "P2",
+      "reason": "Makes them easy to underestimate needs zu unterschätzen, not a past participle coordinated with sichtbar.",
+      "id": "YD-015",
+      "line": 7,
+      "resolution": "fixed",
+      "resolved_line": 7
+    },
+    {
+      "file": "i18n/deDE/words.json",
+      "key": "Hearth",
+      "current": "Herd",
+      "suggested": "Heimatort",
+      "category": "meaning",
+      "priority": "P2",
+      "reason": "AtlasBook displays the current inn bind, not a cooking stove.",
+      "id": "YD-016",
+      "line": 260,
+      "resolution": "fixed",
+      "resolved_line": 260
+    },
+    {
+      "file": "i18n/deDE/words.json",
+      "key": "Many Hearths",
+      "current": "Viele Herde",
+      "suggested": "Viele Heimatorte",
+      "category": "meaning",
+      "priority": "P2",
+      "reason": "The achievement counts five inn binds, not stoves.",
+      "id": "YD-017",
+      "line": 297,
+      "resolution": "fixed",
+      "resolved_line": 297
+    },
+    {
+      "file": "i18n/deDE/words.json",
+      "key": "First",
+      "current": "Erste",
+      "suggested": "Erstmals",
+      "category": "grammar",
+      "priority": "P3",
+      "reason": "Neutral timestamp label works for both fish and herbs without an unsupported feminine adjective.",
+      "id": "YD-018",
+      "line": 233,
+      "resolution": "fixed",
+      "resolved_line": 233
+    },
+    {
+      "file": "i18n/deDE/words.json",
+      "key": "this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its riddles, its achievements. Type /yonder reset yes to do it.",
+      "current": "das vergisst alles, was dieser Charakter verzeichnet hat",
+      "suggested": "das löscht alles, was dieser Charakter verzeichnet hat",
+      "category": "idiom",
+      "priority": "P3",
+      "reason": "State the reset's actual action clearly.",
+      "id": "YD-019",
+      "line": 602,
+      "resolution": "fixed",
+      "resolved_line": 602
+    },
+    {
+      "file": "i18n/deDE/words.json",
+      "key": "%d more fish to find here.",
+      "current": "Hier gibt es noch %d Fische zu finden.",
+      "suggested": "Fehlende Fischarten: %d.",
+      "category": "runtime-plural",
+      "priority": "P2",
+      "reason": "AtlasBook calls the same English key for singular and plural. 1 Fische is ungrammatical, and the count is species, not individual catches.",
+      "id": "YD-020",
+      "line": 31,
+      "resolution": "fixed",
+      "resolved_line": 31
+    },
+    {
+      "file": "i18n/deDE/words.json",
+      "key": "None found here yet: %d fish to find.",
+      "current": "Hier noch nichts gefunden: %d Fische zu finden.",
+      "suggested": "Hier noch nichts gefunden. Fehlende Fischarten: %d.",
+      "category": "runtime-plural",
+      "priority": "P2",
+      "reason": "Use a count-neutral label for both number forms and accurately describe missing species.",
+      "id": "YD-021",
+      "line": 316,
+      "resolution": "fixed",
+      "resolved_line": 316
+    },
+    {
+      "file": "i18n/deDE/expeditions/dun-morogh.md",
+      "category": "wordplay-action",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-022",
+      "line": 40,
+      "resolution": "fixed",
+      "resolved_line": 40
+    },
+    {
+      "file": "i18n/deDE/expeditions/dun-morogh.md",
+      "category": "meaning",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-023",
+      "line": 50,
+      "resolution": "fixed",
+      "resolved_line": 50
+    },
+    {
+      "file": "i18n/deDE/expeditions/badlands.md",
+      "category": "lexical",
+      "priority": "P3",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-024",
+      "line": 21,
+      "resolution": "fixed",
+      "resolved_line": 21
+    },
+    {
+      "file": "i18n/deDE/fish.md",
+      "section": "13890",
+      "current": "ein weniger bekannter Preis",
+      "suggested": "ein weniger bekannter Fang",
+      "category": "lexical",
+      "priority": "P3",
+      "reason": "Prize refers to the fish caught, not its price or an award.",
+      "id": "YD-025",
+      "line": 183,
+      "resolution": "fixed",
+      "resolved_line": 183
+    },
+    {
+      "file": "i18n/deDE/fish.md",
+      "section": "13893",
+      "current": "sind ein anderer Preis, einer,",
+      "suggested": "sind ein anderer Fang, einer,",
+      "category": "lexical",
+      "priority": "P3",
+      "reason": "Keep the prized-catch sense, avoiding a literal price.",
+      "id": "YD-026",
+      "line": 149,
+      "resolution": "fixed",
+      "resolved_line": 149
+    },
+    {
+      "file": "i18n/deDE/fish.md",
+      "section": "13914",
+      "current": "Auch ohne die Zutaten eines Anglers",
+      "suggested": "Auch ohne die Ausschmückungen eines Anglers",
+      "category": "meaning",
+      "priority": "P2",
+      "reason": "The angler's additions are embellishments to the fishing story, not cooking ingredients.",
+      "id": "YD-027",
+      "line": 275,
+      "resolution": "fixed",
+      "resolved_line": 275
+    },
+    {
+      "file": "i18n/deDE/expeditions/ashenvale.md",
+      "category": "clue-fidelity",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-028",
+      "line": 17,
+      "resolution": "fixed",
+      "resolved_line": 17
+    },
+    {
+      "file": "i18n/deDE/expeditions/duskwood.md",
+      "category": "grammar",
+      "priority": "P3",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-029",
+      "line": 33,
+      "resolution": "fixed",
+      "resolved_line": 33
+    },
+    {
+      "file": "i18n/deDE/expeditions/feralas.md",
+      "category": "name-consistency",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-030",
+      "line": 10,
+      "resolution": "fixed",
+      "resolved_line": 10
+    },
+    {
+      "file": "i18n/deDE/expeditions/hillsbrad-foothills.md",
+      "category": "meaning",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-031",
+      "line": 13,
+      "resolution": "fixed",
+      "resolved_line": 13
+    },
+    {
+      "file": "i18n/deDE/expeditions/loch-modan.md",
+      "category": "lexical",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-032",
+      "line": 40,
+      "resolution": "fixed",
+      "resolved_line": 40
+    },
+    {
+      "file": "i18n/deDE/expeditions/teldrassil.md",
+      "category": "runtime-gender",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-033",
+      "line": 9,
+      "resolution": "fixed",
+      "resolved_line": 9
+    },
+    {
+      "file": "i18n/deDE/expeditions/stormwind-city.md",
+      "category": "wordplay-action",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-034",
+      "line": 27,
+      "resolution": "fixed",
+      "resolved_line": 27
+    },
+    {
+      "file": "i18n/deDE/expeditions/tanaris.md",
+      "category": "wordplay-action",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-035",
+      "line": 26,
+      "resolution": "fixed",
+      "resolved_line": 26
+    },
+    {
+      "file": "i18n/deDE/expeditions/wetlands.md",
+      "category": "wordplay-action",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-036",
+      "line": 10,
+      "resolution": "fixed",
+      "resolved_line": 10
+    },
+    {
+      "file": "i18n/deDE/expeditions/zephras-isle.md",
+      "category": "grammar",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-037",
+      "line": 38,
+      "resolution": "fixed",
+      "resolved_line": 38
+    },
+    {
+      "file": "i18n/deDE/expeditions/zephras-isle.md",
+      "category": "grammar",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-038",
+      "line": 50,
+      "resolution": "fixed",
+      "resolved_line": 50
+    },
+    {
+      "file": "i18n/deDE/expeditions/western-plaguelands.md",
+      "category": "reference",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-039",
+      "extra_edits": [
+        [
+          "die im Chillwind-Lager vor Hearthglen rastet",
+          "die sich im Chillwind-Lager ausruht, bevor sie nach Hearthglen aufbricht"
+        ]
+      ],
+      "line": 6,
+      "resolution": "fixed",
+      "resolved_line": 6
+    },
+    {
+      "file": "i18n/deDE/expeditions/thunder-bluff.md",
+      "category": "meaning",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-040",
+      "line": 8,
+      "resolution": "fixed",
+      "resolved_line": 8
+    },
+    {
+      "file": "i18n/deDE/expeditions/dun-morogh.md",
+      "category": "coverage-provenance",
+      "priority": "P2",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-041",
+      "line": 11,
+      "resolution": "fixed",
+      "resolved_line": 11
+    },
+    {
+      "file": "i18n/deDE/expeditions/thousand-needles.md",
+      "category": "route-clarity",
+      "priority": "P3",
+      "reason": "Withheld: it would give the riddle away (the change is in the file).",
+      "id": "YD-042",
+      "extra_edits": [
+        [
+          "Achellios der Verbannte, ein Zentaur, der mit drei Rudelhunden der Galak über die Hochebenen zwischen dem Steilhang und der Kreischenden Schlucht kreist.",
+          "Achellios der Verbannte, ein Zentaur, der mit drei Rudelhunden der Galak seine Runden um die Hochebenen zwischen dem Steilhang und der Kreischenden Schlucht zieht."
+        ]
+      ],
+      "line": 15,
+      "resolution": "fixed",
+      "resolved_line": 15
+    },
+    {
+      "file": "i18n/deDE/words.json",
+      "key": "Discovered %s. Click to outline it on the map.",
+      "current": "Entdeckt am %s. Klicken, um es auf der Karte zu umreißen.",
+      "suggested": "Entdeckt am %s. Klicken, um den Umriss auf der Karte anzuzeigen.",
+      "category": "functional-idiom",
+      "priority": "P3",
+      "reason": "Describe showing an outline, rather than sketching or summarizing the place.",
+      "id": "YD-043",
+      "line": 197,
+      "resolution": "fixed",
+      "resolved_line": 197
+    }
+  ],
+  "text_audit": [
+    {
+      "file": "i18n/deDE/families/beasts/basilisks.md",
+      "source": "content/beasts/basilisks.md",
+      "source_sha256": "96d3723179704819d1dbb33be85d9f651f4315767dc2f8bf2e6d61bcd80abd7d",
+      "translation_sha256": "da93098185c4e353f96ccc373fb0c7d0ed440a12fe2f577bb06e25253da72a2f",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "da93098185c4e353f96ccc373fb0c7d0ed440a12fe2f577bb06e25253da72a2f",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/bats.md",
+      "source": "content/beasts/bats.md",
+      "source_sha256": "600264eaadb849222ebdddd909e21ed7e7ae60df5838496f325a468a1e3b4f3f",
+      "translation_sha256": "0c06677b8e1013d12b9512b57cb3e94435af26eafb6842b9eec4c96d53c1265e",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "0c06677b8e1013d12b9512b57cb3e94435af26eafb6842b9eec4c96d53c1265e",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/bears.md",
+      "source": "content/beasts/bears.md",
+      "source_sha256": "a5ce6c10cb7ccf406ed54c914f10ccc87cf42ebc2048477542e17cd0c269756c",
+      "translation_sha256": "d2cdc209ec9fc9e8a26df3bb2bfa6c05f0aaf03b6d587ba874c3cd851219bd46",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "d2cdc209ec9fc9e8a26df3bb2bfa6c05f0aaf03b6d587ba874c3cd851219bd46",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/birds.md",
+      "source": "content/beasts/birds.md",
+      "source_sha256": "e04e1e9221236479494912b27b751d01259e2cb7e68af417b178097e0c2686d1",
+      "translation_sha256": "3d864b7ebb4c4a02c7cc6e302b96123b56badfbb39728ff2cc0cf77132e0b624",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "3d864b7ebb4c4a02c7cc6e302b96123b56badfbb39728ff2cc0cf77132e0b624",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/boars.md",
+      "source": "content/beasts/boars.md",
+      "source_sha256": "f2951f8337b2bf65b74617475e4b1bccb6485278f480d49c162a14150c96b7b6",
+      "translation_sha256": "dea9f65040dcd688be62b9263edee8383812d102350cf07eb8d3290c43fd3498",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "dea9f65040dcd688be62b9263edee8383812d102350cf07eb8d3290c43fd3498",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/carrion-birds.md",
+      "source": "content/beasts/carrion-birds.md",
+      "source_sha256": "1484a23d5d8b14ba5f8ed85c2037046c52bf587aa8d14256eab1062e2ba4fe28",
+      "translation_sha256": "1233c2e0c33ede193dbf08ffc1b26937ccb0b9c8ca0c3ffebf95ca5b35c696bc",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "1233c2e0c33ede193dbf08ffc1b26937ccb0b9c8ca0c3ffebf95ca5b35c696bc",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/chimaeras.md",
+      "source": "content/beasts/chimaeras.md",
+      "source_sha256": "63d12bbeabea3fecf28784b2c74965df0e3e662fbd834d2dcb5dc3f85bfb62e3",
+      "translation_sha256": "7dbc87ec3dd1c2c49d98fdfc53e99b75f8a4cad3bf7a845efa0d05d7b5f51889",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "7dbc87ec3dd1c2c49d98fdfc53e99b75f8a4cad3bf7a845efa0d05d7b5f51889",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/crabs.md",
+      "source": "content/beasts/crabs.md",
+      "source_sha256": "d736a0b20529831a44a0c4646d5bcd3924fbe17b61faaa0793e44057601ce261",
+      "translation_sha256": "5036aed5e85d6cc4c331da6fdd31f7a0c357c50057f34a410a554c6af7b36f61",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "5036aed5e85d6cc4c331da6fdd31f7a0c357c50057f34a410a554c6af7b36f61",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/crocolisks.md",
+      "source": "content/beasts/crocolisks.md",
+      "source_sha256": "c28f7235d37c51f799f67889561de05360301a3c326af9eab932adc060fb61ff",
+      "translation_sha256": "bb5c1705a143cd874b2a7c1734226095eb169dbe9a153342096944c69835fd12",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "bb5c1705a143cd874b2a7c1734226095eb169dbe9a153342096944c69835fd12",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/gorillas.md",
+      "source": "content/beasts/gorillas.md",
+      "source_sha256": "752cd0d021851e1937d6740b9ae29c62eb0d16a6b3e2fbef1e677141f3daa631",
+      "translation_sha256": "6f71392a153700ab88e11d5aae143f6fe6977e806521042fc60be8511857b8f2",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "6f71392a153700ab88e11d5aae143f6fe6977e806521042fc60be8511857b8f2",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/great-cats.md",
+      "source": "content/beasts/great-cats.md",
+      "source_sha256": "5f17223d507628a803e9f4653b391520556ca571457482fd7a4f68ae54f8d743",
+      "translation_sha256": "75c97a243012700cd118411cf7202d8b9c612bc54ceb7d94d7f44235fa388b23",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "75c97a243012700cd118411cf7202d8b9c612bc54ceb7d94d7f44235fa388b23",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/great-saurians.md",
+      "source": "content/beasts/great-saurians.md",
+      "source_sha256": "a95f02a48cb07f5b44e5177f160a3d563a87ac50c9d284e3d88536d948d00371",
+      "translation_sha256": "f6ca72665b5fd86c36f7ccd7e1c3c36d2899d117541555759651d0ba6285a088",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "2b8a02eddd0cc21dfbd0868c05087f5dc3ae4c1275897fdbc13de0c6a0bc3913",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/beasts/hydras.md",
+      "source": "content/beasts/hydras.md",
+      "source_sha256": "f2564c1a10b5a1b655a61e2ee14582ae840bf6123b44d318ef714c051dcaead2",
+      "translation_sha256": "e537a4c8a6f359a731df057cfd313acc205a93814fb59cfb17b9d77a893042cc",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "e537a4c8a6f359a731df057cfd313acc205a93814fb59cfb17b9d77a893042cc",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/hyenas.md",
+      "source": "content/beasts/hyenas.md",
+      "source_sha256": "d4d74f64c9334ff5a2102d5e1cb184edc69ce26d5adbb2a7cf326bd38d23766d",
+      "translation_sha256": "c24b13a87582dbf0b2b7866655faac085d4116d46de05cf1df5bd1d48efee2d8",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "c24b13a87582dbf0b2b7866655faac085d4116d46de05cf1df5bd1d48efee2d8",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/insects.md",
+      "source": "content/beasts/insects.md",
+      "source_sha256": "5dc47cb2ef6448782539aa12b11131878c65b36e68af851b0cddefa031ebebe2",
+      "translation_sha256": "458b65c00bc6826f06ca31cae2301fce6c67c9936da27e903dd52ede23fc3d2c",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "636136d8f432e8cb84166e0a558a827a75206a23d5ff0d8cb9138c3a383fce16",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/beasts/kodos.md",
+      "source": "content/beasts/kodos.md",
+      "source_sha256": "6b580c867bbea2aa44684f055d19bbc09f72ba19e7a1ac7653142242efd026fc",
+      "translation_sha256": "78830499d02b2ba58a16160dcf6f9ab1e3f61de3eb8773ac84da786ee804fc4f",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "78830499d02b2ba58a16160dcf6f9ab1e3f61de3eb8773ac84da786ee804fc4f",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/other-beasts.md",
+      "source": "content/beasts/other-beasts.md",
+      "source_sha256": "93ee4aec113040f96f07c33babdc663af5aa79bfa8551c6e8bb0b8d164b0e0f4",
+      "translation_sha256": "a4f7354b44ee811990bdad247dab289773919f18044bd6d9abe6cda6cf6a9132",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "a4f7354b44ee811990bdad247dab289773919f18044bd6d9abe6cda6cf6a9132",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/owls.md",
+      "source": "content/beasts/owls.md",
+      "source_sha256": "22f1c2d02a2b5c70a7a6084f5136dea5a891ee4686dc6481e50824f3b0c4f2f0",
+      "translation_sha256": "6ed8d2630ece2d19b1c423331f8d36fe5f3fb7b0c85685bbbf80eddfcc2dd5d9",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "5e2409451f5b18811693c7fc7c63fea8b53ec1149e973e20582b67195056efbf",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/beasts/rams-and-goats.md",
+      "source": "content/beasts/rams-and-goats.md",
+      "source_sha256": "24b8c009e9d7a5e07246e426876869e0d1d6161d38943292f2765b1d9caac8ba",
+      "translation_sha256": "9cd11488302fdfb88636c152a31860d57137e7f4fcd1fa686cca3963cccdf2f5",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "9cd11488302fdfb88636c152a31860d57137e7f4fcd1fa686cca3963cccdf2f5",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/raptors.md",
+      "source": "content/beasts/raptors.md",
+      "source_sha256": "979a4b2b56df59e75113e7ba37e0cfffa050cba48bf6e3047591b13ea4e89d15",
+      "translation_sha256": "5b32568a6af9cf3ed961fc2020d207fc7415da3bb550e6181835a0e4adae6367",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "5b32568a6af9cf3ed961fc2020d207fc7415da3bb550e6181835a0e4adae6367",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/scorpids.md",
+      "source": "content/beasts/scorpids.md",
+      "source_sha256": "8b23e0d31f22f9f4e6a0aa7fe76b76540361fbea0e0726584c401bbf49b9d6df",
+      "translation_sha256": "c16de91f0ee8715ae82fa17b90b1c4834608b11c8218a55e044a7785d60fd487",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "c16de91f0ee8715ae82fa17b90b1c4834608b11c8218a55e044a7785d60fd487",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/sharks-and-fish.md",
+      "source": "content/beasts/sharks-and-fish.md",
+      "source_sha256": "bb57cf0a4a432238b5847fa0e7dad2f764eef5edfa3febf4a7e47e24ec54d91b",
+      "translation_sha256": "166c0464ea8be157cc2db2705cbe9fdf8c300b2e0518649045e73a06ec801e88",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "166c0464ea8be157cc2db2705cbe9fdf8c300b2e0518649045e73a06ec801e88",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/snakes.md",
+      "source": "content/beasts/snakes.md",
+      "source_sha256": "4b8bdd9a2964ab7315aa3efe3da42ce2448a0b4eb8f44460641a13c1d7dac1f9",
+      "translation_sha256": "665f1843574d8c6984494bf63b3ef13403ce5a7efc1b44379fe1fb1b61a498a7",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "665f1843574d8c6984494bf63b3ef13403ce5a7efc1b44379fe1fb1b61a498a7",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/spiders.md",
+      "source": "content/beasts/spiders.md",
+      "source_sha256": "5d1ec032f654d14b44845c1dad038d6b37afa337ac555fa9440636fce4a9adb7",
+      "translation_sha256": "c45cbcdb4e41436b2c3b6c93035119e89de53aa34e6ae95af2248fd6185ed738",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "c45cbcdb4e41436b2c3b6c93035119e89de53aa34e6ae95af2248fd6185ed738",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/stags-and-steeds.md",
+      "source": "content/beasts/stags-and-steeds.md",
+      "source_sha256": "7db5626e21dff4dfb5e8a045ac63ae5d85200d807059ded8a9ba5cc6dd073893",
+      "translation_sha256": "5c14b911b2eadcb7a50e2c122f085512f8950692da9b8ecf5fffcda53136e8a1",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "5c14b911b2eadcb7a50e2c122f085512f8950692da9b8ecf5fffcda53136e8a1",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/tallstriders.md",
+      "source": "content/beasts/tallstriders.md",
+      "source_sha256": "1a898fbd1454e3ef380d0937cca08a5abe565fc9981fc878b39c4f5ba924bfe3",
+      "translation_sha256": "baec6474e3733b74ba8920d8c386ae21df7c1f1bbbf70dd2b4be1819d4b71678",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "baec6474e3733b74ba8920d8c386ae21df7c1f1bbbf70dd2b4be1819d4b71678",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/thunder-lizards.md",
+      "source": "content/beasts/thunder-lizards.md",
+      "source_sha256": "44eebc7eeeb439c7c03ded5b9555ec8e58b52940bb620b40f444ddea01b637ac",
+      "translation_sha256": "0d3d46631f7bcb7128c842fee09d711ea951e9f59fa83c1ef8de87004ea2253a",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "0d3d46631f7bcb7128c842fee09d711ea951e9f59fa83c1ef8de87004ea2253a",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/turtles.md",
+      "source": "content/beasts/turtles.md",
+      "source_sha256": "d9901e7b14e424f9d67ea5af4194fd2c752e22878e87befd27e363394be3fd5f",
+      "translation_sha256": "a28c63525e54c81c93b53ca0bec5aa0113c743f22f178d158a052d9d33601936",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "a28c63525e54c81c93b53ca0bec5aa0113c743f22f178d158a052d9d33601936",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/wendigos.md",
+      "source": "content/beasts/wendigos.md",
+      "source_sha256": "b034d960cbb923c2668ee8812d71182f33c12c37e68de771a4fd70924fe1ee32",
+      "translation_sha256": "a34130c998aa885dc3c44a4977803e1b6a512c3e98ec1be488c47150aab04205",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "a34130c998aa885dc3c44a4977803e1b6a512c3e98ec1be488c47150aab04205",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/wind-serpents.md",
+      "source": "content/beasts/wind-serpents.md",
+      "source_sha256": "8045bfe4cb76bbc7c0a9d4472b5000be3a744aa66d5c1a575e5c50ff9133c2b7",
+      "translation_sha256": "782bf91b31d1229daf967fdf2fab7f0a2a32d0ca7bb520d5698cb8a5dcebe3ac",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "5db5715cd64350c4814b624410619707f9642b83edaeed20c4f7adb9a221b39f",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/beasts/wolves.md",
+      "source": "content/beasts/wolves.md",
+      "source_sha256": "803374f5dc5162e0d5152b1fc24ee2317685f9e99c7d9c06ebc952fbb5e174c3",
+      "translation_sha256": "bf884a0ea374a5274dfb5d57b5dbc5ffa724bbd2469d358c54d1b07b76847588",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "0ac07ce037ccd86aa0086d6b54e7daba0afd49ea3a5917ddf4f0e2171902a561",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/beasts/worms-and-grubs.md",
+      "source": "content/beasts/worms-and-grubs.md",
+      "source_sha256": "a5af66baf784b55dc9ba761c9b9d572c755ab3c7e1bc91813ba788fb393257ef",
+      "translation_sha256": "1c95943e532a551d367c4e14abf7482265aeb0b8e1c5657bdff1852414217858",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "1c95943e532a551d367c4e14abf7482265aeb0b8e1c5657bdff1852414217858",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/beasts/yetis.md",
+      "source": "content/beasts/yetis.md",
+      "source_sha256": "ac9dc4b0158c5fd36beedfbcd71190319219289436d7d98d1888519e5219abec",
+      "translation_sha256": "6742910508b726cef30d566b222e487a002cd3da5bfc3421fa95958bcf6f92b2",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "6742910508b726cef30d566b222e487a002cd3da5bfc3421fa95958bcf6f92b2",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/demons/burning-legion.md",
+      "source": "content/demons/burning-legion.md",
+      "source_sha256": "bcb8754936a2a2fca4b096bfac296869c9be01462eb86ed4ad93a86d13f10bf1",
+      "translation_sha256": "73724a95fcac6592c1653260b06d5672933977e1583f8e42f572c87c51c7b2ce",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "73724a95fcac6592c1653260b06d5672933977e1583f8e42f572c87c51c7b2ce",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/demons/satyrs.md",
+      "source": "content/demons/satyrs.md",
+      "source_sha256": "b39bcb63c46e21b9301f8f756d3d25fb795046fc5a1acd11c6459742ea434e7c",
+      "translation_sha256": "7a376f0425c4d2ae7989f5b1baf483ebce2d1a3fa1da3a9f85ff169c1c460f33",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "7a376f0425c4d2ae7989f5b1baf483ebce2d1a3fa1da3a9f85ff169c1c460f33",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/black-dragonflight.md",
+      "source": "content/dragonkin/black-dragonflight.md",
+      "source_sha256": "929ef5d9e03a8f0a1d49878724d00e5aa11a19d2a106d624893c5f3ed884d67f",
+      "translation_sha256": "e08987c1a270097ec2fe5b88829319c212188aa36e90ec41e59799bcc6ef98c3",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "e08987c1a270097ec2fe5b88829319c212188aa36e90ec41e59799bcc6ef98c3",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/blue-dragonflight.md",
+      "source": "content/dragonkin/blue-dragonflight.md",
+      "source_sha256": "f5467f7e00130fdc7b26e16b19a6d34dd549a470249b7ae96de35dd30e19be2c",
+      "translation_sha256": "f6d64ed6118df380ada2ba5c9160cfd403854f2f4c93a4d5879a5914b26d3ac5",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "f6d64ed6118df380ada2ba5c9160cfd403854f2f4c93a4d5879a5914b26d3ac5",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/bronze-dragonflight.md",
+      "source": "content/dragonkin/bronze-dragonflight.md",
+      "source_sha256": "45c577f5442a72253c4fdd317fd513c8c6b5a231d650be33dc2b1e50cb4cdaee",
+      "translation_sha256": "7cbc97621b3def60514d4ea7addd11b31c0095e01ac690071fd970334981e41d",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "7cbc97621b3def60514d4ea7addd11b31c0095e01ac690071fd970334981e41d",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/faerie-dragons.md",
+      "source": "content/dragonkin/faerie-dragons.md",
+      "source_sha256": "af03a7b787f7bbc788928d044c74e866a5ec2d48bb4cecceeb0e116f1b0599f3",
+      "translation_sha256": "7986d15381c9951171c84107cb3109497fd148acb19972e668ae8bb8da66edb4",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "7986d15381c9951171c84107cb3109497fd148acb19972e668ae8bb8da66edb4",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/green-dragonflight.md",
+      "source": "content/dragonkin/green-dragonflight.md",
+      "source_sha256": "17cf2ebc955b1e6ba19d77d03e28ecdeb5780638ed886ec91caaaccae2a723c0",
+      "translation_sha256": "00a0f8b0b36a80d1eaefeab0e2a41599548353ebfa86a1281aabea65b5e9ecf3",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "35782db2e9084f148460dd97b50165bd36b161ba48dac19b7e3510ed2c7b2bee",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/other-dragonkin.md",
+      "source": "content/dragonkin/other-dragonkin.md",
+      "source_sha256": "638c144f32be6faa17bc286f405cf98e832b177aee769cf1893629f4086f7df5",
+      "translation_sha256": "1ee6312e5d2e11008316403a9b3e1bf3cb5ddf66cd2197b5491ffcbfa16a6d17",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "1ee6312e5d2e11008316403a9b3e1bf3cb5ddf66cd2197b5491ffcbfa16a6d17",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/dragonkin/red-dragonflight.md",
+      "source": "content/dragonkin/red-dragonflight.md",
+      "source_sha256": "8c42c7254ce9ff95a519a15c8dc2b3d7796e2fdc08393e8345208f1b0ded5018",
+      "translation_sha256": "786e4d61e78652139fd0a20f56847b42f5060f28766a59412b18fa02c1b6c544",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "786e4d61e78652139fd0a20f56847b42f5060f28766a59412b18fa02c1b6c544",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/elementals/air-elementals.md",
+      "source": "content/elementals/air-elementals.md",
+      "source_sha256": "baf545062c8a8c9c0930f217beff9eb34852ece2872ac85fc46e2b881829884f",
+      "translation_sha256": "6ce7874e7c12fa585dbf937bc6dd9ef57c859355010af4365fd85a963d7a7475",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "6ce7874e7c12fa585dbf937bc6dd9ef57c859355010af4365fd85a963d7a7475",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/elementals/blighted-elementals.md",
+      "source": "content/elementals/blighted-elementals.md",
+      "source_sha256": "1d0dc63fad19b3d134961ce3bacc9c78581b02fddaf40fdd96d0a23c55ed67e1",
+      "translation_sha256": "801bb67236c9a33b041111da247e8b807280344dc312f0b1cd060afecea91d91",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "801bb67236c9a33b041111da247e8b807280344dc312f0b1cd060afecea91d91",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/elementals/earth-elementals.md",
+      "source": "content/elementals/earth-elementals.md",
+      "source_sha256": "b7b0027d1faf93e857ce84734ff29ed3c58bd2fce96e1ddb196566d2f58e1012",
+      "translation_sha256": "cec68f576713753228230f6b5d1a2b5786df4b27ebb2e685c6b404f1c6e79c13",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "cec68f576713753228230f6b5d1a2b5786df4b27ebb2e685c6b404f1c6e79c13",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/elementals/fire-elementals.md",
+      "source": "content/elementals/fire-elementals.md",
+      "source_sha256": "1602ec4f9a45286db6befc2c55cb960dbe134290c43725e160f9c7c3b6c6ba27",
+      "translation_sha256": "76b2861c58dffad3ebcfae9772afe3ea036ebb790694e218efe5992a19dfdebe",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "bdae79fc6118f518f2f7af80cf649b9e21004f5a9b7027611391ba06c812c424",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/elementals/living-plants.md",
+      "source": "content/elementals/living-plants.md",
+      "source_sha256": "5168942d00670369848c0661d3502754118a50f562652ad37f5dad745e6433d1",
+      "translation_sha256": "6d67bbf82832fb25eed40f282f4d87425849f0e7e0eae8a7ad440665c7e66709",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "6d67bbf82832fb25eed40f282f4d87425849f0e7e0eae8a7ad440665c7e66709",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/elementals/oozes.md",
+      "source": "content/elementals/oozes.md",
+      "source_sha256": "f5fb81216ae4ba721aa6ea19751cb8dbf55354cb61f6e11ad1a19501a23fb3d6",
+      "translation_sha256": "e3fb709875c397f5701bbbac9294da2dff0b36e0a7fcc5c0a6edc3886157a443",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "e3fb709875c397f5701bbbac9294da2dff0b36e0a7fcc5c0a6edc3886157a443",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/elementals/other-elementals.md",
+      "source": "content/elementals/other-elementals.md",
+      "source_sha256": "7ecc56ef67ba2cce72a22ed46bbb8abd46e2e8e84bf38ca04eca8f34f3ae0541",
+      "translation_sha256": "35c83bf08f00d0ff5405eb2e02b0d1f5d8ec8588cc5e883751e9594649bcf555",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "35c83bf08f00d0ff5405eb2e02b0d1f5d8ec8588cc5e883751e9594649bcf555",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/elementals/water-elementals.md",
+      "source": "content/elementals/water-elementals.md",
+      "source_sha256": "ad634fa38b527931208917da5e32035f49dfc117318d3dce4292c98ff31ae0bd",
+      "translation_sha256": "9c25d8c3ad519b5aa395827a99a39dc310c0b15cecdd0537d34c2254880287e9",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "576bc19107fc3b471fac96cd7f4b1023f83ac67d44de0aa2800fecf5251402b4",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/giants/giants.md",
+      "source": "content/giants/giants.md",
+      "source_sha256": "a369823a19a3024468e668d86db59765215336811f70177bf0c204ec2c39bd1e",
+      "translation_sha256": "4ef54abc492ddaf3b584538c0416c70073350991de44f8684bbfe2ee7ff2cb31",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "4ef54abc492ddaf3b584538c0416c70073350991de44f8684bbfe2ee7ff2cb31",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/machines/machines.md",
+      "source": "content/machines/machines.md",
+      "source_sha256": "d90fdfeef39df626141b82df9d8ac1ff142b89e289c002688784428392d39664",
+      "translation_sha256": "e5e46877b002cc99d974486bf9947ba754b95a44f252052f07009c9103f3f459",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "e5e46877b002cc99d974486bf9947ba754b95a44f252052f07009c9103f3f459",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/oddities/oddities.md",
+      "source": "content/oddities/oddities.md",
+      "source_sha256": "3621fc3ac3b80e32d12dedf7255dba40e136d94403108d4e732b47f5a79c4291",
+      "translation_sha256": "70b863667aa44ce26d7202f9645e84a01844198ea8319dd55d1756a279fa4b7b",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "70b863667aa44ce26d7202f9645e84a01844198ea8319dd55d1756a279fa4b7b",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/oddities/silithid.md",
+      "source": "content/oddities/silithid.md",
+      "source_sha256": "31dc72d30cd6c9448d26ae67b85be137418ef2d820fb4de96832099cd761af60",
+      "translation_sha256": "e95175cec2d8b743e930396278aa3b386f220d891e4fe7e934b5540c32908a57",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "e95175cec2d8b743e930396278aa3b386f220d891e4fe7e934b5540c32908a57",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/bandits-and-mercenaries.md",
+      "source": "content/peoples/bandits-and-mercenaries.md",
+      "source_sha256": "593d18bb1925ff6cab2846d2c7833631498fc74a49cf9d390a17dd8c7bee3fc6",
+      "translation_sha256": "d84f9ae611809a63df6499b5f6bf6b9de09b755a1a240198490f5a162b0a9340",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "d84f9ae611809a63df6499b5f6bf6b9de09b755a1a240198490f5a162b0a9340",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/blackrock.md",
+      "source": "content/peoples/blackrock.md",
+      "source_sha256": "4ddbeb7915e34ca1a7bb63d264580e555ed282936373c21542cbad03dd11a140",
+      "translation_sha256": "b9ec8236ce1c92079ea720f2b8fba40d943336d616f296f9b74a71236f99146b",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "b9ec8236ce1c92079ea720f2b8fba40d943336d616f296f9b74a71236f99146b",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/burning-blade.md",
+      "source": "content/peoples/burning-blade.md",
+      "source_sha256": "a966268e576af36c43f113c486a04157735ed73298e1063e1c713214ba209042",
+      "translation_sha256": "365e000f58e5ce4ee94742d82e52171f2f14ee19f0af0d0455336a838bbcfbab",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "365e000f58e5ce4ee94742d82e52171f2f14ee19f0af0d0455336a838bbcfbab",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/centaurs.md",
+      "source": "content/peoples/centaurs.md",
+      "source_sha256": "892495df6a35b3107ff926e152fd36a324b64b2f2511f3fc7e1c48fa6154e30a",
+      "translation_sha256": "4307db78ab8c56cf2cbd65b0473b500fadbea9e31503ccbb1eea1647e1d3b5d9",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "4307db78ab8c56cf2cbd65b0473b500fadbea9e31503ccbb1eea1647e1d3b5d9",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/cult-of-the-damned.md",
+      "source": "content/peoples/cult-of-the-damned.md",
+      "source_sha256": "8d22ff866548e359150bd1fe075f4b6a3b7216f4083b03193a3dfde3f1f334d5",
+      "translation_sha256": "00a93e22c36cf1a68bfd6640acc0bbe08f830b998b6fef52d4f051b80c46162f",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "00a93e22c36cf1a68bfd6640acc0bbe08f830b998b6fef52d4f051b80c46162f",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/dark-iron-dwarves.md",
+      "source": "content/peoples/dark-iron-dwarves.md",
+      "source_sha256": "4751e24dbd16e285506abc16857b9bf5131df4dda04bfb1cab391643aab67594",
+      "translation_sha256": "9e6977247d3fa2406b4cdda2d86acfb52f6d9a1dc1e9b1c29f6a5356bb0d095f",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "9e6977247d3fa2406b4cdda2d86acfb52f6d9a1dc1e9b1c29f6a5356bb0d095f",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/defias.md",
+      "source": "content/peoples/defias.md",
+      "source_sha256": "f6d7a15f4ed929d4c1445b969c8ef5428960874ed0cefc1abef8f6a60e43a712",
+      "translation_sha256": "2ca5f4317b337fa3f61846774f3924c67b4d29199299af78a5b1dd2260aeb0a4",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "2ca5f4317b337fa3f61846774f3924c67b4d29199299af78a5b1dd2260aeb0a4",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/dragonmaw.md",
+      "source": "content/peoples/dragonmaw.md",
+      "source_sha256": "af5cd766b57d2ebe5c173799769417501873a1037702d1b19de18755f953f979",
+      "translation_sha256": "672131ff70d8e9dc5dea73cb8bae9b9b6a24e3b6a073b9236454fa68ed4dafa6",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "672131ff70d8e9dc5dea73cb8bae9b9b6a24e3b6a073b9236454fa68ed4dafa6",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/druids-of-the-fang.md",
+      "source": "content/peoples/druids-of-the-fang.md",
+      "source_sha256": "294907306278377849929f145447d750eb67970019ac1b0b7c49a3b8efccda31",
+      "translation_sha256": "88c110f51b67cad0d845dc87af7e6180fe2c045f3bcf4180e5a3b1f552c4c427",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "88c110f51b67cad0d845dc87af7e6180fe2c045f3bcf4180e5a3b1f552c4c427",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/earthen.md",
+      "source": "content/peoples/earthen.md",
+      "source_sha256": "772b62996f9c6d2d42d5d63d23a7a4ca8d3348dd294b28f3057b9760ccaa3d52",
+      "translation_sha256": "37601100e4e462628d006e42bd6aa4e26445a868d737cd8234535fdd6cc511cc",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "37601100e4e462628d006e42bd6aa4e26445a868d737cd8234535fdd6cc511cc",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/forest-trolls.md",
+      "source": "content/peoples/forest-trolls.md",
+      "source_sha256": "22399a4e8da60599d8e1dcc635b0e729aa850b353c34fcb079503f37bd9c199d",
+      "translation_sha256": "adb319b6058957121e06dc5c137c253872826843aa490c7d465617c688c5eadb",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "adb319b6058957121e06dc5c137c253872826843aa490c7d465617c688c5eadb",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/furbolgs.md",
+      "source": "content/peoples/furbolgs.md",
+      "source_sha256": "ed479ed10a41741f08e895f6ddeaf90878b9670a6694b34852f7a229619f4ade",
+      "translation_sha256": "fe16271c75b8ac4bcb755711ad6e7b6381c0cf833563d7a5f62ef83047fbc424",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "fe16271c75b8ac4bcb755711ad6e7b6381c0cf833563d7a5f62ef83047fbc424",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/gnolls.md",
+      "source": "content/peoples/gnolls.md",
+      "source_sha256": "907ee7f98e38b3a823ddc224ced4f5e2475122733d7a5a23c08e46ac2d6b8016",
+      "translation_sha256": "4b3b69038c20f34f964488778d63ef546cde33249b7d446f2e8b353d5ed07e23",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "4b3b69038c20f34f964488778d63ef546cde33249b7d446f2e8b353d5ed07e23",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/goblins.md",
+      "source": "content/peoples/goblins.md",
+      "source_sha256": "e61ec1dbe7588dd76ecafd36c58924e801b0f71c5a857de9a0422b6751985285",
+      "translation_sha256": "62450c59d30ea340f1a593bdbc71f7fb8b1dc15a7c7ca9332eec4dd3557a2595",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "62450c59d30ea340f1a593bdbc71f7fb8b1dc15a7c7ca9332eec4dd3557a2595",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/grimtotem.md",
+      "source": "content/peoples/grimtotem.md",
+      "source_sha256": "33d96c9653cab5178ea4a9b4c953c075de3b3e1dd47ffcfb9674640fe96ce3db",
+      "translation_sha256": "6e4a50cb19c9cc1c30bbedf030715866c3e6f9babc6745918e8508bf155c1b89",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "6e4a50cb19c9cc1c30bbedf030715866c3e6f9babc6745918e8508bf155c1b89",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/harpies.md",
+      "source": "content/peoples/harpies.md",
+      "source_sha256": "5b8556a74811a525553c0d2c4131d5a10539ed0a9f166c69be8353fb4f03827f",
+      "translation_sha256": "b9e6f8ecbe42301facc49943331602110f36b72945bfff56fda2e489ecd81e67",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "b9e6f8ecbe42301facc49943331602110f36b72945bfff56fda2e489ecd81e67",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/hostile-elves.md",
+      "source": "content/peoples/hostile-elves.md",
+      "source_sha256": "5b3f5fc1d7c363a09a63f5974800c0719437b6f478eb34b6cb15badf6caaae8d",
+      "translation_sha256": "05806dd919748de8ac82431301b8be445058b0c30f0534c3cb2a597b81069e86",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "05806dd919748de8ac82431301b8be445058b0c30f0534c3cb2a597b81069e86",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/ice-trolls.md",
+      "source": "content/peoples/ice-trolls.md",
+      "source_sha256": "86688c6e0cb60c68ae9e1be5e574f66b3bbecf219acb45c78422a0ca848ede48",
+      "translation_sha256": "e0db0cdfd82bbc67df55551ef5e9dbf2dbae549c2d1cd57a4f0f8e5bc4cffd60",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "e0db0cdfd82bbc67df55551ef5e9dbf2dbae549c2d1cd57a4f0f8e5bc4cffd60",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/jungle-trolls.md",
+      "source": "content/peoples/jungle-trolls.md",
+      "source_sha256": "baa1ac90d0bb8eecf33ab3aa307ef9d3964f5aa2c6a0d2046b883f22b91f2971",
+      "translation_sha256": "0ff09d4b2cc4c9072e9edb9ac5087a8b9bcf7b5cbf7fb085d852bf7cced58c44",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "0ff09d4b2cc4c9072e9edb9ac5087a8b9bcf7b5cbf7fb085d852bf7cced58c44",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/kobolds.md",
+      "source": "content/peoples/kobolds.md",
+      "source_sha256": "83d58752493d4f609a105885f1d6775867679ee8b277a964dad40f65c348cf87",
+      "translation_sha256": "3beab990d8f340697e50fd5ffbb0de3a4e3d6d35e9c758a89a57136ebf18d417",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "a3efd41f7a657e731a3be681d3dc0528cd69aed6328dba177086f041eb19013d",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/peoples/leper-gnomes.md",
+      "source": "content/peoples/leper-gnomes.md",
+      "source_sha256": "ad861fc218031f14b9f1dc9a4a8a84cb3ab1faf12dc8541b572a56eec03b8979",
+      "translation_sha256": "99a4b3b8972c2b3f04469055a340c3a16ebab296d8663a349bd724b04d3894d3",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "99a4b3b8972c2b3f04469055a340c3a16ebab296d8663a349bd724b04d3894d3",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/lost-ones.md",
+      "source": "content/peoples/lost-ones.md",
+      "source_sha256": "7d520023fc1a9239f1cad59da3e1d17678decfab0c3bfe83ad93ee5ee56dfcfc",
+      "translation_sha256": "1e72962c10fc9eb56b7350c69cde509067b91be46ab36da80ef65a81924f769c",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "1e72962c10fc9eb56b7350c69cde509067b91be46ab36da80ef65a81924f769c",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/makrura.md",
+      "source": "content/peoples/makrura.md",
+      "source_sha256": "eb09684ab9c66d3f68116ff11154252274c4c3271f88cfaedee87789812c38a9",
+      "translation_sha256": "d222570b6ed88ef2eee74ae55c3d9afe5a21b389f03a1464294f066ea356431e",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "d222570b6ed88ef2eee74ae55c3d9afe5a21b389f03a1464294f066ea356431e",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/murlocs.md",
+      "source": "content/peoples/murlocs.md",
+      "source_sha256": "52b063216dc9443fbbdbc1eeb38d88f666cfed443e8619e60e9cea4dde7cc08e",
+      "translation_sha256": "aa0b5215fd0ae0dc7562ded13dcd73f8abbc25e94e57f07d178658fca9eae97a",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "aa0b5215fd0ae0dc7562ded13dcd73f8abbc25e94e57f07d178658fca9eae97a",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/naga.md",
+      "source": "content/peoples/naga.md",
+      "source_sha256": "820f3390ed98f0aba8553f1002f0e5b97aadf8d209c22c6d00857082b4fa05a2",
+      "translation_sha256": "790892e5842fa9749dad39eab1a1765a5ce9c0e37d642ab71f1db32205c68444",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "790892e5842fa9749dad39eab1a1765a5ce9c0e37d642ab71f1db32205c68444",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/ogres.md",
+      "source": "content/peoples/ogres.md",
+      "source_sha256": "c3d36635073ad3bcd13de6bdfcabaa9402e3c2097a0881c443fd7c73b11d88a3",
+      "translation_sha256": "08cf2794d5d6092f117285cbc0c5d8afdadf1ac9b62b5bd09bd8ff35b5fad02c",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "08cf2794d5d6092f117285cbc0c5d8afdadf1ac9b62b5bd09bd8ff35b5fad02c",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/other-peoples.md",
+      "source": "content/peoples/other-peoples.md",
+      "source_sha256": "a54280e55ce6854a185b4e96796d9b17dceccc88b830d41ba9643fe05dd32cda",
+      "translation_sha256": "ea3b33961a6b8f2c4864ab7d638fdaea62cf6619767879c4340f495e3c91941d",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "ea3b33961a6b8f2c4864ab7d638fdaea62cf6619767879c4340f495e3c91941d",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/pirates.md",
+      "source": "content/peoples/pirates.md",
+      "source_sha256": "c3d8e526cc7a0a864e23041047fd15cfaf86e7b5178e056328d3c64b5f94e531",
+      "translation_sha256": "95ba320eb87a01c8350c45a091173590f68ec531be3b17da5f292eb82d0d7794",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "95ba320eb87a01c8350c45a091173590f68ec531be3b17da5f292eb82d0d7794",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/quilboar.md",
+      "source": "content/peoples/quilboar.md",
+      "source_sha256": "df898a4e05144d010d45c503d1abe0053ad34ab38a196cba8eaabb080df95fe5",
+      "translation_sha256": "30ade4976d1379d5cedf17e759dd501bfadbe9f3ec20b3684c976cdd2ab975fd",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "30ade4976d1379d5cedf17e759dd501bfadbe9f3ec20b3684c976cdd2ab975fd",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/sand-trolls.md",
+      "source": "content/peoples/sand-trolls.md",
+      "source_sha256": "4253477228dee544531af69297e1d7957d109279b23359390f28233f6bdeb17b",
+      "translation_sha256": "ce4c815af7fb56f6fe6d4d27f91fd814865737d78c45a7df0d34d1ec43910d50",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "ce4c815af7fb56f6fe6d4d27f91fd814865737d78c45a7df0d34d1ec43910d50",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/scarlet-crusade.md",
+      "source": "content/peoples/scarlet-crusade.md",
+      "source_sha256": "cff0f3c7a5cb0a4e2dde6149332090136d1b4dc6c5ca28923573592871f85a23",
+      "translation_sha256": "c02f8ac2be8c95a2879810df9ebd374bdb7a5e29973e7d6430c634734d8419d5",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "c02f8ac2be8c95a2879810df9ebd374bdb7a5e29973e7d6430c634734d8419d5",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/servants-of-the-firelord.md",
+      "source": "content/peoples/servants-of-the-firelord.md",
+      "source_sha256": "4b00df30cf55bc0adc57cf7d8641d9006632f444c1c615a7563be2c81e9904ba",
+      "translation_sha256": "915fe9657381018294cf31f726b97640109f41b20c9cc498a67b0358e106b4b3",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "915fe9657381018294cf31f726b97640109f41b20c9cc498a67b0358e106b4b3",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/shadow-council.md",
+      "source": "content/peoples/shadow-council.md",
+      "source_sha256": "3186b420fedf708cb3d2bd979697fa056dd7af9e453cd2235f4ae7a756ae4e57",
+      "translation_sha256": "62611909d2c43c71e9c1da75c0e41a09e02ec04a24a86649f0c0ecd045c91f87",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "62611909d2c43c71e9c1da75c0e41a09e02ec04a24a86649f0c0ecd045c91f87",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/syndicate.md",
+      "source": "content/peoples/syndicate.md",
+      "source_sha256": "cbefb0072f9358b47efca4830555300b0e08d0a899a26032eb6a0b5a3c4811d1",
+      "translation_sha256": "6fec31cc96a0154c138737edbf69a2de3e9d7d2b643e2900e3e033bbc9174381",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "6fec31cc96a0154c138737edbf69a2de3e9d7d2b643e2900e3e033bbc9174381",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/troggs.md",
+      "source": "content/peoples/troggs.md",
+      "source_sha256": "02c4f37c3f1facf847aece2dfe69ecb1762904d1580c8656588548b4a7c7f9aa",
+      "translation_sha256": "9345d7dd84d5e79df0a974070cd90a317af7f8069d737dd06985c43bcdee087a",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "9345d7dd84d5e79df0a974070cd90a317af7f8069d737dd06985c43bcdee087a",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/twilights-hammer.md",
+      "source": "content/peoples/twilights-hammer.md",
+      "source_sha256": "53d442d569b71b445ab08e8e3503e36fe8aecd851fecca7d8c6fd7b3fdb2cdfb",
+      "translation_sha256": "b8a5ce3e8541de22de49118d2076f186256ed9cc180ea5035c26563aabb5ba7a",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "b8a5ce3e8541de22de49118d2076f186256ed9cc180ea5035c26563aabb5ba7a",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/venture-company.md",
+      "source": "content/peoples/venture-company.md",
+      "source_sha256": "5e0641b26f435e22a6034c49decd8b5cd4632c8738f4b6daeeb75db93f6226da",
+      "translation_sha256": "63483b64cdc86e8f10b2a23159ae6fd605f2f72d0947a22a6b5695cbad8fb419",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "63483b64cdc86e8f10b2a23159ae6fd605f2f72d0947a22a6b5695cbad8fb419",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/wildkin.md",
+      "source": "content/peoples/wildkin.md",
+      "source_sha256": "2cbc8903c43981893b64df0f0f0bce18024d37c24d84676b067a6e6c39ff9351",
+      "translation_sha256": "49c38812ef421354b8faa1d8bbccd1489e90c56282348973732d2dd52fabe7a7",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "49c38812ef421354b8faa1d8bbccd1489e90c56282348973732d2dd52fabe7a7",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/peoples/worgen.md",
+      "source": "content/peoples/worgen.md",
+      "source_sha256": "171f0415abb3fb7001b884863497366596364189d6d6a762c644ce749c29afed",
+      "translation_sha256": "62825c52991bf445e2eab338ca863035ee3900f2d69f2bcd9fdd4bef286e6837",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "8faddd8d9afa6fdbe260da754d1d9ef2277530abad5e9c3c34bdab04ae4729b6",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/families/undead/other-undead.md",
+      "source": "content/undead/other-undead.md",
+      "source_sha256": "5e8654bbf55f4d53a9ca7abaceacd201d029659aba620f7022793db7f08247a6",
+      "translation_sha256": "49107ef03a701167cb48f1b55db05fa6dba82ac95a23b578181fb07f6c8122c0",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "49107ef03a701167cb48f1b55db05fa6dba82ac95a23b578181fb07f6c8122c0",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/undead/restless-spirits.md",
+      "source": "content/undead/restless-spirits.md",
+      "source_sha256": "719a4c706d34946035e2119916cafb8f30ba7c1546a0ddd745a0d7817491d19a",
+      "translation_sha256": "c0291f89fbae9c7a52114768fd202ca7a0288635e1fbb396c709469e80f86b3e",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "c0291f89fbae9c7a52114768fd202ca7a0288635e1fbb396c709469e80f86b3e",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/families/undead/scourge.md",
+      "source": "content/undead/scourge.md",
+      "source_sha256": "68ee9e20a0a583caa80f30633c8c20faff468706b216660a675067e93740c63e",
+      "translation_sha256": "9405add557460431ce0a64eee8f3d55de92e75c55274f7999feb843985d5c3b4",
+      "category": "families",
+      "reviewed": true,
+      "corrected_sha256": "9405add557460431ce0a64eee8f3d55de92e75c55274f7999feb843985d5c3b4",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/alterac-mountains.md",
+      "source": "atlas/alterac-mountains.md",
+      "source_sha256": "dc10d68c196382b675c3e306003dea1a28ae0964c6c71c398e631e430565a9e5",
+      "translation_sha256": "60528964d2ca7835f46efccadeda2e52d260f8888662eb191bbe8e4d698f6261",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "b30770f53be8fc39f25a260d0046e46100983503ba34225bdeaaa2b7535d207f",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/atlas/arathi-highlands.md",
+      "source": "atlas/arathi-highlands.md",
+      "source_sha256": "2acdd361b82e270f6e48efa42eb7f9f727b9e691bdb6bcf0f2df6cea7c9d7de5",
+      "translation_sha256": "9dca22889284def77b10b0d93f96f16ac31ef56e196bea2b244479a834d78831",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "9dca22889284def77b10b0d93f96f16ac31ef56e196bea2b244479a834d78831",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/ashenvale.md",
+      "source": "atlas/ashenvale.md",
+      "source_sha256": "aef23a5b522731bb7058e0f6b6c740e1183d0ff22af6234e821c6874e8ca1d16",
+      "translation_sha256": "009d49bfbbe96719bf386a206a90a64eb46527f1cd4aef4046d182ea6cd066c0",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "009d49bfbbe96719bf386a206a90a64eb46527f1cd4aef4046d182ea6cd066c0",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/azshara.md",
+      "source": "atlas/azshara.md",
+      "source_sha256": "961c8d6021d71dc59a7979ee6f1115ee01ca7a251adc29bbb5ab127c58d77c0b",
+      "translation_sha256": "26f7bdf934baf8ee76c02108162606aa09513a2b37c3245b0df9cb17bc87cf11",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "f273db383efff8e7b04575e601cbfd22a1eebab8c74e9d28c3df4b46b640c867",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/atlas/badlands.md",
+      "source": "atlas/badlands.md",
+      "source_sha256": "73989e8c3d22ab8d1fe11ef99c4fa257678686a44ec1df45d142e6858416be3b",
+      "translation_sha256": "34f55dac1aea0004ce5c5d855d670f6e688df8f602a0f1cdee42b0551f1855f2",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "34f55dac1aea0004ce5c5d855d670f6e688df8f602a0f1cdee42b0551f1855f2",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/blasted-lands.md",
+      "source": "atlas/blasted-lands.md",
+      "source_sha256": "d5d863748810d37f9d667dc3dbfdf5ac8770a3e6bbc9e0b6a22ff25f30290ee4",
+      "translation_sha256": "0b6547bbea042b0be1b428ca13fc0758933d191b2696b798bf4d9c5ea7c21e46",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "0b6547bbea042b0be1b428ca13fc0758933d191b2696b798bf4d9c5ea7c21e46",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/burning-steppes.md",
+      "source": "atlas/burning-steppes.md",
+      "source_sha256": "1508255301144908d4b77383c3be21a5be31ff2e96b0c4e5a76b0f9fea7732ca",
+      "translation_sha256": "43a859fb70c4150f8df840a4ce82a514851cf48a0208cfa6b54ee5af13e6a735",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "43a859fb70c4150f8df840a4ce82a514851cf48a0208cfa6b54ee5af13e6a735",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/darkshore.md",
+      "source": "atlas/darkshore.md",
+      "source_sha256": "d746efdf00c64b996bb24e2706bf7afeaddcc470662953681c7bbbe5f3ca92c6",
+      "translation_sha256": "18c06f32e6ab7625fed46421cf3f6c64b80beb1cdcd5e6795712865a32adb27c",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "18c06f32e6ab7625fed46421cf3f6c64b80beb1cdcd5e6795712865a32adb27c",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/darnassus.md",
+      "source": "atlas/darnassus.md",
+      "source_sha256": "6fcf56fb5f528a1ba7e5b8f447b65d678d1ea290cac74c176a09dd7b85d1449f",
+      "translation_sha256": "61a4620b1bb73e4fe532de71b13ee87131a3e3c43d75e51699bef6a6785d69b2",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "6ac135a5fd6253d405d0f983777155d8f8ffff57d573579d17c877072584307f",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/atlas/deadwind-pass.md",
+      "source": "atlas/deadwind-pass.md",
+      "source_sha256": "9618f1bbd3ed8b36dce2850e8eaf2d6323dc3053ee69daa098ff9cb8ea4a1c20",
+      "translation_sha256": "1c5a05bf51e58e5a268b28de54136fa04decfbd76c348e98d89a82ab63ee9052",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "1c5a05bf51e58e5a268b28de54136fa04decfbd76c348e98d89a82ab63ee9052",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/desolace.md",
+      "source": "atlas/desolace.md",
+      "source_sha256": "f556f06ddbc7cdabb6caf4bfd154a4b7d63f1a4e286e8e7a1808c15c61f549f0",
+      "translation_sha256": "ecf0e270872685c976e4a3fe84bd81586b6d452d0e8bc18b651085090c74e945",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "ecf0e270872685c976e4a3fe84bd81586b6d452d0e8bc18b651085090c74e945",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/dun-morogh.md",
+      "source": "atlas/dun-morogh.md",
+      "source_sha256": "31d907b12880412a43aef25062560bd211a206579469126cac5cd3b156301939",
+      "translation_sha256": "e59db8920e1fee26c02f675e824d47e52464a2352e016d9d73fbdf04a517c5ec",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "e59db8920e1fee26c02f675e824d47e52464a2352e016d9d73fbdf04a517c5ec",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/durotar.md",
+      "source": "atlas/durotar.md",
+      "source_sha256": "302f3dd7de9679e820aa835567849006ac6ea73b5c33482351cb45cf5871583f",
+      "translation_sha256": "dee3d57a3a571d1769faea72b98f390939cb59de68640149bcc2f9f33fe0ddaa",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "dee3d57a3a571d1769faea72b98f390939cb59de68640149bcc2f9f33fe0ddaa",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/duskwood.md",
+      "source": "atlas/duskwood.md",
+      "source_sha256": "ec4bcca8c2137f6e047af1d454065b31e651748dbf6ebc9402e611e563273855",
+      "translation_sha256": "901a45c9eeef08dc23864b93645c7b6ade644857682a6a8f09cb53a1bf36ef00",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "901a45c9eeef08dc23864b93645c7b6ade644857682a6a8f09cb53a1bf36ef00",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/dustwallow-marsh.md",
+      "source": "atlas/dustwallow-marsh.md",
+      "source_sha256": "9fae1f7f6bfd1c1382ae34b5f4200b6240d38fbe3ada55e3694e82f886d237b7",
+      "translation_sha256": "369d9365caa37d1672966a2201c72df1fb0fe907ce8b1ae0164491513bb152af",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "369d9365caa37d1672966a2201c72df1fb0fe907ce8b1ae0164491513bb152af",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/eastern-plaguelands.md",
+      "source": "atlas/eastern-plaguelands.md",
+      "source_sha256": "94e02981ebe3f806124d6c80903d247acdf40875badd4f8c6e0c185b17a57bb7",
+      "translation_sha256": "b8419bd0d1a5bfc5d96aaa8a2b124ee5387f473eda033c9d2839dcc9ee121b37",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "b8419bd0d1a5bfc5d96aaa8a2b124ee5387f473eda033c9d2839dcc9ee121b37",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/elwynn-forest.md",
+      "source": "atlas/elwynn-forest.md",
+      "source_sha256": "a4c5c6e517e8abda90a2bb310859760b2f5ed9a65712299b3270ecc75a6e8d2a",
+      "translation_sha256": "474d1b1c410b8e9c85b9d9117c1803c424c0b9087b8f7ef0984809d139039410",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "474d1b1c410b8e9c85b9d9117c1803c424c0b9087b8f7ef0984809d139039410",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/felwood.md",
+      "source": "atlas/felwood.md",
+      "source_sha256": "beb9b21b1c0ea20d3a13fb905a51dda900ab4575330163ecc361680912eeb5f0",
+      "translation_sha256": "316e7b1acf61512c37a00da15d6dd3940b5a5dac4203e5a1204f658620640e82",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "316e7b1acf61512c37a00da15d6dd3940b5a5dac4203e5a1204f658620640e82",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/feralas.md",
+      "source": "atlas/feralas.md",
+      "source_sha256": "df314f486e8389f49bf8df39772e9e3ea9c7ab8cbd0f0e130723a1ac9713ad33",
+      "translation_sha256": "3ee600ddc7347b61b22284f68d01e4e81faa26a4207bcdc12cff55eedb64092b",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "3ee600ddc7347b61b22284f68d01e4e81faa26a4207bcdc12cff55eedb64092b",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/hillsbrad-foothills.md",
+      "source": "atlas/hillsbrad-foothills.md",
+      "source_sha256": "a5e2aa269edccb7dc3f06c414a870d260430941f9234e6a2667666758bf9cb14",
+      "translation_sha256": "addd49c93fbec045d6a81f2bda663d234357582cdfda609eab19f81802414e04",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "addd49c93fbec045d6a81f2bda663d234357582cdfda609eab19f81802414e04",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/ironforge.md",
+      "source": "atlas/ironforge.md",
+      "source_sha256": "55de2c9d9d1dc2cfd6e0225bde0188d6cae49af6b21064d8d1e3c3bacfe7a8d6",
+      "translation_sha256": "45c309fc078e0f76be71f042df5c563f0a9df825350fc90f0d7b42c8519a1f5e",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "45c309fc078e0f76be71f042df5c563f0a9df825350fc90f0d7b42c8519a1f5e",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/loch-modan.md",
+      "source": "atlas/loch-modan.md",
+      "source_sha256": "f887ef5bdf35bbfaf691399045d1bd30fd564b2ef6aab19e04de308aba044fdc",
+      "translation_sha256": "323916c664696f6db61ee9799b78bdf3a09b9695fa80fac3222bfe2b537ebc8a",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "323916c664696f6db61ee9799b78bdf3a09b9695fa80fac3222bfe2b537ebc8a",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/moonglade.md",
+      "source": "atlas/moonglade.md",
+      "source_sha256": "2979826d7295eb3bb5026a4443512fc9a0d96b9a92e3487d6758e6d08ebb4f9c",
+      "translation_sha256": "6bacd8131f35ad95236337a279f875ba2b32d7a5e63c784d0955e89f7238445d",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "6bacd8131f35ad95236337a279f875ba2b32d7a5e63c784d0955e89f7238445d",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/mulgore.md",
+      "source": "atlas/mulgore.md",
+      "source_sha256": "3ca5cee986caa59f8a4bc86cf7792978a59fde78e872403b03bde3f4491aaef8",
+      "translation_sha256": "ecbe762376fb53ba4739695c241897f3f8f21cb113563c248c9949da65ad777d",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "ecbe762376fb53ba4739695c241897f3f8f21cb113563c248c9949da65ad777d",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/orgrimmar.md",
+      "source": "atlas/orgrimmar.md",
+      "source_sha256": "0f567de9c74f86c8995773c80e600d90cd57dce007d861e3f1fd26f2eb709dc3",
+      "translation_sha256": "fbf1da65cd9c6206b40eee77d912a42b47f8fa6ee10f1393510ceec1763c071d",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "fbf1da65cd9c6206b40eee77d912a42b47f8fa6ee10f1393510ceec1763c071d",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/redridge-mountains.md",
+      "source": "atlas/redridge-mountains.md",
+      "source_sha256": "231cd8df54bc095b7dddbd3a3566d67f24b0b12a3e30f1420e984db4feb0af7b",
+      "translation_sha256": "5fe5bf2ce117eb92052c1aca80a41066547e6008035e8b18688fa8ff08a8fbe7",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "5fe5bf2ce117eb92052c1aca80a41066547e6008035e8b18688fa8ff08a8fbe7",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/searing-gorge.md",
+      "source": "atlas/searing-gorge.md",
+      "source_sha256": "40345874873a34f1ca6109b44ec269f9cdb1b490139a647b3f8d8f8b81a000fa",
+      "translation_sha256": "706be7c78c1d91952a3b1683ab789b90fd9772b53f4573b448ea8782a6d05663",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "706be7c78c1d91952a3b1683ab789b90fd9772b53f4573b448ea8782a6d05663",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/silithus.md",
+      "source": "atlas/silithus.md",
+      "source_sha256": "25a648f0e03c0eca9400b19c1358dc4fb33bb517c0e71effff7ab7ba8becd988",
+      "translation_sha256": "2225572d50623c7b216f99927c55ae0020f9614bcc7a518cf60fb85bfcf027c6",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "2225572d50623c7b216f99927c55ae0020f9614bcc7a518cf60fb85bfcf027c6",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/silverpine-forest.md",
+      "source": "atlas/silverpine-forest.md",
+      "source_sha256": "446cc91a9f80b96446346af2f182ccdeb580508c9ceb5cdd31814fedc8a74536",
+      "translation_sha256": "35d2fb7cb04dd725c808a28c06f55c8b62e43f4ea36db9129d5714057441a31a",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "35d2fb7cb04dd725c808a28c06f55c8b62e43f4ea36db9129d5714057441a31a",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/stonetalon-mountains.md",
+      "source": "atlas/stonetalon-mountains.md",
+      "source_sha256": "3953a37cda0593685296e55c8158297ebc2cbb7f853082e0940370b88630644f",
+      "translation_sha256": "72a1d81f440387207617380a605dbda8d9d6725ea6992e5cc40bd0fc555ec942",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "72a1d81f440387207617380a605dbda8d9d6725ea6992e5cc40bd0fc555ec942",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/stormwind-city.md",
+      "source": "atlas/stormwind-city.md",
+      "source_sha256": "74fe53a33aaefbf67a8bb774525cb0a0d998fb5abe18051f1c0ecf00e2e7bd67",
+      "translation_sha256": "acc8e24994d85ee5595dabdc4f04e6cca5423b60d0260571bd881c1edc15a24c",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "acc8e24994d85ee5595dabdc4f04e6cca5423b60d0260571bd881c1edc15a24c",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/stranglethorn-vale.md",
+      "source": "atlas/stranglethorn-vale.md",
+      "source_sha256": "959390a89855ce6967f7a4ade01e15214d6f73f5df516c26212224fe3205100d",
+      "translation_sha256": "3b98a480ba3bd3f4185b41cc5d509705d54dec5d7a3e02c3ced52d1d2b8fd0f5",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "3b98a480ba3bd3f4185b41cc5d509705d54dec5d7a3e02c3ced52d1d2b8fd0f5",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/swamp-of-sorrows.md",
+      "source": "atlas/swamp-of-sorrows.md",
+      "source_sha256": "2a224b18918a9d74b0e14058693d06b3634f7d7c0f41a826b7e25b77fe2f3192",
+      "translation_sha256": "d232350b83f2e99171a83cd706e3de48104553d8229a8606ee4456c3b52e268d",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "d232350b83f2e99171a83cd706e3de48104553d8229a8606ee4456c3b52e268d",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/tanaris.md",
+      "source": "atlas/tanaris.md",
+      "source_sha256": "6b447f5fc8131def52905d0db1cf15536d621ad617eeb0edaf1f1b1ac54f6a6d",
+      "translation_sha256": "fbee1acceb1d277efc5733cf4d254f52e137d8b9caa72b35e1ccc5c0081152f0",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "fbee1acceb1d277efc5733cf4d254f52e137d8b9caa72b35e1ccc5c0081152f0",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/teldrassil.md",
+      "source": "atlas/teldrassil.md",
+      "source_sha256": "283922dbf962d85b09e56802a82e39da783b5e4f7bc245d71349394ad43b3351",
+      "translation_sha256": "7b8dca78c5f68bf0cf32207752ba2da7f5f55e98a7333df152b962fc14721e94",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "7b8dca78c5f68bf0cf32207752ba2da7f5f55e98a7333df152b962fc14721e94",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/the-barrens.md",
+      "source": "atlas/the-barrens.md",
+      "source_sha256": "7e031ec663702c759e0d4280b97bd810adc11b98e4adbf216d33c5f839360e7f",
+      "translation_sha256": "24fcd2af77de02995de2ba896bcdb29a7e6a4ce710a8eba26e97a3716b21c42f",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "5ab6ed816a979c0cac3fb6c9749afcb1132d6dc0ef29ed0156dfff4382f131ac",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/atlas/the-hinterlands.md",
+      "source": "atlas/the-hinterlands.md",
+      "source_sha256": "81be318264f72f67514f755817978a0a0a6048d71d4001faf36920db3552b11e",
+      "translation_sha256": "efc32ae91eff778481ec087581c71e74b7a5767164a4ccc0e4fc1a78926124f7",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "efc32ae91eff778481ec087581c71e74b7a5767164a4ccc0e4fc1a78926124f7",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/thousand-needles.md",
+      "source": "atlas/thousand-needles.md",
+      "source_sha256": "5bdd1599de817bdfee94e64d128a6357d5e9b6dc6abde16fda8dca97e7981cfe",
+      "translation_sha256": "bc04b48549dceb07fce9db79f816edb766dad0d5d11ae936fe4a6bbe2f03a210",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "bc04b48549dceb07fce9db79f816edb766dad0d5d11ae936fe4a6bbe2f03a210",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/thunder-bluff.md",
+      "source": "atlas/thunder-bluff.md",
+      "source_sha256": "0c242db1031713c7790d8eb383a0fb1d1e787bee890079948ad7fc3b7c6d1fe7",
+      "translation_sha256": "6e13894bd21122dcc6d3454347dcfac662d49e2ebb064babd58a99e783b97d9e",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "6e13894bd21122dcc6d3454347dcfac662d49e2ebb064babd58a99e783b97d9e",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/tirisfal-glades.md",
+      "source": "atlas/tirisfal-glades.md",
+      "source_sha256": "23e27a3e9dfb10f1627f7229563648a99f4efa90a92b792931c81453060909f0",
+      "translation_sha256": "68fc74380310f9e103a8ce66b1e9c9670858928bcec7a34400acc4ce6aba4fcd",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "68fc74380310f9e103a8ce66b1e9c9670858928bcec7a34400acc4ce6aba4fcd",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/undercity.md",
+      "source": "atlas/undercity.md",
+      "source_sha256": "d469dfeeae8e844b17f2615efa6bdc54cb61afb191dadca8788e94f205d12289",
+      "translation_sha256": "40fe2cdc6c34193b97e20278fb3e2e4ec03b00fa17745daddebbee6740a45191",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "40fe2cdc6c34193b97e20278fb3e2e4ec03b00fa17745daddebbee6740a45191",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/ungoro-crater.md",
+      "source": "atlas/ungoro-crater.md",
+      "source_sha256": "4e0b2c75441e83998c01f72484917b9ae021f285b4da4852794d56b0dcfd7e03",
+      "translation_sha256": "01a6e8ecf591abcc2b40d468e7a733b89063620e99a2b1e2a0f510de8792825a",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "01a6e8ecf591abcc2b40d468e7a733b89063620e99a2b1e2a0f510de8792825a",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/western-plaguelands.md",
+      "source": "atlas/western-plaguelands.md",
+      "source_sha256": "174ec2bb8d8848b3c892d4b919dbc3228682dc8fb00459d1b01df56d3c00e921",
+      "translation_sha256": "c6dd51e4cf8dbb0271a2168d28d6506f2184c6eee18af33e7c465d0fc4f4f6b2",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "c6dd51e4cf8dbb0271a2168d28d6506f2184c6eee18af33e7c465d0fc4f4f6b2",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/westfall.md",
+      "source": "atlas/westfall.md",
+      "source_sha256": "179dbe7cf75972b17cdfbc98b12329241ddc18aa895ebef26592adefe98d7aad",
+      "translation_sha256": "78268d8ac551cb6c29fa0fb4a55374bb64b74eb98107f49b7e701c028df3144d",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "78268d8ac551cb6c29fa0fb4a55374bb64b74eb98107f49b7e701c028df3144d",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/wetlands.md",
+      "source": "atlas/wetlands.md",
+      "source_sha256": "9f4196203f95c4f9d05181a2e17784888c63f6c99e38b2aaba09580fde6f9ae1",
+      "translation_sha256": "bcd0ed66cc11aa3d0a4693bc76ba2c1926f30555bd4cb7fb6cbe74f92188f621",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "bcd0ed66cc11aa3d0a4693bc76ba2c1926f30555bd4cb7fb6cbe74f92188f621",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/winterspring.md",
+      "source": "atlas/winterspring.md",
+      "source_sha256": "20af67b3e9e2a47de9c5f860e56c41722bde186e1d8738021f57f4592e8bcd52",
+      "translation_sha256": "9277b7cb791b80c20bdad8ff528743a2f3769098844a158c300472c718ea87c7",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "9277b7cb791b80c20bdad8ff528743a2f3769098844a158c300472c718ea87c7",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/atlas/zephras-isle.md",
+      "source": "atlas/zephras-isle.md",
+      "source_sha256": "94c2f1b804eec78c323c42a1f5bff8b301f0e6afbc415510866c1f62b064b6bb",
+      "translation_sha256": "8136d7b983ce4b22ddcafa52f80aa84ec6d68a30dc127c8d4065192f64b559d4",
+      "category": "atlas",
+      "reviewed": true,
+      "corrected_sha256": "8136d7b983ce4b22ddcafa52f80aa84ec6d68a30dc127c8d4065192f64b559d4",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/alterac-mountains.md",
+      "source": "expeditions/alterac-mountains.md",
+      "source_sha256": "bae47685391d10b3e9cd968d01ab5552b191fdd57d2c210c2063ba9590d5c9e3",
+      "translation_sha256": "d109042f93436333e5cbeb47e32e4ecbd4cdb0339ad5dbf7269ef72dcd46319c",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "d109042f93436333e5cbeb47e32e4ecbd4cdb0339ad5dbf7269ef72dcd46319c",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/arathi-highlands.md",
+      "source": "expeditions/arathi-highlands.md",
+      "source_sha256": "babef0cbecf78813deda60540ef012e8cd0722effd0a074c629f0bd139de8708",
+      "translation_sha256": "95000061d67619a07640b0fc24b1b3874424a369a3d2210d9f656026943b6e99",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "95000061d67619a07640b0fc24b1b3874424a369a3d2210d9f656026943b6e99",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/ashenvale.md",
+      "source": "expeditions/ashenvale.md",
+      "source_sha256": "34f1cb65901d5b8f36b332ef2f6f8a4e9a72a3f112f555421d044590f0150842",
+      "translation_sha256": "d20afe99e0b6cdfffebec19552b98d81220ee16557d771d5c0ce28e9982f0d29",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "eefc67c24296b04a2c866020a21211a60c121a168e13007aa27ecb54a888bff5",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/azshara.md",
+      "source": "expeditions/azshara.md",
+      "source_sha256": "46a211e91e199cf4fb9a0a671e8913069a5b1de417f96eb148350c8eca58995e",
+      "translation_sha256": "ef62911ce184e25e8d4f0807f0ca2c71c7303524545899ab88cd3ccfdcf182b6",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "ef62911ce184e25e8d4f0807f0ca2c71c7303524545899ab88cd3ccfdcf182b6",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/badlands.md",
+      "source": "expeditions/badlands.md",
+      "source_sha256": "305af7681d687406be1e1d8ead338df45c2a9e515f789f101bac7999aea2794c",
+      "translation_sha256": "a7ace4885a5f54657244d7b5cdc209d3b8c34060ef0de8514c76c875ca2bd963",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "6f0d0d3de6ee83aa4f2af113efcb637fceb8508383a00e02dd43709b730e6929",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/blasted-lands.md",
+      "source": "expeditions/blasted-lands.md",
+      "source_sha256": "49970a39ecc45e11d5c32e5296da3dca5ee44d2041b3364956f8c1f90803ad26",
+      "translation_sha256": "8825c6a546e1a2ea8843021481d28eb4a55ef7a2078db52022cbf89f48012031",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "8825c6a546e1a2ea8843021481d28eb4a55ef7a2078db52022cbf89f48012031",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/burning-steppes.md",
+      "source": "expeditions/burning-steppes.md",
+      "source_sha256": "c54f495f1fab2e2ef65d0383ca0de947fb9a39e64fe1c8937127d42d842b0340",
+      "translation_sha256": "c47aeef73ecfcfb943aead054bf2a069728937dc174721624812283ad02e6d78",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "c47aeef73ecfcfb943aead054bf2a069728937dc174721624812283ad02e6d78",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/darkshore.md",
+      "source": "expeditions/darkshore.md",
+      "source_sha256": "8b901cd903af146625a2324362419d88bee6354d37d73d44f3d38a27b2848b89",
+      "translation_sha256": "a9e4af6fc76c49ee59af695596272ef30aeb2da4ca46afbf3c1f5ff2e89cac40",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "a9e4af6fc76c49ee59af695596272ef30aeb2da4ca46afbf3c1f5ff2e89cac40",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/darnassus.md",
+      "source": "expeditions/darnassus.md",
+      "source_sha256": "5c57dc548eb1b209ae5792c0d003a811d8d1bbc591f9c90be9d6d9a879479f3e",
+      "translation_sha256": "a4bf32425a4f540d26bc747da0e9ac90a373717a6f96f55802452271bbf52d32",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "a4bf32425a4f540d26bc747da0e9ac90a373717a6f96f55802452271bbf52d32",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/deadwind-pass.md",
+      "source": "expeditions/deadwind-pass.md",
+      "source_sha256": "4ec00e827293871760f48677eef4c8a143da8f9e3ad46ce922a4db6e76fdcf81",
+      "translation_sha256": "9bc2775a1928a2b321fdb1a12623e21e88ce4efbedc0cf9763d32ce8d0356181",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "9bc2775a1928a2b321fdb1a12623e21e88ce4efbedc0cf9763d32ce8d0356181",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/desolace.md",
+      "source": "expeditions/desolace.md",
+      "source_sha256": "5acafd7907ba6dd20689463ba4be378558ac796ecb8cb9ddc5716353507aa3cc",
+      "translation_sha256": "6767ce2dae7133ec15e2d2871e636bb5b0a1cab0891632a90f31e3efa98cc140",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "6767ce2dae7133ec15e2d2871e636bb5b0a1cab0891632a90f31e3efa98cc140",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/dun-morogh.md",
+      "source": "expeditions/dun-morogh.md",
+      "source_sha256": "22604c97fcf4989dd7ebea2e16b8280335f6ee6c820a8a9abdcece992a010342",
+      "translation_sha256": "a80bad3e43fdb78e1d00401c06f0e8a6d67faeb754d7aa95fd716c8de0b940dd",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "bcafea2da68d6f7318a5761c45858bcb452a6b9566c5b08d4380c86dcd3c78eb",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/durotar.md",
+      "source": "expeditions/durotar.md",
+      "source_sha256": "b5090d42de0c2499d149ec317038af178853906ca0472715249e3e7ae4114a3e",
+      "translation_sha256": "461af76d6c13aeb694ddb5cb03e9445683f4f25b119b1c2341e8bc5283a701a9",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "461af76d6c13aeb694ddb5cb03e9445683f4f25b119b1c2341e8bc5283a701a9",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/duskwood.md",
+      "source": "expeditions/duskwood.md",
+      "source_sha256": "019537f925501b3e34f1f2f3587f2f4bced34741d60192eab96e2a484e75a719",
+      "translation_sha256": "7d81105e06d2ed625393839295464cf55048b8e8a58de8c6086193c9227e6669",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "c81c234e903b6e3cf9f84257735515ab8b822641e21725cb0a216aaecc25b1a6",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/dustwallow-marsh.md",
+      "source": "expeditions/dustwallow-marsh.md",
+      "source_sha256": "e89273774c2d7a6e3a7de5c8d82f0e6a88b6951b84b5f368b21456336e6ac6f5",
+      "translation_sha256": "f35c74704a2e8084ae077aea83f8a4ad244bb6b60289203ebade0700520bbc7b",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "f35c74704a2e8084ae077aea83f8a4ad244bb6b60289203ebade0700520bbc7b",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/eastern-plaguelands.md",
+      "source": "expeditions/eastern-plaguelands.md",
+      "source_sha256": "527e19327bb1373d36bb53fb513701964556a5f6a603a3e160b307c7117fde13",
+      "translation_sha256": "6539d7e2327936bd99fd7084626b859445df785758d3dec98e995fcc5fe56e26",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "6539d7e2327936bd99fd7084626b859445df785758d3dec98e995fcc5fe56e26",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/elwynn-forest.md",
+      "source": "expeditions/elwynn-forest.md",
+      "source_sha256": "cd9a4f98e2e627fb67bcf15aac8462fa90cfbfc10b87eb5a9c0875e4adb851b7",
+      "translation_sha256": "5e385221120254b3c5b4fee169810990d8092a774e16629f74a0d38ea3a5366b",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "5e385221120254b3c5b4fee169810990d8092a774e16629f74a0d38ea3a5366b",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/felwood.md",
+      "source": "expeditions/felwood.md",
+      "source_sha256": "0120d3b8db76009439fac650d7c6934e1202cd48f08cf28515b14a9689dfb272",
+      "translation_sha256": "f50855ea2891d59b1758fc6b9452ea6f3a3c7a52f4fd71b5c29de327ae626bac",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "f50855ea2891d59b1758fc6b9452ea6f3a3c7a52f4fd71b5c29de327ae626bac",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/feralas.md",
+      "source": "expeditions/feralas.md",
+      "source_sha256": "7101ae66563f37f3603917acdec9d9eada37398c9af7fbfc4c79b7b35a884757",
+      "translation_sha256": "f08b6cbb9b1ed0a7adc6b7502326fcece37d1bb69e220d2d876c614fca6984fc",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "d04b8fb1fbd18b7d49cefd5fbdd7f21f685d6a79b50b1f82bd4a673862b430a7",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/hillsbrad-foothills.md",
+      "source": "expeditions/hillsbrad-foothills.md",
+      "source_sha256": "0968f429abab77612f01b9818ae91152b1adc77b74dca7a0b3a8dbb1baa86a31",
+      "translation_sha256": "4f728292b6419c4231763fa48202a9288776e7d2888d9160bd0c14375b38c9d6",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "b26ac2c52f653d71b455fe6def4de8036aa55007e6fb115cf7f1658235a495a9",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/ironforge.md",
+      "source": "expeditions/ironforge.md",
+      "source_sha256": "6b57b121ba4493304d4b52e6ad21491e681afe718002bb9e25d715a597bcc3cf",
+      "translation_sha256": "9237b9b6b95a3954445bd95a715669a6d6c046e02d42998edbaefd008b77d9ce",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "9237b9b6b95a3954445bd95a715669a6d6c046e02d42998edbaefd008b77d9ce",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/loch-modan.md",
+      "source": "expeditions/loch-modan.md",
+      "source_sha256": "e4c87bb7b90af7d2b7ec967ac9d059d6d3e4e90496b7f29dc4bd526ea640a91c",
+      "translation_sha256": "1ad6dc207bec0b14a7c0eeb779181c76a3fd927ef40ad7a9f42eb102ff6a23c9",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "aa65bd60ddb828c4f948ebf2a5be15280a7c36d9752187f95a540f0728c6cbf8",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/moonglade.md",
+      "source": "expeditions/moonglade.md",
+      "source_sha256": "486b055314f92712f597c3067ee6ff03b8672a2193e29cd4d4d343f0dfa23fa1",
+      "translation_sha256": "978f33385d3ba27277239f8e0ee4e01cca7abde0ac1a38b66d7dcfe1e30a797e",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "978f33385d3ba27277239f8e0ee4e01cca7abde0ac1a38b66d7dcfe1e30a797e",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/mulgore.md",
+      "source": "expeditions/mulgore.md",
+      "source_sha256": "79702283a1e04a20cabf96725a72aa4cd30786f5477afa29e027ee133b55f14d",
+      "translation_sha256": "e225f60436e6a9f7bc02d91ea0b1b382a83aea902f2d8321c91d807600c86012",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "e225f60436e6a9f7bc02d91ea0b1b382a83aea902f2d8321c91d807600c86012",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/orgrimmar.md",
+      "source": "expeditions/orgrimmar.md",
+      "source_sha256": "52ee5249b0341e2cdf3e57000936b5931380de3d387d93a2bbe99eeaf31db421",
+      "translation_sha256": "0fa3639c1113af541415cf31a0d50fb165818ab2296f9fa007e069328dc48399",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "0fa3639c1113af541415cf31a0d50fb165818ab2296f9fa007e069328dc48399",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/redridge-mountains.md",
+      "source": "expeditions/redridge-mountains.md",
+      "source_sha256": "931e2fed005d5fcfab2db245c3a656003db0969ad0856b08e6bb0b0b4d05773d",
+      "translation_sha256": "2bb6f157a9560f2b9d533a556990eefaa07d6c4b41d5a851e5cfa2804767a14c",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "2bb6f157a9560f2b9d533a556990eefaa07d6c4b41d5a851e5cfa2804767a14c",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/searing-gorge.md",
+      "source": "expeditions/searing-gorge.md",
+      "source_sha256": "f63889a166d4228eb18bad166c86caaf0cd92dbdc8b45cc64317788e2b9d5136",
+      "translation_sha256": "209d2f51f46270b63af1fcce9a9137a517839adc69d714e9bec28db6383cafb9",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "209d2f51f46270b63af1fcce9a9137a517839adc69d714e9bec28db6383cafb9",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/silithus.md",
+      "source": "expeditions/silithus.md",
+      "source_sha256": "e659e970deb6f89a25dac38163db6add0d39bb11cbdea3f67b6372c66491befd",
+      "translation_sha256": "4f512e9d00789dae285b3450cc4938bf683ef12dbb7e1b71f36a0236b7a0f139",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "4f512e9d00789dae285b3450cc4938bf683ef12dbb7e1b71f36a0236b7a0f139",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/silverpine-forest.md",
+      "source": "expeditions/silverpine-forest.md",
+      "source_sha256": "53d335babec3cf9b6756e9e2206271f92a9c4d2babecc433476cd2c4a155f537",
+      "translation_sha256": "2fa270b10e0ac80d38ea5d5b076d2182bbeae066c92016b8c6671010b2ee61d6",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "2fa270b10e0ac80d38ea5d5b076d2182bbeae066c92016b8c6671010b2ee61d6",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/stonetalon-mountains.md",
+      "source": "expeditions/stonetalon-mountains.md",
+      "source_sha256": "fcc62c07033b0e48c6bd6ffed47051372a68347dc9f0085111a33b1ecb95a0b1",
+      "translation_sha256": "38be4c23d79bfc0ed536bba1e9e7a51510adc29655ff39fd2eb177c4230694f0",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "38be4c23d79bfc0ed536bba1e9e7a51510adc29655ff39fd2eb177c4230694f0",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/stormwind-city.md",
+      "source": "expeditions/stormwind-city.md",
+      "source_sha256": "602801278567c32528f6137ffc462950fb55dc3ee9d30315d717edcb55c2bbf7",
+      "translation_sha256": "22f83effcc7e51191241a241a16782a6855e3af7a103b60df9c40f1eb3710ae1",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "36d61c98af142ed606516d06a68703f8bcabefb02d5939ff2491bb923040db1e",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/stranglethorn-vale.md",
+      "source": "expeditions/stranglethorn-vale.md",
+      "source_sha256": "a1efbf5ccf38c47672d700025912cd9cab38b23302bf99360011e0f977f8cedd",
+      "translation_sha256": "e2504000653dc5dd907afa0ddabc22337f1b4280ceeb394d3f2b43520a3f2cd0",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "e2504000653dc5dd907afa0ddabc22337f1b4280ceeb394d3f2b43520a3f2cd0",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/swamp-of-sorrows.md",
+      "source": "expeditions/swamp-of-sorrows.md",
+      "source_sha256": "34bf359781d62874ca2addaebe8decf61b76ef5d272db8cf1aa449a2ca6c6f2a",
+      "translation_sha256": "65fd0a2580d16176be27832cda3426f1afc14869f181892a0237b6e811087cf0",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "65fd0a2580d16176be27832cda3426f1afc14869f181892a0237b6e811087cf0",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/tanaris.md",
+      "source": "expeditions/tanaris.md",
+      "source_sha256": "d9cfa280257860522fc164702e025edbc6757b41febdd54b8370ccb79146d27a",
+      "translation_sha256": "5f5614a325cf215bf3e6a1b4a5ed63cd938422d372c562892214ee46b22137d9",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "8f77bd7680f764ab25340617c39dea23536f09f99f44c35366bac28fd7d626c9",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/teldrassil.md",
+      "source": "expeditions/teldrassil.md",
+      "source_sha256": "c78907d7fdf512607815a9e20644ea4865cdf3fdafceadee6a62cc6cc62fb1b6",
+      "translation_sha256": "e4f735d5ebc1729439b91fc75cc86a8debc33c9c8520ef65e41dfd20bf925802",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "ba939f27f236fb0fb1c3adec0ce937ca97a75ff03eb46f7e19283cd80fe10ab9",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/the-barrens.md",
+      "source": "expeditions/the-barrens.md",
+      "source_sha256": "33354dd4d8b1670597ae6f80322aa6a09e3489ab5b66b2e4e012a690413fdafa",
+      "translation_sha256": "000bfd074eb28a67400b87af33a7634fbcbedc5de3e62a21703daa53ab4a2d57",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "000bfd074eb28a67400b87af33a7634fbcbedc5de3e62a21703daa53ab4a2d57",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/the-hinterlands.md",
+      "source": "expeditions/the-hinterlands.md",
+      "source_sha256": "cf205771d465bdce4db7302ad55ed5335a80b1e0329978676207fbad20bd620b",
+      "translation_sha256": "12c47d3e9af10a5951ded8547b48d2dcfaa52cb1c3f889445ef1bcdad650dd59",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "12c47d3e9af10a5951ded8547b48d2dcfaa52cb1c3f889445ef1bcdad650dd59",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/thousand-needles.md",
+      "source": "expeditions/thousand-needles.md",
+      "source_sha256": "43ac8a4dd5bcfdfb185571ad8c86412da10d3af4fc6b0ca50bb12dfb9e7b70d5",
+      "translation_sha256": "7a1fd40dc383b915e7a16d5f69f6eac7656b9ac0d7757fc4c49776a46dacc7e9",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "304cbdbb1c0d8f48e866a993309b9872d3f67957eecf9d398710ef7130578b5e",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/thunder-bluff.md",
+      "source": "expeditions/thunder-bluff.md",
+      "source_sha256": "3c55a83eec0dd06a1adf44590bfb0cf0acb6144222b369cc34788f4a23fb8aae",
+      "translation_sha256": "3946a7ba9177e96d1ae53da59ac895f450304a7718cbcd95abe248f4dc233702",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "fae9c5c18bb0120a29a643e15ae75ddb5dd73647251ca13bd7a84ee6d455280d",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/tirisfal-glades.md",
+      "source": "expeditions/tirisfal-glades.md",
+      "source_sha256": "65a140dbb908c6c59b6b44ea7576142ed153d4487d9bea80e39ed83fdb485e52",
+      "translation_sha256": "f35299be667f28bef32c298858a1bb2c75cbb36f5c859b7c08e17f6595e87266",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "f35299be667f28bef32c298858a1bb2c75cbb36f5c859b7c08e17f6595e87266",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/undercity.md",
+      "source": "expeditions/undercity.md",
+      "source_sha256": "2f46a7a818884ebc60afd3360563300c3c7982879123b016903fc7f91637e424",
+      "translation_sha256": "038c70b6ea12e6b77a7d4a745ce508538d7dba5206706d59f9e4fc19573951e3",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "038c70b6ea12e6b77a7d4a745ce508538d7dba5206706d59f9e4fc19573951e3",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/ungoro-crater.md",
+      "source": "expeditions/ungoro-crater.md",
+      "source_sha256": "22d218a73ad7110826c8edc5e2610bb20a7657ce7f8accf966e4c09694e60f39",
+      "translation_sha256": "859f4b24adfce7f7e97732c858a8d932a9474c6699ab0bf3a4f9adc227410d59",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "859f4b24adfce7f7e97732c858a8d932a9474c6699ab0bf3a4f9adc227410d59",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/western-plaguelands.md",
+      "source": "expeditions/western-plaguelands.md",
+      "source_sha256": "b9cd1839863d8750d4be6d41ed5c94deecbc28390d0960698e8577fa5e69f806",
+      "translation_sha256": "339d7aa360beb6c7a0f354a4bb5a8021323bef49fd7ba30a4b29bac91ad02c05",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "68df2e78cef9bb59681c5f22df5d375e1a101a6a11fc59864b7cef7586da1f1a",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/westfall.md",
+      "source": "expeditions/westfall.md",
+      "source_sha256": "d146f47cb223c1d18a32efae980628dbbf8dba7c1f9454de4dbbb16ed1d31f28",
+      "translation_sha256": "bc415725c1e8458768da4b886447ce173f9a6aaa15ec061f852a2821b76bbaed",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "bc415725c1e8458768da4b886447ce173f9a6aaa15ec061f852a2821b76bbaed",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/wetlands.md",
+      "source": "expeditions/wetlands.md",
+      "source_sha256": "35249522a11f70d05b7fabf54f95849255ed14e87904522ef349561ba871bb52",
+      "translation_sha256": "d371dcde461baf8e0994db034884ea9096dfd9541aa949f2847d8e71f76f9801",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "843137dc27b31dcf6e9ce2da09b2a7faf6ca1297e69f2c892ce47809bf84ad6e",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/expeditions/winterspring.md",
+      "source": "expeditions/winterspring.md",
+      "source_sha256": "d3f249bef2a44022861eaf6866a3ffe3f65b1e66b3da1c4b25f204ad53d44f67",
+      "translation_sha256": "346c4711e33ea7c4d46412821250d24dac30f9cef59c55e35ebb0f5837d9c869",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "346c4711e33ea7c4d46412821250d24dac30f9cef59c55e35ebb0f5837d9c869",
+      "changed": false
+    },
+    {
+      "file": "i18n/deDE/expeditions/zephras-isle.md",
+      "source": "expeditions/zephras-isle.md",
+      "source_sha256": "58863471709ab609878b740ae872e5051de1f0309fb2a2fce75eebf82a018ce8",
+      "translation_sha256": "a850bf03301fcea1237070e49396be02e2d25426ff6c4107eddc46ddf94e426b",
+      "category": "expeditions",
+      "reviewed": true,
+      "corrected_sha256": "b0cb1f3b5dfd56b8e42d57ef50ada407254f785b06ceef211ee623159d224197",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/fish.md",
+      "source": "notes/fish.md",
+      "source_sha256": "8a3feee5f871bf1911b7e8fd27fce3856af1b02bfbcff140622251da5f099b10",
+      "translation_sha256": "0186d180e85fe7ee7ad13164f551e5f1e59eca16c46c69fcf8bb5abaa616feb7",
+      "category": "fish",
+      "reviewed": true,
+      "corrected_sha256": "816393fa4041865f27b4feeb172e493f8f460eef1b2fb772fd75278cb997d62a",
+      "changed": true
+    },
+    {
+      "file": "i18n/deDE/herbs.md",
+      "source": "notes/herbs.md",
+      "source_sha256": "1ec59007a3f6d10d846a17ca1eb807f199dc5ae97bc14e2fe62bf2388f12ab7b",
+      "translation_sha256": "a0c6e34b34993c6946fd8e5aebd891d423ac08f67082a009e778147e921a6f7d",
+      "category": "herbs",
+      "reviewed": true,
+      "corrected_sha256": "a0c6e34b34993c6946fd8e5aebd891d423ac08f67082a009e778147e921a6f7d",
+      "changed": false
+    }
+  ],
+  "decisions_retained": [
+    {
+      "subject": "Game quotations",
+      "decision": "Keep sourced German wording even where awkward or different from English, as stored in wow-data's speech and readables."
+    },
+    {
+      "subject": "Game names",
+      "decision": "Keep historical Classic/Forever names. Bluthörner for Sunscale raptors, Feuerschuppen for Flamewakers, and Holzplanke for Timber are supported by pinned names."
+    },
+    {
+      "subject": "A notice without German",
+      "decision": "One notice's German source is bracketed English, which does not prove the live client lacks German. Use an unquoted authored paraphrase, not a fabricated German client quotation."
+    },
+    {
+      "subject": "German release flag",
+      "decision": "Keep flagged=true until native review."
+    },
+    {
+      "subject": "Difficulty",
+      "decision": "Retained functioning clues and rhyme. Equal difficulty needs German-speaking players' feedback on two broad cues."
+    },
+    {
+      "subject": "NPC profession titles",
+      "decision": "Keep each NPC's profession title in the gender of the NPC it describes. A shared English profession can map to a glossary title collected from a different NPC and is not enough to reverse the speaker gender."
+    }
+  ],
+  "verification": {
+    "baseline": "bun run check passed before fixes, despite the three demonstrated runtime wording errors.",
+    "after": "Passed bun run check: script tests, Lua lint, generated data, locale freshness, Classic and Forever simulations. Passed bun scripts/package.ts --check for all three TOCs and the legacy handover. Original English/French prose, all 192 source front-matter blocks, resolver data and shared kit preserved."
+  },
+  "wordplay": {
+    "riddles_reviewed": 110,
+    "note": "Each riddle's cue was checked against the deeds it accepts. The per-riddle assessments name the answers, so they stay in the local copy of this ledger, not in the repository."
+  }
+}

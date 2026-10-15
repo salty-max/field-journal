@@ -14,7 +14,7 @@ Lass ihm, was einem Krieger gebührt.
 ! Gefährlich (die Diener der Legion)
 
 ## ashenvale-astranaar
-Einem der fünf Hüter der Welt wurde eine Pflicht gegeben, die sich nur im Schlaf erfüllen ließ.
+Eine der fünf Gestalten, die über die Welt wachen, erhielt eine Pflicht, die sie nur im Schlaf erfüllen konnte.
 Finde in der Stadt der Schildwachen am See die Seite, die diesen Auftrag nennt.
 Die vier anderen erhielten den ihren auf derselben Seite.
 ? Astranaar.

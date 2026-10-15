@@ -7,4 +7,4 @@ Arugal rief die Worgen in den Silberwald, um gegen die Geißel zu kämpfen, und 
 
 Die Nachtheuler des Dämmerwalds gehören zu einem anderen schwierigen Bericht, verstrickt mit der Sense von Elune und dem Ruf, den Velinde Starsong beschrieb. Ihre Gegenwart lässt sich nicht einfach erklären, indem man auf Arugals Turm zeigt.
 
-Beide Orte haben denselben schrecklichen Umriss zwischen den Bäumen angenommen: einen Wolfskopf über einem aufrechten Körper. Den Geschichten dahinter muss man getrennt nachgehen.
+An beiden Orten erscheint dieselbe schreckliche Gestalt zwischen den Bäumen: einen Wolfskopf über einem aufrechten Körper. Den Geschichten dahinter muss man getrennt nachgehen.

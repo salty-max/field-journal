@@ -8,7 +8,7 @@ hat ein Schmied schriftlich einen Amboss für sich beansprucht,
 höflich und sehr bestimmt.
 Finde, was er daneben eingeätzt hat.
 ? Am Fuß der Straße hinauf nach Ironforge hat ein Amboss einen Besitzer und sagt es auch.
-= 'This anvil is the property of Jordan Stilwell - Please do NOT use!' Ironforge hat sehr viele Ambosse. Dieser hier ist vergeben.
+= Die Notiz erklärt den Amboss zum Eigentum von Jordan Stilwell und bittet ausdrücklich darum, ihn nicht zu benutzen. Ironforge hat sehr viele Ambosse. Dieser hier ist vergeben.
 + Jordan Stilwell ist kein Zwerg: ein menschlicher Schmied mit einem Haus an Westfalls Longshore, der Paladin werden wollte, bevor ihn die Schmiedekunst packte, und der neben den Zwergen arbeiten kam, während seine Frau Daphne am Meer wartete. Die Paladine, die seine Prüfungen bestehen, tragen einen Hammer, den er schmiedet und nach einem zwergischen Paladin benennt, den er seinen Freund nannte.
 ! Ruhig
 
@@ -37,7 +37,7 @@ auf Attrappen, zu denen ein Späher hinauslaufen muss. Pass auf deine Ohren auf.
 Auf der Ranch an der Straße nach Osten, wo eine Familie Widder züchtet,
 hat die Jüngste den ganzen Tag jemanden Kleines und Weißes gejagt,
 der nichts von dem wissen will, was sie vorhat.
-Regle die Sache, bevor es wieder davonläuft.
+Bring Ruhe in die Sache, bevor es wieder davonläuft.
 ? Die Amberstill-Ranch, an der Straße nach Loch Modan: das Mädchen und das, was sie jagt.
 = Flauschie, ein Kaninchen, und Yarlyn Amberstill, die ihm um das Widdergehege nachläuft und ruft: 'Komm schon, Flauschie! Ich will dich doch nur baden!'
 + Ihre anderen Angebote, auf Zwergisch: 'Ein Jahr lang jeden Tag Karotten, wenn du stehen bleibst!' Und als das nichts nützt: 'Zwing mich nicht, meinen Papa zu holen! Der fängt Häschen gern mit seinem Gewehr!'
@@ -47,6 +47,6 @@ Regle die Sache, bevor es wieder davonläuft.
 Auf der Insel mitten im gefrorenen See im Nordwesten
 führt ein weißer Wolf das Rudel, mit zwei verhungernden Wölfen auf den Fersen.
 Zieh ihn in einen Kampf, und er bringt andere mit.
-Lichte die Insel zuerst.
+Lichte zuerst die Reihen des Rudels.
 = Holzplanke, ein weißer Wolf und sehr wahrscheinlich der Leitwolf des Rudels am Iceflowsee. Nur er trägt die Silbergefütterten Armschienen und die Weißen Wolfsfellhandschuhe.
 + Er ist auf Stufe zehn, wenn ein Jäger das Zähmen lernt: Ein Zwerg oder ein Gnom kann ihn als ersten Gefährten nehmen.

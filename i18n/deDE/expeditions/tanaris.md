@@ -23,7 +23,7 @@ Sei ausnahmsweise freundlich.
 ## tanaris-winkey
 Vor dem stillen Strand südlich der Piratenbucht trägt eine kleine Insel eine einzige Gnomin, allein,
 die sich sonnt, als wäre das ganze Meer ihr Garten.
-Sie hat eine Bitte an jeden, der zu ihr hinausschwimmt. Sei nett.
+Sie hat eine Bitte an jeden, der zu ihr hinausschwimmt. Lass dein Gesicht für dich sprechen.
 ? Ein Inselchen vor Southbreak Shore, südlich der Lost-Rigger-Bucht.
 = Winkey, eine Gnomin allein auf ihrem Inselchen vor Southbreak Shore: 'Hallo, $gSüßer:Süße;! Würdest du mir die unbedeckten Stellen eincremen?'
 + Weit weg in der Brennenden Steppe greift ein Zwerg in Morgans Wacht in die Luft und ruft nach jemandem namens Winky, der nicht da ist. Ob er sie meint, kann niemand sagen.

@@ -10,7 +10,7 @@ Gürtel, Kugeln, ein Muster oder zwei, von allem eins nach dem anderen.
 Erwisch ihn auf der Straße.
 ? Die Straße von Southshore nach Tarrens Mühle. Er geht sie von einem Ende zum anderen.
 = Zixil, Erster Händler, ein Goblin, der in Southshore wie in Tarrens Mühle handelt, mit Überwacher V. I, seinem Roboter, auf den Fersen.
-+ Seine Bauanleitung lehrt einen Ingenieur, Goblin-Überbrückungskabel herzustellen, die einen gefallenen Gefährten mit einem Schlag ins Leben zurückholen können. Das Wort 'können' sollte man sich merken.
++ Seine Bauanleitung lehrt einen Ingenieur, Goblin-Überbrückungskabel herzustellen, die einen gefallenen Gefährten mit einem Stromstoß ins Leben zurückholen können. Das Wort 'können' sollte man sich merken.
 ! Umkämpft (die Straße zwischen den beiden Städten)
 
 ## hillsbrad-foothills-gryphons

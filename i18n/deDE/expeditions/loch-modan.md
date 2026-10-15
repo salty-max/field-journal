@@ -37,6 +37,6 @@ Die Späher der Gebirgsjäger sagen, die Troggs folgen einem Häuptling namens G
 und schicken die Mutigen zu seiner Höhle im Tal südwestlich des Sees.
 Die Troggs, die die Grabung der Liga im Südosten eingenommen haben,
 haben einen eigenen Häuptling, auf der Plattform der Ausgrabung,
-zwischen seinen Gräbern und einem Berserker. Man nennt ihn den Boss.
+zwischen seinen Buddlern und einem Berserker. Man nennt ihn den Boss.
 = Boss Galgosh, nach seinem eigenen Titel Häuptling der Splittersteintroggs: Der Grawmug der Späher führt im Tal, doch der Häuptling des Stammes steht an der Grabung.
 + Magosh, der Schamane des Stammes und ebenso selten zu sehen wie der Boss, bleibt an derselben Grabung, ein wenig östlich von ihm.

@@ -7,7 +7,7 @@ Tief in der Marsch, wo die Krokilisken das Wasser beherrschen,
 haben ein Zwerg und ein Gnom ein Steinhaus mit einer Windmühle
 und verkaufen, was ihnen in die Hände fällt: feine Gürtel und Gamaschen, von jedem eins nach dem anderen,
 und zwei gnomische Pläne, je ein Exemplar.
-Klopf an ihre Tür.
+Statte ihnen einen Besuch ab und lass sie wissen, dass du da bist.
 ? Die Sonnenwendmarschen, im Nordwesten des Sumpflands, westlich von Ironbeards Grabmal.
 = Wenna Silkbeard, eine Zwergin, und Fradd Swiftgear, ein Gnom, in ihrem Steinhaus in den Sonnenwendmarschen. Fradds Pläne: ein Liebevoll hergestelltes Schießeisen und ein Schwacher Rekombobulator.
 + Fradds kleineres Gerät stellt etwas Gesundheit und Mana wieder her, doch sein besonderes Talent ist es, ein Schaf wieder in einen Reisenden zu verwandeln. Ein Ingenieur muss nicht warten, bis der Zauber des Magiers verfliegt.

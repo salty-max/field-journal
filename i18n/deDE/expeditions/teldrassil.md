@@ -6,6 +6,6 @@ zone: 1438
 Südlich des großen Sees, am Ufer, an dem die Eulen jagen,
 jagt auch eine Katze der Dämmerung und geht, wohin sie will.
 Sie schlägt zuerst nach den Beinen, um zu verlangsamen, was sie verfolgt.
-Sei du $gderjenige:diejenige;, der verfolgt.
+Sei du $gderjenige, der:diejenige, die; verfolgt.
 = Dämmerpirscher, eine Katze, die am Ufer des Al'Amethsees jagt.
 + Sie hält sich am Südufer des Al'Amethsees auf, mal nahe der einen der beiden südlichen Buchten des Ufers, mal nahe der anderen.
