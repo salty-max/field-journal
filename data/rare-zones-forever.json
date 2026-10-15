@@ -1,10 +1,54 @@
 {
+  "203079": {
+    "name": "Wandering Swordsman",
+    "zone": 1429
+  },
+  "204070": {
+    "name": "Soboz",
+    "zone": 1458
+  },
+  "208124": {
+    "name": "Raluk",
+    "zone": 1411
+  },
+  "208812": {
+    "name": "Jorul",
+    "zone": 1426
+  },
+  "209928": {
+    "name": "Mowgh",
+    "zone": 1438
+  },
   "210107": {
     "name": "Kackle",
     "zone": 1432
   },
+  "211951": {
+    "name": "Koartul",
+    "zone": 1424
+  },
+  "211965": {
+    "name": "Carrodin",
+    "zone": 1437
+  },
+  "221333": {
+    "name": "Doomkin",
+    "zone": 1425
+  },
+  "222726": {
+    "name": "Tyrant of the Hive",
+    "zone": 1444
+  },
+  "247032": {
+    "name": "Lyn the Ignored",
+    "zone": 1416
+  },
   "250936": {
     "name": "Den'dralass",
+    "zone": 2521
+  },
+  "255887": {
+    "name": "Slydris",
     "zone": 2521
   },
   "256028": {
@@ -19,12 +63,28 @@
     "name": "Tel'daeor the Stormspeaker",
     "zone": 2521
   },
+  "259388": {
+    "name": "Mystmane",
+    "zone": 2521
+  },
+  "259394": {
+    "name": "Snapbeak the Quick",
+    "zone": 2521
+  },
   "259398": {
     "name": "Galemender Delanea",
     "zone": 2521
   },
+  "266901": {
+    "name": "Pexmit",
+    "zone": 2482
+  },
   "271080": {
     "name": "Blightsculler",
+    "zone": 1420
+  },
+  "274300": {
+    "name": "Coldrasp",
     "zone": 1420
   },
   "276061": {
