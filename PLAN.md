@@ -61,8 +61,7 @@ anachronic to the original game or Forever. Every zone and capital rewritten:
   is), and the data's own oddities (a fang that drops as a dagger, a
   night-only ghoul).
 - **The note delivers a discovery**: what the world says once you are there
-  (Theresa, Gerard's mindslave; Winkey and the 'Winky' Oralius shouts at;
-  Ralo'shan, slain a hundred times).
+  (the riddles' own notes, in `expeditions/`).
 - **Fewer when the land has nothing untied to show**: a zone keeps one riddle
   or none, a faction town loses its riddle. A keeper who walks is found by
   targeting, placed by the path that crosses the hint circle.
@@ -80,9 +79,8 @@ riddle's own alert lost behind the trophy's; the book's pages bare. So:
 - **Never from a taxi, nor as a ghost**, and never in combat, as before.
 - **Never a kill**: a creature a riddle asks for is no foe of the side that
   may solve it; one that attacks the other side is its own side's riddle
-  (`faction:`, now on any tier: Watcher Callahan, the Southshore gryphons,
-  Sergeant Carnes, Wenna Silkbeard and Terl Arakor the Alliance's; the Horde's
-  runners of Loch Modan and Pooka of the Mor'shan Rampart the Horde's).
+  (`faction:`, now on any tier; which riddles, in `expeditions/`: not
+  repeated here, for the players' sake).
 - **Never the same deed twice in a zone**, for either side's reader: one
   arrival, one reading, one keeper found by speaking at most, and no gesture
   two riddles both accept.
@@ -94,19 +92,10 @@ riddle's own alert lost behind the trophy's; the book's pages bare. So:
 - The resolver checks the three (`scripts/expeditions.py`), and the build
   refuses what fails.
 
-Dun Morogh: Rumbleshot's practice range (the riflemen's contest and the
-mortar team's dummies, from the camp's own script; mind your ears) and
-Fluffy, the rabbit Yarlyn Amberstill chases round the ram pen, for the
-three. Elwynn: Donni Anthania's cats, for the fisherman and Ridgepoint.
-Redridge: Roger and Jamin on Lakeshire's docks, for the lockbox (Forever's
-"Alther's Mill") and the Lake Thresher. Turned into gestures where a city or
-a land asked one deed twice: the Dark Portal (a farewell), Toothgnasher
-(marvelled at), Khadgar's plaque (a wish added), Horatio Montgomery (his
-extraordinary talent), Terenas's grave (the respect his son did not pay),
-Zapetta (your word), Simone Cantrell's grounds (praised). Dropped with
-nothing untied to put in their place: Naraxis, Brutus, the coffin tree (the
-book has no night riddle now; After Dark waits for one), Sentinel Hill's
-book, Clyde Kellen, Tah Winterhoof, the Maneweavers, the Betrayer Ascendant.
+Several zones' riddles were replaced where a city or a land asked one deed
+twice, some turned into gestures, and a few dropped with nothing untied to
+put in their place. Which ones is in `expeditions/`, not repeated here, so
+the plan gives no answer away.
 **106 riddles** (47 both sides', 32 the Alliance's, 27 the Horde's: 79 for an
 Alliance reader, 74 for a Horde one; 62 gestures, 23 readings, 17 keepers
 found by speaking, 8 arrivals), Zephras Isle's four and the 39 quarries.
@@ -122,11 +111,7 @@ screen (`ExpeditionsPin.lua`: a card to drag anywhere, closed by its cross).
 **Forever's own (12 October 2026).** Zephras Isle, the only new zone with
 data while the beta caps the others: four riddles by its 19 map places, none
 a quest's (the Wowhead Forever zone listing's quests, the QuestieDB traces'
-starters, enders and objectives): Swimmers Starfeather, the grounded sailor
-of the Calmbreeze Inn (near the road), the two Musical Gustjumpers by the
-Overlook Standing Stones and Brother Zendraas, the cult's reluctant tailor in
-the Shrine of Akir (off the road), Haal and Meeri up the tree of Thendal
-Village (hidden); the quarry the Lost One, the isle's only dragonkin, an
+starters, enders and objectives) (which, in `expeditions/zephras-isle.md`); the quarry the Lost One, the isle's only dragonkin, an
 elite of level six by Windsong Lake, a creature the data doesn't know (its
 name, level, rank and model in the file). Placed from the QuestieDB traces
 (commit 7e87203) where Wowhead's Forever database agrees, on Forever's
@@ -137,11 +122,10 @@ does; its expedition is a milestone of its own. The other new zones
 
 The follow-up prose pass keeps those counts. Book clues now single out a
 detail instead of reciting the whole history; quarry notes trade exact
-respawn promises for appearance, behaviour, routes and history. Ravenholdt
-and Alther's Mill no longer require a gesture that resembles rogue Stealth
-but does not recognise the ability. Everlook's idle Gogo discovery is
-replaced by Zap Farflinger's original engineering gossip. Corrections,
-sources and the remaining in-game question: `docs/expeditions-review.md`.
+respawn promises for appearance, behaviour, routes and history. Two riddles' gestures and one
+discovery's source were corrected. Corrections,
+sources and the remaining in-game question: the expeditions review, kept
+outside the repository (it gives the answers away).
 
 ### How many
 
@@ -241,7 +225,7 @@ the count above.
 | Condition | How |
 |---|---|
 | The place | The map and position (`C_Map.GetBestMapForUnit`, `GetPlayerMapPosition`; the Atlas reads them already), checked every second while in a riddle's zone, within ten yards of the spot (a keeper's wandering added). A sub-area by its name (`GetSubZoneText`, matched to the zone's area ids through `C_Map.GetAreaInfo`: every language). A keeper also by targeting them near (`CheckInteractDistance`, 11 yards): the only way to a keeper who walks a path (Kum'isha, Falfindel). Open world only: Forever hides the position in its instances. |
-| A gesture | The emote's token, by hooking `C_ChatInfo.PerformEmote` (`hooksecurefunc`, no taint: the chat's `/kneel` and the emote menu call it on both clients, as their deprecated `DoEmote` does; Blizzard's UI source, checked 12 October 2026), made at the place: any of the client's 256 (EmotesText: `KNEEL`, `MOURN`, `SALUTE`, `BOW`, `PRAY`, `TOAST`, `SNIFF`, `PEER`, `SLEEP`...). Every language: the token, never the text. The reader guesses it from the story, so a riddle accepts the few gestures that mean the same there (a fallen comrade: `MOURN`, `KNEEL`, `SALUTE`; the brewers' casks: `TOAST`, `DRINK`, `CHUG`), never one that doesn't; nothing tells a wrong guess from no guess. |
+| A gesture | The emote's token, by hooking `C_ChatInfo.PerformEmote` (`hooksecurefunc`, no taint: the chat's `/kneel` and the emote menu call it on both clients, as their deprecated `DoEmote` does; Blizzard's UI source, checked 12 October 2026), made at the place: any of the client's 256 (EmotesText: `KNEEL`, `MOURN`, `SALUTE`, `BOW`, `PRAY`, `TOAST`, `SNIFF`, `PEER`, `SLEEP`...). Every language: the token, never the text. The reader guesses it from the story, so a riddle accepts the few gestures that mean the same there (grief at a grave, say, or cheer at a feast: each a few tokens), never one that doesn't; nothing tells a wrong guess from no guess. |
 | A reading | A plaque, a tombstone or a book read there: the game's reader opening (`ITEM_TEXT_BEGIN`) at the place. Every reading is a text object of the game's (type 9, its name the reading's title: the data script checks), which opens the reader; a quest's poster would open the quest window instead. |
 | The hour | At night (`GetGameTime`, the server's hour), only where the story asks for it. |
 
@@ -284,11 +268,11 @@ zone: 1431                           # the uiMap id
 riddles:
   - id: duskwood-near
     tier: near
-    reading: The Birth of the Lich King   # optional: a book or plaque read there
-    gestures: [KNEEL, MOURN, PRAY]        # optional: the emotes' tokens it accepts, the story's own first
+    reading: <a book's title>             # optional: a book or plaque read there
+    gestures: [EMOTE, ...]                # optional: the emotes' tokens it accepts, the story's own first
     night: false                          # optional
-    object: 61                            # the spot: a game object of the dump, or
-    area: Twilight Grove                  # a named sub-area of the game's, or
+    object: <id>                          # the spot: a game object of the dump, or
+    area: <a sub-area>                    # a named sub-area of the game's, or
     where: { x: 0.0, y: 0.0, r: 2 }       # coordinates two sources agree on
     hint_area: { x: 0.0, y: 0.0, r: 8 }   # the map hint's circle
 quarry: 522                          # its creature id (verified on Wowhead Classic)
@@ -412,58 +396,10 @@ seconds }, done)`.
 
 ### The model zone: Duskwood (written in full; spots from the data)
 
-Duskwood, levels 18 to 30: the first three of its four riddles and its
-quarry, on ground both factions walk (the fourth, and Darkshire's for the
-Alliance, are in `expeditions/duskwood.md`). Facts from the
-pinned dump (objects 37 and 61, quests 225, 228, 253), the game's sub-areas
-and the Codex's checked pages (`the-embalmer`, `morladim`, `raven-hill`,
-`dragons-of-nightmare`).
-
-1. **Near the road: Twilight Grove** (`area: Twilight Grove`, the forest's
-   heart, the road running past it; codex page `dragons-of-nightmare` for the
-   lore). Danger: Quiet, Perilous when a dragon of the Nightmare is there (a
-   world boss, at times).
-
-   > In the heart of the dark wood a great tree stands apart:
-   > a door the dreaming druids walk through to the Emerald Dream.
-   > Green dragons were set to keep it; the Nightmare took the keepers.
-   > The door opens for those who go the druids' way.
-
-   Hint: "The road through the forest bends around something older than the
-   town." Note: "One of four such trees in the world, the green dragonflight's
-   doors into the Emerald Dream. Its guardians came back from the Dream
-   changed." Margin: (Remulos's gathering of the Nightmare's traces from the
-   four portals, and what the druids fear of them).
-
-2. **Off the road: Eliza's tombstone** (`reading: Eliza's Tombstone`, by the
-   Embalmer's shack above Raven Hill; the dump: 28.9, 30.5). Danger: Guarded
-   (Raven Hill's dead).
-
-   > A kindly man of potions lost his wife,
-   > and would not let her go; he gave her his own heart.
-   > It woke her hungry, so he keeps her in the earth
-   > above the hill of ravens, under a stone with a few kind words.
-
-   Hint: "An old hermit's shack overlooks the graves of Raven Hill; he did
-   not come alone." Note: "'Beloved wife, may the earth sate your hunger.'
-   (the stone's own words, object 37). The Embalmer meant it kindly, I think,
-   which is the worst of it." Margin: (the
-   children's story Darkshire tells of him, and what the Night Watch found:
-   quest 253).
-
-3. **Hidden: the weathered grave** (`gestures: [KNEEL, MOURN, PRAY]`, Morgan Ladimore's
-   marker, "out past the house on the hill", outside the cemetery's ground).
-   Danger: Guarded; Mor'Ladim himself wanders near (an elite).
-
-   > He came home from the plague to a grave on the hill,
-   > and grief made a killer of a good man's will.
-   > They buried him quickly, past the house on the rise,
-   > outside the hallowed ground, where nobody grieves for him.
-
-   Hint: "Not every grave of Raven Hill lies inside its walls." Note: "The
-   marker says only MORGAN LADIMORE. The earth over it has been disturbed:
-   he did not stay." Margin: (the name worn down to the one the forest knows,
-   Mor'Ladim; his daughter Sarah in the Night Watch, and her message to him).
+Duskwood, levels 18 to 30: the model zone, written in full first. Its
+riddles, their verses, hints, notes and answers, are in
+`expeditions/duskwood.md` and not repeated here, so the plan gives none of
+them away. Its quarry, whose poster names it in the game anyway:
 
 **Duskwood's quarry: Mor'Ladim** (522; elite, level 35; a named wanderer:
 Duskwood's rares are researched in the pass below, and the lore's own story
