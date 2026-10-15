@@ -1,5 +1,5 @@
 ---
-source: 7a8bd2f64a87
+source: 68f1d1802748
 zone: 1454
 ---
 ## orgrimmar-mannoroth-armor
