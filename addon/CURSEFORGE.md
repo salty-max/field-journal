@@ -72,7 +72,7 @@ One download covers Classic Era, Hardcore, Season of Discovery, TBC Anniversary 
 
 Forever adds Zephras Isle to the Atlas, and its new rares count towards zone achievements. The game hides creatures inside Forever dungeons and raids from addons, so the journal cannot record them there.
 
-Yonder speaks English, French and German. With a French or German client, the whole journal is in that language: the riddles and quarries, the Bestiary, the Atlas, the fish and herbs and the achievements, with every name as the game itself writes it. The German is a first translation: corrections are welcome on GitHub. Other clients get English.
+Yonder speaks English, French and German. With a French or German client, the whole journal is in that language: the riddles and quarries, the Bestiary, the Atlas, the fish and herbs and the achievements, with every name as the game itself writes it. The German is a first translation: corrections are welcome on GitHub. Other clients get English, with the game's own names in their language: creatures, places and flight points. Everything the journal records is kept by the game's ids, so it all follows your client's language, even after you switch.
 
 ## Settings and commands
 
@@ -118,4 +118,4 @@ Yonder is free and will stay free. If you've enjoyed the riddles or found a new 
 
 MIT licensed: [github.com/salty-max/yonder](https://github.com/salty-max/yonder).
 
-Creature data comes from the CMaNGOS Classic database and QuestieDB, with Forever's rares from QuestieDB's Forever records and Wowhead. Expedition locations use those databases and the game client's tables, checked against Wowhead. Zephras Isle locations use QuestieDB's Forever records. Thanks to their contributors. Not affiliated with Blizzard Entertainment.
+Creature data comes from the CMaNGOS Classic database and QuestieDB, with Forever's rares from QuestieDB's Forever records and Wowhead. Expedition locations use those databases and the game client's tables, checked against Wowhead. Zephras Isle locations use QuestieDB's Forever records. Names in other languages come from the game clients and QuestieDB, and from Wowhead where neither has them. Thanks to their contributors. Not affiliated with Blizzard Entertainment.
