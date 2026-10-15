@@ -151,12 +151,13 @@ end
 
 -- ── the pages ────────────────────────────────────────────────────────────────
 local function listed(items) return items and #items > 0 and table.concat(items, ", ") or nil end
--- Areas by their ids, named in the client's language.
+-- Areas by their ids, named in the client's language, in its order.
 local function areas(ids)
   local out = {}
   for _, id in ipairs(ids or {}) do
     table.insert(out, ns.areaLabel("a" .. id))
   end
+  table.sort(out)
   return listed(out)
 end
 
