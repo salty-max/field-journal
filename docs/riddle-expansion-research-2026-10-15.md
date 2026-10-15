@@ -4,7 +4,9 @@ Research snapshot: 15 October 2026. No live riddles changed.
 
 ## Recommendation
 
-Yes, there is worthwhile material for more riddles, especially in Forever's own world. Pursue five concepts first: the Shen'dralar Citizen, the Drunken Dwarf's performer, the Riverglades memorials, one Zephras recording, and a farewell at Zephras' docks. These are research candidates, not five additions ready to release. Their missing evidence is listed below.
+The user's follow-up changes the priority: **look for forgotten places first**, including unnamed camps, remote shelters and scenery that no quest uses. Finding a place can itself be the reward. The first database survey below leaned too heavily on named NPCs and readable objects, which are easier to query than scenery.
+
+There is also worthwhile material among the database's named entities, especially in Forever's own world: the Shen'dralar Citizen, the Drunken Dwarf's performer, the Riverglades memorials, one Zephras recording, and a farewell at Zephras' docks. These remain research candidates, not five additions ready to release. Their missing evidence is listed below.
 
 For a modest addition with substantially more evidence already available, there is also a reading in Auberdine. It uses an existing history book, so it is less distinctive than the new Forever material.
 
@@ -27,7 +29,49 @@ Forever's 6,473 readable-page rows are language and page records, not 6,473 dist
 
 There are also **43 type-9 objects with no English readable-page record**, all absent from Classic's type-9 object set. Some are new IDs for familiar exhibits or monuments. Others are genuinely promising new names. A separate group of eight named Zephras recordings has neither readable-page records nor an object type established in the database. Those eight are additional to the 43.
 
-## First research batch
+## Forgotten places: the Dun Morogh camp
+
+The user describes a hidden, abandoned camp near the gunsmith in Dun Morogh, with a bear repeatedly found in a particular place. It looks as though the bear might be guarding the camp or might have eaten its occupants. **The scene is a player observation. Neither explanation is established lore. The exact camp has not yet been identified confidently.**
+
+This is a good kind of discovery for Yonder because the question is where the camp is. The player need not solve what happened to its occupants. A solved note can describe the empty camp and the visiting bear, then leave the explanation open. Do not turn the user's possibilities into a documented massacre or invent names for the campers.
+
+### How it should solve
+
+- Prefer **arrival at the actual camp**, under the existing outside-combat, no-taxi and no-ghost conditions. The hidden approach and recognition of the scene carry the puzzle.
+- Detect the permanent place. Do not require the bear to be alive, targeted, killed, fed or greeted. Another player can kill a normal bear before the explorer arrives.
+- Use a small verified footprint around the camp, not the entire surrounding sub-area. Check approaches beneath a ledge or through a tunnel so a two-dimensional map match cannot award a visit from the wrong elevation.
+- Use an emote only where the scene independently calls for one and the verse communicates it. Finding an empty campsite does not naturally imply one unique gesture.
+- Do not make a photographed bear spawn the camp's identity. The same creature ID can occur throughout the zone, and the scenery remains after that spawn is killed.
+
+Yonder already supports solving by arrival. What is missing for some unnamed scenery is an authoring source it can resolve reliably. Its current spots come from an object, a creature, a client trigger or a named sub-area. A tent or abandoned shelter may be part of the map's scenery rather than a separately listed game object. In that case it needs a verified landmark record, with per-client location and observation evidence, carried through wow-data's normal database interface. Do not invent an object ID or bypass the database with an unverified coordinate.
+
+The existing **one arrival riddle per zone** rule is too rigid if a zone contains several genuinely different hidden places. My recommendation is to permit more than one carefully chosen discovery of this kind, rather than manufacture gestures to satisfy the quota. Keep the current rule until that deliberate design change is implemented. Dun Morogh currently has no arrival riddle, so this first camp would not require relaxing it.
+
+### Draft based on the user's description
+
+This is a concept draft, not production content or a verified route:
+
+> Not far from the gunsmith, a camp lies out of sight.
+> Those who made it are gone.
+> A heavy-footed visitor keeps returning.
+> Find what they left behind.
+
+The final verse needs one verified feature of the approach or terrain to narrow the search. The paid hint should identify that approach and explicitly say that reaching the camp is enough. It should not send the player looking for an interaction with the bear.
+
+The note should record the scene without closing its mystery. A possible tone is: **The camp has no campers now. The bear still comes by. Whether it found an empty shelter or helped empty it, the place gives no answer.** Treat that as speculative narrator wording, not a new lore claim, and retain it only if the verified scene supports the details.
+
+### What the current research establishes
+
+Hegnar Rumbleshot is creature **1243**. Classic's recorded bear spawn **270**, creature **1128 Young Black Bear**, projects to roughly **41.90, 66.79**, close to his camp. That bear is configured to wander within **10 yards**, rather than stand motionless. This is **a lead to inspect, not an identification of the user's camp**. There is no matching tent or campfire record immediately around it in the queried object spawns. That absence does not prove the scenery is absent from the game.
+
+Two lookalikes must not be mistaken for this lead:
+
+- The abandoned ammunition camp around **44.1, 56.9** has object **176785 Ammo Crate**. The stored text of Classic quest **5541 Ammo for Rumbleshot** explicitly sends the player to recover that shipment after a wendigo drove the courier away. If this turns out to be the user's camp, it is a quest location and the bear would not establish the campers' fate.
+- Web searches also return a northwestern bear camp with the Buckey brothers in a tree. A [firsthand exploration account](https://ironyca.wordpress.com/2010/12/23/secrets-and-hidden-locations-in-cataclysm/) identifies that scene as a Cataclysm-era addition. It cannot establish this camp's identity or presence in Classic or Forever.
+
+Next evidence needed: identify the exact camp, record its static features and ordinary walking approach, verify its position independently, then check Classic and Forever separately for quest use or changes. Use the database to corroborate and exclude candidates, rather than assuming every interesting scene must already have a searchable name.
+
+## Earlier database candidates
 
 ### 1. An unwelcome tourist in Shen'dralas
 
@@ -138,17 +182,18 @@ My preference is still to prioritize the distinctive Forever encounters. Another
 
 ## What to do next
 
-1. Recover and freeze the actual object text and interaction details for the two Riverglades history plaques and the two preferred Zephras recordings. Store them in wow-data through its normal intake. Keep IDs, source and locale, rather than copying lore into an unsourced note.
-2. Confirm the Shen'dralar Citizen and the performer in game. Capture the target's ID, reaction, map, position, whether it persists outside quests, and the exact interaction. The performer cannot be located from the current database alone.
-3. Add Forever object resolution and explicit client selection for individual riddles before using new Forever NPCs inside shared zones. Preserve the single-deed-per-zone rule across the merged result.
-4. Write only the candidates that survive those checks. Use broad, coherent accepted gestures. A paid hint must name the action when the player is already at the place.
-5. Translate the whole puzzle, not merely its words. Names must match what each client displays, including English names where the database explicitly records an English fallback. Run the existing all-locale solution checks and test the actual interaction in game.
+1. Identify and verify the user's camp, then scout other forgotten places using observed scenery and normal walking routes. Record those the database does not yet represent, with evidence, through wow-data. Prefer a distinctive scene over a quota of additions for each zone.
+2. Recover and freeze the actual object text and interaction details for the two Riverglades history plaques and the two preferred Zephras recordings. Store them in wow-data through its normal intake. Keep IDs, source and locale, rather than copying lore into an unsourced note.
+3. Confirm the Shen'dralar Citizen and the performer in game. Capture the target's ID, reaction, map, position, whether it persists outside quests, and the exact interaction. The performer cannot be located from the current database alone.
+4. Add Forever object resolution and explicit client selection for individual riddles before using new Forever NPCs inside shared zones. Preserve the existing deed checks unless deliberately revising the arrival limit as discussed above.
+5. Write only the candidates that survive those checks. Let discovering a hidden place stand on its own when appropriate. Use broad, coherent accepted gestures where an action is justified. A paid hint must name the action when the player is already at the place.
+6. Translate the whole puzzle, not merely its words. Names must match what each client displays, including English names where the database explicitly records an English fallback. Run the existing all-locale solution checks and test the actual interaction in game.
 
-**Practical target: investigate these five concepts, then release the ones that prove sound. Do not promise five riddles before the missing evidence is collected.**
+**Practical target: prioritize forgotten places, retain the five named-entity concepts as a secondary shortlist, and release the candidates that prove sound. Do not promise an addition count before the missing evidence is collected.**
 
 ## Evidence and limits
 
-All game-data queries used wow-data's read-only Python database API. No raw source cache was queried and no external data was fetched. The accompanying `riddle-expansion-evidence-2026-10-15.json` records the snapshot metadata, selected entity facts, quest checks, readable gaps and current deed usage.
+All local game-data queries used wow-data's read-only Python database API. No raw source cache was queried. The original survey fetched no external data. The forgotten-camp follow-up also consulted external exploration accounts, including the linked firsthand account used to exclude a Cataclysm-era lookalike. None of those accounts confirms the user's camp. The accompanying `riddle-expansion-evidence-2026-10-15.json` records the original survey's snapshot metadata, selected entity facts, quest checks, readable gaps and current deed usage. The follow-up's bear-spawn lead is documented above and is not a newly verified riddle in that evidence file.
 
 Validation: the database counts and selected quest checks were asserted against the evidence file. The full expedition resolver passed with the Auberdine candidate in a temporary copy, producing 111 candidates without changing production data. The existing project's `bun run check` passed, including both clients' simulations and all-locale solution tests. No new candidate has been playtested or added to the shipped book.
 
