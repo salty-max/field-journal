@@ -1,5 +1,5 @@
 ---
-source: 6b1a67b2a393
+source: d3681a2622ec
 zone: 1420
 ---
 ## tirisfal-glades-zapetta
@@ -26,8 +26,8 @@ Jetzt kommen nur die Toten und die Hungrigen. Erinnere dich, was er war.
 ## tirisfal-glades-whispering-gardens
 Auf dem Hügel südlich des Klosters der roten Kreuzritter
 traf einst ein Heer der Toten auf die Männer, die zum Kreuzzug werden sollten.
-Die dort fielen, sind nicht verstummt:
-Schenke der Stille einen Augenblick deiner Aufmerksamkeit.
+Die dort fielen, sind nicht verstummt.
+Leih ihnen dein Ohr.
 ? Südlich des Scharlachroten Klosters, auf seinem Hügel, im Nordosten von Tirisfal. Höre in den Gärten mit einem Emote zu. Du musst nicht auf die Dämmerung warten.
 = Die Flüstergärten, wo jene, die den Scharlachroten Kreuzzug gründen sollten, gegen die Geißel kämpften. Ihre Toten flüstern noch.
 + Der Kreuzzug hat sein Kloster nur einen Steinwurf entfernt. Für seine Eiferer ist jeder Verlassene Geißel.

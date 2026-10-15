@@ -1,5 +1,5 @@
 ---
-source: 6b1a67b2a393
+source: d3681a2622ec
 zone: 1420
 ---
 ## tirisfal-glades-zapetta
@@ -26,8 +26,8 @@ Seuls les morts et les affamés y viennent aujourd'hui. Souvenez-vous de ce qu'i
 ## tirisfal-glades-whispering-gardens
 Sur la colline au sud du monastère des croisés rouges,
 une armée de morts affronta jadis les hommes qui allaient devenir la Croisade.
-Ceux qui tombèrent là ne se sont pas tus :
-Prêtez un instant attention au silence.
+Ceux qui tombèrent là ne se sont pas tus.
+Prêtez-leur l'oreille.
 ? Au sud du Monastère écarlate, sur sa colline, au nord-est de Tirisfal. Écoutez avec une emote dans les jardins. Vous n'avez pas besoin d'attendre le crépuscule.
 = Les Jardins des murmures, où ceux qui allaient fonder la Croisade écarlate combattirent le Fléau. Leurs morts murmurent encore.
 + La Croisade garde son monastère à deux pas. Pour ses fanatiques, tout Réprouvé est le Fléau.

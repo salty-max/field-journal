@@ -1,5 +1,5 @@
 ---
-source: 871a76a2fdd0
+source: 7b8955c1efec
 zone: 1458
 ---
 ## undercity-kelthuzad-book
@@ -14,7 +14,7 @@ Die Geschichte seiner Gemeinde steht unter den Büchern der Kräuterkundigen.
 ## undercity-theresa
 Im Viertel der Soldaten der Stadt stehen drei Verlassene um eine lebende Frau,
 und einer von ihnen ist sehr stolz auf sie. Er schickt sie mit Botengängen über die Brücke,
-Zeig ihr, dass noch jemand Mitleid mit ihr hat.
+und sie kommt immer zurück. Zeig ihr, dass noch jemand Mitleid mit ihr hat.
 ? Das Kriegsviertel, in Undercity. Nimm die lebende Frau ins Ziel und zeig ihr dein Mitleid oder seufze über ihr Schicksal.
 = Theresa, Gerard Abernathys Gedankensklavin: 'Theresa, bringt dies zu Vater Lankester.' 'Ja, mein Herr.'
 + 'Ich habe entdeckt, dass die Entfernung oder Stimulierung gewisser Teile des Gehirns ein Subjekt noch unterwürfiger machen können.' Selbst seine Gefährten fragen ihn, wie er das gemacht hat.

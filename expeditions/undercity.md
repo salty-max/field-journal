@@ -41,7 +41,7 @@ His congregation's story stands among the herbalists' books.
 ## undercity-theresa
 In the quarter of the city's soldiers, three of the Forsaken stand around a living woman,
 and one of them is very proud of her. He sends her across the bridge on errands,
-Let her see that someone still feels for her.
+and she always comes back. Let her see that someone still feels for her.
 ? The War Quarter, in the Undercity. Target the living woman and show pity, or sigh at her plight.
 = Theresa, Gerard Abernathy's mindslave: 'Theresa, take this to Father Lankester.' 'Yes My Lord.'
 + 'I managed to discover that certain parts of the brain when removed or stimulated will make a subject much more docile.' Even his companions ask him how he did it.

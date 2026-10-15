@@ -1,5 +1,5 @@
 ---
-source: 29a1b5262420
+source: c76441ba85fe
 zone: 2521
 ---
 ## zephras-isle-swimmers
@@ -27,7 +27,7 @@ Offrez-leur un public.
 Dans le sanctuaire même du culte, parmi les robes grises et les crânes rasés,
 l'un des fidèles ne lèvera pas la main contre vous.
 Il sait ce que le reste de l'île pense de cette robe.
-Que votre visage montre combien cette robe vous inspire peu confiance.
+Que votre visage montre combien elle vous inspire peu confiance.
 ? Le sanctuaire d'Akir, au coeur de l'île. Ciblez le cultiste qui ne vous attaque pas et montrez votre méfiance en fronçant les sourcils ou en lui jetant un regard noir.
 = Frère Zendraas, de Falaath. Quand le culte s'est installé, il s'est rasé la tête, a enfilé les robes grises et a dit les mots qu'on voulait entendre. Aujourd'hui il fait profil bas, et survit.
 + Il est tailleur, et il a dessiné l'essentiel de ce que porte le culte. Apportez-lui des pierres de vent en trop et il vous échangera son stock de leurs robes.

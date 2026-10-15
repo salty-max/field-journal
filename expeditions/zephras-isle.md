@@ -69,7 +69,7 @@ Give them an audience.
 In the cult's own shrine, among the grey robes and the shaved heads,
 one of the faithful will not lift a hand against you.
 He knows what the rest of the isle thinks of that robe.
-Let your face show how little you trust that robe.
+Let your face show how little you trust it.
 ? The Shrine of Akir, at the heart of the isle. Target the non-hostile cultist and show distrust with a frown or a glare.
 = Brother Zendraas, of Falaath Village. When the cult moved in, he shaved his head, put on the grey robes and said the words they wanted to hear. Now he keeps his head down, and survives.
 + He is a tailor, and he designed most of what the cult wears. Bring him spare windstones and he will trade his stock of their robes.

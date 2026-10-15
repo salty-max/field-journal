@@ -1,5 +1,5 @@
 ---
-source: 29a1b5262420
+source: c76441ba85fe
 zone: 2521
 ---
 ## zephras-isle-swimmers
@@ -27,7 +27,7 @@ Sei ihr Publikum.
 Im eigenen Schrein des Kults, zwischen den grauen Roben und den geschorenen Köpfen,
 hebt einer der Gläubigen keine Hand gegen dich.
 Er weiß, was der Rest der Insel von dieser Robe hält.
-Lass dein Gesicht zeigen, wie wenig du dieser Robe traust.
+Lass dein Gesicht zeigen, wie wenig du ihr traust.
 ? Der Schrein von Akir, im Herzen der Insel. Nimm den nicht feindseligen Kultisten ins Ziel und zeig dein Misstrauen mit einem Stirnrunzeln oder einem finsteren Blick.
 = Bruder Zendraas, aus Falaath. Als der Kult einzog, schor er sich den Kopf, zog die grauen Roben an und sagte die Worte, die sie hören wollten. Jetzt zieht er den Kopf ein, und überlebt.
 + Er ist Schneider und hat das meiste entworfen, was der Kult trägt. Bring ihm übrige Windsteine, und er tauscht seinen Vorrat an ihren Roben.

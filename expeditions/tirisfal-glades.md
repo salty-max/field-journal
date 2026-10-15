@@ -76,8 +76,8 @@ Only the dead and the hungry come now. Remember what it was.
 ## tirisfal-glades-whispering-gardens
 On the hill south of the red crusaders' monastery,
 a host of the dead once met the men who would become the Crusade.
-Those who fell there have not gone quiet:
-Give the quiet a moment of your attention.
+Those who fell there have not gone quiet.
+Lend them an ear.
 ? South of the Scarlet Monastery, on its hill, in north-eastern Tirisfal. Listen with an emote in the gardens. You do not need to wait for twilight.
 = The Whispering Gardens, where those who would found the Scarlet Crusade fought the Scourge. Their dead whisper still.
 + The Crusade keeps its monastery a stone's throw away. To its zealots, every Forsaken is Scourge.
