@@ -280,7 +280,7 @@ function zoneRares(kept: Creature[], client: string) {
 // a zone's name, its continent, and its places (name, the overlay's hover
 // rectangle on the map art: left, top, right, bottom; the areas it covers).
 type Zone = { id: number; name: string; continent: number; places: { name: string; areas: number[]; rect: number[]; visit?: boolean }[] };
-const zoneData: Record<string, { continents: Record<string, string>; zones: Zone[]; areaNames: Record<string, string>; taxi?: Record<string, string> }> = Object.fromEntries(
+const zoneData: Record<string, { continents: Record<string, string>; zones: Zone[]; areaNames: Record<string, string>; taxiZone?: Record<string, number> }> = Object.fromEntries(
   CLIENTS.map((client) => [client, JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8"))]),
 );
 // The surveyor's notes: atlas/<zone>.md (front matter: zone: <uiMap>; then
@@ -303,8 +303,9 @@ for (const f of readdirSync(join(ROOT, "atlas"))) {
 // The herbs and fish (data/flora.json, scripts/flora.py), for the Plants and
 // Fish tabs: zones by name, turned into this game's uiMaps (a name it doesn't
 // have is reported and left out).
-type Herb = { id: number; name: string; skill: number | null; zones: string[]; dungeons: string[]; nodeIds: number[]; inside?: boolean };
-type Fish = { id: number; name: string; kind: string; zones: string[]; subzones: string[]; dungeons: string[]; schoolIds: number[]; season?: string; weights?: { id: number; pounds: number }[] };
+// (places by id: zones uiMap ids, subzones and dungeons area ids)
+type Herb = { id: number; name: string; skill: number | null; zones: number[]; dungeons: number[]; nodeIds: number[]; inside?: boolean };
+type Fish = { id: number; name: string; kind: string; zones: number[]; subzones: number[]; dungeons: number[]; schoolIds: number[]; season?: string; weights?: { id: number; pounds: number }[] };
 const flora: { herbs: Herb[]; fish: Fish[]; schools: number[] } = JSON.parse(readFileSync(join(ROOT, "data/flora.json"), "utf8"));
 
 // The naturalist's notes on them: notes/herbs.md and notes/fish.md, one
@@ -341,14 +342,13 @@ const noteLua = (paras: Paragraph[] | undefined, client: string) => (paras ? `, 
 
 function floraLua(client: string) {
   const { zones } = zoneData[client];
-  const byName = new Map(zones.map((z) => [z.name, z.id]));
-  const ids = (names: string[], who: string) =>
-    names.flatMap((n) => {
-      const id = byName.get(n);
-      if (id === undefined) console.warn(`  ${client}: ${who}: no zone "${n}" in data/zones-${client}.json`);
-      return id === undefined ? [] : [id];
+  const known = new Set(zones.map((z) => z.id));
+  const ids = (maps: number[], who: string) =>
+    maps.filter((id) => {
+      if (!known.has(id)) console.warn(`  ${client}: ${who}: no zone ${id} in data/zones-${client}.json`);
+      return known.has(id);
     });
-  const list = (xs: string[]) => `{ ${xs.map(q).join(", ")} }`;
+  const list = (xs: number[]) => `{ ${xs.join(", ")} }`;
   const nodes = new Map<number, number>();
   for (const h of flora.herbs) for (const n of h.nodeIds) if (!nodes.has(n)) nodes.set(n, h.id);
   return `  -- the herbs (item id = { name, skill, zones (uiMaps), dungeons, inside: in
@@ -372,7 +372,7 @@ ${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.k
 }
 
 function atlasLua(client: string) {
-  const { continents, zones, areaNames, taxi } = zoneData[client];
+  const { continents, zones, areaNames, taxiZone } = zoneData[client];
   const kept = zones.filter((z) => z.continent || z.places.length);
   const used = [...new Set(kept.map((z) => z.continent).filter(Boolean))].sort((a, b) => a - b);
   return `  atlas = {
@@ -383,7 +383,8 @@ ${kept
   .join("\n")}
     },
     areaNames = { ${Object.entries(areaNames ?? {}).map(([id, n]) => `[${id}] = ${q(n)}`).join(", ")} },
-    taxi = { ${Object.entries(taxi ?? {}).map(([id, n]) => `[${id}] = ${q(n)}`).join(", ")} },
+    -- (each flight point's zone, by id: a zone's routes)
+    taxiZone = { ${Object.entries(taxiZone ?? {}).map(([id, m]) => `[${id}] = ${m}`).join(", ")} },
   },`;
 }
 

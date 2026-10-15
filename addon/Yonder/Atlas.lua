@@ -258,10 +258,38 @@ function ns.zoneName(uiMap)
   return (info and info.name) or (A.zones[uiMap] and A.zones[uiMap].name) or "?"
 end
 
--- An area a journal recorded by its name, in the client's language of the
--- day: the client's own name for it (the data's areas by their English names,
--- so an English journal reads French on a French client); a name it doesn't
--- know stays as recorded.
+-- ── places by id ─────────────────────────────────────────────────────────────
+-- A place as the journal keeps it: "a<id>" an area (the game names it in any
+-- language, C_Map.GetAreaInfo; where its own name slips, the language's list),
+-- "w<id>" a place inside a building (its WMOAreaTable id, named by the
+-- language's list: no area id there), found from the name the game gives in
+-- the client's language; "a<zone>|a<sub>" a zone and a subzone. A name neither
+-- knows is kept as the game gave it.
+local areaIds, insideIds, builtWith, builtInside
+local function reversed()
+  if areaIds and builtWith == C_Map.GetAreaInfo and builtInside == ns.insideNames then return end
+  -- (made again only if the game's function or the list is another: the tests' clients)
+  builtWith, builtInside = C_Map.GetAreaInfo, ns.insideNames
+  areaIds, insideIds = {}, {}
+  for id in pairs(A.areaNames or {}) do
+    local own = C_Map.GetAreaInfo and C_Map.GetAreaInfo(id)
+    if type(own) == "string" and own ~= "" and (not areaIds[own] or id < areaIds[own]) then areaIds[own] = id end
+  end
+  for id, own in pairs(ns.areaFixes or {}) do
+    areaIds[own] = areaIds[own] or id
+  end
+  for id, own in pairs(ns.insideNames or {}) do
+    if not insideIds[own] or id < insideIds[own] then insideIds[own] = id end
+  end
+end
+function ns.areaKey(name)
+  if type(name) ~= "string" or name == "" or secret(name) then return nil end
+  reversed()
+  if areaIds[name] then return "a" .. areaIds[name] end
+  if insideIds[name] then return "w" .. insideIds[name] end
+end
+-- An area kept by its name (a journal of before 15 October 2026), in English:
+-- the client's own name for it, by the data's English names; else as kept.
 local areaByEnglish
 function ns.areaName(name)
   if not name or name == "" then return name end
@@ -273,42 +301,29 @@ function ns.areaName(name)
   end
   local id = areaByEnglish[name]
   local own = id and C_Map.GetAreaInfo and C_Map.GetAreaInfo(id)
-  if own and own ~= "" then return own end
-  -- (a place inside a building: a translation's own list)
-  return ns.subzoneNames and ns.subzoneNames[name] or name
+  return own and own ~= "" and own or name
 end
--- An area's English name from its name in the client's language, by its id:
--- the game's C_Map.GetAreaInfo for each of the data's areas, the reverse made
--- once (a place inside a building: a translation's list, reversed). The journal
--- keeps places in English, by what the game says they are, so a journal kept
--- in one language reads in another (ns.areaName); a name the data doesn't know
--- is kept as the game gave it.
-local areaHere, builtWith
-function ns.areaEnglish(name)
-  if not name or name == "" or secret(name) then return name end
-  -- (made again only if the game's function is another: the tests' clients)
-  if not areaHere or builtWith ~= C_Map.GetAreaInfo then
-    areaHere, builtWith = {}, C_Map.GetAreaInfo
-    for id, english in pairs(A.areaNames or {}) do
-      local own = C_Map.GetAreaInfo and C_Map.GetAreaInfo(id)
-      if type(own) == "string" and own ~= "" and (not areaHere[own] or id < areaHere[own][1]) then
-        areaHere[own] = { id, english }
-      end
-    end
-    for english, own in pairs(ns.subzoneNames or {}) do
-      if not areaHere[own] then areaHere[own] = { 0, english } end
-    end
-  end
-  local hit = areaHere[name]
-  return hit and hit[2] or name
+-- A place's name in the client's language: by its key, else (kept by name) as
+-- an older journal's.
+function ns.areaLabel(key)
+  if type(key) ~= "string" then return key end
+  local kind, id = key:match("^([aw])(%d+)$")
+  if not kind then return ns.areaName(key) end
+  id = tonumber(id)
+  if kind == "w" then return ns.insideNames and ns.insideNames[id] or key end
+  local own = (ns.areaFixes and ns.areaFixes[id]) or (C_Map.GetAreaInfo and C_Map.GetAreaInfo(id))
+  return own and own ~= "" and own or key
 end
--- A place recorded as "Zone: Subzone": each part in the client's language,
--- joined as the language joins them.
+-- A place as kept: "zone|sub" (keys), or an older journal's "Zone: Subzone";
+-- each part in the client's language, joined as the language joins them.
 function ns.placeText(p)
   if not p then return p end
-  local zone, sub = p:match("^(.-): (.+)$")
-  if not zone then return ns.areaName(p) end
-  return L["%s: %s"]:format(ns.areaName(zone), ns.areaName(sub))
+  local zone, sub = p:match("^(.-)|(.+)$")
+  if not zone then
+    zone, sub = p:match("^(.-): (.+)$")
+  end
+  if not zone then return ns.areaLabel(p) end
+  return L["%s: %s"]:format(ns.areaLabel(zone), ns.areaLabel(sub))
 end
 
 -- How many of a zone's places this character has explored, of how many.
@@ -357,7 +372,7 @@ local function mark(list, most)
   local zone, x, y = here()
   local s = stamp()
   local by, byId = foe()
-  keep(list, { at = s.at, level = s.level, zone = zone, x = x, y = y, by = by, byId = byId }, most)
+  keep(list, { at = s.at, level = s.level, zone = zone, x = x, y = y, byId = byId, by = not byId and by or nil }, most)
 end
 
 ns.on("PLAYER_DEAD", function()
@@ -385,40 +400,40 @@ ns.onUnit("UNIT_HEALTH", "player", function()
 end)
 
 -- ── travel ───────────────────────────────────────────────────────────────────
--- A flight point's id from its name in the client's language (this language's
--- names, the data's English where the game keeps it); its English name, which
--- a flight and a route keep (one route in any language); its name in today's.
-local taxiHere, taxiBuilt
+-- A flight point's id from its name in the client's language (the language's
+-- list, Text_<locale>.lua), and its name by id; a flight and a route keep its
+-- id (a name only where the list lacks it).
+local taxiIds, taxiBuilt
 function ns.taxiId(name)
-  if not name or secret(name) then return nil end
-  if not taxiHere or taxiBuilt ~= ns.taxiNames then
-    taxiHere, taxiBuilt = {}, ns.taxiNames
-    for id, n in pairs(A.taxi or {}) do
-      if not taxiHere[n] or id < taxiHere[n] then taxiHere[n] = id end
-    end
+  if type(name) ~= "string" or secret(name) then return nil end
+  if not taxiIds or taxiBuilt ~= ns.taxiNames then
+    taxiIds, taxiBuilt = {}, ns.taxiNames
     for id, n in pairs(ns.taxiNames or {}) do
-      taxiHere[n] = id
+      if not taxiIds[n] or id < taxiIds[n] then taxiIds[n] = id end
     end
   end
-  return taxiHere[name]
+  return taxiIds[name]
 end
-function ns.taxiEnglish(name)
-  local id = ns.taxiId(name)
-  return id and A.taxi and A.taxi[id] or name
+local function taxiName(key)
+  local id = tonumber(key)
+  return id and ns.taxiNames and ns.taxiNames[id] or tostring(key)
 end
-function ns.taxiName(english)
-  local id = ns.taxiId(english)
-  return id and ((ns.taxiNames or {})[id] or (A.taxi or {})[id]) or english
-end
--- A route kept as "From > To" (English): in today's language.
+-- A route as kept: "<from id>><to id>" (an older journal's "From > To"), in
+-- the client's language.
 function ns.routeText(route)
-  local from, to = route:match("^(.-) > (.+)$")
+  local from, to = route:match("^(.-)>(.+)$")
   if not from then return route end
-  return ns.taxiName(from) .. " > " .. ns.taxiName(to)
+  from, to = strtrim(from), strtrim(to)
+  return taxiName(from) .. " > " .. taxiName(to)
+end
+-- A route's points' ids (nil for one kept by name).
+function ns.routePoints(route)
+  local from, to = route:match("^(%d+)>(%d+)$")
+  return tonumber(from), tonumber(to)
 end
 
 -- A flight: the taxi map names where you are (the current node) and where you
--- asked to go; kept by its points' ids, in English.
+-- asked to go; kept by its points' ids.
 hooksecurefunc("TakeTaxiNode", function(index)
   local to = TaxiNodeName(index)
   local from
@@ -427,18 +442,25 @@ hooksecurefunc("TakeTaxiNode", function(index)
   end
   if not (to and from) then return end
   local fromId, toId = ns.taxiId(from), ns.taxiId(to)
-  from, to = ns.taxiEnglish(from), ns.taxiEnglish(to)
   local a, s = ns.atlas(), stamp()
-  keep(a.flights, { from = from, to = to, fromId = fromId, toId = toId, at = s.at, level = s.level }, 300)
-  local route = from .. " > " .. to
+  keep(a.flights, {
+    fromId = fromId,
+    toId = toId,
+    from = not fromId and from or nil,
+    to = not toId and to or nil,
+    at = s.at,
+    level = s.level,
+  }, 300)
+  local route = tostring(fromId or from) .. ">" .. tostring(toId or to)
   a.routes[route] = (a.routes[route] or 0) + 1
   ns.checkMilestones()
   ns.onAtlas()
 end)
 
 ns.on("HEARTHSTONE_BOUND", function()
-  local place = ns.areaEnglish(GetBindLocation())
-  if not place then return end
+  local name = GetBindLocation()
+  if not name or secret(name) then return end
+  local place = ns.areaKey(name) or name
   local s = stamp()
   keep(ns.atlas().binds, { place = place, at = s.at, level = s.level }, 100)
   ns.checkMilestones()

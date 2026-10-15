@@ -29,12 +29,15 @@ jobs:
         python3 scripts/rare_zones.py
         python3 scripts/forever_rares.py
         python3 scripts/expeditions.py
+        # (the game's names by id in every language, English one of them; a
+        # translation's glossary besides)
         for locale in $(ls i18n | grep -E '^[a-z]{2}[A-Z]{2}$'); do
           python3 scripts/creature_names.py "$locale"
           python3 scripts/taxi_names.py "$locale"
-          python3 ../addon-kit/glossary.py "$locale" --prose content atlas notes expeditions --ids creature id
           python3 ../addon-kit/subzones.py "$locale"
-          python3 scripts/places.py "$locale"
+          if [ -f "i18n/$locale/words.json" ]; then
+            python3 ../addon-kit/glossary.py "$locale" --prose content atlas notes expeditions --ids creature id
+          fi
         done
         bun run build
       paths: |

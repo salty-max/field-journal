@@ -45,12 +45,17 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   databases, each game's pinned build): continent, places (name, overlay
   offset, area ids).
   `atlas/<zone>.md`: the surveyor's note for a zone (front matter `zone:`).
-  Also every area's English name by id (`areaNames`) and every flight
-  point's (`taxi`, the client's TaxiNodes, its own paths left out): the
-  journal keeps places, flights and routes in English by their ids, read in
-  the client's language; `i18n/<locale>/taxi.json`
-  (`python3 scripts/taxi_names.py <locale>`) the flight points' names that
-  differ from the English. Never keep a game name without its id.
+  Also every area's English name by id (`areaNames`, only to read the
+  journals of before 15 October 2026) and each flight point's zone
+  (`taxiZone`, node id -> uiMap, by the client's UiMapAssignment). The
+  journal keeps ids only, never a game name (a player's excepted): places as
+  `"a<area>"` or `"w<building area>"` (a pair `"zone|sub"`), flights by their
+  points' ids, routes `"<from>><to>"`, a bind, a death's foe, a creature's
+  type and family by their ids. The game names the areas, types and families
+  by id in the client's language (`C_Map.GetAreaInfo`, `C_CreatureInfo`);
+  the rest by the language's name files (below). Older journals' names are
+  turned into ids at the login (`mendNames`, `Core.lua`), each language's on
+  a client of that language.
 - `data/rare-zones.json` (rare id -> uiMap; the zones' names from
   `data/zones-classic.json`): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
   Questie's zone for the rare, else its spawn points in the zones' map
@@ -65,7 +70,8 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   of the Plants and Fish tabs (being built, see PLAN.md): herbs with their
   nodes, Herbalism skill (the client's Lock table) and zones (the nodes'
   spawns, placed by the Atlas's places of each zone); fish with their zones,
-  subzones, dungeons, schools and seasons, and the weighed catches as kinds.
+  subzones, dungeons, schools and seasons (their areas by id, named by the
+  book), and the weighed catches as kinds.
 - `notes/herbs.md`, `notes/fish.md`: the naturalist's note for every herb and
   fish ("## <item id> <name>", then paragraphs; plain ASCII; the build refuses
   a missing or unknown one). Places only from the data, uses only from the
@@ -218,12 +224,18 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   where the clients differ; the test game has every one the addon calls.
 - Languages: every word the addon shows goes through `L["..."]` (the kit's
   `K.L`; plurals through `ns.kit.plural`); link and colour codes stay outside
-  the words. The TOCs load `Locale.lua` (`ns.translate`) and
+  the words. The TOCs load `Locale.lua` (`ns.translate`, `ns.names`) and
   `Text_[TextLocale].lua` after the data: `scripts/locales.ts` (in `build` and
-  `check`) writes them from `i18n/<locale>/` (words, sections, families,
-  atlas, herbs/fish notes, expeditions with their riddles veiled as the
-  English, places, `creatures.json`: every creature's name by id, each game's,
-  `python3 scripts/creature_names.py <locale>` from wow-data's databases;
+  `check`) writes them from `i18n/<locale>/`. Every language, English one of
+  them, has its name files, each complete (no "only what differs from the
+  English", no English fallback): `creatures.json` (every creature by id,
+  each game's, `python3 scripts/creature_names.py <locale>`), `taxi.json`
+  (the flight points, `python3 scripts/taxi_names.py <locale>`),
+  `subzones.json` (the building areas, `python3 ../addon-kit/subzones.py
+  <locale>`), all from wow-data's databases, and `areas-by-hand.json` (an
+  area the client misnames); `ns.names` loads them. A translation besides
+  (words, sections, families, atlas, herbs/fish notes, expeditions with their
+  riddles veiled as the English; `ns.translate`), the English its source:
   `glossary.json` and `classic.json`: `../addon-kit/glossary.py`, with
   `glossary-by-hand.json`'s names no table has). A name the glossary holds
   that an English text names is in its translation as the game writes it
@@ -231,11 +243,10 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   `names-ok.json`), and a riddle's answer that is the thing's own name is the
   game's, by its id (`data/expeditions.json`'s `names`): a translation's `@`
   only for an answer of its own. Each
-  translation records its English source's hash (`--stamp`). The names the
-  journal recorded in the client's language of the day (a creature's, a
-  place's) read in the client's language now: `ns.creatureName` (the
-  translation's, else the last met), `ns.placeText` (the data's `areaNames`,
-  every area's English name by id, and `C_Map.GetAreaInfo`). French done 13
+  translation records its English source's hash (`--stamp`). Everything the
+  journal keeps reads in the client's language of now, by its id:
+  `ns.creatureName`, `ns.areaLabel` and `ns.placeText`, `ns.routeText`,
+  `ns.familyTitle`. French done 13
   October 2026; German the 14th, flagged (a first translation, corrections
   welcome): "du", the game's own German names (most of Classic's cities and
   many places stay English on a German client), `$gmasc:fem;` where a line

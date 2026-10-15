@@ -20,7 +20,7 @@ ns.floraRows, ns.floraPairs = rows, pairsPool -- for the tests
 local function when(stamp)
   if not stamp or not stamp.at then return nil end
   local where = stamp.zone and ns.zoneName(stamp.zone)
-  local sub = stamp.sub and ns.areaName(stamp.sub)
+  local sub = stamp.sub and ns.areaLabel(stamp.sub)
   if where and sub and sub ~= "" and sub ~= where then where = L["%s, %s"]:format(sub, where) end
   if where then return L["%s in %s, you were level %d"]:format(ui.day(stamp), where, stamp.level or 0) end
   return L["%s, you were level %d"]:format(ui.day(stamp), stamp.level or 0)
@@ -151,6 +151,14 @@ end
 
 -- ── the pages ────────────────────────────────────────────────────────────────
 local function listed(items) return items and #items > 0 and table.concat(items, ", ") or nil end
+-- Areas by their ids, named in the client's language.
+local function areas(ids)
+  local out = {}
+  for _, id in ipairs(ids or {}) do
+    table.insert(out, ns.areaLabel("a" .. id))
+  end
+  return listed(out)
+end
 
 -- Where the character found it most: "Elwynn Forest (12), Westfall (3)".
 local function mostFound(zones)
@@ -193,8 +201,8 @@ local function showKind(id)
     page:stats(figures)
     page:section(L["Where it bites"])
     zoneChips(d.zones)
-    page:row(L["Waters"], listed(d.subzones))
-    page:row(L["Dungeons"], listed(d.dungeons))
+    page:row(L["Waters"], areas(d.subzones))
+    page:row(L["Dungeons"], areas(d.dungeons))
     page:section(L["Your catches"])
     page:row(L["First caught"], when(rec.first))
     page:row(L["Where"], mostFound(rec.zones))
@@ -209,7 +217,7 @@ local function showKind(id)
     })
     page:section(L["Where it grows"])
     zoneChips(d.zones)
-    page:row(L["Dungeons"], listed(d.dungeons))
+    page:row(L["Dungeons"], areas(d.dungeons))
     page:section(L["Your herbs"])
     local first = when(rec.first)
     page:row(L["First"], first and (L["%s (%s)"]):format(first, HOW[rec.first.how] or "?") or nil)

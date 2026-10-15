@@ -26,6 +26,10 @@ Summer Bass: the database's fishing season events). The database doesn't
 model the hour (Nightfin Snapper by night, Sunscale Salmon by day): the
 character's catches record it.
 
+Places by id, never by name: zones by their uiMap ids, subzones and dungeons
+(an instance's own area) by their area ids, named in any language by the
+client (C_Map.GetMapInfo, C_Map.GetAreaInfo).
+
   python3 scripts/flora.py            (wow-data's databases)
 """
 import collections, json, os, re, sys
@@ -100,7 +104,7 @@ def zone_tools():
     def area_zone(area):
         z = top(area)
         m = by_area.get(z) or by_area.get(area)
-        return uimaps[m]["Name_lang"] if m else None
+        return m or None
 
     # The Atlas's places of each zone (data/zones-classic.json): rectangles on
     # the zone's map art (1002 x 668), where the zone really is.
@@ -133,17 +137,21 @@ def zone_tools():
                 key = (0 if inside else 1, d)
                 if best is None or key < best[0]:
                     best = (key, int(r["UiMapID"]))
-        return uimaps[best[1]]["Name_lang"] if best else None
+        return best[1] if best else None
 
     def area_name(area):
         return areas[area]["AreaName_lang"] if area in areas else None
 
-    maps = {int(r["ID"]): r["MapName_lang"] for r in wago("Map")}
-    return area_zone, spot_zone, area_name, top, maps
+    # (a map's own area: an instance's name in any language, C_Map.GetAreaInfo)
+    maps = {int(r["ID"]): int(r["AreaTableID"] or 0) for r in wago("Map")}
+    def map_name(m):
+        return uimaps[m]["Name_lang"] if m in uimaps else str(m)
+
+    return area_zone, spot_zone, area_name, top, maps, map_name
 
 
 def main():
-    area_zone, spot_zone, area_name, top, maps = zone_tools()
+    area_zone, spot_zone, area_name, top, maps, map_name = zone_tools()
     items, gos, spawns, loot_of, en = classic_rows()
     goloot = loot_of("object")
     locks = {int(r["ID"]): r for r in wago("Lock")}
@@ -197,8 +205,8 @@ def main():
                 z = spot_zone(int(s["map"]), float(s["position_x"]), float(s["position_y"]))
                 if z:
                     zones[z] += 1
-                elif int(s["map"]) not in (0, 1) and int(s["map"]) in maps:
-                    dungeons.add(maps[int(s["map"])])  # inside: Dire Maul, Zul'Gurub...
+                elif int(s["map"]) not in (0, 1) and maps.get(int(s["map"])):
+                    dungeons.add(maps[int(s["map"])])  # inside: Dire Maul, Zul'Gurub... (its area)
         total = sum(zones.values())
         kept = [z for z, n in zones.most_common() if n >= 6 and n >= total * 0.03]  # not the strays at a border
         own = [g for g in nodes if g["name"] == r["name"]]
@@ -269,9 +277,9 @@ def main():
             if z:
                 zones[z] = True
             elif area_name(top(a)):
-                dungeons.append(area_name(top(a)))  # no zone map: an instance
+                dungeons.append(top(a))  # no zone map: an instance (its area)
             if top(a) != a and area_name(a):
-                subzones.append(area_name(a))
+                subzones.append(a)
         fish.append({
             "id": int(e), "name": r["name"], "level": int(r["ItemLevel"]), "kind": k,
             "zones": sorted(zones), "subzones": sorted(set(subzones)), "dungeons": sorted(set(dungeons)),
@@ -284,8 +292,8 @@ def main():
         fish.append({
             "id": weights[0]["id"], "name": name, "level": int(items[str(weights[0]["id"])]["ItemLevel"]), "kind": "record",
             "zones": sorted({z for z in (area_zone(a) for a in areas) if z}),
-            "subzones": sorted({area_name(a) for a in areas if top(a) != a and area_name(a)}),
-            "dungeons": sorted({area_name(top(a)) for a in areas if not area_zone(a) and area_name(top(a))}),
+            "subzones": sorted({a for a in areas if top(a) != a and area_name(a)}),
+            "dungeons": sorted({top(a) for a in areas if not area_zone(a) and area_name(top(a))}),
             "schools": [], "schoolIds": [], "weights": weights,
         })
 
@@ -294,10 +302,10 @@ def main():
         json.dump({"herbs": herbs, "fish": fish, "schools": every_school}, f, indent=1)
     print(f"{len(herbs)} herbs, {len(fish)} fish -> data/flora.json")
     for h in herbs:
-        print(f"  herb {h['name']:<22} skill {h['skill']!s:>4}  {h['spawns']:>5} spawns  {', '.join(h['zones'][:6])}"
-              f"{'  | ' + ', '.join(h['dungeons']) if h['dungeons'] else ''}")
+        print(f"  herb {h['name']:<22} skill {h['skill']!s:>4}  {h['spawns']:>5} spawns  {', '.join(map_name(z) for z in h['zones'][:6])}"
+              f"{'  | ' + ', '.join(area_name(d) or str(d) for d in h['dungeons']) if h['dungeons'] else ''}")
     for x in fish:
-        print(f"  fish {x['name']:<30} {x['kind']:<8} {len(x['zones']):>2} zones  {'| ' + ', '.join(x['dungeons']) + '  ' if x['dungeons'] else ''}schools: {', '.join(x['schools']) or '-'}"
+        print(f"  fish {x['name']:<30} {x['kind']:<8} {len(x['zones']):>2} zones  {'| ' + ', '.join(area_name(d) or str(d) for d in x['dungeons']) + '  ' if x['dungeons'] else ''}schools: {', '.join(x['schools']) or '-'}"
               f"{'  weights ' + ', '.join(str(w['pounds']) for w in x['weights']) if x.get('weights') else ''}")
 
 

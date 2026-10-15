@@ -116,7 +116,7 @@ local function joined(parts, sep)
   return table.concat(out, sep or "  -  ")
 end
 
-local function placeShort(p) return p and ns.areaName(p:match(": (.+)$") or p) end
+local function placeShort(p) return p and ns.areaLabel(p:match("|(.+)$") or p:match(": (.+)$") or p) end
 local function day(stamp) return ui.day(stamp) end
 
 -- The creatures of a family in the order the select asks: by name, the most

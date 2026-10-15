@@ -93,6 +93,8 @@ C_Map = {
       [856] = "Twilight Grove",
       [1098] = "Manor Mistmantle",
       [204] = "Pyrewood Village",
+      [800] = "Coldridge Pass",
+      [18] = "Crystal Lake",
     })[id]
   end,
   GetBestMapForUnit = function() return state.map end,
@@ -476,7 +478,7 @@ function hooksecurefunc(t, name, fn)
     return r
   end
 end
-local TAXI = { "Ironforge", "Thelsamar", "Menethil Harbor" }
+local TAXI = { "Ironforge, Dun Morogh", "Thelsamar, Loch Modan", "Menethil Harbor, Wetlands" }
 function NumTaxiNodes() return #TAXI end
 function TaxiNodeName(i) return TAXI[i] end
 function TaxiNodeGetType(i) return i == 1 and "CURRENT" or "REACHABLE" end
@@ -658,7 +660,7 @@ check(
   seen(1131)
     and seen(1131).name == "Winter Wolf"
     and seen(1131).low == 7
-    and seen(1131).first.zone == "Dun Morogh"
+    and seen(1131).first.zone == "a1" -- (Dun Morogh, by its area id)
     and not rec(1131)
     and not said("recorded"),
   "targeting a creature notes it (its level, where), not yet in the book: it joins on its first kill"
@@ -669,8 +671,10 @@ check(seen(1133) and not rec(1133), "… and so does mousing over one")
 state.sub = "Coldridge Pass"
 target(1131)
 check(
-  #seen(1131).places == 2 and seen(1131).places[2] == "Dun Morogh: Coldridge Pass",
-  "a creature remembers the places it was met"
+  #seen(1131).places == 2
+    and seen(1131).places[2] == "a1|a800"
+    and ns.placeText(seen(1131).places[2]) == "Dun Morogh: Coldridge Pass",
+  "a creature remembers the places it was met, by their area ids, named by the game"
 )
 
 -- Slaying: my killing blow or my pet's, however dealt.
@@ -695,7 +699,7 @@ check(
   rec(1131) and rec(1131).slain == 1 and rec(1131).firstSlain.level == 3 and not seen(1131),
   "slaying a creature puts it in the book, counted, with when and at what level"
 )
-check(rec(1131).first.zone == "Dun Morogh" and #rec(1131).places == 2, "… with what was seen of it before")
+check(rec(1131).first.zone == "a1" and #rec(1131).places == 2, "… with what was seen of it before")
 check(
   said("|cffffd100|Hyonder:c1131|h[Winter Wolf]|h|r recorded (Wolves, a new family).") and sounds == 0,
   "… announced in chat with a link to its page (and its new family), without a sound"
@@ -1094,13 +1098,18 @@ local crossing = atlas.crossings[#atlas.crossings]
 check(crossing and crossing.from == 1429 and crossing.to == 1411, "crossing to another continent is recorded")
 TakeTaxiNode(2)
 check(
-  atlas.flights[1].from == "Ironforge"
-    and atlas.flights[1].to == "Thelsamar"
-    and atlas.routes["Ironforge > Thelsamar"] == 1,
-  "a flight is recorded, with its route"
+  atlas.flights[1].fromId == 6
+    and atlas.flights[1].toId == 8
+    and not atlas.flights[1].from
+    and atlas.routes["6>8"] == 1
+    and ns.routeText("6>8") == "Ironforge, Dun Morogh > Thelsamar, Loch Modan",
+  "a flight is recorded by its points' ids, with its route, named by the language's list"
 )
 fire("HEARTHSTONE_BOUND")
-check(atlas.binds[1].place == "Kharanos", "a new hearthstone bind is recorded")
+check(
+  atlas.binds[1].place == "a131" and ns.areaLabel(atlas.binds[1].place) == "Kharanos",
+  "a new hearthstone bind is recorded, by its area's id"
+)
 state.target = 1133
 fire("PLAYER_TARGET_CHANGED")
 state.health = 5
@@ -1116,7 +1125,10 @@ end
 state.health = 0
 fire("PLAYER_DEAD")
 check(
-  atlas.deaths[1] and atlas.deaths[1].by == (FOREVER and "Starving Winter Wolf" or "Winter Wolf"),
+  atlas.deaths[1]
+    and atlas.deaths[1].byId == (FOREVER and 1133 or 1131)
+    and not atlas.deaths[1].by
+    and ns.creatureName(atlas.deaths[1].byId) == (FOREVER and "Starving Winter Wolf" or "Winter Wolf"),
   FOREVER and "Forever: a death names the last foe targeted" or "a death names what last hurt you (the combat log)"
 )
 state.health, state.map, state.target = 100, 1426, nil
@@ -1505,7 +1517,7 @@ check(
     and smallfish.day == 1
     and smallfish.school == 0
     and smallfish.first.zone == 1429
-    and smallfish.first.sub == "Crystal Lake"
+    and smallfish.first.sub == "a18"
     and smallfish.zones[1429] == 1,
   "a catch in open water: where, when, by day, once per window"
 )
@@ -2381,7 +2393,6 @@ do
       },
     },
     atlas = { [1426] = { { "Les neiges autour de Forgefer." } } },
-    places = { ["Cliffspring Falls"] = "Chutes de Sourcefalaise" },
     expeditions = {
       [1426] = {
         riddles = {
@@ -2417,7 +2428,15 @@ do
     D.atlas.zones[1426].note[1] == (FOREVER and "Les neiges autour de Forgefer." or "Les neiges autour de Ironforge."),
     "… the Atlas's notes, Classic's own names swapped in on Classic"
   )
-  check(D.flora.fish[6718].subzones[1] == "Chutes de Sourcefalaise", "… the fish's waters")
+  -- (the fish's waters: their areas, kept by their ids, named as the client names them)
+  local area = C_Map.GetAreaInfo
+  C_Map.GetAreaInfo = function(id) return ({ [443] = "Chutes de Sourcefalaise" })[id] end
+  local waters = D.flora.fish[6718].subzones
+  check(
+    type(waters[1]) == "number" and ns.areaLabel("a" .. waters[1]) == "Chutes de Sourcefalaise",
+    "… the fish's waters, by their areas"
+  )
+  C_Map.GetAreaInfo = area
   check(
     r.verse[2] == "une enclume a un maître."
       and r.hint == (FOREVER and "Au pied de la route de Forgefer." or "Au pied de la route de Ironforge.")
@@ -2485,45 +2504,43 @@ do
       and ns.kit.L["Expeditions"] ~= "Expeditions",
     "… its words, a riddle's answer and note, Classic's own names on Classic"
   )
-  -- a place a journal recorded in English, in the client's language (the
-  -- area's own name, as the client gives it), joined as French joins them
+  -- a place an older journal kept by its English name (before 15 October
+  -- 2026), in the client's language (the area's own name, as the client gives
+  -- it), joined as French joins them
   local area = C_Map.GetAreaInfo
   C_Map.GetAreaInfo = function(id) return ({ [1] = "Dun Morogh", [211] = "Lac glacial" })[id] end
   check(
     ns.placeText("Dun Morogh: Iceflow Lake") == "Dun Morogh : Lac glacial"
       and ns.placeText("Nowhere: Elsewhere") == "Nowhere : Elsewhere",
-    "… a place recorded in English reads in French; one it doesn't know stays as recorded"
+    "… a place an older journal kept in English reads in French; one it doesn't know stays as kept"
   )
+  -- (a place met on this French client: kept by its id, an area's or a
+  -- building's, named by the game or by the language's list)
+  local inside = ns.areaKey("La Bibliothèque")
   check(
-    ns.areaName("The Library") == "La Bibliothèque",
-    "… and a place inside a building (no area id) by the translation's list"
+    ns.areaKey("Lac glacial") == "a211"
+      and inside
+      and inside:match("^w%d+$")
+      and ns.areaLabel(inside) == "La Bibliothèque"
+      and ns.placeText("a1|a211") == "Dun Morogh : Lac glacial"
+      and ns.areaKey("Ailleurs") == nil,
+    "… a place met in French kept by its id, an area's or a building's; one neither knows as the game gave it"
   )
-  -- (and the other way: a place met on this French client kept in English, by
-  -- its id, so it reads in any language)
+  -- (a flight's points by their ids, a route read in French, each game's names)
   check(
-    ns.areaEnglish("Lac glacial") == "Iceflow Lake"
-      and ns.areaEnglish("La Bibliothèque") == "The Library"
-      and ns.areaEnglish("Ailleurs") == "Ailleurs",
-    "… a place met in French kept in English by its id; one it doesn't know as the game gave it"
+    ns.taxiId("Colline des sentinelles, marche de l'Ouest") == 4
+      and ns.routeText("4>5") == "Colline des sentinelles, marche de l'Ouest > " .. (FOREVER and "Comté-du-Lac, les Carmines" or "Lakeshire, les Carmines")
+      and ns.taxiId("Nulle part") == nil,
+    "… a flight's points met in French kept by their ids, a route read in French"
   )
-  -- (a flight's points: met in French, kept in English by their ids, a route
-  -- kept in English read in French)
-  check(
-    ns.taxiEnglish("Colline des sentinelles, marche de l'Ouest") == "Sentinel Hill, Westfall"
-      and ns.routeText("Sentinel Hill, Westfall > Lakeshire, Redridge") == "Colline des sentinelles, marche de l'Ouest > " .. (FOREVER and "Comté-du-Lac, les Carmines" or "Lakeshire, les Carmines")
-      and ns.taxiEnglish("Nulle part") == "Nulle part",
-    "… a flight's points met in French kept in English by their ids, a route read in French"
-  )
-  -- (a route flown once in French and once in English: one, at the login)
-  ns.atlas().routes = {
-    ["Colline des sentinelles, marche de l'Ouest > Thelsamar, Loch Modan"] = 2,
-    ["Sentinel Hill, Westfall > Thelsamar, Loch Modan"] = 1,
-  }
+  -- (a route an older journal kept by its French names: by its points' ids at
+  -- the login, one with the same route kept by ids)
+  ns.atlas().routes = { ["Colline des sentinelles, marche de l'Ouest > Thelsamar, Loch Modan"] = 2, ["4>8"] = 1 }
   fire("PLAYER_LOGIN")
   check(
-    ns.atlas().routes["Sentinel Hill, Westfall > Thelsamar, Loch Modan"] == 3
+    ns.atlas().routes["4>8"] == 3
       and not ns.atlas().routes["Colline des sentinelles, marche de l'Ouest > Thelsamar, Loch Modan"],
-    "… a route flown in French and in English is one, made so at the login"
+    "… a route kept by its names is kept by its points' ids at the login, one with the same"
   )
   C_Map.GetAreaInfo = area
   -- a creature by this game's name for it, whatever its record kept

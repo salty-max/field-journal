@@ -54,38 +54,56 @@ local BEAST_NAMES = {
 }
 local byBeast, byType
 local typeOf -- a type's name, as the game says it, to the data's (English)
-local familyOf -- a family's name, as the game says it, to its English one
+local typeIdOf, familyIdOf -- a type's and a family's word, as the game says it, to its id
+local byTypeId, typeById = {}, {} -- a type's id: its catch-all page, its data name
 local function lookups()
   if byBeast then return end
-  byBeast, byType, typeOf, familyOf = {}, {}, {}, {}
+  byBeast, byType, typeOf, typeIdOf, familyIdOf = {}, {}, {}, {}, {}
   local info = C_CreatureInfo or {}
   for familyId, index in pairs(D.beasts or {}) do
     if BEAST_NAMES[familyId] then
       byBeast[BEAST_NAMES[familyId]] = index
-      familyOf[BEAST_NAMES[familyId]] = BEAST_NAMES[familyId]
+      familyIdOf[BEAST_NAMES[familyId]] = familyId
     end
     local f = info.GetCreatureFamilyInfo and info.GetCreatureFamilyInfo(familyId)
     if f and f.name then
       byBeast[f.name] = index
-      familyOf[f.name] = BEAST_NAMES[familyId] or f.name
+      familyIdOf[f.name] = familyId
     end
   end
   for typeName, index in pairs(D.fallbacks or {}) do
     byType[TYPE_NAMES[typeName] or typeName] = index
     typeOf[TYPE_NAMES[typeName] or typeName], typeOf[typeName] = typeName, typeName
-    local t = TYPES[typeName] and info.GetCreatureTypeInfo and info.GetCreatureTypeInfo(TYPES[typeName])
+    local id = TYPES[typeName]
+    if id then
+      byTypeId[id], typeById[id] = index, typeName
+      typeIdOf[TYPE_NAMES[typeName] or typeName], typeIdOf[typeName] = id, id
+    end
+    local t = id and info.GetCreatureTypeInfo and info.GetCreatureTypeInfo(id)
     if t and t.name then
       byType[t.name] = index
       typeOf[t.name] = typeName
+      typeIdOf[t.name] = id
     end
   end
+end
+-- A creature type's and a family's id from the game's word for it (this
+-- client's language, or English, an older journal's): a journal keeps the ids,
+-- filed and named in any language.
+function ns.typeIdOf(word)
+  lookups()
+  return word and typeIdOf[word] or nil
+end
+function ns.familyIdOf(word)
+  lookups()
+  return word and familyIdOf[word] or nil
 end
 
 -- A creature the data doesn't know, by its name: the first family of its
 -- type whose name rule's words it has (each a whole word, or a word's start,
 -- or with its plural, as the rule says).
 local function byName(rec)
-  local ctype = rec.name and typeOf[rec.type]
+  local ctype = rec.name and ((rec.typeId and typeById[rec.typeId]) or typeOf[rec.type])
   if not ctype then return end
   for _, rule in ipairs(D.names or {}) do
     if rule.t == ctype then
@@ -111,25 +129,15 @@ function ns.familyKey(id, rec)
   if index then return D.families[index].id end
   local c = ns.journal()
   rec = rec or (c and c.creatures[id])
-  if not (rec and rec.type) then return end
+  if not (rec and (rec.typeId or rec.type)) then return end
   lookups()
-  index = (rec.family and byBeast[rec.family]) or byName(rec) or byType[rec.type]
+  local typeId = rec.typeId or (rec.type and typeIdOf[rec.type])
+  local familyId = rec.familyId or (rec.family and familyIdOf[rec.family])
+  index = (familyId and D.beasts and D.beasts[familyId]) or byName(rec) or (typeId and byTypeId[typeId])
   if index then return D.families[index].id end
+  -- (unfiled: by the ids, "?1/2", else the words kept)
+  if typeId then return "?" .. typeId .. (familyId and ("/" .. familyId) or "") end
   return "?" .. rec.type .. (rec.family and ("/" .. rec.family) or "")
-end
-
--- A creature type's and a family's English names (the game's word on an
--- English client), from the game's word in this client's language, by their
--- ids: a journal keeps them in English, so a creature met in one language is
--- filed in another; a word of another language is kept as it was.
-function ns.typeEnglish(word)
-  lookups()
-  local t = word and typeOf[word]
-  return t and (TYPE_NAMES[t] or t) or word
-end
-function ns.familyEnglish(word)
-  lookups()
-  return word and familyOf[word] or word
 end
 
 -- Can the journal file a creature of this type the data doesn't know?
@@ -142,6 +150,12 @@ end
 function ns.familyTitle(key)
   if byId[key] then return byId[key].title end
   local t, f = key:match("^%?([^/]+)/?(.*)$")
+  -- (by their ids: the game's words in this client's language)
+  local info = C_CreatureInfo or {}
+  local tInfo = tonumber(t) and info.GetCreatureTypeInfo and info.GetCreatureTypeInfo(tonumber(t))
+  local fInfo = tonumber(f) and info.GetCreatureFamilyInfo and info.GetCreatureFamilyInfo(tonumber(f))
+  t = tInfo and tInfo.name or t
+  f = fInfo and fInfo.name or f
   if f and f ~= "" then return (L["Unrecorded %s: %s"]):format(t or "?", f) end
   return (L["Unrecorded: %s"]):format(t or "?")
 end
@@ -152,8 +166,10 @@ local function here()
   return {
     at = time(),
     level = UnitLevel("player"),
-    zone = ns.areaEnglish(GetRealZoneText()),
-    sub = ns.areaEnglish(GetSubZoneText()),
+    -- (by their ids: "a<id>", "w<id>" inside a building; a name the game's
+    -- lists don't know kept as given)
+    zone = ns.areaKey(GetRealZoneText()) or GetRealZoneText(),
+    sub = ns.areaKey(GetSubZoneText()) or GetSubZoneText(),
     map = map,
     x = pos and math.floor(pos.x * 1000 + 0.5) / 10,
     y = pos and math.floor(pos.y * 1000 + 0.5) / 10,
@@ -161,7 +177,7 @@ local function here()
 end
 
 local function addPlace(rec, h)
-  local place = (h.zone or "?") .. ((h.sub and h.sub ~= "" and h.sub ~= h.zone) and (": " .. h.sub) or "")
+  local place = (h.zone or "?") .. ((h.sub and h.sub ~= "" and h.sub ~= h.zone) and ("|" .. h.sub) or "")
   rec.places = rec.places or {}
   for _, p in ipairs(rec.places) do
     if p == place then return end
@@ -206,9 +222,13 @@ local function meet(unit)
       if not known then
         local ctype, cfam = UnitCreatureType(unit), UnitCreatureFamily(unit)
         if secret(ctype) or not ns.knownType(ctype) then return end
-        -- (kept in English, by what the game says it is: filed in any language)
-        rec.type = ns.typeEnglish(ctype)
-        rec.family = not secret(cfam) and ns.familyEnglish(cfam) or nil
+        -- (by their ids, from the game's word: filed in any language; a word
+        -- the game's own lists don't know kept as given)
+        rec.typeId = ns.typeIdOf(ctype)
+        rec.type = not rec.typeId and ctype or nil
+        local fam = not secret(cfam) and cfam or nil
+        rec.familyId = fam and ns.familyIdOf(fam)
+        rec.family = fam and not rec.familyId and fam or nil
       end
       rec.first = here()
       char.seen[id] = rec

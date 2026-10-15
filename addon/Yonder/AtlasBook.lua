@@ -255,12 +255,15 @@ local function eventCard(e, died)
   )
 end
 
--- Flights from or to a zone (a taxi node is named "Place, Zone"; a route is
--- kept in English, found by the zone's English name, shown in today's).
+-- Flights from or to a zone: its points by their ids (the data's zone of each,
+-- taxiZone); a route an older journal kept by name, by the zone's name in it.
 local function routesOf(uiMap)
-  local name, routes, n = A.zones[uiMap] and A.zones[uiMap].name or ns.zoneName(uiMap), {}, 0
+  local name, routes, n = ns.zoneName(uiMap), {}, 0
+  local zoneOf = A.taxiZone or {}
   for route, times in pairs(ns.atlas().routes or {}) do
-    if route:find(name, 1, true) then
+    local from, to = ns.routePoints(route)
+    local here = from and (zoneOf[from] == uiMap or zoneOf[to] == uiMap) or (not from and route:find(name, 1, true))
+    if here then
       table.insert(routes, { ns.routeText(route), times })
       n = n + times
     end
@@ -475,7 +478,7 @@ local function showTravels()
   if top then page:row(L["Flown most"], L["%s, %d times"]:format(ns.routeText(top), topN)) end
   if #(a.crossings or {}) > 0 then page:row(L["Crossings"], L["%d between continents"]:format(#a.crossings)) end
   local bind = a.binds and a.binds[#a.binds]
-  if bind then page:row(L["Hearth"], L["%s, since %s"]:format(ns.areaName(bind.place), day(bind))) end
+  if bind then page:row(L["Hearth"], L["%s, since %s"]:format(ns.areaLabel(bind.place), day(bind))) end
   page:row(L["Close calls"], tostring(#(a.closeCalls or {})))
   if #(a.deaths or {}) > 0 then
     page:section(L["The last deaths"])

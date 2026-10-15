@@ -2,10 +2,10 @@
 """The flight points' names in a client language, each game's (wow-data's
 databases, ../wow-data, the client's TaxiNodes in every language):
 i18n/<locale>/taxi.json, { "forever": { id: name }, "classic": { id: name
-where Classic's differs } }, only the names that differ from the English (the
-others are the game's English, data/zones-<game>.json's). A flight keeps its
-points by id: they read in the client's language, and a route flown in two
-languages is one. Run from the addon's folder:
+where Classic's differs } }: every flight point this language names, English
+one language among the others. A flight keeps its points by id: they read in
+the client's language, and a route flown in two languages is one. Run from
+the addon's folder, for every language the addon ships:
 
   python3 scripts/taxi_names.py frFR
 """
@@ -26,7 +26,7 @@ def names(game, loc):
 out = {}
 for game in ("forever", "classic"):
     english, here = names(game, "enUS"), names(game, locale)
-    own = {str(i): n for i, n in sorted(here.items()) if n and english.get(i) and n != english[i] and not INTERNAL.search(english[i])}
+    own = {str(i): n for i, n in sorted(here.items()) if n and english.get(i) and not INTERNAL.search(english[i])}
     if game == "classic":
         own = {i: n for i, n in own.items() if out["forever"].get(i) != n}
     out[game] = own
@@ -34,4 +34,4 @@ os.makedirs(f"i18n/{locale}", exist_ok=True)
 with open(f"i18n/{locale}/taxi.json", "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=1)
     f.write("\n")
-print(f"i18n/{locale}/taxi.json: {len(out['forever'])} Forever names, {len(out['classic'])} Classic ones of their own")
+print(f"i18n/{locale}/taxi.json: {len(out['forever'])} of Forever's points, {len(out['classic'])} of Classic's own")

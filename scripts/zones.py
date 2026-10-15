@@ -92,9 +92,26 @@ def main():
         # place by name (in the client's language of the day), the Atlas
         # finds its id, and the client's own name for it (Locale.lua)
         names = {int(r["ID"]): r["AreaName_lang"] for r in table(game, "AreaTable") if r["AreaName_lang"]}
-        # every flight point's English name by its id ("Thelsamar, Loch
-        # Modan"): a flight keeps its points by id, read in any language
-        taxi = {int(r["ID"]): r["Name_lang"] for r in table(game, "TaxiNodes") if r["Name_lang"] and not INTERNAL.search(r["Name_lang"])}
+        # every flight point's zone (its uiMap, by its place on the map: the
+        # smallest of the Atlas's zones holding it): a flight keeps its points
+        # by id, and a zone's page finds its routes by them; their names come
+        # from each language's list (scripts/taxi_names.py)
+        kept = {x["id"] for x in z}
+        assign = [r for r in table(game, "UiMapAssignment") if int(r["UiMapID"]) in kept]
+        taxi = {}
+        for r in table(game, "TaxiNodes"):
+            if not r["Name_lang"] or INTERNAL.search(r["Name_lang"]):
+                continue
+            m, x, y = int(r["ContinentID"]), float(r["Pos_0"]), float(r["Pos_1"])
+            best = None
+            for a in assign:
+                x0, y0, x1, y1 = float(a["Region_0"]), float(a["Region_1"]), float(a["Region_3"]), float(a["Region_4"])
+                if int(a["MapID"]) == m and x0 <= x <= x1 and y0 <= y <= y1:
+                    size = (x1 - x0) * (y1 - y0)
+                    if best is None or size < best[0]:
+                        best = (size, int(a["UiMapID"]))
+            if best:
+                taxi[int(r["ID"])] = best[1]
         path = os.path.join(ROOT, "data", f"zones-{game}.json")
         with open(path, "w") as f:
             json.dump(
@@ -102,7 +119,7 @@ def main():
                     "continents": continents,
                     "zones": z,
                     "areaNames": {str(k): names[k] for k in sorted(names)},
-                    "taxi": {str(k): taxi[k] for k in sorted(taxi)},
+                    "taxiZone": {str(k): taxi[k] for k in sorted(taxi)},
                 },
                 f,
                 indent=1,

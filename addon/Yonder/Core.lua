@@ -186,21 +186,31 @@ end
 
 -- This character's journal, or a new one (a journal saved by another
 -- character of the same name is not theirs).
--- A journal's names kept in the client's language of the day (before 15
--- October 2026): in English by their ids, where today's language knows them;
--- a name of another language waits for a client of its own.
+-- A journal kept by names (before 15 October 2026: places, types, families,
+-- flights in the client's language of the day, or this morning's English): by
+-- their ids, where today's language or English knows the name; a name of
+-- another language waits for a client of its own.
 local function mendNames(c)
+  local A = ns.data.atlas or {}
+  local english = {}
+  for id, n in pairs(A.areaNames or {}) do
+    if not english[n] or id < english[n] then english[n] = id end
+  end
+  local function key(name)
+    if type(name) ~= "string" or name == "" or name:match("^[aw]%d+$") then return name end
+    return ns.areaKey(name) or (english[name] and "a" .. english[name]) or name
+  end
   local function place(p)
-    if type(p) ~= "string" then return p end
+    if type(p) ~= "string" or p:find("|", 1, true) then return p end
     local zone, sub = p:match("^(.-): (.+)$")
-    if zone then return ns.areaEnglish(zone) .. ": " .. ns.areaEnglish(sub) end
-    return ns.areaEnglish(p)
+    if zone then return key(zone) .. "|" .. key(sub) end
+    return key(p)
   end
   local function stamps(rec)
     for _, h in ipairs({ rec.first or false, rec.last or false }) do
       if h then
-        if type(h.zone) == "string" then h.zone = ns.areaEnglish(h.zone) end
-        if type(h.sub) == "string" then h.sub = ns.areaEnglish(h.sub) end
+        if type(h.zone) == "string" then h.zone = key(h.zone) end
+        if type(h.sub) == "string" then h.sub = key(h.sub) end
       end
     end
   end
@@ -211,8 +221,14 @@ local function mendNames(c)
           rec.places[i] = place(p)
         end
         stamps(rec)
-        if rec.type then rec.type = ns.typeEnglish(rec.type) end
-        if rec.family then rec.family = ns.familyEnglish(rec.family) end
+        local typeId = rec.typeId or ns.typeIdOf(rec.type)
+        if typeId then
+          rec.typeId, rec.type = typeId, nil
+        end
+        local familyId = rec.familyId or ns.familyIdOf(rec.family)
+        if familyId then
+          rec.familyId, rec.family = familyId, nil
+        end
       end
     end
   end
@@ -221,23 +237,32 @@ local function mendNames(c)
       if type(rec) == "table" then stamps(rec) end
     end
   end
-  for _, b in ipairs(c.atlas and c.atlas.binds or {}) do
-    b.place = ns.areaEnglish(b.place)
+  local a = c.atlas
+  if not a then return end
+  for _, b in ipairs(a.binds or {}) do
+    b.place = key(b.place)
   end
-  -- (flights and routes: their points by id, in English; two languages' names
-  -- of one route made one)
-  for _, f in ipairs(c.atlas and c.atlas.flights or {}) do
-    f.fromId, f.toId = f.fromId or ns.taxiId(f.from), f.toId or ns.taxiId(f.to)
-    f.from, f.to = ns.taxiEnglish(f.from), ns.taxiEnglish(f.to)
-  end
-  if c.atlas and c.atlas.routes then
-    local routes = {}
-    for route, n in pairs(c.atlas.routes) do
-      local from, to = route:match("^(.-) > (.+)$")
-      local key = from and (ns.taxiEnglish(from) .. " > " .. ns.taxiEnglish(to)) or route
-      routes[key] = (routes[key] or 0) + n
+  for _, list in ipairs({ a.deaths or {}, a.closeCalls or {} }) do
+    for _, e in ipairs(list) do
+      if e.byId then e.by = nil end
     end
-    c.atlas.routes = routes
+  end
+  -- (flights and routes: their points by id; two languages' names of one
+  -- route made one)
+  for _, f in ipairs(a.flights or {}) do
+    f.fromId, f.toId = f.fromId or ns.taxiId(f.from), f.toId or ns.taxiId(f.to)
+    if f.fromId then f.from = nil end
+    if f.toId then f.to = nil end
+  end
+  if a.routes then
+    local routes = {}
+    for route, n in pairs(a.routes) do
+      local from, to = route:match("^(.-) > (.+)$")
+      local fromId, toId = from and ns.taxiId(from), to and ns.taxiId(to)
+      local kept = (fromId and toId) and (fromId .. ">" .. toId) or route
+      routes[kept] = (routes[kept] or 0) + n
+    end
+    a.routes = routes
   end
 end
 

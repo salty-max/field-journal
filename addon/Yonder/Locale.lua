@@ -61,39 +61,6 @@ function ns.translate(t)
     return s
   end
   ns.localize = words
-  -- the creatures' names, this game's (Classic's own where they differ)
-  local names = {}
-  for id, n in pairs(t.creatures or {}) do
-    names[id] = n
-  end
-  if D.client == "classic" then
-    for id, n in pairs(t.creaturesClassic or {}) do
-      names[id] = n
-    end
-  end
-  ns.creatureNames = names
-  -- the flight points' names, this game's, where they differ from the English
-  local taxi = {}
-  for id, n in pairs(t.taxi or {}) do
-    taxi[id] = n
-  end
-  if D.client == "classic" then
-    for id, n in pairs(t.taxiClassic or {}) do
-      taxi[id] = n
-    end
-  end
-  ns.taxiNames = taxi
-  -- the places inside buildings (no area id to ask the client), this game's
-  local inside = {}
-  for en, tr in pairs(t.subzones or {}) do
-    inside[en] = tr
-  end
-  if D.client == "classic" then
-    for en, tr in pairs(t.subzonesClassic or {}) do
-      inside[en] = tr
-    end
-  end
-  ns.subzoneNames = inside
   local L = K.L
   for english, word in pairs(t.words or {}) do
     L[english] = words(word)
@@ -112,18 +79,10 @@ function ns.translate(t)
     z.note = forThisGame(t.atlas and t.atlas[uiMap], words) or z.note
   end
   -- the herbs' and fish's notes; their names are the game's (their items),
-  -- their waters' and dungeons' a translation's list
-  local places = t.places or {}
-  local function named(list)
-    for i, name in ipairs(list or {}) do
-      list[i] = words(places[name]) or name
-    end
-  end
+  -- their waters' and dungeons' too (their areas, named by the book)
   for kind, list in pairs({ herbs = D.flora and D.flora.herbs, fish = D.flora and D.flora.fish }) do
     for id, d in pairs(list or {}) do
       d.note = forThisGame(t[kind] and t[kind][id], words) or d.note
-      named(d.subzones)
-      named(d.dungeons)
     end
   end
   -- the expeditions: each riddle's verse, hint and danger; what its solving
@@ -164,6 +123,28 @@ function ns.translate(t)
       end
     end
   end
+end
+
+-- The game's names in the client's language, by id: each language's own
+-- list (Text_<locale>.lua, English one of them), for what the game can't name
+-- by id itself: the creatures, the flight points, the places inside buildings
+-- (no area id), and the areas whose own name slips in a language.
+function ns.names(t)
+  local classic = D.client == "classic"
+  local function overlaid(main, own)
+    local out = {}
+    for id, n in pairs(main or {}) do
+      out[id] = n
+    end
+    for id, n in pairs(classic and own or {}) do
+      out[id] = n
+    end
+    return out
+  end
+  ns.creatureNames = overlaid(t.creatures, t.creaturesClassic)
+  ns.taxiNames = overlaid(t.taxi, t.taxiClassic)
+  ns.insideNames = (classic and t.insideClassic or t.inside) or {}
+  ns.areaFixes = t.areas or {}
 end
 
 -- The Atlas's names as the client gives them, in its own language: the zones
