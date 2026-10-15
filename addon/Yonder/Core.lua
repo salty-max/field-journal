@@ -6,11 +6,15 @@
 --
 --   YonderChar (SavedVariablesPerCharacter), whose journal: guid
 --     creatures[id] = {
---       name, type, family,      as the game named them (type and family for
---                                creatures the data file doesn't know)
---       first, last = { at, level, zone, sub, map, x, y }   met
+--       typeId, familyId         for creatures the data file doesn't know, by
+--                                the game's ids (type, family: a word the game
+--                                gave no id; name: a creature no language's
+--                                list names, as the game named it)
+--       first, last = { at, level, zone, sub, map, x, y }   met (zone, sub:
+--                                a place's key, "a<area id>" or "w<building
+--                                area id>"; a name only where the game gave no id)
 --       low, high                levels seen
---       places = { "Zone: Sub" } where met (a few)
+--       places = { "zone|sub" }  where met (a few), by their keys
 --       slain, firstSlain, lastSlain = { at, level }
 --       loot = { [itemId] = count }
 --       trophy = { at, level, rank }   a rare's or a boss's first kill
@@ -19,7 +23,7 @@
 --     families[familyId] = { at, level }    when each family was first slain
 --                                (by the family's id, "wolves"; rebuilt from
 --                                the creatures at each login)
---     seen[id] = { name, type, family, first, last, low, high, places }
+--     seen[id] = { typeId, familyId, first, last, low, high, places }
 --                                met but not yet slain: a creature joins the
 --                                book (creatures, families) on its first kill,
 --                                with what was seen of it before
@@ -215,8 +219,10 @@ local function mendNames(c)
     end
   end
   for _, list in ipairs({ c.creatures or {}, c.seen or {} }) do
-    for _, rec in pairs(list) do
+    for id, rec in pairs(list) do
       if type(rec) == "table" then
+        -- (a name only for a creature no language's list names)
+        if ns.creatureNames and ns.creatureNames[id] then rec.name = nil end
         for i, p in ipairs(rec.places or {}) do
           rec.places[i] = place(p)
         end

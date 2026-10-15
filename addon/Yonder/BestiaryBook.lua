@@ -392,10 +392,7 @@ local function refreshList()
   local searching = q ~= ""
   local creatures = ns.journal().creatures
   local by = ns.metByFamily()
-  local function nameHit(id)
-    local name = creatures[id].name
-    return name ~= nil and name:lower():find(q, 1, true) ~= nil
-  end
+  local function nameHit(id) return ns.creatureName(id, creatures[id]):lower():find(q, 1, true) ~= nil end
   list:begin()
 
   -- Trophies first.

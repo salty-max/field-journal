@@ -102,13 +102,14 @@ end
 -- A creature the data doesn't know, by its name: the first family of its
 -- type whose name rule's words it has (each a whole word, or a word's start,
 -- or with its plural, as the rule says).
-local function byName(rec)
-  local ctype = rec.name and ((rec.typeId and typeById[rec.typeId]) or typeOf[rec.type])
+local function byName(id, rec)
+  local name = ns.creatureName(id, rec)
+  local ctype = (rec.typeId and typeById[rec.typeId]) or typeOf[rec.type]
   if not ctype then return end
   for _, rule in ipairs(D.names or {}) do
     if rule.t == ctype then
       for _, word in ipairs(rule) do
-        if rec.name:find("%f[%w]" .. (word:gsub("%p", "%%%0")) .. rule.x .. "%f[%W]") then return rule.f end
+        if name:find("%f[%w]" .. (word:gsub("%p", "%%%0")) .. rule.x .. "%f[%W]") then return rule.f end
       end
     end
   end
@@ -133,7 +134,15 @@ function ns.familyKey(id, rec)
   lookups()
   local typeId = rec.typeId or (rec.type and typeIdOf[rec.type])
   local familyId = rec.familyId or (rec.family and familyIdOf[rec.family])
-  index = (familyId and D.beasts and D.beasts[familyId]) or byName(rec) or (typeId and byTypeId[typeId])
+  -- (by its family's id, then its model's, by id in any language; its name
+  -- last, the family rules' English words)
+  local display = (D.models and D.models[id]) or rec.display
+  local byModel = display
+    and typeId
+    and typeById[typeId]
+    and D.modelFamilies
+    and D.modelFamilies[typeById[typeId] .. "/" .. display]
+  index = (familyId and D.beasts and D.beasts[familyId]) or byModel or byName(id, rec) or (typeId and byTypeId[typeId])
   if index then return D.families[index].id end
   -- (unfiled: by the ids, "?1/2", else the words kept)
   if typeId then return "?" .. typeId .. (familyId and ("/" .. familyId) or "") end
@@ -217,8 +226,7 @@ local function meet(unit)
       -- Only creatures this character could fight: a stable's mounts, a town's
       -- folk or a foe still friendly before its script turns it aren't game.
       if not attackable(unit) then return end
-      local name = UnitName(unit)
-      rec = { name = not secret(name) and name or nil }
+      rec = {}
       if not known then
         local ctype, cfam = UnitCreatureType(unit), UnitCreatureFamily(unit)
         if secret(ctype) or not ns.knownType(ctype) then return end
@@ -234,10 +242,14 @@ local function meet(unit)
       char.seen[id] = rec
     end
   end
-  -- (the name in this client's language: a journal kept in another reads in
-  -- this one once the creature is met again)
+  -- (a name only for a creature no language's list names: the others by
+  -- their ids, ns.creatureName)
   local seenAs = UnitName(unit)
-  if seenAs and not secret(seenAs) and seenAs ~= "" then rec.name = seenAs end
+  if ns.creatureNames and ns.creatureNames[id] then
+    rec.name = nil
+  elseif seenAs and not secret(seenAs) and seenAs ~= "" then
+    rec.name = seenAs
+  end
   local h = here()
   rec.last = h
   local level = UnitLevel(unit)
@@ -369,10 +381,9 @@ local function slay(id, unit, guid)
   local rec = ns.journal().creatures[id] or join(id, unit)
   if not rec then return end
   corpse(guid, id)
-  if rec.name then
-    told[rec.name] = told[rec.name] or {}
-    table.insert(told[rec.name], time())
-  end
+  local name = ns.creatureName(id, rec)
+  told[name] = told[name] or {}
+  table.insert(told[name], time())
   local stamp = { at = time(), level = UnitLevel("player") }
   rec.slain = (rec.slain or 0) + 1
   rec.firstSlain = rec.firstSlain or stamp
@@ -434,12 +445,13 @@ ns.on("UPDATE_MOUSEOVER_UNIT", function() meet("mouseover") end)
 -- ── kills a quest credits ────────────────────────────────────────────────────
 -- A quest's count of a creature gone up ("Snow Leopard Prowler slain: 1/1")
 -- with no kill told: another's killing blow on one this character tagged,
--- which the game credits it with. Known by its name: the creature met by it.
+-- which the game credits it with. Known by its name, the quest's words in the
+-- client's language: the creature met whose name it is (by its id).
 local function idByName(name)
   local c = ns.journal()
   for _, recs in ipairs({ c.creatures, c.seen or {} }) do
     for id, rec in pairs(recs) do
-      if rec.name == name then return id end
+      if ns.creatureName(id, rec) == name then return id end
     end
   end
 end

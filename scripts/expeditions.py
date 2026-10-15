@@ -211,8 +211,9 @@ def riddle_files():
 def game_names(kind, id, english):
     """An answer's name in every other language, the game's own (Forever's,
     else Classic's, wow-data's databases), when the answer is the thing's own
-    name: never a riddle's own ("Roger and Jamin"), which its translations give."""
-    if kind not in ("object", "creature") or not isinstance(id, int):
+    name: never a riddle's own ("Roger and Jamin"), which its translations give.
+    An area's by the first of its ids."""
+    if kind not in ("object", "creature", "area") or not isinstance(id, int):
         return None
     plain = lambda s: s.replace("\u2019", "'").replace("\u201c", '"').replace("\u201d", '"')
     out = {}
@@ -444,6 +445,8 @@ def main():
                     errors.append(f"{where}: no sub-area {r['area']!r} in this zone")
                     continue
                 out["areas"] = ids
+                if game_names("area", min(ids), out["name"]):
+                    out["names"] = game_names("area", min(ids), out["name"])
                 if "anchor" in r:
                     (kind, n), = r["anchor"].items()
                     found = {"grave": [graves[n]] if n in graves else [], "object": objects[n], "creature": creatures[n]}.get(kind, [])
@@ -681,6 +684,8 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
                 errors.append(f"{where}: no sub-area {r['area']!r} in this zone")
                 continue
             out["areas"] = ids
+            if game_names("area", min(ids), out["name"]):
+                out["names"] = game_names("area", min(ids), out["name"])
             points = [overlays[i] for i in ids if i in overlays][:1]
             if not points:
                 errors.append(f"{where}: the area has no overlay on Forever's map")

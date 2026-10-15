@@ -658,7 +658,8 @@ local function seen(id) return YonderChar.seen and YonderChar.seen[id] end
 target(1131)
 check(
   seen(1131)
-    and seen(1131).name == "Winter Wolf"
+    and seen(1131).name == nil -- (by its id: the language's list names it)
+    and ns.creatureName(1131, seen(1131)) == "Winter Wolf"
     and seen(1131).low == 7
     and seen(1131).first.zone == "a1" -- (Dun Morogh, by its area id)
     and not rec(1131)
@@ -2703,6 +2704,59 @@ do
     check(K.L["Hearth"] == "Heimatort", "the inn bind has a German location label")
   end
   UnitSex = oldSex
+end
+
+-- Every language its game's names, translated or not: a Spanish client (no
+-- translation of the journal's words) reads a riddle's answer, an area's
+-- too, and a weighed catch's kind as the game names them in Spanish.
+do
+  local spanish
+  assert(loadfile(DIR .. "Text_esES.lua"))("Yonder", { names = function(t) spanish = t end })
+  local before = { ns.creatureNames, ns.taxiNames, ns.insideNames, ns.areaFixes, ns.catchNames }
+  local wall
+  for _, e in pairs(D.expeditions) do
+    for _, r in ipairs(e.riddles or {}) do
+      if r.id == "arathi-highlands-thoradins-wall" then wall = r end
+    end
+  end
+  local kept = wall and wall.name
+  ns.names(spanish)
+  check(
+    wall and ns.riddleName(wall) == "Muralla de Thoradin",
+    "a Spanish client: an area riddle's answer as the game names it in Spanish"
+  )
+  check(spanish.catches[6309] == "Siluro", "… a weighed catch's kind, the game's Spanish")
+  ns.creatureNames, ns.taxiNames, ns.insideNames, ns.areaFixes, ns.catchNames = unpack(before)
+  wall.name = kept
+end
+
+-- A creature no database knows yet: filed by its model's id (the family the
+-- data's creatures of that model and type were given), whatever its name.
+do
+  local typeIds = { Beast = 1, Dragonkin = 2, Demon = 3, Elemental = 4, Giant = 5, Humanoid = 7, Mechanical = 9 }
+  local keys = {}
+  for k in pairs(D.modelFamilies or {}) do
+    if typeIds[k:match("^(.-)/")] then table.insert(keys, k) end
+  end
+  table.sort(keys)
+  local key = keys[1]
+  local index = key and D.modelFamilies[key]
+  local typeName, display = (key or ""):match("^(.-)/(%d+)$")
+  local rec = { typeId = typeIds[typeName], display = tonumber(display), name = "Zzyzx" }
+  check(
+    rec.typeId and ns.familyKey(999999, rec) == D.families[index].id,
+    "a creature no database knows, filed by its model's id (" .. tostring(key) .. ")"
+  )
+end
+
+-- An older journal's creature names: let go at the login where the
+-- language's list names the creature (kept by its id).
+do
+  YonderChar.seen = YonderChar.seen or {}
+  YonderChar.seen[1131] = YonderChar.seen[1131] or {}
+  YonderChar.seen[1131].name = "Loup d'hiver"
+  fire("PLAYER_LOGIN")
+  check(YonderChar.seen[1131].name == nil, "an older journal's creature name let go at the login: kept by its id")
 end
 
 io.write(FOREVER and "all good (Forever)\n" or "all good\n")

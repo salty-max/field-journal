@@ -128,7 +128,9 @@ end
 -- The game's names in the client's language, by id: each language's own
 -- list (Text_<locale>.lua, English one of them), for what the game can't name
 -- by id itself: the creatures, the flight points, the places inside buildings
--- (no area id), and the areas whose own name slips in a language.
+-- (no area id), the areas whose own name slips in a language, the weighed
+-- catches' kinds; and the riddles' and quarries' answers that are the thing's
+-- own name, the game's in this language (a riddle's veiled as the English is).
 function ns.names(t)
   local classic = D.client == "classic"
   local function overlaid(main, own)
@@ -145,6 +147,13 @@ function ns.names(t)
   ns.taxiNames = overlaid(t.taxi, t.taxiClassic)
   ns.insideNames = (classic and t.insideClassic or t.inside) or {}
   ns.areaFixes = t.areas or {}
+  ns.catchNames = t.catches or {}
+  for uiMap, e in pairs(D.expeditions or {}) do
+    for _, r in ipairs(e.riddles or {}) do
+      if t.answers and t.answers[r.id] then r.name = t.answers[r.id] end
+    end
+    if e.quarry and t.quarries and t.quarries[uiMap] then e.quarry.name = t.quarries[uiMap] end
+  end
 end
 
 -- The Atlas's names as the client gives them, in its own language: the zones

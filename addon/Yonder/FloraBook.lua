@@ -70,10 +70,11 @@ local function counted(kinds, total)
   end
   return plural(kinds, "%d herb, %d taken", "%d herbs, %d taken"):format(kinds, total)
 end
--- A kind's name: the game's (a weighed catch: the data's, as the game has none).
+-- A kind's name: the game's (a weighed catch: the language's list, by its id).
 local function name(id)
   local d = info(id)
-  if d.kind == "record" then return d.name end
+  -- (a weighed catch's kind: the language's, by its id)
+  if d.kind == "record" then return ns.catchNames and ns.catchNames[id] or d.name end
   return ui.itemName(id, d.name)
 end
 

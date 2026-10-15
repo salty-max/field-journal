@@ -18,11 +18,10 @@ Im Südwesten der Öde hält ein großer Dämon, der zurückblieb,
 mit seinem Heer eine Narbe im Land,
 und jedes Leben, das in seiner Nähe endet, gibt ihm sein eigenes zurück.
 Finde seinen Boden, und verweile nicht.
-? Die Faulende Narbe, im Südwesten der Verwüsteten Lande.
-= Die Faulende Narbe, der Boden von Lord Kazzak.
+? Die faulende Narbe, im Südwesten der Verwüsteten Lande.
+= Die faulende Narbe, der Boden von Lord Kazzak.
 + Jeder Tod in seiner Nähe heilt ihn um siebzigtausend. Und steht er drei Minuten nach dem ersten Schlag noch, lässt seine Raserei niemanden mehr stehen.
 ! Gefährlich (Lord Kazzak und seine Teufelswachen)
-@ Die Faulende Narbe
 
 ## blasted-lands-nethergarde
 Such in der Burg, die das große Tor bewacht, einen Bericht

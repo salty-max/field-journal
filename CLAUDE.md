@@ -232,8 +232,13 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   each game's, `python3 scripts/creature_names.py <locale>`), `taxi.json`
   (the flight points, `python3 scripts/taxi_names.py <locale>`),
   `subzones.json` (the building areas, `python3 ../addon-kit/subzones.py
-  <locale>`), all from wow-data's databases, and `areas-by-hand.json` (an
-  area the client misnames); `ns.names` loads them. A translation besides
+  <locale>`), `catches.json` (the weighed catches' kinds, `python3
+  scripts/catch_names.py <locale>`: each language's pattern, every weight of
+  a kind agreeing, else an error), all from wow-data's databases, and
+  `areas-by-hand.json` (an area the client misnames); the riddles' and
+  quarries' answers that are the thing's own name (`data/expeditions.json`'s
+  `names`, an area riddle's by its area's id), in every language's file,
+  translated or not; `ns.names` loads them. A translation besides
   (words, sections, families, atlas, herbs/fish notes, expeditions with their
   riddles veiled as the English; `ns.translate`), the English its source:
   `glossary.json` and `classic.json`: `../addon-kit/glossary.py`, with
@@ -246,7 +251,11 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   translation records its English source's hash (`--stamp`). Everything the
   journal keeps reads in the client's language of now, by its id:
   `ns.creatureName`, `ns.areaLabel` and `ns.placeText`, `ns.routeText`,
-  `ns.familyTitle`. French done 13
+  `ns.familyTitle`; a creature's name is kept only for one no language's
+  list names. A creature the data doesn't file (a new one of Forever's) is
+  filed by its family's id, then its model's (`modelFamilies`: the family
+  the data's creatures of that model and type were given), its name's
+  English words last. French done 13
   October 2026; German the 14th, flagged (a first translation, corrections
   welcome): "du", the game's own German names (most of Classic's cities and
   many places stay English on a German client), `$gmasc:fem;` where a line

@@ -416,9 +416,18 @@ ${kept
   -- family (CreatureFamily id = family index), anything else by its type
   beasts = { ${kept.flatMap((f) => f.rules.flatMap((r) => (r.kind === "beast" ? [`[${r.family}]=${index.get(f.id)}`] : []))).join(", ")} },
   fallbacks = { ${kept.filter((f) => f.rules.some((r) => r.kind === "fallback")).map((f) => `${f.type}=${index.get(f.id)}`).join(", ")} },
-  -- and by its name, as the families' name rules (their plain words: f the
-  -- family index, t its type, x what may follow a word: Lua's pattern), in
-  -- the families' order, before its type's fallback
+  -- and by its model, of its own type ("Type/display id" = family index: the
+  -- family the data's creatures of that model and type were given, when they
+  -- agree; never the undead, as the build), by id whatever the client's language
+  modelFamilies = { ${[...modelFamily]
+    .filter(([key, f]) => f && index.has(f.id) && !key.startsWith("Undead/") && !key.endsWith("/0"))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([key, f]) => `[${q(key)}]=${index.get(f!.id)}`)
+    .join(", ")} },
+  -- and last by its name, as the families' name rules (their plain words: f
+  -- the family index, t its type, x what may follow a word: Lua's pattern),
+  -- in the families' order, before its type's fallback (an English name's:
+  -- the creature no database knows yet, its model unknown)
   names = {
 ${kept
   .flatMap((f) =>

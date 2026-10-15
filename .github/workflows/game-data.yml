@@ -34,6 +34,7 @@ jobs:
         for locale in $(ls i18n | grep -E '^[a-z]{2}[A-Z]{2}$'); do
           python3 scripts/creature_names.py "$locale"
           python3 scripts/taxi_names.py "$locale"
+          python3 scripts/catch_names.py "$locale"
           python3 ../addon-kit/subzones.py "$locale"
           if [ -f "i18n/$locale/words.json" ]; then
             python3 ../addon-kit/glossary.py "$locale" --prose content atlas notes expeditions --ids creature id
