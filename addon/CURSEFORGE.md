@@ -118,4 +118,4 @@ Yonder is free and will stay free. If you've enjoyed the riddles or found a new 
 
 MIT licensed: [github.com/salty-max/yonder](https://github.com/salty-max/yonder).
 
-Creature data comes from the CMaNGOS Classic database, with Forever rares from AllTheThings. Expedition locations use that database and the game client's tables, checked against Wowhead. Zephras Isle locations use QuestieDB's Forever beta records. Not affiliated with Blizzard Entertainment.
+Creature data comes from the CMaNGOS Classic database and QuestieDB, with Forever's rares from QuestieDB's Forever records and Wowhead. Expedition locations use those databases and the game client's tables, checked against Wowhead. Zephras Isle locations use QuestieDB's Forever records. Thanks to their contributors. Not affiliated with Blizzard Entertainment.

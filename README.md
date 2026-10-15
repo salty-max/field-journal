@@ -80,12 +80,13 @@ Family notes and matching rules live in `content/<type>/<family>.md`.
 Surveyor's notes are in `atlas/`, fish and herb notes in `notes/`, and riddles,
 hints, notes and hunt posters in `expeditions/<zone>.md`.
 
-Creature data comes from the pinned CMaNGOS Classic database through
-`scripts/creatures.py`. `scripts/rare_zones.py` assigns rares to zones using
-the WoWWiki archive and spawn points. Forever rares come from
-[AllTheThings](https://github.com/ATTWoWAddon/AllTheThings) through
-`scripts/forever_rares.py`. Fish and herbs use `scripts/flora.py`, and zones
-use `scripts/zones.py`.
+The game data comes through [wow-data](https://github.com/salty-max/wow-data)'s
+databases. Creature data comes from [QuestieDB](https://github.com/Questie/QuestieDB)
+and the CMaNGOS Classic database through `scripts/creatures.py`.
+`scripts/rare_zones.py` assigns rares to zones by Questie's spawns, else the
+Classic database's spawn points. Forever's own rares come from QuestieDB's
+Forever records, their ranks from Wowhead, through `scripts/forever_rares.py`.
+Fish and herbs use `scripts/flora.py`, and zones use `scripts/zones.py`.
 
 `scripts/expeditions.py` checks locations against the CMaNGOS data and
 Wowhead. On Zephras Isle, it uses pinned
