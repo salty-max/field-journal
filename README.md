@@ -52,7 +52,8 @@ journal cannot record them there.
 
 Yonder reads in English, French and German (the German a first
 translation). Other clients get English, with the game's own names in their
-language: creatures, places and flight points. The journal keeps everything
+language: creatures, places, flight points, fish, and the riddles' and
+quarries' answers. The journal keeps everything
 by the game's ids, so what you recorded follows your client's language, even
 after you switch.
 

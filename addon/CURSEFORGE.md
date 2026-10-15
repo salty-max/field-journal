@@ -72,7 +72,7 @@ One download covers Classic Era, Hardcore, Season of Discovery, TBC Anniversary 
 
 Forever adds Zephras Isle to the Atlas, and its new rares count towards zone achievements. The game hides creatures inside Forever dungeons and raids from addons, so the journal cannot record them there.
 
-Yonder speaks English, French and German. With a French or German client, the whole journal is in that language: the riddles and quarries, the Bestiary, the Atlas, the fish and herbs and the achievements, with every name as the game itself writes it. The German is a first translation: corrections are welcome on GitHub. Other clients get English, with the game's own names in their language: creatures, places and flight points. Everything the journal records is kept by the game's ids, so it all follows your client's language, even after you switch.
+Yonder speaks English, French and German. With a French or German client, the whole journal is in that language: the riddles and quarries, the Bestiary, the Atlas, the fish and herbs and the achievements, with every name as the game itself writes it. The German is a first translation: corrections are welcome on GitHub. Other clients get English, with the game's own names in their language: creatures, places, flight points, fish, and the riddles' and quarries' answers. Everything the journal records is kept by the game's ids, so it all follows your client's language, even after you switch.
 
 ## Settings and commands
 
