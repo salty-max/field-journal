@@ -31,7 +31,7 @@ There are also **43 type-9 objects with no English readable-page record**, all a
 
 ## Forgotten places: the Dun Morogh camp
 
-The user describes a hidden, abandoned camp near the gunsmith in Dun Morogh, with a bear repeatedly found in a particular place. It looks as though the bear might be guarding the camp or might have eaten its occupants. **The scene is a player observation. Neither explanation is established lore. The exact camp has not yet been identified confidently.**
+The user describes a hidden, abandoned camp near the gunsmith in Dun Morogh, with a bear repeatedly found in a particular place. It looks as though the bear might be guarding the camp or might have eaten its occupants. **The scene is a player observation. Neither explanation is established lore.** The user's marked map and subsequent confirmation that it is a **young black bear** narrow the search to a strong candidate near **41.9, 66.8**. That is the corroborated bear spawn, not yet a measured camp footprint or verified walking route.
 
 This is a good kind of discovery for Yonder because the question is where the camp is. The player need not solve what happened to its occupants. A solved note can describe the empty camp and the visiting bear, then leave the explanation open. Do not turn the user's possibilities into a documented massacre or invent names for the campers.
 
@@ -62,14 +62,24 @@ The note should record the scene without closing its mystery. A possible tone is
 
 ### What the current research establishes
 
-Hegnar Rumbleshot is creature **1243**. Classic's recorded bear spawn **270**, creature **1128 Young Black Bear**, projects to roughly **41.90, 66.79**, close to his camp. That bear is configured to wander within **10 yards**, rather than stand motionless. This is **a lead to inspect, not an identification of the user's camp**. There is no matching tent or campfire record immediately around it in the queried object spawns. That absence does not prove the scenery is absent from the game.
+Hegnar Rumbleshot is creature **1243**. Classic's recorded bear spawn **270**, creature **1128 Young Black Bear**, projects to roughly **41.90, 66.79**, just southeast of his camp. That bear is configured to wander within **10 yards**, rather than stand motionless. There is no matching tent or campfire record immediately around it in the queried object spawns. That absence does not prove the scenery is absent from the game.
+
+The user then supplied `dun-morogh copy.tiff`, a 1002 by 668 map with a red outline south of Kharanos, approximately **41.5-49.5, 63-68.5**. The outline is an approximate search area, not a surveyed boundary. Three reconstructed bear spawns fall in or near it:
+
+| Creature | Classic spawn | Map position | Assessment |
+| --- | ---: | --- | --- |
+| Young Black Bear, 1128 | 270 | 41.895, 66.794 | Strong match after the user confirmed the bear's kind |
+| Ice Claw Bear, 1196 | 242 | 46.346, 63.349 | Excluded by the user's clarification |
+| Ice Claw Bear, 1196 | 3627 | 46.709, 63.296 | Excluded by the user's clarification |
+
+Both database files also carry Questie points matching these locations to rounding. Their local build timestamps remain the snapshot recorded at the end of this report. This corroborates the bear's location across the imported records. It is not a live confirmation of the camp or its unchanged appearance in both clients. The bear's Classic world position is **map 0, x -6070.16, y -261.253, z 429.958**. Use that as a scouting lead, not as the camp's final solution coordinate. The user supplied the kind and scene, not an exact coordinate.
 
 Two lookalikes must not be mistaken for this lead:
 
-- The abandoned ammunition camp around **44.1, 56.9** has object **176785 Ammo Crate**. The stored text of Classic quest **5541 Ammo for Rumbleshot** explicitly sends the player to recover that shipment after a wendigo drove the courier away. If this turns out to be the user's camp, it is a quest location and the bear would not establish the campers' fate.
+- The abandoned ammunition camp around **44.1, 56.9** has object **176785 Ammo Crate**. The stored text of Classic quest **5541 Ammo for Rumbleshot** explicitly sends the player to recover that shipment after a wendigo drove the courier away. It is well north of the user's red outline and is not the place indicated by that map.
 - Web searches also return a northwestern bear camp with the Buckey brothers in a tree. A [firsthand exploration account](https://ironyca.wordpress.com/2010/12/23/secrets-and-hidden-locations-in-cataclysm/) identifies that scene as a Cataclysm-era addition. It cannot establish this camp's identity or presence in Classic or Forever.
 
-Next evidence needed: identify the exact camp, record its static features and ordinary walking approach, verify its position independently, then check Classic and Forever separately for quest use or changes. Use the database to corroborate and exclude candidates, rather than assuming every interesting scene must already have a searchable name.
+Next evidence needed: inspect the strong candidate at **41.9, 66.8**, record the camp's static features and ordinary walking approach, verify the camp footprint independently, then check Classic and Forever separately for quest use or changes. Use the database to corroborate and exclude candidates, rather than assuming every interesting scene must already have a searchable name.
 
 ## Earlier database candidates
 
