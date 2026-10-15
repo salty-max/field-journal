@@ -14,7 +14,7 @@ Each zone: { id (uiMap), name, continent (uiMap), places: [{ name, areas, rect }
 of the place's areas are explored at points inside it).
 Battlegrounds are left out.
 """
-import json, os, sys
+import json, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
@@ -81,6 +81,10 @@ def zones(game):
     return out, {int(k): v["Name_lang"] for k, v in uimaps.items() if v["Type"] == "2"}
 
 
+# (the client's own paths, never a flight point: "Quest Path 9571: ...")
+INTERNAL = re.compile(r"^\s*(Quest Path|\[|zz)|\bTEST\b", re.I)
+
+
 def main():
     for game in GAMES:
         z, continents = zones(game)
@@ -88,9 +92,21 @@ def main():
         # place by name (in the client's language of the day), the Atlas
         # finds its id, and the client's own name for it (Locale.lua)
         names = {int(r["ID"]): r["AreaName_lang"] for r in table(game, "AreaTable") if r["AreaName_lang"]}
+        # every flight point's English name by its id ("Thelsamar, Loch
+        # Modan"): a flight keeps its points by id, read in any language
+        taxi = {int(r["ID"]): r["Name_lang"] for r in table(game, "TaxiNodes") if r["Name_lang"] and not INTERNAL.search(r["Name_lang"])}
         path = os.path.join(ROOT, "data", f"zones-{game}.json")
         with open(path, "w") as f:
-            json.dump({"continents": continents, "zones": z, "areaNames": {str(k): names[k] for k in sorted(names)}}, f, indent=1)
+            json.dump(
+                {
+                    "continents": continents,
+                    "zones": z,
+                    "areaNames": {str(k): names[k] for k in sorted(names)},
+                    "taxi": {str(k): taxi[k] for k in sorted(taxi)},
+                },
+                f,
+                indent=1,
+            )
             f.write("\n")
         print(f"{game}: {len(z)} zones, {sum(len(x['places']) for x in z)} places -> data/zones-{game}.json")
 

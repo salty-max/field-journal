@@ -45,6 +45,12 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   databases, each game's pinned build): continent, places (name, overlay
   offset, area ids).
   `atlas/<zone>.md`: the surveyor's note for a zone (front matter `zone:`).
+  Also every area's English name by id (`areaNames`) and every flight
+  point's (`taxi`, the client's TaxiNodes, its own paths left out): the
+  journal keeps places, flights and routes in English by their ids, read in
+  the client's language; `i18n/<locale>/taxi.json`
+  (`python3 scripts/taxi_names.py <locale>`) the flight points' names that
+  differ from the English. Never keep a game name without its id.
 - `data/rare-zones.json` (rare id -> uiMap; the zones' names from
   `data/zones-classic.json`): the trophies-by-zone milestones (`python3 scripts/rare_zones.py`:
   Questie's zone for the rare, else its spawn points in the zones' map

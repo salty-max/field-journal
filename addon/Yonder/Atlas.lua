@@ -385,8 +385,40 @@ ns.onUnit("UNIT_HEALTH", "player", function()
 end)
 
 -- ── travel ───────────────────────────────────────────────────────────────────
+-- A flight point's id from its name in the client's language (this language's
+-- names, the data's English where the game keeps it); its English name, which
+-- a flight and a route keep (one route in any language); its name in today's.
+local taxiHere, taxiBuilt
+function ns.taxiId(name)
+  if not name or secret(name) then return nil end
+  if not taxiHere or taxiBuilt ~= ns.taxiNames then
+    taxiHere, taxiBuilt = {}, ns.taxiNames
+    for id, n in pairs(A.taxi or {}) do
+      if not taxiHere[n] or id < taxiHere[n] then taxiHere[n] = id end
+    end
+    for id, n in pairs(ns.taxiNames or {}) do
+      taxiHere[n] = id
+    end
+  end
+  return taxiHere[name]
+end
+function ns.taxiEnglish(name)
+  local id = ns.taxiId(name)
+  return id and A.taxi and A.taxi[id] or name
+end
+function ns.taxiName(english)
+  local id = ns.taxiId(english)
+  return id and ((ns.taxiNames or {})[id] or (A.taxi or {})[id]) or english
+end
+-- A route kept as "From > To" (English): in today's language.
+function ns.routeText(route)
+  local from, to = route:match("^(.-) > (.+)$")
+  if not from then return route end
+  return ns.taxiName(from) .. " > " .. ns.taxiName(to)
+end
+
 -- A flight: the taxi map names where you are (the current node) and where you
--- asked to go.
+-- asked to go; kept by its points' ids, in English.
 hooksecurefunc("TakeTaxiNode", function(index)
   local to = TaxiNodeName(index)
   local from
@@ -394,8 +426,10 @@ hooksecurefunc("TakeTaxiNode", function(index)
     if TaxiNodeGetType(i) == "CURRENT" then from = TaxiNodeName(i) end
   end
   if not (to and from) then return end
+  local fromId, toId = ns.taxiId(from), ns.taxiId(to)
+  from, to = ns.taxiEnglish(from), ns.taxiEnglish(to)
   local a, s = ns.atlas(), stamp()
-  keep(a.flights, { from = from, to = to, at = s.at, level = s.level }, 300)
+  keep(a.flights, { from = from, to = to, fromId = fromId, toId = toId, at = s.at, level = s.level }, 300)
   local route = from .. " > " .. to
   a.routes[route] = (a.routes[route] or 0) + 1
   ns.checkMilestones()

@@ -72,6 +72,17 @@ function ns.translate(t)
     end
   end
   ns.creatureNames = names
+  -- the flight points' names, this game's, where they differ from the English
+  local taxi = {}
+  for id, n in pairs(t.taxi or {}) do
+    taxi[id] = n
+  end
+  if D.client == "classic" then
+    for id, n in pairs(t.taxiClassic or {}) do
+      taxi[id] = n
+    end
+  end
+  ns.taxiNames = taxi
   -- the places inside buildings (no area id to ask the client), this game's
   local inside = {}
   for en, tr in pairs(t.subzones or {}) do

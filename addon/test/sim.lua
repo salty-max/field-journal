@@ -2506,6 +2506,25 @@ do
       and ns.areaEnglish("Ailleurs") == "Ailleurs",
     "… a place met in French kept in English by its id; one it doesn't know as the game gave it"
   )
+  -- (a flight's points: met in French, kept in English by their ids, a route
+  -- kept in English read in French)
+  check(
+    ns.taxiEnglish("Colline des sentinelles, marche de l'Ouest") == "Sentinel Hill, Westfall"
+      and ns.routeText("Sentinel Hill, Westfall > Lakeshire, Redridge") == "Colline des sentinelles, marche de l'Ouest > " .. (FOREVER and "Comté-du-Lac, les Carmines" or "Lakeshire, les Carmines")
+      and ns.taxiEnglish("Nulle part") == "Nulle part",
+    "… a flight's points met in French kept in English by their ids, a route read in French"
+  )
+  -- (a route flown once in French and once in English: one, at the login)
+  ns.atlas().routes = {
+    ["Colline des sentinelles, marche de l'Ouest > Thelsamar, Loch Modan"] = 2,
+    ["Sentinel Hill, Westfall > Thelsamar, Loch Modan"] = 1,
+  }
+  fire("PLAYER_LOGIN")
+  check(
+    ns.atlas().routes["Sentinel Hill, Westfall > Thelsamar, Loch Modan"] == 3
+      and not ns.atlas().routes["Colline des sentinelles, marche de l'Ouest > Thelsamar, Loch Modan"],
+    "… a route flown in French and in English is one, made so at the login"
+  )
   C_Map.GetAreaInfo = area
   -- a creature by this game's name for it, whatever its record kept
   check(

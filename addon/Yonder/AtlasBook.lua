@@ -255,12 +255,13 @@ local function eventCard(e, died)
   )
 end
 
--- Flights from or to a zone (a taxi node is named "Place, Zone").
+-- Flights from or to a zone (a taxi node is named "Place, Zone"; a route is
+-- kept in English, found by the zone's English name, shown in today's).
 local function routesOf(uiMap)
-  local name, routes, n = ns.zoneName(uiMap), {}, 0
+  local name, routes, n = A.zones[uiMap] and A.zones[uiMap].name or ns.zoneName(uiMap), {}, 0
   for route, times in pairs(ns.atlas().routes or {}) do
     if route:find(name, 1, true) then
-      table.insert(routes, { route, times })
+      table.insert(routes, { ns.routeText(route), times })
       n = n + times
     end
   end
@@ -471,7 +472,7 @@ local function showTravels()
       top, topN = route, n
     end
   end
-  if top then page:row(L["Flown most"], L["%s, %d times"]:format(top, topN)) end
+  if top then page:row(L["Flown most"], L["%s, %d times"]:format(ns.routeText(top), topN)) end
   if #(a.crossings or {}) > 0 then page:row(L["Crossings"], L["%d between continents"]:format(#a.crossings)) end
   local bind = a.binds and a.binds[#a.binds]
   if bind then page:row(L["Hearth"], L["%s, since %s"]:format(ns.areaName(bind.place), day(bind))) end

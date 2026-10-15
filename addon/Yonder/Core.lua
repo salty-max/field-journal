@@ -224,6 +224,21 @@ local function mendNames(c)
   for _, b in ipairs(c.atlas and c.atlas.binds or {}) do
     b.place = ns.areaEnglish(b.place)
   end
+  -- (flights and routes: their points by id, in English; two languages' names
+  -- of one route made one)
+  for _, f in ipairs(c.atlas and c.atlas.flights or {}) do
+    f.fromId, f.toId = f.fromId or ns.taxiId(f.from), f.toId or ns.taxiId(f.to)
+    f.from, f.to = ns.taxiEnglish(f.from), ns.taxiEnglish(f.to)
+  end
+  if c.atlas and c.atlas.routes then
+    local routes = {}
+    for route, n in pairs(c.atlas.routes) do
+      local from, to = route:match("^(.-) > (.+)$")
+      local key = from and (ns.taxiEnglish(from) .. " > " .. ns.taxiEnglish(to)) or route
+      routes[key] = (routes[key] or 0) + n
+    end
+    c.atlas.routes = routes
+  end
 end
 
 function ns.login()

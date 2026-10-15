@@ -280,7 +280,7 @@ function zoneRares(kept: Creature[], client: string) {
 // a zone's name, its continent, and its places (name, the overlay's hover
 // rectangle on the map art: left, top, right, bottom; the areas it covers).
 type Zone = { id: number; name: string; continent: number; places: { name: string; areas: number[]; rect: number[]; visit?: boolean }[] };
-const zoneData: Record<string, { continents: Record<string, string>; zones: Zone[]; areaNames: Record<string, string> }> = Object.fromEntries(
+const zoneData: Record<string, { continents: Record<string, string>; zones: Zone[]; areaNames: Record<string, string>; taxi?: Record<string, string> }> = Object.fromEntries(
   CLIENTS.map((client) => [client, JSON.parse(readFileSync(join(ROOT, `data/zones-${client}.json`), "utf8"))]),
 );
 // The surveyor's notes: atlas/<zone>.md (front matter: zone: <uiMap>; then
@@ -372,7 +372,7 @@ ${flora.fish.map((f) => `      [${f.id}] = { name = ${q(f.name)}, kind = ${q(f.k
 }
 
 function atlasLua(client: string) {
-  const { continents, zones, areaNames } = zoneData[client];
+  const { continents, zones, areaNames, taxi } = zoneData[client];
   const kept = zones.filter((z) => z.continent || z.places.length);
   const used = [...new Set(kept.map((z) => z.continent).filter(Boolean))].sort((a, b) => a - b);
   return `  atlas = {
@@ -383,6 +383,7 @@ ${kept
   .join("\n")}
     },
     areaNames = { ${Object.entries(areaNames ?? {}).map(([id, n]) => `[${id}] = ${q(n)}`).join(", ")} },
+    taxi = { ${Object.entries(taxi ?? {}).map(([id, n]) => `[${id}] = ${q(n)}`).join(", ")} },
   },`;
 }
 

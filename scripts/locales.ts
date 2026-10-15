@@ -206,6 +206,9 @@ function read(locale: string) {
   // (the creatures' names in this language, each game's, from Wowhead's
   // tooltips: scripts/creature_names.py; Classic's only where they differ)
   const creatures = json<{ forever?: Record<string, string>; classic?: Record<string, string> }>("creatures.json", {});
+  // (the flight points' names in this language, by id, where they differ from
+  // the English: scripts/taxi_names.py)
+  const taxi = json<{ forever?: Record<string, string>; classic?: Record<string, string> }>("taxi.json", {});
   // (the places inside buildings, which have no area id: ../addon-kit/subzones.py)
   const subzones = json<{ forever?: Record<string, string>; classic?: Record<string, string> }>("subzones.json", {});
   const classic = json<Record<string, string>>("classic.json", {});
@@ -287,7 +290,7 @@ function read(locale: string) {
     }
     zones.set(Number(m.zone), zone);
   }
-  return { meta, words, sections, places, creatures, subzones, classic, families, atlas, flora, zones, stale, done };
+  return { meta, words, sections, places, creatures, taxi, subzones, classic, families, atlas, flora, zones, stale, done };
 }
 
 // ── Lua ─────────────────────────────────────────────────────────────────────
@@ -331,7 +334,12 @@ function luaFor(locale: string): string {
     for (const [en, tr] of Object.entries(list ?? {}).sort(([a], [b]) => a.localeCompare(b))) lines.push(`    [${q(en)}] = ${q(tr)},`);
     lines.push("  },");
   }
-  for (const [key, list] of [["creatures", t.creatures.forever], ["creaturesClassic", t.creatures.classic]] as const) {
+  for (const [key, list] of [
+    ["creatures", t.creatures.forever],
+    ["creaturesClassic", t.creatures.classic],
+    ["taxi", t.taxi.forever],
+    ["taxiClassic", t.taxi.classic],
+  ] as const) {
     const entries = Object.entries(list ?? {}).sort(([a], [b]) => Number(a) - Number(b));
     lines.push(`  ${key} = {`);
     for (let i = 0; i < entries.length; i += 4) lines.push(`    ${entries.slice(i, i + 4).map(([id, n]) => `[${id}] = ${q(n)},`).join(" ")}`);
