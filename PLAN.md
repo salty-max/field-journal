@@ -680,6 +680,11 @@ section below records the existing implementation.
 
 ### Content and data
 
+- Data readiness was audited on 16 October 2026 against the current
+  published wow-data snapshot. See
+  [the audit](docs/finds-data-readiness-2026-10-16.md) and
+  `scripts/finds-audit.py`. The original-world baseline can proceed. Some
+  Forever nodes and materials need more source evidence before inclusion.
 - Keep the existing fish and plant records, notes and item identities.
 - Add ores, the stones and gems found with them, cloth, leather and hides.
   Each collection keeps the naturalist's notes and the character's own
