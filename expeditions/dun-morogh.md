@@ -26,6 +26,7 @@ riddles:
     gestures: [COVEREARS, DUCK, COWER, CRINGE]
     name: Rumbleshot's Range
     creature: 10805   # Spotter Klemmy, dump 40.7, 64.9, at the camp: the riflemen and the mortar team beside him
+    companions: [1243, 10610, 10611, 10803, 10804]   # Rumbleshot, Angus, Shorty, Wheeler and Middlecamp
     hint_area: { x: 41.0, y: 64.0, r: 4 }
     danger: "Quiet"
     sources: "the dump's script of the camp (dbscripts_on_creature_movement 1061001 to 1061004: the five head out to the range; broadcast texts 6106 to 6142: the riflemen's contest; the three Mortar Team Target Dummies); warcraft.wiki.gg's Hegnar Rumbleshot, Shorty, Spotter Klemmy, Rifleman Wheeler and Rifleman Middlecamp pages"

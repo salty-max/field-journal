@@ -53,6 +53,28 @@ do
     assert(ns.riddleSolved(id), "Wallace: nearby targeted hello must work")
     assert(ns.riddleSeal(ns.riddleRecord(id)) == "silver", "Wallace: a paid clue keeps the silver seal")
   end
+  -- The verse names the camp and its shooters, not just Klemmy. Once
+  -- they walk to the range, the camp's fixed cells no longer help.
+  do
+    local game = makeGame("enUS", FOREVER, MODERN_EMOTES)
+    local ns, state = game.reader, game.state
+    local id = "dun-morogh-range"
+    state.map, state.x, state.y = 1426, 0.412, 0.656
+    state.target, state.near = nil, true
+    game.emote("COVEREARS")
+    assert(not ns.riddleSolved(id), "range: standing elsewhere without a keeper must not solve it")
+    for _, keeper in ipairs({1243, 10610, 10611, 10803, 10804, 10805}) do
+      game.journal.expeditions = nil
+      state.target, state.near = keeper, false
+      game.emote("COVEREARS")
+      assert(not ns.riddleSolved(id), "range: a distant dwarf must not count")
+      state.near = true
+      game.emote("CHEER")
+      assert(not ns.riddleSolved(id), "range: cheering must not count")
+      game.emote("COVEREARS")
+      assert(ns.riddleSolved(id), "range: covering ears beside dwarf "..keeper.." must count")
+    end
+  end
   local solved, groupTargets = 0, 0
   for _, locale in ipairs({${LOCALES.map(lua).join(",")}}) do
     local game = makeGame(locale, FOREVER, MODERN_EMOTES)
