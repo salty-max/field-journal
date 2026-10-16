@@ -642,7 +642,67 @@ sources, as the Bestiary's.
 6. The surveyor's notes: sample, zones, review.
 7. Release 0.3.0.
 
-## Fish and Plants (third and fourth)
+## Finds: one tab for the collections (planned 16 October 2026)
+
+The user's update to the professions idea (`../ideas/professions.md`): adding
+Ores & Gems and Cloth & Leather as more top-level tabs would crowd the book.
+Bring them together with Fish and Plants in one **Finds** tab instead.
+This is planned work, not part of the current release. The Fish and Plants
+section below records the existing implementation.
+
+### Decisions
+
+- **One book tab: Finds.** It replaces the current Fish and Plants tabs.
+  Fish, Plants, Ores & Gems, and Cloth & Leather are navigation groups inside
+  it, not additional top-level tabs. Expeditions, Bestiary, Atlas and
+  Achievements keep their own places.
+- **Profession unlocks by family.** Fish needs Fishing, plants need
+  Herbalism, ores, stones and gems need Mining, and leather and hides need
+  Skinning. Learning the profession unlocks the corresponding family.
+- **Cloth is open to everyone.** The user explicitly chose no Tailoring
+  requirement. Cloth and leather may share a navigation group, but the
+  cloth collection must not be hidden behind Skinning.
+- **Discovery still matters.** A profession opens its family, not every
+  item page within it. Keep the current approach of pages discovered from
+  finds and no catalogue of undiscovered item names.
+- **The book keeps what it learned.** The user explicitly chose to keep
+  discovered pages readable after dropping a profession. Never discard the
+  collection's records, counts or earned achievements when a skill is
+  unlearned. Migration must also preserve existing fish and herb pages for
+  characters who do not currently have the relevant profession.
+
+### Content and data
+
+- Keep the existing fish and plant records, notes and item identities.
+- Add ores, the stones and gems found with them, cloth, leather and hides.
+  Each collection keeps the naturalist's notes and the character's own
+  finds, as the existing Plants and Fish pages do.
+- Mining nodes and required skill come from wow-data's objects and client
+  Lock table. Their loot supplies the ores, stones and gems, and their
+  spawns supply the locations. Creature loot and skinning loot supply cloth
+  and leather sources. Establish the exact item lists from the data before
+  writing notes or setting completion totals.
+- Record finds by item id. Distinguish gathering from other ways of
+  obtaining an item, as Plants already does. Receiving an ore or leather in
+  the bags does not prove that the character mined or skinned it.
+- Keep Atlas links and achievement progress consistent with the new
+  collections. Existing fish and herb links must still open their pages
+  after the navigation changes.
+- Cover both game clients and the existing translated interfaces.
+
+### Implementation questions still open
+
+- The navigation inside Finds: grouped list, category selector or overview
+  cards. The single top-level tab and profession rules are decided.
+- After dropping a profession, whether newly obtained items can open more
+  pages in that family, or only the already-discovered pages remain
+  readable until the profession is relearned. Keeping existing pages is
+  decided, the policy for new discoveries is not.
+- The overview and achievement totals for families the character has not
+  unlocked. Do not turn professions the character lacks into apparent
+  missing progress.
+
+## Fish and Plants (existing implementation)
 
 ### Decisions (6 October 2026)
 
