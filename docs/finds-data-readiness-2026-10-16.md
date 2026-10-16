@@ -12,6 +12,12 @@ sources. The missing work is a curated item catalogue, authored notes,
 generation and runtime integration. Some newer Forever materials need more
 evidence before joining completion totals.
 
+Collection pages represent material items, never mining nodes. Nodes in this
+audit are source evidence only. Each new ore, stone, gem, cloth, leather or
+hide must have its own naturalist's note, like the existing fish and plants.
+Small and Rich Thorium Veins both lead to one Thorium Ore item page. Every
+gem gets an individual note rather than a shared gem-family paragraph.
+
 The published databases were audited read-only. Existing local changes to
 wow-data's recipe schema and builder were left untouched.
 
@@ -168,7 +174,8 @@ object is unused. Keep this distinct from a missing yield or unknown skill.
 2. Generate localized item names, icons, profession aliases and source
    locations through wow-data. Preserve the existing flora identities and
    avoid changing discoveries as a side effect of this data work.
-3. Author and translate the naturalist notes against those sources.
+3. Author and translate a distinct naturalist's note for every added item
+   against those sources. Make missing notes a build error, as for flora.
 4. Implement Finds navigation, profession gates, record migration and the
    one-time category announcements already agreed in PLAN.md. Cloth remains
    available to everyone. Dropping a profession keeps discovered pages.

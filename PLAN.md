@@ -687,8 +687,16 @@ section below records the existing implementation.
   Forever nodes and materials need more source evidence before inclusion.
 - Keep the existing fish and plant records, notes and item identities.
 - Add ores, the stones and gems found with them, cloth, leather and hides.
-  Each collection keeps the naturalist's notes and the character's own
-  finds, as the existing Plants and Fish pages do.
+  Collection entries are the material items themselves, keyed by item id.
+  Mining nodes never get Finds pages or separate collection progress:
+  Small and Rich Thorium Veins both supply the same Thorium Ore page.
+  Nodes are source metadata only, for locations and gathering detection.
+- **A distinct naturalist's note for every new item.** Every ore, stone,
+  gem, cloth, leather and hide entry needs its own authored note, just as
+  every fish and plant does. Gems must not share a generic group note.
+  Translate these notes with the existing content and require a note for
+  every included item in the build. Each page also keeps the character's
+  own finds, as the existing Plants and Fish pages do.
 - Mining nodes and required skill come from wow-data's objects and client
   Lock table. Their loot supplies the ores, stones and gems, and their
   spawns supply the locations. Creature loot and skinning loot supply cloth
