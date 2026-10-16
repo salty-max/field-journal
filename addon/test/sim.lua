@@ -1882,6 +1882,22 @@ do
   )
 end
 -- The riddles' and quarries' banners, the milestones' alerts: a switch each.
+do
+  local c = ns.journal()
+  local oldCreatures, oldAchievements, oldPlaySound = c.creatures, c.achievements, PlaySound
+  c.creatures, c.achievements = { [1131] = { slain = 100 } }, {}
+  -- Both the achievement sound and its configured fallback can be absent
+  -- on a client. Neither failure may stop Blooded's banner or later awards.
+  PlaySound = function() error("sound unavailable") end
+  local before = #toasted
+  local ok = pcall(ns.checkMilestones)
+  local blooded
+  for i = before + 1, #toasted do
+    if toasted[i].kind == "milestone" and toasted[i].id == "slain-100" then blooded = toasted[i] end
+  end
+  check(ok and c.achievements["slain-100"] and blooded, "Blooded still announces its banner when both sounds fail")
+  c.creatures, c.achievements, PlaySound = oldCreatures, oldAchievements, oldPlaySound
+end
 local milestone = next(ns.milestoneById)
 ns.setOption("banner", false)
 toastsBefore = #toasted

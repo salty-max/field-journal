@@ -736,7 +736,8 @@ end
 local FANFARE = 12891
 function ns.achievementFanfare()
   local ok, willPlay = pcall(PlaySound, FANFARE, "Master")
-  if not (ok and willPlay) then ns.playSound() end
+  -- An unavailable fallback sound must not abort the banner or the remaining awards.
+  if not (ok and willPlay) then pcall(ns.playSound) end
 end
 
 -- The expeditions' milestones follow the riddles as the book holds them: one
