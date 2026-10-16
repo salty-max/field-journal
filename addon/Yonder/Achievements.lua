@@ -734,7 +734,7 @@ end
 -- The fanfare of the game's achievements; the trophy sound where the client
 -- has none.
 local FANFARE = 12891
-local function fanfare()
+function ns.achievementFanfare()
   local ok, willPlay = pcall(PlaySound, FANFARE, "Master")
   if not (ok and willPlay) then ns.playSound() end
 end
@@ -768,7 +768,7 @@ function ns.checkMilestones(quiet)
         if not quiet then
           local link = ("|cffffd100|Hyonder:m%s|h[%s]|h|r"):format(m.id, m.title)
           print(PREFIX .. L["achievement earned: %s"]:format(link))
-          fanfare()
+          ns.achievementFanfare()
           ns.toast("milestone", m.id)
         end
       end

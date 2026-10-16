@@ -372,6 +372,8 @@ SlashCmdList.YONDER = function(msg)
     ns.whereReport()
   elseif msg == "probe" then
     ns.lootProbe()
+  elseif msg == "toast achievement" then
+    ns.toastTest("milestone")
   elseif msg == "toast" then
     ns.toastTest()
   elseif msg == "minimap" then

@@ -1866,6 +1866,21 @@ check(
   #toasted == toastsBefore + 1 and said("among the game's own alerts"),
   "/yonder toast shows a riddle's banner, and where"
 )
+do
+  local earnedBefore = ns.journal().achievements
+  local soundsBefore = sounds
+  toastsBefore = #toasted
+  SlashCmdList.YONDER("toast achievement")
+  check(
+    #toasted == toastsBefore + 1
+      and toasted[#toasted].kind == "milestone"
+      and toasted[#toasted].kicker == "Yonder achievement"
+      and sounds == soundsBefore + 1
+      and lastSound == 12891
+      and ns.journal().achievements == earnedBefore,
+    "/yonder toast achievement previews an achievement without changing earned progress"
+  )
+end
 -- The riddles' and quarries' banners, the milestones' alerts: a switch each.
 local milestone = next(ns.milestoneById)
 ns.setOption("banner", false)

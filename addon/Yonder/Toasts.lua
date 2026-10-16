@@ -7,7 +7,8 @@
 -- down, its face and its seal. A click opens the book there, a right-click or
 -- the cross dismisses it. Turned off in the settings, a milestone's
 -- (milestoneToast) and the riddles' and quarries' (banner) apart; /yonder
--- toast shows one.
+-- toast shows one. /yonder toast achievement previews the latest achievement
+-- (or any if none earned), with its fanfare, without changing the journal.
 local _, ns = ...
 local L = ns.kit.L
 local PREFIX = ns.PREFIX
@@ -72,8 +73,24 @@ function ns.toast(kind, id)
 end
 
 -- /yonder toast: the last riddle solved (else any of this character's), as
--- its banner would show it, and where it stands.
-function ns.toastTest()
+-- its banner would show it, and where it stands. With "milestone", preview
+-- an achievement and its fanfare, bypassing the alert switch for this test.
+function ns.toastTest(kind)
+  if kind == "milestone" then
+    local best, at
+    local c = ns.journal()
+    for id in pairs(ns.milestoneById) do
+      local rec = c and c.achievements and c.achievements[id]
+      if not best or (rec and rec.at or 0) > at then
+        best, at = id, rec and rec.at or 0
+      end
+    end
+    if best then
+      ns.achievementFanfare()
+      show("milestone", best)
+    end
+    return
+  end
   local best, at
   for id, r in pairs(ns.riddleById) do
     local rec = ns.riddleRecord(id)
