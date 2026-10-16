@@ -86,6 +86,8 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   gryphon), the spot: `object`, `creature`,
   `trigger` or `area` (with an `anchor` where the area has no map overlay),
   `found: target` for a keeper met by speaking to it or one that walks,
+  `found: place` with `radius` (10 to 100 yards) for a gesture in a stationary
+  creature's surroundings, with no target needed or companion keepers,
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
   rares, never a capital (a creature of Forever's own, which the data doesn't
   know, adds its `name`, `level`, `rank` and `model`); `client: forever` for a

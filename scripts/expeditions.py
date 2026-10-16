@@ -15,7 +15,9 @@ A riddle names its spot by what the game's data pins down:
                    path), and, one of a kind, by targeting it near (anywhere
                    it walks); `found: target` for one found only by talking
                    to it (in a town, where passing by would solve it), or
-                   one that walks: its path crossing the hint circle will do
+                   one that walks: its path crossing the hint circle will do.
+                   `found: place` with `radius: <yards>` anchors a gesture to
+                   the surroundings of a stationary creature, not its target
   trigger: <id>    a quest's exploration trigger (the client's AreaTrigger)
   area: <name>     a sub-area of the zone (the client's AreaTable, under the
                    zone's own area): every id of that name
@@ -381,6 +383,10 @@ def main():
                     quarries[str(uimap)]["names"] = game_names("creature", id, names.get(("creature", id)))
         for r in rs:
             id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
+            if r.get("found") == "place" and (not r.get("gestures") or r.get("companions")
+                or type(r.get("radius")) is not int or not 10 <= r["radius"] <= 100):
+                errors.append(f"{where}: found: place needs a gesture, no companions and a radius of 10 to 100 yards")
+                continue
             # what it was resolved from: the build refuses a file changed since
             kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
             out["of"] = f"{kind}:{r[kind]}" if kind else None
@@ -424,13 +430,18 @@ def main():
                     errors.append(f"{where}: creature {r['creature']}: no spawn inside the hint circle (nor a path through it, found by targeting) that the dump and Wowhead agree on")
                     continue
                 # found by targeting it near: one of a kind, or one only so found
-                if len(found) == 1 or r.get("found") == "target":
+                if r.get("found") != "place" and (len(found) == 1 or r.get("found") == "target"):
                     out["npc"] = r["creature"]
                 if faces.get(int(r["creature"])):
                     out["face"] = faces[int(r["creature"])]
                 still = [(p, wanders(d)) for p, d in spawns if wanders(d) <= NEAR]
                 if r.get("found") != "target" and still:
                     out.update(spots=[p for p, _ in still], r=NEAR + math.ceil(max(far for _, far in still)))
+                if r.get("found") == "place":
+                    if not still:
+                        errors.append(f"{where}: found: place needs a stationary anchor")
+                        continue
+                    out["r"] = r["radius"]
                 points = [q for p, d in spawns for q in ([p] if held(p) else [q for q in walks(d) if held(q)])]
             elif "trigger" in r:
                 t = triggers.get(r["trigger"])
@@ -673,6 +684,10 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
                 quarries[str(uimap)]["names"] = game_names("creature", id, quarries[str(uimap)]["name"])
     for r in rs:
         id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
+        if r.get("found") == "place" and (not r.get("gestures") or r.get("companions")
+            or type(r.get("radius")) is not int or not 10 <= r["radius"] <= 100):
+            errors.append(f"{where}: found: place needs a gesture, no companions and a radius of 10 to 100 yards")
+            continue
         kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
         out["of"] = f"{kind}:{r[kind]}" if kind else None
         if "anchor" in r:
@@ -701,7 +716,7 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
                 if spread > NEAR:
                     errors.append(f"{where}: creature {r['creature']} is met {spread:.0f} yards apart: found: target")
                     continue
-                out.update(spots=points, r=NEAR + math.ceil(spread))
+                out.update(spots=points, r=r["radius"] if r.get("found") == "place" else NEAR + math.ceil(spread))
         elif kind == "area":
             out["name"] = r.get("name") or r["area"]
             ids = [i for i in mine if areas[i]["AreaName_lang"].strip() == r["area"]]

@@ -194,11 +194,15 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
             (r.anchor ? " " + Object.entries(r.anchor).map(([k, v]) => `${k}:${v}`).join(",") : "") +
             (r.found ? ` found:${r.found}` : "")
           : "";
-      if (r.found !== undefined && (r.found !== "target" || kinds[0] !== "creature"))
-        fail(file, `${where} found: target, for a creature found only by talking to it`);
+      if (r.found !== undefined && (!["target", "place"].includes(r.found) || kinds[0] !== "creature"))
+        fail(file, `${where} found: target or place, for a creature or its surroundings`);
+      if (r.found === "place" && (!gestures.length || (companions as number[]).length
+        || !Number.isInteger(r.radius) || r.radius < 10 || r.radius > 100))
+        fail(file, `${where} found: place needs a gesture, no companions and a radius of 10 to 100 yards`);
+      if (r.radius !== undefined && r.found !== "place") fail(file, `${where} radius needs found: place`);
       if (!spot) fail(file, `${where} not in data/expeditions.json: run python3 scripts/expeditions.py`);
       else if (spot.zone !== zone || spot.of !== of || String(spot.hint) !== String(ha && [ha.x, ha.y, ha.r])
-        || String(spot.companions ?? []) !== String(companions))
+        || String(spot.companions ?? []) !== String(companions) || (r.found === "place" && (spot.r !== r.radius || spot.npc)))
         fail(file, `${where} changed since data/expeditions.json was made: run python3 scripts/expeditions.py`);
 
       const lines = sections.get(id);
