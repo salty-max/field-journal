@@ -1,5 +1,5 @@
 ---
-source: e87109026211
+source: 7af198542347
 zone: 1426
 ---
 ## dun-morogh-etched-note
@@ -25,9 +25,9 @@ Finde ihn, und lass ihn dir davon erzählen.
 ## dun-morogh-range
 An der Straße aus dem Tal, in dem junge Zwerge beginnen,
 hat ein Büchsenmacher ein Lager und daneben einen Schießstand.
-Zwei Scharfschützen tragen dort ihre Meinungsverschiedenheiten aus, und ein Mörsertrupp übt
-auf Attrappen, zu denen ein Späher hinauslaufen muss. Pass auf deine Ohren auf.
-? Hegnar Rumbleshots Lager, an der Straße vom Coldridgepass nach Kharanos. Halte dir am Schießstand die Ohren zu.
+Zwei Scharfschützen streiten, doch der Mörser hat das letzte Wort.
+Zehn Finger taugen wenig als Ohrstöpsel, aber mehr hast du nicht dabei.
+? Hegnar Rumbleshots Lager, an der Straße vom Coldridgepass nach Kharanos. Halte dir am Schießstand mit /ohrzuhalten die Ohren zu.
 = Rumbleshots Schießstand. Ab und zu ziehen die fünf Zwerge des Lagers hinaus. Zuerst kommen die Scharfschützen Middlecamp und Wheeler, die auf eine Orc-Zielscheibe und eine Reihe Flaschen schießen. Dann feuert der Mörsertrupp, Angus und Shorty, der Reihe nach auf drei Zielattrappen, während Späher Klemmy hin und her rennt.
 + Middlecamp verfehlt die Orc-Zielscheibe zweimal und die Flaschen zweimal, während Wheeler die Zielscheibe ohne Mühe trifft, und die mittlere Attrappe genau in die Mitte. Dann trifft Wheeler nur die Seite der Flaschenkiste, und es ist Middlecamp, der die Orc-Attrappe trifft, sich zur Papierscheibe dreht und aus der Hüfte auf die Flaschen schießt.
 ! Ruhig
