@@ -3,6 +3,17 @@
 Reviewed 16 October 2026. This is the data audit for the Finds plan in
 `PLAN.md`, not an implementation or release of the new tab.
 
+Follow-up on the same day: wow-data now exposes normalized gathering
+requirements and frozen missing yields/explicit skinning sources. See
+[`wow-data/docs/finds-materials.md`](../../wow-data/docs/finds-materials.md).
+The counts and gaps below describe the original published snapshot. The
+audit script also supports the new local schema. All six candidate mining
+requirements were recovered, five objects have yields, and Pristine Leather
+and Pristine Hide now have explicit skinning sources. Heavy Thorium's yields
+and locations, and the three other new leathers' explicit acquisition sources,
+remain unrecorded. The two Season of Discovery objects remain uncertain for
+Forever completion requirements.
+
 ## Verdict
 
 **Enough data to begin the original-world collections. Not enough to promise
@@ -79,7 +90,8 @@ translation.
 
 1. **Loot identifiers depend on their provider.** ClassicDB `loot.source_id`
    is a template ID, joined through `object.loot_id`, `creature.loot_id` or
-   `creature.skin_loot_id`. Questie rows use entity IDs. For example,
+   `creature.skin_loot_id`. The existing players importer also uses templates.
+   Questie and frozen Wowhead loot rows use entity IDs. For example,
    Questie's Pyrite row for object 1731 belongs to Copper Vein. Fadeleaf's
    Classic loot template also happens to be 1731. A join that ignores the
    provider incorrectly puts Pyrite in Fadeleaf. The audit handles these

@@ -43,6 +43,14 @@ class FindsAuditTest(unittest.TestCase):
         self.assertIsNone(self.inv.gather_skill({"lock_id": 1}, 2))
         self.assertIsNone(self.inv.gather_skill({"lock_id": 99}, 3))
 
+    def test_frozen_requirements_and_explicit_skinning_do_not_need_classic_templates(self):
+        self.inv.gathering = {(562111, 186): {"min_skill": 1}}
+        self.assertEqual(self.inv.gather_skill({"id": 562111, "lock_id": None}, 3), 1)
+        self.inv.loot[("skinning", 270693, "wowhead")] = [loot(249427)]
+        self.assertEqual(self.inv.yields("skinning", 270693, None), {249427})
+        self.inv.loot[("object", 1502, "players")] = [loot(2770)]
+        self.assertEqual(self.inv.yields("object", 1731, 1502), {2770})
+
     def test_professions_follow_parent_ids_without_name_matching(self):
         self.inv.skills = {
             186: {"ParentSkillLineID": 0},

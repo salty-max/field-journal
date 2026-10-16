@@ -37,6 +37,9 @@ class Inventory:
         self.creatures = {r["id"]: r for r in self.rows("SELECT * FROM creature")}
         self.skills = {r["ID"]: r for r in self.rows("SELECT * FROM client_SkillLine")}
         self.locks = {r["ID"]: r for r in self.rows("SELECT * FROM client_Lock")}
+        self.gathering = {(r["object_id"], r["skill_line_id"]): r for r in self.rows("SELECT * FROM gathering_node")} if self.db.execute(
+            "SELECT 1 FROM sqlite_master WHERE name='gathering_node'"
+        ).fetchone() else {}
         self.loot = collections.defaultdict(list)
         self.reverse_loot = collections.defaultdict(list)
         for r in self.rows("SELECT * FROM loot"):
@@ -82,14 +85,19 @@ class Inventory:
 
     @functools.lru_cache(maxsize=None)
     def yields(self, kind, id, template):
-        # Classic's source_id is a loot template. Other providers use the
-        # entity ID, even when a Classic template also exists for it.
+        # Classic and the existing players importer use loot template IDs.
+        # Questie and Wowhead use entity IDs.
         rows = list(self.loot[(kind, template, "classicdb")]) if template else []
-        for source in ("questie", "wowhead", "players"):
+        rows.extend(self.loot[(kind, template or id, "players")])
+        for source in ("questie", "wowhead"):
             rows.extend(self.loot[(kind, id, source)])
         return frozenset(self.expand(rows))
 
     def gather_skill(self, obj, lock_type):
+        profession = {2: 182, 3: 186}.get(lock_type)
+        normalized = getattr(self, "gathering", {}).get((obj.get("id"), profession))
+        if normalized:
+            return normalized["min_skill"]
         lock = self.locks.get(obj["lock_id"], {})
         values = [lock[f"Skill_{i}"] for i in range(8)
                   if lock.get(f"Type_{i}") == 2 and lock.get(f"_Index_{i}") == lock_type]
@@ -117,6 +125,7 @@ class Inventory:
                 "spawns": dict(self.spawns[("object", id)]),
                 "items": sorted(self.yields("object", id, obj["loot_id"])),
                 "localization": self.localization("object", id),
+                "requirement_evidence": self.gathering.get((id, {2: 182, 3: 186}[lock_type])),
             })
         return sorted(out, key=lambda r: r["id"])
 
@@ -141,13 +150,14 @@ class Inventory:
         mining = self.nodes(3)
         herbs = self.nodes(2)
         mining_items = set().union(*(set(r["items"]) for r in mining))
-        skin_creatures = [r for r in self.creatures.values() if r["skin_loot_id"]]
+        skin_creatures = [r for r in self.creatures.values() if r["skin_loot_id"] or
+                          any(self.loot[("skinning", r["id"], source)] for source in ("questie", "wowhead"))]
         skin_items = set().union(*(set(self.yields("skinning", r["id"], r["skin_loot_id"])) for r in skin_creatures))
         unresolved_nodes = []
         for id, obj in self.objects.items():
             name = self.name("object", id) or ""
             # Name search is only a gap-finding aid, never a classification rule.
-            if obj["type"] == 3 and not obj["lock_id"] and re.search(r"Vein|Deposit|Chunk of Amber", name):
+            if obj["type"] == 3 and self.gather_skill(obj, 3) is None and not obj["lock_id"] and re.search(r"Vein|Deposit|Chunk of Amber", name):
                 unresolved_nodes.append({
                     "id": id, "name": name, "spawns": dict(self.spawns[("object", id)]),
                     "lock": obj["lock_id"], "template": obj["loot_id"], "removed": obj["removed"],
@@ -179,6 +189,8 @@ class Inventory:
             "metadata": dict(self.db.execute("SELECT key,value FROM meta")),
             "professions": self.professions(), "gathering_spells": gathering,
             "mining_nodes": mining, "herbalism_node_count": len(herbs),
+            "mining_nodes_without_yields": [r["id"] for r in mining if not r["items"]],
+            "mining_nodes_without_spawns": [r["id"] for r in mining if not r["spawns"]],
             "mining_yields": [self.item(id) for id in sorted(mining_items)],
             "skinning_yields": [self.item(id) for id in sorted(skin_items)],
             "skinnable_creature_count": len(skin_creatures),
@@ -219,6 +231,8 @@ def main():
         print(f"  {len(data['unresolved_node_candidates'])} unclassified node candidates, "
               f"{len(data['reference_issues'])} reference issues, "
               f"{len(data['missing_item_icons'])} missing candidate item icons")
+        print(f"  {len(data['mining_nodes_without_yields'])} mining objects without yields, "
+              f"{len(data['mining_nodes_without_spawns'])} without static spawn rows")
     print(os.path.relpath(file, ROOT))
 
 
