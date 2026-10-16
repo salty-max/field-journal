@@ -659,6 +659,13 @@ section below records the existing implementation.
 - **Profession unlocks by family.** Fish needs Fishing, plants need
   Herbalism, ores, stones and gems need Mining, and leather and hides need
   Skinning. Learning the profession unlocks the corresponding family.
+- **Tell the player when a family unlocks.** Show a banner and a clickable
+  chat message naming the newly available category, with a click opening
+  that group in Finds. This announces the category, not an achievement or
+  an individual item discovery. Keep the unlock notification per character
+  so it does not repeat on login, reload, profession rank changes or
+  relearning a profession whose category was already announced. Translate
+  the notification with the rest of the interface.
 - **Cloth is open to everyone.** The user explicitly chose no Tailoring
   requirement. Cloth and leather may share a navigation group, but the
   cloth collection must not be hidden behind Skinning.
@@ -701,6 +708,10 @@ section below records the existing implementation.
 - The overview and achievement totals for families the character has not
   unlocked. Do not turn professions the character lacks into apparent
   missing progress.
+- How to present the categories already available on the first upgrade to
+  Finds, including universally available cloth and professions already
+  learned. Make the new navigation discoverable without replaying unlock
+  banners at every login.
 
 ## Fish and Plants (existing implementation)
 
