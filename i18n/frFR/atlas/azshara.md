@@ -2,7 +2,7 @@
 source: 5ee9ae0e86d3
 zone: 1447
 ---
-La route arrive d'Ashenvale au-dessus d'une côte de temples brisés et d'arbres rouge et or. La halte de Talrendis et Valormok offrent de petits points d'appui près de l'accès occidental. Plus à l'est, les collines tombent à pic vers la baie des Tempêtes.
+La route arrive d'Orneval au-dessus d'une côte de temples brisés et d'arbres rouge et or. La halte de Talrendis et Valormok offrent de petits points d'appui près de l'accès occidental. Plus à l'est, les collines tombent à pic vers la baie des Tempêtes.
 
 Les nagas occupent une grande partie du rivage, tandis que des camps de satyres et des expéditions elfes tiennent le terrain parmi les ruines. Azuregos parcourt le sud. Une ligne droite sur la carte peut cacher à la fois une falaise et le long détour qu'elle impose.
 

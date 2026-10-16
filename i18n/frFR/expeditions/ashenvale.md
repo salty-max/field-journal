@@ -8,7 +8,7 @@ un chef de guerre a gravé des mots pour son grand frère,
 dont le nom voulait dire coeur de géant,
 qui se dressa seul devant le démon et paya de son sang la liberté de son peuple.
 Rendez-lui ce que l'on doit à un guerrier.
-? Le canyon de la Malechute, au sud-est d'Ashenvale. Un salut militaire a sa place devant ce monument.
+? Le canyon de la Malechute, au sud-est d'Orneval. Un salut militaire a sa place devant ce monument.
 = "Lok'Tar ogar, grand frère. Que le clan Warsong jamais ne disparaisse." C'est Thrall qui l'a écrit.
 + Grom fut le premier chef à boire le sang de Mannoroth, et celui qui tua le démon : "la malédiction de notre peuple a commencé et fini avec Grom."
 ! Périlleux (les serviteurs de la Légion)
@@ -26,5 +26,5 @@ Les quatre autres reçurent leur charge sur la même page.
 Un grand ours se tient à l'est de la forêt,
 rôdant autour des ruines des satyres.
 Le nom qu'il porte n'appartient à aucun satyre.
-= Ursol'lok, un ours de l'est d'Ashenvale, qui rôde autour de Satyrnaar.
+= Ursol'lok, un ours de l'est d'Orneval, qui rôde autour de Satyrnaar.
 + Le nom est plus ancien que les satyres : Ursol et son jumeau Ursoc, dieux ours des furbolgs, combattirent aux côtés des elfes de la nuit pendant la guerre des Anciens.

@@ -33,5 +33,5 @@ Sie hat eine Bitte an jeden, der zu ihr hinausschwimmt. Lass dein Gesicht für d
 Die Oger der südlichen Wüste halten drei Lager zwischen alten Trollruinen.
 Ein Oger mit einer großen Axt kann in jedem von ihnen sein.
 Den Verirrten nennen sie ihn. Gesellschaft hat er genug, wo immer er auftaucht.
-= Omgorn der Verirrte, ein Oger der Dünenbrecher, im Truppenlager der Dünenbrecher, in den Ruinen von Eastmoon oder in den Southmoon-Ruinen.
+= Omgorn der Verirrte, ein Oger der Dünenbrecher, im Truppenlager der Dünenbrecher, in den Eastmoon-Ruinen oder in den Southmoon-Ruinen.
 + Seine Axt schlägt Wunden, die sich der Heilung widersetzen.

@@ -8,7 +8,7 @@ portées par la créature qui maudit la première les orcs de la soif de sang,
 vaincue par le geste d'un seul orc brave. Trouvez-les.
 ? Dans la vallée de la Force, au milieu d'Orgrimmar. Lisez l'inscription près de l'armure exposée.
 = L'armure de Mannoroth.
-+ "Que ces plaques nous rappellent toujours jusqu'où nous nous sommes égarés et combien il nous fallut combattre pour recouvrer notre honneur." - Thrall. Le monument de Grom se dresse en Ashenvale, là où il est mort.
++ "Que ces plaques nous rappellent toujours jusqu'où nous nous sommes égarés et combien il nous fallut combattre pour recouvrer notre honneur." - Thrall. Le monument de Grom se dresse en Orneval, là où il est mort.
 ! Calme
 
 ## orgrimmar-orphanage

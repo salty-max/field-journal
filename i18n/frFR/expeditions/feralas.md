@@ -17,8 +17,8 @@ Sautez, et donnez-lui du spectacle.
 Dans la place forte des sentinelles, sur leur île, cherchez une promesse entre amants
 qui pourraient ne pas se revoir avant des siècles.
 La veille que ces femmes ont tenue a commencé avec cette séparation.
-? Le bastion de Feathermoon, sur l'île de Sardor. Lisez le récit de la longue veille des sentinelles.
-= Les Sentinelles et la longue veille, à Feathermoon : les guerrières de Tyrande, vouées à la défense de Kalimdor pendant que les druides dormaient dans le Rêve d'émeraude.
+? Le bastion de Pennelune, sur l'île de Sardor. Lisez le récit de la longue veille des sentinelles.
+= Les Sentinelles et la longue veille, à Pennelune : les guerrières de Tyrande, vouées à la défense de Kalimdor pendant que les druides dormaient dans le Rêve d'émeraude.
 + Malfurion jura qu'ils ne seraient jamais séparés, tant qu'ils resteraient fidèles à leur amour. Les siècles passèrent, et Tyrande craignit le retour de la Légion.
 ! Calme
 

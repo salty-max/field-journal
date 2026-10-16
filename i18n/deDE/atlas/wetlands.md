@@ -2,7 +2,7 @@
 source: d3c3396f11a7
 zone: 1437
 ---
-Dun Algaz führt die Straße aus Loch Modan hinab in weite Moore, wo sich die Hauptwege trennen, zum Hafen von Menethil im Westen und zum Thandol-Übergang im Norden. Die erhöhte Straße gibt eine festere Linie durch ein Land, das von seichtem Wasser geteilt wird.
+Dun Algaz führt die Straße aus Loch Modan hinab in weite Moore, wo sich die Hauptwege trennen, zum Hafen von Menethil im Westen und zum Thandolübergang im Norden. Die erhöhte Straße gibt eine festere Linie durch ein Land, das von seichtem Wasser geteilt wird.
 
 Die Schiffe von Menethil verbinden das Sumpfland mit Auberdine und Theramore. Im Landesinneren besetzen Lager der Dragonmaw die Hügel, Dunkeleisenzwerge halten Dun Modr, und rote Drachkin bewachen im Osten die Zugänge nach Grim Batol.
 

@@ -1,9 +1,11 @@
 {
  "Site de fouilles de Crasseboue": "Site de fouilles de Grimesilt",
  "Contreforts de Hautebrande": "Contreforts d'Hillsbrad",
+ "Donjon de Guet-de-Pierre": "Donjon de Guet-de-pierre",
  "Donjon de Fort-de-Durn": "Donjon de Durnholde",
  "Hautes-terres Arathies": "Hautes-terres d'Arathi",
  "Place de la Cathédrale": "Place de la cathédrale",
+ "Bastion de Pennelune": "Bastion de Feathermoon",
  "Le mur de Grisetête": "Le mur de Greymane",
  "Mine Veine-de-jaspe": "Mine de Jasperlode",
  "Quartier des Nains": "Quartier des nains",
@@ -35,8 +37,12 @@
  "Rochenoire": "Blackrock",
  "Grisetête": "Greymane",
  "Hurlevent": "Stormwind",
+ "Long-Guet": "Long-guet",
+ "Pennelune": "Feathermoon",
  "Pierrêche": "Stonard",
  "d'Âtreval": "de Hearthglen",
+ "Cabestan": "Ratchet",
  "Forgefer": "Ironforge",
+ "Orneval": "Ashenvale",
  "Âtreval": "Hearthglen"
 }

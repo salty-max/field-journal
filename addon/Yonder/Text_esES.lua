@@ -13,7 +13,7 @@ ns.names({
     ["badlands-apocryphans-rest"] = "!@[pSkE`n<8M*wór@pC!",
     ["blasted-lands-dark-portal"] = "l?5-4=`rkpJqqt:P",
     ["blasted-lands-nethergarde"] = "gá_I~-'áFp_HDKF~BtJeZ\"&g-}|q",
-    ["blasted-lands-tainted-scar"] = "TrMqR&uÍL7Yw",
+    ["blasted-lands-tainted-scar"] = "TrMqR&u{VOíw",
     ["burning-steppes-altar-of-storms"] = "2`,ckWf/x<mlJz$Pa@3YB",
     ["burning-steppes-flame-crest"] = "t'`v",
     ["burning-steppes-pillar-of-ash"] = "ObiY=1;t{B_*AUfzVV",

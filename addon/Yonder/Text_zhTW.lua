@@ -14,7 +14,7 @@ ns.names({
     ["blasted-lands-dark-portal"] = "黑暗之門",
     ["blasted-lands-nethergarde"] = "跨越黑暗之門",
     ["blasted-lands-tainted-scar"] = "腐爛之痕",
-    ["burning-steppes-altar-of-storms"] = "暴風祭壇",
+    ["burning-steppes-altar-of-storms"] = "風暴祭壇",
     ["burning-steppes-flame-crest"] = "奧普斯",
     ["burning-steppes-pillar-of-ash"] = "灰燼之柱",
     ["darkshore-auberdine"] = "哈爾倫",

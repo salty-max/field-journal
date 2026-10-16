@@ -1287,8 +1287,8 @@
    "use": "Blackfathom-Tiefe"
   },
   "Blackmaw Hold": {
-   "forever": "Die Schwarzschlundfeste",
-   "use": "Die Schwarzschlundfeste"
+   "forever": "Schwarzschlundfeste",
+   "use": "Schwarzschlundfeste"
   },
   "Blackrock Mountain": {
    "classic": "Der Blackrock",
@@ -1307,8 +1307,8 @@
   },
   "Bloodhoof Village": {
    "classic": "Bloodhoof",
-   "forever": "Bloodhoof",
-   "use": "Bloodhoof"
+   "forever": "Dorf der Bluthufe",
+   "use": "Dorf der Bluthufe"
   },
   "Bloodvenom Post": {
    "classic": "Blutgiftposten",
@@ -1436,8 +1436,8 @@
   },
   "Darkwhisper Gorge": {
    "classic": "Die flüsternde Schlucht",
-   "forever": "Die flüsternde Schlucht",
-   "use": "Die flüsternde Schlucht"
+   "forever": "Die Flüsternde Schlucht",
+   "use": "Die Flüsternde Schlucht"
   },
   "Darnassus": {
    "classic": "Darnassus",
@@ -1581,8 +1581,8 @@
   },
   "Eastmoon Ruins": {
    "classic": "Ruinen von Eastmoon",
-   "forever": "Ruinen von Eastmoon",
-   "use": "Ruinen von Eastmoon"
+   "forever": "Eastmoon-Ruinen",
+   "use": "Eastmoon-Ruinen"
   },
   "Eastwall Tower": {
    "classic": "Ostwallturm",
@@ -1630,8 +1630,8 @@
   },
   "Fallow Sanctuary": {
    "classic": "Das Fallow Heiligtum",
-   "forever": "Das Fallow Heiligtum",
-   "use": "Das Fallow Heiligtum"
+   "forever": "Zuflucht der Verirrten",
+   "use": "Zuflucht der Verirrten"
   },
   "Faol's Rest": {
    "classic": "Faols Ruheplatz",
@@ -1757,8 +1757,8 @@
   },
   "Hammertoe's Digsite": {
    "classic": "Hammertoes Grabungsstätte",
-   "forever": "Hammertoes Grabungsstätte",
-   "use": "Hammertoes Grabungsstätte"
+   "forever": "Hammerzehs Grabungsstätte",
+   "use": "Hammerzehs Grabungsstätte"
   },
   "Hearthglen": {
    "classic": "Hearthglen",
@@ -1897,8 +1897,8 @@
   },
   "Light's Hope Chapel": {
    "classic": "Kapelle des hoffnungsvollen Lichts",
-   "forever": "Kapelle des hoffnungsvollen Lichts",
-   "use": "Kapelle des hoffnungsvollen Lichts"
+   "forever": "Kapelle des Hoffnungsvollen Lichts",
+   "use": "Kapelle des Hoffnungsvollen Lichts"
   },
   "Loch Modan": {
    "classic": "Loch Modan",
@@ -2263,8 +2263,8 @@
   },
   "Shatter Scar Vale": {
    "classic": "Shatter Scar-Tal",
-   "forever": "Shatter Scar-Tal",
-   "use": "Shatter Scar-Tal"
+   "forever": "Shatter-Scar-Tal",
+   "use": "Shatter-Scar-Tal"
   },
   "Shen'dar Highlands": {
    "forever": "Shen'darhochland",
@@ -2395,8 +2395,8 @@
   },
   "Stormwind City": {
    "classic": "Stormwind",
-   "forever": "Stormwind",
-   "use": "Stormwind"
+   "forever": "Sturmwind",
+   "use": "Sturmwind"
   },
   "Strahnbrad": {
    "classic": "Strahnbrad",
@@ -2475,8 +2475,8 @@
   },
   "Thandol Span": {
    "classic": "Thandol-Übergang",
-   "forever": "Thandol-Übergang",
-   "use": "Thandol-Übergang"
+   "forever": "Thandolübergang",
+   "use": "Thandolübergang"
   },
   "The Barrens": {
    "classic": "Brachland",
@@ -2505,8 +2505,8 @@
   },
   "The Charred Vale": {
    "classic": "Das verbrannte Tal",
-   "forever": "Das verbrannte Tal",
-   "use": "Das verbrannte Tal"
+   "forever": "Das Verbrannte Tal",
+   "use": "Das Verbrannte Tal"
   },
   "The Coven": {
    "classic": "Der Koven",
@@ -2530,8 +2530,8 @@
   },
   "The Darkened Bank": {
    "classic": "Das dunkle Ufer",
-   "forever": "Das dunkle Ufer",
-   "use": "Das dunkle Ufer"
+   "forever": "Das Dunkle Ufer",
+   "use": "Das Dunkle Ufer"
   },
   "The Dead Acre": {
    "classic": "Der Todesacker",
@@ -2563,8 +2563,8 @@
   },
   "The Golden Plains": {
    "classic": "Die goldenen Ebenen",
-   "forever": "Die goldenen Ebenen",
-   "use": "Die goldenen Ebenen"
+   "forever": "Die Goldenen Ebenen",
+   "use": "Die Goldenen Ebenen"
   },
   "The Great Forge": {
    "classic": "Die große Schmiede",
@@ -2573,8 +2573,8 @@
   },
   "The Great Lift": {
    "classic": "Der große Aufzug",
-   "forever": "Der große Aufzug",
-   "use": "Der große Aufzug"
+   "forever": "Der Große Aufzug",
+   "use": "Der Große Aufzug"
   },
   "The Greymane Wall": {
    "classic": "Der Greymane-Wall",
@@ -2583,8 +2583,8 @@
   },
   "The Grizzled Den": {
    "classic": "Der altgediente Bau",
-   "forever": "Der altgediente Bau",
-   "use": "Der altgediente Bau"
+   "forever": "Der Graufelsbau",
+   "use": "Der Graufelsbau"
   },
   "The Hall of Thanes": {
    "forever": "Die Halle der Thanen",
@@ -2592,8 +2592,8 @@
   },
   "The Harborage": {
    "classic": "Der sichere Hafen",
-   "forever": "Der sichere Hafen",
-   "use": "Der sichere Hafen"
+   "forever": "Der Sichere Hafen",
+   "use": "Der Sichere Hafen"
   },
   "The High Seat": {
    "classic": "Der Hohe Sitz",
@@ -2651,8 +2651,8 @@
   },
   "The Rotting Orchard": {
    "classic": "Der verlassene Obstgarten",
-   "forever": "Der verlassene Obstgarten",
-   "use": "Der verlassene Obstgarten"
+   "forever": "Der Verrottende Obstgarten",
+   "use": "Der Verrottende Obstgarten"
   },
   "The Savage Coast": {
    "classic": "Die ungezähmte Küste",
@@ -2666,8 +2666,8 @@
   },
   "The Screeching Canyon": {
    "classic": "Der kreischende Canyon",
-   "forever": "Der kreischende Canyon",
-   "use": "Der kreischende Canyon"
+   "forever": "Der Kreischende Canyon",
+   "use": "Der Kreischende Canyon"
   },
   "The Sepulcher": {
    "classic": "Das Grabmal",
@@ -2680,13 +2680,13 @@
   },
   "The Shimmering Flats": {
    "classic": "Die schimmernde Ebene",
-   "forever": "Die schimmernde Ebene",
-   "use": "Die schimmernde Ebene"
+   "forever": "Die Schimmernde Ebene",
+   "use": "Die Schimmernde Ebene"
   },
   "The Slithering Scar": {
    "classic": "Die wuchernde Narbe",
-   "forever": "Die wuchernde Narbe",
-   "use": "Die wuchernde Narbe"
+   "forever": "Die Wuchernde Narbe",
+   "use": "Die Wuchernde Narbe"
   },
   "The Spire": {
    "forever": "Die Bastion",
@@ -2728,8 +2728,8 @@
   },
   "The Weeping Cave": {
    "classic": "Die weinende Höhle",
-   "forever": "Die weinende Höhle",
-   "use": "Die weinende Höhle"
+   "forever": "Die Weinende Höhle",
+   "use": "Die Weinende Höhle"
   },
   "The World Tree": {
    "classic": "Der Weltbaum",
@@ -2812,8 +2812,8 @@
   },
   "Twilight Grove": {
    "classic": "Der Zwielichtshain",
-   "forever": "Der Zwielichtshain",
-   "use": "Der Zwielichtshain"
+   "forever": "Zwielichtshain",
+   "use": "Zwielichtshain"
   },
   "Tyr's Hand": {
    "classic": "Tyrs Hand",

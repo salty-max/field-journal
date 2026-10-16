@@ -11,7 +11,6 @@ Die Druiden beginnen diese Reise mit geschlossenen Augen. Folge ihrem Beispiel.
 = Der Zwielichtshain, im Krater eines längst erloschenen Vulkans. Sein Baum ist eine von vier Türen in den Smaragdgrünen Traum, die der grüne Drachenschwarm hütet, und seine Hüter kehrten verändert aus dem Traum zurück.
 + Die Dämmerung hier ist nicht die Dunkelheit des Dämmerwalds: Die schlafenden Druiden halten ein eigenes Zwielicht über dem Krater, ganz anders als im übrigen Wald.
 ! Ruhig, aber gefährlich, wenn ein Drache des Nachtmahrs dort ist
-@ Der Zwielichtshain
 
 ## duskwood-callahan
 Wo das nördliche Ufer endet, an der Straße in die roten Berge,

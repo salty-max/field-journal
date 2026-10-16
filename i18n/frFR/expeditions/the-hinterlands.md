@@ -19,7 +19,7 @@ qui s'ouvre sur ce qu'aucun être éveillé n'a jamais vu.
 Il y a quatre portes de ce genre en ce monde.
 Aucune n'est faite pour les yeux éveillés.
 ? Seradane, au nord-est des Hinterlands. Dormez devant la porte. Attendre les yeux ouverts ne vous mènera nulle part.
-= Seradane : l'une des quatre portes du Rêve d'émeraude, gardée par les drakes verts Cherche-rêve et Rothos. Ses soeurs se dressent dans le bois de la Pénombre, en Ashenvale et en Feralas.
+= Seradane : l'une des quatre portes du Rêve d'émeraude, gardée par les drakes verts Cherche-rêve et Rothos. Ses soeurs se dressent dans le bois de la Pénombre, en Orneval et en Feralas.
 + Sur la colline au nord gît le crâne d'un dragon que personne n'a nommé, à l'intérieur d'un cercle de pierres semblable aux cercles des Hautes-terres Arathies.
 ! Mortel (Cherche-rêve, Rothos et les draconiens verts, niveaux 60 à 62)
 @ Seradane
