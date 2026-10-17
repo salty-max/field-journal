@@ -371,6 +371,38 @@ return function(g)
     not headers[1].open and not headers[2].open and headerChanges == 4,
     "Finds: folded skill headers are restored without recursively scanning"
   )
+  -- API presence is not proof that its profession list is populated.
+  -- Merge a partial modern list with the skills pane instead of skipping it.
+  for _, locale in ipairs({ "enUS", "frFR", "deDE", "esES", "esMX", "itIT", "ptBR", "ruRU", "koKR", "zhCN", "zhTW" }) do
+    GetLocale = function() return locale end
+    for herbalism, family in pairs(M.professionNames[locale]) do
+      if family == "plants" then
+        for _, partial in ipairs({ false, true }) do
+          c.finds, c.fish, c.plants, c.materials = nil, nil, nil, nil
+          headers = { { name = "Professions", kids = { herbalism } } }
+          GetProfessions = function() return partial and 1 or nil end
+          GetProfessionInfo = function() return "Mining", nil, 1, 75, nil, nil, ns.forever and 2946 or 186 end
+          local before = announcements("plants")
+          ns.openFindCategory("all")
+          fire("SKILL_LINES_CHANGED")
+          check(
+            ns.findsUnlocked("plants") and option("plants") and announcements("plants") == before + 1,
+            "Finds: "
+              .. locale
+              .. " Herbalism unlocks and announces with an "
+              .. (partial and "incomplete" or "empty")
+              .. " modern profession list"
+          )
+          check(not headers[1].open, "Finds: checking both profession sources preserves the folded header")
+          fire("SPELLS_CHANGED")
+          check(
+            announcements("plants") == before + 1,
+            "Finds: repeated profession events do not replay the Plants unlock"
+          )
+        end
+      end
+    end
+  end
   GetProfessions, GetProfessionInfo, GetNumSkillLines, GetSkillLineInfo, ExpandSkillHeader, CollapseSkillHeader =
     oldGet, oldInfo, oldNum, oldLine, oldExpand, oldCollapse
   state.bagCounts = oldBagCounts

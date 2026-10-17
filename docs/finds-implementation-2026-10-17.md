@@ -42,9 +42,13 @@ relevant category. The existing banner switch covers collection unlocks too,
 and its settings and welcome text now say so.
 
 Modern profession slots are read by id, including Forever aliases. Sparse
-slots support Fishing without primary professions. A legacy skills-pane
-fallback reads localized profession names, temporarily expands folded
-headers and restores them, with a re-entry guard for synchronous events.
+slots support Fishing without primary professions. When the skills-pane API
+is also available, its localized profession names are merged into the result,
+even if the modern list is empty or reports only another trade. Function
+presence alone does not establish a complete profession list. Folded headers
+are temporarily expanded and restored, with a re-entry guard for synchronous
+events. Checks cover Herbalism unlocking the Plants selector and announcing
+once with empty and partial modern lists in every catalog locale.
 
 ## Acquisition and progress
 

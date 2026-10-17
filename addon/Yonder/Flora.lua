@@ -91,10 +91,11 @@ end
 
 local lookInBags
 local scanning = false
--- Prefer profession ids, including Forever's child skill lines. On clients
--- with only the skills pane, expand folded headers while reading and restore
--- them in reverse order. SKILL_LINES_CHANGED is synchronous, so the guard
--- also prevents our own header changes from re-entering this scan.
+-- Merge profession ids, including Forever's child skill lines, with the
+-- skills pane. A present modern API can still return an incomplete list.
+-- Expand folded headers while reading and restore them in reverse order.
+-- SKILL_LINES_CHANGED is synchronous, so the guard also prevents our own
+-- header changes from re-entering this scan.
 local function professions()
   local found = {}
   local names = M.professionNames[GetLocale()] or {}
@@ -106,7 +107,8 @@ local function professions()
       family = family or (name and not secret(name) and names[name])
       if family then found[family] = true end
     end
-  elseif GetNumSkillLines and GetSkillLineInfo then
+  end
+  if GetNumSkillLines and GetSkillLineInfo then
     local folded, i = {}, 1
     while i <= GetNumSkillLines() do
       local name, header, expanded = GetSkillLineInfo(i)
