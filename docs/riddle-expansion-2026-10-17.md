@@ -2,7 +2,8 @@
 
 Research and local implementation: 17 October 2026. Nothing pushed or released.
 The frozen position additions are in local wow-data commit `d8d1cfe`.
-That data commit must precede Yonder when these changes are eventually pushed.
+The owner's corrected scenery landmark is in wow-data commit `73255bf`.
+Both data changes must precede Yonder when eventually pushed.
 
 Refined after the user's request for more Teldrassil discoveries, including
 Dolanaar. The user then confirmed **six total** for the second batch, including
@@ -16,10 +17,10 @@ The first batch below remains included. Nothing has been released.
 
 | Requested discovery | Status | What the implementation checks |
 | --- | --- | --- |
-| Keldamyr's invitation | Implemented | Sleeping or lying down, within ten yards of the innkeeper's fixed position and indoors. No target, quest, purchase or wait |
+| Keldamyr's invitation | Implemented | Sleeping or lying down within 40 yards of the inn anchor. No target, indoor flag, quest, purchase or wait. This is an area tolerance, not wall or floor detection |
 | Dolanaar's Ancient Protector | Implemented | Nearby protector targeted and player inside the selected Dolanaar patrol corridor. A matching NPC near Darnassus cannot substitute |
-| Dun Morogh abandoned camp | Implemented for testing | The user confirms the camp lies just metres south of the corroborated bear spawn. A ten-yard fixed arrival footprint includes that vicinity, without needing a bear alive or targeted. The mortar radius is tightened from 75 to 70 yards, keeping all tested range positions. A regression check verifies that the two discoveries share no five-yard cell. Check the camp's exact southern edge in game |
-| Badlands crypt | Implemented | Arrival near Sword of the Barbarian King, object 144181, inside the crypt. Questie and the Classic world spawn agree at 57.25, 40.03. Outdoor ground below does not count |
+| Dun Morogh abandoned camp | Implemented for testing | The owner's in-game correction places the camp at 39.2, 67.6. A reviewed wow-data landmark replaces the incorrect bear proxy at 41.9, 66.8. Arrival within 15 yards needs no bear or target. The mortar radius is restored to 75 yards. The two discoveries share no five-yard cell |
+| Badlands crypt | Implemented | Arrival near Sword of the Barbarian King, object 144181. Questie and the Classic world spawn agree at 57.25, 40.03. No unverified indoor gate. Sigrun's actual camp at 53.8, 43.3 is outside the footprint. Vertical separation is not detected |
 | Arathi coastal farm | Implemented | Arrival near the stable's stationary ram spawn positions, corroborated independently by Questie. The rams need not be alive or present. Both factions can discover the place, with the danger line warning Horde visitors about the farmers |
 | Stonetalon logging camp | Draft, not enabled | No verified mill-yard footprint in wow-data. The retrievable access descriptions involve climbing roofs or crossing an invisible wall. An approximate destination and a sightseeing video are insufficient for a production arrival answer |
 
@@ -29,7 +30,8 @@ only if Stonetalon proves suitable. No substitute has been silently added.
 
 The new authoring support is deliberately narrow: `found: patrol` requires
 both target and location, `found: place` permits an arrival at a fixed anchor,
-and `indoors: true` asks the client to confirm the interior. Independent
+and `landmark` uses a reviewed scenery coordinate without borrowing an NPC.
+The unverified `indoors` condition has been removed. Independent
 Questie checks are now also available for Classic creature anchors when
 Wowhead's tooltip only returns another zone. These remain community world
 records, not a claim of live confirmation on Forever.
@@ -152,10 +154,10 @@ location, an ordinary route or an in-game check in each supported game.
 
 | Zone | Proposed discovery | What the player would do | Why keep it | Remaining work |
 | --- | --- | --- | --- | --- |
-| Teldrassil | Keldamyr's invitation to rest, Dolanaar | Rest with a sleeping or lying-down gesture inside his inn, without a target | An accessible third Teldrassil riddle. His invitation gives the action a reason beyond visiting an inn | Check the ten-yard interior footprint and ordinary welcome on both clients. Quest overlap 2159 is recorded |
+| Teldrassil | Keldamyr's invitation to rest, Dolanaar | Rest with an untargeted sleeping or lying-down gesture in the inn area | An accessible third Teldrassil riddle. His invitation gives the action a reason beyond visiting an inn | Retest in the inn area on both clients. The failed ten-yard footprint is expanded to 40 yards and the unverified indoor gate removed. Quest overlap 2159 is recorded |
 | Teldrassil | Dolanaar's walking Ancient Protector | Pay respect to the living guard, accepting salute, bow and thanks | Notices an unusual inhabitant that players often run straight past. A different subject and action from the two earlier Teldrassil additions | Check the recorded patrol corridor against the native client. The independent Questie check and target-plus-location restriction are implemented |
-| Dun Morogh | The user's abandoned camp near Rumbleshot | Find the camp itself, solved by arrival | The original player-observed scene, with an empty camp and a visiting bear | The user confirms the scene just metres south of spawn 270. Check the ten-yard fixed footprint at the actual camp's edge. Neither a live bear nor targeting it is required |
-| Badlands | The crypt above the dwarf camp | Reach the actual chamber, solved by arrival | A distinctive overlooked scene in a one-riddle zone | Check the sword's footprint and interior detection in each native client. The fixed object and independent Questie position are now established |
+| Dun Morogh | The user's abandoned camp near Rumbleshot | Find the camp itself, solved by arrival | The original player-observed scene, with an empty camp and a visiting bear | The owner corrected the location to 39.2, 67.6. Check its 15-yard arrival tolerance at the scene's edges. Neither a live bear nor targeting it is required |
+| Badlands | The crypt above the dwarf camp | Reach the actual chamber, solved by arrival | A distinctive overlooked scene in a one-riddle zone | Check the sword's footprint in each native client. The fixed object and independent Questie position are established. No indoor or altitude classification is assumed |
 | Stonetalon Mountains | The abandoned logging camp | Reach and recognize the camp, solved by arrival | Adds a forgotten place to another one-riddle zone | Verify a route that does not depend on terrain exploits, the present scene and its footprint. Do not invent an explanation for its abandonment |
 | Arathi Highlands | The remote coastal dwarf farm | Find the farm by the coastal approach, solved by arrival | Rewards a journey to a place outside the usual quest roads | Check the coastal approach and the stable footprint in each client. Fixed ram spawns and Questie agree. The danger line warns Horde visitors. No history has been invented for the residents |
 
@@ -183,15 +185,16 @@ gestures merely to vary the action column.
   gesture, without the delivery item, accepting or completing the quest,
   changing the hearthstone bind, buying a room or waiting for rested XP.
   That distinction is recorded as an explicit reviewed overlap.
-- Accepted action: **SLEEP** and **LAYDOWN** near the keeper, inside the inn.
-  Both are real tokens in both clients and share EmoteID **12**. Neither
-  requires targeting Keldamyr. Do not accept sitting as sleeping unless the
-  final verse deliberately asks for the broader act of taking a seat.
-- Implementation: a stationary `found: place` creature anchor is already
-  supported. Measure where its small footprint actually lands. Being under
-  the inn, outside a wall or merely crossing the road must not be enough.
-  If the keeper's footprint cannot represent the interior fairly, use a
-  properly verified interior landmark rather than inflating its radius.
+- Accepted action: **SLEEP** and **LAYDOWN** in the inn area, with no target.
+  Both are real tokens in both clients and share EmoteID **12**. Sitting
+  does not count. An incidental target does not prevent solving.
+- Implementation: `found: place` uses the independently corroborated innkeeper
+  position as an anchor with a **40-yard** area tolerance. It does not require
+  Keldamyr alive, nearby or targeted. The previous ten-yard footprint and
+  `IsIndoors` gate failed the owner's playtest. Tests had assumed the indoor
+  classification instead of verifying it. The owner explicitly requested an
+  area plus emote check. This deliberately accepts the inn vicinity rather
+  than claiming to distinguish its walls, floors or indoor classification.
 - Limits: no night-time requirement, countdown or magical gameplay benefit.
   His words about Elune describe his welcome, not proof of an Emerald Dream
   visit or a moonwell-like effect. Exclude Season of Discovery's additional
@@ -204,8 +207,8 @@ Authored English verse, with French, German and Spanish translations:
 > Let the next errand wait a little.
 > Close your eyes and travel nowhere.
 
-Paid hint direction: **At the inn in Dolanaar, take the keeper's invitation
-and lie down to rest.** General emote instructions remain on the riddle page.
+Paid hint: **At the inn in Dolanaar, take the keeper's invitation and sleep
+or lie down to rest.** General emote instructions remain on the riddle page.
 
 ### More Teldrassil: a tree on watch
 
@@ -296,7 +299,7 @@ height when another accessible surface sits under the same map position.
 
 1. Finish the in-game checks for the four first-batch and five second-batch
    additions. They do not depend on enabling the Stonetalon draft.
-2. Check Keldamyr's indoor footprint and the protector's patrol in Dolanaar,
+2. Retest untargeted rest in the inn area and the protector's patrol in Dolanaar,
    including the rejection of another protector outside the village.
 3. Check the Dun Morogh camp's southern edge, the crypt's throne chamber
    and the Arathi farm's stable and approach. Establish ordinary access and
@@ -321,9 +324,9 @@ greetings would hide the coverage issue rather than improve the journal.
 The earlier [15 October research](riddle-expansion-research-2026-10-15.md)
 contains additional Forever encounters and their missing evidence. Its old
 blanket quest exclusion and one-arrival quota are superseded by this document.
-The user's follow-up places the Dun Morogh camp just metres south of the
-corroborated bear spawn. Its narrow implemented footprint is documented
-above and still needs a check at the camp's actual edge.
+The owner's later in-game coordinate report overrides the earlier bear-spawn
+guess. The camp is at 39.2, 67.6, southwest of the range. The corrected
+landmark's arrival tolerance still needs a check at the camp's actual edges.
 
 ## Verification limits
 
@@ -340,10 +343,15 @@ moonwell's edge. Web sources do not prove Forever's current terrain route.
 The second batch adds five riddles, their translations and the runtime
 constraints described above. The Stonetalon draft is not loaded by the addon.
 All-locale interaction checks exercise both emote APIs, reject the wrong
-protector, outdoor inn and crypt positions, and a live animal used as a target
-elsewhere. Camp arrival and the mortar gesture do not solve each other's
-riddles in the simulated game. Native geometry and the camp's exact footprint
-still need checking in the test build. These are not claimed as live playtests.
+protector, rest outside the inn area, Sigrun's actual camp and a live animal
+used as a target elsewhere. Rest around the inn works without an indoor flag,
+keeper or target. A target outside the area cannot substitute for being there.
+Camp arrival uses the owner's reported 39.2, 67.6, rejects the old bear-spawn guess and does not solve the mortar
+riddle. These check runtime rules, not native geometry. The crypt's arrival
+footprint does not distinguish floors at identical map coordinates. The
+protector's inherited Classic patrol remains unverified on a live Forever
+client. The farm uses independently corroborated fixed positions without
+requiring a live ram. Native playtests remain necessary.
 
 New local research used wow-data's read-only Python API, not raw caches. Both database
 snapshots were built on **17 October 2026**, Classic **1.15.9.70003** and

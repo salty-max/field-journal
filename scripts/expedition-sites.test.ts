@@ -7,6 +7,9 @@ test("the abandoned camp and mortar range never share a discovery cell", () => {
   const { data } = readExpeditions(join(import.meta.dir, ".."), (file, message) => { throw Error(`${file}: ${message}`); }, ["classic", "forever"]);
   const range = data.riddles["dun-morogh-range"];
   const camp = data.riddles["dun-morogh-empty-camp"];
+  expect(camp.of).toBe("landmark:dun-morogh-abandoned-camp");
+  expect(camp.spots).toEqual([[39.2, 67.6]]);
+  expect(camp.npc).toBeUndefined();
   const { w, h } = data.zones["1426"];
   const atRange = new Set(cells(range.spots!, range.r!, w, h));
   expect(cells(camp.spots!, camp.r!, w, h).filter(cell => atRange.has(cell))).toEqual([]);

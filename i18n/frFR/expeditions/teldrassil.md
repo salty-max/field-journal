@@ -1,5 +1,5 @@
 ---
-source: 770d2da60f51
+source: 8d47e3442a55
 zone: 1438
 ---
 ## teldrassil-keldamyr
@@ -7,7 +7,7 @@ Dolanaar a un toit pour qui a trop marché.
 Son aubergiste confie vos rêves à Elune.
 La prochaine commission attendra un peu.
 Fermez les yeux et ne partez nulle part.
-? À l'auberge de Dolanaar, acceptez l'invitation de l'aubergiste et allongez-vous à l'intérieur pour vous reposer.
+? À l'auberge de Dolanaar, acceptez l'invitation de l'aubergiste et dormez ou allongez-vous pour vous reposer.
 = Keldamyr accueille les voyageurs fatigués sous son toit et leur propose de confier leurs rêves à Elune. Cette invitation ne demande aucun colis à livrer.
 + Aux messagers de Sombrevallon, il donne le même conseil. Un héros qui néglige la paix du corps et de l'esprit, dit-il, court à l'échec.
 ! Tranquille

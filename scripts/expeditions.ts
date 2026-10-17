@@ -29,7 +29,7 @@ export const CELL = 5;
 const SALT = "FJX1";
 const TIERS = ["near", "off", "hidden", "town"];
 const FACTIONS = ["alliance", "horde"];
-const SPOTS = ["object", "creature", "trigger", "area"];
+const SPOTS = ["object", "creature", "trigger", "area", "landmark"];
 
 /** 32-bit FNV-1a (Expeditions.lua computes the same). */
 export function fnv(s: string) {
@@ -70,7 +70,6 @@ type Spot = {
   areas?: number[];
   face?: number;
   bounded?: boolean;
-  indoors?: boolean;
 };
 type Haunts = { id: number; name: string; names?: Record<string, string>; haunts: number[][] };
 type Data = {
@@ -206,13 +205,16 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
         fail(file, `${where} found: place needs no reading or companions and a radius of 10 to 100 yards`);
       if (r.found === "patrol" && (!gestures.length || (companions as number[]).length || client === "forever"))
         fail(file, `${where} found: patrol needs a gesture and no companions, on the Classic map`);
-      if (r.indoors !== undefined && (r.indoors !== true || kinds[0] === "area"))
-        fail(file, `${where} indoors: true requires a precise place`);
-      if (r.radius !== undefined && r.found !== "place") fail(file, `${where} radius needs found: place`);
+      if (r.indoors !== undefined) fail(file, `${where} indoors is not a verified solution condition`);
+      if (kinds[0] === "landmark" && (typeof r.landmark !== "string" || !/^[a-z][a-z0-9-]+$/.test(r.landmark)
+        || typeof r.name !== "string" || !r.name || r.found || r.reading
+        || !Number.isInteger(r.radius) || r.radius < 10 || r.radius > 100))
+        fail(file, `${where} landmark needs its own name, a radius of 10 to 100 yards, no found mode or reading`);
+      if (r.radius !== undefined && r.found !== "place" && kinds[0] !== "landmark") fail(file, `${where} radius needs found: place or landmark`);
       if (!spot) fail(file, `${where} not in data/expeditions.json: run python3 scripts/expeditions.py`);
       else if (spot.zone !== zone || spot.of !== of || String(spot.hint) !== String(ha && [ha.x, ha.y, ha.r])
-        || Boolean(spot.indoors) !== Boolean(r.indoors) || Boolean(spot.bounded) !== (r.found === "patrol")
-        || String(spot.companions ?? []) !== String(companions) || (r.found === "place" && (spot.r !== r.radius || spot.npc)))
+        || Boolean(spot.bounded) !== (r.found === "patrol")
+        || String(spot.companions ?? []) !== String(companions) || ((r.found === "place" || kinds[0] === "landmark") && (spot.r !== r.radius || spot.npc)))
         fail(file, `${where} changed since data/expeditions.json was made: run python3 scripts/expeditions.py`);
 
       const lines = sections.get(id);
@@ -292,7 +294,6 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
       r.faction ? `faction = ${q(r.faction)}` : "",
       r.gestures.length ? `asks = "gesture"` : r.reading ? `asks = "reading"` : "",
       r.night ? "night = true" : "",
-      s.indoors ? "indoors = true" : "",
       s.bounded ? "bounded = true" : "",
       `danger = ${q(r.danger)}`,
       `circle = ${nums(r.circle)}`,

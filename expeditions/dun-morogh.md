@@ -10,13 +10,11 @@ riddles:
   - id: dun-morogh-empty-camp
     tier: off
     name: The abandoned camp
-    creature: 1128
-    found: place
-    radius: 10
-    position_check: questie
-    hint_area: { x: 41.9, y: 66.9, r: 1 }
+    landmark: dun-morogh-abandoned-camp
+    radius: 15
+    hint_area: { x: 39.0, y: 67.5, r: 1.5 }
     danger: "Guarded (a young black bear)"
-    sources: "User's firsthand scene and 17 October confirmation that the camp is just metres south of the bear spawn; Classic Young Black Bear spawn 270 at 41.895, 66.794, independently placed by Questie. The fixed place is used, never a live bear or a target. The cause of the abandonment is unknown."
+    sources: "Owner's in-game coordinate correction on 17 October 2026: 39.2, 67.6. Reviewed wow-data landmark dun-morogh-abandoned-camp. The earlier bear-spawn association was wrong. No live bear or target is required. The cause of the abandonment is unknown."
   - id: dun-morogh-etched-note
     tier: near
     reading: Etched Note
@@ -37,7 +35,7 @@ riddles:
     name: Rumbleshot's Range
     creature: 10805   # Spotter Klemmy, dump 40.7, 64.9, at the camp: the riflemen and the mortar team beside him
     found: place   # the noise is the subject, not a dwarf's ears
-    radius: 70   # covers the camp and range, including Klemmy at 40.8, 66.6, without the abandoned camp
+    radius: 75   # original firing-range coverage, including Klemmy at 40.8, 66.6
     hint_area: { x: 41.0, y: 64.0, r: 4 }
     danger: "Quiet"
     sources: "the dump's script of the camp (dbscripts_on_creature_movement 1061001 to 1061004: the five head out to the range; broadcast texts 6106 to 6142: the riflemen's contest; the three Mortar Team Target Dummies); warcraft.wiki.gg's Hegnar Rumbleshot, Shorty, Spotter Klemmy, Rifleman Wheeler and Rifleman Middlecamp pages"
@@ -54,11 +52,11 @@ quarry:
   sources: "the WoWWiki archive's Timber page (the island, his two wolves, his drops, the pet); the dump's spawns"
 ---
 ## dun-morogh-empty-camp
-South of the gunsmith's noisy company,
+Southwest of the gunsmith's noisy company,
 another camp has no one to answer.
 A young black bear wanders close to where they stayed.
 Find the place the campers left behind.
-? Just south of Rumbleshot's range, look for the abandoned camp near a young black bear. Walk into the camp. The bear need not be there.
+? Just southwest of Rumbleshot's range, look for the abandoned camp near a young black bear. Walk into the camp. The bear need not be there.
 = An abandoned camp a short walk from Rumbleshot's range. A young black bear wanders nearby, but why the campers left is unknown.
 + Perhaps the bear found the camp empty. Perhaps the campers found the bear first. The League has no witness to ask, and the bear is unlikely to settle it.
 

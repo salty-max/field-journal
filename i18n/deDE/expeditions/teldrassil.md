@@ -1,5 +1,5 @@
 ---
-source: 770d2da60f51
+source: 8d47e3442a55
 zone: 1438
 ---
 ## teldrassil-keldamyr
@@ -7,7 +7,7 @@ Dolanaar hat ein Dach für müde Wanderer.
 Sein Wirt vertraut deine Träume Elune an.
 Der nächste Botengang kann noch etwas warten.
 Schließ die Augen und reise, ohne einen Schritt zu tun.
-? Nimm im Gasthaus von Dolanaar die Einladung des Wirts an und leg dich drinnen zur Ruhe.
+? Nimm im Gasthaus von Dolanaar die Einladung des Wirts an und schlaf oder leg dich zur Ruhe.
 = Keldamyr heißt müde Reisende unter seinem Dach willkommen und lädt sie ein, ihre Träume Elune anzuvertrauen. Für diese Einladung musst du kein Paket abliefern.
 + Dem Boten aus Shadowglen gibt er denselben Rat. Ein Held, der Körper und Geist keine Ruhe gönnt, geht seiner Ansicht nach dem Scheitern entgegen.
 ! Ruhig

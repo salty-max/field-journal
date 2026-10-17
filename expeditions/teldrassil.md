@@ -13,12 +13,11 @@ riddles:
     name: Keldamyr's invitation
     creature: 6736
     found: place
-    radius: 10
-    indoors: true
+    radius: 40   # the inn vicinity, not a claim to detect walls or floors
     hint_area: { x: 55.8, y: 59.8, r: 2 }
     danger: "Quiet"
     quest_overlap: [2159]
-    quest_context: "Dolanaar Delivery ends at Keldamyr. Resting inside his inn needs no delivery, quest, hearthstone bind, purchase or rested-XP wait."
+    quest_context: "Dolanaar Delivery ends at Keldamyr. Resting at his inn needs no delivery, quest, hearthstone bind, purchase or rested-XP wait."
     sources: "Keldamyr's welcome, https://warcraft.wiki.gg/wiki/Innkeeper_Keldamyr, matching broadcast text 2827; Dolanaar Delivery (2159), reward text; guard directions 7076 and 7077; Classic world spawn and frozen Wowhead points"
   - id: teldrassil-tree-on-watch
     tier: near
@@ -57,7 +56,7 @@ Dolanaar has a roof for the road-weary.
 Its keeper leaves your dreams in Elune's care.
 Let the next errand wait a little.
 Close your eyes and travel nowhere.
-? At the inn in Dolanaar, take the keeper's invitation and lie down to rest inside.
+? At the inn in Dolanaar, take the keeper's invitation and sleep or lie down to rest.
 = Keldamyr welcomes weary visitors beneath his roof and asks them to leave their dreams in Elune's care. There is no parcel to deliver for this invitation.
 + His advice to the courier from Shadowglen is much the same. A hero who neglects peace of body and mind, he says, is on the way to failure.
 

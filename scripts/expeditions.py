@@ -23,6 +23,8 @@ A riddle names its spot by what the game's data pins down:
   trigger: <id>    a quest's exploration trigger (the client's AreaTrigger)
   area: <name>     a sub-area of the zone (the client's AreaTable, under the
                    zone's own area): every id of that name
+  landmark: <id>  reviewed scenery in wow-data's landmark table. Its recorded
+                   map position, with radius in yards, never an NPC proxy
 
 For an object or creature without Wowhead map data, position_check: questie explicitly
 checks its Classic world spawn against Questie's independent zone coordinates.
@@ -239,7 +241,7 @@ def repeated_sites(rs, resolved, width, height):
     """
     errors, occupied = [], {}
     for r in rs:
-        subjects = [(kind, r[kind]) for kind in ("object", "creature", "trigger", "area") if kind in r]
+        subjects = [(kind, r[kind]) for kind in ("object", "creature", "trigger", "area", "landmark") if kind in r]
         subjects += [("creature", n) for n in r.get("companions", [])]
         for subject in subjects:
             if subject in occupied:
@@ -276,6 +278,24 @@ def game_names(kind, id, english):
             if loc not in ("enUS", "enGB"):
                 out.setdefault(loc, n)
     return dict(sorted(out.items())) or None
+
+
+def landmark_position(identifier, uimap, games=("classic", "forever")):
+    """Shared riddles require the same reviewed location in each game's DB.
+    Provenance lives with the landmark, never in a fabricated spawn row.
+    """
+    rows = []
+    for game in games:
+        c = db(game)
+        if not c.execute("SELECT 1 FROM sqlite_master WHERE name='landmark'").fetchone():
+            raise ValueError(f"{game} wow-data lacks landmarks: rebuild its database")
+        row = c.execute("SELECT ui_map_id, ux, uy, evidence FROM landmark WHERE id=?", (identifier,)).fetchone()
+        if not row or row[0] != uimap or not row[3]:
+            raise ValueError(f"landmark {identifier}: no reviewed location on map {uimap} in {game}")
+        rows.append([float(row[1]), float(row[2])])
+    if any(p != rows[0] for p in rows):
+        raise ValueError(f"landmark {identifier}: game positions differ, use separate client content")
+    return rows[0]
 
 
 def main():
@@ -446,13 +466,15 @@ def main():
             if r.get("found") == "patrol" and (not r.get("gestures") or r.get("companions")):
                 errors.append(f"{where}: found: patrol needs a gesture and no companions")
                 continue
-            if "indoors" in r and (r["indoors"] is not True or "area" in r):
-                errors.append(f"{where}: indoors: true requires a precise place")
+            if "landmark" in r and (not r.get("name") or r.get("found") or r.get("reading")
+                or type(r.get("radius")) is not int or not 10 <= r["radius"] <= 100):
+                errors.append(f"{where}: landmark needs its own name, a radius of 10 to 100 yards, no found mode or reading")
                 continue
-            if r.get("indoors"):
-                out["indoors"] = True
+            if "indoors" in r:
+                errors.append(f"{where}: indoors is not a verified solution condition")
+                continue
             # what it was resolved from: the build refuses a file changed since
-            kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
+            kind = next((k for k in ("object", "creature", "trigger", "area", "landmark") if k in r), None)
             out["of"] = f"{kind}:{r[kind]}" if kind else None
             if "anchor" in r:
                 out["of"] += " " + ",".join(f"{k}:{v}" for k, v in r["anchor"].items())
@@ -469,7 +491,15 @@ def main():
                 out["names"] = game_names(kind, r.get(kind), out["name"])
             if not out["name"]:
                 errors.append(f"{where}: no name: give the riddle's own (name:)")
-            if "object" in r:
+            if kind == "landmark":
+                try:
+                    point = landmark_position(r["landmark"], uimap, ("classic", "forever") if client == "both" else (client,))
+                except ValueError as e:
+                    errors.append(f"{where}: {e}")
+                    continue
+                points = [point]
+                out.update(spots=points, r=r["radius"])
+            elif "object" in r:
                 check_source = r.get("position_check", "wowhead")
                 points = agreed("object", r["object"], uimap, [p for p in (on(uimap, *s) for s in objects[r["object"]]) if p], source=check_source)
                 if not points:
@@ -777,12 +807,14 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
         if r.get("found") == "patrol" or "position_check" in r:
             errors.append(f"{where}: patrol and position_check require the Classic world records")
             continue
-        if "indoors" in r and (r["indoors"] is not True or "area" in r):
-            errors.append(f"{where}: indoors: true requires a precise place")
+        if "landmark" in r and (not r.get("name") or r.get("found") or r.get("reading")
+            or type(r.get("radius")) is not int or not 10 <= r["radius"] <= 100):
+            errors.append(f"{where}: landmark needs its own name, a radius of 10 to 100 yards, no found mode or reading")
             continue
-        if r.get("indoors"):
-            out["indoors"] = True
-        kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
+        if "indoors" in r:
+            errors.append(f"{where}: indoors is not a verified solution condition")
+            continue
+        kind = next((k for k in ("object", "creature", "trigger", "area", "landmark") if k in r), None)
         out["of"] = f"{kind}:{r[kind]}" if kind else None
         if "anchor" in r:
             out["of"] += " " + ",".join(f"{k}:{v}" for k, v in r["anchor"].items())
@@ -792,7 +824,15 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
             out["hint"] = [r["hint_area"][k] for k in ("x", "y", "r")]
         ha = r.get("hint_area") or {}
         held = lambda p: ha and (p[0] - ha["x"]) ** 2 + ((p[1] - ha["y"]) * ASPECT) ** 2 <= ha["r"] ** 2
-        if kind == "creature":
+        if kind == "landmark":
+            out["name"] = r["name"]
+            try:
+                points = [landmark_position(r["landmark"], uimap, ("forever",))]
+            except ValueError as e:
+                errors.append(f"{where}: {e}")
+                continue
+            out.update(spots=points, r=r["radius"])
+        elif kind == "creature":
             out["name"] = r.get("name") or (npcs.get(r["creature"]) or {}).get("name")
             if game_names("creature", r["creature"], out["name"]):
                 out["names"] = game_names("creature", r["creature"], out["name"])

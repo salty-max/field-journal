@@ -11,7 +11,6 @@ riddles:
     name: The crypt above the diggers
     object: 144181
     position_check: questie
-    indoors: true
     hint_area: { x: 57.0, y: 40.5, r: 3 }
     danger: "Guarded (the Badlands approach)"
     sources: "Sword of the Barbarian King (144181), Classic world spawn and Questie 57.25, 40.03; https://www.wowhead.com/tbc/object=144181/sword-of-the-barbarian-king#comments, firsthand crypt visits; https://wowwiki-archive.fandom.com/wiki/Crypt_(Badlands), ordinary path and seated armoured skeleton"

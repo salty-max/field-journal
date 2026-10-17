@@ -1,13 +1,13 @@
 ---
-source: b5549d9645af
+source: 391a7fa34134
 zone: 1426
 ---
 ## dun-morogh-empty-camp
-Südlich der lärmenden Gesellschaft des Büchsenmachers
+Südwestlich der lärmenden Gesellschaft des Büchsenmachers
 gibt es ein anderes Lager, in dem niemand antwortet.
 Ein junger Schwarzbär streift nahe ihrem früheren Unterschlupf umher.
 Finde den Ort, den die Camper zurückgelassen haben.
-? Suche gleich südlich von Rumbleshots Schießstand das verlassene Lager bei einem jungen Schwarzbären. Betritt das Lager. Der Bär muss nicht da sein.
+? Suche gleich südwestlich von Rumbleshots Schießstand das verlassene Lager bei einem jungen Schwarzbären. Betritt das Lager. Der Bär muss nicht da sein.
 = Ein verlassenes Lager, nur einen kurzen Weg von Rumbleshots Schießstand entfernt. Ein junger Schwarzbär streift in der Nähe umher, aber warum die Camper gegangen sind, ist unbekannt.
 + Vielleicht fand der Bär das Lager leer vor. Vielleicht fanden die Camper zuerst den Bären. Die Liga hat keinen Zeugen zu befragen, und der Bär wird die Frage wohl kaum klären.
 ! Bewacht (ein junger Schwarzbär)

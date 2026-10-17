@@ -239,10 +239,6 @@ end
 
 -- Is the reader at the riddle's place? (here: where(), its sub-areas)
 local function there(r, here)
-  if r.indoors then
-    local inside = IsIndoors()
-    if secret(inside) or inside ~= true then return false end
-  end
   if r.area then
     for _, id in ipairs(here.areas) do
       if r.atSet[print_(r.id, "area", id)] then return true end

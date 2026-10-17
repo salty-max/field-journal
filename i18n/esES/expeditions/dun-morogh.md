@@ -1,13 +1,13 @@
 ---
-source: b5549d9645af
+source: 391a7fa34134
 zone: 1426
 ---
 ## dun-morogh-empty-camp
-Al sur de la ruidosa compañía del armero,
+Al suroeste de la ruidosa compañía del armero,
 otro campamento no tiene a nadie que responda.
 Un oso negro joven ronda cerca de donde se alojaron.
 Busca el lugar que dejaron atrás sus ocupantes.
-? Justo al sur del campo de tiro de Estruendo, busca el campamento abandonado cerca de un oso negro joven. Entra en el campamento. No hace falta que el oso esté allí.
+? Justo al suroeste del campo de tiro de Estruendo, busca el campamento abandonado cerca de un oso negro joven. Entra en el campamento. No hace falta que el oso esté allí.
 = Un campamento abandonado a un corto paseo del campo de tiro de Estruendo. Un oso negro joven ronda cerca, pero se desconoce por qué se marcharon sus ocupantes.
 + Quizá el oso encontró el campamento vacío. Quizá sus ocupantes encontraron primero al oso. La Liga no tiene ningún testigo al que preguntar, y el oso difícilmente resolverá la duda.
 ! Vigilado (un oso negro joven)

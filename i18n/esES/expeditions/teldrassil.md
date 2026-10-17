@@ -1,5 +1,5 @@
 ---
-source: 770d2da60f51
+source: 8d47e3442a55
 zone: 1438
 ---
 ## teldrassil-keldamyr
@@ -7,7 +7,7 @@ Dolanaar tiene un techo para quien llega cansado.
 El tabernero deja tus sueños al cuidado de Elune.
 El próximo recado puede esperar un poco.
 Cierra los ojos sin ir a ninguna parte.
-? En la taberna de Dolanaar, acepta la invitación del tabernero y túmbate a descansar dentro.
+? En la taberna de Dolanaar, acepta la invitación del tabernero y duerme o túmbate a descansar.
 = Keldamyr acoge a los viajeros cansados bajo su techo y los invita a confiar sus sueños a Elune. Esta invitación no exige entregar ningún paquete.
 + Al mensajero de Cañada Umbría le da el mismo consejo. Según él, un héroe que descuida la paz del cuerpo y de la mente se encamina al fracaso.
 ! Tranquilo

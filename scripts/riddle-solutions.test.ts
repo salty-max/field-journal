@@ -23,7 +23,7 @@ for (const game of ["classic", "forever"]) {
         return `{id=${lua(r.id)}, zone=${e.zone}, side=${lua(r.faction ?? e.home ?? "alliance")},
           action=${lua(action)}, tokens={${tokens.map(lua).join(",")}},
           x=${(s.spots?.[0]?.[0] ?? 10) / 100}, y=${(s.spots?.[0]?.[1] ?? 10) / 100},
-          area=${s.areas?.[0] ?? "nil"}, npc=${s.npc ?? "nil"}, indoors=${s.indoors === true}, companions={${(s.companions ?? []).join(",")}}}`;
+          area=${s.areas?.[0] ?? "nil"}, npc=${s.npc ?? "nil"}, companions={${(s.companions ?? []).join(",")}}}`;
       }));
       const run = `
 local makeGame = assert(loadfile("addon/test/riddle-game.lua"))()
@@ -129,18 +129,24 @@ do
     end
     local inn = "teldrassil-keldamyr"
     for _, token in ipairs({"SLEEP", "LAYDOWN"}) do
-      fresh(1438, 0.5562, 0.5979, true, nil, false)
-      game.tick()
-      game.emote("SIT")
-      assert(not ns.riddleSolved(inn), locale..": inn: arrival or sitting is not sleeping")
+      -- An area and a rest gesture. No indoor flag, target or live keeper.
+      for _, point in ipairs({{0.5562, 0.5979}, {0.56, 0.60}, {0.551, 0.595}}) do
+        fresh(1438, point[1], point[2], false, nil, false)
+        game.tick()
+        game.emote("SIT")
+        assert(not ns.riddleSolved(inn), locale..": inn: arrival or sitting is not sleeping")
+        game.emote(token)
+        assert(ns.riddleSolved(inn), locale..": inn: untargeted rest in the inn area must count without an indoor flag")
+      end
+      fresh(1438, 0.5562, 0.5979, true, 3605, true)
       game.emote(token)
-      assert(ns.riddleSolved(inn), locale..": inn: untargeted rest inside must count")
-      fresh(1438, 0.5562, 0.5979, false, 6736, true)
-      game.emote(token)
-      assert(not ns.riddleSolved(inn), locale..": inn: outside beneath the roof footprint must not count")
+      assert(ns.riddleSolved(inn), locale..": inn: an incidental target must not block rest")
       fresh(1438, 0.57, 0.60, true, 6736, true)
       game.emote(token)
-      assert(not ns.riddleSolved(inn), locale..": inn: keeper targeted elsewhere must not count")
+      assert(not ns.riddleSolved(inn), locale..": inn: targeting Keldamyr outside the area must not count")
+      fresh(1438, nil, nil, true, 6736, true)
+      game.emote(token)
+      assert(not ns.riddleSolved(inn), locale..": inn: a target cannot bypass the area check")
     end
     local tree = "teldrassil-tree-on-watch"
     for _, point in ipairs({${patrolSamples}}) do
@@ -166,12 +172,12 @@ do
     game.emote("SALUTE")
     assert(not ns.riddleSolved(tree), locale..": patrol: missing position must not bypass locality")
     local crypt = "badlands-hidden-crypt"
+    fresh(1418, 0.538, 0.433, false, nil, false)
+    game.tick()
+    assert(not ns.riddleSolved(crypt), locale..": crypt: Sigrun's actual camp is not the sword's position")
     fresh(1418, 0.57252, 0.40027, false, nil, false)
     game.tick()
-    assert(not ns.riddleSolved(crypt), locale..": crypt: outdoor camp below must not count")
-    state.indoors = true
-    game.tick()
-    assert(ns.riddleSolved(crypt), locale..": crypt: throne chamber arrival must count")
+    assert(ns.riddleSolved(crypt), locale..": crypt: sword position counts without an unverified indoor flag")
     local farm = "arathi-highlands-coastal-farm"
     fresh(1417, 0.91346, 0.70007, false, nil, false)
     state.faction = "Horde"
@@ -186,9 +192,15 @@ do
     assert(not ns.riddleSolved(camp), locale..": camp: range and targeted bear are not the abandoned camp")
     fresh(1426, 0.419, 0.669, false, nil, false)
     game.tick()
-    assert(ns.riddleSolved(camp), locale..": camp: arrival south of the bear spawn, no bear needed")
+    assert(not ns.riddleSolved(camp), locale..": camp: the old bear-spawn guess must not count")
+    fresh(1426, 0.392, 0.676, false, nil, false)
+    game.tick()
+    assert(ns.riddleSolved(camp), locale..": camp: owner-confirmed 39.2, 67.6 solves by arrival, no bear needed")
     game.emote("COVEREARS")
     assert(not ns.riddleSolved("dun-morogh-range"), locale..": camp: visit must not double as the mortar solution")
+    fresh(1426, 0.397, 0.676, false, nil, false)
+    game.tick()
+    assert(not ns.riddleSolved(camp), locale..": camp: being elsewhere in Dun Morogh must not count")
   end
   local solved, groupTargets = 0, 0
   for _, locale in ipairs({${LOCALES.map(lua).join(",")}}) do
@@ -200,7 +212,6 @@ do
       state.map, state.x, state.y = c.zone, c.x, c.y
       state.sub = c.area and C_Map.GetAreaInfo(c.area) or ""
       state.health, state.taxi, state.combat = 100, false, false
-      state.indoors = c.indoors
       state.faction = c.side == "horde" and "Horde" or "Alliance"
       state.target, state.npc, state.near = c.npc, c.npc, true
       for _, token in ipairs(c.tokens) do

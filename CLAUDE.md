@@ -96,17 +96,24 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   (emote tokens) or `reading`, `night`, `companions` (other creature ids
   accepted by a group gesture, such as either musical frog or either
   gryphon), the spot: `object`, `creature`,
-  `trigger` or `area` (with an `anchor` where the area has no map overlay),
+  `trigger`, `area` (with an `anchor` where the area has no map overlay),
+  or `landmark: <text-id>` for explicitly reviewed scenery from wow-data's
+  `landmark` table. A landmark needs its own `name` and a `radius` of 10 to
+  100 yards. Its provenance stays in wow-data, and it never borrows an NPC's
+  spawn or invents a game object. Shared riddles require matching landmark
+  coordinates in both databases. A radius is the journal's detection
+  tolerance, not a claim that the full scene boundary has been surveyed.
   `found: target` for a keeper met by speaking to it or one that walks,
   `found: place` with `radius` (10 to 100 yards) for a gesture in a stationary
   creature's surroundings or an arrival, with no live creature or target
   needed and no companion keepers. A named place may use a hostile creature
   only as a fixed positional anchor, never as a required meeting.
   `found: patrol` for a gesture that needs both the nearby creature targeted
-  and the selected spawn's recorded patrol corridor. `indoors: true` also
-  requires the client to report that the player is indoors. These constraints
-  prevent another creature with the same ID or an outdoor camp below a crypt
-  from substituting for the actual scene. The remaining fields are
+  and the selected spawn's recorded patrol corridor, preventing another
+  creature with the same ID elsewhere from substituting for that scene.
+  Do not gate a solution on `IsIndoors`: a roof or cave in the story does not
+  establish how the client classifies it. An assumed indoor flag in a test
+  is not live geometry evidence. The remaining fields are
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
   rares, never a capital (a creature of Forever's own, which the data doesn't
   know, adds its `name`, `level`, `rank` and `model`); `client: forever` for a

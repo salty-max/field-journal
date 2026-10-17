@@ -1,13 +1,13 @@
 ---
-source: b5549d9645af
+source: 391a7fa34134
 zone: 1426
 ---
 ## dun-morogh-empty-camp
-Au sud de la bruyante compagnie de l'armurier,
+Au sud-ouest de la bruyante compagnie de l'armurier,
 un autre camp n'a personne pour répondre.
 Un jeune ours noir rôde près de leur ancien abri.
 Trouvez ce que les campeurs ont laissé derrière eux.
-? Juste au sud du stand de tir de Rumbleshot, cherchez le camp abandonné près d'un jeune ours noir. Entrez dans le camp. L'ours n'a pas besoin d'être là.
+? Juste au sud-ouest du stand de tir de Rumbleshot, cherchez le camp abandonné près d'un jeune ours noir. Entrez dans le camp. L'ours n'a pas besoin d'être là.
 = Un camp abandonné à quelques pas du stand de tir de Rumbleshot. Un jeune ours noir rôde à proximité, mais on ignore pourquoi les campeurs sont partis.
 + Peut-être que l'ours a trouvé le camp vide. Peut-être que les campeurs ont trouvé l'ours en premier. La Ligue n'a aucun témoin à interroger, et l'ours ne tranchera sans doute pas la question.
 ! Gardé (un jeune ours noir)

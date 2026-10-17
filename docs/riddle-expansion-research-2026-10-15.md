@@ -2,6 +2,11 @@
 
 Research snapshot: 15 October 2026. No live riddles changed.
 
+**17 October correction:** the owner located the Dun Morogh abandoned camp at
+**39.2, 67.6** in game. The earlier bear-spawn candidate at 41.9, 66.8 was the
+wrong location, despite matching the bear species. It must not be treated as
+confirmation of the camp. The original research below is retained as history.
+
 ## Recommendation
 
 The user's follow-up changes the priority: **look for forgotten places first**, including unnamed camps, remote shelters and scenery that no quest uses. Finding a place can itself be the reward. The first database survey below leaned too heavily on named NPCs and readable objects, which are easier to query than scenery.
