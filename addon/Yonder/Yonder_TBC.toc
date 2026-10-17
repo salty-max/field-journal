@@ -7,7 +7,7 @@
 ## Notes-esMX: Resuelve acertijos, rastrea criaturas poco comunes y lleva un diario de las criaturas, lugares, peces, plantas y materiales que descubres.
 ## Category: Achievements
 ## Author: salty-max
-## Version: 0.11.6
+## Version: 0.12.0
 ## SavedVariablesPerCharacter: YonderChar
 ## SavedVariables: YonderSettings, YonderCollect
 ## IconTexture: Interface\AddOns\Yonder\Media\Logo
