@@ -98,7 +98,7 @@ return function(DIR, FOREVER, check)
       end
       check(families == 96 and zones == (FOREVER and 47 or 46), locale .. " full Bestiary and Atlas coverage")
       check(
-        riddles == (FOREVER and 110 or 106) and quarries == (FOREVER and 39 or 38),
+        riddles == (FOREVER and 114 or 110) and quarries == (FOREVER and 39 or 38),
         locale .. " full expedition coverage"
       )
       check(target.kit.L["Achievements"] == "Logros", locale .. " Spanish interface loaded")

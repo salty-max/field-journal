@@ -91,9 +91,12 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
   rares, never a capital (a creature of Forever's own, which the data doesn't
   know, adds its `name`, `level`, `rank` and `model`); `client: forever` for a
-  zone of Forever's own (Zephras Isle: creatures and sub-areas only); never what a quest leads to, class quests aside,
-  never a kill, never the same deed twice in a zone, never on Forever's new
-  quests' road (the resolver checks these three:
+  zone of Forever's own (Zephras Isle: creatures and sub-areas only);
+  quest locations allowed for a distinct experience, never a copied objective
+  or a temporary quest prop. A reviewed overlap records `quest_overlap: [ids]`
+  and `quest_context` explaining the separate discovery. Never a kill, never
+  the same discovery twice in a zone. New unreviewed Forever quest overlaps
+  still fail (the resolver checks these safeguards:
   PLAN.md, Reworked and After the first test), then `## <id>` sections: the verse, `? ` the
   first hint, `= ` the note, `+ ` the margin; `## quarry`: its poster (verse,
   note, margin, no hint); plain ASCII.
@@ -107,7 +110,10 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   Forever (no license: credited) where Wowhead's Forever database places them
   too. Wowhead's points (the cross-check of every spot, a quarry's
   sightings) are frozen in wow-data (`bun ../wow-data/bin/wowhead-points.ts`:
-  a new riddle's creature or object fetched there first). Rerun it after changing a spot or a hint circle (the
+  a new riddle's creature or object fetched there first). A Classic object's
+  `position_check: questie` explicitly uses Questie's independent coordinates
+  instead when Wowhead has no points, still requiring agreement with the
+  Classic world spawn. Record the evidence in `sources:`. Rerun it after changing a spot or a hint circle (the
   build refuses a stale one). `scripts/expeditions.ts` (for build.ts) checks
   every riddle and writes the answers as fingerprints only (salted FNV-1a of
   5-yard cells, sub-areas, the keeper, the gestures), the texts read once

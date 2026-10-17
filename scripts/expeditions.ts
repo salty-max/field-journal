@@ -192,8 +192,11 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
         kinds.length === 1
           ? `${kinds[0]}:${r[kinds[0]]}` +
             (r.anchor ? " " + Object.entries(r.anchor).map(([k, v]) => `${k}:${v}`).join(",") : "") +
-            (r.found ? ` found:${r.found}` : "")
+            (r.found ? ` found:${r.found}` : "") +
+            (r.position_check ? ` position_check:${r.position_check}` : "")
           : "";
+      if (r.position_check !== undefined && (r.position_check !== "questie" || kinds[0] !== "object" || client === "forever"))
+        fail(file, `${where} position_check: questie is for an object resolved on the Classic map`);
       if (r.found !== undefined && (!["target", "place"].includes(r.found) || kinds[0] !== "creature"))
         fail(file, `${where} found: target or place, for a creature or its surroundings`);
       if (r.found === "place" && (!gestures.length || (companions as number[]).length

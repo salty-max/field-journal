@@ -31,7 +31,7 @@ is stamped with a seal and a picture of the moment.
 | Question | Decision |
 |---|---|
 | Where | The Field Journal, both halves: the riddles (first planned in the Codex, moved here: they are about exploring the land, the journal's purpose) and the hunts. No sixth addon. |
-| What the riddles target | The overlooked: props, graves, statues, plaques, books, peculiarities few players pay attention to; never a capital's front gate or a quest hub's obvious centre, and never what a quest already leads to (12 October, below). Each holds a small story, true to the original game's lore. Only what the data pins down (below): a place nobody can locate for sure is no riddle. |
+| What the riddles target | The overlooked: props, graves, statues, plaques, books, peculiarities few players pay attention to; never a capital's front gate or a quest hub's obvious centre, with a distinct experience even at a quest location (17 October, below). Each holds a small story, true to the original game's lore. Only what the data pins down (below): a place nobody can locate for sure is no riddle. |
 | Quality | Each riddle and poster thought through, one by one: fair, lore-true, worth the walk. |
 | How many | By the land's size, from the game's data (below): a zone's riddles by the places its map reveals, three in each capital, one in each faction town of a contested zone for that faction alone; one quarry in every zone that has rares. |
 | What the reader does | Varied, as the story calls for and never named: one of the client's emotes (kneel at a grave, mourn a fallen comrade, salute a hero, bow to kings, pray at a shrine, raise a toast at a brewery, sniff a suspicious barrel, peer across the water, sleep under the Dream's tree), a reading, the night; or simply being there. A riddle accepts every gesture that means the same there, whatever its neighbours accept (12 October). |
@@ -48,12 +48,13 @@ quarries are never tied to quests, or they are too obvious; don't rely on
 quest texts alone; search the web; cross-media lore is welcome when it is not
 anachronic to the original game or Forever. Every zone and capital rewritten:
 
-- **No quest leads there.** A riddle's subject is never a quest's target,
-  giver, ender, starting object, named destination or story (a keeper may
-  stand beside a quest's giver); a quarry is never a quest's target: a rare.
-  Class quests aside (a rogue's lockbox, a warlock's altar). Checked by name
-  as well as by id, a quest naming a place only in part ("the Cauldron",
-  "Mathystra") counting.
+- **Quest locations may hold a separate discovery** (updated by the user,
+  17 October). A familiar location is allowed when Yonder asks for a different
+  action or highlights an overlooked detail. Do not repackage a quest objective,
+  require its item, depend on a temporary quest prop, or invent extra history.
+  Class-quest locations remain eligible. Quarries remain rares, never a quest's
+  kill target. A reviewed overlap is recorded as exact `quest_overlap` ids and
+  a `quest_context` explaining what the riddle adds.
 - **Sources** beyond the quests: the dump's props, inscriptions, gossip and
   scripted lines (broadcast texts), the WoWWiki archive (its later
   expansions' lines set aside), Warcraft III, Lands of Conflict, the Warcraft
@@ -81,15 +82,19 @@ riddle's own alert lost behind the trophy's; the book's pages bare. So:
   may solve it; one that attacks the other side is its own side's riddle
   (`faction:`, now on any tier; which riddles, in `expeditions/`: not
   repeated here, for the players' sake).
-- **Never the same deed twice in a zone**, for either side's reader: one
-  arrival, one reading, one keeper found by speaking at most, and no gesture
-  two riddles both accept.
-- **Never on Forever's new quests' road**: no new quest of Forever's gives,
-  ends or asks for a riddle's creature or object, none names it, and none
-  sends its players (giver, ender, what it asks for) within 4% of a riddle
-  solved by arriving: AllTheThings' Forever database and QuestieDB's traces,
-  both pinned, the new quests those Classic lacks.
-- The resolver checks the three (`scripts/expeditions.py`), and the build
+- **Never the same discovery twice in a zone.** Different places may share
+  an arrival, a reading, a conversation or a gesture. Do not make up an
+  emote merely because another riddle already uses the natural one. Each
+  riddle needs its own subject and observation. The resolver rejects reused
+  subjects (including a group's companion keepers) and overlapping passive
+  arrival footprints, rather than limiting each action to one per zone.
+- **Review Forever quest overlaps**: the resolver flags new quests that
+  give, end or ask for a riddle's subject, name it, or send players within 4%
+  of a passive arrival. An explicit `quest_overlap` list with a `quest_context`
+  can acknowledge a separate experience. Only the named quest ids are exempt,
+  so future quest changes still surface. Passing the resolver does not replace
+  editorial review of the action and note.
+- The resolver checks these safeguards (`scripts/expeditions.py`), and the build
   refuses what fails.
 
 Several zones' riddles were replaced where a city or a land asked one deed

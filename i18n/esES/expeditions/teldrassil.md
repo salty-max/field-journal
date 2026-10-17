@@ -1,7 +1,27 @@
 ---
-source: fdc2f14f9bdc
+source: b05afea949f6
 zone: 1438
 ---
+## teldrassil-shadowglen-moonwell
+Al norte del árbol donde los jóvenes elfos dan sus primeros pasos,
+la luna tiene su propia poza.
+Deja a un lado los recados y los viales vacíos.
+Una garganta seca también tiene motivos para acercarse a esta agua.
+? Al norte de Aldrassil, junto a la poza de la luna. Basta con hacer el gesto de beber. No necesitas un vial ni una bebida.
+= La Poza de la Luna de Cañada Umbría. Tenaron Tormentagarre cuenta que las pozas de la luna contienen agua del Pozo de la Eternidad y que las Centinelas las veneran como santuarios de Elune.
++ Los sastres llevan tela de inferi a las pozas de la luna para purificarla y convertirla en tela lunar. Una poza que sirve de santuario también tiene trabajo que hacer.
+! Tranquilo
+
+## teldrassil-maneweavers
+Al oeste de la hondonada de los fúrbolgs,
+una casa se alza apartada del camino a la ciudad.
+La peletera dice que tiene poco que ofrecer, pero te da la bienvenida a su hogar.
+Corresponde a su amabilidad.
+? Al oeste de la Hondonada Ban'ethil, junto a la casa. Agradece a Nadyia su hospitalidad.
+= Nadyia Tejecrín enseña peletería junto a Radnaal, el instructor de desuello. Ofrece la hospitalidad de su hogar, aunque diga que tienen poco que ofrecer.
++ Su consejo a los aprendices es práctico: las puntadas más pequeñas evitan que se salgan las cosas de las aljabas y las bolsas de munición. También dejan menos bultos en las túnicas.
+! Tranquilo (búhos en los árboles)
+
 ## quarry
 Al sur del gran lago, por la orilla donde cazan los búhos,
 también caza un felino del ocaso que va por donde quiere.

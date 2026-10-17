@@ -79,6 +79,40 @@ do
     game.emote("COVEREARS")
     assert(not ns.riddleSolved(id), locale..": range: combat must not count")
   end
+  -- A moonwell visit is its own experience, independent of the water-vial
+  -- quest. Other pools, a keeper targeted elsewhere, and simply arriving
+  -- must not satisfy the drinking gesture.
+  for _, locale in ipairs({${LOCALES.map(lua).join(",")}}) do
+    local game = makeGame(locale, FOREVER, MODERN_EMOTES)
+    local ns, state = game.reader, game.state
+    local id = "teldrassil-shadowglen-moonwell"
+    state.map, state.target, state.npc, state.near = 1438, nil, nil, false
+    for _, point in ipairs({{0.5995, 0.3305}, {0.599, 0.331}}) do
+      state.x, state.y = point[1], point[2]
+      for _, token in ipairs({"DRINK", "THIRSTY"}) do
+        game.journal.expeditions = nil
+        game.tick()
+        assert(not ns.riddleSolved(id), locale..": moonwell: arrival must not count")
+        game.emote("BOW")
+        assert(not ns.riddleSolved(id), locale..": moonwell: wrong gesture must not count")
+        game.emote(token)
+        assert(ns.riddleSolved(id), locale..": moonwell: untargeted "..token.." must count")
+      end
+    end
+    for _, point in ipairs({{0.6338, 0.5809}, {0.4241, 0.6708}, {0.3844, 0.3406}, {0.5603, 0.6195}}) do
+      game.journal.expeditions = nil
+      state.x, state.y, state.target, state.near = point[1], point[2], 3514, true
+      game.emote("DRINK")
+      assert(not ns.riddleSolved(id), locale..": moonwell: another pool or target must not count")
+    end
+    state.x, state.y, state.target, state.near = 0.5995, 0.3305, nil, false
+    for _, gate in ipairs({"combat", "taxi", "ghost", "horde"}) do
+      state.combat, state.taxi = gate == "combat", gate == "taxi"
+      state.health, state.faction = gate == "ghost" and 0 or 100, gate == "horde" and "Horde" or "Alliance"
+      game.emote("DRINK")
+      assert(not ns.riddleSolved(id), locale..": moonwell: "..gate.." must not count")
+    end
+  end
   local solved, groupTargets = 0, 0
   for _, locale in ipairs({${LOCALES.map(lua).join(",")}}) do
     local game = makeGame(locale, FOREVER, MODERN_EMOTES)

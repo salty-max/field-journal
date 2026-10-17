@@ -417,6 +417,11 @@
    "forever": "Captain Stumpfhauer",
    "use": "Captain Stumpfhauer"
   },
+  "Captain Kromcrush": {
+   "classic": "Captain Kromcrush",
+   "forever": "Captain Kromcrush",
+   "use": "Captain Kromcrush"
+  },
   "Captured Servant of Azora": {
    "classic": "Gefangener Diener von Azora",
    "forever": "Gefangener Diener von Azora",
@@ -526,6 +531,16 @@
    "forever": "Franclorn Forgewright",
    "use": "Franclorn Forgewright"
   },
+  "Galvan the Ancient": {
+   "classic": "Galvan der Alte",
+   "forever": "Galvan der Alte",
+   "use": "Galvan der Alte"
+  },
+  "Geologist Larksbane": {
+   "classic": "Geologin Larksbane",
+   "forever": "Geologin Larksbane",
+   "use": "Geologin Larksbane"
+  },
   "Geolord Mottle": {
    "classic": "Geolord Mottle",
    "forever": "Geolord Mottle",
@@ -545,6 +560,11 @@
    "classic": "Granistad",
    "forever": "Granistad",
    "use": "Granistad"
+  },
+  "Great Bear Spirit": {
+   "classic": "Großer Bärengeist",
+   "forever": "Großer Bärengeist",
+   "use": "Großer Bärengeist"
   },
   "Grimungous": {
    "classic": "Grimungous",
@@ -640,6 +660,11 @@
    "forever": "König Mukla",
    "use": "König Mukla"
   },
+  "Knot Thimblejack": {
+   "classic": "Knot Thimblejack",
+   "forever": "Knot Thimblejack",
+   "use": "Knot Thimblejack"
+  },
   "Lady Jaina Proudmoore": {
    "classic": "Lady Jaina Proudmoore",
    "forever": "Lady Jaina Proudmoore",
@@ -685,6 +710,11 @@
    "forever": "Lord Captain Wyrmak",
    "use": "Lord Captain Wyrmak"
   },
+  "Lord Grayson Shadowbreaker": {
+   "classic": "Lord Grayson Shadowbreaker",
+   "forever": "Lord Grayson Shadowbreaker",
+   "use": "Lord Grayson Shadowbreaker"
+  },
   "Lord Kazzak": {
    "classic": "Lord Kazzak",
    "forever": "Lord Kazzak",
@@ -700,6 +730,10 @@
    "forever": "Lord Malathrom",
    "use": "Lord Malathrom"
   },
+  "Maddened Rotclaw": {
+   "forever": "Wahnsinnige Moderklaue",
+   "use": "Wahnsinnige Moderklaue"
+  },
   "Magatha Grimtotem": {
    "classic": "Magatha Grimmtotem",
    "forever": "Magatha Grimmtotem",
@@ -714,6 +748,26 @@
    "classic": "Mahren Skyseer",
    "forever": "Mahren Skyseer",
    "use": "Mahren Skyseer"
+  },
+  "Master Smith Burninate": {
+   "classic": "Meisterschmied Burninate",
+   "forever": "Meisterschmied Burninate",
+   "use": "Meisterschmied Burninate"
+  },
+  "Mathredis Firestar": {
+   "classic": "Mathredis Firestar",
+   "forever": "Mathredis Firestar",
+   "use": "Mathredis Firestar"
+  },
+  "Mechanical Dragonling": {
+   "classic": "Mechanischer Drachling",
+   "forever": "Mechanischer Drachling",
+   "use": "Mechanischer Drachling"
+  },
+  "Mechanical Squirrel": {
+   "classic": "Mechanisches Eichhörnchen",
+   "forever": "Mechanisches Eichhörnchen",
+   "use": "Mechanisches Eichhörnchen"
   },
   "Mirador": {
    "classic": "Mirador",
@@ -744,6 +798,11 @@
    "forever": "Myolor Sunderfury",
    "use": "Myolor Sunderfury"
   },
+  "Nadyia Maneweaver": {
+   "classic": "Nadyia Maneweaver",
+   "forever": "Nadyia Maneweaver",
+   "use": "Nadyia Maneweaver"
+  },
   "Nat Pagle": {
    "classic": "Nat Pagle",
    "forever": "Nat Pagle",
@@ -763,6 +822,11 @@
    "classic": "Nachtmahrbannschuppe",
    "forever": "Nachtmahrbannschuppe",
    "use": "Nachtmahrbannschuppe"
+  },
+  "Obsidian Shard": {
+   "classic": "Obsidiansplitter",
+   "forever": "Obsidiansplitter",
+   "use": "Obsidiansplitter"
   },
   "Omgorn the Lost": {
    "classic": "Omgorn der Verirrte",
@@ -928,6 +992,11 @@
    "forever": "Grimmlingflitzer",
    "use": "Grimmlingflitzer"
   },
+  "Stephanie Turner": {
+   "classic": "Stephanie Turner",
+   "forever": "Stephanie Turner",
+   "use": "Stephanie Turner"
+  },
   "Stone Keeper": {
    "classic": "Steinbewahrer",
    "forever": "Steinbewahrer",
@@ -942,6 +1011,16 @@
    "classic": "Seher der Steingrufttroggs",
    "forever": "Seher der Steingrufttroggs",
    "use": "Seher der Steingrufttroggs"
+  },
+  "Target Dummy": {
+   "classic": "Zielattrappe",
+   "forever": "Zielattrappe",
+   "use": "Zielattrappe"
+  },
+  "Tenaron Stormgrip": {
+   "classic": "Tenaron Stormgrip",
+   "forever": "Tenaron Stormgrip",
+   "use": "Tenaron Stormgrip"
   },
   "Terl Arakor": {
    "classic": "Terl Arakor",
@@ -987,6 +1066,11 @@
    "forever": "Tosamina",
    "use": "Tosamina"
   },
+  "Tundra MacGrann": {
+   "classic": "Tundra MacGrann",
+   "forever": "Tundra MacGrann",
+   "use": "Tundra MacGrann"
+  },
   "Umi Rumplesnicker": {
    "classic": "Umi Rumplesnicker",
    "forever": "Umi Rumplesnicker",
@@ -1016,6 +1100,11 @@
    "classic": "Rachsüchtiges Urtum",
    "forever": "Rachsüchtiges Urtum",
    "use": "Rachsüchtiges Urtum"
+  },
+  "Veren Tallstrider": {
+   "classic": "Veren Tallstrider",
+   "forever": "Veren Tallstrider",
+   "use": "Veren Tallstrider"
   },
   "Volchan": {
    "classic": "Volchan",
@@ -1172,6 +1261,16 @@
    "forever": "Ahn'Qiraj",
    "use": "Ahn'Qiraj"
   },
+  "Aldrassil": {
+   "classic": "Aldrassil",
+   "forever": "Aldrassil",
+   "use": "Aldrassil"
+  },
+  "Algaz Gate": {
+   "classic": "Algaz-Tor",
+   "forever": "Algaz-Tor",
+   "use": "Algaz-Tor"
+  },
   "Altar of Storms": {
    "classic": "Altar der Stürme",
    "forever": "Altar der Stürme",
@@ -1252,6 +1351,11 @@
    "forever": "Grabungsstätte von Bael'dun",
    "use": "Grabungsstätte von Bael'dun"
   },
+  "Ban'ethil Hollow": {
+   "classic": "Ban'ethil Hollow",
+   "forever": "Ban'ethil Hollow",
+   "use": "Ban'ethil Hollow"
+  },
   "Bank": {
    "classic": "Bank",
    "forever": "Bank",
@@ -1289,6 +1393,11 @@
   "Blackmaw Hold": {
    "forever": "Schwarzschlundfeste",
    "use": "Schwarzschlundfeste"
+  },
+  "Blackrock Depths": {
+   "classic": "Blackrocktiefen",
+   "forever": "Blackrocktiefen",
+   "use": "Blackrocktiefen"
   },
   "Blackrock Mountain": {
    "classic": "Der Blackrock",
@@ -1513,6 +1622,11 @@
    "classic": "Traum-Geäst",
    "forever": "Traum-Geäst",
    "use": "Traum-Geäst"
+  },
+  "Drywhisker Gorge": {
+   "classic": "Schlucht der Trockenstoppel",
+   "forever": "Schlucht der Trockenstoppel",
+   "use": "Schlucht der Trockenstoppel"
   },
   "Dun Algaz": {
    "classic": "Dun Algaz",
@@ -1795,6 +1909,10 @@
    "forever": "Die Anhöhe der Jäger",
    "use": "Die Anhöhe der Jäger"
   },
+  "Hyjal": {
+   "classic": "Hyjal",
+   "use": "Hyjal"
+  },
   "Ice Thistle Hills": {
    "classic": "Eisdistelberge",
    "forever": "Eisdistelberge",
@@ -1985,6 +2103,11 @@
    "forever": "Moonglade",
    "use": "Moonglade"
   },
+  "Moonwell": {
+   "classic": "Mondbrunnen",
+   "forever": "Mondbrunnen",
+   "use": "Mondbrunnen"
+  },
   "Morgan's Vigil": {
    "classic": "Morgans Wacht",
    "forever": "Morgans Wacht",
@@ -1994,6 +2117,10 @@
    "classic": "Morlos'Aran",
    "forever": "Morlos'Aran",
    "use": "Morlos'Aran"
+  },
+  "Mount Hyjal": {
+   "forever": "Hyjal",
+   "use": "Hyjal"
   },
   "Mulgore": {
    "classic": "Mulgore",
@@ -2482,6 +2609,10 @@
    "classic": "Brachland",
    "forever": "Brachland",
    "use": "Brachland"
+  },
+  "The Black Forge": {
+   "forever": "Die Schwarze Schmiede",
+   "use": "Die Schwarze Schmiede"
   },
   "The Bulwark": {
    "classic": "Das Bollwerk",
@@ -3077,6 +3208,11 @@
    "classic": "Der Zirkel des Cenarius",
    "forever": "Der Zirkel des Cenarius",
    "use": "Der Zirkel des Cenarius"
+  },
+  "The Mithril Order": {
+   "classic": "Der Mithrilorden",
+   "forever": "Der Mithrilorden",
+   "use": "Der Mithrilorden"
   },
   "The Night Watch": {
    "classic": "Die Nachtwache",

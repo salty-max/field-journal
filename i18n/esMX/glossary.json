@@ -497,6 +497,11 @@
    "forever": "Granistad",
    "use": "Granistad"
   },
+  "Great Bear Spirit": {
+   "classic": "Espíritu del gran oso",
+   "forever": "Espíritu del gran oso",
+   "use": "Espíritu del gran oso"
+  },
   "Grimungous": {
    "classic": "Grimungus",
    "forever": "Grimungus",
@@ -720,6 +725,11 @@
    "forever": "Myolor Furiahendida",
    "use": "Myolor Furiahendida"
   },
+  "Nadyia Maneweaver": {
+   "classic": "Nadyia Tejecrín",
+   "forever": "Nadyia Tejecrín",
+   "use": "Nadyia Tejecrín"
+  },
   "Nat Pagle": {
    "classic": "Nat Pagle",
    "forever": "Nat Pagle",
@@ -929,6 +939,11 @@
    "classic": "Muñeco-diana",
    "forever": "Muñeco-diana",
    "use": "Muñeco-diana"
+  },
+  "Tenaron Stormgrip": {
+   "classic": "Tenaron Tormentagarre",
+   "forever": "Tenaron Tormentagarre",
+   "use": "Tenaron Tormentagarre"
   },
   "Terl Arakor": {
    "classic": "Terl Arakor",
@@ -1169,6 +1184,11 @@
    "forever": "Ahn'Qiraj",
    "use": "Ahn'Qiraj"
   },
+  "Aldrassil": {
+   "classic": "Aldrassil",
+   "forever": "Aldrassil",
+   "use": "Aldrassil"
+  },
   "Algaz Gate": {
    "classic": "Puerta de Algaz",
    "forever": "Puerta de Algaz",
@@ -1253,6 +1273,11 @@
    "classic": "Excavación de Bael'dun",
    "forever": "Excavación de Bael'dun",
    "use": "Excavación de Bael'dun"
+  },
+  "Ban'ethil Hollow": {
+   "classic": "Hondonada Ban'ethil",
+   "forever": "Hondonada Ban'ethil",
+   "use": "Hondonada Ban'ethil"
   },
   "Bank": {
    "classic": "Banco",
@@ -1807,6 +1832,10 @@
    "forever": "Alto de los Cazadores",
    "use": "Alto de los Cazadores"
   },
+  "Hyjal": {
+   "classic": "Hyjal",
+   "use": "Hyjal"
+  },
   "Ice Thistle Hills": {
    "classic": "Colinas Cardo Nevado",
    "forever": "Colinas Cardo Nevado",
@@ -1997,6 +2026,11 @@
    "forever": "Claro de la Luna",
    "use": "Claro de la Luna"
   },
+  "Moonwell": {
+   "classic": "Poza de la Luna",
+   "forever": "Poza de la Luna",
+   "use": "Poza de la Luna"
+  },
   "Morgan's Vigil": {
    "classic": "Vigilia de Morgan",
    "forever": "Vigilia de Morgan",
@@ -2006,6 +2040,10 @@
    "classic": "Morlos'Aran",
    "forever": "Morlos'Aran",
    "use": "Morlos'Aran"
+  },
+  "Mount Hyjal": {
+   "forever": "Monte Hyjal",
+   "use": "Monte Hyjal"
   },
   "Mulgore": {
    "classic": "Mulgore",

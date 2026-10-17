@@ -1122,12 +1122,15 @@ ns.translate({
     },
     [1438] = {
       riddles = {
+        ["teldrassil-maneweavers"] = { verse = { "Westlich der Senke der Furbolgs,", "steht ein Haus abseits der Straße zur Stadt.", "Die Lederverarbeiterin sagt, sie habe wenig zu bieten, heißt dich aber in ihrem Heim willkommen.", "Erwidere ihre Freundlichkeit." }, hint = "Westlich von Ban'ethil Hollow, bei dem Haus. Danke Nadyia für ihre Gastfreundschaft.", danger = "Ruhig (Eulen in den Bäumen)", name = "&O&Uq?,LeG(D`JH|;", note = "&O&Uq?,LeG(D`JH|;q7(Y_h[YSek6So4}qcS.a!j93\"jk`ig9S.*Z'E-fnPi&-5ü+V `kN,4tF/mf;$k5z;ZThu&0+^&;-\\@h &c!,r[:yC30$q2sGk}(H^qp#ECVw~V}q\"/8`F.1 +&B\\F$(2f@9sLnOw`TAkMc%wk~$',9D&V]^/ZN.3G?\"II[.3$si+z4,", margin = "!V4[Z?!~eGBx`QD$2`2(pVgP-^sg/Qs5 g;moYpe@lta&Qxb|i2ET'P5@]kh}{iiG!D)l|_)6/)öWui+:51fO#N6*tn&8{k9huSgy&,K:wH4/@j?-FQ}.;f}AGANc2~6%ß35aC{92&*'wA(mOULCwIPesO]=kwc*r]u/' =V*@M'", },
+        ["teldrassil-shadowglen-moonwell"] = { verse = { "Nördlich des Baumes, an dem junge Elfen ihren Weg beginnen,", "hat der Mond sein eigenes Becken.", "Lass die Botengänge und leeren Phiolen beiseite.", "Auch eine trockene Kehle weiß mit diesem Wasser etwas anzufangen." }, hint = "Nördlich von Aldrassil, am Mondbrunnen. Eine Trinkgeste genügt. Du brauchst weder eine Phiole noch ein Getränk.", danger = "Ruhig", name = "PJw(av$@?.`%42{jV_Lt`9", note = "AG)CEg}8I7;D*2DUSXBhm@).g}-J*$he>Pp,C HE6'Z_Q-r.8ä5^4J~`a9A\"dF*FQ$T:9 Q{UJ7)4Kua[:x\\}*_&e:ZDzet'vKU z6m^_BB_J2%NJ??'%-A\\cBBd.Ct1kQ,PKXX;1`hnq8*YC&y$3Rb#k-mQ)ax(l{XbMiZh5!}VmCV3", margin = "PE~2Wh!9L?6J.2~mRi2kp1 ,u#s:<%y~A`O{^o;E>.V[O9-1+u!5`?9t{M5<fsQ4-j4`KV AvUN0nKw\"3_6x=myK'nXZfic&y}PUnx,`~QGZXN.~CpP3 8@.ch2LW?'xGGD;RLckQ/~{k~<sIB5_1T", },
       },
       quarry = { name = "Dämmerpirscher", verse = { "Südlich des großen Sees, am Ufer, an dem die Eulen jagen,", "jagt auch eine Katze der Dämmerung und geht, wohin sie will.", "Sie schlägt zuerst nach den Beinen, um zu verlangsamen, was sie verfolgt.", "Sei du $gderjenige, der:diejenige, die; verfolgt." }, note = "ZäpoBGP?^,b@OaiDOz-LSL6HQ&;Sj=_]F\"gpF`f/nx-<qy<@\\1p>yJn?Ma}8H.", margin = "iuF#jäLJk,h;Rn?2idü8v;9I@s9yS;JkUU!Tcgto'9}FsA~\\-hUtFq1M[\"CSe\\1C{QX}GZz\"pA%|ufüO%#Y>>e||5ER_@5 `aAx~n,Ze8>0;H#\"?^l@u*,.GEZ0{;;6", },
     },
     [1439] = {
       riddles = {
         ["darkshore-auberdine"] = { verse = { "In der Stadt der Elfen an der dunklen Küste, bei einem Haus gleich östlich des Gasthauses,", "steht eine Frau, durch die man glatt hindurchsehen kann.", "Sie hat keine Waren und keine Aufträge, und niemand in der Stadt verliert ein Wort über sie.", "Finde sie." }, hint = "Auberdine, östlich des Gasthauses. Sprich mit der geisterhaften Frau.", danger = "Ruhig", name = "2ThNX", note = "2ThNXL'YaWS'!Eg\\7a]KgEDj\\6w jY?^-x7hHiS^1`C,,@n+N;Wg?@#}(mSzX'F@i}XrlT\"[W.\"d.=MJ#k[8c,[.MyB13#vfY0tS)=dv;PV", margin = ",\\aim&ycg=u|3_ha1[w Q[KphJ, `YNR 58\\I YD2eTn{7~7C;Xn6'1(lr9,b6>Go9>rl;~YM.3_?MdJ0xK8b,R.I~1!(>|QL%ySvIvx;a1\\yTJT#A976b%Y~KB", },
+        ["darkshore-illidans-gift"] = { verse = { "Suche in Auberdine nach einem Bericht über Wasser, das die Große Teilung überstand.", "Der erste Brunnen war verschwunden, doch etwas von seinem Wasser blieb.", "Lies, was ein Bruder daraus auf dem Hyjal schuf,", "und warum der andere ihm für dieses Geschenk nicht dankte." }, hint = "Öffne im Gasthaus von Auberdine das Buch über den Hyjal und Illidans Geschenk.", danger = "Ruhig", name = "<whc(OCgXa_K9+&*^q$149Tf6#lI6y`wk+#,", note = "<whc(OCgXa_K9+&*^q$149Tf6#lI6y`wk+#,ut\"\".>)BdK4#*u|s8k=n?|kB.Wr}+v50*>0OE`+pY6(6\" d;nzCxWh`~Bu0l7&5PtVXH{:JH&oej6vBOm-~[s-cQYZOyO0)~n(*_C YQ-.\"a<FK&N\\d7FrKm9^`-3\"hA]%63M*r3{Sw#~M#;bGq=*ze,HMTH#ZQs$hIiDUZX)~Go2|4v/f41^):ve@<b/W0x4F/>}K", margin = "<wcc(_4hX4[GG+myosü:0Sv:)^8nxVy#su$Di>\"(:3lu06x6\\b/Jlö?rx4:<s,=e53{8J#84'iP66Gmö7]J1/UfizMm,g,&>G/3:iwH?Y yNkPj8z`öbY&#l-PQ1F3nßm3u9{^Qiw0k-S\\{zNn<HrOR.piC)g5N*3F%3)10e]B0yDuU^L,\"R(s3IIH0pMD,zdT%KHOg%>", },
       },
       quarry = { name = "Licillin", verse = { "Such unter den Grells der zerfallenen Türme einen mit eigenem Namen.", "Er hat für einen Eindringling Zauber ebenso wie Zähne", "und wohnt dort, wo die Elfen ihr Heim verließen." }, note = "zm*z6`=xl$M7C aCzCS:e=doKMpt{cgggC89*!VpI4eU7Kb6PR", margin = "&i913\\B*TgP:äNV1`e1l,u\"GXqnq ]vzL'4;twwBäP%*T6HüH!W'x2ämK\"=8e*Q", },
     },
@@ -1200,6 +1203,7 @@ ns.translate({
     },
     [1450] = {
       riddles = {
+        ["moonglade-bear-spirit"] = { verse = { "Nordwestlich der Stadt braucht ein Bär keinen Leib.", "Seine Stimme erreicht dich, doch sein Maul verrät kein Wort.", "Er hat etwas über Stärke zu lehren, die mehr ist als die Größe der Klauen.", "Schenke ihm ein offenes Ohr." }, hint = "Nordwestlich von Nighthaven, zwischen den Bäumen. Lausche dem Großen Bärengeist mit einer Geste. Dafür brauchst du keine Druidenausbildung.", danger = "Ruhig", name = "ND2ßx]H'äg2tAfooX", note = "K75?P&ZßGk7äLftcIOL}'!\"$/USR_!3.bhtJ.!~Y42EC'hZQe19w*mdxwee[3B6*äXRab4%n<<1H+I/]@GYCQ_Kx EQqSE{'XT)<P-=aNw>kyDp[-OuB&!)e~ySh~4>H3s+y)7i6T9]Nm>BSNf%LUGX-5yl$W:~ZHxz#QiVd", margin = "K;(?\\(äWMQt1kM!NaV`>wl-\\'&XFsj|8L|R#L; ~[Kb4S1hZ2U5Dn3Ve!xqK`<5)gx^ZGL_@1b3<MI.Mti'TbAHY=oAEPmXDvnap;>O$0xJ{:h(QFH,GdGRärqyyyWy9f3Y/tnTLö,UNx&&Hü+aJ.r^*' vJHß8|5eöZGSC/t2G!_A:42g8b8'L]s:>P91]'", },
         ["moonglade-flight-masters"] = { verse = { "In der Stadt der Druiden am heiligen See halten eine Elfe und ein Taure Seite an Seite fliegende Tiere", "und fliegen Reisende umsonst zu den Hauptstädten ihrer Völker.", "Bitte die Elfe um einen Flug, und hör, was sie den meisten sagt, die fragen." }, hint = "Nighthaven, am See, wo die fliegenden Tiere warten. Sprich mit der elfischen Flugmeisterin. Du kannst mit beiden Füßen am Boden bleiben.", danger = "Ruhig", name = "<k0YQQmJx>>k*cUE", note = "<k0YQQmJx>>k*cUE^gfaOVY:W;mRB44 jn}Yl|9r*fvN{eaiQ\"QkBBNG?Ku7f$hD{_PvVp??6W+gJ~aQ$DLV0C[n7JxI", margin = "<k)bV>1Fs|>*\"sS\\#dmf4yRWbHvHBR=1!ixahwCL*rs<|lqnEGkl,1^G!`tOP%tiybGO8X\"V)J7pB}JerCSEP6X%tQm)Ow:D&O]Q]v6c'eo)a@;{\"z324vPüslQA+|E79Pp=a@oW5#PgMUHV&*-EG+", },
       },
     },
@@ -1321,6 +1325,7 @@ ns.names({
     ["burning-steppes-flame-crest"] = "t'`v",
     ["burning-steppes-pillar-of-ash"] = "N_O)t8=jaLmäedv",
     ["darkshore-auberdine"] = "2ThNX",
+    ["darkshore-illidans-gift"] = "<whc(OCgXa_K9+&*^q$149Tf6#lI6y`wk+#,",
     ["darnassus-ainethil"] = "`_bc!' :",
     ["darnassus-darianna"] = "7k )`;\"f",
     ["darnassus-world-tree"] = "]F{3o%0Do\\0_LF)~}DV# +f?{'w} LüyA HC/lI",
@@ -1354,6 +1359,7 @@ ns.names({
     ["loch-modan-horde-runners"] = "2Rn'*`^[(End*]t",
     ["loch-modan-thelsamar"] = ".<`fEM2C`;bo,X;Vvy6y=n31Ak87/fzq2AI",
     ["loch-modan-valley-of-kings"] = "rplj??{8VöEbBR",
+    ["moonglade-bear-spirit"] = "ND2ßx]H'äg2tAfooX",
     ["moonglade-flight-masters"] = "<k0YQQmJx>>k*cUE",
     ["mulgore-rolling-plains"] = "Jsk8h)Q#v8Ltr|yjPZ=",
     ["mulgore-three-hammers"] = "eAInuAr}1dagh]p,äNN()",
@@ -1379,6 +1385,8 @@ ns.names({
     ["tanaris-gadgetzan"] = "?/km*7T5CH`se?RjR`@{i.Ts:e`)K--3&'QU{/`?a-O8.h",
     ["tanaris-winkey"] = "Ku?sIb",
     ["tanaris-zalashji"] = "(pTcfe m",
+    ["teldrassil-maneweavers"] = "&O&Uq?,LeG(D`JH|;",
+    ["teldrassil-shadowglen-moonwell"] = "PJw(av$@?.`%42{jV_Lt`9",
     ["the-barrens-fallen-warrior"] = "4a*X%g.Y,1KMT12n-f+i'P4Oe^h{Oah",
     ["the-barrens-lizzarik"] = "{v&p#PW0",
     ["the-barrens-pooka"] = "_EHHp",

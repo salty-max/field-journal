@@ -22,6 +22,10 @@ A riddle names its spot by what the game's data pins down:
   area: <name>     a sub-area of the zone (the client's AreaTable, under the
                    zone's own area): every id of that name
 
+For an object without Wowhead map data, position_check: questie explicitly
+checks its Classic world spawn against Questie's independent zone coordinates.
+The same agreement tolerance applies. It never uses player observer sightings.
+
 The world positions go on the zone's map by the client's UiMapAssignment
 (Classic Era's, wow-data's database: ../wow-data). The hint circle (hint_area,
 in percent of the map's width) must hold the spot (an area's: its overlay's
@@ -61,15 +65,15 @@ Then the riddles are checked as a reader meets them:
   - never a kill: a creature asked for is no foe of the side that may solve
     it (the client's FactionTemplate; a riddle of one side's says so:
     `faction:`, on any tier);
-  - never the same deed twice in a zone, for either side's reader: one
-    arrival, one reading, one creature found by speaking to it at most, and
-    no gesture two riddles both accept;
-  - never on Forever's own new quests' road (its quests no Classic one is:
+  - never the same discovery twice for either side: distinct subjects and
+    no overlapping passive arrivals. Different places may share a deed;
+  - flag Forever's own new quests' road (its quests no Classic one is:
     Questie's Forever, wow-data's database): no new quest gives, ends or
     asks for the riddle's creature or object (by kind: an item's id is no
     creature's), none names it in its title or its objectives, and none
     sends a player (its giver, its ender, what it asks for, where Questie
-    places them) within FOREVER_NEAR of a riddle solved by arriving.
+    places them) within FOREVER_NEAR of a riddle solved by arriving. An exact
+    quest_overlap list and quest_context acknowledge a reviewed separate experience.
 
 Anything that fails is printed and nothing is written.
 """
@@ -209,6 +213,47 @@ def riddle_files():
         yield f, zone, client, riddles, quarry
 
 
+def reviewed_quests(r, known):
+    """An explicit editorial review, not permission to copy a quest objective.
+    Exact ids keep a future quest from inheriting an unrelated exemption.
+    """
+    ids, reason = r.get("quest_overlap", []), r.get("quest_context", "")
+    if "quest_overlap" not in r and "quest_context" not in r:
+        return set()
+    if (not isinstance(ids, list) or not ids
+        or any(type(q) is not int or q not in known for q in ids)
+        or len(ids) != len(set(ids))
+        or not isinstance(reason, str) or not reason.strip()):
+        raise ValueError("quest_overlap needs distinct known quest ids and quest_context explaining the separate discovery")
+    return set(ids)
+
+
+def repeated_sites(rs, resolved, width, height):
+    """Repeated actions are fine at different discoveries. Reusing a subject,
+    or overlapping two passive arrival footprints, is not a new discovery.
+    The caller passes only the riddles available to one faction.
+    """
+    errors, occupied = [], {}
+    for r in rs:
+        subjects = [(kind, r[kind]) for kind in ("object", "creature", "trigger", "area") if kind in r]
+        subjects += [("creature", n) for n in r.get("companions", [])]
+        for subject in subjects:
+            if subject in occupied:
+                errors.append(f"{r['id']} reuses {subject[0]} {subject[1]} from {occupied[subject]}")
+            else:
+                occupied[subject] = r["id"]
+    arrivals = [r for r in rs if not r.get("gestures") and "reading" not in r and r.get("found") != "target"]
+    for i, a in enumerate(arrivals):
+        sa = resolved.get(a["id"], {})
+        for b in arrivals[i + 1:]:
+            sb = resolved.get(b["id"], {})
+            reach = sa.get("r", 0) + sb.get("r", 0) + 5  # the runtime's five-yard cells
+            if any(math.hypot((x - u) * width / 100, (y - v) * height / 100) <= reach
+                   for x, y in sa.get("spots", []) for u, v in sb.get("spots", [])):
+                errors.append(f"{a['id']} and {b['id']} have overlapping arrival footprints")
+    return errors
+
+
 # ── placing on a zone's map ────────────────────────────────────────────────
 def game_names(kind, id, english):
     """An answer's name in every other language, the game's own (Forever's,
@@ -318,11 +363,15 @@ def main():
             todo += children[i]
         return sorted(out)
 
-    def agreed(kind, id, uimap, points, tolerance=AGREE):
+    def agreed(kind, id, uimap, points, tolerance=AGREE, source="wowhead"):
         """The dump's points on the zone's map that Wowhead places in the zone
         too (the maps overlap at their edges, a city lies inside its zone's
         rectangle: a point of the dump alone is another place's)."""
-        theirs = wowhead(kind, id, zone_area(uimap)) or []
+        if source == "questie":
+            theirs = list(cdb.execute("SELECT ux, uy FROM spawn WHERE kind=? AND entity_id=? AND area_id=? AND source='questie'",
+                                     ("creature" if kind == "npc" else kind, id, zone_area(uimap))))
+        else:
+            theirs = wowhead(kind, id, zone_area(uimap)) or []
         return [(x, y) for x, y in points if any(abs(x - a) <= tolerance and abs(y - b) <= tolerance for a, b in theirs)]
 
     def haunts(uimap, id, w):
@@ -383,6 +432,9 @@ def main():
                     quarries[str(uimap)]["names"] = game_names("creature", id, names.get(("creature", id)))
         for r in rs:
             id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
+            if "position_check" in r and (r["position_check"] != "questie" or "object" not in r):
+                errors.append(f"{where}: position_check: questie is for a Classic object's independent map position")
+                continue
             if r.get("found") == "place" and (not r.get("gestures") or r.get("companions")
                 or type(r.get("radius")) is not int or not 10 <= r["radius"] <= 100):
                 errors.append(f"{where}: found: place needs a gesture, no companions and a radius of 10 to 100 yards")
@@ -394,6 +446,8 @@ def main():
                 out["of"] += " " + ",".join(f"{k}:{v}" for k, v in r["anchor"].items())
             if r.get("found"):
                 out["of"] += f" found:{r['found']}"
+            if r.get("position_check"):
+                out["of"] += f" position_check:{r['position_check']}"
             if r.get("hint_area"):
                 out["hint"] = [r["hint_area"][k] for k in ("x", "y", "r")]
             # its name, once solved: the file's, else the game's (the object's,
@@ -404,9 +458,10 @@ def main():
             if not out["name"]:
                 errors.append(f"{where}: no name: give the riddle's own (name:)")
             if "object" in r:
-                points = agreed("object", r["object"], uimap, [p for p in (on(uimap, *s) for s in objects[r["object"]]) if p])
+                check_source = r.get("position_check", "wowhead")
+                points = agreed("object", r["object"], uimap, [p for p in (on(uimap, *s) for s in objects[r["object"]]) if p], source=check_source)
                 if not points:
-                    errors.append(f"{where}: object {r['object']}: no spawn on the map that the dump and Wowhead agree on")
+                    errors.append(f"{where}: object {r['object']}: no spawn on the map that the dump and {check_source} agree on")
                     continue
                 out.update(spots=points, r=NEAR)
                 # a reading: a text object, which opens the game's reader (a
@@ -551,20 +606,13 @@ def main():
     for f, uimap, client, rs, _ in files:
         for side in SIDES:
             mine = [r for r in rs if (not homes[f] or homes[f] == side) and r.get("faction", side) == side]
-            for kind in ("arrival", "reading", "speaking"):
-                same = [r["id"] for r in mine if deed(r) == kind]
-                if len(same) > 1:
-                    errors.append(f"{f}: the {side}'s reader meets more than one {kind} here: {', '.join(same)}")
-            asked = collections.defaultdict(list)
-            for r in mine:
-                for token in r.get("gestures") or []:
-                    asked[token].append(r["id"])
-            for token, ids in sorted(asked.items()):
-                if len(ids) > 1:
-                    errors.append(f"{f}: the {side}'s reader is asked {token} twice here: {', '.join(ids)}")
+            size = zones.get(str(uimap), {})
+            for error in repeated_sites(mine, riddles, size.get("w", 0), size.get("h", 0)):
+                errors.append(f"{f}: the {side}'s reader: {error}")
 
     classic = {i for (i,) in cdb.execute("SELECT id FROM quest")}
     new = forever_quests(classic)
+    known_quests = classic | {i for (i,) in db("forever").execute("SELECT id FROM quest")}
     norm = lambda x: re.sub(r"[^a-z]", "", x.lower())
     zone_names = {int(z["ID"]): z["Name_lang"] for z in table("UiMap")}
     npcs, objs = traces("Npc"), traces("Object")
@@ -572,11 +620,18 @@ def main():
     own = [(f, uimap, r, []) for f, uimap, client, rs, _ in files if client == "forever" for r in rs]
     for f, uimap, r, points in placed + own:
         where = f"{f}: {r['id']}"
+        try:
+            reviewed = reviewed_quests(r, known_quests)
+        except ValueError as e:
+            errors.append(f"{where}: {e}")
+            reviewed = set()
         subject = [(k, int(r[k])) for k in ("creature", "object") if k in r]
         subject += [("creature", i) for i in r.get("companions", [])]
         subject += [(k, int(v)) for k, v in (r.get("anchor") or {}).items() if k in ("creature", "object")]
         named = {n for n in [r.get("name"), r.get("area"), r.get("reading")] + [names.get(s) or ((npcs if s[0] == "creature" else objs).get(s[1]) or {}).get("name") for s in subject] if n and len(n) > 4}
         for q, d in sorted(new.items()):
+            if q in reviewed:
+                continue
             hit = [i for i in subject if i in d["ids"]]
             if hit:
                 errors.append(f"{where}: Forever's new quest {q} gives, ends or asks for {hit[0][0]} {hit[0][1]}")
