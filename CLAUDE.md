@@ -264,7 +264,12 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   welcome): "du", the game's own German names (most of Classic's cities and
   many places stay English on a German client), `$gmasc:fem;` where a line
   speaks to the reader, quotes the game has in German (wow-data's `speech`)
-  taken as it writes them.
+  taken as it writes them. Spanish added 17 October 2026, also flagged as a
+  first translation. The esES prose is shared with esMX, with each client
+  keeping its own game names. Regional prose names are explicit, non-cascading
+  substitutions in `i18n/esMX/prose-names.json`, before veiling. Classic
+  substitutions then come from that regional client, not the borrowed one.
+  All five collection note sets are translated.
 - `addon/test/sim.lua`: fake WoW API, a dwarf's first hunts, every recording
   asserted. `FOREVER=1` runs it as Forever (no combat log, secret values).
 

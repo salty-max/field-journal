@@ -50,8 +50,9 @@ with no count showing how many remain.
 Forever hides creatures inside dungeons and raids from addons, so the
 journal cannot record them there.
 
-Yonder reads in English, French and German (the German a first
-translation). Other clients get English, with the game's own names in their
+Yonder reads in English, French, German and Spanish (Spain and Latin America
+share the Spanish text). German and Spanish are first translations, with
+corrections welcome. Other clients get English, with the game's own names in their
 language: creatures, places, flight points, fish, and the riddles' and
 quarries' answers. The journal keeps everything
 by the game's ids, so what you recorded follows your client's language, even

@@ -1,0 +1,3139 @@
+{
+ "by hand": {},
+ "factions": {
+  "Alliance": {
+   "classic": "Alianza",
+   "forever": "Alianza",
+   "use": "Alianza"
+  },
+  "Argent Dawn": {
+   "classic": "El Alba Argenta",
+   "forever": "El Alba Argenta",
+   "use": "El Alba Argenta"
+  },
+  "Basilisk": {
+   "classic": "Basilisco",
+   "forever": "Basilisco",
+   "use": "Basilisco"
+  },
+  "Blackfathom": {
+   "classic": "Brazanegra",
+   "forever": "Brazanegra",
+   "use": "Brazanegra"
+  },
+  "Blue": {
+   "classic": "Azul",
+   "forever": "Azul",
+   "use": "Azul"
+  },
+  "Booty Bay": {
+   "classic": "Bahía del Botín",
+   "forever": "Bahía del Botín",
+   "use": "Bahía del Botín"
+  },
+  "Burning Blade": {
+   "classic": "Filo Ardiente",
+   "forever": "Filo Ardiente",
+   "use": "Filo Ardiente"
+  },
+  "Caer Darrow": {
+   "classic": "Castel Darrow",
+   "forever": "Castel Darrow",
+   "use": "Castel Darrow"
+  },
+  "Cenarion Circle": {
+   "classic": "Círculo Cenarion",
+   "forever": "Círculo Cenarion",
+   "use": "Círculo Cenarion"
+  },
+  "Dalaran": {
+   "classic": "Dalaran",
+   "forever": "Dalaran",
+   "use": "Dalaran"
+  },
+  "Dark Iron Dwarves": {
+   "classic": "Enanos Hierro Negro",
+   "forever": "Enanos Hierro Negro",
+   "use": "Enanos Hierro Negro"
+  },
+  "Darnassus": {
+   "classic": "Darnassus",
+   "forever": "Darnassus",
+   "use": "Darnassus"
+  },
+  "Defias Brotherhood": {
+   "classic": "Hermandad Defias",
+   "forever": "Hermandad Defias",
+   "use": "Hermandad Defias"
+  },
+  "Demon": {
+   "classic": "Demonio",
+   "forever": "Demonio",
+   "use": "Demonio"
+  },
+  "Elemental": {
+   "classic": "Elemental",
+   "forever": "Elemental",
+   "use": "Elemental"
+  },
+  "Everlook": {
+   "classic": "Vista Eterna",
+   "forever": "Vista Eterna",
+   "use": "Vista Eterna"
+  },
+  "Frenzy": {
+   "classic": "Furia",
+   "forever": "Furia",
+   "use": "Furia"
+  },
+  "Furbolg": {
+   "classic": "Fúrbolg",
+   "forever": "Fúrbolg",
+   "use": "Fúrbolg"
+  },
+  "Gadgetzan": {
+   "classic": "Gadgetzan",
+   "forever": "Gadgetzan",
+   "use": "Gadgetzan"
+  },
+  "Giant": {
+   "classic": "Gigante",
+   "forever": "Gigante",
+   "use": "Gigante"
+  },
+  "Gizlock": {
+   "classic": "Gizlock",
+   "forever": "Gizlock",
+   "use": "Gizlock"
+  },
+  "Harpy": {
+   "classic": "Arpía",
+   "forever": "Arpía",
+   "use": "Arpía"
+  },
+  "Horde": {
+   "classic": "Horda",
+   "forever": "Horda",
+   "use": "Horda"
+  },
+  "Hydraxian Waterlords": {
+   "classic": "Srs. del Agua de Hydraxis",
+   "forever": "Srs. del Agua de Hydraxis",
+   "use": "Srs. del Agua de Hydraxis"
+  },
+  "Ironforge": {
+   "classic": "Forjaz",
+   "forever": "Forjaz",
+   "use": "Forjaz"
+  },
+  "Jaedenar": {
+   "classic": "Jaedenar",
+   "forever": "Jaedenar",
+   "use": "Jaedenar"
+  },
+  "Kirin Tor": {
+   "forever": "Kirin Tor",
+   "use": "Kirin Tor"
+  },
+  "Kobold": {
+   "classic": "Kóbold",
+   "forever": "Kóbold",
+   "use": "Kóbold"
+  },
+  "Leopard": {
+   "classic": "Leopardo",
+   "forever": "Leopardo",
+   "use": "Leopardo"
+  },
+  "Lost Ones": {
+   "classic": "Los Perdidos",
+   "forever": "Los Perdidos",
+   "use": "Los Perdidos"
+  },
+  "Makrura": {
+   "classic": "Makrura",
+   "forever": "Makrura",
+   "use": "Makrura"
+  },
+  "Maraudine": {
+   "classic": "Maraudine",
+   "forever": "Maraudine",
+   "use": "Maraudine"
+  },
+  "Murloc": {
+   "classic": "Múrloc",
+   "forever": "Múrloc",
+   "use": "Múrloc"
+  },
+  "Naga": {
+   "classic": "Naga",
+   "forever": "Naga",
+   "use": "Naga"
+  },
+  "Nethergarde": {
+   "classic": "Nethergarde",
+   "forever": "Nethergarde",
+   "use": "Nethergarde"
+  },
+  "Ogre": {
+   "classic": "Ogro",
+   "forever": "Ogro",
+   "use": "Ogro"
+  },
+  "Orgrimmar": {
+   "classic": "Orgrimmar",
+   "forever": "Orgrimmar",
+   "use": "Orgrimmar"
+  },
+  "Ratchet": {
+   "classic": "Trinquete",
+   "forever": "Trinquete",
+   "use": "Trinquete"
+  },
+  "Ravenholdt": {
+   "classic": "Ravenholdt",
+   "forever": "Ravenholdt",
+   "use": "Ravenholdt"
+  },
+  "Scarlet Crusade": {
+   "classic": "Cruzada Escarlata",
+   "forever": "Cruzada Escarlata",
+   "use": "Cruzada Escarlata"
+  },
+  "Scorpid": {
+   "classic": "Escórpido",
+   "forever": "Escórpido",
+   "use": "Escórpido"
+  },
+  "Silithid": {
+   "classic": "Silítidos",
+   "forever": "Silítidos",
+   "use": "Silítidos"
+  },
+  "Spirit": {
+   "classic": "Espíritu",
+   "forever": "Espíritu",
+   "use": "Espíritu"
+  },
+  "Stormwind": {
+   "classic": "Ventormenta",
+   "forever": "Ventormenta",
+   "use": "Ventormenta"
+  },
+  "Syndicate": {
+   "classic": "La Hermandad",
+   "forever": "La Hermandad",
+   "use": "La Hermandad"
+  },
+  "Theramore": {
+   "classic": "Theramore",
+   "forever": "Theramore",
+   "use": "Theramore"
+  },
+  "Thorium Brotherhood": {
+   "classic": "Hermandad del Torio",
+   "forever": "Hermandad del Torio",
+   "use": "Hermandad del Torio"
+  },
+  "Thunder Bluff": {
+   "classic": "Cima del Trueno",
+   "forever": "Cima del Trueno",
+   "use": "Cima del Trueno"
+  },
+  "Timbermaw Hold": {
+   "classic": "Bastión Fauces de Madera",
+   "forever": "Bastión Fauces de Madera",
+   "use": "Bastión Fauces de Madera"
+  },
+  "Titan": {
+   "classic": "Titán",
+   "forever": "Titán",
+   "use": "Titán"
+  },
+  "Trogg": {
+   "classic": "Trogg",
+   "forever": "Trogg",
+   "use": "Trogg"
+  },
+  "Undercity": {
+   "classic": "Entrañas",
+   "forever": "Entrañas",
+   "use": "Entrañas"
+  },
+  "Venture Company": {
+   "classic": "Ventura y Cía.",
+   "forever": "Ventura y Cía.",
+   "use": "Ventura y Cía."
+  },
+  "Wailing Caverns": {
+   "classic": "Cuevas de los Lamentos",
+   "forever": "Cuevas de los Lamentos",
+   "use": "Cuevas de los Lamentos"
+  },
+  "Worgen": {
+   "classic": "Huargen",
+   "forever": "Huargen",
+   "use": "Huargen"
+  }
+ },
+ "figures": {
+  "Achellios the Banished": {
+   "classic": "Achellios el Desterrado",
+   "forever": "Achellios el Desterrado",
+   "use": "Achellios el Desterrado"
+  },
+  "Adon": {
+   "classic": "Adon",
+   "forever": "Adon",
+   "use": "Adon"
+  },
+  "Ag'tor Bloodfist": {
+   "classic": "Ag'tor Puñosangre",
+   "forever": "Ag'tor Puñosangre",
+   "use": "Ag'tor Puñosangre"
+  },
+  "Ainethil": {
+   "classic": "Ainethil",
+   "forever": "Ainethil",
+   "use": "Ainethil"
+  },
+  "Akubar the Seer": {
+   "classic": "Akubar el Vidente",
+   "forever": "Akubar el Vidente",
+   "use": "Akubar el Vidente"
+  },
+  "Alexia Ironknife": {
+   "classic": "Alexia Filoférreo",
+   "forever": "Alexia Filoférreo",
+   "use": "Alexia Filoférreo"
+  },
+  "Araga": {
+   "classic": "Araga",
+   "forever": "Araga",
+   "use": "Araga"
+  },
+  "Arash-ethis": {
+   "classic": "Arash-ethis",
+   "forever": "Arash-ethis",
+   "use": "Arash-ethis"
+  },
+  "Archmage Tervosh": {
+   "classic": "Archimago Tervosh",
+   "forever": "Archimago Tervosh",
+   "use": "Archimago Tervosh"
+  },
+  "Bardu Sharpeye": {
+   "classic": "Bardu Ojo Afilado",
+   "forever": "Bardu Ojo Afilado",
+   "use": "Bardu Ojo Afilado"
+  },
+  "Boss Galgosh": {
+   "classic": "Jefe Vayachi",
+   "forever": "Jefe Vayachi",
+   "use": "Jefe Vayachi"
+  },
+  "Boulderheart": {
+   "classic": "Corapetra",
+   "forever": "Corapetra",
+   "use": "Corapetra"
+  },
+  "Brimgore": {
+   "classic": "Brotasangre",
+   "forever": "Brotasangre",
+   "use": "Brotasangre"
+  },
+  "Broken Tooth": {
+   "classic": "Diente partido",
+   "forever": "Diente partido",
+   "use": "Diente partido"
+  },
+  "Bunthen Plainswind": {
+   "classic": "Bunthen Ventollano",
+   "forever": "Bunthen Ventollano",
+   "use": "Bunthen Ventollano"
+  },
+  "Captain Flat Tusk": {
+   "classic": "Capitán Colmillo Plano",
+   "forever": "Capitán Colmillo Plano",
+   "use": "Capitán Colmillo Plano"
+  },
+  "Captain Kromcrush": {
+   "classic": "Capitán Kromcrush",
+   "forever": "Capitán Kromcrush",
+   "use": "Capitán Kromcrush"
+  },
+  "Captured Servant of Azora": {
+   "classic": "Sirviente de Azora capturado",
+   "forever": "Sirviente de Azora capturado",
+   "use": "Sirviente de Azora capturado"
+  },
+  "Captured Stallion": {
+   "classic": "Semental capturado",
+   "forever": "Semental capturado",
+   "use": "Semental capturado"
+  },
+  "Commander Althea Ebonlocke": {
+   "classic": "Comandante Althea Cerranegro",
+   "forever": "Comandante Althea Cerranegro",
+   "use": "Comandante Althea Cerranegro"
+  },
+  "Commander Felstrom": {
+   "classic": "Comandante Yelestrón",
+   "forever": "Comandante Yelestrón",
+   "use": "Comandante Yelestrón"
+  },
+  "Core Rager": {
+   "classic": "Enfurecedor del Núcleo",
+   "forever": "Enfurecedor del Núcleo",
+   "use": "Enfurecedor del Núcleo"
+  },
+  "Cornish Rex": {
+   "classic": "Rex Cornualles",
+   "forever": "Rex Cornualles",
+   "use": "Rex Cornualles"
+  },
+  "Daisy": {
+   "classic": "Daisy",
+   "forever": "Daisy",
+   "use": "Daisy"
+  },
+  "Darianna": {
+   "classic": "Darianna",
+   "forever": "Darianna",
+   "use": "Darianna"
+  },
+  "Dockmaster Baren": {
+   "classic": "Maestro de embarcadero Baren",
+   "forever": "Maestro de embarcadero Baren",
+   "use": "Maestro de embarcadero Baren"
+  },
+  "Donni Anthania": {
+   "classic": "Donni Anthania",
+   "forever": "Donni Anthania",
+   "use": "Donni Anthania"
+  },
+  "Dream Vision": {
+   "classic": "Visión onírica",
+   "forever": "Visión onírica",
+   "use": "Visión onírica"
+  },
+  "Druid of the Fang": {
+   "classic": "Druida del Colmillo",
+   "forever": "Druida del Colmillo",
+   "use": "Druida del Colmillo"
+  },
+  "Duskstalker": {
+   "classic": "Acechapolvo",
+   "forever": "Acechapolvo",
+   "use": "Acechapolvo"
+  },
+  "Dust Devil": {
+   "classic": "Demonio del polvo",
+   "forever": "Demonio del polvo",
+   "use": "Demonio del polvo"
+  },
+  "Edwin VanCleef": {
+   "classic": "Edwin VanCleef",
+   "forever": "Edwin VanCleef",
+   "use": "Edwin VanCleef"
+  },
+  "Elder Ironband": {
+   "classic": "Ancestro Vetaferro",
+   "forever": "Ancestro Vetaferro",
+   "use": "Ancestro Vetaferro"
+  },
+  "Father Lankester": {
+   "classic": "Padre Lankester",
+   "forever": "Padre Lankester",
+   "use": "Padre Lankester"
+  },
+  "Fluffy": {
+   "classic": "Esponjín",
+   "forever": "Esponjín",
+   "use": "Esponjín"
+  },
+  "Foe Reaper 4000": {
+   "classic": "Siegaenemigos 4000",
+   "forever": "Siegaenemigos 4000",
+   "use": "Siegaenemigos 4000"
+  },
+  "Fradd Swiftgear": {
+   "classic": "Fradd Cambioveloz",
+   "forever": "Fradd Cambioveloz",
+   "use": "Fradd Cambioveloz"
+  },
+  "Franclorn Forgewright": {
+   "classic": "Franclorn Forjador",
+   "forever": "Franclorn Forjador",
+   "use": "Franclorn Forjador"
+  },
+  "Galvan the Ancient": {
+   "classic": "Galvan el Antiguo",
+   "forever": "Galvan el Antiguo",
+   "use": "Galvan el Antiguo"
+  },
+  "Geologist Larksbane": {
+   "classic": "Geóloga Trotuina",
+   "forever": "Geóloga Trotuina",
+   "use": "Geóloga Trotuina"
+  },
+  "Geolord Mottle": {
+   "classic": "Geoseñor motas",
+   "forever": "Geoseñor motas",
+   "use": "Geoseñor motas"
+  },
+  "Gerard Abernathy": {
+   "classic": "Gerald Abernati",
+   "forever": "Gerald Abernati",
+   "use": "Gerald Abernati"
+  },
+  "Glibb": {
+   "classic": "Glibb",
+   "forever": "Glibb",
+   "use": "Glibb"
+  },
+  "Granistad": {
+   "classic": "Granistad",
+   "forever": "Granistad",
+   "use": "Granistad"
+  },
+  "Grimungous": {
+   "classic": "Grimungus",
+   "forever": "Grimungus",
+   "use": "Grimungus"
+  },
+  "Griniblix the Spectator": {
+   "classic": "Griniblix el Espectador",
+   "forever": "Griniblix el Espectador",
+   "use": "Griniblix el Espectador"
+  },
+  "Gubber Blump": {
+   "classic": "Gubber Blump",
+   "forever": "Gubber Blump",
+   "use": "Gubber Blump"
+  },
+  "Haal": {
+   "forever": "Haal",
+   "use": "Haal"
+  },
+  "Haggrum Bloodfist": {
+   "classic": "Haggrum Puñosangre",
+   "forever": "Haggrum Puñosangre",
+   "use": "Haggrum Puñosangre"
+  },
+  "Haren Swifthoof": {
+   "classic": "Haren Pezuñaveloz",
+   "forever": "Haren Pezuñaveloz",
+   "use": "Haren Pezuñaveloz"
+  },
+  "Hed'mush the Rotting": {
+   "classic": "Hed'mush el Podrido",
+   "forever": "Hed'mush el Podrido",
+   "use": "Hed'mush el Podrido"
+  },
+  "Hegnar Rumbleshot": {
+   "classic": "Hegnar Estruendo",
+   "forever": "Hegnar Estruendo",
+   "use": "Hegnar Estruendo"
+  },
+  "Hgarth": {
+   "classic": "Hgarth",
+   "forever": "Hgarth",
+   "use": "Hgarth"
+  },
+  "Hin Denburg": {
+   "classic": "Hin Denburg",
+   "forever": "Hin Denburg",
+   "use": "Hin Denburg"
+  },
+  "Hissperak": {
+   "classic": "Hissperak",
+   "forever": "Hissperak",
+   "use": "Hissperak"
+  },
+  "Humar the Pridelord": {
+   "classic": "Humar el Señor Orgulloso",
+   "forever": "Humar el Señor Orgulloso",
+   "use": "Humar el Señor Orgulloso"
+  },
+  "Huricanian": {
+   "classic": "Huricanian",
+   "forever": "Huricanian",
+   "use": "Huricanian"
+  },
+  "Immolatus": {
+   "classic": "Immolatus",
+   "forever": "Immolatus",
+   "use": "Immolatus"
+  },
+  "Jordan Stilwell": {
+   "classic": "Jordan Fontana",
+   "forever": "Jordan Fontana",
+   "use": "Jordan Fontana"
+  },
+  "Keeper Remulos": {
+   "classic": "Guardián Rémulos",
+   "forever": "Guardián Rémulos",
+   "use": "Guardián Rémulos"
+  },
+  "King Mosh": {
+   "classic": "Rey Mosh",
+   "forever": "Rey Mosh",
+   "use": "Rey Mosh"
+  },
+  "King Mukla": {
+   "classic": "Rey Mukla",
+   "forever": "Rey Mukla",
+   "use": "Rey Mukla"
+  },
+  "Knot Thimblejack": {
+   "classic": "Knot Llavededo",
+   "forever": "Knot Llavededo",
+   "use": "Knot Llavededo"
+  },
+  "Lady Jaina Proudmoore": {
+   "classic": "Lady Jaina Valiente",
+   "forever": "Lady Jaina Valiente",
+   "use": "Lady Jaina Valiente"
+  },
+  "Lady Zephris": {
+   "classic": "Lady Zephris",
+   "forever": "Lady Zephris",
+   "use": "Lady Zephris"
+  },
+  "Lago Blackwrench": {
+   "classic": "Yago Llavenegra",
+   "forever": "Yago Llavenegra",
+   "use": "Yago Llavenegra"
+  },
+  "Lava Surger": {
+   "classic": "Marea de lava",
+   "forever": "Marea de lava",
+   "use": "Marea de lava"
+  },
+  "Licillin": {
+   "classic": "Licillin",
+   "forever": "Licillin",
+   "use": "Licillin"
+  },
+  "Lil Timmy": {
+   "classic": "Lil Timmy",
+   "forever": "Lil Timmy",
+   "use": "Lil Timmy"
+  },
+  "Lizzarik": {
+   "classic": "Lizzarik",
+   "forever": "Lizzarik",
+   "use": "Lizzarik"
+  },
+  "Loch Frenzy": {
+   "classic": "Demente del Loch",
+   "forever": "Demente del Loch",
+   "use": "Demente del Loch"
+  },
+  "Lord Captain Wyrmak": {
+   "classic": "Lord capitán Wyrmak",
+   "forever": "Lord capitán Wyrmak",
+   "use": "Lord capitán Wyrmak"
+  },
+  "Lord Grayson Shadowbreaker": {
+   "classic": "Lord Grisillo Quiebrasombras",
+   "forever": "Lord Grisillo Quiebrasombras",
+   "use": "Lord Grisillo Quiebrasombras"
+  },
+  "Lord Kazzak": {
+   "classic": "Lord Kazzak",
+   "forever": "Lord Kazzak",
+   "use": "Lord Kazzak"
+  },
+  "Lord Kri": {
+   "classic": "Lord Kri",
+   "forever": "Lord Kri",
+   "use": "Lord Kri"
+  },
+  "Lord Malathrom": {
+   "classic": "Lord Malathrom",
+   "forever": "Lord Malathrom",
+   "use": "Lord Malathrom"
+  },
+  "Magatha Grimtotem": {
+   "classic": "Magatha Tótem Siniestro",
+   "forever": "Magatha Tótem Siniestro",
+   "use": "Magatha Tótem Siniestro"
+  },
+  "Magronos the Unyielding": {
+   "classic": "Magronos el Implacable",
+   "forever": "Magronos el Implacable",
+   "use": "Magronos el Implacable"
+  },
+  "Mahren Skyseer": {
+   "classic": "Mahren Vidente del Cielo",
+   "forever": "Mahren Vidente del Cielo",
+   "use": "Mahren Vidente del Cielo"
+  },
+  "Master Smith Burninate": {
+   "classic": "Herrero maestro Burninate",
+   "forever": "Herrero maestro Burninate",
+   "use": "Herrero maestro Burninate"
+  },
+  "Mathredis Firestar": {
+   "classic": "Mathredis Fuegostelar",
+   "forever": "Mathredis Fuegostelar",
+   "use": "Mathredis Fuegostelar"
+  },
+  "Mechanical Dragonling": {
+   "classic": "Dragonizo mecánico",
+   "forever": "Dragonizo mecánico",
+   "use": "Dragonizo mecánico"
+  },
+  "Mechanical Squirrel": {
+   "classic": "Ardilla mecánica",
+   "forever": "Ardilla mecánica",
+   "use": "Ardilla mecánica"
+  },
+  "Mirador": {
+   "classic": "Mirador",
+   "forever": "Mirador",
+   "use": "Mirador"
+  },
+  "Mor'zul Bloodbringer": {
+   "classic": "Mor'zul Sangredoble",
+   "forever": "Mor'zul Sangredoble",
+   "use": "Mor'zul Sangredoble"
+  },
+  "Mordresh Fire Eye": {
+   "classic": "Mordresh Ojo de Fuego",
+   "forever": "Mordresh Ojo de Fuego",
+   "use": "Mordresh Ojo de Fuego"
+  },
+  "Mother Fang": {
+   "classic": "Madre Colmillo",
+   "forever": "Madre Colmillo",
+   "use": "Madre Colmillo"
+  },
+  "Musical Gustjumper": {
+   "forever": "Saltavientos musical",
+   "use": "Saltavientos musical"
+  },
+  "Myolor Sunderfury": {
+   "classic": "Myolor Furiahendida",
+   "forever": "Myolor Furiahendida",
+   "use": "Myolor Furiahendida"
+  },
+  "Nat Pagle": {
+   "classic": "Nat Pagle",
+   "forever": "Nat Pagle",
+   "use": "Nat Pagle"
+  },
+  "Nez'raz": {
+   "classic": "Nez'raz",
+   "forever": "Nez'raz",
+   "use": "Nez'raz"
+  },
+  "Nibbles": {
+   "classic": "Mordiscos",
+   "forever": "Mordiscos",
+   "use": "Mordiscos"
+  },
+  "Nightmare Scalebane": {
+   "classic": "Horrocrusto pesadilla",
+   "forever": "Horrocrusto pesadilla",
+   "use": "Horrocrusto pesadilla"
+  },
+  "Obsidian Shard": {
+   "classic": "Fragmento de obsidiana",
+   "forever": "Fragmento de obsidiana",
+   "use": "Fragmento de obsidiana"
+  },
+  "Omgorn the Lost": {
+   "classic": "Omgorn el Perdido",
+   "forever": "Omgorn el Perdido",
+   "use": "Omgorn el Perdido"
+  },
+  "Opus": {
+   "classic": "Opus",
+   "forever": "Opus",
+   "use": "Opus"
+  },
+  "Orange Tabby": {
+   "classic": "Felino naranja",
+   "forever": "Felino naranja",
+   "use": "Felino naranja"
+  },
+  "Overwatch Mark I": {
+   "classic": "Robovigilante Mark I",
+   "forever": "Robovigilante Mark I",
+   "use": "Robovigilante Mark I"
+  },
+  "Pained": {
+   "classic": "Pained",
+   "forever": "Pained",
+   "use": "Pained"
+  },
+  "Plague Spreader": {
+   "classic": "Propagador de la Peste",
+   "forever": "Propagador de la Peste",
+   "use": "Propagador de la Peste"
+  },
+  "Pooka": {
+   "classic": "Poká",
+   "forever": "Poká",
+   "use": "Poká"
+  },
+  "Prairie Dog": {
+   "classic": "Perro de pradera",
+   "forever": "Perro de pradera",
+   "use": "Perro de pradera"
+  },
+  "Rak'shiri": {
+   "classic": "Rak'shiri",
+   "forever": "Rak'shiri",
+   "use": "Rak'shiri"
+  },
+  "Ralo'shan the Eternal Watcher": {
+   "classic": "Ralo'shan la Vigía Eterna",
+   "forever": "Ralo'shan la Vigía Eterna",
+   "use": "Ralo'shan la Vigía Eterna"
+  },
+  "Razormaw Matriarch": {
+   "classic": "Matriarca Tajobuche",
+   "forever": "Matriarca Tajobuche",
+   "use": "Matriarca Tajobuche"
+  },
+  "Ressan the Needler": {
+   "classic": "Ressan el Agujas",
+   "forever": "Ressan el Agujas",
+   "use": "Ressan el Agujas"
+  },
+  "Revantusk Drummer": {
+   "classic": "Tamborillero Sañadiente",
+   "forever": "Tamborillero Sañadiente",
+   "use": "Tamborillero Sañadiente"
+  },
+  "Rifleman Middlecamp": {
+   "classic": "Fusilero de mediocampo",
+   "forever": "Fusilero de mediocampo",
+   "use": "Fusilero de mediocampo"
+  },
+  "Rifleman Wheeler": {
+   "classic": "Fusilero Trapis",
+   "forever": "Fusilero Trapis",
+   "use": "Fusilero Trapis"
+  },
+  "Rippa": {
+   "classic": "Rippa",
+   "forever": "Rippa",
+   "use": "Rippa"
+  },
+  "Roger": {
+   "classic": "Roger",
+   "forever": "Roger",
+   "use": "Roger"
+  },
+  "Rokar Bladeshadow": {
+   "classic": "Rokar Filosombra",
+   "forever": "Rokar Filosombra",
+   "use": "Rokar Filosombra"
+  },
+  "Sergeant Carnes": {
+   "classic": "Sargento Carnes",
+   "forever": "Sargento Carnes",
+   "use": "Sargento Carnes"
+  },
+  "Servant of Azora": {
+   "classic": "Vasallo de Azora",
+   "forever": "Vasallo de Azora",
+   "use": "Vasallo de Azora"
+  },
+  "Shleipnarr": {
+   "classic": "Shleipnarr",
+   "forever": "Shleipnarr",
+   "use": "Shleipnarr"
+  },
+  "Silva Fil'naveth": {
+   "classic": "Silva Fil'naveth",
+   "forever": "Silva Fil'naveth",
+   "use": "Silva Fil'naveth"
+  },
+  "Silver Tabby": {
+   "classic": "Felino plateado",
+   "forever": "Felino plateado",
+   "use": "Felino plateado"
+  },
+  "Simone Cantrell": {
+   "classic": "Simone Cantrell",
+   "forever": "Simone Cantrell",
+   "use": "Simone Cantrell"
+  },
+  "Simone the Inconspicuous": {
+   "classic": "Simone la Discreta",
+   "forever": "Simone la Discreta",
+   "use": "Simone la Discreta"
+  },
+  "Simone the Seductress": {
+   "classic": "Simone la Seductora",
+   "forever": "Simone la Seductora",
+   "use": "Simone la Seductora"
+  },
+  "Singer": {
+   "classic": "Kantor",
+   "forever": "Kantor",
+   "use": "Kantor"
+  },
+  "Skarr the Unbreakable": {
+   "classic": "Skarr el Inquebrantable",
+   "forever": "Skarr el Inquebrantable",
+   "use": "Skarr el Inquebrantable"
+  },
+  "Skeletal Smith": {
+   "classic": "Herrero esquelético",
+   "forever": "Herrero esquelético",
+   "use": "Herrero esquelético"
+  },
+  "Snarlmane": {
+   "classic": "Melegruños",
+   "forever": "Melegruños",
+   "use": "Melegruños"
+  },
+  "Spotter Klemmy": {
+   "classic": "Avistador Klemmy",
+   "forever": "Avistador Klemmy",
+   "use": "Avistador Klemmy"
+  },
+  "Sprite Darter": {
+   "classic": "Duende dardo",
+   "forever": "Duende dardo",
+   "use": "Duende dardo"
+  },
+  "Stephanie Turner": {
+   "classic": "Stephanie Turner",
+   "forever": "Stephanie Turner",
+   "use": "Stephanie Turner"
+  },
+  "Stone Keeper": {
+   "classic": "Vigilante de piedra",
+   "forever": "Vigilante de piedra",
+   "use": "Vigilante de piedra"
+  },
+  "Stone Steward": {
+   "classic": "Asistente de piedra",
+   "forever": "Asistente de piedra",
+   "use": "Asistente de piedra"
+  },
+  "Stonevault Seer": {
+   "classic": "Profeta Grutacanto",
+   "forever": "Profeta Grutacanto",
+   "use": "Profeta Grutacanto"
+  },
+  "Target Dummy": {
+   "classic": "Muñeco-diana",
+   "forever": "Muñeco-diana",
+   "use": "Muñeco-diana"
+  },
+  "Terl Arakor": {
+   "classic": "Terl Arakor",
+   "forever": "Terl Arakor",
+   "use": "Terl Arakor"
+  },
+  "The Husk": {
+   "classic": "La Cáscara",
+   "forever": "La Cáscara",
+   "use": "La Cáscara"
+  },
+  "The Lost One": {
+   "forever": "El perdido",
+   "use": "El perdido"
+  },
+  "The Rake": {
+   "classic": "El Rastrillo",
+   "forever": "El Rastrillo",
+   "use": "El Rastrillo"
+  },
+  "Theresa": {
+   "classic": "Theresa",
+   "forever": "Theresa",
+   "use": "Theresa"
+  },
+  "Timber": {
+   "classic": "Maderero",
+   "forever": "Maderero",
+   "use": "Maderero"
+  },
+  "Tirion Fordring": {
+   "classic": "Tirión Vadín",
+   "forever": "Tirión Vadín",
+   "use": "Tirión Vadín"
+  },
+  "Tog Rustsprocket": {
+   "classic": "Tog Oxidentado",
+   "forever": "Tog Oxidentado",
+   "use": "Tog Oxidentado"
+  },
+  "Tosamina": {
+   "classic": "Tosamina",
+   "forever": "Tosamina",
+   "use": "Tosamina"
+  },
+  "Tundra MacGrann": {
+   "classic": "Tundra MacGrann",
+   "forever": "Tundra MacGrann",
+   "use": "Tundra MacGrann"
+  },
+  "Umi Rumplesnicker": {
+   "classic": "Umi Risitas",
+   "forever": "Umi Risitas",
+   "use": "Umi Risitas"
+  },
+  "Unseen": {
+   "classic": "Oculto",
+   "forever": "Oculto",
+   "use": "Oculto"
+  },
+  "Ursol'lok": {
+   "classic": "Ursol'lok",
+   "forever": "Ursol'lok",
+   "use": "Ursol'lok"
+  },
+  "Varo'then's Ghost": {
+   "classic": "Fantasma de Varo'then",
+   "forever": "Fantasma de Varo'then",
+   "use": "Fantasma de Varo'then"
+  },
+  "Velinde Starsong": {
+   "classic": "Velinde Cantoestelar",
+   "forever": "Velinde Cantoestelar",
+   "use": "Velinde Cantoestelar"
+  },
+  "Vengeful Ancient": {
+   "classic": "Anciano vengativo",
+   "forever": "Anciano vengativo",
+   "use": "Anciano vengativo"
+  },
+  "Veren Tallstrider": {
+   "classic": "Veren Zancaalta",
+   "forever": "Veren Zancaalta",
+   "use": "Veren Zancaalta"
+  },
+  "Volchan": {
+   "classic": "Volchan",
+   "forever": "Volchan",
+   "use": "Volchan"
+  },
+  "Vultros": {
+   "classic": "Vultros",
+   "forever": "Vultros",
+   "use": "Vultros"
+  },
+  "Wallace the Blind": {
+   "classic": "Wallace el Ciego",
+   "forever": "Wallace el Ciego",
+   "use": "Wallace el Ciego"
+  },
+  "Watcher Backus": {
+   "classic": "Vigía Backus",
+   "forever": "Vigía Backus",
+   "use": "Vigía Backus"
+  },
+  "Watcher Brownell": {
+   "classic": "Vigía Brownell",
+   "forever": "Vigía Brownell",
+   "use": "Vigía Brownell"
+  },
+  "Watcher Callahan": {
+   "classic": "Vigilante Callahan",
+   "forever": "Vigilante Callahan",
+   "use": "Vigilante Callahan"
+  },
+  "Wenna Silkbeard": {
+   "classic": "Wenna Barbasedosa",
+   "forever": "Wenna Barbasedosa",
+   "use": "Wenna Barbasedosa"
+  },
+  "White Kitten": {
+   "classic": "Gatito blanco",
+   "forever": "Gatito blanco",
+   "use": "Gatito blanco"
+  },
+  "Winkey": {
+   "classic": "Guiñón",
+   "forever": "Guiñón",
+   "use": "Guiñón"
+  },
+  "Winstone Wolfe": {
+   "classic": "Lúpol Ganapiedra",
+   "forever": "Lúpol Ganapiedra",
+   "use": "Lúpol Ganapiedra"
+  },
+  "Wizbang Cranktoggle": {
+   "classic": "Maniveo Zumbang",
+   "forever": "Maniveo Zumbang",
+   "use": "Maniveo Zumbang"
+  },
+  "Yala Windwatcher": {
+   "forever": "Yala Vigía del Viento",
+   "use": "Yala Vigía del Viento"
+  },
+  "Yalda": {
+   "classic": "Yalda",
+   "forever": "Yalda",
+   "use": "Yalda"
+  },
+  "Yarlyn Amberstill": {
+   "classic": "Yarlyn Semperámbar",
+   "forever": "Yarlyn Semperámbar",
+   "use": "Yarlyn Semperámbar"
+  },
+  "Zalashji": {
+   "classic": "Zalashji",
+   "forever": "Zalashji",
+   "use": "Zalashji"
+  },
+  "Zap Farflinger": {
+   "classic": "Zap Lanzalejos",
+   "forever": "Zap Lanzalejos",
+   "use": "Zap Lanzalejos"
+  },
+  "Zapetta": {
+   "classic": "Zapetta",
+   "forever": "Zapetta",
+   "use": "Zapetta"
+  },
+  "Zixil": {
+   "classic": "Zixil",
+   "forever": "Zixil",
+   "use": "Zixil"
+  }
+ },
+ "peoples": {
+  "Blood Elf": {
+   "forever": "Elfo de sangre",
+   "use": "Elfo de sangre"
+  },
+  "Broken": {
+   "forever": "Tábido",
+   "use": "Tábido"
+  },
+  "Earthen": {
+   "forever": "Terráneo",
+   "use": "Terráneo"
+  },
+  "Gnome": {
+   "classic": "Gnomo",
+   "forever": "Gnomo",
+   "use": "Gnomo"
+  },
+  "Goblin": {
+   "classic": "Goblin",
+   "forever": "Goblin",
+   "use": "Goblin"
+  },
+  "Ice Troll": {
+   "forever": "Trol de hielo",
+   "use": "Trol de hielo"
+  },
+  "Kul Tiran": {
+   "forever": "Kultirano",
+   "use": "Kultirano"
+  },
+  "Naga": {
+   "forever": "Naga",
+   "use": "Naga"
+  },
+  "Skeleton": {
+   "forever": "Esqueleto",
+   "use": "Esqueleto"
+  },
+  "Troll": {
+   "classic": "Trol",
+   "forever": "Trol",
+   "use": "Trol"
+  },
+  "Undead": {
+   "classic": "No-muerto",
+   "forever": "No-muerto",
+   "use": "No-muerto"
+  },
+  "Worgen": {
+   "forever": "Huargen",
+   "use": "Huargen"
+  }
+ },
+ "places": {
+  "Aerie Peak": {
+   "classic": "Pico Nidal",
+   "forever": "Pico Nidal",
+   "use": "Pico Nidal"
+  },
+  "Ahn'Qiraj": {
+   "classic": "Ahn'Qiraj",
+   "forever": "Ahn'Qiraj",
+   "use": "Ahn'Qiraj"
+  },
+  "Algaz Gate": {
+   "classic": "Puerta de Algaz",
+   "forever": "Puerta de Algaz",
+   "use": "Puerta de Algaz"
+  },
+  "Altar of Storms": {
+   "classic": "Altar de la Tempestad",
+   "forever": "Altar de la Tempestad",
+   "use": "Altar de la Tempestad"
+  },
+  "Alterac Mountains": {
+   "classic": "Montañas de Alterac",
+   "forever": "Montañas de Alterac",
+   "use": "Montañas de Alterac"
+  },
+  "Alterac Valley": {
+   "classic": "Valle de Alterac",
+   "forever": "Valle de Alterac",
+   "use": "Valle de Alterac"
+  },
+  "Ambermill": {
+   "classic": "Molino Ámbar",
+   "forever": "Molino Ámbar",
+   "use": "Molino Ámbar"
+  },
+  "Amberstill Ranch": {
+   "classic": "Granja de Semperámbar",
+   "forever": "Granja de Semperámbar",
+   "use": "Granja de Semperámbar"
+  },
+  "Ameth'Aran": {
+   "classic": "Ameth'Aran",
+   "forever": "Ameth'Aran",
+   "use": "Ameth'Aran"
+  },
+  "Angor Fortress": {
+   "classic": "Fortaleza de Angor",
+   "forever": "Fortaleza de Angor",
+   "use": "Fortaleza de Angor"
+  },
+  "Apocryphan's Rest": {
+   "classic": "Descanso de Apócrifo",
+   "forever": "Descanso de Apócrifo",
+   "use": "Descanso de Apócrifo"
+  },
+  "Arathi Highlands": {
+   "classic": "Tierras Altas de Arathi",
+   "forever": "Tierras Altas de Arathi",
+   "use": "Tierras Altas de Arathi"
+  },
+  "Ashenvale": {
+   "classic": "Vallefresno",
+   "forever": "Vallefresno",
+   "use": "Vallefresno"
+  },
+  "Astranaar": {
+   "classic": "Astranaar",
+   "forever": "Astranaar",
+   "use": "Astranaar"
+  },
+  "Auberdine": {
+   "classic": "Auberdine",
+   "forever": "Auberdine",
+   "use": "Auberdine"
+  },
+  "Azshara": {
+   "classic": "Azshara",
+   "forever": "Azshara",
+   "use": "Azshara"
+  },
+  "Badlands": {
+   "classic": "Tierras Inhóspitas",
+   "forever": "Tierras Inhóspitas",
+   "use": "Tierras Inhóspitas"
+  },
+  "Bael Modan": {
+   "classic": "Bael Modan",
+   "forever": "Bael Modan",
+   "use": "Bael Modan"
+  },
+  "Bael'dun Digsite": {
+   "classic": "Excavación de Bael'dun",
+   "forever": "Excavación de Bael'dun",
+   "use": "Excavación de Bael'dun"
+  },
+  "Bank": {
+   "classic": "Banco",
+   "forever": "Banco",
+   "use": "Banco"
+  },
+  "Bashal'Aran": {
+   "classic": "Bashal'Aran",
+   "forever": "Bashal'Aran",
+   "use": "Bashal'Aran"
+  },
+  "Bay of Storms": {
+   "classic": "Bahía de la Tempestad",
+   "forever": "Bahía de la Tempestad",
+   "use": "Bahía de la Tempestad"
+  },
+  "Black Channel Marsh": {
+   "classic": "Pantano del Canal Negro",
+   "forever": "Pantano del Canal Negro",
+   "use": "Pantano del Canal Negro"
+  },
+  "Black Rook Hold": {
+   "forever": "Fuerte Torre Oscura",
+   "use": "Fuerte Torre Oscura"
+  },
+  "Blackchar Cave": {
+   "classic": "Cueva Tizonegro",
+   "forever": "Cueva Tizonegro",
+   "use": "Cueva Tizonegro"
+  },
+  "Blackfathom Deeps": {
+   "classic": "Cavernas de Brazanegra",
+   "forever": "Cavernas de Brazanegra",
+   "use": "Cavernas de Brazanegra"
+  },
+  "Blackmaw Hold": {
+   "forever": "Bastión Faucenegra",
+   "use": "Bastión Faucenegra"
+  },
+  "Blackrock Depths": {
+   "classic": "Profundidades de Roca Negra",
+   "forever": "Profundidades de Roca Negra",
+   "use": "Profundidades de Roca Negra"
+  },
+  "Blackrock Mountain": {
+   "classic": "Montaña Roca Negra",
+   "forever": "Montaña Roca Negra",
+   "use": "Montaña Roca Negra"
+  },
+  "Blackrock Spire": {
+   "classic": "Cumbre de Roca Negra",
+   "forever": "Cumbre de Roca Negra",
+   "use": "Cumbre de Roca Negra"
+  },
+  "Blasted Lands": {
+   "classic": "Las Tierras Devastadas",
+   "forever": "Las Tierras Devastadas",
+   "use": "Las Tierras Devastadas"
+  },
+  "Bloodhoof Village": {
+   "classic": "Poblado Pezuña de Sangre",
+   "forever": "Poblado Pezuña de Sangre",
+   "use": "Poblado Pezuña de Sangre"
+  },
+  "Bloodvenom Post": {
+   "classic": "Puesto del Veneno",
+   "forever": "Puesto del Veneno",
+   "use": "Puesto del Veneno"
+  },
+  "Booty Bay": {
+   "classic": "Bahía del Botín",
+   "forever": "Bahía del Botín",
+   "use": "Bahía del Botín"
+  },
+  "Brackenwall Village": {
+   "classic": "Poblado Murohelecho",
+   "forever": "Poblado Murohelecho",
+   "use": "Poblado Murohelecho"
+  },
+  "Brightwater Lake": {
+   "classic": "Lago Aguasclaras",
+   "forever": "Lago Aguasclaras",
+   "use": "Lago Aguasclaras"
+  },
+  "Brill": {
+   "classic": "Rémol",
+   "forever": "Rémol",
+   "use": "Rémol"
+  },
+  "Burning Steppes": {
+   "classic": "Las Estepas Ardientes",
+   "forever": "Las Estepas Ardientes",
+   "use": "Las Estepas Ardientes"
+  },
+  "Caer Darrow": {
+   "classic": "Castel Darrow",
+   "forever": "Castel Darrow",
+   "use": "Castel Darrow"
+  },
+  "Camp": {
+   "forever": "Campamento",
+   "use": "Campamento"
+  },
+  "Camp Mojache": {
+   "classic": "Campamento Mojache",
+   "forever": "Campamento Mojache",
+   "use": "Campamento Mojache"
+  },
+  "Camp Taurajo": {
+   "classic": "Campamento Taurajo",
+   "forever": "Campamento Taurajo",
+   "use": "Campamento Taurajo"
+  },
+  "Canals": {
+   "classic": "Canales",
+   "forever": "Canales",
+   "use": "Canales"
+  },
+  "Cathedral Square": {
+   "classic": "Plaza de la Catedral",
+   "forever": "Plaza de la Catedral",
+   "use": "Plaza de la Catedral"
+  },
+  "Cathedral of Light": {
+   "classic": "Catedral de la Luz",
+   "forever": "Catedral de la Luz",
+   "use": "Catedral de la Luz"
+  },
+  "Caverns of Time": {
+   "classic": "Cavernas del Tiempo",
+   "forever": "Cavernas del Tiempo",
+   "use": "Cavernas del Tiempo"
+  },
+  "Cenarion Hold": {
+   "classic": "Fuerte Cenarion",
+   "forever": "Fuerte Cenarion",
+   "use": "Fuerte Cenarion"
+  },
+  "Chillwind Camp": {
+   "classic": "Campamento del Orvallo",
+   "forever": "Campamento del Orvallo",
+   "use": "Campamento del Orvallo"
+  },
+  "City": {
+   "classic": "Ciudad",
+   "forever": "Ciudad",
+   "use": "Ciudad"
+  },
+  "Coldridge Pass": {
+   "classic": "Desfiladero de Crestanevada",
+   "forever": "Desfiladero de Crestanevada",
+   "use": "Desfiladero de Crestanevada"
+  },
+  "Coldridge Valley": {
+   "classic": "Valle de Crestanevada",
+   "forever": "Valle de Crestanevada",
+   "use": "Valle de Crestanevada"
+  },
+  "Craftsmen's Terrace": {
+   "classic": "Bancal del Artesano",
+   "forever": "Bancal del Artesano",
+   "use": "Bancal del Artesano"
+  },
+  "Crown Guard Tower": {
+   "classic": "Torre de la Corona",
+   "forever": "Torre de la Corona",
+   "use": "Torre de la Corona"
+  },
+  "Dalaran": {
+   "classic": "Dalaran",
+   "forever": "Dalaran",
+   "use": "Dalaran"
+  },
+  "Darkcloud Pinnacle": {
+   "classic": "Cumbre de la Nube Negra",
+   "forever": "Cumbre de la Nube Negra",
+   "use": "Cumbre de la Nube Negra"
+  },
+  "Darkshire": {
+   "classic": "Villa Oscura",
+   "forever": "Villa Oscura",
+   "use": "Villa Oscura"
+  },
+  "Darkshore": {
+   "classic": "Costa Oscura",
+   "forever": "Costa Oscura",
+   "use": "Costa Oscura"
+  },
+  "Darkwhisper Gorge": {
+   "classic": "Garganta Negro Rumor",
+   "forever": "Garganta Negro Rumor",
+   "use": "Garganta Negro Rumor"
+  },
+  "Darnassus": {
+   "classic": "Darnassus",
+   "forever": "Darnassus",
+   "use": "Darnassus"
+  },
+  "Darrowmere Lake": {
+   "classic": "Lago Darrowmere",
+   "forever": "Lago Darrowmere",
+   "use": "Lago Darrowmere"
+  },
+  "Darrowshire": {
+   "classic": "Villa Darrow",
+   "forever": "Villa Darrow",
+   "use": "Villa Darrow"
+  },
+  "Dawning Wood Catacombs": {
+   "classic": "Catacumbas del Bosque Aurora",
+   "forever": "Catacumbas del Bosque Aurora",
+   "use": "Catacumbas del Bosque Aurora"
+  },
+  "Deadman's Crossing": {
+   "classic": "Cruce de la Muerte",
+   "forever": "Cruce de la Muerte",
+   "use": "Cruce de la Muerte"
+  },
+  "Deadmines": {
+   "classic": "Minas de la Muerte",
+   "forever": "Minas de la Muerte",
+   "use": "Minas de la Muerte"
+  },
+  "Deadwind Pass": {
+   "classic": "Paso de la Muerte",
+   "forever": "Paso de la Muerte",
+   "use": "Paso de la Muerte"
+  },
+  "Deathknell": {
+   "classic": "Camposanto",
+   "forever": "Camposanto",
+   "use": "Camposanto"
+  },
+  "Deeprun Tram": {
+   "classic": "Tranvía Subterráneo",
+   "forever": "Tranvía Subterráneo",
+   "use": "Tranvía Subterráneo"
+  },
+  "Demon Fall Canyon": {
+   "classic": "Barranco del Demonio",
+   "forever": "Barranco del Demonio",
+   "use": "Barranco del Demonio"
+  },
+  "Desolace": {
+   "classic": "Desolace",
+   "forever": "Desolace",
+   "use": "Desolace"
+  },
+  "Dire Maul": {
+   "classic": "La Masacre",
+   "forever": "La Masacre",
+   "use": "La Masacre"
+  },
+  "Dolanaar": {
+   "classic": "Dolanaar",
+   "forever": "Dolanaar",
+   "use": "Dolanaar"
+  },
+  "Dreadmaul Post": {
+   "classic": "Puesto Machacamiedo",
+   "forever": "Puesto Machacamiedo",
+   "use": "Puesto Machacamiedo"
+  },
+  "Dream Bough": {
+   "classic": "Rama Oniria",
+   "forever": "Rama Oniria",
+   "use": "Rama Oniria"
+  },
+  "Drywhisker Gorge": {
+   "classic": "Cañón Mostacho Seco",
+   "forever": "Cañón Mostacho Seco",
+   "use": "Cañón Mostacho Seco"
+  },
+  "Dun Algaz": {
+   "classic": "Dun Algaz",
+   "forever": "Dun Algaz",
+   "use": "Dun Algaz"
+  },
+  "Dun Garok": {
+   "classic": "Dun Garok",
+   "forever": "Dun Garok",
+   "use": "Dun Garok"
+  },
+  "Dun Modr": {
+   "classic": "Dun Modr",
+   "forever": "Dun Modr",
+   "use": "Dun Modr"
+  },
+  "Dun Morogh": {
+   "classic": "Dun Morogh",
+   "forever": "Dun Morogh",
+   "use": "Dun Morogh"
+  },
+  "Dunemaul Compound": {
+   "classic": "Base Machacaduna",
+   "forever": "Base Machacaduna",
+   "use": "Base Machacaduna"
+  },
+  "Durnholde Keep": {
+   "classic": "Castillo de Durnholde",
+   "forever": "Castillo de Durnholde",
+   "use": "Castillo de Durnholde"
+  },
+  "Durotar": {
+   "classic": "Durotar",
+   "forever": "Durotar",
+   "use": "Durotar"
+  },
+  "Duskwood": {
+   "classic": "Bosque del Ocaso",
+   "forever": "Bosque del Ocaso",
+   "use": "Bosque del Ocaso"
+  },
+  "Dustfire Valley": {
+   "classic": "Valle Polvofuego",
+   "forever": "Valle Polvofuego",
+   "use": "Valle Polvofuego"
+  },
+  "Dustwallow Marsh": {
+   "classic": "Marjal Revolcafango",
+   "forever": "Marjal Revolcafango",
+   "use": "Marjal Revolcafango"
+  },
+  "Dwarven District": {
+   "classic": "Distrito de los Enanos",
+   "forever": "Distrito de los Enanos",
+   "use": "Distrito de los Enanos"
+  },
+  "Eastern Plaguelands": {
+   "classic": "Tierras de la Peste del Este",
+   "forever": "Tierras de la Peste del Este",
+   "use": "Tierras de la Peste del Este"
+  },
+  "Eastern Strand": {
+   "classic": "Playa del Este",
+   "forever": "Playa del Este",
+   "use": "Playa del Este"
+  },
+  "Eastmoon Ruins": {
+   "classic": "Ruinas de Lunaeste",
+   "forever": "Ruinas de Lunaeste",
+   "use": "Ruinas de Lunaeste"
+  },
+  "Eastwall Tower": {
+   "classic": "Torre de la Muralla del Este",
+   "forever": "Torre de la Muralla del Este",
+   "use": "Torre de la Muralla del Este"
+  },
+  "Echo Isles": {
+   "classic": "Islas del Eco",
+   "forever": "Islas del Eco",
+   "use": "Islas del Eco"
+  },
+  "Elder Rise": {
+   "classic": "Alto de los Ancestros",
+   "forever": "Alto de los Ancestros",
+   "use": "Alto de los Ancestros"
+  },
+  "Elwynn Forest": {
+   "classic": "Bosque de Elwynn",
+   "forever": "Bosque de Elwynn",
+   "use": "Bosque de Elwynn"
+  },
+  "Emerald Dream": {
+   "classic": "Sueño Esmeralda",
+   "forever": "Sueño Esmeralda",
+   "use": "Sueño Esmeralda"
+  },
+  "Emerald Sanctuary": {
+   "classic": "Santuario Esmeralda",
+   "forever": "Santuario Esmeralda",
+   "use": "Santuario Esmeralda"
+  },
+  "Everlook": {
+   "classic": "Vista Eterna",
+   "forever": "Vista Eterna",
+   "use": "Vista Eterna"
+  },
+  "Falaath Village": {
+   "forever": "Poblado Falaath",
+   "use": "Poblado Falaath"
+  },
+  "Faldir's Cove": {
+   "classic": "Cala de Faldir",
+   "forever": "Cala de Faldir",
+   "use": "Cala de Faldir"
+  },
+  "Fallow Sanctuary": {
+   "classic": "Retiro Fangoso",
+   "forever": "Retiro Fangoso",
+   "use": "Retiro Fangoso"
+  },
+  "Faol's Rest": {
+   "classic": "Tumba de Faol",
+   "forever": "Tumba de Faol",
+   "use": "Tumba de Faol"
+  },
+  "Farstrider Lodge": {
+   "classic": "Cabaña del Errante",
+   "forever": "Cabaña del Errante",
+   "use": "Cabaña del Errante"
+  },
+  "Feathermoon Stronghold": {
+   "classic": "Bastión Plumaluna",
+   "forever": "Bastión Plumaluna",
+   "use": "Bastión Plumaluna"
+  },
+  "Felfire Hill": {
+   "classic": "Cerro Lumbrevil",
+   "forever": "Cerro Lumbrevil",
+   "use": "Cerro Lumbrevil"
+  },
+  "Felwood": {
+   "classic": "Frondavil",
+   "forever": "Frondavil",
+   "use": "Frondavil"
+  },
+  "Fenris Keep": {
+   "classic": "Castillo de Fenris",
+   "forever": "Castillo de Fenris",
+   "use": "Castillo de Fenris"
+  },
+  "Feralas": {
+   "classic": "Feralas",
+   "forever": "Feralas",
+   "use": "Feralas"
+  },
+  "Fire Plume Ridge": {
+   "classic": "Cresta del Penacho en Llamas",
+   "forever": "Cresta del Penacho en Llamas",
+   "use": "Cresta del Penacho en Llamas"
+  },
+  "Flame Crest": {
+   "classic": "Peñasco Llamarada",
+   "forever": "Peñasco Llamarada",
+   "use": "Peñasco Llamarada"
+  },
+  "Freewind Post": {
+   "classic": "Poblado Viento Libre",
+   "forever": "Poblado Viento Libre",
+   "use": "Poblado Viento Libre"
+  },
+  "Frostsaber Rock": {
+   "classic": "Roca Sable de Hielo",
+   "forever": "Roca Sable de Hielo",
+   "use": "Roca Sable de Hielo"
+  },
+  "Gadgetzan": {
+   "classic": "Gadgetzan",
+   "forever": "Gadgetzan",
+   "use": "Gadgetzan"
+  },
+  "Gavin's Naze": {
+   "classic": "Saliente de Gavin",
+   "forever": "Saliente de Gavin",
+   "use": "Saliente de Gavin"
+  },
+  "Gilneas": {
+   "forever": "Gilneas",
+   "use": "Gilneas"
+  },
+  "Gnomeregan": {
+   "classic": "Gnomeregan",
+   "forever": "Gnomeregan",
+   "use": "Gnomeregan"
+  },
+  "Gnomes": {
+   "classic": "Gnomos",
+   "use": "Gnomos"
+  },
+  "Golakka Hot Springs": {
+   "classic": "Baños de Golakka",
+   "forever": "Baños de Golakka",
+   "use": "Baños de Golakka"
+  },
+  "Goldshire": {
+   "classic": "Villadorada",
+   "forever": "Villadorada",
+   "use": "Villadorada"
+  },
+  "Grim Batol": {
+   "classic": "Grim Batol",
+   "forever": "Grim Batol",
+   "use": "Grim Batol"
+  },
+  "Grimesilt Dig Site": {
+   "classic": "Excavación de Limugre",
+   "forever": "Excavación de Limugre",
+   "use": "Excavación de Limugre"
+  },
+  "Grom'gol Base Camp": {
+   "classic": "Campamento Grom'gol",
+   "forever": "Campamento Grom'gol",
+   "use": "Campamento Grom'gol"
+  },
+  "Grommash Hold": {
+   "classic": "Fuerte Grommash",
+   "forever": "Fuerte Grommash",
+   "use": "Fuerte Grommash"
+  },
+  "Gustberry Lowlands": {
+   "forever": "Bajíos Ventobaya",
+   "use": "Bajíos Ventobaya"
+  },
+  "Hall of Explorers": {
+   "classic": "Sala de los Expedicionarios",
+   "forever": "Sala de los Expedicionarios",
+   "use": "Sala de los Expedicionarios"
+  },
+  "Hammerfall": {
+   "classic": "Sentencia",
+   "forever": "Sentencia",
+   "use": "Sentencia"
+  },
+  "Hammertoe's Digsite": {
+   "classic": "Excavación de Piemartillo",
+   "forever": "Excavación de Piemartillo",
+   "use": "Excavación de Piemartillo"
+  },
+  "Hearthglen": {
+   "classic": "Vega del Amparo",
+   "forever": "Vega del Amparo",
+   "use": "Vega del Amparo"
+  },
+  "Heroes' Vigil": {
+   "classic": "Vigilia de los Héroes",
+   "forever": "Vigilia de los Héroes",
+   "use": "Vigilia de los Héroes"
+  },
+  "Highperch": {
+   "classic": "Nido Alto",
+   "forever": "Nido Alto",
+   "use": "Nido Alto"
+  },
+  "Hillsbrad": {
+   "classic": "Trabalomas",
+   "forever": "Trabalomas",
+   "use": "Trabalomas"
+  },
+  "Hillsbrad Foothills": {
+   "classic": "Laderas de Trabalomas",
+   "forever": "Laderas de Trabalomas",
+   "use": "Laderas de Trabalomas"
+  },
+  "Hive'Zora": {
+   "classic": "Colmen'Zora",
+   "forever": "Colmen'Zora",
+   "use": "Colmen'Zora"
+  },
+  "Hunter Rise": {
+   "classic": "Alto de los Cazadores",
+   "forever": "Alto de los Cazadores",
+   "use": "Alto de los Cazadores"
+  },
+  "Ice Thistle Hills": {
+   "classic": "Colinas Cardo Nevado",
+   "forever": "Colinas Cardo Nevado",
+   "use": "Colinas Cardo Nevado"
+  },
+  "Iceflow Lake": {
+   "classic": "Lago Glacial",
+   "forever": "Lago Glacial",
+   "use": "Lago Glacial"
+  },
+  "Ironbeard's Tomb": {
+   "classic": "Tumba de Barbaférrea",
+   "forever": "Tumba de Barbaférrea",
+   "use": "Tumba de Barbaférrea"
+  },
+  "Ironforge": {
+   "classic": "Forjaz",
+   "forever": "Forjaz",
+   "use": "Forjaz"
+  },
+  "Isle of Dread": {
+   "classic": "Isla del Terror",
+   "forever": "Isla del Terror",
+   "use": "Isla del Terror"
+  },
+  "Jaedenar": {
+   "classic": "Jaedenar",
+   "forever": "Jaedenar",
+   "use": "Jaedenar"
+  },
+  "Jasperlode Mine": {
+   "classic": "Cantera de Jaspe",
+   "forever": "Cantera de Jaspe",
+   "use": "Cantera de Jaspe"
+  },
+  "Jintha'Alor": {
+   "classic": "Jintha'Alor",
+   "forever": "Jintha'Alor",
+   "use": "Jintha'Alor"
+  },
+  "Kalimdor": {
+   "classic": "Kalimdor",
+   "forever": "Kalimdor",
+   "use": "Kalimdor"
+  },
+  "Karazhan": {
+   "classic": "Karazhan",
+   "forever": "Karazhan",
+   "use": "Karazhan"
+  },
+  "Kargath": {
+   "classic": "Kargath",
+   "forever": "Kargath",
+   "use": "Kargath"
+  },
+  "Kharanos": {
+   "classic": "Kharanos",
+   "forever": "Kharanos",
+   "use": "Kharanos"
+  },
+  "Kodo Graveyard": {
+   "classic": "Cementerio de Kodos",
+   "forever": "Cementerio de Kodos",
+   "use": "Cementerio de Kodos"
+  },
+  "Kul Tiras": {
+   "classic": "Kul Tiras",
+   "forever": "Kul Tiras",
+   "use": "Kul Tiras"
+  },
+  "Lake Al'Ameth": {
+   "classic": "Lago Al'Ameth",
+   "forever": "Lago Al'Ameth",
+   "use": "Lago Al'Ameth"
+  },
+  "Lake Elune'ara": {
+   "classic": "Lago Elune'ara",
+   "forever": "Lago Elune'ara",
+   "use": "Lago Elune'ara"
+  },
+  "Lake Everstill": {
+   "classic": "Lago Sempiterno",
+   "forever": "Lago Sempiterno",
+   "use": "Lago Sempiterno"
+  },
+  "Lake Mennar": {
+   "classic": "Lago Mennar",
+   "forever": "Lago Mennar",
+   "use": "Lago Mennar"
+  },
+  "Lakeshire": {
+   "classic": "Villa del Lago",
+   "forever": "Villa del Lago",
+   "use": "Villa del Lago"
+  },
+  "Lethlor Ravine": {
+   "classic": "Barranco Lethlor",
+   "forever": "Barranco Lethlor",
+   "use": "Barranco Lethlor"
+  },
+  "Light's Hope Chapel": {
+   "classic": "Capilla de la Esperanza de la Luz",
+   "forever": "Capilla de la Esperanza de la Luz",
+   "use": "Capilla de la Esperanza de la Luz"
+  },
+  "Loch Modan": {
+   "classic": "Loch Modan",
+   "forever": "Loch Modan",
+   "use": "Loch Modan"
+  },
+  "Longshore": {
+   "classic": "Playa Larga",
+   "forever": "Playa Larga",
+   "use": "Playa Larga"
+  },
+  "Lordamere Lake": {
+   "classic": "Lago Lordamere",
+   "forever": "Lago Lordamere",
+   "use": "Lago Lordamere"
+  },
+  "Lost Rigger Cove": {
+   "classic": "Cala del Aparejo Perdido",
+   "forever": "Cala del Aparejo Perdido",
+   "use": "Cala del Aparejo Perdido"
+  },
+  "Malaka'jin": {
+   "classic": "Malaka'jin",
+   "forever": "Malaka'jin",
+   "use": "Malaka'jin"
+  },
+  "Mannoroc Coven": {
+   "classic": "Aquelarre Mannoroc",
+   "forever": "Aquelarre Mannoroc",
+   "use": "Aquelarre Mannoroc"
+  },
+  "Manor Mistmantle": {
+   "classic": "Mansión Mantoniebla",
+   "forever": "Mansión Mantoniebla",
+   "use": "Mansión Mantoniebla"
+  },
+  "Maraudon": {
+   "classic": "Maraudon",
+   "forever": "Maraudon",
+   "use": "Maraudon"
+  },
+  "Marshal's Refuge": {
+   "classic": "Refugio de Marshal",
+   "forever": "Refugio de Marshal",
+   "use": "Refugio de Marshal"
+  },
+  "Mazthoril": {
+   "classic": "Mazthoril",
+   "forever": "Mazthoril",
+   "use": "Mazthoril"
+  },
+  "Menethil Harbor": {
+   "classic": "Puerto de Menethil",
+   "forever": "Puerto de Menethil",
+   "use": "Puerto de Menethil"
+  },
+  "Mine": {
+   "classic": "Mina",
+   "forever": "Mina",
+   "use": "Mina"
+  },
+  "Mirage Raceway": {
+   "classic": "Circuito del Espejismo",
+   "forever": "Circuito del Espejismo",
+   "use": "Circuito del Espejismo"
+  },
+  "Mo'grosh Stronghold": {
+   "classic": "Fortaleza de Mo'grosh",
+   "forever": "Fortaleza de Mo'grosh",
+   "use": "Fortaleza de Mo'grosh"
+  },
+  "Molten Core": {
+   "classic": "Núcleo de Magma",
+   "forever": "Núcleo de Magma",
+   "use": "Núcleo de Magma"
+  },
+  "Moonbrook": {
+   "classic": "Arroyo de la Luna",
+   "forever": "Arroyo de la Luna",
+   "use": "Arroyo de la Luna"
+  },
+  "Moonglade": {
+   "classic": "Claro de la Luna",
+   "forever": "Claro de la Luna",
+   "use": "Claro de la Luna"
+  },
+  "Morgan's Vigil": {
+   "classic": "Vigilia de Morgan",
+   "forever": "Vigilia de Morgan",
+   "use": "Vigilia de Morgan"
+  },
+  "Morlos'Aran": {
+   "classic": "Morlos'Aran",
+   "forever": "Morlos'Aran",
+   "use": "Morlos'Aran"
+  },
+  "Mulgore": {
+   "classic": "Mulgore",
+   "forever": "Mulgore",
+   "use": "Mulgore"
+  },
+  "Naxxramas": {
+   "classic": "Naxxramas",
+   "forever": "Naxxramas",
+   "use": "Naxxramas"
+  },
+  "Nethergarde Keep": {
+   "classic": "Castillo de Nethergarde",
+   "forever": "Castillo de Nethergarde",
+   "use": "Castillo de Nethergarde"
+  },
+  "Nighthaven": {
+   "classic": "Amparo de la Noche",
+   "forever": "Amparo de la Noche",
+   "use": "Amparo de la Noche"
+  },
+  "Nightmare Vale": {
+   "classic": "Vega Pesadilla",
+   "forever": "Vega Pesadilla",
+   "use": "Vega Pesadilla"
+  },
+  "Nijel's Point": {
+   "classic": "Punta de Nijel",
+   "forever": "Punta de Nijel",
+   "use": "Punta de Nijel"
+  },
+  "Northfold Manor": {
+   "classic": "Mansión Redilnorte",
+   "forever": "Mansión Redilnorte",
+   "use": "Mansión Redilnorte"
+  },
+  "Northpass Tower": {
+   "classic": "Torre del Paso Norte",
+   "forever": "Torre del Paso Norte",
+   "use": "Torre del Paso Norte"
+  },
+  "Old Ironforge": {
+   "classic": "Antigua Forjaz",
+   "use": "Antigua Forjaz"
+  },
+  "Orgrimmar": {
+   "classic": "Orgrimmar",
+   "forever": "Orgrimmar",
+   "use": "Orgrimmar"
+  },
+  "Outland": {
+   "classic": "Terrallende",
+   "forever": "Terrallende",
+   "use": "Terrallende"
+  },
+  "Overlook Standing Stones": {
+   "forever": "Piedras Erguidas del Mirador",
+   "use": "Piedras Erguidas del Mirador"
+  },
+  "Palemane Rock": {
+   "classic": "Roca Crines Pálidas",
+   "forever": "Roca Crines Pálidas",
+   "use": "Roca Crines Pálidas"
+  },
+  "Plaguemist Ravine": {
+   "classic": "Barranco Bruma Enferma",
+   "forever": "Barranco Bruma Enferma",
+   "use": "Barranco Bruma Enferma"
+  },
+  "Plaguewood": {
+   "classic": "Bosque de la Peste",
+   "forever": "Bosque de la Peste",
+   "use": "Bosque de la Peste"
+  },
+  "Pool of Tears": {
+   "classic": "Charca de Lágrimas",
+   "forever": "Charca de Lágrimas",
+   "use": "Charca de Lágrimas"
+  },
+  "Quel'Danil Lodge": {
+   "classic": "Avanzada Quel'Danil",
+   "forever": "Avanzada Quel'Danil",
+   "use": "Avanzada Quel'Danil"
+  },
+  "Quel'Lithien Lodge": {
+   "classic": "Refugio Quel'Lithien",
+   "forever": "Refugio Quel'Lithien",
+   "use": "Refugio Quel'Lithien"
+  },
+  "Ragefire Chasm": {
+   "classic": "Sima Ígnea",
+   "forever": "Sima Ígnea",
+   "use": "Sima Ígnea"
+  },
+  "Raptor Ridge": {
+   "classic": "Colina del Raptor",
+   "forever": "Colina del Raptor",
+   "use": "Colina del Raptor"
+  },
+  "Ratchet": {
+   "classic": "Trinquete",
+   "forever": "Trinquete",
+   "use": "Trinquete"
+  },
+  "Raven Hill": {
+   "classic": "Cerro del Cuervo",
+   "forever": "Cerro del Cuervo",
+   "use": "Cerro del Cuervo"
+  },
+  "Raven Hill Cemetery": {
+   "classic": "Cementerio del Cerro del Cuervo",
+   "forever": "Cementerio del Cerro del Cuervo",
+   "use": "Cementerio del Cerro del Cuervo"
+  },
+  "Ravencrest Monument": {
+   "classic": "Monumento Cresta Cuervo",
+   "forever": "Monumento Cresta Cuervo",
+   "use": "Monumento Cresta Cuervo"
+  },
+  "Ravenholdt Manor": {
+   "classic": "Mansión Ravenholdt",
+   "forever": "Mansión Ravenholdt",
+   "use": "Mansión Ravenholdt"
+  },
+  "Razor Hill": {
+   "classic": "Cerrotajo",
+   "forever": "Cerrotajo",
+   "use": "Cerrotajo"
+  },
+  "Razorfen Downs": {
+   "classic": "Zahúrda Rajacieno",
+   "forever": "Zahúrda Rajacieno",
+   "use": "Zahúrda Rajacieno"
+  },
+  "Razorfen Kraul": {
+   "classic": "Horado Rajacieno",
+   "forever": "Horado Rajacieno",
+   "use": "Horado Rajacieno"
+  },
+  "Razorwind Canyon": {
+   "classic": "Cañón del Ventajo",
+   "forever": "Cañón del Ventajo",
+   "use": "Cañón del Ventajo"
+  },
+  "Red Rocks": {
+   "classic": "Roca Roja",
+   "forever": "Roca Roja",
+   "use": "Roca Roja"
+  },
+  "Redridge Mountains": {
+   "classic": "Montañas Crestagrana",
+   "forever": "Montañas Crestagrana",
+   "use": "Montañas Crestagrana"
+  },
+  "Refuge Pointe": {
+   "classic": "Refugio de la Zaga",
+   "forever": "Refugio de la Zaga",
+   "use": "Refugio de la Zaga"
+  },
+  "Render's Valley": {
+   "classic": "Valle de Render",
+   "forever": "Valle de Render",
+   "use": "Valle de Render"
+  },
+  "Revantusk Village": {
+   "classic": "Poblado Sañadiente",
+   "forever": "Poblado Sañadiente",
+   "use": "Poblado Sañadiente"
+  },
+  "Royal Quarter": {
+   "classic": "Barrio Real",
+   "forever": "Barrio Real",
+   "use": "Barrio Real"
+  },
+  "Ruins": {
+   "forever": "Ruinas",
+   "use": "Ruinas"
+  },
+  "Ruins of Lordaeron": {
+   "classic": "Ruinas de Lordaeron",
+   "forever": "Ruinas de Lordaeron",
+   "use": "Ruinas de Lordaeron"
+  },
+  "Ruins of Zul'Kunda": {
+   "classic": "Ruinas de Zul'Kunda",
+   "forever": "Ruinas de Zul'Kunda",
+   "use": "Ruinas de Zul'Kunda"
+  },
+  "Rut'theran Village": {
+   "classic": "Aldea Rut'theran",
+   "forever": "Aldea Rut'theran",
+   "use": "Aldea Rut'theran"
+  },
+  "Sardor Isle": {
+   "classic": "Isla de Sardor",
+   "forever": "Isla de Sardor",
+   "use": "Isla de Sardor"
+  },
+  "Sargeron": {
+   "classic": "Sargeron",
+   "forever": "Sargeron",
+   "use": "Sargeron"
+  },
+  "Satyrnaar": {
+   "classic": "Satyrnaar",
+   "forever": "Satyrnaar",
+   "use": "Satyrnaar"
+  },
+  "Scarlet Monastery": {
+   "classic": "Monasterio Escarlata",
+   "forever": "Monasterio Escarlata",
+   "use": "Monasterio Escarlata"
+  },
+  "Scholomance": {
+   "classic": "Scholomance",
+   "forever": "Scholomance",
+   "use": "Scholomance"
+  },
+  "Searing Gorge": {
+   "classic": "La Garganta de Fuego",
+   "forever": "La Garganta de Fuego",
+   "use": "La Garganta de Fuego"
+  },
+  "Sen'jin Village": {
+   "classic": "Poblado Sen'jin",
+   "forever": "Poblado Sen'jin",
+   "use": "Poblado Sen'jin"
+  },
+  "Sentinel Hill": {
+   "classic": "Colina del Centinela",
+   "forever": "Colina del Centinela",
+   "use": "Colina del Centinela"
+  },
+  "Seradane": {
+   "classic": "Seradane",
+   "forever": "Seradane",
+   "use": "Seradane"
+  },
+  "Shadowbreak Ravine": {
+   "classic": "Barranco Rompesombras",
+   "forever": "Barranco Rompesombras",
+   "use": "Barranco Rompesombras"
+  },
+  "Shadowfang Keep": {
+   "classic": "Castillo de Colmillo Oscuro",
+   "forever": "Castillo de Colmillo Oscuro",
+   "use": "Castillo de Colmillo Oscuro"
+  },
+  "Shadowgale Forest": {
+   "forever": "Bosque Ventarrosombra",
+   "use": "Bosque Ventarrosombra"
+  },
+  "Shadowglen": {
+   "classic": "Cañada Umbría",
+   "forever": "Cañada Umbría",
+   "use": "Cañada Umbría"
+  },
+  "Shadowprey Village": {
+   "classic": "Aldea Cazasombras",
+   "forever": "Aldea Cazasombras",
+   "use": "Aldea Cazasombras"
+  },
+  "Shaol'watha": {
+   "classic": "Shaol'watha",
+   "forever": "Shaol'watha",
+   "use": "Shaol'watha"
+  },
+  "Shatter Scar Vale": {
+   "classic": "Cañada Gran Cicatriz",
+   "forever": "Cañada Gran Cicatriz",
+   "use": "Cañada Gran Cicatriz"
+  },
+  "Shen'dar Highlands": {
+   "forever": "Tierras Altas de Shen'dar",
+   "use": "Tierras Altas de Shen'dar"
+  },
+  "Shrine of Akir": {
+   "forever": "Santuario de Akir",
+   "use": "Santuario de Akir"
+  },
+  "Shrine of the Fallen Warrior": {
+   "classic": "Santuario del Guerrero Caído",
+   "forever": "Santuario del Guerrero Caído",
+   "use": "Santuario del Guerrero Caído"
+  },
+  "Silithus": {
+   "classic": "Silithus",
+   "forever": "Silithus",
+   "use": "Silithus"
+  },
+  "Silverpine Forest": {
+   "classic": "Bosque de Argénteos",
+   "forever": "Bosque de Argénteos",
+   "use": "Bosque de Argénteos"
+  },
+  "Skywall": {
+   "forever": "Muro Celeste",
+   "use": "Muro Celeste"
+  },
+  "Sorrowmurk": {
+   "classic": "Tinieblas de las Penas",
+   "forever": "Tinieblas de las Penas",
+   "use": "Tinieblas de las Penas"
+  },
+  "Southbreak Shore": {
+   "classic": "Tierras del Sur",
+   "forever": "Tierras del Sur",
+   "use": "Tierras del Sur"
+  },
+  "Southmoon Ruins": {
+   "classic": "Ruinas de Lunasur",
+   "forever": "Ruinas de Lunasur",
+   "use": "Ruinas de Lunasur"
+  },
+  "Southshore": {
+   "classic": "Costasur",
+   "forever": "Costasur",
+   "use": "Costasur"
+  },
+  "Southwind Village": {
+   "classic": "Aldea del Viento del Sur",
+   "forever": "Aldea del Viento del Sur",
+   "use": "Aldea del Viento del Sur"
+  },
+  "Spirit Rise": {
+   "classic": "Alto de los Espíritus",
+   "forever": "Alto de los Espíritus",
+   "use": "Alto de los Espíritus"
+  },
+  "Starfall Village": {
+   "classic": "Aldea Estrella Fugaz",
+   "forever": "Aldea Estrella Fugaz",
+   "use": "Aldea Estrella Fugaz"
+  },
+  "Steamwheedle Port": {
+   "classic": "Puerto Bonvapor",
+   "forever": "Puerto Bonvapor",
+   "use": "Puerto Bonvapor"
+  },
+  "Stendel's Pond": {
+   "classic": "Estanque de Stendel",
+   "forever": "Estanque de Stendel",
+   "use": "Estanque de Stendel"
+  },
+  "Stillwater Pond": {
+   "classic": "Charca Aguaserena",
+   "forever": "Charca Aguaserena",
+   "use": "Charca Aguaserena"
+  },
+  "Stonard": {
+   "classic": "Rocal",
+   "forever": "Rocal",
+   "use": "Rocal"
+  },
+  "Stone Cairn Lake": {
+   "classic": "Lago del Hito",
+   "forever": "Lago del Hito",
+   "use": "Lago del Hito"
+  },
+  "Stonesplinter Valley": {
+   "classic": "Valle Rompecantos",
+   "forever": "Valle Rompecantos",
+   "use": "Valle Rompecantos"
+  },
+  "Stonetalon Mountains": {
+   "classic": "Sierra Espolón",
+   "forever": "Sierra Espolón",
+   "use": "Sierra Espolón"
+  },
+  "Stonetalon Peak": {
+   "classic": "Cima del Espolón",
+   "forever": "Cima del Espolón",
+   "use": "Cima del Espolón"
+  },
+  "Stonewatch": {
+   "classic": "Petravista",
+   "forever": "Petravista",
+   "use": "Petravista"
+  },
+  "Stonewatch Falls": {
+   "classic": "Cascadas Petravista",
+   "forever": "Cascadas Petravista",
+   "use": "Cascadas Petravista"
+  },
+  "Stonewatch Keep": {
+   "classic": "Fuerte de Petravista",
+   "forever": "Fuerte de Petravista",
+   "use": "Fuerte de Petravista"
+  },
+  "Stonewrought Dam": {
+   "classic": "Presa de las Tres Cabezas",
+   "forever": "Presa de las Tres Cabezas",
+   "use": "Presa de las Tres Cabezas"
+  },
+  "Stonewrought Pass": {
+   "classic": "Paso de Fraguapiedra",
+   "forever": "Paso de Fraguapiedra",
+   "use": "Paso de Fraguapiedra"
+  },
+  "Stormwind City": {
+   "classic": "Ciudad de Ventormenta",
+   "forever": "Ciudad de Ventormenta",
+   "use": "Ciudad de Ventormenta"
+  },
+  "Strahnbrad": {
+   "classic": "Strahnbrad",
+   "forever": "Strahnbrad",
+   "use": "Strahnbrad"
+  },
+  "Stranglethorn Vale": {
+   "classic": "Vega de Tuercespina",
+   "forever": "Vega de Tuercespina",
+   "use": "Vega de Tuercespina"
+  },
+  "Stratholme": {
+   "classic": "Stratholme",
+   "forever": "Stratholme",
+   "use": "Stratholme"
+  },
+  "Sun Rock Retreat": {
+   "classic": "Refugio Roca del Sol",
+   "forever": "Refugio Roca del Sol",
+   "use": "Refugio Roca del Sol"
+  },
+  "Sundown Marsh": {
+   "classic": "Pantano del Ocaso",
+   "forever": "Pantano del Ocaso",
+   "use": "Pantano del Ocaso"
+  },
+  "Sunken Temple": {
+   "classic": "Templo Sumergido",
+   "forever": "Templo Sumergido",
+   "use": "Templo Sumergido"
+  },
+  "Swamp of Sorrows": {
+   "classic": "Pantano de las Penas",
+   "forever": "Pantano de las Penas",
+   "use": "Pantano de las Penas"
+  },
+  "Talonbranch Glade": {
+   "classic": "Claro Ramaespolón",
+   "forever": "Claro Ramaespolón",
+   "use": "Claro Ramaespolón"
+  },
+  "Talrendis Point": {
+   "classic": "Punta Talrendis",
+   "forever": "Punta Talrendis",
+   "use": "Punta Talrendis"
+  },
+  "Tanaris": {
+   "classic": "Tanaris",
+   "forever": "Tanaris",
+   "use": "Tanaris"
+  },
+  "Tarren Mill": {
+   "classic": "Molino Tarren",
+   "forever": "Molino Tarren",
+   "use": "Molino Tarren"
+  },
+  "Teldrassil": {
+   "classic": "Teldrassil",
+   "forever": "Teldrassil",
+   "use": "Teldrassil"
+  },
+  "Temple of the Moon": {
+   "classic": "Templo de la Luna",
+   "forever": "Templo de la Luna",
+   "use": "Templo de la Luna"
+  },
+  "Terrace of Repose": {
+   "classic": "Bancal del Reposo",
+   "forever": "Bancal del Reposo",
+   "use": "Bancal del Reposo"
+  },
+  "Tethris Aran": {
+   "classic": "Tethris Aran",
+   "forever": "Tethris Aran",
+   "use": "Tethris Aran"
+  },
+  "Thandol Span": {
+   "classic": "Puente Thandol",
+   "forever": "Puente Thandol",
+   "use": "Puente Thandol"
+  },
+  "The Barrens": {
+   "classic": "Los Baldíos",
+   "forever": "Los Baldíos",
+   "use": "Los Baldíos"
+  },
+  "The Black Forge": {
+   "forever": "La Forja Negra",
+   "use": "La Forja Negra"
+  },
+  "The Bulwark": {
+   "classic": "El Baluarte",
+   "forever": "El Baluarte",
+   "use": "El Baluarte"
+  },
+  "The Canals": {
+   "classic": "Los Canales",
+   "forever": "Los Canales",
+   "use": "Los Canales"
+  },
+  "The Cauldron": {
+   "classic": "La Caldera",
+   "forever": "La Caldera",
+   "use": "La Caldera"
+  },
+  "The Cave": {
+   "classic": "La Cueva",
+   "forever": "La Cueva",
+   "use": "La Cueva"
+  },
+  "The Charred Vale": {
+   "classic": "La Vega Carbonizada",
+   "forever": "La Vega Carbonizada",
+   "use": "La Vega Carbonizada"
+  },
+  "The Coven": {
+   "classic": "El Aquelarre",
+   "forever": "El Aquelarre",
+   "use": "El Aquelarre"
+  },
+  "The Crossroads": {
+   "classic": "El Cruce",
+   "forever": "El Cruce",
+   "use": "El Cruce"
+  },
+  "The Crystal Vale": {
+   "classic": "La Vega de Cristal",
+   "forever": "La Vega de Cristal",
+   "use": "La Vega de Cristal"
+  },
+  "The Dark Portal": {
+   "classic": "El Portal Oscuro",
+   "forever": "El Portal Oscuro",
+   "use": "El Portal Oscuro"
+  },
+  "The Darkened Bank": {
+   "classic": "La Ribera Lóbrega",
+   "forever": "La Ribera Lóbrega",
+   "use": "La Ribera Lóbrega"
+  },
+  "The Dead Acre": {
+   "classic": "El Campo Funesto",
+   "forever": "El Campo Funesto",
+   "use": "El Campo Funesto"
+  },
+  "The Deadmines": {
+   "classic": "Las Minas de la Muerte",
+   "forever": "Las Minas de la Muerte",
+   "use": "Las Minas de la Muerte"
+  },
+  "The Drag": {
+   "classic": "La Calle Mayor",
+   "forever": "La Calle Mayor",
+   "use": "La Calle Mayor"
+  },
+  "The Farstrider Lodge": {
+   "classic": "Cabaña del Errante",
+   "forever": "Cabaña del Errante",
+   "use": "Cabaña del Errante"
+  },
+  "The Forge": {
+   "forever": "La Forja",
+   "use": "La Forja"
+  },
+  "The Frozen Throne": {
+   "forever": "El Trono Helado",
+   "use": "El Trono Helado"
+  },
+  "The Golden Plains": {
+   "classic": "Las Llanuras Doradas",
+   "forever": "Las Llanuras Doradas",
+   "use": "Las Llanuras Doradas"
+  },
+  "The Great Forge": {
+   "classic": "La Gran Fundición",
+   "forever": "La Gran Fundición",
+   "use": "La Gran Fundición"
+  },
+  "The Great Lift": {
+   "classic": "El Gran Elevador",
+   "forever": "El Gran Elevador",
+   "use": "El Gran Elevador"
+  },
+  "The Greymane Wall": {
+   "classic": "La Muralla de Cringris",
+   "forever": "La Muralla de Cringris",
+   "use": "La Muralla de Cringris"
+  },
+  "The Grizzled Den": {
+   "classic": "El Cubil Pardo",
+   "forever": "El Cubil Pardo",
+   "use": "El Cubil Pardo"
+  },
+  "The Hall of Thanes": {
+   "forever": "El Salón de Señores Feudales",
+   "use": "El Salón de Señores Feudales"
+  },
+  "The Harborage": {
+   "classic": "El Puerto",
+   "forever": "El Puerto",
+   "use": "El Puerto"
+  },
+  "The High Seat": {
+   "classic": "El Trono",
+   "forever": "El Trono",
+   "use": "El Trono"
+  },
+  "The Hinterlands": {
+   "classic": "Tierras del Interior",
+   "forever": "Tierras del Interior",
+   "use": "Tierras del Interior"
+  },
+  "The Loch": {
+   "classic": "Loch Modan",
+   "forever": "Loch Modan",
+   "use": "Loch Modan"
+  },
+  "The Maker's Terrace": {
+   "classic": "Bancal del Hacedor",
+   "forever": "Bancal del Hacedor",
+   "use": "Bancal del Hacedor"
+  },
+  "The Maul": {
+   "classic": "La Marra",
+   "forever": "La Marra",
+   "use": "La Marra"
+  },
+  "The Merchant Coast": {
+   "classic": "La Costa Mercante",
+   "forever": "La Costa Mercante",
+   "use": "La Costa Mercante"
+  },
+  "The Molten Core": {
+   "classic": "Núcleo de Magma",
+   "forever": "Núcleo de Magma",
+   "use": "Núcleo de Magma"
+  },
+  "The Mor'shan Rampart": {
+   "classic": "La Empalizada de Mor'shan",
+   "forever": "La Empalizada de Mor'shan",
+   "use": "La Empalizada de Mor'shan"
+  },
+  "The Overlook": {
+   "forever": "La Dominancia",
+   "use": "La Dominancia"
+  },
+  "The Pillar of Ash": {
+   "classic": "El Pilar de Ceniza",
+   "forever": "El Pilar de Ceniza",
+   "use": "El Pilar de Ceniza"
+  },
+  "The Rolling Plains": {
+   "classic": "Las Llanuras Onduladas",
+   "forever": "Las Llanuras Onduladas",
+   "use": "Las Llanuras Onduladas"
+  },
+  "The Rotting Orchard": {
+   "classic": "El Vergel Pútrido",
+   "forever": "El Vergel Pútrido",
+   "use": "El Vergel Pútrido"
+  },
+  "The Savage Coast": {
+   "classic": "La Costa Salvaje",
+   "forever": "La Costa Salvaje",
+   "use": "La Costa Salvaje"
+  },
+  "The Scarab Wall": {
+   "classic": "El Muro del Escarabajo",
+   "forever": "El Muro del Escarabajo",
+   "use": "El Muro del Escarabajo"
+  },
+  "The Screeching Canyon": {
+   "classic": "Cañón del Chirrido",
+   "forever": "Cañón del Chirrido",
+   "use": "Cañón del Chirrido"
+  },
+  "The Sepulcher": {
+   "classic": "El Sepulcro",
+   "forever": "El Sepulcro",
+   "use": "El Sepulcro"
+  },
+  "The Shark": {
+   "forever": "El Tiburón",
+   "use": "El Tiburón"
+  },
+  "The Shimmering Flats": {
+   "classic": "El Desierto de Sal",
+   "forever": "El Desierto de Sal",
+   "use": "El Desierto de Sal"
+  },
+  "The Slithering Scar": {
+   "classic": "La Cicatriz Serpenteante",
+   "forever": "La Cicatriz Serpenteante",
+   "use": "La Cicatriz Serpenteante"
+  },
+  "The Spire": {
+   "forever": "La Aguja",
+   "use": "La Aguja"
+  },
+  "The Stockade": {
+   "classic": "Las Mazmorras",
+   "forever": "Las Mazmorras",
+   "use": "Las Mazmorras"
+  },
+  "The Sunwell": {
+   "forever": "La Fuente del Sol",
+   "use": "La Fuente del Sol"
+  },
+  "The Tainted Scar": {
+   "classic": "Escara Impía",
+   "forever": "Escara Impía",
+   "use": "Escara Impía"
+  },
+  "The Temple of Atal'Hakkar": {
+   "classic": "El Templo de Atal'Hakkar",
+   "forever": "El Templo de Atal'Hakkar",
+   "use": "El Templo de Atal'Hakkar"
+  },
+  "The Tidus Stair": {
+   "classic": "El Escalón de la Marea",
+   "forever": "El Escalón de la Marea",
+   "use": "El Escalón de la Marea"
+  },
+  "The Twin Colossals": {
+   "classic": "Los Dos Colosos",
+   "forever": "Los Dos Colosos",
+   "use": "Los Dos Colosos"
+  },
+  "The Wailing Caverns": {
+   "classic": "Las Cuevas de los Lamentos",
+   "forever": "Las Cuevas de los Lamentos",
+   "use": "Las Cuevas de los Lamentos"
+  },
+  "The Weeping Cave": {
+   "classic": "La Cueva del Llanto",
+   "forever": "La Cueva del Llanto",
+   "use": "La Cueva del Llanto"
+  },
+  "The World Tree": {
+   "classic": "Árbol del Mundo",
+   "forever": "Árbol del Mundo",
+   "use": "Árbol del Mundo"
+  },
+  "The Zoram Strand": {
+   "classic": "La Ensenada de Zoram",
+   "forever": "La Ensenada de Zoram",
+   "use": "La Ensenada de Zoram"
+  },
+  "Thelsamar": {
+   "classic": "Thelsamar",
+   "forever": "Thelsamar",
+   "use": "Thelsamar"
+  },
+  "Thendal Village": {
+   "forever": "Poblado Thendal",
+   "use": "Poblado Thendal"
+  },
+  "Theramore Isle": {
+   "classic": "Isla Theramore",
+   "forever": "Isla Theramore",
+   "use": "Isla Theramore"
+  },
+  "Thondroril River": {
+   "classic": "Río Thondroril",
+   "forever": "Río Thondroril",
+   "use": "Río Thondroril"
+  },
+  "Thoradin's Wall": {
+   "classic": "Muralla de Thoradin",
+   "forever": "Muralla de Thoradin",
+   "use": "Muralla de Thoradin"
+  },
+  "Thorium Point": {
+   "classic": "Puesto del Torio",
+   "forever": "Puesto del Torio",
+   "use": "Puesto del Torio"
+  },
+  "Thousand Needles": {
+   "classic": "Las Mil Agujas",
+   "forever": "Las Mil Agujas",
+   "use": "Las Mil Agujas"
+  },
+  "Thunder Axe Fortress": {
+   "classic": "Fortaleza del Hacha de Trueno",
+   "forever": "Fortaleza del Hacha de Trueno",
+   "use": "Fortaleza del Hacha de Trueno"
+  },
+  "Thunder Bluff": {
+   "classic": "Cima del Trueno",
+   "forever": "Cima del Trueno",
+   "use": "Cima del Trueno"
+  },
+  "Timbermaw Hold": {
+   "classic": "Bastión Fauces de Madera",
+   "forever": "Bastión Fauces de Madera",
+   "use": "Bastión Fauces de Madera"
+  },
+  "Tinker Town": {
+   "classic": "Ciudad Manitas",
+   "forever": "Ciudad Manitas",
+   "use": "Ciudad Manitas"
+  },
+  "Tiragarde Keep": {
+   "classic": "Fuerte de Tiragarde",
+   "forever": "Fuerte de Tiragarde",
+   "use": "Fuerte de Tiragarde"
+  },
+  "Tirisfal Glades": {
+   "classic": "Claros de Tirisfal",
+   "forever": "Claros de Tirisfal",
+   "use": "Claros de Tirisfal"
+  },
+  "Trade District": {
+   "classic": "Distrito de Mercaderes",
+   "forever": "Distrito de Mercaderes",
+   "use": "Distrito de Mercaderes"
+  },
+  "Twilight Grove": {
+   "classic": "Arboleda del Crepúsculo",
+   "forever": "Arboleda del Crepúsculo",
+   "use": "Arboleda del Crepúsculo"
+  },
+  "Tyr's Hand": {
+   "classic": "Mano de Tyr",
+   "forever": "Mano de Tyr",
+   "use": "Mano de Tyr"
+  },
+  "Uldaman": {
+   "classic": "Uldaman",
+   "forever": "Uldaman",
+   "use": "Uldaman"
+  },
+  "Un'Goro Crater": {
+   "classic": "Cráter de Un'Goro",
+   "forever": "Cráter de Un'Goro",
+   "use": "Cráter de Un'Goro"
+  },
+  "Undercity": {
+   "classic": "Entrañas",
+   "forever": "Entrañas",
+   "use": "Entrañas"
+  },
+  "Valanaar": {
+   "forever": "Valanaar",
+   "use": "Valanaar"
+  },
+  "Valley of Heroes": {
+   "classic": "Valle de los Héroes",
+   "forever": "Valle de los Héroes",
+   "use": "Valle de los Héroes"
+  },
+  "Valley of Kings": {
+   "classic": "Valle de los Reyes",
+   "forever": "Valle de los Reyes",
+   "use": "Valle de los Reyes"
+  },
+  "Valley of Spears": {
+   "classic": "Valle de las Lanzas",
+   "forever": "Valle de las Lanzas",
+   "use": "Valle de las Lanzas"
+  },
+  "Valley of Strength": {
+   "classic": "Valle de la Fuerza",
+   "forever": "Valle de la Fuerza",
+   "use": "Valle de la Fuerza"
+  },
+  "Valley of Trials": {
+   "classic": "Valle de los Retos",
+   "forever": "Valle de los Retos",
+   "use": "Valle de los Retos"
+  },
+  "Valley of Wisdom": {
+   "classic": "Valle de la Sabiduría",
+   "forever": "Valle de la Sabiduría",
+   "use": "Valle de la Sabiduría"
+  },
+  "Valormok": {
+   "classic": "Valormok",
+   "forever": "Valormok",
+   "use": "Valormok"
+  },
+  "Verdantis River": {
+   "classic": "Río Verdantis",
+   "forever": "Río Verdantis",
+   "use": "Río Verdantis"
+  },
+  "Wailing Caverns": {
+   "classic": "Cuevas de los Lamentos",
+   "forever": "Cuevas de los Lamentos",
+   "use": "Cuevas de los Lamentos"
+  },
+  "War Quarter": {
+   "classic": "Barrio de la Guerra",
+   "forever": "Barrio de la Guerra",
+   "use": "Barrio de la Guerra"
+  },
+  "Webwinder Path": {
+   "classic": "Senda de las Tejedoras",
+   "forever": "Senda de las Tejedoras",
+   "use": "Senda de las Tejedoras"
+  },
+  "Western Plaguelands": {
+   "classic": "Tierras de la Peste del Oeste",
+   "forever": "Tierras de la Peste del Oeste",
+   "use": "Tierras de la Peste del Oeste"
+  },
+  "Westfall": {
+   "classic": "Páramos de Poniente",
+   "forever": "Páramos de Poniente",
+   "use": "Páramos de Poniente"
+  },
+  "Wetlands": {
+   "classic": "Los Humedales",
+   "forever": "Los Humedales",
+   "use": "Los Humedales"
+  },
+  "Whelgar's Excavation Site": {
+   "classic": "Excavación de Whelgar",
+   "forever": "Excavación de Whelgar",
+   "use": "Excavación de Whelgar"
+  },
+  "Whispering Gardens": {
+   "classic": "Jardines de los Susurros",
+   "forever": "Jardines de los Susurros",
+   "use": "Jardines de los Susurros"
+  },
+  "Windfury Ridge": {
+   "classic": "Cresta Viento Furioso",
+   "forever": "Cresta Viento Furioso",
+   "use": "Cresta Viento Furioso"
+  },
+  "Windsong Lake": {
+   "forever": "Lago Son del Viento",
+   "use": "Lago Son del Viento"
+  },
+  "Winterspring": {
+   "classic": "Cuna del Invierno",
+   "forever": "Cuna del Invierno",
+   "use": "Cuna del Invierno"
+  },
+  "Wyrmbog": {
+   "classic": "Ciénaga de Fuego",
+   "forever": "Ciénaga de Fuego",
+   "use": "Ciénaga de Fuego"
+  },
+  "Yojamba Isle": {
+   "classic": "Isla Yojamba",
+   "forever": "Isla Yojamba",
+   "use": "Isla Yojamba"
+  },
+  "Zalashji's Den": {
+   "classic": "Guarida de Zalashji",
+   "forever": "Guarida de Zalashji",
+   "use": "Guarida de Zalashji"
+  },
+  "Zephras Isle": {
+   "forever": "Isla Zephras",
+   "use": "Isla Zephras"
+  },
+  "Zul'Farrak": {
+   "classic": "Zul'Farrak",
+   "forever": "Zul'Farrak",
+   "use": "Zul'Farrak"
+  },
+  "Zul'Gurub": {
+   "classic": "Zul'Gurub",
+   "forever": "Zul'Gurub",
+   "use": "Zul'Gurub"
+  },
+  "Zul'Mashar": {
+   "classic": "Zul'Mashar",
+   "forever": "Zul'Mashar",
+   "use": "Zul'Mashar"
+  }
+ },
+ "titles": {
+  "Artisan Alchemist": {
+   "classic": "Artesano alquimista",
+   "forever": "Artesano alquimista",
+   "use": "Artesano alquimista"
+  },
+  "Artisan Enchanter": {
+   "classic": "Artesano encantador",
+   "forever": "Artesano encantador",
+   "use": "Artesano encantador"
+  },
+  "Assassin's League": {
+   "classic": "Liga de asesinos",
+   "forever": "Liga de asesinos",
+   "use": "Liga de asesinos"
+  },
+  "Brann Bronzebeard's Pet Monkey": {
+   "classic": "Mono de Brann Barbabronce",
+   "forever": "Mono de Brann Barbabronce",
+   "use": "Mono de Brann Barbabronce"
+  },
+  "Cenarion Circle": {
+   "classic": "Círculo Cenarion",
+   "forever": "Círculo Cenarion",
+   "use": "Círculo Cenarion"
+  },
+  "Crazy Cat Lady": {
+   "classic": "Loca de los gatos",
+   "forever": "Loca de los gatos",
+   "use": "Loca de los gatos"
+  },
+  "Cult of the Damned": {
+   "classic": "Culto de los Malditos",
+   "forever": "Culto de los Malditos",
+   "use": "Culto de los Malditos"
+  },
+  "Druid of the Fang": {
+   "classic": "Druida del Colmillo",
+   "forever": "Druida del Colmillo",
+   "use": "Druida del Colmillo"
+  },
+  "Emerald Circle": {
+   "classic": "Círculo Esmeralda",
+   "forever": "Círculo Esmeralda",
+   "use": "Círculo Esmeralda"
+  },
+  "Gerard's Mindslave": {
+   "classic": "Cazamentes de Gerard",
+   "forever": "Cazamentes de Gerard",
+   "use": "Cazamentes de Gerard"
+  },
+  "High Priest": {
+   "classic": "Sumo sacerdote",
+   "forever": "Sumo sacerdote",
+   "use": "Sumo sacerdote"
+  },
+  "Horde Runner": {
+   "classic": "Corredor de la Horda",
+   "forever": "Corredor de la Horda",
+   "use": "Corredor de la Horda"
+  },
+  "Journeyman Leatherworker": {
+   "classic": "Oficial peletero",
+   "forever": "Oficial peletero",
+   "use": "Oficial peletero"
+  },
+  "Kirin Tor": {
+   "classic": "Kirin Tor",
+   "forever": "Kirin Tor",
+   "use": "Kirin Tor"
+  },
+  "Landscape Architect": {
+   "classic": "Arquitecto paisajista",
+   "forever": "Arquitecto paisajista",
+   "use": "Arquitecto paisajista"
+  },
+  "Merchant Supreme": {
+   "classic": "Mercader supremo",
+   "forever": "Mercader supremo",
+   "use": "Mercader supremo"
+  },
+  "Prairie Dog": {
+   "classic": "Perro de pradera",
+   "forever": "Perro de pradera",
+   "use": "Perro de pradera"
+  },
+  "Race Starter Girl": {
+   "classic": "Chica que anuncia el inicio de una carrera",
+   "forever": "Chica que anuncia el inicio de una carrera",
+   "use": "Chica que anuncia el inicio de una carrera"
+  },
+  "Stonesplinter Chieftain": {
+   "classic": "Jefe Rompecantos",
+   "forever": "Jefe Rompecantos",
+   "use": "Jefe Rompecantos"
+  },
+  "The Argent Dawn": {
+   "classic": "El Alba Argenta",
+   "forever": "El Alba Argenta",
+   "use": "El Alba Argenta"
+  },
+  "The Cenarion Circle": {
+   "classic": "El Círculo Cenarion",
+   "forever": "El Círculo Cenarion",
+   "use": "El Círculo Cenarion"
+  },
+  "The Mithril Order": {
+   "classic": "La Orden del mitril",
+   "forever": "La Orden del mitril",
+   "use": "La Orden del mitril"
+  },
+  "The Night Watch": {
+   "classic": "La Guardia Nocturna",
+   "forever": "La Guardia Nocturna",
+   "use": "La Guardia Nocturna"
+  },
+  "The People's Militia": {
+   "classic": "La Milicia Popular",
+   "forever": "La Milicia Popular",
+   "use": "La Milicia Popular"
+  },
+  "The Scarlet Crusade": {
+   "classic": "La Cruzada Escarlata",
+   "forever": "La Cruzada Escarlata",
+   "use": "La Cruzada Escarlata"
+  },
+  "The Thorium Brotherhood": {
+   "classic": "La Hermandad del Torio",
+   "forever": "La Hermandad del Torio",
+   "use": "La Hermandad del Torio"
+  },
+  "Twilight's Hammer": {
+   "classic": "Martillo Crepuscular",
+   "forever": "Martillo Crepuscular",
+   "use": "Martillo Crepuscular"
+  },
+  "Unbalanced Engineer": {
+   "classic": "Ingeniero trastornado",
+   "forever": "Ingeniero trastornado",
+   "use": "Ingeniero trastornado"
+  },
+  "Weapon Dealer": {
+   "classic": "Vendedor de armas",
+   "forever": "Vendedor de armas",
+   "use": "Vendedor de armas"
+  },
+  "Zeppelin Master": {
+   "classic": "Maestro de zepelines",
+   "forever": "Maestro de zepelines",
+   "use": "Maestro de zepelines"
+  }
+ }
+}

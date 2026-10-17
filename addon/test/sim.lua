@@ -2629,7 +2629,7 @@ end
 -- not just the authored catalog: every available page must replace its
 -- English note, retain both paragraphs and stay within this game's items.
 do
-  for _, locale in ipairs({ "frFR", "deDE" }) do
+  for _, locale in ipairs({ "frFR", "deDE", "esES", "esMX" }) do
     local target = {}
     for _, file in ipairs({ "Kit.lua", FOREVER and "Data_Forever.lua" or "Data_Classic.lua", "Locale.lua" }) do
       assert(loadfile(DIR .. file))("Yonder", target)
@@ -2787,14 +2787,15 @@ do
   UnitSex = oldSex
 end
 
--- Every language its game's names, translated or not: a Spanish client (no
--- translation of the journal's words) reads a riddle's answer, an area's
+assert(loadfile("addon/test/spanish.lua"))()(DIR, FOREVER, check)
+
+-- Every language its game's names: a Spanish client reads a riddle's answer, an area's
 -- too, and a weighed catch's kind as the game names them in Spanish.
 do
   local spanish
   assert(loadfile(DIR .. "Text_esES.lua"))(
     "Yonder",
-    { names = function(t) spanish = t end }
+    { names = function(t) spanish = t end, translate = function() end }
   )
   local before = { ns.creatureNames, ns.taxiNames, ns.insideNames, ns.areaFixes, ns.catchNames }
   local wall
