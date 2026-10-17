@@ -1604,7 +1604,7 @@ fpage = YonderFloraPage
 check(
   YonderFrame.selectedTab == ns.TAB.finds
     and fpage.shown
-    and fpage.title.text == "The catch so far"
+    and fpage.title.text == "Your catches"
     and YonderFrame.count.text == "3 kinds of fish, 4 caught",
   "the Fish tab: the catch so far"
 )
@@ -1653,7 +1653,7 @@ check(
 ns.openFindCategory("plants")
 check(
   YonderFrame.selectedTab == ns.TAB.finds
-    and fpage.title.text == "The herbs so far"
+    and fpage.title.text == "Your herbs"
     and rowNamed("Apprentice")
     and rowNamed("Peacebloom").count.text == "3"
     and rowNamed("Stranglekelp")
@@ -1694,7 +1694,7 @@ do
   ns.openFindCategory("plants")
   ns.openFindCategory("fish")
   check(
-    fpage.title.text == "The catch so far"
+    fpage.title.text == "Your catches"
       and YonderFrame.count.text == "0 kinds of fish, 0 caught"
       and not rowNamed("Peacebloom")
       and not rowNamed("Stranglekelp"),
