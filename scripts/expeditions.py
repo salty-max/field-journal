@@ -85,7 +85,6 @@ import collections, json, math, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
-from wowdata import client as client_table, db  # noqa: E402
 
 EXPEDITIONS = os.path.join(ROOT, "expeditions")
 OUT = os.path.join(ROOT, "data", "expeditions.json")
@@ -112,9 +111,16 @@ ROAM = 10
 FOREVER_NEAR = 4
 
 
+def db(game):
+    """Load the data dependency only for queries, not pure authoring checks."""
+    from wowdata import db as open_db
+    return open_db(game)
+
+
 def table(name, game="classic"):
     """a client table of the game (wow-data's database, the pinned build)"""
-    return client_table(game, name)
+    from wowdata import client
+    return client(game, name)
 
 
 def traces(kind):
