@@ -1,7 +1,18 @@
 ---
-source: 3457e2c69d06
+source: ca97d4a894bc
 zone: 1417
 ---
+## arathi-highlands-coastal-farm
+Al este de las tierras altas, bajo la muralla de montañas,
+el mar llega a una tierra que el camino pasó por alto.
+Alguien ha encontrado sitio para campos y un techo.
+Sigue la costa hasta que los carneros tengan un establo.
+? En la costa este de Arathi, llega a la granja de los enanos nadando junto a la orilla. Busca su establo y sus campos. No hace falta ningún gesto ni conversación.
+= Una pequeña granja enana en la costa este de Arathi. Campos, una casa y un establo ocupan una franja de tierra a la que no llega ningún camino desde el interior.
++ Dos carneros comparten el establo. Los gatos vigilan la granja mientras las ratas van a lo suyo. Vinieran a cultivar lo que vinieran, los enanos trajeron compañía.
+! Vigilado (los granjeros son hostiles con los visitantes de la Horda)
+@ La granja de la costa
+
 ## arathi-highlands-thoradins-wall
 En el extremo noroeste de las tierras altas, una muralla del primer reino humano
 recorre la frontera, sobre las colinas, hasta donde alcanza la vista.

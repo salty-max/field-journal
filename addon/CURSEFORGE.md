@@ -20,7 +20,7 @@ Yonder was called **Explorer's Field Journal** until version 0.8.0. Your journal
 
 ## Expeditions
 
-There are **110 riddles and 38 rare hunts** across the original world. Forever adds four riddles and a hunt on Zephras Isle.
+There are **115 riddles and 38 rare hunts** across the original world. Forever adds four riddles and a hunt on Zephras Isle.
 
 The riddles lead to overlooked statues, books on shelves, graves beside the road and people few players stop to speak to. Some are solved by reaching the right spot or speaking to the right person. Others ask you to read something or work out a gesture from the verse. Riddles are solved on foot and outside combat, and never require a kill.
 

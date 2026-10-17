@@ -69,6 +69,8 @@ type Spot = {
   companions?: number[];
   areas?: number[];
   face?: number;
+  bounded?: boolean;
+  indoors?: boolean;
 };
 type Haunts = { id: number; name: string; names?: Record<string, string>; haunts: number[][] };
 type Data = {
@@ -195,16 +197,21 @@ export function readExpeditions(root: string, fail: (file: string, msg: string) 
             (r.found ? ` found:${r.found}` : "") +
             (r.position_check ? ` position_check:${r.position_check}` : "")
           : "";
-      if (r.position_check !== undefined && (r.position_check !== "questie" || kinds[0] !== "object" || client === "forever"))
-        fail(file, `${where} position_check: questie is for an object resolved on the Classic map`);
-      if (r.found !== undefined && (!["target", "place"].includes(r.found) || kinds[0] !== "creature"))
-        fail(file, `${where} found: target or place, for a creature or its surroundings`);
-      if (r.found === "place" && (!gestures.length || (companions as number[]).length
+      if (r.position_check !== undefined && (r.position_check !== "questie" || !["object", "creature"].includes(kinds[0]) || client === "forever"))
+        fail(file, `${where} position_check: questie is for an object or creature resolved on the Classic map`);
+      if (r.found !== undefined && (!["target", "place", "patrol"].includes(r.found) || kinds[0] !== "creature"))
+        fail(file, `${where} found: target, place or patrol, for a creature or its surroundings`);
+      if (r.found === "place" && (r.reading || (companions as number[]).length
         || !Number.isInteger(r.radius) || r.radius < 10 || r.radius > 100))
-        fail(file, `${where} found: place needs a gesture, no companions and a radius of 10 to 100 yards`);
+        fail(file, `${where} found: place needs no reading or companions and a radius of 10 to 100 yards`);
+      if (r.found === "patrol" && (!gestures.length || (companions as number[]).length || client === "forever"))
+        fail(file, `${where} found: patrol needs a gesture and no companions, on the Classic map`);
+      if (r.indoors !== undefined && (r.indoors !== true || kinds[0] === "area"))
+        fail(file, `${where} indoors: true requires a precise place`);
       if (r.radius !== undefined && r.found !== "place") fail(file, `${where} radius needs found: place`);
       if (!spot) fail(file, `${where} not in data/expeditions.json: run python3 scripts/expeditions.py`);
       else if (spot.zone !== zone || spot.of !== of || String(spot.hint) !== String(ha && [ha.x, ha.y, ha.r])
+        || Boolean(spot.indoors) !== Boolean(r.indoors) || Boolean(spot.bounded) !== (r.found === "patrol")
         || String(spot.companions ?? []) !== String(companions) || (r.found === "place" && (spot.r !== r.radius || spot.npc)))
         fail(file, `${where} changed since data/expeditions.json was made: run python3 scripts/expeditions.py`);
 
@@ -285,6 +292,8 @@ export function expeditionsLua(ex: Expedition[], data: Data, client: string, q: 
       r.faction ? `faction = ${q(r.faction)}` : "",
       r.gestures.length ? `asks = "gesture"` : r.reading ? `asks = "reading"` : "",
       r.night ? "night = true" : "",
+      s.indoors ? "indoors = true" : "",
+      s.bounded ? "bounded = true" : "",
       `danger = ${q(r.danger)}`,
       `circle = ${nums(r.circle)}`,
       `verse = { ${r.verse.map(q).join(", ")} }`,

@@ -1,7 +1,28 @@
 ---
-source: b05afea949f6
+source: 770d2da60f51
 zone: 1438
 ---
+## teldrassil-keldamyr
+Dolanaar a un toit pour qui a trop marché.
+Son aubergiste confie vos rêves à Elune.
+La prochaine commission attendra un peu.
+Fermez les yeux et ne partez nulle part.
+? À l'auberge de Dolanaar, acceptez l'invitation de l'aubergiste et allongez-vous à l'intérieur pour vous reposer.
+= Keldamyr accueille les voyageurs fatigués sous son toit et leur propose de confier leurs rêves à Elune. Cette invitation ne demande aucun colis à livrer.
++ Aux messagers de Sombrevallon, il donne le même conseil. Un héros qui néglige la paix du corps et de l'esprit, dit-il, court à l'échec.
+! Tranquille
+@ L'invitation de Keldamyr
+
+## teldrassil-tree-on-watch
+Les sentinelles ne sont pas seules à veiller sur Dolanaar.
+L'un des arbres a sa ronde à faire.
+Ses racines ont quitté la terre pour garder la route.
+Accordez au vieux gardien le respect que mérite son service.
+? Au bord de la route de Dolanaar, adressez un salut militaire à l'Ancien Protecteur en patrouille.
+= Un Ancien Protecteur en patrouille dans Dolanaar. Les tréants alliés des elfes de la nuit ne restent pas tous enracinés dans un bosquet.
++ À Gangrebois, une flûte taillée dans un ancien est devenue la prison de son esprit. Ici, l'arbre a encore ses propres pieds et un village sur lequel veiller.
+! Tranquille
+
 ## teldrassil-shadowglen-moonwell
 Au nord de l'arbre où les jeunes elfes font leurs premiers pas,
 la lune a son propre bassin.

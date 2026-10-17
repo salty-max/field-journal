@@ -1,7 +1,28 @@
 ---
-source: b05afea949f6
+source: 770d2da60f51
 zone: 1438
 ---
+## teldrassil-keldamyr
+Dolanaar tiene un techo para quien llega cansado.
+El tabernero deja tus sueños al cuidado de Elune.
+El próximo recado puede esperar un poco.
+Cierra los ojos sin ir a ninguna parte.
+? En la taberna de Dolanaar, acepta la invitación del tabernero y túmbate a descansar dentro.
+= Keldamyr acoge a los viajeros cansados bajo su techo y los invita a confiar sus sueños a Elune. Esta invitación no exige entregar ningún paquete.
++ Al mensajero de Cañada Umbría le da el mismo consejo. Según él, un héroe que descuida la paz del cuerpo y de la mente se encamina al fracaso.
+! Tranquilo
+@ La invitación de Keldamyr
+
+## teldrassil-tree-on-watch
+Las centinelas no son las únicas que vigilan Dolanaar.
+Uno de los árboles tiene una ronda que hacer.
+Sus raíces han dejado la tierra para guardar el camino.
+Muestra al viejo guardián el respeto que merece su servicio.
+? Junto al camino de Dolanaar, hazle un saludo militar al Protector anciano que patrulla.
+= Un Protector anciano de patrulla por Dolanaar. No todos los antárboles aliados de los elfos de la noche permanecen arraigados en una arboleda.
++ En Frondavil, una flauta tallada de un ancestro se convirtió en la prisión de su espíritu. Aquí, el árbol aún conserva sus propios pies y una aldea que vigilar.
+! Tranquilo
+
 ## teldrassil-shadowglen-moonwell
 Al norte del árbol donde los jóvenes elfos dan sus primeros pasos,
 la luna tiene su propia poza.

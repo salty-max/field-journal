@@ -19,8 +19,10 @@ test("Spanish covers every interface key and preserves formatting arguments", ()
 
 test("Spanish expedition files translate all fields and keep every authored solution", () => {
   const { expeditions, data } = readExpeditions(ROOT, (file, message) => { throw Error(`${file}: ${message}`); }, ["classic", "forever"]);
-  const ownNames = new Set(["dun-morogh-range", "duskwood-unseen", "elwynn-forest-cats", "redridge-mountains-docks", "zephras-isle-gustjumpers", "zephras-isle-thendal-tree"]);
   for (const e of expeditions) {
+    const head = readFileSync(e.file, "utf8").match(/^---\n([\s\S]*?)\n---\n/)![1];
+    const authored = Bun.YAML.parse(head) as { riddles: { id: string; name?: string }[] };
+    const ownNames = new Set(authored.riddles.filter(r => r.name).map(r => r.id));
     const file = join("i18n/esES/expeditions", e.file.split("/").at(-1)!);
     const parts = new Map(text(file).split(/^## /m).slice(1).map(part => {
       const [id, ...lines] = part.trim().split("\n");

@@ -12,7 +12,10 @@ const lua = (s: string) => JSON.stringify(s);
 for (const game of ["classic", "forever"]) {
   for (const emotes of ["modern", "legacy"]) {
     test(`every authored solution works in all client languages (${game}, ${emotes} emotes)`, () => {
-      const { expeditions } = readExpeditions(ROOT, (file, message) => { throw new Error(`${file}: ${message}`); }, ["classic", "forever"]);
+      const { expeditions, data } = readExpeditions(ROOT, (file, message) => { throw new Error(`${file}: ${message}`); }, ["classic", "forever"]);
+      const patrol = data.riddles["teldrassil-tree-on-watch"].spots!;
+      const patrolSamples = [patrol[0], patrol[Math.floor(patrol.length / 2)], patrol[patrol.length - 1]]
+        .map(([x, y]) => `{${x / 100},${y / 100}}`).join(",");
       const cases = expeditions.filter((e) => e.client === "both" || e.client === game).flatMap((e) => e.riddles.map((r) => {
         const s = r.spot;
         const action = r.gestures.length ? "gesture" : r.reading ? "reading" : s.npc ? "talk" : "arrival";
@@ -20,7 +23,7 @@ for (const game of ["classic", "forever"]) {
         return `{id=${lua(r.id)}, zone=${e.zone}, side=${lua(r.faction ?? e.home ?? "alliance")},
           action=${lua(action)}, tokens={${tokens.map(lua).join(",")}},
           x=${(s.spots?.[0]?.[0] ?? 10) / 100}, y=${(s.spots?.[0]?.[1] ?? 10) / 100},
-          area=${s.areas?.[0] ?? "nil"}, npc=${s.npc ?? "nil"}, companions={${(s.companions ?? []).join(",")}}}`;
+          area=${s.areas?.[0] ?? "nil"}, npc=${s.npc ?? "nil"}, indoors=${s.indoors === true}, companions={${(s.companions ?? []).join(",")}}}`;
       }));
       const run = `
 local makeGame = assert(loadfile("addon/test/riddle-game.lua"))()
@@ -113,6 +116,80 @@ do
       assert(not ns.riddleSolved(id), locale..": moonwell: "..gate.." must not count")
     end
   end
+  -- New discoveries: source positions alone must not substitute for the
+  -- intended place or deed, or reuse another NPC with the same entry ID.
+  for _, locale in ipairs({${LOCALES.map(lua).join(",")}}) do
+    local game = makeGame(locale, FOREVER, MODERN_EMOTES)
+    local ns, state, journal = game.reader, game.state, game.journal
+    local function fresh(map, x, y, inside, target, near)
+      journal.expeditions = nil
+      state.map, state.x, state.y, state.indoors = map, x, y, inside
+      state.target, state.npc, state.near = target, nil, near
+      state.faction, state.combat, state.taxi, state.health = "Alliance", false, false, 100
+    end
+    local inn = "teldrassil-keldamyr"
+    for _, token in ipairs({"SLEEP", "LAYDOWN"}) do
+      fresh(1438, 0.5562, 0.5979, true, nil, false)
+      game.tick()
+      game.emote("SIT")
+      assert(not ns.riddleSolved(inn), locale..": inn: arrival or sitting is not sleeping")
+      game.emote(token)
+      assert(ns.riddleSolved(inn), locale..": inn: untargeted rest inside must count")
+      fresh(1438, 0.5562, 0.5979, false, 6736, true)
+      game.emote(token)
+      assert(not ns.riddleSolved(inn), locale..": inn: outside beneath the roof footprint must not count")
+      fresh(1438, 0.57, 0.60, true, 6736, true)
+      game.emote(token)
+      assert(not ns.riddleSolved(inn), locale..": inn: keeper targeted elsewhere must not count")
+    end
+    local tree = "teldrassil-tree-on-watch"
+    for _, point in ipairs({${patrolSamples}}) do
+      for _, token in ipairs({"SALUTE", "BOW", "THANK"}) do
+        fresh(1438, point[1], point[2], false, nil, true)
+        game.emote(token)
+        assert(not ns.riddleSolved(tree), locale..": patrol: position alone must not count")
+        state.target = 3571
+        game.emote(token)
+        assert(not ns.riddleSolved(tree), locale..": patrol: a sentinel is not the tree")
+        state.target, state.near = 2041, false
+        game.emote(token)
+        assert(not ns.riddleSolved(tree), locale..": patrol: distant target must not count")
+        state.near = true
+        game.emote(token)
+        assert(ns.riddleSolved(tree), locale..": patrol: nearby tree along the route must count")
+      end
+    end
+    fresh(1438, 0.3683, 0.5527, false, 2041, true)
+    game.emote("SALUTE")
+    assert(not ns.riddleSolved(tree), locale..": patrol: Darnassus protector with same ID must not count")
+    fresh(1438, nil, nil, false, 2041, true)
+    game.emote("SALUTE")
+    assert(not ns.riddleSolved(tree), locale..": patrol: missing position must not bypass locality")
+    local crypt = "badlands-hidden-crypt"
+    fresh(1418, 0.57252, 0.40027, false, nil, false)
+    game.tick()
+    assert(not ns.riddleSolved(crypt), locale..": crypt: outdoor camp below must not count")
+    state.indoors = true
+    game.tick()
+    assert(ns.riddleSolved(crypt), locale..": crypt: throne chamber arrival must count")
+    local farm = "arathi-highlands-coastal-farm"
+    fresh(1417, 0.91346, 0.70007, false, nil, false)
+    state.faction = "Horde"
+    game.tick()
+    assert(ns.riddleSolved(farm), locale..": farm: no live ram, target, conversation or faction restriction")
+    fresh(1417, 0.5, 0.5, false, 2098, true)
+    game.tick()
+    assert(not ns.riddleSolved(farm), locale..": farm: a ram elsewhere cannot substitute for the stable")
+    local camp = "dun-morogh-empty-camp"
+    fresh(1426, 0.407, 0.649, false, 1128, true)
+    game.tick()
+    assert(not ns.riddleSolved(camp), locale..": camp: range and targeted bear are not the abandoned camp")
+    fresh(1426, 0.419, 0.669, false, nil, false)
+    game.tick()
+    assert(ns.riddleSolved(camp), locale..": camp: arrival south of the bear spawn, no bear needed")
+    game.emote("COVEREARS")
+    assert(not ns.riddleSolved("dun-morogh-range"), locale..": camp: visit must not double as the mortar solution")
+  end
   local solved, groupTargets = 0, 0
   for _, locale in ipairs({${LOCALES.map(lua).join(",")}}) do
     local game = makeGame(locale, FOREVER, MODERN_EMOTES)
@@ -123,6 +200,7 @@ do
       state.map, state.x, state.y = c.zone, c.x, c.y
       state.sub = c.area and C_Map.GetAreaInfo(c.area) or ""
       state.health, state.taxi, state.combat = 100, false, false
+      state.indoors = c.indoors
       state.faction = c.side == "horde" and "Horde" or "Alliance"
       state.target, state.npc, state.near = c.npc, c.npc, true
       for _, token in ipairs(c.tokens) do

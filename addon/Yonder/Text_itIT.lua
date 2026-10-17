@@ -79,6 +79,7 @@ ns.names({
     ["tanaris-winkey"] = "Ku?sIb",
     ["tanaris-zalashji"] = "(pTcfe m",
     ["teldrassil-maneweavers"] = "&O&Uq?,LeG(D`JH|;",
+    ["teldrassil-tree-on-watch"] = "Uw`ZMIwIpofE'ZJy[",
     ["the-barrens-fallen-warrior"] = "4f4O.c?I.KL6RKqn-f+iA9uve^r'",
     ["the-barrens-lizzarik"] = "{v&p#PW0",
     ["the-barrens-pooka"] = "_EHHp",

@@ -80,6 +80,7 @@ ns.names({
     ["tanaris-zalashji"] = "萨拉辛",
     ["teldrassil-maneweavers"] = "纳迪娅·织发",
     ["teldrassil-shadowglen-moonwell"] = "幽影谷月亮井",
+    ["teldrassil-tree-on-watch"] = "守护古树",
     ["the-barrens-fallen-warrior"] = "战士之魂神殿",
     ["the-barrens-lizzarik"] = "里扎雷克斯",
     ["the-barrens-pooka"] = "普卡",

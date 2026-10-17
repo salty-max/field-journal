@@ -9,8 +9,8 @@ first translation, flagged for corrections, rather than a native-reviewed editio
 - 659 interface strings and all nine Bestiary section titles.
 - 96 Bestiary family notes.
 - 47 Atlas notes, including the Classic and Forever paragraph variants.
-- 47 expedition files: all 114 riddles, their hints, danger warnings, solved
-  notes and gold margins, plus the 39 quarry posters. Classic includes 110
+- 47 expedition files: all 119 riddles, their hints, danger warnings, solved
+  notes and gold margins, plus the 39 quarry posters. Classic includes 115
   riddles and 38 quarries.
 - 136 collection notes: 39 fish, 31 herbs, 40 minerals, six cloth and 20 leather.
   Four material items are Forever-only.

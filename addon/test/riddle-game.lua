@@ -25,6 +25,7 @@ return function(locale, forever, modernEmotes)
   function UnitAffectingCombat() return state.combat == true end
   function UnitOnTaxi() return state.taxi == true end
   function UnitIsDeadOrGhost() return state.health == 0 end
+  function IsIndoors() return state.indoors == true end
   function UnitGUID(unit)
     local id = unit == "target" and state.target or unit == "npc" and state.npc
     return id and ("Creature-0-4170-0-12-%d-0000ABCDEF"):format(id) or nil

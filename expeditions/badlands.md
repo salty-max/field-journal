@@ -6,6 +6,15 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
+  - id: badlands-hidden-crypt
+    tier: hidden
+    name: The crypt above the diggers
+    object: 144181
+    position_check: questie
+    indoors: true
+    hint_area: { x: 57.0, y: 40.5, r: 3 }
+    danger: "Guarded (the Badlands approach)"
+    sources: "Sword of the Barbarian King (144181), Classic world spawn and Questie 57.25, 40.03; https://www.wowhead.com/tbc/object=144181/sword-of-the-barbarian-king#comments, firsthand crypt visits; https://wowwiki-archive.fandom.com/wiki/Crypt_(Badlands), ordinary path and seated armoured skeleton"
   - id: badlands-apocryphans-rest
     tier: off
     gestures: [GAZE, AWE, AMAZE, PONDER, THINK, LOOK, PEER, STARE]
@@ -17,6 +26,15 @@ quarry:
   id: 2850   # Broken Tooth
   sources: "the WoWWiki archive's Broken Tooth page (asleep in the sun; the quickest claws); the dump's spawns; https://www.wow-petopia.com/classic/attackspeed.php (Classic's fastest cat)"
 ---
+## badlands-hidden-crypt
+Above the dwarves who dig in the red waste,
+an unmarked path climbs where their work does not.
+Under stone, an armoured figure still has a seat.
+Find the chamber whose occupant has outlasted his flesh.
+? Above Sigrun Ironhew's camp, southeast of Hammertoe's Digsite. Follow the unmarked path uphill and enter the crypt, as far as the throne.
+= A crypt above the dwarves' camp in the Badlands. An armoured skeleton sits on a stone throne, with a sword close by.
++ The blade is called the Sword of the Barbarian King. It offers a title, though hardly an account of who occupied this chamber.
+
 ## badlands-apocryphans-rest
 South of the Horde's stockade on the western cliffs,
 something died that was bigger than a keep, and it lies where it fell:

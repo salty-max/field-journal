@@ -7,6 +7,28 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
+  - id: teldrassil-keldamyr
+    tier: near
+    gestures: [SLEEP, LAYDOWN]
+    name: Keldamyr's invitation
+    creature: 6736
+    found: place
+    radius: 10
+    indoors: true
+    hint_area: { x: 55.8, y: 59.8, r: 2 }
+    danger: "Quiet"
+    quest_overlap: [2159]
+    quest_context: "Dolanaar Delivery ends at Keldamyr. Resting inside his inn needs no delivery, quest, hearthstone bind, purchase or rested-XP wait."
+    sources: "Keldamyr's welcome, https://warcraft.wiki.gg/wiki/Innkeeper_Keldamyr, matching broadcast text 2827; Dolanaar Delivery (2159), reward text; guard directions 7076 and 7077; Classic world spawn and frozen Wowhead points"
+  - id: teldrassil-tree-on-watch
+    tier: near
+    gestures: [SALUTE, BOW, THANK]
+    creature: 2041
+    found: patrol
+    position_check: questie
+    hint_area: { x: 57.2, y: 57.4, r: 3 }
+    danger: "Quiet"
+    sources: "Classic spawn 49855 and its 43-point patrol, independently placed by Questie at 57.24, 57.41; Felbound Ancients (4441), treant allies of the night elves; https://lurkerlounge.com/forums/thread-8185-post-52244.html, original-era firsthand Dolanaar visit"
   - id: teldrassil-shadowglen-moonwell
     tier: near
     gestures: [DRINK, THIRSTY]
@@ -30,6 +52,24 @@ quarry:
   id: 14430   # Duskstalker
   sources: "the WoWWiki archive's Duskstalker page (the south shore, the two coves, Tendon Rip); the dump's spawn; Wowhead's sightings"
 ---
+## teldrassil-keldamyr
+Dolanaar has a roof for the road-weary.
+Its keeper leaves your dreams in Elune's care.
+Let the next errand wait a little.
+Close your eyes and travel nowhere.
+? At the inn in Dolanaar, take the keeper's invitation and lie down to rest inside.
+= Keldamyr welcomes weary visitors beneath his roof and asks them to leave their dreams in Elune's care. There is no parcel to deliver for this invitation.
++ His advice to the courier from Shadowglen is much the same. A hero who neglects peace of body and mind, he says, is on the way to failure.
+
+## teldrassil-tree-on-watch
+The sentinels are not alone on Dolanaar's watch.
+One of the trees has a patrol to keep.
+Its roots have left the earth to guard the road.
+Give the old watchman the respect its service has earned.
+? Beside Dolanaar's road, salute the walking Ancient Protector.
+= An Ancient Protector on patrol through Dolanaar. The night elves' treant allies do not all stand rooted in a grove.
++ In Felwood, a flute carved from an ancient became the prison of its spirit. Here, the tree still has its own feet and a village to watch over.
+
 ## teldrassil-shadowglen-moonwell
 North of the tree where young elves begin,
 the moon has a pool of its own.

@@ -99,7 +99,14 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   `trigger` or `area` (with an `anchor` where the area has no map overlay),
   `found: target` for a keeper met by speaking to it or one that walks,
   `found: place` with `radius` (10 to 100 yards) for a gesture in a stationary
-  creature's surroundings, with no target needed or companion keepers,
+  creature's surroundings or an arrival, with no live creature or target
+  needed and no companion keepers. A named place may use a hostile creature
+  only as a fixed positional anchor, never as a required meeting.
+  `found: patrol` for a gesture that needs both the nearby creature targeted
+  and the selected spawn's recorded patrol corridor. `indoors: true` also
+  requires the client to report that the player is indoors. These constraints
+  prevent another creature with the same ID or an outdoor camp below a crypt
+  from substituting for the actual scene. The remaining fields are
   `hint_area`, `danger`, `sources`; `quarry: { id, sources }` in a zone with
   rares, never a capital (a creature of Forever's own, which the data doesn't
   know, adds its `name`, `level`, `rank` and `model`); `client: forever` for a
@@ -122,9 +129,10 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   Forever (no license: credited) where Wowhead's Forever database places them
   too. Wowhead's points (the cross-check of every spot, a quarry's
   sightings) are frozen in wow-data (`bun ../wow-data/bin/wowhead-points.ts`:
-  a new riddle's creature or object fetched there first). A Classic object's
-  `position_check: questie` explicitly uses Questie's independent coordinates
-  instead when Wowhead has no points, still requiring agreement with the
+  a new riddle's creature or object fetched there first). For a Classic world
+  record, `position_check: questie` explicitly uses Questie's independent
+  coordinates for an object or creature when Wowhead has no points for the
+  relevant zone, still requiring agreement with the
   Classic world spawn. Record the evidence in `sources:`. Rerun it after changing a spot or a hint circle (the
   build refuses a stale one). `scripts/expeditions.ts` (for build.ts) checks
   every riddle and writes the answers as fingerprints only (salted FNV-1a of

@@ -16,13 +16,15 @@ A riddle names its spot by what the game's data pins down:
                    it walks); `found: target` for one found only by talking
                    to it (in a town, where passing by would solve it), or
                    one that walks: its path crossing the hint circle will do.
-                   `found: place` with `radius: <yards>` anchors a gesture to
-                   the surroundings of a stationary creature, not its target
+                   `found: place` with `radius: <yards>` anchors a gesture or
+                   arrival to fixed surroundings, never a live creature.
+                   `found: patrol` requires the nearby creature targeted and
+                   a player position along the selected spawn's recorded path
   trigger: <id>    a quest's exploration trigger (the client's AreaTrigger)
   area: <name>     a sub-area of the zone (the client's AreaTable, under the
                    zone's own area): every id of that name
 
-For an object without Wowhead map data, position_check: questie explicitly
+For an object or creature without Wowhead map data, position_check: questie explicitly
 checks its Classic world spawn against Questie's independent zone coordinates.
 The same agreement tolerance applies. It never uses player observer sightings.
 
@@ -176,6 +178,8 @@ def value(s):
         return [value(p) for p in s[1:-1].split(",") if p.strip()]
     if s.startswith('"'):
         return s[1:-1]
+    if s in ("true", "false"):
+        return s == "true"
     if re.fullmatch(r"-?\d+(\.\d+)?", s):
         return float(s) if "." in s else int(s)
     return s
@@ -432,13 +436,21 @@ def main():
                     quarries[str(uimap)]["names"] = game_names("creature", id, names.get(("creature", id)))
         for r in rs:
             id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
-            if "position_check" in r and (r["position_check"] != "questie" or "object" not in r):
-                errors.append(f"{where}: position_check: questie is for a Classic object's independent map position")
+            if "position_check" in r and (r["position_check"] != "questie" or not any(k in r for k in ("object", "creature"))):
+                errors.append(f"{where}: position_check: questie is for a Classic object or creature's independent map position")
                 continue
-            if r.get("found") == "place" and (not r.get("gestures") or r.get("companions")
+            if r.get("found") == "place" and (r.get("reading") or r.get("companions")
                 or type(r.get("radius")) is not int or not 10 <= r["radius"] <= 100):
-                errors.append(f"{where}: found: place needs a gesture, no companions and a radius of 10 to 100 yards")
+                errors.append(f"{where}: found: place needs no reading or companions and a radius of 10 to 100 yards")
                 continue
+            if r.get("found") == "patrol" and (not r.get("gestures") or r.get("companions")):
+                errors.append(f"{where}: found: patrol needs a gesture and no companions")
+                continue
+            if "indoors" in r and (r["indoors"] is not True or "area" in r):
+                errors.append(f"{where}: indoors: true requires a precise place")
+                continue
+            if r.get("indoors"):
+                out["indoors"] = True
             # what it was resolved from: the build refuses a file changed since
             kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
             out["of"] = f"{kind}:{r[kind]}" if kind else None
@@ -475,28 +487,44 @@ def main():
                 ha = r.get("hint_area") or {}
                 held = lambda p: ha and (p[0] - ha["x"]) ** 2 + ((p[1] - ha["y"]) * ASPECT) ** 2 <= ha["r"] ** 2
                 # one found by targeting may be met anywhere it walks: its path counts
-                walks = lambda d: [q for q in (on(uimap, int(d["map"]), x, y) for x, y in path(d)) if q] if r.get("found") == "target" else []
+                follows = r.get("found") in ("target", "patrol")
+                walks = lambda d: [q for q in (on(uimap, int(d["map"]), x, y) for x, y in path(d)) if q] if follows else []
                 found = [(on(uimap, *s[:3]), s[3]) for s in creatures[r["creature"]]]
                 # one found by targeting is placed only to the hint's measure: the haunts' tolerance
-                tol = AGREE_HAUNT if r.get("found") == "target" else AGREE
-                found = [(p, d) for p, d in found if p and agreed("npc", r["creature"], uimap, [p] + walks(d), tol)]
+                tol = AGREE_HAUNT if follows else AGREE
+                check_source = r.get("position_check", "wowhead")
+                found = [(p, d) for p, d in found if p and agreed("npc", r["creature"], uimap, [p] + walks(d), tol, source=check_source)]
                 spawns = [(p, d) for p, d in found if held(p) or any(held(q) for q in walks(d))]
                 if not spawns:
                     errors.append(f"{where}: creature {r['creature']}: no spawn inside the hint circle (nor a path through it, found by targeting) that the dump and Wowhead agree on")
                     continue
                 # found by targeting it near: one of a kind, or one only so found
-                if r.get("found") != "place" and (len(found) == 1 or r.get("found") == "target"):
+                if r.get("found") != "place" and (len(found) == 1 or follows):
                     out["npc"] = r["creature"]
                 if faces.get(int(r["creature"])):
                     out["face"] = faces[int(r["creature"])]
                 still = [(p, wanders(d)) for p, d in spawns if wanders(d) <= NEAR]
-                if r.get("found") != "target" and still:
+                if not follows and still:
                     out.update(spots=[p for p, _ in still], r=NEAR + math.ceil(max(far for _, far in still)))
                 if r.get("found") == "place":
                     if not still:
                         errors.append(f"{where}: found: place needs a stationary anchor")
                         continue
                     out["r"] = r["radius"]
+                if r.get("found") == "patrol":
+                    if not any(walks(d) for _, d in spawns):
+                        errors.append(f"{where}: found: patrol needs a recorded path")
+                        continue
+                    # Sample whole path segments, not only waypoint circles.
+                    # A player and guard can meet between two distant points.
+                    samples = []
+                    for p, d in spawns:
+                        trail = [p] + walks(d)
+                        for a, b in zip(trail, trail[1:] + trail[:1]):
+                            distance = math.hypot((a[0] - b[0]) / 100 * w, (a[1] - b[1]) / 100 * h)
+                            steps = max(1, math.ceil(distance / NEAR))
+                            samples.extend([[a[0] + (b[0] - a[0]) * i / steps, a[1] + (b[1] - a[1]) * i / steps] for i in range(steps)])
+                    out.update(spots=samples, r=NEAR + 5, bounded=True)
                 points = [q for p, d in spawns for q in ([p] if held(p) else [q for q in walks(d) if held(q)])]
             elif "trigger" in r:
                 t = triggers.get(r["trigger"])
@@ -573,7 +601,10 @@ def main():
         sides = [r["faction"]] if r.get("faction") else ([homes[f]] if homes[f] else list(SIDES))
         c = "creature" in r and ct.get(int(r["creature"]))
         for side in sides:
-            if c and hostile(int(c["Faction"]), side):
+            # A place anchor is never a creature the player must meet.
+            # Its fixed position survives death, absence or movement.
+            place_only = r.get("found") == "place" and r.get("name") and not r.get("gestures")
+            if c and not place_only and hostile(int(c["Faction"]), side):
                 errors.append(f"{f}: {r['id']}: {c['Name']} attacks the {side}'s players: a riddle never asks for a kill (or give it to the other side: faction:)")
     files = list(riddle_files())
     # A group named in a verse must not silently mean just its first keeper.
@@ -739,10 +770,18 @@ def forever_zone(f, uimap, rs, quarry, errors, zones, riddles, quarries):
                 quarries[str(uimap)]["names"] = game_names("creature", id, quarries[str(uimap)]["name"])
     for r in rs:
         id, out, where = r["id"], {"zone": uimap}, f"{f}: {r['id']}"
-        if r.get("found") == "place" and (not r.get("gestures") or r.get("companions")
+        if r.get("found") == "place" and (r.get("reading") or r.get("companions")
             or type(r.get("radius")) is not int or not 10 <= r["radius"] <= 100):
-            errors.append(f"{where}: found: place needs a gesture, no companions and a radius of 10 to 100 yards")
+            errors.append(f"{where}: found: place needs no reading or companions and a radius of 10 to 100 yards")
             continue
+        if r.get("found") == "patrol" or "position_check" in r:
+            errors.append(f"{where}: patrol and position_check require the Classic world records")
+            continue
+        if "indoors" in r and (r["indoors"] is not True or "area" in r):
+            errors.append(f"{where}: indoors: true requires a precise place")
+            continue
+        if r.get("indoors"):
+            out["indoors"] = True
         kind = next((k for k in ("object", "creature", "trigger", "area") if k in r), None)
         out["of"] = f"{kind}:{r[kind]}" if kind else None
         if "anchor" in r:

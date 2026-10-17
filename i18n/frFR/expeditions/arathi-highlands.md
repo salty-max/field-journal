@@ -1,7 +1,18 @@
 ---
-source: 3457e2c69d06
+source: ca97d4a894bc
 zone: 1417
 ---
+## arathi-highlands-coastal-farm
+À l'est des hautes-terres, sous le rempart des montagnes,
+la mer touche une terre que la route a oubliée.
+Quelqu'un y a fait une place pour des champs et un toit.
+Suivez le rivage jusqu'à ce que les béliers aient une étable.
+? Sur la côte est d'Arathi, rejoignez la ferme des nains en nageant le long du rivage. Trouvez son étable et ses champs. Aucun geste ni aucune conversation n'est nécessaire.
+= Une petite ferme naine sur la côte est d'Arathi. Des champs, une maison et une étable occupent une bande de terre où ne mène aucune route de l'intérieur.
++ Deux béliers partagent l'étable. Les chats surveillent la ferme pendant que les rats vaquent à leurs affaires. Quoi que les nains soient venus cultiver ici, ils ont amené de la compagnie.
+! Gardé (les fermiers sont hostiles aux visiteurs de la Horde)
+@ La ferme côtière
+
 ## arathi-highlands-thoradins-wall
 Au bord nord-ouest des hautes-terres, un mur du premier royaume des hommes
 longe la frontière, par-dessus les collines, aussi loin que porte la vue.

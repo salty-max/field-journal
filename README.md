@@ -15,7 +15,7 @@ download (Classic Era and TBC; a later update removes it).
 
 ## What's in the journal
 
-- **Expeditions.** 110 riddles and 38 rare hunts across the original world.
+- **Expeditions.** 115 riddles and 38 rare hunts across the original world.
   Forever adds four riddles and a hunt on Zephras Isle. Riddles lead to
   overlooked places and are solved by reaching a spot, speaking to someone,
   reading something or working out a gesture from the verse. They never

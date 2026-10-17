@@ -7,6 +7,16 @@ client: both
 # trigger) or area (a sub-area of the game's; its hint placed by its map overlay, or an anchor inside
 # it: a creature, an object, a graveyard). gestures: the emotes it accepts, the story's own first.
 riddles:
+  - id: dun-morogh-empty-camp
+    tier: off
+    name: The abandoned camp
+    creature: 1128
+    found: place
+    radius: 15
+    position_check: questie
+    hint_area: { x: 41.9, y: 66.9, r: 1 }
+    danger: "Guarded (a young black bear)"
+    sources: "User's firsthand scene and 17 October confirmation that the camp is just metres south of the bear spawn; Classic Young Black Bear spawn 270 at 41.895, 66.794, independently placed by Questie. The fixed place is used, never a live bear or a target. The cause of the abandonment is unknown."
   - id: dun-morogh-etched-note
     tier: near
     reading: Etched Note
@@ -43,6 +53,15 @@ quarry:
   id: 1132   # Timber
   sources: "the WoWWiki archive's Timber page (the island, his two wolves, his drops, the pet); the dump's spawns"
 ---
+## dun-morogh-empty-camp
+South of the gunsmith's noisy company,
+another camp has no one to answer.
+A young black bear wanders close to where they stayed.
+Find the place the campers left behind.
+? Just south of Rumbleshot's range, look for the abandoned camp near a young black bear. Walk into the camp. The bear need not be there.
+= An abandoned camp a short walk from Rumbleshot's range. A young black bear wanders nearby, but why the campers left is unknown.
++ Perhaps the bear found the camp empty. Perhaps the campers found the bear first. The League has no witness to ask, and the bear is unlikely to settle it.
+
 ## dun-morogh-etched-note
 Below the great gates, where every traveller climbs,
 a smith has claimed an anvil in writing,

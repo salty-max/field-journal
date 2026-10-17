@@ -239,17 +239,24 @@ end
 
 -- Is the reader at the riddle's place? (here: where(), its sub-areas)
 local function there(r, here)
+  if r.indoors then
+    local inside = IsIndoors()
+    if secret(inside) or inside ~= true then return false end
+  end
   if r.area then
     for _, id in ipairs(here.areas) do
       if r.atSet[print_(r.id, "area", id)] then return true end
     end
     return false
   end
+  local atPlace = false
   if here.x then
     local z = X[r.zone]
     local i, j = math.floor(here.x * z.w / CELL), math.floor(here.y * z.h / CELL)
-    if r.atSet[print_(r.id, i, j)] then return true end
+    atPlace = r.atSet[print_(r.id, i, j)] == true
+    if atPlace and not r.bounded then return true end
   end
+  if r.bounded and not atPlace then return false end
   if r.npc then
     for _, id in ipairs(here.creatures) do
       local keeper = print_(r.id, "npc", id)

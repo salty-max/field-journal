@@ -1,7 +1,18 @@
 ---
-source: 3457e2c69d06
+source: ca97d4a894bc
 zone: 1417
 ---
+## arathi-highlands-coastal-farm
+Östlich des Hochlands, unter der Bergwand,
+erreicht das Meer ein Stück Land, das die Straße verfehlt hat.
+Jemand hat dort Platz für Felder und ein Dach gefunden.
+Folge dem Ufer, bis die Widder einen Stall haben.
+? Erreiche den Zwergenhof an Arathis Ostküste, indem du am Ufer entlangschwimmst. Finde den Stall und die Felder. Du brauchst keine Geste und kein Gespräch.
+= Ein kleiner Zwergenhof an Arathis Ostküste. Felder, ein Haus und ein Stall liegen auf einem Landstreifen, den keine Straße aus dem Landesinneren erreicht.
++ Zwei Widder teilen sich den Stall. Katzen halten auf dem Hof Ausschau, während die Ratten ihren eigenen Geschäften nachgehen. Was die Zwerge hier auch anbauen wollten, Gesellschaft haben sie mitgebracht.
+! Bewacht (die Bauern sind Besuchern der Horde feindlich gesinnt)
+@ Der Hof an der Küste
+
 ## arathi-highlands-thoradins-wall
 Am nordwestlichen Rand des Hochlands verläuft eine Mauer des ersten Königreichs der Menschen
 die Grenze entlang, über die Hügel, so weit sie sehen kann.
