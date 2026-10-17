@@ -28,10 +28,10 @@ jobs:
           echo "$HOME/bin" >> "$GITHUB_PATH"
       - name: Addon Lua formatted and linted
         run: stylua --check addon && selene addon/Yonder
-      - name: Paragraph markers
-        run: bun test scripts/paragraphs.test.ts
+      - name: Content, locale and interaction tests
+        run: bun test scripts/ && python3 -m unittest discover -s scripts -p '*_test.py'
       - name: Content builds, content files are up to date
-        run: bun scripts/build.ts --check
+        run: bun scripts/build.ts --check && bun scripts/locales.ts --check
       - name: Simulation
         run: luajit addon/test/sim.lua
       - name: Simulation (Forever)

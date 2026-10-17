@@ -149,7 +149,9 @@ do
       assert(not ns.riddleSolved(inn), locale..": inn: a target cannot bypass the area check")
     end
     local tree = "teldrassil-tree-on-watch"
-    for _, point in ipairs({${patrolSamples}}) do
+    -- Independently checked Classic route waypoints 13 and 14 lie just beyond
+    -- the hint circle. They still need to fit the actual patrol tolerance.
+    for _, point in ipairs({${patrolSamples}, {0.5415168589376046, 0.5829804788213627}, {0.5425479555335762, 0.5834460405156538}}) do
       for _, token in ipairs({"SALUTE", "BOW", "THANK"}) do
         fresh(1438, point[1], point[2], false, nil, true)
         game.emote(token)

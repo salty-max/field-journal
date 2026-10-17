@@ -639,7 +639,7 @@
   "the plain seal": "el sello sencillo",
   "the silver seal": "el sello de plata",
   "the world map's circles and marks failed to draw: %s": "no se han podido dibujar los círculos y las marcas del mapa del mundo: %s",
-  "this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its riddles, its achievements. Type /yonder reset yes to do it.": "esto borra todo lo que ha registrado este personaje: criaturas, Atlas, peces, hierbas, acertijos y logros. Escribe /yonder reset yes para hacerlo.",
+  "this forgets everything this character has recorded: its creatures, the Atlas, its finds, its riddles, its achievements. Type /yonder reset yes to do it.": "esto borra todo lo que ha registrado este personaje: criaturas, Atlas, hallazgos, acertijos y logros. Escribe /yonder reset yes para confirmar.",
   "three": "tres",
   "tracked": "rastreada",
   "tracked, in %s  -  %s": "rastreada, en %s  -  %s",

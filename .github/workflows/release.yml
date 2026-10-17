@@ -41,7 +41,7 @@ jobs:
       - run: git fetch --force --tags
       - uses: oven-sh/setup-bun@v2
       - run: sudo apt-get install -y -qq luajit
-      - run: bun scripts/build.ts --check && luajit addon/test/sim.lua && FOREVER=1 luajit addon/test/sim.lua && bun scripts/package.ts --check
+      - run: bun test scripts/ && python3 -m unittest discover -s scripts -p '*_test.py' && bun scripts/build.ts --check && bun scripts/locales.ts --check && luajit addon/test/sim.lua && FOREVER=1 luajit addon/test/sim.lua && bun scripts/package.ts --check
       - name: The notes (the tag's message)
         run: |
           git tag -l --format='%(contents)' "$TAG" | sed '/^-----BEGIN PGP SIGNATURE-----/,$d' > .release-notes.md

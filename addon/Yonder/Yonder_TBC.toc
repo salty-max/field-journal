@@ -1,10 +1,10 @@
 ## Interface: 20506
 ## Title: Yonder
-## Notes: Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish and herbs you find.
-## Notes-frFR: Résolvez des énigmes d'exploration, traquez des créatures rares et tenez un journal des créatures, lieux, poissons et plantes que vous découvrez.
-## Notes-deDE: Löse Erkundungsrätsel, jage seltene Gegner und führe ein Tagebuch über die Geschöpfe, Orte, Fische und Kräuter, die du findest.
-## Notes-esES: Resuelve acertijos, rastrea criaturas poco comunes y lleva un diario de las criaturas, lugares, peces y plantas que descubres.
-## Notes-esMX: Resuelve acertijos, rastrea criaturas poco comunes y lleva un diario de las criaturas, lugares, peces y plantas que descubres.
+## Notes: Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish, herbs and materials you find.
+## Notes-frFR: Résolvez des énigmes d'exploration, traquez des créatures rares et tenez un journal des créatures, lieux, poissons, plantes et matériaux que vous découvrez.
+## Notes-deDE: Löse Erkundungsrätsel, jage seltene Gegner und führe ein Tagebuch über die Geschöpfe, Orte, Fische, Kräuter und Materialien, die du findest.
+## Notes-esES: Resuelve acertijos, rastrea criaturas poco comunes y lleva un diario de las criaturas, lugares, peces, plantas y materiales que descubres.
+## Notes-esMX: Resuelve acertijos, rastrea criaturas poco comunes y lleva un diario de las criaturas, lugares, peces, plantas y materiales que descubres.
 ## Category: Achievements
 ## Author: salty-max
 ## Version: 0.11.6

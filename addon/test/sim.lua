@@ -2372,8 +2372,21 @@ check(
   "… and the maps' circles: this zone's, the world map's last drawing, the minimap's"
 )
 
-SlashCmdList.YONDER("reset yes")
-check(next(YonderChar.creatures) == nil and YonderChar.guid == PLAYER, "/yonder reset yes starts the journal over")
+do
+  local resetProfessions = state.professions
+  state.professions = { [1] = { "Herbalism", 182 }, [4] = { "Fishing", 356 } }
+  SlashCmdList.YONDER("reset yes")
+  check(next(YonderChar.creatures) == nil and YonderChar.guid == PLAYER, "/yonder reset yes starts the journal over")
+  check(
+    ns.findsUnlocked("cloth")
+      and ns.findsUnlocked("plants")
+      and ns.findsUnlocked("fish")
+      and not ns.findsUnlocked("mining")
+      and not ns.findsUnlocked("leather"),
+    "Finds: resetting restores current professions and universal cloth immediately, not dropped trades"
+  )
+  state.professions = resetProfessions
+end
 -- Settings are each character's own (the kit's profiles); the welcome page
 -- offers them once per character, and another character's to take.
 local P = ns.profiles

@@ -483,6 +483,11 @@
    "forever": "Alexia Filoférreo",
    "use": "Alexia Filoférreo"
   },
+  "Ancient Protector": {
+   "classic": "Protector anciano",
+   "forever": "Protector anciano",
+   "use": "Protector anciano"
+  },
   "Araga": {
    "classic": "Araga",
    "forever": "Araga",
@@ -619,6 +624,11 @@
    "classic": "Demonio del polvo",
    "forever": "Demonio del polvo",
    "use": "Demonio del polvo"
+  },
+  "Dwarven Farmer": {
+   "classic": "Granjero enano",
+   "forever": "Granjero enano",
+   "use": "Granjero enano"
   },
   "Edwin VanCleef": {
    "classic": "Edwin VanCleef",
@@ -763,6 +773,11 @@
    "classic": "Immolatus",
    "forever": "Immolatus",
    "use": "Immolatus"
+  },
+  "Innkeeper Keldamyr": {
+   "classic": "Tabernero Keldamyr",
+   "forever": "Tabernero Keldamyr",
+   "use": "Tabernero Keldamyr"
   },
   "Jordan Stilwell": {
    "classic": "Jordan Fontana",
@@ -1002,6 +1017,11 @@
    "forever": "Ralo'shan la Vigía Eterna",
    "use": "Ralo'shan la Vigía Eterna"
   },
+  "Ram": {
+   "classic": "Carnero",
+   "forever": "Carnero",
+   "use": "Carnero"
+  },
   "Razormaw Matriarch": {
    "classic": "Matriarca Tajobuche",
    "forever": "Matriarca Tajobuche",
@@ -1056,6 +1076,11 @@
    "classic": "Shleipnarr",
    "forever": "Shleipnarr",
    "use": "Shleipnarr"
+  },
+  "Sigrun Ironhew": {
+   "classic": "Sigrun Extracero",
+   "forever": "Sigrun Extracero",
+   "use": "Sigrun Extracero"
   },
   "Silva Fil'naveth": {
    "classic": "Silva Fil'naveth",

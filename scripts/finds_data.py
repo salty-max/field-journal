@@ -7,7 +7,6 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "..", "wow-data", "py"))
-from wowdata import db
 
 PROFESSIONS = {"fish": 356, "plants": 182, "mining": 186, "leather": 393}
 LOCALES = ("enUS", "frFR", "deDE", "esES", "esMX", "itIT", "ptBR", "ruRU", "koKR", "zhCN", "zhTW")
@@ -17,6 +16,7 @@ CLOTH = (2589, 2592, 4306, 4338, 14047, 14256)
 
 class Inventory:
     def __init__(self, game):
+        from wowdata import db
         self.game = game
         self.db = db(game)
         self.names = {(k, i, loc): (n, source) for k, i, loc, n, source in self.db.execute(

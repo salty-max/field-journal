@@ -46,7 +46,10 @@ echo "release $TAG: addon $current → $VERSION$([ "$HOLD" = 1 ] && echo ", GitH
 [ "$DRY" = 1 ] && { echo "(dry run: nothing changed)"; exit 0; }
 
 perl -pi -e "s/^## Version: .*/## Version: $VERSION/" "${TOCS[@]}"
+bun test scripts/
+python3 -m unittest discover -s scripts -p '*_test.py'
 bun scripts/build.ts --check
+bun scripts/locales.ts --check
 luajit addon/test/sim.lua >/dev/null
 FOREVER=1 luajit addon/test/sim.lua >/dev/null
 bun scripts/package.ts --check >/dev/null

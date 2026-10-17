@@ -177,8 +177,10 @@ gestures merely to vary the action column.
 - Story: his [ordinary welcome](https://warcraft.wiki.gg/wiki/Innkeeper_Keldamyr)
   invites a weary visitor to rest and entrust their dreams to Elune. The
   same text exists in wow-data as English broadcast text **2827**, but that
-  table does not itself attach a speaker. The attribution comes from the
-  linked transcription, retrieved through the search index. Guard directions
+  table does not itself attach a speaker. The linked transcription supplied
+  the original attribution. The Classic player facts merged in wow-data PR 5
+  now attach this exact welcome to NPC 6736 in `npc_line`, independently
+  corroborating it in game. Guard directions
   **7076** and **7077** independently describe the inn as a place to rest.
 - Quest context: **2159, Dolanaar Delivery**, ends at Keldamyr in both
   databases. Its reward text also encourages rest. Yonder would ask for a
@@ -361,3 +363,10 @@ and `client_EmotesText`. NPC-to-gossip links are still absent for the Dolanaar
 subjects, so a matching broadcast text is not independently attributed by
 the database. The web transcriptions and quest text support a proposal,
 not a claim that the interaction was checked on a live character.
+
+## Owner playtest follow-up
+
+The owner confirmed on 17 October that both the corrected camp arrival and
+untargeted rest at the Dolanaar inn solve successfully in the test build.
+The merged profession-source fix also unlocks Herbalism correctly in game.
+These confirmations cover those reports, not every new site or every client.

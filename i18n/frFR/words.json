@@ -639,7 +639,7 @@
   "the plain seal": "le sceau simple",
   "the silver seal": "le sceau d'argent",
   "the world map's circles and marks failed to draw: %s": "les cercles et les repères de la carte du monde n'ont pas pu être tracés : %s",
-  "this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its riddles, its achievements. Type /yonder reset yes to do it.": "ceci efface tout ce que ce personnage a consigné : ses créatures, l'Atlas, ses poissons et ses herbes, ses énigmes, ses hauts faits. Tapez /yonder reset yes pour le faire.",
+  "this forgets everything this character has recorded: its creatures, the Atlas, its finds, its riddles, its achievements. Type /yonder reset yes to do it.": "ceci efface tout ce que ce personnage a consigné : ses créatures, l'Atlas, ses trouvailles, ses énigmes, ses hauts faits. Tapez /yonder reset yes pour confirmer.",
   "three": "trois",
   "tracked": "pistée",
   "tracked, in %s  -  %s": "pistée, à %s  -  %s",

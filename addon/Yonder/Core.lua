@@ -352,10 +352,11 @@ SlashCmdList.YONDER = function(msg)
   elseif msg == "reset" then
     print(
       PREFIX
-        .. L["this forgets everything this character has recorded: its creatures, the Atlas, its fish and herbs, its riddles, its achievements. Type /yonder reset yes to do it."]
+        .. L["this forgets everything this character has recorded: its creatures, the Atlas, its finds, its riddles, its achievements. Type /yonder reset yes to do it."]
     )
   elseif msg == "reset yes" then
     newJournal(char.guid)
+    ns.refreshFindsProfessions()
     ns.refresh()
     print(PREFIX .. L["the journal starts afresh."])
   elseif msg == "welcome" then

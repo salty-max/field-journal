@@ -357,6 +357,11 @@
    "forever": "Alexia Ironknife",
    "use": "Alexia Ironknife"
   },
+  "Ancient Protector": {
+   "classic": "Ancien Protecteur",
+   "forever": "Ancien Protecteur",
+   "use": "Ancien Protecteur"
+  },
   "Araga": {
    "classic": "Araga",
    "forever": "Araga",
@@ -493,6 +498,11 @@
    "classic": "Diable de poussière",
    "forever": "Diable de poussière",
    "use": "Diable de poussière"
+  },
+  "Dwarven Farmer": {
+   "classic": "Fermier Nain",
+   "forever": "Fermier Nain",
+   "use": "Fermier Nain"
   },
   "Edwin VanCleef": {
    "classic": "Edwin VanCleef",
@@ -637,6 +647,11 @@
    "classic": "Immolatus",
    "forever": "Immolatus",
    "use": "Immolatus"
+  },
+  "Innkeeper Keldamyr": {
+   "classic": "Keldamyr l'aubergiste",
+   "forever": "Keldamyr l'aubergiste",
+   "use": "Keldamyr l'aubergiste"
   },
   "Jordan Stilwell": {
    "classic": "Jordan Stilwell",
@@ -876,6 +891,11 @@
    "forever": "Ralo'shan, la Gardienne éternelle",
    "use": "Ralo'shan, la Gardienne éternelle"
   },
+  "Ram": {
+   "classic": "Bélier",
+   "forever": "Bélier",
+   "use": "Bélier"
+  },
   "Razormaw Matriarch": {
    "classic": "Matriarche tranchegueules",
    "forever": "Matriarche tranchegueules",
@@ -930,6 +950,11 @@
    "classic": "Shleipnarr",
    "forever": "Shleipnarr",
    "use": "Shleipnarr"
+  },
+  "Sigrun Ironhew": {
+   "classic": "Sigrun Ironhew",
+   "forever": "Sigrun Ironhew",
+   "use": "Sigrun Ironhew"
   },
   "Silva Fil'naveth": {
    "classic": "Silva Fil'naveth",

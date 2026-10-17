@@ -7,10 +7,10 @@ Explorer's Field Journal until 0.8.0). -->
 
 <!-- Summary (the project's summary on CurseForge and Wago, the TOCs' Notes,
 and the siblings' pages):
-Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish and herbs you find. -->
+Solve exploration riddles, hunt rare creatures and keep a journal of the creatures, places, fish, herbs and materials you find. -->
 
 <!-- GitHub (the repository's description):
-Exploration riddles and rare hunts for WoW, with a bestiary, an atlas and a record of the fish and herbs you find. -->
+Exploration riddles and rare hunts for WoW, with a bestiary, an atlas and collections of fish, herbs and materials. -->
 
 Yonder gives you riddles to solve, rare creatures to hunt and a record of what you find along the way. Follow a clue to a forgotten grave, track down a rare you've never fought, or fill in your bestiary while levelling. The journal keeps your discoveries, with notes from an Explorers' League naturalist.
 
@@ -52,6 +52,8 @@ Fishing opens the fish collection, Herbalism opens plants, Mining opens ores, st
 
 Fish pages keep your catches, schools, day and night counts, and heaviest catches. Other materials record whether you gathered, skinned, looted or received them. Every item has its own naturalist's note, along with your records and links to the Atlas. Mining nodes supply the items, rather than becoming collection pages themselves.
 
+Herb and material pages show how many you currently carry in your bags, separately from what Yonder has recorded you taking. Items you owned before installing the addon open their pages, without guessing how you obtained them.
+
 ## The Atlas
 
 The Atlas keeps a page for every zone you enter. Each has a surveyor's note about the terrain, roads and dangers, a map showing your explored areas, and a record of your first visit, flights, deaths and close calls.
@@ -72,13 +74,13 @@ One download covers Classic Era, Hardcore, Season of Discovery, TBC Anniversary 
 
 Forever adds Zephras Isle to the Atlas, and its new rares count towards zone achievements. The game hides creatures inside Forever dungeons and raids from addons, so the journal cannot record them there.
 
-Yonder speaks English, French, German and Spanish. With a French, German or Spanish client, the whole journal is in that language: the riddles and quarries, the Bestiary, the Atlas, the fish and herbs and the achievements, with every name as the game itself writes it. German and Spanish are first translations: corrections are welcome on GitHub. Both Spanish clients share the journal text and keep their own game names. Other clients get English, with the game's own names in their language: creatures, places, flight points, fish, and the riddles' and quarries' answers. Everything the journal records is kept by the game's ids, so it all follows your client's language, even after you switch.
+Yonder speaks English, French, German and Spanish. With a French, German or Spanish client, the whole journal is in that language: the riddles and quarries, the Bestiary, the Atlas, the fish, herbs, materials and achievements, with every name as the game itself writes it. German and Spanish are first translations: corrections are welcome on GitHub. Both Spanish clients share the journal text and keep their own game names. Other clients get English, with the game's own names in their language: creatures, places, flight points, fish, and the riddles' and quarries' answers. Everything the journal records is kept by the game's ids, so it all follows your client's language, even after you switch.
 
 ## Settings and commands
 
 Type `/yonder` or click the minimap button to open the journal. Each login says in chat what your journal holds. A welcome page appears once per character. Use `/yonder welcome` to see it again.
 
-Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose the banners for riddles and quarries, the alerts for achievements (each its own switch), trophy sounds, map markers, tooltip hints and whether to show the minimap button. Chat lines always show.
+Settings are under **Options > AddOns > Yonder**, through `/yonder settings` or by right-clicking the minimap button. Choose the banners for riddles, quarries and collection unlocks, the alerts for achievements (each its own switch), trophy sounds, map markers, tooltip hints and whether to show the minimap button. Chat lines always show.
 
 Settings are saved per character. Copy them from another character of the same game on the welcome or settings page, or transfer them with `/yonder export` and `/yonder import CODE`. Codes made by Explorer's Field Journal still work.
 

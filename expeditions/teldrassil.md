@@ -18,7 +18,7 @@ riddles:
     danger: "Quiet"
     quest_overlap: [2159]
     quest_context: "Dolanaar Delivery ends at Keldamyr. Resting at his inn needs no delivery, quest, hearthstone bind, purchase or rested-XP wait."
-    sources: "Keldamyr's welcome, https://warcraft.wiki.gg/wiki/Innkeeper_Keldamyr, matching broadcast text 2827; Dolanaar Delivery (2159), reward text; guard directions 7076 and 7077; Classic world spawn and frozen Wowhead points"
+    sources: "Keldamyr's welcome, https://warcraft.wiki.gg/wiki/Innkeeper_Keldamyr, matching broadcast text 2827 and Classic player gossip archived for NPC 6736 in wow-data PR 5; Dolanaar Delivery (2159), reward text; guard directions 7076 and 7077; Classic world spawn and frozen Wowhead points"
   - id: teldrassil-tree-on-watch
     tier: near
     gestures: [SALUTE, BOW, THANK]
