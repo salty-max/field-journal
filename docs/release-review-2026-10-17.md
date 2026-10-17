@@ -12,6 +12,7 @@ were neither committed nor used to produce the release databases.
 | Finds was not reinitialized after `/yonder reset yes` | Cloth and currently learned profession collections stayed locked until another scan | Restore current profession unlocks immediately after creating the new journal. A regression fails before the fix and passes afterward, also rejecting professions the character no longer knows |
 | CI only ran the paragraph unit tests | Riddle solution, Spanish interface and source-validation tests could be skipped on GitHub | CI and both release paths now run all Bun tests, the Python data-join tests and locale freshness checks before publication |
 | Authoring tests relied on the neighbouring wow-data checkout | The newly enabled CI suite exposed an import dependency hidden by the developer workspace | Load wow-data only when an actual query is needed. Pure authoring and join tests run from a standalone checkout without that repository |
+| Database publisher used shallow history while addon jobs used full history | A merge could be published under an ID different from the one consumers requested | The publisher now fetches full history too. A regression covers both checkout configurations, and the final publication is verified against the computed input tag |
 | New expedition subjects were absent from regenerated glossaries | Future name checks would lack five new NPC subjects | Regenerated all locale data through wow-data. French, German and Spanish glossaries gain the five subjects. Checked their existing translated prose against those game names |
 | Descriptions and reset confirmation still named only fish and herbs | Players were not told the full scope of Finds | Updated the English, French, German and Spanish TOC descriptions, reset confirmation, package description and store copy. Explain bag quantities separately from recorded acquisitions |
 
@@ -97,7 +98,9 @@ No new NPC names, quest texts or loot tables are invented from duplicates.
 - Python data-source join tests.
 - Lua formatting and static checks, generated source and locale freshness.
 - Complete Classic and Forever simulations, including the reset regression.
-- wow-data typecheck and 62 tests against both clean rebuilt databases.
+- The full addon check suite also passes in an archived standalone checkout,
+  with no sibling wow-data repository or local cache available.
+- wow-data typecheck and 63 tests against both clean rebuilt databases.
 - All generators rerun against Classic 1.15.9.70003 and Forever 1.60.1.70450,
   including names, glossary subjects, material sources and expedition spots.
 - TOC agreement and packaged bytes checked against the addon folders.
