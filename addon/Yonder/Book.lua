@@ -1,5 +1,5 @@
 -- The journal as a book: the standard game window (portrait, title bar), its
--- tabs (the Expeditions, the Bestiary, Fish, Plants, the Atlas, the
+-- tabs (the Expeditions, the Bestiary, Finds, the Atlas, the
 -- Milestones: each a file of its own, *Book.lua, registered with ns.addTab),
 -- the links in chat that open it, and what every tab is made of (ns.ui): the
 -- kit's look in the journal's theme, its list on the left and page on the
@@ -44,12 +44,12 @@ end
 -- ── the window ───────────────────────────────────────────────────────────────
 local book
 -- (the Expeditions first: what the book is opened for; the Bestiary fills itself)
-local TAB = { expeditions = 1, bestiary = 2, fish = 3, plants = 4, atlas = 5, milestones = 6 }
+local TAB = { expeditions = 1, bestiary = 2, finds = 3, atlas = 4, milestones = 5 }
 ns.TAB = TAB
 -- tabs[n] = { build(book), show(selected tab), refresh(), chosen() (its tab
 -- clicked), whole (over both panels), filter = { default, options() } (a
 -- select under the search box: its choice, ns.filterOf(n)) }
-local tabs, TAB_TITLES = {}, { L["Expeditions"], L["Bestiary"], L["Fish"], L["Plants"], L["Atlas"], L["Achievements"] }
+local tabs, TAB_TITLES = {}, { L["Expeditions"], L["Bestiary"], L["Finds"], L["Atlas"], L["Achievements"] }
 function ns.addTab(n, tab) tabs[n] = tab end
 
 -- A tab's choice in its select (the kit's, under the search box), else its
@@ -59,6 +59,10 @@ function ns.filterOf(n)
   if not (tab and tab.filter) then return nil end
   if tab.filterValue == nil then return tab.filter.default end
   return tab.filterValue
+end
+
+function ns.setFilter(n, value)
+  if tabs[n] and tabs[n].filter then tabs[n].filterValue = value end
 end
 
 -- The standard game window (portrait: the journal's book; title bar), else a
@@ -94,7 +98,7 @@ function ns.showTab(n)
   local told = {}
   for _, t in ipairs(tabs) do
     if t.built and not told[t] then
-      told[t] = true -- (Fish and Plants: one tab, shown for both)
+      told[t] = true
       t.show(n)
     end
   end
@@ -168,6 +172,8 @@ local function followLink(link)
   local key = link:match("^yonder:(.+)$")
   if not key then return end
   if ns.familyById[key] then return ns.openFamily(key) end
+  local category = key:match("^finds/(%a+)$")
+  if category then return ns.openFindCategory(category) end
   local kind, rest = key:sub(1, 1), key:sub(2)
   local id = tonumber(rest)
   if kind == "m" then
@@ -182,6 +188,8 @@ local function followLink(link)
     ns.openFish(id)
   elseif kind == "h" and id then
     ns.openPlant(id)
+  elseif kind == "i" and id then
+    ns.openFind(id)
   elseif kind == "c" and id then
     ns.openCreature(id)
   else

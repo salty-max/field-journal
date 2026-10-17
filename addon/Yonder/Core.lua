@@ -1,6 +1,6 @@
 -- Yonder: this character's journal, the events every file
 -- listens to (ns.on, ns.onUnit) and /yonder. The records are kept by
--- Creatures.lua (the Bestiary), Atlas.lua, Flora.lua (fish and herbs),
+-- Creatures.lua (the Bestiary), Atlas.lua, Flora.lua (Finds),
 -- Expeditions.lua (the riddles) and Achievements.lua (milestones); the book
 -- shows them (Book.lua).
 --
@@ -30,6 +30,8 @@
 --     killRule                   journals from before that rule, set right once
 --     atlas = { ... }            the places explored, deaths, travels (Atlas.lua)
 --     fish, plants               the catches and the herbs (Flora.lua)
+--     materials[itemId]          ore, stone, gem, cloth, leather and hide records
+--     finds = { unlocked, announced }  permanent collection flags by family
 --     expeditions = { riddles }  the riddles solved, the hints taken (Expeditions.lua)
 --     achievements[id]           the milestones earned (Achievements.lua)
 --     collapsed, open, atlasOpen, expeditionsOpen   the book's folds (types,
@@ -238,7 +240,7 @@ local function mendNames(c)
       end
     end
   end
-  for _, kind in ipairs({ c.fish or {}, c.plants or {} }) do
+  for _, kind in ipairs({ c.fish or {}, c.plants or {}, c.materials or {} }) do
     for _, rec in pairs(kind) do
       if type(rec) == "table" then stamps(rec) end
     end

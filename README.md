@@ -15,7 +15,7 @@ download (Classic Era and TBC; a later update removes it).
 
 ## What's in the journal
 
-- **Expeditions.** 106 riddles and 38 rare hunts across the original world.
+- **Expeditions.** 110 riddles and 38 rare hunts across the original world.
   Forever adds four riddles and a hunt on Zephras Isle. Riddles lead to
   overlooked places and are solved by reaching a spot, speaking to someone,
   reading something or working out a gesture from the verse. They never
@@ -23,8 +23,10 @@ download (Classic Era and TBC; a later update removes it).
 - **Bestiary.** Around 3,500 creatures in 96 families, each with a
   naturalist's note. Creature pages keep your first sighting, observed levels,
   kill counts, loot and drop rates. Rares and bosses become trophies.
-- **Fish and Plants.** Your catches and herbs, with notes on all 39 fish and
-  30 herbs, and records of where you found them.
+- **Finds.** Fish, plants, ores and gems, cloth and leather in one tab,
+  with a naturalist's note for every item. Gathering professions open their
+  collections, while cloth is available to everyone. Once opened, a collection
+  stays with you even if you change professions.
 - **Atlas.** The zones you've visited, with maps, explored places, surveyor's
   notes, flights, deaths and close calls.
 - **Achievements.** For exploring, completing expeditions, collecting
@@ -94,13 +96,15 @@ and the CMaNGOS Classic database through `scripts/creatures.py`.
 `scripts/rare_zones.py` assigns rares to zones by Questie's spawns, else the
 Classic database's spawn points. Forever's own rares come from QuestieDB's
 Forever records, their ranks from Wowhead, through `scripts/forever_rares.py`.
-Fish and herbs use `scripts/flora.py`, and zones use `scripts/zones.py`.
+Fish and herbs use `scripts/flora.py`, materials use `scripts/materials.py`,
+and zones use `scripts/zones.py`.
 
 `scripts/expeditions.py` checks locations against the CMaNGOS data and
 Wowhead. On Zephras Isle, it uses pinned
 [QuestieDB](https://github.com/Questie/QuestieDB) beta records and Wowhead's
-Forever data. It rejects riddles that require a kill, repeat a deed in the
-same zone or overlap Forever's new quests. `scripts/expeditions.ts` checks
+Forever data. It rejects riddles that require a kill, duplicate a discovery or have an
+unreviewed overlap with Forever's new quests. A quest location may hold a
+separate discovery, with the overlap documented in the authored source. `scripts/expeditions.ts` checks
 the verse during the build and stores answers as fingerprints.
 
 ## License

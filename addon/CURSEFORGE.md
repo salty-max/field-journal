@@ -20,7 +20,7 @@ Yonder was called **Explorer's Field Journal** until version 0.8.0. Your journal
 
 ## Expeditions
 
-There are **106 riddles and 38 rare hunts** across the original world. Forever adds four riddles and a hunt on Zephras Isle.
+There are **110 riddles and 38 rare hunts** across the original world. Forever adds four riddles and a hunt on Zephras Isle.
 
 The riddles lead to overlooked statues, books on shelves, graves beside the road and people few players stop to speak to. Some are solved by reaching the right spot or speaking to the right person. Others ask you to read something or work out a gesture from the verse. Riddles are solved on foot and outside combat, and never require a kill.
 
@@ -44,19 +44,19 @@ Browse by creature type and family, search by name, or sort a family's creatures
 
 Drop rates use corpses you looted or found empty, starting with version 0.7.5. Unlooted corpses and repeat visits, including skinning, do not count. In groups, the calculation only uses corpses you looted.
 
-## Fish and Plants
+## Finds
 
-The **Fish** tab records your catches, where and when you caught them, whether you fished from a school or open water, and your heaviest catch for fish that come in different weights.
+The **Finds** tab brings Fish, Plants, Ores & Gems, and Cloth & Leather together. Choose a category under the search box, or browse your discoveries on the overview.
 
-The **Plants** tab records herbs that reach your bags, whether gathered, looted, bought or given to you. All 30 herbs and 39 fish have naturalist's notes about where to find them and what they're used for.
+Fishing opens the fish collection, Herbalism opens plants, Mining opens ores, stones and gems, and Skinning opens leather and hides. Cloth is available to everyone. A banner and chat link announce each new collection. Once opened, it stays in your journal and keeps recording finds even if you change professions.
 
-Each page shows your records and the zones where you've found that fish or herb. Click a zone to open its Atlas page.
+Fish pages keep your catches, schools, day and night counts, and heaviest catches. Other materials record whether you gathered, skinned, looted or received them. Every item has its own naturalist's note, along with your records and links to the Atlas. Mining nodes supply the items, rather than becoming collection pages themselves.
 
 ## The Atlas
 
 The Atlas keeps a page for every zone you enter. Each has a surveyor's note about the terrain, roads and dangers, a map showing your explored areas, and a record of your first visit, flights, deaths and close calls.
 
-It picks up areas you've already uncovered on the game map. Click a discovered place to highlight it, look up the zone's expedition, or see the herbs and fish you've found there. Browse by continent or open the travels page for an overview of your recent discoveries.
+It picks up areas you've already uncovered on the game map. Click a discovered place to highlight it, look up the zone's expedition, or see the fish, herbs and materials you've found there. Browse by continent or open the travels page for an overview of your recent discoveries.
 
 Deaths and close calls can also be marked on the game's world map. You can turn those markers off in the settings.
 

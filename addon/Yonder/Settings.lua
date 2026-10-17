@@ -135,8 +135,8 @@ function ns.createSettingsPanel()
   end
   checkbox(
     "banner",
-    L["Banners for riddles and quarries"],
-    L["A banner among the game's alerts when you solve a riddle or bring down a quarry (the sounds and the chat lines stay)."]
+    L["Banners for riddles, quarries and collections"],
+    L["A banner among the game's alerts when you solve a riddle, bring down a quarry or unlock a collection (the sounds and chat lines stay)."]
   )
 
   local sound = Settings.RegisterProxySetting(

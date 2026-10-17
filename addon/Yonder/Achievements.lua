@@ -713,8 +713,46 @@ for _, z in ipairs(hz) do
   )
 end
 
+-- The material collections share Finds' permanent unlocks. Their entries
+-- are item ids, so different mining nodes never inflate completion.
+for _, family in ipairs({
+  {
+    "mining",
+    L["First Mineral"],
+    L["Find an ore, stone or gem."],
+    L["The Mineral Collection"],
+    L["Find every kind of ore, stone and gem in the collection."],
+  },
+  {
+    "cloth",
+    L["First Cloth"],
+    L["Find a piece of cloth."],
+    L["The Cloth Collection"],
+    L["Find every kind of cloth in the collection."],
+  },
+  {
+    "leather",
+    L["First Leather"],
+    L["Find a piece of leather or a hide."],
+    L["The Leather Collection"],
+    L["Find every kind of leather and hide in the collection."],
+  },
+}) do
+  local key, ids = family[1], ns.findOrder(family[1])
+  local function found()
+    return count(ids, function(id) return ns.findRecord(id) ~= nil end)
+  end
+  add(key, "finds-" .. key .. "-first", family[2], family[3], function() return math.min(found(), 1), 1 end)
+  add(key, "finds-" .. key .. "-all", family[4], family[5], function() return found(), #ids end)
+end
+
 -- ── earning ──────────────────────────────────────────────────────────────────
-function ns.milestoneVisible(m) return not m.visible or m.visible() or ns.earnedMilestone(m.id) ~= nil end
+function ns.milestoneVisible(m)
+  if ns.earnedMilestone(m.id) then return true end
+  local family = ({ fishing = "fish", herbs = "plants", mining = "mining", cloth = "cloth", leather = "leather" })[m.group]
+  if family and not ns.findsUnlocked(family) then return false end
+  return not m.visible or m.visible()
+end
 
 function ns.earnedMilestone(id)
   local c = char()

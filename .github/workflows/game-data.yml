@@ -26,6 +26,7 @@ jobs:
         python3 scripts/zones.py
         python3 scripts/creatures.py
         python3 scripts/flora.py
+        python3 scripts/materials.py
         python3 scripts/rare_zones.py
         python3 scripts/forever_rares.py
         python3 scripts/expeditions.py

@@ -17,7 +17,7 @@ local W = K.welcome({
   logo = "Interface\\AddOns\\Yonder\\Media\\Logo",
   heading = "Yonder",
   tagline = L["Riddles, rare hunts and an explorer's journal."],
-  intro = L["The zones you travel hide riddles: a verse that points to a place, and something to do once you stand there. Solve one without a hint and it earns a gold seal. Most zones also have a quarry, a rare creature whose poster tells you where it roams.\n\nOn the way, the journal fills in by itself: the creatures you slay and what they dropped, the lands you explore with your deaths and close calls, the fish and herbs you find, and achievements along the road."],
+  intro = L["The zones you travel hide riddles: a verse that points to a place, and something to do once you stand there. Solve one without a hint and it earns a gold seal. Most zones also have a quarry, a rare creature whose poster tells you where it roams.\n\nOn the way, the journal fills in by itself: the creatures you slay and what they dropped, the lands you explore with your deaths and close calls, your catches and the herbs, ores, gems, cloth and leather you find, and achievements along the road."],
   profiles = ns.profiles,
   choices = function()
     local sounds = {}
@@ -26,8 +26,8 @@ local W = K.welcome({
     end
     return {
       {
-        text = L["Banners for riddles and quarries"],
-        hint = L["Among the game's alerts, when you solve a riddle or bring down a quarry."],
+        text = L["Banners for riddles, quarries and collections"],
+        hint = L["Among the game's alerts, for riddles, quarries and newly opened collections."],
         get = function() return ns.option("banner") end,
         set = function(v) ns.setOption("banner", v) end,
       },

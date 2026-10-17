@@ -193,8 +193,9 @@ object is unused. Keep this distinct from a missing yield or unknown skill.
    available to everyone. Dropping a profession keeps discovered pages.
 5. Test profession learning/unlearning, upgrade migration, direct links,
    unlock announcements, ordinary acquisition and real gathering on both
-   clients. New-discovery policy after unlearning and first-upgrade banner
-   presentation remain open design questions in the plan.
+   clients. Those policies are now implemented: opened families keep recording
+   after unlearning, and each available family announces itself once per
+   character. See [the implementation](finds-implementation-2026-10-17.md).
 
 Full coverage of unreleased Forever content is not a prerequisite for this
 baseline. Unknown sources should remain unknown rather than becoming claims

@@ -27,6 +27,15 @@ local function about(kind, id)
       tip = L["Click to see your achievements"],
       click = function() ns.openMilestones(id) end,
     }
+  elseif kind == "finds" then
+    local family = ns.findFamilyInfo(id)
+    return {
+      picture = family.icon,
+      kicker = L["A new collection"],
+      title = family.title,
+      tip = L["Click to open Finds"],
+      click = function() ns.openFindCategory(id) end,
+    }
   elseif kind == "riddle" then
     local r = ns.riddleById[id]
     return {

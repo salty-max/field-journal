@@ -6,7 +6,7 @@ first translation, flagged for corrections, rather than a native-reviewed editio
 
 ## Coverage
 
-- 619 interface strings and all nine Bestiary section titles.
+- 659 interface strings and all nine Bestiary section titles.
 - 96 Bestiary family notes.
 - 47 Atlas notes, including the Classic and Forever paragraph variants.
 - 47 expedition files: all 114 riddles, their hints, danger warnings, solved
@@ -17,9 +17,10 @@ first translation, flagged for corrections, rather than a native-reviewed editio
 - Spanish launcher descriptions in all three TOCs. The README and store
   description now list Spanish among the supported languages.
 
-The new material notes accompany the material catalog prepared for Finds.
-The unified Finds runtime and interface are still separate work. This
-translation does not implement or advertise that interface.
+The material notes are now exposed through the unified Finds tab. Its category
+selector, profession unlock messages, banners and six material achievements
+are translated for both Spanish clients. Existing fish and herb links still
+open their pages within Finds.
 
 Four newer Forever Atlas zones have no English surveyor note yet. They have
 no Spanish note either. The 47 notes cover every authored English account,

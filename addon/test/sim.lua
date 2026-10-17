@@ -436,6 +436,7 @@ end
 local loot = {}
 function GetNumLootItems() return #loot end
 function GetLootSlotLink(slot) return loot[slot][1] end
+function GetLootSlotInfo(slot) return nil, nil, loot[slot][3] or 1 end
 function GetLootSourceInfo(slot) return unpack(loot[slot][2]) end
 C_Timer.After = function(_, fn) fn() end
 
@@ -654,6 +655,11 @@ for _, kinds in ipairs({ D.flora.herbs, D.flora.fish }) do
   end
 end
 check(true, "every compiled note is nonempty and free of editorial game markers")
+check(
+  ns.findsUnlocked("cloth") and toasted[1] and toasted[1].kind == "finds" and toasted[1].id == "cloth",
+  "Finds opens cloth to everyone and announces it on the first login"
+)
+banners:clear() -- the introductory banner has expired before the hunt begins
 
 local function seen(id) return YonderChar.seen and YonderChar.seen[id] end
 target(1131)
@@ -1486,7 +1492,6 @@ check(table.concat(tipLines, "|"):find("creatures in", 1, true), "the minimap bu
 
 -- ── Fish and Plants ──────────────────────────────────────────────────────────
 local function link(id, name) return ("|cffffffff|Hitem:%d::::::::|h[%s]|h|r"):format(id, name) end
-function GetLootSlotInfo(slot) return nil, nil, loot[slot][3] or 1 end
 local fishing = false
 function IsFishingLoot() return fishing end
 state.hour = 12
@@ -1496,6 +1501,14 @@ C_Container = {
   GetContainerNumSlots = function(bag) return bag == 0 and 16 or 0 end,
   GetContainerItemID = function(bag, slot) return bag == 0 and state.bags[slot] or nil end,
 }
+-- Both collection families are learned before these gathering scenes.
+state.professions = { [1] = { "Herbalism", 182 }, [4] = { "Fishing", 356 } }
+function GetProfessions() return state.professions[1] and 1, state.professions[2] and 2, nil, state.professions[4] and 4 end
+function GetProfessionInfo(index)
+  local p = state.professions[index]
+  return p[1], nil, 1, 75, nil, nil, p[2]
+end
+fire("SKILL_LINES_CHANGED")
 local BOBBER, SCHOOL, NODE =
   "GameObject-0-1-0-0-35591-0000000001", "GameObject-0-1-0-0-180682-0000000002", "GameObject-0-1-0-0-1618-0000000003"
 -- A loot window as the game sends it: looting begins (LOOT_READY), the
@@ -1577,10 +1590,10 @@ local function pairNamed(label)
   end
 end
 YonderFrame:Show()
-clickTab(ns.TAB.fish)
+ns.openFindCategory("fish")
 fpage = YonderFloraPage
 check(
-  YonderFrame.selectedTab == ns.TAB.fish
+  YonderFrame.selectedTab == ns.TAB.finds
     and fpage.shown
     and fpage.title.text == "The catch so far"
     and YonderFrame.count.text == "3 kinds of fish, 4 caught",
@@ -1622,15 +1635,15 @@ check(
   YonderFrame.selectedTab == ns.TAB.atlas and YonderAtlasPage.title.text == "Westfall",
   "… a zone where it bites opens its Atlas page"
 )
-clickTab(ns.TAB.fish)
+ns.openFindCategory("fish")
 rowNamed("Oily Blackmouth").scripts.OnClick(rowNamed("Oily Blackmouth"))
 check(
   figureNamed("from schools") == "1" and figureNamed("day / night") == "0 / 1" and fpage.sub.text == "A reagent",
   "… from a school, by night"
 )
-clickTab(ns.TAB.plants)
+ns.openFindCategory("plants")
 check(
-  YonderFrame.selectedTab == ns.TAB.plants
+  YonderFrame.selectedTab == ns.TAB.finds
     and fpage.title.text == "The herbs so far"
     and rowNamed("Apprentice")
     and rowNamed("Peacebloom").count.text == "3"
@@ -1653,12 +1666,12 @@ check(
 YonderFrame:Hide()
 linkHandlers.yonder("yonder:f6291")
 check(
-  YonderFrame.shown and YonderFrame.selectedTab == ns.TAB.fish and fpage.title.text == "Raw Brilliant Smallfish",
+  YonderFrame.shown and YonderFrame.selectedTab == ns.TAB.finds and fpage.title.text == "Raw Brilliant Smallfish",
   "a catch's link opens its page"
 )
 linkHandlers.yonder("yonder:h3820")
-check(YonderFrame.selectedTab == ns.TAB.plants and fpage.title.text == "Stranglekelp", "an herb's link opens its page")
-clickTab(ns.TAB.fish)
+check(YonderFrame.selectedTab == ns.TAB.finds and fpage.title.text == "Stranglekelp", "an herb's link opens its page")
+ns.openFindCategory("fish")
 fishing = true
 lootWindow({ { link(13755, "Winter Squid"), { BOBBER, 1 } } })
 fishing = false
@@ -1669,8 +1682,8 @@ check(fpage.sub.text == "A fish of the waters  -  only in winter", "… a season
 do
   local caught = YonderChar.fish
   YonderChar.fish = nil
-  clickTab(ns.TAB.plants)
-  clickTab(ns.TAB.fish)
+  ns.openFindCategory("plants")
+  ns.openFindCategory("fish")
   check(
     fpage.title.text == "The catch so far"
       and YonderFrame.count.text == "0 kinds of fish, 0 caught"
@@ -1679,8 +1692,8 @@ do
     "a character with herbs and no fish: the Fish tab shows no herb"
   )
   YonderChar.fish = { [6291] = caught[6291] }
-  clickTab(ns.TAB.plants)
-  clickTab(ns.TAB.fish)
+  ns.openFindCategory("plants")
+  ns.openFindCategory("fish")
   check(YonderFrame.count.text == "1 kind of fish, 1 caught", "… one kind is one kind")
   YonderChar.fish = caught
 end
@@ -1779,6 +1792,19 @@ check(
   said("LOOT_READY: 1 slots, fishing: Raw Brilliant Smallfish (GameObject)") and said("LOOT_CLOSED"),
   "/yonder probe: the next loot window described, event by event"
 )
+
+assert(loadfile("addon/test/finds.lua"))()({
+  ns = ns,
+  state = state,
+  fire = fire,
+  loot = lootWindow,
+  check = check,
+  toasted = toasted,
+  banners = banners,
+  creature = creature,
+  follow = function(link) linkHandlers.yonder(link) end,
+  fishing = function(value) fishing = value end,
+})
 
 -- ── the expeditions ──────────────────────────────────────────────────────────
 -- Duskwood's riddles, solved where they lead (a gesture at a lonely post, a

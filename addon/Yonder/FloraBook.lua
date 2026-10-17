@@ -1,31 +1,99 @@
--- The Fish and Plants tabs in the book (one list and one page for both): on
--- the left, the kinds this character has found, in groups (fish: of the
--- waters, reagents, rare catches, quest fish, weighed catches; herbs: by the
--- Herbalism rank they need), with how many; on the right, a kind's page: its
--- icon, the naturalist's note (where there is one), where it bites or grows
--- (the game's data, shown once found: no spoilers), and the character's
--- record. Records: Flora.lua.
+-- Finds uses the same kit list, page and category select as the other tabs.
+-- Only unlocked families and discovered item pages are shown. Fish and herbs
+-- keep their original figures, notes and Atlas links.
 local _, ns = ...
-local L = ns.kit.L
-local F = ns.data.flora
-local ui = ns.ui
+local L, F, M, ui = ns.kit.L, ns.data.flora, ns.data.materials, ns.ui
 local T = ui.T
-
 local book, list, page
-local mode = "fish" -- the tab shown: "fish" or "plants"
-local current = {} -- the open kind of each tab (an item id), nil for its overview
+local mode, current = "all", {}
 local rows, pairsPool = {}, {}
-ns.floraRows, ns.floraPairs = rows, pairsPool -- for the tests
-
+ns.floraRows, ns.floraPairs = rows, pairsPool
+local CATEGORIES = {
+  {
+    id = "fish",
+    title = L["Fish"],
+    families = { "fish" },
+    overview = L["The catch so far"],
+    icon = "Interface\\Icons\\Trade_Fishing",
+  },
+  {
+    id = "plants",
+    title = L["Plants"],
+    families = { "plants" },
+    overview = L["The herbs so far"],
+    icon = "Interface\\Icons\\INV_Misc_Herb_07",
+  },
+  {
+    id = "mining",
+    title = L["Ores & Gems"],
+    families = { "mining" },
+    overview = L["Ores & Gems"],
+    icon = "Interface\\Icons\\INV_Ore_Copper_01",
+  },
+  {
+    id = "textiles",
+    title = L["Cloth & Leather"],
+    families = { "cloth", "leather" },
+    overview = L["Cloth & Leather"],
+    icon = "Interface\\Icons\\INV_Fabric_Linen_01",
+  },
+}
+local categoryById = {}
+for _, category in ipairs(CATEGORIES) do
+  categoryById[category.id] = category
+end
+local function available(category)
+  for _, family in ipairs(category.families) do
+    if ns.findsUnlocked(family) then return true end
+  end
+  return false
+end
+local function families(which)
+  local out = {}
+  for _, family in
+    ipairs(which == "all" and { "fish", "plants", "mining", "cloth", "leather" } or categoryById[which].families)
+  do
+    if ns.findsUnlocked(family) then table.insert(out, family) end
+  end
+  return out
+end
+local function records(which)
+  local out = {}
+  for _, family in ipairs(families(which or mode)) do
+    for _, id in ipairs(ns.findOrder(family)) do
+      local rec = ns.findRecord(id)
+      if rec then out[id] = rec end
+    end
+  end
+  return out
+end
+local function info(id) return ns.findInfo(id) end
+local function name(id) return ns.findName(id) end
+local function picture(id) return ui.icon(ns.findIcon(id)) end
+local function totals(recs)
+  local kinds, total = 0, 0
+  for _, rec in pairs(recs) do
+    kinds, total = kinds + 1, total + (rec.n or 0)
+  end
+  return kinds, total
+end
+local function counted(kinds, total, which)
+  which = which or mode
+  local plural = ns.kit.plural
+  if which == "fish" then
+    return plural(kinds, "%d kind of fish, %d caught", "%d kinds of fish, %d caught"):format(kinds, total)
+  end
+  if which == "plants" then return plural(kinds, "%d herb, %d taken", "%d herbs, %d taken"):format(kinds, total) end
+  if which == "all" then return plural(kinds, "%d find, %d taken", "%d finds, %d taken"):format(kinds, total) end
+  return plural(kinds, "%d material, %d taken", "%d materials, %d taken"):format(kinds, total)
+end
 local function when(stamp)
-  if not stamp or not stamp.at then return nil end
-  local where = stamp.zone and ns.zoneName(stamp.zone)
-  local sub = stamp.sub and ns.areaLabel(stamp.sub)
+  if not stamp or not stamp.at then return end
+  local where, sub = stamp.zone and ns.zoneName(stamp.zone), stamp.sub and ns.areaLabel(stamp.sub)
   if where and sub and sub ~= "" and sub ~= where then where = L["%s, %s"]:format(sub, where) end
   if where then return L["%s in %s, you were level %d"]:format(ui.day(stamp), where, stamp.level or 0) end
   return L["%s, you were level %d"]:format(ui.day(stamp), stamp.level or 0)
 end
-
 local FISH_GROUPS = {
   { "food", L["Fish of the waters"] },
   { "reagent", L["Reagents"] },
@@ -39,120 +107,97 @@ local KIND = {
   special = L["A rare catch"],
   quest = L["A quest fish"],
   record = L["Weighed catches"],
+  ore = L["Ore"],
+  stone = L["Stone"],
+  gem = L["Gem"],
+  cloth = L["Cloth"],
+  leather = L["Leather"],
+  hide = L["Hide"],
 }
--- The Herbalism ranks, by the skill an herb needs.
 local RANKS = { { 1, L["Apprentice"] }, { 75, L["Journeyman"] }, { 150, L["Expert"] }, { 225, L["Artisan"] } }
 local function rankOf(skill)
-  local name = RANKS[1][2]
-  for _, r in ipairs(RANKS) do
-    if skill >= r[1] then name = r[2] end
+  local result = RANKS[1][2]
+  for _, rank in ipairs(RANKS) do
+    if skill >= rank[1] then result = rank[2] end
   end
-  return name
+  return result
 end
-
--- (each tab its own records and data, never the other's: a character who
--- never fished has no fish table, and "fish and c.fish or c.plants" would
--- show its herbs as catches)
-local function records()
-  local c = ns.journal()
-  if mode == "fish" then return c.fish or {} end
-  return c.plants or {}
-end
-local function info(id)
-  if mode == "fish" then return F.fish[id] end
-  return F.herbs[id]
-end
--- "1 kind of fish, 1 caught", "3 herbs, 5 taken"
-local function counted(kinds, total)
-  local plural = ns.kit.plural
-  if mode == "fish" then
-    return plural(kinds, "%d kind of fish, %d caught", "%d kinds of fish, %d caught"):format(kinds, total)
-  end
-  return plural(kinds, "%d herb, %d taken", "%d herbs, %d taken"):format(kinds, total)
-end
--- A kind's name: the game's (a weighed catch: the language's list, by its id).
-local function name(id)
-  local d = info(id)
-  -- (a weighed catch's kind: the language's, by its id)
-  if d.kind == "record" then return ns.catchNames and ns.catchNames[id] or d.name end
-  return ui.itemName(id, d.name)
-end
-
--- ── the list ─────────────────────────────────────────────────────────────────
-local function style(r, kind)
+local function style(row, kind)
   if kind == "section" then
-    r.text:SetPoint("LEFT", 4, 0)
-    r.text:SetPoint("RIGHT", -4, 0)
-    r.text:SetFont(ui.TITLE_FONT, 14, "")
-    r.text:SetTextColor(unpack(T.gold))
+    row.text:SetPoint("LEFT", 4, 0)
+    row.text:SetPoint("RIGHT", -4, 0)
+    row.text:SetFont(ui.TITLE_FONT, 14, "")
+    row.text:SetTextColor(unpack(T.gold))
     return 22
   end
-  r.count:SetPoint("RIGHT", -4, 0)
-  r.text:SetPoint("LEFT", kind == "overview" and 4 or 14, 0)
-  r.text:SetPoint("RIGHT", r.count, "LEFT", -4, 0)
-  r.text:SetFont(ui.BODY_FONT, 12, "")
-  r.text:SetTextColor(unpack(kind == "overview" and T.gold or T.text))
+  row.count:SetPoint("RIGHT", -4, 0)
+  row.text:SetPoint("LEFT", kind == "overview" and 4 or 14, 0)
+  row.text:SetPoint("RIGHT", row.count, "LEFT", -4, 0)
+  row.text:SetFont(ui.BODY_FONT, 12, "")
+  row.text:SetTextColor(unpack(kind == "overview" and T.gold or T.text))
   return 18
 end
-
--- The kinds found, grouped: { { title, { ids } } }, the search applied.
-local function groups(q)
-  local recs = records()
-  local function shown(id) return recs[id] and (q == "" or name(id):lower():find(q, 1, true)) end
-  local out = {}
-  if mode == "fish" then
-    for _, g in ipairs(FISH_GROUPS) do
-      local ids = {}
-      for _, id in ipairs(F.fishOrder) do
-        if F.fish[id].kind == g[1] and shown(id) then table.insert(ids, id) end
+local function groups(query)
+  local recs, out = records(), {}
+  local function add(title, order, wanted)
+    local ids = {}
+    for _, id in ipairs(order) do
+      if recs[id] and (not wanted or wanted(info(id))) and (query == "" or name(id):lower():find(query, 1, true)) then
+        table.insert(ids, id)
       end
-      if #ids > 0 then table.insert(out, { g[2], ids }) end
+    end
+    if #ids > 0 then table.insert(out, { title, ids }) end
+  end
+  if mode == "fish" then
+    for _, group in ipairs(FISH_GROUPS) do
+      add(group[2], F.fishOrder, function(d) return d.kind == group[1] end)
+    end
+  elseif mode == "plants" then
+    for _, rank in ipairs(RANKS) do
+      add(rank[2], F.herbOrder, function(d) return rankOf(d.skill) == rank[2] end)
+    end
+  elseif mode == "mining" or mode == "textiles" then
+    local labels = mode == "mining" and { { "ore", L["Ores"] }, { "stone", L["Stones"] }, { "gem", L["Gems"] } }
+      or { { "cloth", L["Cloth"] }, { "leather", L["Leather"] }, { "hide", L["Hides"] } }
+    for _, group in ipairs(labels) do
+      add(group[2], M.order, function(d) return d.kind == group[1] end)
     end
   else
-    for _, r in ipairs(RANKS) do
-      local ids = {}
-      for _, id in ipairs(F.herbOrder) do
-        if rankOf(F.herbs[id].skill) == r[2] and shown(id) then table.insert(ids, id) end
-      end
-      if #ids > 0 then table.insert(out, { r[2], ids }) end
+    for _, family in ipairs(families("all")) do
+      add(ns.findFamilyInfo(family).title, ns.findOrder(family))
     end
   end
   return out
 end
-
 local function refreshList()
-  local q = ui.query(book)
-  local found = groups(q)
+  local query, recs = ui.query(book), records()
+  local found = groups(query)
   list:begin()
-  if q == "" then
-    local r = list:add("overview", mode == "fish" and L["The catch so far"] or L["The herbs so far"])
-    r:SetScript("OnClick", function()
+  if query == "" then
+    local row = list:add("overview", mode == "all" and L["Your finds"] or categoryById[mode].overview)
+    row:SetScript("OnClick", function()
       current[mode] = nil
       ns.refresh()
     end)
-    if current[mode] == nil then list:pick(r) end
+    if not current[mode] then list:pick(row) end
   end
-  local recs = records()
-  for _, g in ipairs(found) do
+  for _, group in ipairs(found) do
     list:gap(6)
-    list:add("section", g[1])
-    for _, id in ipairs(g[2]) do
-      local r = list:add("kind", name(id), recs[id].n or 0)
-      r.key = id
-      r:SetScript("OnClick", function()
+    list:add("section", group[1])
+    for _, id in ipairs(group[2]) do
+      local row = list:add("kind", name(id), recs[id].n or 0)
+      row.key = id
+      row:SetScript("OnClick", function()
         current[mode] = id
         ns.refresh()
       end)
-      if current[mode] == id then list:pick(r) end
+      if current[mode] == id then list:pick(row) end
     end
   end
-  if #found == 0 and q ~= "" then list:add("section", L["Nothing found"]) end
+  if #found == 0 and query ~= "" then list:add("section", L["Nothing found"]) end
   list:finish()
 end
-
--- ── the pages ────────────────────────────────────────────────────────────────
 local function listed(items) return items and #items > 0 and table.concat(items, ", ") or nil end
--- Areas by their ids, named in the client's language, in its order.
 local function areas(ids)
   local out = {}
   for _, id in ipairs(ids or {}) do
@@ -161,40 +206,31 @@ local function areas(ids)
   table.sort(out)
   return listed(out)
 end
-
--- Where the character found it most: "Elwynn Forest (12), Westfall (3)".
 local function mostFound(zones)
-  local counts = {}
-  for z, n in pairs(zones or {}) do
-    table.insert(counts, { z, n })
+  local counts, out = {}, {}
+  for zone, count in pairs(zones or {}) do
+    table.insert(counts, { zone, count })
   end
   table.sort(counts, function(a, b) return a[2] > b[2] end)
-  local out = {}
   for i = 1, math.min(#counts, 5) do
     table.insert(out, L["%s (%d)"]:format(ns.zoneName(counts[i][1]), counts[i][2]))
   end
   return listed(out)
 end
-
-local HOW = { gathered = L["gathered"], looted = L["looted"], other = L["came to your bags"] }
-
--- The zones it bites or grows in, as names to pick: each opens its Atlas page.
+local HOW = { gathered = L["gathered"], looted = L["looted"], skinned = L["skinned"], other = L["came to your bags"] }
 local function zoneChips(zones)
   local out = {}
-  for _, z in ipairs(zones or {}) do
-    table.insert(out, { ns.zoneName(z), function() ns.openZone(z) end, false, L["Open its page in the Atlas."] })
+  for _, zone in ipairs(zones or {}) do
+    table.insert(out, { ns.zoneName(zone), function() ns.openZone(zone) end, false, L["Open its page in the Atlas."] })
   end
   table.sort(out, function(a, b) return a[1] < b[1] end)
   if #out > 0 then page:chips(out) end
 end
-
-local function itemPicture(id) return ui.icon(ui.itemIcon(id) or ui.QUESTION) end
-
 local function showKind(id)
-  local d, rec = info(id), records()[id]
-  if mode == "fish" then
-    local season = d.season and (d.season == "winter" and L["only in winter"] or L["only in summer"]) or nil
-    page:start(name(id), table.concat({ KIND[d.kind], season }, "  -  "), itemPicture(id))
+  local d, rec, family = info(id), ns.findRecord(id), ns.findFamily(id)
+  if family == "fish" then
+    local season = d.season and (d.season == "winter" and L["only in winter"] or L["only in summer"])
+    page:start(name(id), table.concat({ KIND[d.kind], season }, "  -  "), picture(id))
     page:text(d.note)
     local figures = { { tostring(rec.n or 0), L["caught"] } }
     if rec.heaviest then table.insert(figures, { L["%d lb"]:format(rec.heaviest), L["the heaviest"] }) end
@@ -207,112 +243,142 @@ local function showKind(id)
     page:row(L["Dungeons"], areas(d.dungeons))
     page:section(L["Your catches"])
     page:row(L["First caught"], when(rec.first))
-    page:row(L["Where"], mostFound(rec.zones))
   else
-    local inside = d.inside and L["  -  found in other herbs"] or ""
-    page:start(name(id), L["Herbalism %d%s"]:format(d.skill, inside), itemPicture(id))
+    local subtitle = family == "plants"
+        and L["Herbalism %d%s"]:format(d.skill, d.inside and L["  -  found in other herbs"] or "")
+      or KIND[d.kind]
+    page:start(name(id), subtitle, picture(id))
     page:text(d.note)
-    page:stats({
-      { tostring(rec.n or 0), L["taken"] },
-      { tostring(rec.gathered or 0), L["gathered"] },
-      { tostring(rec.looted or 0), L["looted"] },
-    })
-    page:section(L["Where it grows"])
+    local figures = { { tostring(rec.n or 0), L["taken"] } }
+    if family == "plants" or family == "mining" then
+      table.insert(figures, { tostring(rec.gathered or 0), L["gathered"] })
+    end
+    if family == "leather" then table.insert(figures, { tostring(rec.skinned or 0), L["skinned"] }) end
+    table.insert(figures, { tostring(rec.looted or 0), L["looted"] })
+    page:stats(figures)
+    page:section(family == "plants" and L["Where it grows"] or L["Where it is found"])
     zoneChips(d.zones)
     page:row(L["Dungeons"], areas(d.dungeons))
-    page:section(L["Your herbs"])
+    page:section(family == "plants" and L["Your herbs"] or L["Your finds"])
     local first = when(rec.first)
-    page:row(L["First"], first and (L["%s (%s)"]):format(first, HOW[rec.first.how] or "?") or nil)
-    page:row(L["Where"], mostFound(rec.zones))
+    page:row(L["First"], first and L["%s (%s)"]:format(first, HOW[rec.first.how] or "?"))
   end
+  page:row(L["Where"], mostFound(rec.zones))
 end
-
--- How many kinds, and how many taken in all.
-local function totals(recs)
-  local kinds, total = 0, 0
-  for _, rec in pairs(recs) do
-    kinds, total = kinds + 1, total + (rec.n or 0)
-  end
-  return kinds, total
-end
-
--- The kinds found last, the latest first, as cards: a click opens one.
-local function lately(recs, max)
+local function lately(recs)
   local ids = {}
   for id, rec in pairs(recs) do
     if rec.first and rec.first.at and info(id) then table.insert(ids, id) end
   end
-  table.sort(ids, function(a, b) return recs[a].first.at > recs[b].first.at end)
+  table.sort(ids, function(a, b)
+    if recs[a].first.at == recs[b].first.at then return a < b end
+    return recs[a].first.at > recs[b].first.at
+  end)
   if #ids == 0 then return end
-  page:section(mode == "fish" and L["The last new catches"] or L["The last new herbs"])
-  for i = 1, math.min(#ids, max) do
+  page:section(
+    mode == "fish" and L["The last new catches"]
+      or mode == "plants" and L["The last new herbs"]
+      or L["The last new finds"]
+  )
+  for i = 1, math.min(#ids, 5) do
     local id = ids[i]
-    page:card(name(id), when(recs[id].first), itemPicture(id), function()
+    page:card(name(id), when(recs[id].first), picture(id), function()
       current[mode] = id
       ns.refresh()
     end)
   end
 end
-
+local function options()
+  local out = { { value = "all", text = L["All finds"] } }
+  for _, category in ipairs(CATEGORIES) do
+    if available(category) then table.insert(out, { value = category.id, text = category.title }) end
+  end
+  return out
+end
+local function choose(which, id)
+  current[which] = id
+  ns.setFilter(ns.TAB.finds, which)
+  ns.openTab(ns.TAB.finds)
+end
 local function showOverview()
   local recs = records()
   local kinds, total = totals(recs)
-  if mode == "fish" then
-    page:start(L["The catch so far"], counted(kinds, total), ui.icon("Interface\\Icons\\Trade_Fishing"))
-    if kinds == 0 then
-      page:paragraph(
-        L["Nothing caught yet. Every fish you land is written down here, with where and when it bit."],
-        T.soft
-      )
-      return
+  local category = categoryById[mode]
+  page:start(
+    category and category.overview or L["Your finds"],
+    counted(kinds, total),
+    ui.icon(category and category.icon or "Interface\\Icons\\INV_Misc_Book_09")
+  )
+  if mode == "all" then
+    page:paragraph(
+      L["Your collections share these pages. Learning a gathering profession opens its collection, and the journal keeps it even if you change trades."],
+      T.soft
+    )
+    for _, group in ipairs(CATEGORIES) do
+      if available(group) then
+        local n, amount = totals(records(group.id))
+        page:card(group.title, counted(n, amount, group.id), ui.icon(group.icon), function() choose(group.id) end)
+      end
     end
-    local schools, night, heavy = 0, 0, nil
+  elseif kinds == 0 then
+    page:paragraph(
+      mode == "fish" and L["Nothing caught yet. Every fish you land is written down here, with where and when it bit."]
+        or mode == "plants" and L["No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given."]
+        or L["Nothing recorded here yet. Materials you gather, loot or receive will open their pages."],
+      T.soft
+    )
+  elseif mode == "fish" then
+    local schools, nights, heavy = 0, 0, nil
     for id, rec in pairs(recs) do
-      schools, night = schools + (rec.school or 0), night + (rec.night or 0)
+      schools, nights = schools + (rec.school or 0), nights + (rec.night or 0)
       if rec.heaviest and (not heavy or rec.heaviest > heavy[2]) then heavy = { id, rec.heaviest } end
     end
     page:stats({
       { tostring(kinds), ns.kit.plural(kinds, "kind", "kinds") },
       { tostring(total), L["caught"] },
       { tostring(schools), L["from schools"] },
-      { tostring(night), L["by night"] },
+      { tostring(nights), L["by night"] },
     })
     if heavy then
       page:section(L["The heaviest"])
-      page:card(name(heavy[1]), L["%d pounds"]:format(heavy[2]), itemPicture(heavy[1]), function()
+      page:card(name(heavy[1]), L["%d pounds"]:format(heavy[2]), picture(heavy[1]), function()
         current[mode] = heavy[1]
         ns.refresh()
       end)
     end
   else
-    page:start(L["The herbs so far"], counted(kinds, total), ui.icon("Interface\\Icons\\INV_Misc_Herb_07"))
-    if kinds == 0 then
-      page:paragraph(
-        L["No herb yet. Every herb that reaches your bags is written down here: gathered, looted, bought or given."],
-        T.soft
-      )
-      return
-    end
-    local gathered, looted = 0, 0
+    local gathered, looted, skinned = 0, 0, 0
     for _, rec in pairs(recs) do
-      gathered, looted = gathered + (rec.gathered or 0), looted + (rec.looted or 0)
+      gathered, looted, skinned =
+        gathered + (rec.gathered or 0), looted + (rec.looted or 0), skinned + (rec.skinned or 0)
     end
-    page:stats({
-      { tostring(kinds), ns.kit.plural(kinds, "herb", "herbs") },
+    local figures = {
+      { tostring(kinds), ns.kit.plural(kinds, "kind", "kinds") },
       { tostring(total), L["taken"] },
-      { tostring(gathered), L["gathered"] },
       { tostring(looted), L["looted"] },
-    })
+    }
+    if mode == "plants" or mode == "mining" then table.insert(figures, { tostring(gathered), L["gathered"] }) end
+    if mode == "textiles" and ns.findsUnlocked("leather") then
+      table.insert(figures, { tostring(skinned), L["skinned"] })
+    end
+    page:stats(figures)
   end
-  lately(recs, 5)
+  if mode == "textiles" and not ns.findsUnlocked("leather") then
+    page:paragraph(L["Cloth is open to everyone. Learn Skinning to add leather and hides."], T.soft)
+  end
+  lately(recs)
 end
-
 local function refresh()
-  local recs = records()
-  local kinds, total = totals(recs)
-  book.count:SetText(counted(kinds, total))
+  mode = ns.filterOf(ns.TAB.finds) or "all"
+  if mode ~= "all" and (not categoryById[mode] or not available(categoryById[mode])) then
+    mode = "all"
+    ns.setFilter(ns.TAB.finds, mode)
+  end
+  book.filter:SetOptions(options())
+  book.filter:SetValue(mode)
+  book.count:SetText(counted(totals(records())))
   refreshList()
-  if current[mode] and recs[current[mode]] then
+  if current[mode] and records()[current[mode]] then
     showKind(current[mode])
   else
     current[mode] = nil
@@ -320,35 +386,32 @@ local function refresh()
   end
   page:finish()
 end
-
--- ── building ─────────────────────────────────────────────────────────────────
-local tab = {
+ns.addTab(ns.TAB.finds, {
   build = function(b)
     book = b
-    list = ui.newList(book.left, style, rows)
+    list = ui.newList(book.left, style, rows, true)
     page = ui.newPage(book.sheet, "YonderFloraPage", 110, pairsPool)
   end,
   show = function(n)
-    local here = n == ns.TAB.fish or n == ns.TAB.plants
-    if here then mode = n == ns.TAB.fish and "fish" or "plants" end
+    local here = n == ns.TAB.finds
     list:SetShown(here)
     page:SetShown(here)
   end,
   refresh = refresh,
-}
-ns.addTab(ns.TAB.fish, tab)
-ns.addTab(ns.TAB.plants, tab)
-
--- Open the book at a fish's or an herb's page (yonder:f<id>, h<id>: a
--- link in chat).
-local function open(which, id)
-  if not ns.journal() then return end
-  current[which] = id
-  ns.openTab(which == "fish" and ns.TAB.fish or ns.TAB.plants)
+  filter = { default = "all", options = options },
+})
+function ns.openFindCategory(family)
+  local which = (family == "cloth" or family == "leather") and "textiles" or family
+  if which == "all" or (categoryById[which] and available(categoryById[which])) then choose(which) end
+end
+function ns.openFind(id)
+  local family = ns.findFamily(id)
+  if not family or not ns.findsUnlocked(family) then return end
+  choose((family == "cloth" or family == "leather") and "textiles" or family, ns.findRecord(id) and id or nil)
 end
 function ns.openFish(id)
-  if F.fish[id] then open("fish", id) end
+  if F.fish[id] then ns.openFind(id) end
 end
 function ns.openPlant(id)
-  if F.herbs[id] then open("plants", id) end
+  if F.herbs[id] then ns.openFind(id) end
 end

@@ -368,20 +368,47 @@ local function showZone(uiMap, placeKey)
   local herbs, herbsLeft = foundHere(F.herbOrder, F.herbs, c.plants or {}, uiMap)
   local fish, fishLeft = foundHere(F.fishOrder, F.fish, c.fish or {}, uiMap, function(d) return d.kind ~= "quest" end)
   local plural = ns.kit.plural
-  grows(
-    L["What grows here"],
-    herbs,
-    herbsLeft,
-    plural(herbsLeft, "None found here yet: %d herb to find.", "None found here yet: %d herbs to find."),
-    plural(herbsLeft, "%d more herb to find here.", "%d more herbs to find here.")
-  )
-  grows(
-    L["What bites here"],
-    fish,
-    fishLeft,
-    plural(fishLeft, "None found here yet: %d fish to find.", "None found here yet: %d fish to find."),
-    plural(fishLeft, "%d more fish to find here.", "%d more fish to find here.")
-  )
+  if ns.findsUnlocked("plants") then
+    grows(
+      L["What grows here"],
+      herbs,
+      herbsLeft,
+      plural(herbsLeft, "None found here yet: %d herb to find.", "None found here yet: %d herbs to find."),
+      plural(herbsLeft, "%d more herb to find here.", "%d more herbs to find here.")
+    )
+  end
+  if ns.findsUnlocked("fish") then
+    grows(
+      L["What bites here"],
+      fish,
+      fishLeft,
+      plural(fishLeft, "None found here yet: %d fish to find.", "None found here yet: %d fish to find."),
+      plural(fishLeft, "%d more fish to find here.", "%d more fish to find here.")
+    )
+  end
+  -- Materials known to this character, with links into Finds. Locked
+  -- professions contribute neither pages nor apparent missing progress.
+  for _, family in ipairs({ "mining", "cloth", "leather" }) do
+    if ns.findsUnlocked(family) then
+      local found = {}
+      for _, id in ipairs(ns.findOrder(family)) do
+        local d = ns.findInfo(id)
+        if ns.findRecord(id) then
+          for _, placeZone in ipairs(d.zones) do
+            if placeZone == uiMap then
+              table.insert(found, { ns.findName(id), function() ns.openFind(id) end, false, L["Click to open Finds"] })
+              break
+            end
+          end
+        end
+      end
+      if #found > 0 then
+        table.sort(found, function(a, b) return a[1] < b[1] end)
+        page:section(ns.findFamilyInfo(family).title)
+        page:chips(found)
+      end
+    end
+  end
   -- close to the end
   if #deaths + #calls > 0 then
     page:section(L["Close to the end"])

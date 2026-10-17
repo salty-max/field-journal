@@ -647,13 +647,13 @@ sources, as the Bestiary's.
 6. The surveyor's notes: sample, zones, review.
 7. Release 0.3.0.
 
-## Finds: one tab for the collections (planned 16 October 2026)
+## Finds: one tab for the collections (planned 16 October, implemented 17 October 2026)
 
 The user's update to the professions idea (`../ideas/professions.md`): adding
 Ores & Gems and Cloth & Leather as more top-level tabs would crowd the book.
 Bring them together with Fish and Plants in one **Finds** tab instead.
-This is planned work, not part of the current release. The Fish and Plants
-section below records the existing implementation.
+Implemented locally for the next test build. The Fish and Plants section
+below records the original collection behavior retained within Finds.
 
 ### Decisions
 
@@ -721,17 +721,23 @@ section below records the existing implementation.
   after the navigation changes.
 - Cover both game clients and the existing translated interfaces.
 
-### Implementation questions still open
+### Navigation and upgrade behavior
 
-- The navigation inside Finds: grouped list, category selector or overview
-  cards. The single top-level tab and profession rules are decided.
-- The overview and achievement totals for families the character has not
-  unlocked. Do not turn professions the character lacks into apparent
-  missing progress.
-- How to present the categories already available on the first upgrade to
-  Finds, including universally available cloth and professions already
-  learned. Make the new navigation discoverable without replaying unlock
-  banners at every login.
+- The kit's category selector sits under search, as in the other tabs.
+  All finds is the default overview. Fish, Plants, Ores & Gems, and
+  Cloth & Leather keep separate views inside the one Finds tab. The latter
+  contains the independently unlocked cloth and leather families.
+- Locked families contribute no items, overview cards or achievement totals.
+  New material Atlas sections list only discovered items, with links to Finds.
+- Each available family, including cloth, announces itself once on the first
+  upgrade. Existing fish and herb records unlock their families even without
+  the current profession. Learning, unlearning, reloading and skill rank
+  changes never reset the per-character announcement flags.
+- Skinning counts require a successful player Skinning spell paired with the
+  loot source's corpse GUID. Unconfirmed provenance stays ordinary loot.
+  Materials first noticed in the bags have an unknown quantity, as herbs do.
+- Six material achievements cover the first item and completion of each of
+  the three new families. Existing fish and herb achievements keep their ids.
 
 ## Fish and Plants (existing implementation)
 

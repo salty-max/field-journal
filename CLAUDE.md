@@ -25,7 +25,9 @@ folder ~/code/wow-addons/yonder (both field-journal until 13 October 2026).
 The **Expeditions** first (the book opens on them): each zone's riddles, solved on the spot, and its quarry, a rare to track down. The
 **Bestiary**: every creature met, slain and looted, sorted into families with
 a League naturalist's note per family. The **Atlas**: the zones explored, a
-dwarf surveyor's note each. **Fish** and **Plants**, and the **Milestones**.
+dwarf surveyor's note each. **Finds** brings Fish, Plants, Ores & Gems and Cloth & Leather together,
+with permanent profession unlocks and universally available cloth. The
+**Milestones** reward progress throughout the book.
 Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
 (~/code/wow-addons/lorekeepers-codex), same engineering and voice.
 
@@ -72,6 +74,16 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   spawns, placed by the Atlas's places of each zone); fish with their zones,
   subzones, dungeons, schools and seasons (their areas by id, named by the
   book), and the weighed catches as kinds.
+- `data/materials-<game>.json` (`python3 scripts/materials.py`): the curated
+  material items, source nodes, profession aliases, localized names and icons.
+  `data/finds-catalog.json` owns the item identities. `notes/minerals.md`,
+  `notes/cloth.md` and `notes/leather.md` supply every item's note.
+  `Flora.lua` keeps new records in `materials[itemId]`, fish in `fish`,
+  herbs in `plants`. `finds.unlocked` and `finds.announced` persist per
+  character. Never gate an already unlocked family on the current profession.
+  New unlocks get the kit's banner and a `yonder:finds/<family>` chat link.
+  Legacy fish/herb links remain valid, `yonder:i<id>` opens a material.
+  Skinning requires the successful spell paired with the corpse's GUID.
 - `notes/herbs.md`, `notes/fish.md`: the naturalist's note for every herb and
   fish ("## <item id> <name>", then paragraphs; plain ASCII; the build refuses
   a missing or unknown one). Places only from the data, uses only from the
@@ -160,7 +172,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   only before the count began), trophies; a
   chat line per new creature, a sound only for trophies), `Atlas.lua` (places
   explored from the fog lifted, `C_MapExplorationInfo`; deaths, close calls,
-  flights, crossings, binds), `Flora.lua` (fish and herbs, read from the loot
+  flights, crossings, binds), `Flora.lua` (Finds: fish, herbs, ores, stones, gems, cloth, leather and hides, read from the loot
   window as the Bestiary's loot is; `/yonder probe`: the next loot window as
   each of its events finds it), `Achievements.lua`
   (milestones: tallies, every family of a type, feats, every rare of a zone,
@@ -186,7 +198,7 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   (an elite is no trophy, never in `ranks`), gold; rares silver; bosses rose;
   `SetPortraitTextureFromCreatureDisplayID`; a family's page: figures and a
   card per creature; a creature's: figures, the creature turning in its
-  frame, its record, its spoils), `FloraBook.lua` (Fish and Plants: figures,
+  frame, its record, its spoils), `FloraBook.lua` (Finds: the kit category selector and overview, figures,
   the zones as names that open the Atlas, the last finds as cards), `AtlasBook.lua` (zones by continent; a zone's page: the
   surveyor's note, its figures, its map art with its explored overlays and
   marks, drawn by `ZoneMap.lua`, shared with the Expeditions, the places

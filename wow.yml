@@ -288,3 +288,15 @@ globals:
     any: true
   C_Seasons:
     any: true
+  GetProfessions:
+    any: true
+  GetProfessionInfo:
+    any: true
+  GetNumSkillLines:
+    any: true
+  GetSkillLineInfo:
+    any: true
+  ExpandSkillHeader:
+    any: true
+  CollapseSkillHeader:
+    any: true
