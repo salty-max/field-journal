@@ -79,6 +79,8 @@ globals:
     any: true
   geterrorhandler:
     any: true
+  GetItemCount:
+    any: true
   GetItemIcon:
     any: true
   GetItemInfo:

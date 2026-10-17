@@ -12,6 +12,8 @@ return function(g)
     state.professions, state.bags, state.target, state.mouseover, state.map, state.sub
   state.professions, state.bags, state.target, state.mouseover, state.map, state.sub =
     {}, {}, nil, nil, 1429, "Crystal Lake"
+  local oldBagCounts = state.bagCounts
+  state.bagCounts = nil
   local oldLocale, oldTime = GetLocale, time
   local offset = 0
   time = function() return oldTime() + offset end
@@ -77,22 +79,47 @@ return function(g)
     not ns.findRecord(2770) and not ns.findRecord(2318) and not ns.findRecord(2447),
     "Finds: materials do not bypass a locked profession family"
   )
-  from(2589, g.creature(1131), 3)
+  -- Reproduce linen already carried when Finds first notices it. Its
+  -- acquisition history is unknown, but its actual bag quantity is known.
+  state.bags, state.bagCounts = { [1] = 2589, [2] = 2589 }, { [1] = 20, [2] = 7 }
+  fire("BAG_UPDATE_DELAYED")
   check(
-    cloth() and cloth().n == 3 and cloth().looted == 3 and cloth().first.how == "looted",
-    "Finds: cloth needs no Tailoring and counts a looted stack once"
+    cloth() and cloth().n == 0 and cloth().looted == 0 and cloth().first.how == "other",
+    "Finds: carried cloth opens its page without inventing a loot history"
   )
-  check(ns.earnedMilestone("finds-cloth-first") ~= nil, "Finds: the first cloth earns its material milestone")
   selectCategory("textiles")
   check(
     row("Linen Cloth") and not row("Light Leather") and YonderFloraPage.title.text == "Cloth & Leather",
     "Finds: cloth pages stay visible while leather is locked"
   )
   row("Linen Cloth").scripts.OnClick(row("Linen Cloth"))
+  local function figure(label)
+    for _, tile in ipairs(YonderFloraPage.tiles) do
+      if tile.shown and tile.label.text == label then return tile.value.text end
+    end
+  end
+  check(
+    figure("in bags") == "27" and figure("taken") == "0" and figure("looted") == "0",
+    "Finds: the linen page shows the whole carried stack total separately from recorded acquisitions"
+  )
   check(
     YonderFloraPage.note.text == table.concat(M.items[2589].note, "\n\n"),
     "Finds: a material page uses its approved naturalist's note"
   )
+  fire("BAG_UPDATE_DELAYED")
+  check(figure("in bags") == "27" and cloth().n == 0, "Finds: rescanning carried cloth does not count it as new loot")
+  state.bags, state.bagCounts = { [1] = 2589 }, { [1] = 4 }
+  fire("BAG_UPDATE_DELAYED")
+  check(figure("in bags") == "4", "Finds: using or selling cloth refreshes its open page")
+  state.bags, state.bagCounts = {}, nil
+  fire("BAG_UPDATE_DELAYED")
+  check(figure("in bags") == "0" and cloth() ~= nil, "Finds: an empty bag count preserves the discovered page")
+  from(2589, g.creature(1131), 3)
+  check(
+    cloth().n == 3 and cloth().looted == 3 and figure("looted") == "3",
+    "Finds: later looted cloth counts once, independently of inventory snapshots"
+  )
+  check(ns.earnedMilestone("finds-cloth-first") ~= nil, "Finds: the first cloth earns its material milestone")
 
   -- A bought ore opens a page once Mining is learned, but its quantity is
   -- unknown and it must not be credited as mined. Forever's child id works.
@@ -346,6 +373,7 @@ return function(g)
   )
   GetProfessions, GetProfessionInfo, GetNumSkillLines, GetSkillLineInfo, ExpandSkillHeader, CollapseSkillHeader =
     oldGet, oldInfo, oldNum, oldLine, oldExpand, oldCollapse
+  state.bagCounts = oldBagCounts
   GetLocale, time = oldLocale, oldTime
   for _, key in ipairs(fields) do
     c[key] = saved[key]

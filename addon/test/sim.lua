@@ -1497,6 +1497,15 @@ function IsFishingLoot() return fishing end
 state.hour = 12
 function GetGameTime() return state.hour, 0 end
 state.bags = {}
+function GetItemCount(id, includeBank)
+  assert(includeBank == false, "Finds: carried counts exclude the bank")
+  local n = 0
+  for slot, item in pairs(state.bags) do
+    if item == id then n = n + (state.bagCounts and state.bagCounts[slot] or 1) end
+  end
+  return n
+end
+if FOREVER then C_Item = { GetItemCount = GetItemCount } end
 C_Container = {
   GetContainerNumSlots = function(bag) return bag == 0 and 16 or 0 end,
   GetContainerItemID = function(bag, slot) return bag == 0 and state.bags[slot] or nil end,

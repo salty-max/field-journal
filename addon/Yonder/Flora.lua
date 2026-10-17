@@ -57,6 +57,12 @@ function ns.findName(id)
   return ns.kit.itemName(id, names[id] or d.name)
 end
 function ns.findIcon(id) return ns.kit.itemIcon(id) or (M.items[id] and M.items[id].icon) or ns.kit.QUESTION end
+-- Current carried stock is distinct from lifetime observed acquisitions.
+-- Query it live so consuming, selling or moving a stack cannot rewrite history.
+function ns.findBagCount(id)
+  local count = (C_Item and C_Item.GetItemCount or GetItemCount)(id, false)
+  if not secret(count) and type(count) == "number" and count >= 0 then return count end
+end
 function ns.findsUnlocked(family)
   local c = char()
   return c and c.finds and c.finds.unlocked[family] == true or false
@@ -354,7 +360,12 @@ lookInBags = function(quiet)
       end
     end
   end
-  if any then changed(quiet) end
+  if any then
+    changed(quiet)
+  else
+    -- Existing pages also change when their last stack leaves the bags.
+    ns.onFlora()
+  end
 end
 ns.on("BAG_UPDATE_DELAYED", function()
   if pending then return end

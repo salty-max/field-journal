@@ -255,6 +255,8 @@ local function showKind(id)
     end
     if family == "leather" then table.insert(figures, { tostring(rec.skinned or 0), L["skinned"] }) end
     table.insert(figures, { tostring(rec.looted or 0), L["looted"] })
+    local carried = ns.findBagCount(id)
+    table.insert(figures, { carried and tostring(carried) or "?", L["in bags"] })
     page:stats(figures)
     page:section(family == "plants" and L["Where it grows"] or L["Where it is found"])
     zoneChips(d.zones)

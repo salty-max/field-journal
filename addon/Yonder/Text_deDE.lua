@@ -336,6 +336,7 @@ ns.translate({
     ["Hunts"] = "Jagden",
     ["in %d of %d kill looted or found empty"] = "in %d von %d geplünderten oder leer gefundenen Leichen",
     ["in %d of %d kills looted or found empty"] = "in %d von %d geplünderten oder leer gefundenen Leichen",
+    ["in bags"] = "im Gepäck",
     ["In the Giants' Shadow"] = "Im Schatten der Riesen",
     ["In the margin"] = "In der Randnotiz",
     ["In the order met"] = "In der Reihenfolge der Begegnung",

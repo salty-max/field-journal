@@ -31,8 +31,9 @@ later. Cloth and leather share navigation but have separate unlocks.
 `materials[itemId]`. `finds.unlocked` and `finds.announced` hold family flags.
 An old fish or herb record opens its family on upgrade even without the
 current profession. Dates, counts, weights, schools and earned achievements
-are retained. Already carried materials are noted with unknown quantity,
-with retrospective first-item achievements recorded quietly.
+are retained. Already carried materials are noted with unknown acquisition
+history and a separate live bag quantity. Retrospective first-item
+achievements are recorded quietly.
 
 Every newly available family gets the kit's banner and a clickable chat
 message once, including the first upgrade. Rank changes, reloads and
@@ -54,6 +55,11 @@ if the target is cleared before success. Ambiguous or missing source evidence
 stays ordinary loot. A short expiry and closing the loot window prevent a
 later corpse from inheriting the method. Receiving materials in bags opens
 pages but supplies neither a gathered/skinned count nor an invented quantity.
+Each herb and material page also shows a live **in bags** figure, separate
+from observed lifetime acquisition counters. It sums the carried item count
+through the client API, excludes the bank and refreshes after bag changes,
+even when no new page is discovered. Existing zero-history entries do not
+need to be rediscovered. Spending the last stack leaves their pages intact.
 
 Loot is read at LOOT_READY and LOOT_OPENED, deduplicated within a window.
 Once a family opens, acquisition keeps recording after its profession is
