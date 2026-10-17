@@ -306,6 +306,17 @@ Plan and decisions: PLAN.md. Sister project: Lorekeeper's Codex
   experience of crossing them. Keep its work distinct from the naturalist's
   creatures and the Codex archivist's history. Herb and fish notes complement
   the location lists already shown by the book; they need not repeat them.
+- Material notes use that same naturalist's voice. Review the English
+  against the existing fish and herb notes before translating it. Give
+  each item its own observation, grounded in its sources or uses. Avoid
+  repeated inventory advice and a forced witty ending on every entry.
+  Translate the observation and dry humour naturally, rather than copying
+  the English sentence structure or making the notes sound like tooltips.
+  Explain the material itself as well as its uses. Include physical or
+  magical properties, preparation, cultural associations or a short piece
+  of history where the game's text supports them. A location and a recipe
+  list alone are not the aim. Attribute a character's opinions and claims.
+  A finished item's effects do not establish the raw material's properties.
 - No spoilers: families appear once met; no totals of what remains.
 
 ## Commands

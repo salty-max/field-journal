@@ -322,7 +322,7 @@ function floraNotes(file: string, kinds: { id: number; name: string }[]) {
     const m = head.match(/^(\d+) (.+)$/);
     if (!m) { fail(file, `a heading without "<id> <name>": ${head}`); continue; }
     const id = Number(m[1]);
-    if (!byId.has(id)) fail(file, `no kind ${id} (${m[2]}) in data/flora.json`);
+    if (!byId.has(id)) fail(file, `unknown item ${id} (${m[2]}) in the note catalogue`);
     else if (byId.get(id) !== m[2].trim()) fail(file, `${id} is ${byId.get(id)}, not ${m[2]}`);
     if (notes.has(id)) fail(file, `${id} has two notes`);
     const paras = note(file, rest.join("\n"));
@@ -339,6 +339,36 @@ const { expeditions, data: expeditionData } = readExpeditions(ROOT, fail, CLIENT
 checkZones(expeditions, (client) => new Set(zoneData[client].zones.map((z) => z.id)), new Set(creatures.map((c) => c.id)), CLIENTS, fail);
 const fishNotes = floraNotes(join(ROOT, "notes/fish.md"), flora.fish);
 const noteLua = (paras: Paragraph[] | undefined, client: string) => (paras ? `, note = { ${forClient(paras, client).map(q).join(", ")} }` : "");
+
+// Material collections: the same note contract as fish and plants.
+type Material = { id: number; name: string; kind: string; family: string; icon: number; zones: number[]; dungeons: number[]; skill?: number; quest?: boolean };
+type Materials = { items: Material[]; miningNodes: number[]; skillAliases: Record<string, string>; professionNames: Record<string, Record<string, string>>; itemNames: Record<string, Record<string, string>>; skinSpells: number[] };
+const materials: Record<string, Materials> = Object.fromEntries(CLIENTS.map(client => [client, JSON.parse(readFileSync(join(ROOT, `data/materials-${client}.json`), "utf8"))]));
+const materialGroup = (d: Material) => d.family === "mining" ? "minerals" : d.family === "cloth" ? "cloth" : "leather";
+const materialUnion = [...new Map(CLIENTS.flatMap(c => materials[c].items).map(d => [d.id, d])).values()];
+const materialNotes = new Map(["minerals", "cloth", "leather"].map(group => [group,
+  floraNotes(join(ROOT, "notes", `${group}.md`), materialUnion.filter(d => materialGroup(d) === group))]));
+const tableLua = (v: unknown): string => {
+  if (typeof v === "string") return q(v);
+  if (typeof v === "number" || typeof v === "boolean") return String(v);
+  if (Array.isArray(v)) return `{ ${v.map(tableLua).join(", ")} }`;
+  if (v && typeof v === "object") return `{ ${Object.entries(v).filter(([,x]) => x !== undefined).map(([k,x]) => `[${/^\d+$/.test(k) ? k : q(k)}] = ${tableLua(x)}`).join(", ")} }`;
+  return "nil";
+};
+function materialsLua(client: string) {
+  const data = materials[client];
+  return `  materials = {
+    items = {
+${data.items.map(d => `      [${d.id}] = ${tableLua({ ...d, id: undefined, note: forClient(materialNotes.get(materialGroup(d))!.get(d.id)!, client) })},`).join("\n")}
+    },
+    order = ${tableLua(data.items.map(d => d.id))},
+    miningNodes = ${tableLua(Object.fromEntries(data.miningNodes.map(id => [id, true])))},
+    skillAliases = ${tableLua(data.skillAliases)},
+    professionNames = ${tableLua(data.professionNames)},
+    itemNames = ${tableLua(data.itemNames)},
+    skinSpells = ${tableLua(Object.fromEntries(data.skinSpells.map(id => [id, true])))},
+  },`;
+}
 
 // (a herb's or a fish's zone: a map's id one game at least has; a zone the
 // other game alone has is left out of this one's)
@@ -458,6 +488,7 @@ ${[...zoneRares(sorted, client)].map(([zone, ids]) => `    [${zone}] = { name = 
   },
 ${atlasLua(client)}
 ${floraLua(client)}
+${materialsLua(client)}
 ${expeditionsLua(expeditions, expeditionData, client, q, new Map(creatures.map((c) => [c.id, c])))}
   -- marks: r rare, R rare elite, b boss
   ranks = {
@@ -500,6 +531,8 @@ for (const client of CLIENTS) {
   for (const [zone, paras] of zoneNotes)
     if (zoneData[client].zones.some((z) => z.id === zone) && !forClient(paras, client).length)
       fail(join(ROOT, "atlas"), `zone ${zone}: no paragraphs for ${client}`);
+  for (const d of materials[client].items)
+    if (!forClient(materialNotes.get(materialGroup(d))!.get(d.id) ?? [], client).length) fail("notes", `${d.id}: no material note for ${client}`);
   for (const [file, notes] of [["notes/herbs.md", herbNotes], ["notes/fish.md", fishNotes]] as const)
     for (const [id, paras] of notes)
       if (!forClient(paras, client).length) fail(join(ROOT, file), `${id}: no paragraphs for ${client}`);

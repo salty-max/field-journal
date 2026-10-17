@@ -2625,6 +2625,50 @@ do
   check(ns.creatureName(1132, { name = "Timber" }) == "Holzplanke", "… a creature by its German name")
 end
 
+-- The material translations on a fresh client. Check the actual loader,
+-- not just the authored catalog: every available page must replace its
+-- English note, retain both paragraphs and stay within this game's items.
+do
+  for _, locale in ipairs({ "frFR", "deDE" }) do
+    local target = {}
+    for _, file in ipairs({ "Kit.lua", FOREVER and "Data_Forever.lua" or "Data_Classic.lua", "Locale.lua" }) do
+      assert(loadfile(DIR .. file))("Yonder", target)
+    end
+    local english = {}
+    for id, item in pairs(target.data.materials.items) do
+      english[id] = table.concat(item.note, "\n\n")
+    end
+    local catalog
+    local translate = target.translate
+    target.translate = function(t)
+      catalog = t
+      translate(t)
+    end
+    assert(loadfile(DIR .. "Text_" .. locale .. ".lua"))("Yonder", target)
+    local count = 0
+    for id, item in pairs(target.data.materials.items) do
+      count = count + 1
+      local group = item.family == "mining" and "minerals" or item.family == "cloth" and "cloth" or "leather"
+      local text = table.concat(item.note, "\n\n")
+      check(
+        catalog[group][id] and #item.note == 2 and text ~= english[id],
+        locale .. " material " .. id .. ": both translated paragraphs reach the page"
+      )
+      check(
+        not text:find(";", 1, true) and not text:find("[classic]", 1, true) and not text:find("[forever]", 1, true),
+        locale .. " material " .. id .. ": no semicolons or source markers"
+      )
+    end
+    check(count == (FOREVER and 66 or 62), locale .. ": all material item pages translated")
+    for _, id in ipairs({ 249391, 249425, 249427, 249428 }) do
+      check(
+        (target.data.materials.items[id] ~= nil) == FOREVER,
+        locale .. " material " .. id .. ": Forever additions stay in Forever"
+      )
+    end
+  end
+end
+
 -- The finished German on a fresh client, for both character genders. A valid
 -- gender token alone did not catch "diejenige, der", and a raw catalog never
 -- showed Classic's doubled faction article. Load the actual files in TOC order.
@@ -2748,7 +2792,10 @@ end
 -- too, and a weighed catch's kind as the game names them in Spanish.
 do
   local spanish
-  assert(loadfile(DIR .. "Text_esES.lua"))("Yonder", { names = function(t) spanish = t end })
+  assert(loadfile(DIR .. "Text_esES.lua"))(
+    "Yonder",
+    { names = function(t) spanish = t end }
+  )
   local before = { ns.creatureNames, ns.taxiNames, ns.insideNames, ns.areaFixes, ns.catchNames }
   local wall
   for _, e in pairs(D.expeditions) do

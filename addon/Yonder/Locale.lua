@@ -85,6 +85,10 @@ function ns.translate(t)
       d.note = forThisGame(t[kind] and t[kind][id], words) or d.note
     end
   end
+  for id, d in pairs(D.materials and D.materials.items or {}) do
+    local group = d.family == "mining" and "minerals" or d.family == "cloth" and "cloth" or "leather"
+    d.note = forThisGame(t[group] and t[group][id], words) or d.note
+  end
   -- the expeditions: each riddle's verse, hint and danger; what its solving
   -- reads (its answer's name, its note and margin) veiled as the English is;
   -- each quarry's name and poster

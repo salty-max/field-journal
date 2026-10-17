@@ -35,6 +35,8 @@ test("invalid notes fail without replacing either book", () => {
       ["content/beasts/wolves.md", (s: string) => s.replace(/(---\n[\s\S]*?\n---\n)[\s\S]*/, "$1[forever] Only this world's note.\n"), "no paragraphs for classic"],
       ["atlas/alterac-mountains.md", (s: string) => s + "\n\n[forver] A different history.\n", "unknown paragraph client"],
       ["notes/herbs.md", (s: string) => s.replace(/(^## [^\n]+\n\n)/m, "$1[forver] "), "unknown paragraph client"],
+      ["notes/minerals.md", (s: string) => s.replace(/^## 2770 Copper Ore\n[\s\S]*?(?=^## )/m, ""), "no note for 2770 Copper Ore"],
+      ["notes/cloth.md", (s: string) => s.replace(/(^## [^\n]+\n\n)/m, "$1[forver] "), "unknown paragraph client"],
       ["atlas/alterac-mountains.md", (s: string) => s.replace("zone: 1416", "zone: 999999"), "unknown zone 999999"],
       ["expeditions/duskwood.md", (s: string) => s.replace("Honour the post, whoever", "Salute the post, whoever"), "names the gesture SALUTE"],
       ["expeditions/duskwood.md", (s: string) => s.replace("creature: 2142 ", "creature: 2143 "), "changed since data/expeditions.json"],

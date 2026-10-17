@@ -28,7 +28,8 @@
  *                                   changes, the translation is stale), then its
  *                                   paragraphs, marked as the English ones
  *   i18n/<locale>/atlas/<zone>.md   a zone's note: zone, source, paragraphs
- *   i18n/<locale>/herbs.md, fish.md the notes/ files' "## <item id> <name>"
+ *   i18n/<locale>/{herbs,fish,minerals,cloth,leather}.md
+ *                                   the notes/ files' "## <item id> <name>"
  *                                   sections; their sources a list in the front
  *                                   matter ("<item id> <hash>")
  *   i18n/<locale>/expeditions/<zone>.md
@@ -54,7 +55,8 @@
  *                                      record the English sources' hashes in
  *                                      those translations (once translated):
  *                                      families/<section>/<id>, atlas/<zone>,
- *                                      herbs, fish, expeditions/<zone>
+ *                                      herbs, fish, minerals, cloth, leather,
+ *                                      expeditions/<zone>
  */
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
@@ -135,6 +137,7 @@ for (const file of walk(join(ROOT, "atlas"))) {
   const { meta, body } = frontMatter(file, readFileSync(file, "utf8"));
   english.set(`atlas/${meta.zone}`, { hash: hash(parasText(paras(file, body))), label: `atlas ${meta.zone}` });
 }
+const NOTE_KINDS = ["herbs", "fish", "minerals", "cloth", "leather"];
 // (the flora's notes: each "## <id> <name>" section)
 function floraSections(file: string) {
   const out = new Map<number, { name: string; body: string }>();
@@ -147,7 +150,7 @@ function floraSections(file: string) {
   }
   return out;
 }
-for (const kind of ["herbs", "fish"]) {
+for (const kind of NOTE_KINDS) {
   for (const [id, s] of floraSections(join(ROOT, "notes", `${kind}.md`))) {
     english.set(`${kind}/${id}`, { hash: hash(parasText(paras(kind, s.body))), label: `${kind} ${id}` });
   }
@@ -244,8 +247,8 @@ function read(locale: string) {
     sourced(file, `atlas/${m.zone}`, m.source as string);
     atlas.set(Number(m.zone), paras(file, body));
   }
-  const flora: Record<string, Map<number, Paragraph[]>> = { herbs: new Map(), fish: new Map() };
-  for (const kind of ["herbs", "fish"]) {
+  const flora: Record<string, Map<number, Paragraph[]>> = Object.fromEntries(NOTE_KINDS.map(kind => [kind, new Map()]));
+  for (const kind of NOTE_KINDS) {
     const file = join(dir, `${kind}.md`);
     if (!existsSync(file)) continue;
     const src = readFileSync(file, "utf8");
@@ -377,7 +380,7 @@ function luaFor(locale: string): string {
   lines.push("  atlas = {");
   for (const [zone, ps] of sorted(t.atlas)) lines.push(`    [${zone}] = ${parasLua(ps)},`);
   lines.push("  },");
-  for (const kind of ["herbs", "fish"]) {
+  for (const kind of NOTE_KINDS) {
     lines.push(`  ${kind} = {`);
     for (const [id, ps] of sorted(t.flora[kind])) lines.push(`    [${id}] = ${parasLua(ps)},`);
     lines.push("  },");
@@ -423,7 +426,7 @@ if (args[0] === "--stamp") {
   const [, locale, ...paths] = args;
   for (const rel of paths) {
     const kind = rel.replace(/\.md$/, "");
-    if (kind === "herbs" || kind === "fish") {
+    if (NOTE_KINDS.includes(kind)) {
       const file = join(I18N, locale, `${kind}.md`);
       const src = readFileSync(file, "utf8");
       const ids = [...floraSections(file).keys()];
@@ -482,7 +485,7 @@ for (const locale of LOCALES) {
         .filter((f) => !f.endsWith("_section.md"))
         .map((f) => [join(ROOT, "content", f), join(I18N, locale, "families", f)] as [string, string]),
       ...["atlas", "expeditions"].flatMap((dir) => md(dir).map((f) => [join(ROOT, dir, f), join(I18N, locale, dir, f)] as [string, string])),
-      ...["herbs", "fish"].map((n) => [join(ROOT, "notes", `${n}.md`), join(I18N, locale, `${n}.md`)] as [string, string]),
+      ...NOTE_KINDS.map((n) => [join(ROOT, "notes", `${n}.md`), join(I18N, locale, `${n}.md`)] as [string, string]),
     ];
     for (const m of misnamed(I18N, locale, pairs))
       errors.push(`i18n/${locale}: a name not as the game writes it (or i18n/${locale}/names-ok.json says why): ${m}`);

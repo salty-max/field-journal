@@ -83,7 +83,8 @@ def classic_rows():
 
 
 # ── zones ─────────────────────────────────────────────────────────────────────
-def zone_tools():
+def zone_tools(game="classic"):
+    wago = lambda name: zones_script.table(game, name)
     areas = {int(r["ID"]): r for r in wago("AreaTable")}
     uimaps = {int(r["ID"]): r for r in wago("UiMap")}
     zone_maps = {i for i, m in uimaps.items() if m["Type"] == "3"}  # zones
@@ -108,7 +109,7 @@ def zone_tools():
 
     # The Atlas's places of each zone (data/zones-classic.json): rectangles on
     # the zone's map art (1002 x 668), where the zone really is.
-    with open(os.path.join(ROOT, "data", "zones-classic.json")) as f:
+    with open(os.path.join(ROOT, "data", f"zones-{game}.json")) as f:
         places = {z["id"]: [p["rect"] for p in z["places"]] for z in json.load(f)["zones"]}
 
     def on_map(r, x, y):

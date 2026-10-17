@@ -677,6 +677,9 @@ section below records the existing implementation.
   collection's records, counts or earned achievements when a skill is
   unlearned. Migration must also preserve existing fish and herb pages for
   characters who do not currently have the relevant profession.
+- **Keep recording after unlearning.** Once a family is unlocked, newly
+  obtained items can still open its pages even if the character drops the
+  profession. An unlock is permanent for that character.
 
 ### Content and data
 
@@ -697,6 +700,9 @@ section below records the existing implementation.
   Translate these notes with the existing content and require a note for
   every included item in the build. Each page also keeps the character's
   own finds, as the existing Plants and Fish pages do.
+- Review the English notes for the established naturalist's voice before
+  translating them. Keep the observations, source discipline and dry
+  humour of the fish and herb notes in every language.
 - Mining nodes and required skill come from wow-data's objects and client
   Lock table. Their loot supplies the ores, stones and gems, and their
   spawns supply the locations. Creature loot and skinning loot supply cloth
@@ -714,10 +720,6 @@ section below records the existing implementation.
 
 - The navigation inside Finds: grouped list, category selector or overview
   cards. The single top-level tab and profession rules are decided.
-- After dropping a profession, whether newly obtained items can open more
-  pages in that family, or only the already-discovered pages remain
-  readable until the profession is relearned. Keeping existing pages is
-  decided, the policy for new discoveries is not.
 - The overview and achievement totals for families the character has not
   unlocked. Do not turn professions the character lacks into apparent
   missing progress.
