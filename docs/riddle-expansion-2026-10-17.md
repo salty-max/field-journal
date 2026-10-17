@@ -18,7 +18,7 @@ The first batch below remains included. Nothing has been released.
 | --- | --- | --- |
 | Keldamyr's invitation | Implemented | Sleeping or lying down, within ten yards of the innkeeper's fixed position and indoors. No target, quest, purchase or wait |
 | Dolanaar's Ancient Protector | Implemented | Nearby protector targeted and player inside the selected Dolanaar patrol corridor. A matching NPC near Darnassus cannot substitute |
-| Dun Morogh abandoned camp | Implemented for testing | The user confirms the camp lies just metres south of the corroborated bear spawn. A 15-yard fixed arrival footprint includes that vicinity, without needing a bear alive or targeted. It remains separate from the mortar range. Check the camp's exact southern edge in game |
+| Dun Morogh abandoned camp | Implemented for testing | The user confirms the camp lies just metres south of the corroborated bear spawn. A ten-yard fixed arrival footprint includes that vicinity, without needing a bear alive or targeted. The mortar radius is tightened from 75 to 70 yards, keeping all tested range positions. A regression check verifies that the two discoveries share no five-yard cell. Check the camp's exact southern edge in game |
 | Badlands crypt | Implemented | Arrival near Sword of the Barbarian King, object 144181, inside the crypt. Questie and the Classic world spawn agree at 57.25, 40.03. Outdoor ground below does not count |
 | Arathi coastal farm | Implemented | Arrival near the stable's stationary ram spawn positions, corroborated independently by Questie. The rams need not be alive or present. Both factions can discover the place, with the danger line warning Horde visitors about the farmers |
 | Stonetalon logging camp | Draft, not enabled | No verified mill-yard footprint in wow-data. The retrievable access descriptions involve climbing roofs or crossing an invisible wall. An approximate destination and a sightseeing video are insufficient for a production arrival answer |
@@ -55,7 +55,8 @@ remain rejected. No changes to the live solving rules or the book's appearance.
 | Darkshore | 1 | 2 | The Auberdine copy of Mount Hyjal and Illidan's Gift |
 | Moonglade | 1 | 2 | Give the Great Bear Spirit an attentive ear |
 
-The total becomes 114 Forever riddles and 110 Classic riddles. All starting
+After this first batch, the totals were 114 Forever riddles and 110 Classic
+riddles. The second-batch status above gives the current counts. All starting
 zones now have at least two authored riddles for their home faction. This is
 a first batch, not a claim that every zone now offers equal coverage. Darkshore's
 two entries remain Alliance-only. Moonglade's are available to both factions.
@@ -153,7 +154,7 @@ location, an ordinary route or an in-game check in each supported game.
 | --- | --- | --- | --- | --- |
 | Teldrassil | Keldamyr's invitation to rest, Dolanaar | Rest with a sleeping or lying-down gesture inside his inn, without a target | An accessible third Teldrassil riddle. His invitation gives the action a reason beyond visiting an inn | Check the ten-yard interior footprint and ordinary welcome on both clients. Quest overlap 2159 is recorded |
 | Teldrassil | Dolanaar's walking Ancient Protector | Pay respect to the living guard, accepting salute, bow and thanks | Notices an unusual inhabitant that players often run straight past. A different subject and action from the two earlier Teldrassil additions | Check the recorded patrol corridor against the native client. The independent Questie check and target-plus-location restriction are implemented |
-| Dun Morogh | The user's abandoned camp near Rumbleshot | Find the camp itself, solved by arrival | The original player-observed scene, with an empty camp and a visiting bear | The user confirms the scene just metres south of spawn 270. Check the 15-yard fixed footprint at the actual camp's edge. Neither a live bear nor targeting it is required |
+| Dun Morogh | The user's abandoned camp near Rumbleshot | Find the camp itself, solved by arrival | The original player-observed scene, with an empty camp and a visiting bear | The user confirms the scene just metres south of spawn 270. Check the ten-yard fixed footprint at the actual camp's edge. Neither a live bear nor targeting it is required |
 | Badlands | The crypt above the dwarf camp | Reach the actual chamber, solved by arrival | A distinctive overlooked scene in a one-riddle zone | Check the sword's footprint and interior detection in each native client. The fixed object and independent Questie position are now established |
 | Stonetalon Mountains | The abandoned logging camp | Reach and recognize the camp, solved by arrival | Adds a forgotten place to another one-riddle zone | Verify a route that does not depend on terrain exploits, the present scene and its footprint. Do not invent an explanation for its abandonment |
 | Arathi Highlands | The remote coastal dwarf farm | Find the farm by the coastal approach, solved by arrival | Rewards a journey to a place outside the usual quest roads | Check the coastal approach and the stable footprint in each client. Fixed ram spawns and Questie agree. The danger line warns Horde visitors. No history has been invented for the residents |
@@ -293,14 +294,14 @@ height when another accessible surface sits under the same map position.
 
 ## Suggested authoring order
 
-1. Finish the in-game checks for the four additions already implemented.
-   They do not depend on completing this larger candidate list.
-2. Scout Keldamyr and draft the third Teldrassil riddle. Check the protector
-   in the same visit, then resolve its locality requirement before authoring.
-3. Establish reliable landmark records for the Dun Morogh camp, Badlands
-   crypt and Stonetalon camp through wow-data. Arathi follows if its route
-   and residents support the proposed discovery. The list must not turn
-   missing coordinates into guesswork.
+1. Finish the in-game checks for the four first-batch and five second-batch
+   additions. They do not depend on enabling the Stonetalon draft.
+2. Check Keldamyr's indoor footprint and the protector's patrol in Dolanaar,
+   including the rejection of another protector outside the village.
+3. Check the Dun Morogh camp's southern edge, the crypt's throne chamber
+   and the Arathi farm's stable and approach. Establish ordinary access and
+   a sourced landmark for Stonetalon before enabling its draft. The list
+   must not turn missing coordinates into guesswork.
 4. Recover the distinctive Forever encounters' missing text and placement
    in parallel with scenery research, without promising them for a release.
    Review English verse, action, paid hint, note and margin before translating
@@ -309,19 +310,20 @@ height when another accessible surface sits under the same map position.
 
 ## Remaining thin zones
 
-Eleven expedition zones still have one riddle: Alterac Mountains, Badlands,
+Ten expedition zones still have one riddle: Alterac Mountains,
 Dustwallow Marsh, Felwood, Silverpine Forest, Stonetalon Mountains, Swamp of
 Sorrows, Thousand Needles, Un'Goro Crater, Western Plaguelands and Winterspring.
-The web inventory supplies stronger leads for Badlands and Stonetalon. It does
-not establish a worthwhile, technically locatable addition in every one of
-those zones. Filling the rest with generic vendor greetings would hide the
-coverage issue rather than improve the journal.
+The crypt brings Badlands to two. Stonetalon's logging-camp lead remains
+unresolved. The web inventory does not establish a worthwhile, technically
+locatable addition in every thin zone. Filling the rest with generic vendor
+greetings would hide the coverage issue rather than improve the journal.
 
 The earlier [15 October research](riddle-expansion-research-2026-10-15.md)
 contains additional Forever encounters and their missing evidence. Its old
 blanket quest exclusion and one-arrival quota are superseded by this document.
-The Dun Morogh camp remains a useful scenery lead, with the previously
-identified bear spawn only a search clue, not a measured camp footprint.
+The user's follow-up places the Dun Morogh camp just metres south of the
+corroborated bear spawn. Its narrow implemented footprint is documented
+above and still needs a check at the camp's actual edge.
 
 ## Verification limits
 

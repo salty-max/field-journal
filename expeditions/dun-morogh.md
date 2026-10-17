@@ -12,7 +12,7 @@ riddles:
     name: The abandoned camp
     creature: 1128
     found: place
-    radius: 15
+    radius: 10
     position_check: questie
     hint_area: { x: 41.9, y: 66.9, r: 1 }
     danger: "Guarded (a young black bear)"
@@ -37,7 +37,7 @@ riddles:
     name: Rumbleshot's Range
     creature: 10805   # Spotter Klemmy, dump 40.7, 64.9, at the camp: the riflemen and the mortar team beside him
     found: place   # the noise is the subject, not a dwarf's ears
-    radius: 75   # covers the camp and range, including Klemmy's sightings at 40.8, 66.6
+    radius: 70   # covers the camp and range, including Klemmy at 40.8, 66.6, without the abandoned camp
     hint_area: { x: 41.0, y: 64.0, r: 4 }
     danger: "Quiet"
     sources: "the dump's script of the camp (dbscripts_on_creature_movement 1061001 to 1061004: the five head out to the range; broadcast texts 6106 to 6142: the riflemen's contest; the three Mortar Team Target Dummies); warcraft.wiki.gg's Hegnar Rumbleshot, Shorty, Spotter Klemmy, Rifleman Wheeler and Rifleman Middlecamp pages"

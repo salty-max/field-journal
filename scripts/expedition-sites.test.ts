@@ -1,5 +1,16 @@
 import { expect, test } from "bun:test";
 import { spawnSync } from "node:child_process";
+import { join } from "node:path";
+import { cells, readExpeditions } from "./expeditions";
+
+test("the abandoned camp and mortar range never share a discovery cell", () => {
+  const { data } = readExpeditions(join(import.meta.dir, ".."), (file, message) => { throw Error(`${file}: ${message}`); }, ["classic", "forever"]);
+  const range = data.riddles["dun-morogh-range"];
+  const camp = data.riddles["dun-morogh-empty-camp"];
+  const { w, h } = data.zones["1426"];
+  const atRange = new Set(cells(range.spots!, range.r!, w, h));
+  expect(cells(camp.spots!, camp.r!, w, h).filter(cell => atRange.has(cell))).toEqual([]);
+});
 
 test("distinct discoveries can share an action without duplicating a subject or passive arrival", () => {
   const result = spawnSync("python3", ["-c", `
