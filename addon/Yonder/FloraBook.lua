@@ -27,14 +27,14 @@ local CATEGORIES = {
     id = "mining",
     title = L["Ores & Gems"],
     families = { "mining" },
-    overview = L["Ores & Gems"],
+    overview = L["The minerals so far"],
     icon = "Interface\\Icons\\INV_Ore_Copper_01",
   },
   {
     id = "textiles",
     title = L["Cloth & Leather"],
     families = { "cloth", "leather" },
-    overview = L["Cloth & Leather"],
+    overview = L["The cloth and leather so far"],
     icon = "Interface\\Icons\\INV_Fabric_Linen_01",
   },
 }

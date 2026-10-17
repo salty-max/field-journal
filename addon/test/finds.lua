@@ -89,7 +89,7 @@ return function(g)
   )
   selectCategory("textiles")
   check(
-    row("Linen Cloth") and not row("Light Leather") and YonderFloraPage.title.text == "Cloth & Leather",
+    row("Linen Cloth") and not row("Light Leather") and YonderFloraPage.title.text == "The cloth and leather so far",
     "Finds: cloth pages stay visible while leather is locked"
   )
   row("Linen Cloth").scripts.OnClick(row("Linen Cloth"))
@@ -181,7 +181,7 @@ return function(g)
     "Finds: a material chat link opens its full page"
   )
   g.follow("yonder:i774")
-  check(YonderFloraPage.title.text == "Ores & Gems", "Finds: an undiscovered item link cannot reveal its page")
+  check(YonderFloraPage.title.text == "The minerals so far", "Finds: an undiscovered item link cannot reveal its page")
   g.follow("yonder:finds/mining")
   check(YonderFrame.filter:GetValue() == "mining", "Finds: the category chat link opens the right selector choice")
   state.professions, state.bags = {}, {}
